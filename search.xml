@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>再次建立bolg</title>
+    <url>/2020/08/12/%E5%86%8D%E6%AC%A1%E5%BB%BA%E7%AB%8Bbolg/%E5%86%8D%E6%AC%A1%E5%BB%BA%E7%AB%8Bbolg/</url>
+    <content><![CDATA[<ol>
+<li>下载nodejs，git</li>
+<li>把GitHub上的文件下过来</li>
+<li><code>npm install hexo-deployer-git --save</code></li>
+<li><code>git remote add origin git@github.com:ferrychan666/blog.git</code></li>
+<li><code>git add . git commit -m &#39;update&#39; git push -u origin master -f</code><br>中间需要新的key</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>栈的链表实现</title>
     <url>/2020/08/08/%E6%A0%88%E7%9A%84%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>java中链表的实现，除了不需要释放没用的结点之外，与C的实现相同。</p>

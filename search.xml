@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>backup system</title>
+    <url>/2020/08/12/backup-system/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>再次建立bolg</title>
-    <url>/2020/08/12/%E5%86%8D%E6%AC%A1%E5%BB%BA%E7%AB%8Bbolg/%E5%86%8D%E6%AC%A1%E5%BB%BA%E7%AB%8Bbolg/</url>
+    <url>/2020/08/12/github/%E5%86%8D%E6%AC%A1%E5%BB%BA%E7%AB%8Bbolg/%E5%86%8D%E6%AC%A1%E5%BB%BA%E7%AB%8Bbolg/</url>
     <content><![CDATA[<ol>
 <li>下载nodejs，git</li>
 <li>把GitHub上的文件下过来</li>
 <li><code>npm install hexo-deployer-git --save</code></li>
-<li><code>git remote add origin git@github.com:ferrychan666/blog.git</code></li>
-<li><code>git add . git commit -m &#39;update&#39; git push -u origin master -f</code><br>中间需要新的key</li>
+<li><code>git remote add origin git@github.com:ferrychan666/blog.git</code>(提交不成功就强制提交)</li>
+<li><code>git add . git commit -m &#39;update&#39; git push -u origin master -f</code></li>
 </ol>
+<ul>
+<li>中间需要新的key</li>
+</ul>
 ]]></content>
       <tags>
         <tag>blog</tag>
@@ -17,7 +25,7 @@
   </entry>
   <entry>
     <title>栈的链表实现</title>
-    <url>/2020/08/08/%E6%A0%88%E7%9A%84%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/</url>
+    <url>/2020/08/08/algorithm/%E6%A0%88%E7%9A%84%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>java中链表的实现，除了不需要释放没用的结点之外，与C的实现相同。</p>
 <h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="用嵌套类来声明结点。"><a href="#用嵌套类来声明结点。" class="headerlink" title="用嵌套类来声明结点。"></a>用嵌套类来声明结点。</h2><ul>
 <li>需要表明next（下一结点）和item（该节点的值）。在需要使用该类的时候，标记为private<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</span><br><span class="line">	Item item;</span><br><span class="line">	Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

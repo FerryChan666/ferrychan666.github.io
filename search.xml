@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>将HTML添加到网页上</title>
+    <url>/2020/08/14/%E5%B0%86HTML%E6%B7%BB%E5%8A%A0%E5%88%B0%E7%BD%91%E9%A1%B5%E4%B8%8A/</url>
+    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>假如想把一个日历的嵌在网页上，需要在<br>themes\next\layout_partials\header\menu.swig<br>加一段HTML</p>
+<iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FHong_Kong&amp;src=ZmVycnljaGFuNjY2QGdtYWlsLmNvbQ&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%2333B679&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTz=0&amp;showCalendars=0&amp;showTabs=0&amp;showDate=0&amp;mode=AGENDA" style="border-width:0" width="500" height="400" frameborder="0" scrolling="no"></iframe>]]></content>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>可迭代的背包Bag</title>
     <url>/2020/08/13/algorithm/%E5%8F%AF%E8%BF%AD%E4%BB%A3%E7%9A%84%E8%83%8C%E5%8C%85Bag/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>

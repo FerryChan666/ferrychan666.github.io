@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">114</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">115</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/18/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/26/exam/%E6%A0%88/%E6%A0%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.jpg">
@@ -205,7 +205,101 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/08/18/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="post-title-link" itemprop="url">线性表</a>
+            <a href="/2020/08/26/exam/%E6%A0%88/%E6%A0%88/" class="post-title-link" itemprop="url">栈</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-26 22:07:21 / Modified: 23:23:30" itemprop="dateCreated datePublished" datetime="2020-08-26T22:07:21+08:00">2020-08-26</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>(FILO)先进后出，就是越先进去的元素，越后才能出来。（与队列相反）</p>
+<ul>
+<li>栈<ul>
+<li>顺序栈</li>
+<li>链栈</li>
+</ul>
+</li>
+</ul>
+<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="顺序栈"><a href="#顺序栈" class="headerlink" title="顺序栈"></a>顺序栈</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;once method</span><br><span class="line">char stack[maxsize]; int top &#x3D; -1;&#x2F;&#x2F;两句话，完成顺序栈的def和init</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;second method</span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">    int data[maxsize];</span><br><span class="line">    int top;</span><br><span class="line">&#125;SqStack;</span><br></pre></td></tr></table></figure>
+
+<h3 id="括号配对"><a href="#括号配对" class="headerlink" title="括号配对"></a>括号配对</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">match</span><span class="params">(<span class="keyword">char</span> <span class="built_in">exp</span>[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//括号配对</span></span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">stack</span>[maxsize]; <span class="keyword">int</span> top = <span class="number">-1</span>;<span class="comment">//两句话，完成顺序栈的def和init</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">exp</span>[i] == <span class="string">'('</span>)</span><br><span class="line">            <span class="built_in">stack</span>[++top] = <span class="built_in">exp</span>[i];  <span class="comment">//pust </span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">exp</span>[i] == <span class="string">')'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (top == <span class="number">-1</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            top--;      <span class="comment">//pop </span></span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (top == <span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="处理后缀表达式"><a href="#处理后缀表达式" class="headerlink" title="处理后缀表达式"></a>处理后缀表达式</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">operation</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">char</span> Op, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Op == <span class="string">'+'</span>)</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    <span class="keyword">if</span> (Op == <span class="string">'-'</span>)</span><br><span class="line">        <span class="keyword">return</span> a - b;</span><br><span class="line">    <span class="keyword">if</span> (Op == <span class="string">'*'</span>)</span><br><span class="line">        <span class="keyword">return</span> a * b;</span><br><span class="line">    <span class="keyword">if</span> (Op == <span class="string">'/'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (b == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"ERROR"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> a / b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">com</span><span class="params">(<span class="keyword">char</span> <span class="built_in">exp</span>[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, a, b, c;<span class="comment">//a,b为操作数，c是result</span></span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">stack</span>[maxsize]; <span class="keyword">int</span> top = <span class="number">-1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> Op;<span class="comment">//存储运算符</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>;<span class="built_in">exp</span>[i] != <span class="string">'\0'</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">exp</span>[i] &gt;= <span class="string">'0'</span> &amp;&amp; <span class="built_in">exp</span>[i] &lt;= <span class="string">'9'</span>)</span><br><span class="line">            <span class="built_in">stack</span>[++top] = <span class="built_in">exp</span>[i] - <span class="string">'0'</span>;<span class="comment">//敬请留意，这里要将字符 ——&gt; 整数</span></span><br><span class="line">        <span class="keyword">else</span><span class="comment">//处理后面的运算符</span></span><br><span class="line">        &#123;</span><br><span class="line">            Op = <span class="built_in">exp</span>[i];</span><br><span class="line">        </span><br><span class="line">            b = <span class="built_in">stack</span>[top--];<span class="comment">//注意：先将b 为出栈元素</span></span><br><span class="line">            a = <span class="built_in">stack</span>[top--];</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">stack</span>[++top] = operation(a, Op, b);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">stack</span>[top];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="链栈"><a href="#链栈" class="headerlink" title="链栈"></a>链栈</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct LNode&#123;&#x2F;&#x2F;List stack</span><br><span class="line">    int data;</span><br><span class="line">    struct LNode* next;</span><br><span class="line">&#125;LNode;</span><br></pre></td></tr></table></figure>
+
+<h2 id="init-isEmpty-push-pop"><a href="#init-isEmpty-push-pop" class="headerlink" title="init(), isEmpty(), push() ,pop()"></a>init(), isEmpty(), push() ,pop()</h2><ul>
+<li>没有头节点和有头节点的链栈<code>push()</code>都是头插法的步骤（<strong>因为top在链表的开始节点</strong>）。</li>
+<li>有头的就在L处加上-&gt;next</li>
+</ul>
+<figure class="highlight c"><figcaption><span>no head</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//no head node</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">initStackl</span><span class="params">(LNode*&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    L = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isEmptyl</span><span class="params">(LNode* L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (L == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pushl</span><span class="params">(LNode*&amp; L, <span class="keyword">int</span> x)</span><span class="comment">//头插法</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LNode* p = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    </span><br><span class="line">    p-&gt;data = x;</span><br><span class="line">    p-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    </span><br><span class="line">    p-&gt;next = L;</span><br><span class="line">    L = p;<span class="comment">//让第一个节点指向p（没有头）</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">popl</span><span class="params">(LNode*&amp; L, <span class="keyword">int</span>&amp; x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LNode* p = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    <span class="keyword">if</span> (L == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    p = L;</span><br><span class="line">    x = p-&gt;data;</span><br><span class="line">    L = p-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/18/exam/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.jpg">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/18/exam/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="post-title-link" itemprop="url">线性表</a>
         </h2>
 
         <div class="post-meta">
@@ -222,7 +316,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-22 08:40:05" itemprop="dateModified" datetime="2020-08-22T08:40:05+08:00">2020-08-22</time>
+                <time title="Modified: 2020-08-25 21:02:15" itemprop="dateModified" datetime="2020-08-25T21:02:15+08:00">2020-08-25</time>
               </span>
 
           <br>
@@ -231,7 +325,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.3k</span>
+              <span>2.5k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -257,7 +351,7 @@
 </li>
 <li><p>链式存储结构（链表），5种形式</p>
 <ul>
-<li>单链表，双链表，循环单链表，循环双链表，静态链表。</li>
+<li>单链表，双链表，循环单链表，循环双链表，静态链表（结构体数组）。</li>
 </ul>
 </li>
 </ul>
@@ -295,6 +389,7 @@
 <h3 id="链表的逆序"><a href="#链表的逆序" class="headerlink" title="链表的逆序"></a>链表的逆序</h3><p><strong>类似于头插法，把从第二个以及以后的节点插到头节点和第一个节点之间</strong><br><strong>注：第一个节点稍微做修改，第一次循环没有移动元素</strong></p>
 <figure class="highlight c"><figcaption><span>链表的逆序</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(LNode* L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LNode* p = L-&gt;next, * q;</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;<span class="comment">//为现在的第一个节点成为逆序后的最后一个节点</span></span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        q = p-&gt;next;       </span><br><span class="line">        p-&gt;next = L-&gt;next; </span><br><span class="line">        L-&gt;next = p;</span><br><span class="line">        p = q;       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="链表的逆序输出（递归）"><a href="#链表的逆序输出（递归）" class="headerlink" title="链表的逆序输出（递归）"></a>链表的逆序输出（递归）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要传入第一个有数据的节点（不能是头节点）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reprint</span><span class="params">(LNode* C)</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (C != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		reprint(C-&gt;next);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; C-&gt;data &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -1044,104 +1139,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/04/algorithm/%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0/%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.jpg">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/04/algorithm/%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0/%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">抽象数据类型的实现</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-08-04 20:42:00" itemprop="dateCreated datePublished" datetime="2020-08-04T20:42:00+08:00">2020-08-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>604</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Firstly，需要有对象的知识才能运用抽象数据的实现来实现代码。<strong>对象有三大性质：状态（实例变量），标识（构造函数），行为（实例方法）</strong>。</p>
-<p><img data-src="https://i.imgur.com/FftPPHG.png" alt></p>
-<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="实例变量"><a href="#实例变量" class="headerlink" title="实例变量"></a>实例变量</h2><p>即该<strong>数据类型的值</strong>，就像<code>int who = 0;</code></p>
-<ul>
-<li><code>final</code>这个关键字是指该值初始话后不会再改变。</li>
-<li>因为根据java的定义，要用<code>private</code>来修饰它，如果用<code>public</code>那么这种数据类型将不会被看成是抽象的。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> count;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p><strong>它的作用是初始化实例变量，没有返回指定的返回值类型，但它返回对象的引用（就是拿来创建对象，所以它的名字和类名相同）</strong></p>
-<ul>
-<li><p>这里的构造函数只定义了name(一个实例变量）没有定义count（另外的实例变量）。那么这些值将会变成是默认的。</p>
-</li>
-<li><p><em>默认的：原始数据类型为0，布尔类型为false，引用类型变量为null*</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Counter</span><span class="params">(String id)</span><span class="comment">//构造函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    name = id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果连构造函数都没有呢? 这种情况，类将会隐式定义一个（不仅是参数的构造方法，并将所有实例变量初始化为默认值</p>
-</li>
-</ul>
-<h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><p><strong>通过这些方法来操作该对象中的实例变量，而不是直接修改变量的值。</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数据类型中</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    count++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//main中</span></span><br><span class="line">heads.increment();</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1246,13 +1243,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">124k</span>
+    <span title="Symbols count total">126k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:52</span>
+    <span title="Reading time total">1:54</span>
 </div>
 
 <div id="days"></div>

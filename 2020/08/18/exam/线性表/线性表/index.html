@@ -22,22 +22,22 @@
     var CONFIG = {"hostname":"ferrychan666.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Introduction 线性表两大类：顺序存储结构，链式存储结构。  顺序存储结构（顺序表）  链式存储结构（链表），5种形式  单链表，双链表，循环单链表，循环双链表，静态链表。      Detail顺序表顺序表类似于数组，只不过它是一个结构体， 他的结构体中有一个length，和一个数组data[maxSize] 123456#define maxSize 100typedef struc">
+  <meta name="description" content="Introduction 线性表两大类：顺序存储结构，链式存储结构。  顺序存储结构（顺序表）  链式存储结构（链表），5种形式  单链表，双链表，循环单链表，循环双链表，静态链表（结构体数组）。      Detail顺序表顺序表类似于数组，只不过它是一个结构体， 他的结构体中有一个length，和一个数组data[maxSize] 123456#define maxSize 100typede">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线性表">
-<meta property="og:url" content="https://ferrychan666.github.io/2020/08/18/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/index.html">
+<meta property="og:url" content="https://ferrychan666.github.io/2020/08/18/exam/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Ferry&#39;s Blog">
-<meta property="og:description" content="Introduction 线性表两大类：顺序存储结构，链式存储结构。  顺序存储结构（顺序表）  链式存储结构（链表），5种形式  单链表，双链表，循环单链表，循环双链表，静态链表。      Detail顺序表顺序表类似于数组，只不过它是一个结构体， 他的结构体中有一个length，和一个数组data[maxSize] 123456#define maxSize 100typedef struc">
+<meta property="og:description" content="Introduction 线性表两大类：顺序存储结构，链式存储结构。  顺序存储结构（顺序表）  链式存储结构（链表），5种形式  单链表，双链表，循环单链表，循环双链表，静态链表（结构体数组）。      Detail顺序表顺序表类似于数组，只不过它是一个结构体， 他的结构体中有一个length，和一个数组data[maxSize] 123456#define maxSize 100typede">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.imgur.com/UoeJx2T.png">
 <meta property="article:published_time" content="2020-08-18T09:54:47.000Z">
-<meta property="article:modified_time" content="2020-08-22T00:40:05.583Z">
+<meta property="article:modified_time" content="2020-08-25T13:02:15.426Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.imgur.com/UoeJx2T.png">
 
-<link rel="canonical" href="https://ferrychan666.github.io/2020/08/18/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+<link rel="canonical" href="https://ferrychan666.github.io/2020/08/18/exam/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
 
 
 <script id="page-configurations">
@@ -132,7 +132,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">114</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">115</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -198,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/18/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/18/exam/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.jpg">
@@ -228,7 +228,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-22 08:40:05" itemprop="dateModified" datetime="2020-08-22T08:40:05+08:00">2020-08-22</time>
+                <time title="Modified: 2020-08-25 21:02:15" itemprop="dateModified" datetime="2020-08-25T21:02:15+08:00">2020-08-25</time>
               </span>
 
           
@@ -244,7 +244,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.3k</span>
+              <span>2.5k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -270,7 +270,7 @@
 </li>
 <li><p>链式存储结构（链表），5种形式</p>
 <ul>
-<li>单链表，双链表，循环单链表，循环双链表，静态链表。</li>
+<li>单链表，双链表，循环单链表，循环双链表，静态链表（结构体数组）。</li>
 </ul>
 </li>
 </ul>
@@ -308,6 +308,7 @@
 <h3 id="链表的逆序"><a href="#链表的逆序" class="headerlink" title="链表的逆序"></a>链表的逆序</h3><p><strong>类似于头插法，把从第二个以及以后的节点插到头节点和第一个节点之间</strong><br><strong>注：第一个节点稍微做修改，第一次循环没有移动元素</strong></p>
 <figure class="highlight c"><figcaption><span>链表的逆序</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(LNode* L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LNode* p = L-&gt;next, * q;</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;<span class="comment">//为现在的第一个节点成为逆序后的最后一个节点</span></span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        q = p-&gt;next;       </span><br><span class="line">        p-&gt;next = L-&gt;next; </span><br><span class="line">        L-&gt;next = p;</span><br><span class="line">        p = q;       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="链表的逆序输出（递归）"><a href="#链表的逆序输出（递归）" class="headerlink" title="链表的逆序输出（递归）"></a>链表的逆序输出（递归）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要传入第一个有数据的节点（不能是头节点）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reprint</span><span class="params">(LNode* C)</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (C != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		reprint(C-&gt;next);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; C-&gt;data &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -328,7 +329,10 @@
     <a href="/2020/08/16/linux/linux%E4%B8%8A%E9%85%8D%E7%BD%AEv2ray/linux%E4%B8%8A%E9%85%8D%E7%BD%AEv2ray/" rel="prev" title="linux上配置v2ray">
       <i class="fa fa-chevron-left"></i> linux上配置v2ray
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/26/exam/%E6%A0%88/%E6%A0%88/" rel="next" title="栈">
+      栈 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -389,7 +393,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Detail"><span class="nav-number">2.</span> <span class="nav-text">Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序表"><span class="nav-number">2.1.</span> <span class="nav-text">顺序表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">2.1.1.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">2.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表"><span class="nav-number">2.2.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的删除"><span class="nav-number">2.2.1.</span> <span class="nav-text">链表的删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头插法-尾插法"><span class="nav-number">2.2.2.</span> <span class="nav-text">头插法|尾插法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的逆序"><span class="nav-number">2.2.3.</span> <span class="nav-text">链表的逆序</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Detail"><span class="nav-number">2.</span> <span class="nav-text">Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序表"><span class="nav-number">2.1.</span> <span class="nav-text">顺序表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">2.1.1.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">2.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表"><span class="nav-number">2.2.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的删除"><span class="nav-number">2.2.1.</span> <span class="nav-text">链表的删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头插法-尾插法"><span class="nav-number">2.2.2.</span> <span class="nav-text">头插法|尾插法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的逆序"><span class="nav-number">2.2.3.</span> <span class="nav-text">链表的逆序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的逆序输出（递归）"><span class="nav-number">2.2.4.</span> <span class="nav-text">链表的逆序输出（递归）</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -437,13 +441,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">124k</span>
+    <span title="Symbols count total">126k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">1:52</span>
+    <span title="Reading time total">1:54</span>
 </div>
 
 <div id="days"></div>
@@ -614,7 +618,7 @@ window.addEventListener('pjax:success', () => {
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://ferrychan666.github.io/2020/08/18/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://ferrychan666.github.io/2020/08/18/exam/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/',]
       });
       });
   </script>
@@ -630,7 +634,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'gitalk',
       owner       : 'ferrychan666',
       admin       : ['ferrychan666'],
-      id          : 'b814aafdb90c9dab707bc10531ec984f',
+      id          : 'f9e4cb9753f2ed44273dcfff756d4bd9',
         language: 'zh-CN',
       distractionFreeMode: true
     });

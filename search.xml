@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>tree and binary tree</title>
+    <url>/2020/09/12/exam/tree/tree/</url>
+    <content><![CDATA[<h1 id="Introduction-of-the-tree"><a href="#Introduction-of-the-tree" class="headerlink" title="Introduction of the tree"></a>Introduction of the tree</h1><p>树是一种非线性的存储结构。它分为：</p>
+<ul>
+<li>顺序存储结构<ul>
+<li>双亲存储</li>
+</ul>
+</li>
+<li>链式存储结构<ul>
+<li>孩子存储</li>
+<li>孩子兄弟存储</li>
+<li>二叉链表</li>
+</ul>
+</li>
+</ul>
+<h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><p>一棵树由节点组成。可以是0个节点——空树。树定义是一种递归思想。一个唯一的根连接不相交的子树，而子树上的节点又能连接不相交的子树。</p>
+<p><strong>可以通过平时对真正的树来记忆</strong>：</p>
+<ul>
+<li>深度（从根开始）：根从上往下的到该节点个数</li>
+<li>高度（从节点开始）：节点A从上往下到达叶子，所经路径获得最多的节点个数。</li>
+<li>都是针对某个节点的深度，高度</li>
+</ul>
+<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="双亲存储结构"><a href="#双亲存储结构" class="headerlink" title="双亲存储结构"></a>双亲存储结构</h2><p>双亲存储仅仅需要一个<strong>一维数组</strong>。<code>int tree[maxSize]</code></p>
+<p><strong>它的下标代表此节点的位置，数组元素代表双亲位置。</strong></p>
+<p><img data-src="https://i.imgur.com/twqsQIf.png" alt></p>
+<h1 id="Introduction-of-the-binary-tree"><a href="#Introduction-of-the-binary-tree" class="headerlink" title="Introduction of the binary tree"></a>Introduction of the binary tree</h1><h2 id="definition-1"><a href="#definition-1" class="headerlink" title="definition"></a>definition</h2><ul>
+<li>二叉树是一种有限制的树。</li>
+</ul>
+<ol>
+<li>限制每个节点的分支(子树)个数。（只能是0，1，2)</li>
+<li>子树有左右之分</li>
+</ol>
+<ul>
+<li><p>满二叉树</p>
+<p>满二叉树除了叶子，其余节点都有2个子树。<strong>并且叶子都存在与最下一层。</strong></p>
+</li>
+<li><p>完全二叉树</p>
+<p>如果有一颗二叉树（深度为k），它的编号（从左往右，从上往下编）和一颗满二叉树（深度也为k）的<strong>编号以及所在的位置相同</strong>，则这颗二叉树为完全二叉树。</p>
+<ul>
+<li><strong>判断技巧</strong>：让这颗二叉树与同样深度的满二叉树比较，满的二叉树从右往左，从下至上删除（一定要按顺序）能得到这颗二叉树，那么它就是完全二叉树。</li>
+</ul>
+</li>
+<li><p>图中，有F则不是完全二叉树，没有F就是。</p>
+</li>
+</ul>
+<p><img data-src="https://i.imgur.com/3C99VxZ.png" alt></p>
+<ul>
+<li>存储结构<ul>
+<li>顺序存储</li>
+<li>链式存储</li>
+</ul>
+</li>
+</ul>
+<h1 id="Detail-1"><a href="#Detail-1" class="headerlink" title="Detail"></a>Detail</h1><h2 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h2><p>通过一维数组存储，根的下标=1，左孩子存在<code>BTree[i * 2]</code>(偶数)，右孩子就在奇数的下标。</p>
+<h2 id="链式存储结构"><a href="#链式存储结构" class="headerlink" title="链式存储结构"></a>链式存储结构</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span>* <span class="title">lchild</span>;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span>* <span class="title">rchild</span>;</span></span><br><span class="line">&#125;BTNode;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h3><figure class="highlight c"><figcaption><span>先序遍历，中序遍历，后序遍历</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">visit</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; p-&gt;data &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		visit(p);</span><br><span class="line">		preorder(p-&gt;lchild);</span><br><span class="line">		preorder(p-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">		preorder(p-&gt;lchild);</span><br><span class="line">		visit(p);</span><br><span class="line">		preorder(p-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		preorder(p-&gt;lchild);</span><br><span class="line">		preorder(p-&gt;rchild);</span><br><span class="line">		visit(p);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://i.imgur.com/IEJ9VOv.png" alt></p>
+<p><strong>这种递归的思想，正好是数学上函数的嵌套。</strong><code>f(f(f(p-&gt;lchild)))</code></p>
+<p><strong>同时递归有函数出口，它的作用是结束一个函数（当然还有一种方法就是走完这个函数）。</strong>这就知道为什么，如果最里面的函数（第3个）没了，那么程序就会回到第二个函数中，<strong>继续执行之前还没有执行完的代码（因为递归没执行完）。</strong></p>
+<ul>
+<li>快速知道输出序列的技巧（根据上图）<ul>
+<li>先在每个节点的固定位置画出1，2，3（先，中，后序）</li>
+<li>再按那条线的方向走，碰到数字就输出。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>exam</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>串</title>
     <url>/2020/09/08/exam/%E4%B8%B2/%E4%B8%B2/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>串是零个或多个字符有限序列。</p>

@@ -69,6 +69,31 @@
 </ul>
 </li>
 </ul>
+<h3 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h3><p>根为第1层，从左往右，从上往下遍历。</p>
+<ul>
+<li>要求：需要一个循环队列，平时是用结构。下面不用结构。<strong>数组类型是树节点指针<code>BTNode* queue[maxSize]</code>，这里是有maxSize个指针，因为[]优先级比*高。</strong>另外加上rear和front。</li>
+<li>主要思想：两个if，<strong>如果lchild和rchild存在，则让队列添加它</strong>。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">level</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> front, rear;</span><br><span class="line">	BTNode* <span class="built_in">queue</span>[maxSize];<span class="comment">//循环队列，指向树节点</span></span><br><span class="line">	front = rear = <span class="number">0</span>;</span><br><span class="line">	BTNode* q;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)<span class="comment">//如果树不为空</span></span><br><span class="line">	&#123;</span><br><span class="line">        <span class="comment">//指向根</span></span><br><span class="line">		rear = (rear + <span class="number">1</span>) % maxSize;</span><br><span class="line">		<span class="built_in">queue</span>[rear] = p;</span><br><span class="line">        </span><br><span class="line">		<span class="keyword">while</span> (front!=rear)<span class="comment">//队列不为空时进行循环</span></span><br><span class="line">		&#123;</span><br><span class="line">			front = (front + <span class="number">1</span>) % maxSize;</span><br><span class="line">			q = <span class="built_in">queue</span>[front];</span><br><span class="line">			visit(q);</span><br><span class="line">			<span class="keyword">if</span> (q-&gt;lchild != <span class="literal">NULL</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				rear = (rear + <span class="number">1</span>) % maxSize;</span><br><span class="line">				<span class="built_in">queue</span>[rear] = q-&gt;lchild;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (q-&gt;rchild != <span class="literal">NULL</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				rear = (rear + <span class="number">1</span>) % maxSize;</span><br><span class="line">				<span class="built_in">queue</span>[rear] = q-&gt;rchild;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="非递归深度遍历"><a href="#非递归深度遍历" class="headerlink" title="非递归深度遍历"></a>非递归深度遍历</h3><p>因为在前面的递归深度遍历中，系统默认给我们创建了栈。所以，在非递归遍历中，我们需要自己创建栈。</p>
+<h4 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h4><p><strong>先出栈并访问，再将右孩子和左孩子进栈。</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorderNonrecursion</span><span class="params">(BTNode* bt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (bt != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		BTNode* Stack[maxSize];<span class="comment">//定义一个栈</span></span><br><span class="line">		<span class="keyword">int</span> top = <span class="number">-1</span>;<span class="comment">//初始化栈</span></span><br><span class="line"></span><br><span class="line">		BTNode* p;</span><br><span class="line">		Stack[++top] = bt;</span><br><span class="line">		<span class="keyword">while</span> (top!=<span class="number">-1</span>)<span class="comment">//栈空就退出</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//出栈并访问</span></span><br><span class="line">			p = Stack[top--];</span><br><span class="line">			visit(p);</span><br><span class="line">			<span class="comment">//先让右孩子进栈，那么栈顶才能是左孩子，先让左孩子输出</span></span><br><span class="line">			<span class="keyword">if</span> (p-&gt;rchild != <span class="literal">NULL</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				Stack[++top] = p-&gt;rchild;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (p-&gt;lchild != <span class="literal">NULL</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				Stack[++top] = p-&gt;lchild;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h4><p><strong>先将左孩子全部进栈，然后再出栈并访问，最后将右孩子进栈。</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorderNonrecursion</span><span class="params">(BTNode* bt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (bt != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		BTNode* Stack[maxSize]; <span class="keyword">int</span> top = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">		BTNode* p;</span><br><span class="line">		p = bt;</span><br><span class="line">		<span class="keyword">while</span> (top!=<span class="number">-1</span>||p!=<span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			Stack[++top] = p;</span><br><span class="line">			p = p-&gt;lchild;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (top != <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			p = Stack[top--];</span><br><span class="line">			visit(p);</span><br><span class="line">			p = p-&gt;rchild;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h4><p><strong>逆后序遍历就是先序遍历过程中，对左右子树遍历交换顺序的结果，然后我们把逆后序遍历再逆过来，就完成了后序遍历。</strong>我们需要两个栈。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorderNonrecursion</span><span class="params">(BTNode* bt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (bt != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		BTNode* Stack1[maxSize]; <span class="keyword">int</span> top1 = <span class="number">-1</span>;</span><br><span class="line">		BTNode* Stack2[maxSize]; <span class="keyword">int</span> top2 = <span class="number">-1</span>;</span><br><span class="line">		BTNode* p = <span class="literal">NULL</span>;</span><br><span class="line">		Stack1[++top1] = bt;</span><br><span class="line">		<span class="keyword">while</span> (top1!=<span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			p = Stack1[top1--];</span><br><span class="line">			Stack2[++top2] = p;<span class="comment">//区别。出栈1后，立刻进栈2</span></span><br><span class="line">			<span class="keyword">if</span> (p-&gt;lchild != <span class="literal">NULL</span>)</span><br><span class="line">				Stack1[++top1] = p-&gt;lchild;</span><br><span class="line">			<span class="keyword">if</span> (p-&gt;rchild != <span class="literal">NULL</span>)</span><br><span class="line">				Stack1[++top1] = p-&gt;rchild;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span> (top2 != <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//最后再出栈2</span></span><br><span class="line">			p = Stack2[top2--];</span><br><span class="line">			visit(p);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <tags>
         <tag>exam</tag>
@@ -739,6 +764,7 @@
 <li><p>递归函数中位于递归调用之前的语句：均按被调函数的顺序执行</p>
 </li>
 <li><p>递归函数中位于递归调用之后的语句：均按被调函数<strong>相反的顺序</strong>执行</p>
+<p>这都是因为f(f(f(variable)))，可参照树的递归深度遍历</p>
 </li>
 <li><p>每次递归都创建变量</p>
 </li>
@@ -851,7 +877,7 @@
     <content><![CDATA[<h1 id="记忆能使我们把事情做得更快更准"><a href="#记忆能使我们把事情做得更快更准" class="headerlink" title="记忆能使我们把事情做得更快更准"></a>记忆能使我们把事情做得更快更准</h1><h1 id><a href="#" class="headerlink" title="||"></a>||</h1><ul>
 <li><p>A||B</p>
 </li>
-<li><p>记忆<strong>如果当A与B都是false才false，其余都是true</strong></p>
+<li><p>记忆<strong>如果当A与B都是false才false，其余都是true（只有1个假）</strong></p>
 </li>
 <li><p>短路<br>如果<code>||</code>的左侧表达式为真，则不会执行右侧表达式。</p>
 </li>
@@ -859,7 +885,7 @@
 <h1 id="amp-amp"><a href="#amp-amp" class="headerlink" title="&amp;&amp;"></a>&amp;&amp;</h1><ul>
 <li><p>A&amp;&amp;B</p>
 </li>
-<li><p>记忆<strong>如果当A与B都为true才true，其余都是false</strong></p>
+<li><p>记忆<strong>如果当A与B都为true才true，其余都是false（只有1个真）</strong></p>
 </li>
 <li><p>短路<br>如果<code>&amp;&amp;</code>的左侧表达式为假，则不会执行右侧表达式。</p>
 </li>
@@ -1332,7 +1358,7 @@
 <li><p>说明<br>遇到’\0’结束，并且在最后加上’\n’</p>
 </li>
 </ol>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><figcaption><span>逐个字符输入，pus()要加上'\0'</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str1[] = <span class="string">"we are learning C language."</span>;</span><br><span class="line">	<span class="keyword">char</span> str2[<span class="number">40</span>] = <span class="string">"we are learning C language."</span>;</span><br><span class="line">	<span class="keyword">char</span> str3[<span class="number">40</span>];</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>((str3[i] = getchar()) != <span class="string">'\n'</span>)</span><br><span class="line">		i++;</span><br><span class="line">    str3[i++] = <span class="string">'\0'</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">puts</span>(str3);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c++"><figcaption><span>逐个字符输入，pus()要加上'\0'</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str1[] = <span class="string">"we are learning C language."</span>;</span><br><span class="line">	<span class="keyword">char</span> str2[<span class="number">40</span>] = <span class="string">"we are learning C language."</span>;</span><br><span class="line">	<span class="keyword">char</span> str3[<span class="number">40</span>];</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>((str3[i] = getchar()) != <span class="string">'\n'</span>)</span><br><span class="line">		i++;</span><br><span class="line">    str3[i++] = <span class="string">'\0'</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">puts</span>(str3);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>c practice</category>
@@ -1682,9 +1708,17 @@
       </tags>
   </entry>
   <entry>
-    <title>复杂的声明</title>
+    <title>复杂的声明（指针）</title>
     <url>/2020/04/13/c/%E5%A4%8D%E6%9D%82%E7%9A%84%E5%A3%B0%E6%98%8E/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int p; &#x2F;&#x2F;这是一个普通的整型变量</span><br><span class="line">int *p; &#x2F;&#x2F;首先从P 处开始,先与*结合,所以说明P 是一个指针,然后再与int 结合,说明指针所指向的内容的类型为int 型.所以P是一个返回整型数据的指针</span><br><span class="line">int p[3]; &#x2F;&#x2F;首先从P 处开始,先与[]结合,说明P 是一个数组,然后与int 结合,说明数组里的元素是整型的,所以P 是一个由整型数据组成的数组</span><br><span class="line">int *p[3]; &#x2F;&#x2F;首先从P 处开始,先与[]结合,因为其优先级比*高,所以P 是一个数组,然后再与*结合,说明数组里的元素是指针类型,然后再与int 结合,说明指针所指向的内容的类型是整型的,所以P 是一个由返回整型数据的指针所组成的数组</span><br><span class="line">int (*p)[3]; &#x2F;&#x2F;首先从P 处开始,先与*结合,说明P 是一个指针然后再与[]结合(与&quot;()&quot;这步可以忽略,只是为了改变优先级),说明指针所指向的内容是一个数组,然后再与int 结合,说明数组里的元素是整型的.所以P 是一个指向由整型数据组成的数组的指针</span><br><span class="line">int **p; &#x2F;&#x2F;首先从P 开始,先与*结合,说是P 是一个指针,然后再与*结合,说明指针所指向的元素是指针,然后再与int 结合,说明该指针所指向的元素是整型数据.由于二级指针以及更高级的指针极少用在复杂的类型中,所以后面更复杂的类型我们就不考虑多级指针了,最多只考虑一级指针.</span><br><span class="line">int p(int); &#x2F;&#x2F;从P 处起,先与()结合,说明P 是一个函数,然后进入()里分析,说明该函数有一个整型变量的参数,然后再与外面的int 结合,说明函数的返回值是一个整型数据</span><br><span class="line">Int (*p)(int); &#x2F;&#x2F;从P 处开始,先与指针结合,说明P 是一个指针,然后与()结合,说明指针指向的是一个函数,然后再与()里的int 结合,说明函数有一个int 型的参数,再与最外层的int 结合,说明函数的返回类型是整型,所以P 是一个指向有一个整型参数且返回类型为整型的函数的指针</span><br><span class="line">int *(*p(int))[3]; &#x2F;&#x2F;可以先跳过,不看这个类型,过于复杂从P 开始,先与()结合,说明P 是一个函数,然后进入()里面,与int 结合,说明函数有一个整型变量参数,然后再与外面的*结合,说明函数返回的是一个指针,,然后到最外面一层,先与[]结合,说明返回的指针指向的是一个数组,然后再与*结合,说明数组里的元素是指针,然后再与int 结合,说明指针指向的内容是整型数据.所以P 是一个参数为一个整数据且返回一个指向由整型指针变量组成的数组的指针变量的函数.</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p><code>int p; //这是一个普通的整型变量
+int *p; //首先从P 处开始,先与*结合,所以说明P 是一个指针,然后再与int 结合,说明指针所指向的内容的类型为int 型.所以P是一个返回整型数据的指针
+int p[3]; //首先从P 处开始,先与[]结合,说明P 是一个数组,然后与int 结合,说明数组里的元素是整型的,所以P 是一个由整型数据组成的数组
+int *p[3]; //首先从P 处开始,先与[]结合,因为其优先级比*高,所以P 是一个数组,然后再与*结合,说明数组里的元素是指针类型,然后再与int 结合,说明指针所指向的内容的类型是整型的,所以P 是一个由返回整型数据的指针所组成的数组
+int (*p)[3]; //首先从P 处开始,先与*结合,说明P 是一个指针然后再与[]结合(与&quot;()&quot;这步可以忽略,只是为了改变优先级),说明指针所指向的内容是一个数组,然后再与int 结合,说明数组里的元素是整型的.所以P 是一个指向由整型数据组成的数组的指针
+int **p; //首先从P 开始,先与*结合,说是P 是一个指针,然后再与*结合,说明指针所指向的元素是指针,然后再与int 结合,说明该指针所指向的元素是整型数据.由于二级指针以及更高级的指针极少用在复杂的类型中,所以后面更复杂的类型我们就不考虑多级指针了,最多只考虑一级指针.
+int p(int); //从P 处起,先与()结合,说明P 是一个函数,然后进入()里分析,说明该函数有一个整型变量的参数,然后再与外面的int 结合,说明函数的返回值是一个整型数据
+Int (*p)(int); //从P 处开始,先与指针结合,说明P 是一个指针,然后与()结合,说明指针指向的是一个函数,然后再与()里的int 结合,说明函数有一个int 型的参数,再与最外层的int 结合,说明函数的返回类型是整型,所以P 是一个指向有一个整型参数且返回类型为整型的函数的指针
+int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,先与()结合,说明P 是一个函数,然后进入()里面,与int 结合,说明函数有一个整型变量参数,然后再与外面的*结合,说明函数返回的是一个指针,,然后到最外面一层,先与[]结合,说明返回的指针指向的是一个数组,然后再与*结合,说明数组里的元素是指针,然后再与int 结合,说明指针指向的内容是整型数据.所以P 是一个参数为一个整数据且返回一个指向由整型指针变量组成的数组的指针变量的函数.</code></p>
 ]]></content>
       <tags>
         <tag>c</tag>
@@ -1852,7 +1886,7 @@
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们平时使用<br><code>char str[] = &quot;ferry&quot;;</code>可以。<br><code>char str[10]; str = &quot;ferry&quot;;</code>不可以。<br>然鹅，还有给<strong>结构中的成员赋值的时候</strong>，可以直接用字符串初始化。这些原因都是因为开辟空间的问题。</p>
 <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p><strong>在初始化变量时，分配空间。结构也是如此。</strong></p>
 <h2 id="不能将指针赋值给常量"><a href="#不能将指针赋值给常量" class="headerlink" title="不能将指针赋值给常量"></a>不能将指针赋值给常量</h2><p><code>char str1[]</code>是array type<br><strong>str1是常量，不是指针啊~</strong><br><code>char *str2</code><br><strong>str2是个指针(是个变量)</strong></p>
-<figure class="highlight c"><figcaption><span>错误，不能给数组的地址（常量）赋值</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[<span class="number">30</span>];<span class="comment">//已经分配好空间。</span></span><br><span class="line">    <span class="keyword">char</span> * str2;</span><br><span class="line">    str2 = <span class="string">"ferry"</span>;</span><br><span class="line">    str1 = str2;<span class="comment">//错误，str2是个地址</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><figcaption><span>错误，不能给数组的地址（常量）赋值</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[<span class="number">30</span>];<span class="comment">//已经分配好空间。</span></span><br><span class="line">    <span class="keyword">char</span> * str2;</span><br><span class="line">    str2 = <span class="string">"ferry"</span>;</span><br><span class="line">    str1 = str2;<span class="comment">//错误，str1是个地址</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>如果我想要给str1数组添加字符咋办？那就用<code>strcpy()</code>复制进去</strong></p>
 <h2 id="可以将数组的地址赋给指针"><a href="#可以将数组的地址赋给指针" class="headerlink" title="可以将数组的地址赋给指针"></a>可以将数组的地址赋给指针</h2><figure class="highlight c"><figcaption><span>正确</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[<span class="number">30</span>] = <span class="string">"ferry"</span>;</span><br><span class="line">    <span class="keyword">char</span> * str2;</span><br><span class="line"></span><br><span class="line">    str2 = str1;<span class="comment">//字符数组的地址给指针</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c"</span>, *(str2 + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -2608,23 +2642,6 @@
 </li>
 <li><p>代码区：函数代码<br>可以通过函数指针，访问到。</p>
 </li>
-</ul>
-]]></content>
-      <categories>
-        <category>programming languages</category>
-      </categories>
-      <tags>
-        <tag>c</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>scanf()与%s</title>
-    <url>/2020/03/20/c/scanf()%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><p><code>scanf(格式控制，地址表列):</code><br>说明</p>
-<hr>
-<p>去掉前面的空白字符，从第一个字符开始，到空白字符结束。<br>空白字符：’\n’　‘\b’　‘ ‘　‘\t’</p>
-<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><ul>
-<li>当我们想要具体控制输入长度时。在%d中间加数字<br><code>scanf(&quot;%4d&quot;, &amp;x)</code><br>如果在小于4位数时遇到空白字符，则<strong>都要到空白结束</strong></li>
 </ul>
 ]]></content>
       <categories>

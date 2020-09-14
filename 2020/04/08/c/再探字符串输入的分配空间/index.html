@@ -30,7 +30,7 @@
 <meta property="og:description" content="前言我们平时使用char str[] &#x3D; &quot;ferry&quot;;可以。char str[10]; str &#x3D; &quot;ferry&quot;;不可以。然鹅，还有给结构中的成员赋值的时候，可以直接用字符串初始化。这些原因都是因为开辟空间的问题。 说明在初始化变量时，分配空间。结构也是如此。 不能将指针赋值给常量char str1[]是array typestr1是常量，不是指针啊~">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-08T10:33:01.000Z">
-<meta property="article:modified_time" content="2020-08-08T14:42:18.000Z">
+<meta property="article:modified_time" content="2020-09-14T13:21:28.725Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="c">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">118</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">117</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -226,7 +226,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+                <time title="Modified: 2020-09-14 21:21:28" itemprop="dateModified" datetime="2020-09-14T21:21:28+08:00">2020-09-14</time>
               </span>
 
           
@@ -264,7 +264,7 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们平时使用<br><code>char str[] = &quot;ferry&quot;;</code>可以。<br><code>char str[10]; str = &quot;ferry&quot;;</code>不可以。<br>然鹅，还有给<strong>结构中的成员赋值的时候</strong>，可以直接用字符串初始化。这些原因都是因为开辟空间的问题。</p>
 <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p><strong>在初始化变量时，分配空间。结构也是如此。</strong></p>
 <h2 id="不能将指针赋值给常量"><a href="#不能将指针赋值给常量" class="headerlink" title="不能将指针赋值给常量"></a>不能将指针赋值给常量</h2><p><code>char str1[]</code>是array type<br><strong>str1是常量，不是指针啊~</strong><br><code>char *str2</code><br><strong>str2是个指针(是个变量)</strong></p>
-<figure class="highlight c"><figcaption><span>错误，不能给数组的地址（常量）赋值</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[<span class="number">30</span>];<span class="comment">//已经分配好空间。</span></span><br><span class="line">    <span class="keyword">char</span> * str2;</span><br><span class="line">    str2 = <span class="string">"ferry"</span>;</span><br><span class="line">    str1 = str2;<span class="comment">//错误，str2是个地址</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><figcaption><span>错误，不能给数组的地址（常量）赋值</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[<span class="number">30</span>];<span class="comment">//已经分配好空间。</span></span><br><span class="line">    <span class="keyword">char</span> * str2;</span><br><span class="line">    str2 = <span class="string">"ferry"</span>;</span><br><span class="line">    str1 = str2;<span class="comment">//错误，str1是个地址</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>如果我想要给str1数组添加字符咋办？那就用<code>strcpy()</code>复制进去</strong></p>
 <h2 id="可以将数组的地址赋给指针"><a href="#可以将数组的地址赋给指针" class="headerlink" title="可以将数组的地址赋给指针"></a>可以将数组的地址赋给指针</h2><figure class="highlight c"><figcaption><span>正确</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[<span class="number">30</span>] = <span class="string">"ferry"</span>;</span><br><span class="line">    <span class="keyword">char</span> * str2;</span><br><span class="line"></span><br><span class="line">    str2 = str1;<span class="comment">//字符数组的地址给指针</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c"</span>, *(str2 + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -405,13 +405,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">135k</span>
+    <span title="Symbols count total">137k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:03</span>
+    <span title="Reading time total">2:05</span>
 </div>
 
 <div id="days"></div>

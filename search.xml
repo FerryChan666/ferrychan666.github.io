@@ -2035,9 +2035,6 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
 <ol>
 <li>fscanf()的文件指针是fp，将文件中的每个字符串（到空白字符结束）逐个读入words中，并逐个puts函数输出。</li>
 </ol>
-<h1 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h1><ol>
-<li>标准输入文件的指针<br><a href="https://ferrychan666.github.io/2020/04/06/标准文件的指针/">stdin</a></li>
-</ol>
 ]]></content>
       <categories>
         <category>programming languages</category>

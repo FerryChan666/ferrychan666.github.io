@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"ferrychan666.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言今天终于要把scanf()这个函数理清了。要理清这个函数关键是要分清它的转换说明符%s %d %c..这些转换说明符呢，就是将输入的字符串转换为对应的字符串，整数，字符。。。 %d 遇到第一个数字开始读取。（跳过一开始的空白） 直到遇到非数字字符结束   所以’\n‘会留在缓冲区，但但不要忘记这是一个%d，它只认数字，不认’\n’。所以这样可以OK123int arr[5];for(int i">
+  <meta name="description" content="前言今天终于要把scanf()这个函数理清了。要理清这个函数关键是要分清它的转换说明符%s %d %c..这些转换说明符呢，就是将输入的字符串转换为对应的字符串，整数，字符。。。 %d %f %lf 遇到第一个数字开始读取。（跳过一开始的空白），直到遇到非数字字符结束  所以’\n‘会留在缓冲区，但但不要忘记这是一个%d，它只认数字，不认’\n’。所以这样可以 OK123int arr[5];fo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="再探scanf()的转换说明">
 <meta property="og:url" content="https://ferrychan666.github.io/2020/05/28/c/%E5%86%8D%E6%8E%A2scanf-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E-c/index.html">
 <meta property="og:site_name" content="Ferry&#39;s Blog">
-<meta property="og:description" content="前言今天终于要把scanf()这个函数理清了。要理清这个函数关键是要分清它的转换说明符%s %d %c..这些转换说明符呢，就是将输入的字符串转换为对应的字符串，整数，字符。。。 %d 遇到第一个数字开始读取。（跳过一开始的空白） 直到遇到非数字字符结束   所以’\n‘会留在缓冲区，但但不要忘记这是一个%d，它只认数字，不认’\n’。所以这样可以OK123int arr[5];for(int i">
+<meta property="og:description" content="前言今天终于要把scanf()这个函数理清了。要理清这个函数关键是要分清它的转换说明符%s %d %c..这些转换说明符呢，就是将输入的字符串转换为对应的字符串，整数，字符。。。 %d %f %lf 遇到第一个数字开始读取。（跳过一开始的空白），直到遇到非数字字符结束  所以’\n‘会留在缓冲区，但但不要忘记这是一个%d，它只认数字，不认’\n’。所以这样可以 OK123int arr[5];fo">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-28T12:20:56.000Z">
-<meta property="article:modified_time" content="2020-08-08T14:42:18.000Z">
+<meta property="article:modified_time" content="2020-09-15T08:26:09.406Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="c">
 <meta name="twitter:card" content="summary">
@@ -199,7 +199,7 @@
     <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/05/28/c/%E5%86%8D%E6%8E%A2scanf-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E-c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.jpg">
+      <meta itemprop="image" content="/images/hacker.webp">
       <meta itemprop="name" content="Ferry">
       <meta itemprop="description" content="">
     </span>
@@ -226,7 +226,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+                <time title="Modified: 2020-09-15 16:26:09" itemprop="dateModified" datetime="2020-09-15T16:26:09+08:00">2020-09-15</time>
               </span>
 
           
@@ -242,7 +242,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>871</span>
+              <span>910</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -262,18 +262,23 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天终于要把scanf()这个函数理清了。<strong>要理清这个函数关键是要分清它的转换说明符</strong><br>%s %d %c..<strong>这些转换说明符呢，就是将输入的字符串转换为对应的字符串，整数，字符。。。</strong></p>
-<h1 id="d"><a href="#d" class="headerlink" title="%d"></a>%d</h1><ol>
-<li>遇到第一个数字开始读取。（跳过一开始的空白）</li>
-<li>直到遇到非数字字符结束</li>
-</ol>
-<ul>
-<li>所以’\n‘会留在缓冲区，但但<strong>不要忘记这是一个%d，它只认数字，不认’\n’</strong>。所以这样可以<figure class="highlight c"><figcaption><span>OK</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, arr + i);</span><br></pre></td></tr></table></figure>
+<h1 id="d-f-lf"><a href="#d-f-lf" class="headerlink" title="%d %f %lf"></a>%d %f %lf</h1><ul>
+<li><p>遇到第一个数字开始读取。（跳过一开始的空白），直到遇到非数字字符结束</p>
+</li>
+<li><p>所以’\n‘会留在缓冲区，但但<strong>不要忘记这是一个%d，它只认数字，不认’\n’</strong>。所以这样可以</p>
+<figure class="highlight c"><figcaption><span>OK</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, arr + i);</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <h1 id="s"><a href="#s" class="headerlink" title="%s"></a>%s</h1><p><code>scanf(&quot;%s&quot;, str);</code></p>
 <ul>
 <li>从非空白开始到遇到空白（这意味着<strong>它一次读一个单词</strong>）</li>
+</ul>
+<p><strong>如果我要一次读一个句子怎么办？</strong></p>
+<ul>
+<li><code>gets()</code></li>
+<li><code>strcpy_s()</code></li>
+<li>等等</li>
 </ul>
 <h1 id="c"><a href="#c" class="headerlink" title="%c"></a>%c</h1><p>这个转换符才是困惑我的地方。<code>scanf(&quot;%c&quot;, ch)</code>它读取一个字符。关键是<strong>它不会跳过空白</strong></p>
 <ul>
@@ -379,14 +384,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#d"><span class="nav-number">2.</span> <span class="nav-text">%d</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s"><span class="nav-number">3.</span> <span class="nav-text">%s</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c"><span class="nav-number">4.</span> <span class="nav-text">%c</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">4.1.</span> <span class="nav-text">解决</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-One"><span class="nav-number">4.1.1.</span> <span class="nav-text">Method One</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-Two"><span class="nav-number">4.1.2.</span> <span class="nav-text">Method Two</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-Three"><span class="nav-number">4.1.3.</span> <span class="nav-text">Method Three</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#d-f-lf"><span class="nav-number">2.</span> <span class="nav-text">%d %f %lf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s"><span class="nav-number">3.</span> <span class="nav-text">%s</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c"><span class="nav-number">4.</span> <span class="nav-text">%c</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">4.1.</span> <span class="nav-text">解决</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-One"><span class="nav-number">4.1.1.</span> <span class="nav-text">Method One</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-Two"><span class="nav-number">4.1.2.</span> <span class="nav-text">Method Two</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-Three"><span class="nav-number">4.1.3.</span> <span class="nav-text">Method Three</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Ferry"
-      src="/images/hacker.jpg">
+      src="/images/hacker.webp">
   <p class="site-author-name" itemprop="name">Ferry</p>
   <div class="site-description" itemprop="description"></div>
 </div>

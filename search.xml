@@ -608,18 +608,23 @@
     <title>再探scanf()的转换说明</title>
     <url>/2020/05/28/c/%E5%86%8D%E6%8E%A2scanf-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E-c/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天终于要把scanf()这个函数理清了。<strong>要理清这个函数关键是要分清它的转换说明符</strong><br>%s %d %c..<strong>这些转换说明符呢，就是将输入的字符串转换为对应的字符串，整数，字符。。。</strong></p>
-<h1 id="d"><a href="#d" class="headerlink" title="%d"></a>%d</h1><ol>
-<li>遇到第一个数字开始读取。（跳过一开始的空白）</li>
-<li>直到遇到非数字字符结束</li>
-</ol>
-<ul>
-<li>所以’\n‘会留在缓冲区，但但<strong>不要忘记这是一个%d，它只认数字，不认’\n’</strong>。所以这样可以<figure class="highlight c"><figcaption><span>OK</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, arr + i);</span><br></pre></td></tr></table></figure>
+<h1 id="d-f-lf"><a href="#d-f-lf" class="headerlink" title="%d %f %lf"></a>%d %f %lf</h1><ul>
+<li><p>遇到第一个数字开始读取。（跳过一开始的空白），直到遇到非数字字符结束</p>
+</li>
+<li><p>所以’\n‘会留在缓冲区，但但<strong>不要忘记这是一个%d，它只认数字，不认’\n’</strong>。所以这样可以</p>
+<figure class="highlight c"><figcaption><span>OK</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, arr + i);</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <h1 id="s"><a href="#s" class="headerlink" title="%s"></a>%s</h1><p><code>scanf(&quot;%s&quot;, str);</code></p>
 <ul>
 <li>从非空白开始到遇到空白（这意味着<strong>它一次读一个单词</strong>）</li>
+</ul>
+<p><strong>如果我要一次读一个句子怎么办？</strong></p>
+<ul>
+<li><code>gets()</code></li>
+<li><code>strcpy_s()</code></li>
+<li>等等</li>
 </ul>
 <h1 id="c"><a href="#c" class="headerlink" title="%c"></a>%c</h1><p>这个转换符才是困惑我的地方。<code>scanf(&quot;%c&quot;, ch)</code>它读取一个字符。关键是<strong>它不会跳过空白</strong></p>
 <ul>

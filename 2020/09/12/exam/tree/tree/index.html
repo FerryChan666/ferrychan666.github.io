@@ -22,22 +22,27 @@
     var CONFIG = {"hostname":"ferrychan666.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Introduction of the tree树是一种非线性的存储结构。它分为：  顺序存储结构 双亲存储   链式存储结构 孩子存储 孩子兄弟存储 二叉链表    definition一棵树由节点组成。可以是0个节点——空树。树定义是一种递归思想。一个唯一的根连接不相交的子树，而子树上的节点又能连接不相交的子树。 可以通过平时对真正的树来记忆：  深度（从根开始）：根从上往下的到该节点个数 高">
+  <meta name="description" content="Introduction of the binary treedefinition 二叉树是一种有限制的树。   限制每个节点的分支(子树)个数。（只能是0，1，2) 子树有左右之分   满二叉树 满二叉树除了叶子，其余节点都有2个子树。并且叶子都存在与最下一层。  完全二叉树 如果有一颗二叉树（深度为k），它的编号（从左往右，从上往下编）和一颗满二叉树（深度也为k）的编号以及所在的位置相同，则这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tree and binary tree">
 <meta property="og:url" content="https://ferrychan666.github.io/2020/09/12/exam/tree/tree/index.html">
 <meta property="og:site_name" content="Ferry&#39;s Blog">
-<meta property="og:description" content="Introduction of the tree树是一种非线性的存储结构。它分为：  顺序存储结构 双亲存储   链式存储结构 孩子存储 孩子兄弟存储 二叉链表    definition一棵树由节点组成。可以是0个节点——空树。树定义是一种递归思想。一个唯一的根连接不相交的子树，而子树上的节点又能连接不相交的子树。 可以通过平时对真正的树来记忆：  深度（从根开始）：根从上往下的到该节点个数 高">
+<meta property="og:description" content="Introduction of the binary treedefinition 二叉树是一种有限制的树。   限制每个节点的分支(子树)个数。（只能是0，1，2) 子树有左右之分   满二叉树 满二叉树除了叶子，其余节点都有2个子树。并且叶子都存在与最下一层。  完全二叉树 如果有一颗二叉树（深度为k），它的编号（从左往右，从上往下编）和一颗满二叉树（深度也为k）的编号以及所在的位置相同，则这">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.imgur.com/twqsQIf.png">
 <meta property="og:image" content="https://i.imgur.com/3C99VxZ.png">
 <meta property="og:image" content="https://i.imgur.com/IEJ9VOv.png">
+<meta property="og:image" content="https://i.imgur.com/twqsQIf.png">
+<meta property="og:image" content="https://i.imgur.com/6lM2ZDV.png">
+<meta property="og:image" content="https://i.imgur.com/4OfQzDh.png">
+<meta property="og:image" content="https://i.imgur.com/dhRNCrB.png">
+<meta property="og:image" content="https://i.imgur.com/nhTFa3s.png">
+<meta property="og:image" content="https://i.imgur.com/DbPxUm9.png">
 <meta property="article:published_time" content="2020-09-12T06:57:20.000Z">
-<meta property="article:modified_time" content="2020-09-14T12:08:22.867Z">
+<meta property="article:modified_time" content="2020-09-16T09:42:02.606Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/twqsQIf.png">
+<meta name="twitter:image" content="https://i.imgur.com/3C99VxZ.png">
 
 <link rel="canonical" href="https://ferrychan666.github.io/2020/09/12/exam/tree/tree/">
 
@@ -230,7 +235,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-14 20:08:22" itemprop="dateModified" datetime="2020-09-14T20:08:22+08:00">2020-09-14</time>
+                <time title="Modified: 2020-09-16 17:42:02" itemprop="dateModified" datetime="2020-09-16T17:42:02+08:00">2020-09-16</time>
               </span>
 
           
@@ -246,14 +251,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.4k</span>
+              <span>3.9k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
+              <span>4 mins.</span>
             </span>
 
         </div>
@@ -265,30 +270,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Introduction-of-the-tree"><a href="#Introduction-of-the-tree" class="headerlink" title="Introduction of the tree"></a>Introduction of the tree</h1><p>树是一种非线性的存储结构。它分为：</p>
-<ul>
-<li>顺序存储结构<ul>
-<li>双亲存储</li>
-</ul>
-</li>
-<li>链式存储结构<ul>
-<li>孩子存储</li>
-<li>孩子兄弟存储</li>
-<li>二叉链表</li>
-</ul>
-</li>
-</ul>
-<h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><p>一棵树由节点组成。可以是0个节点——空树。树定义是一种递归思想。一个唯一的根连接不相交的子树，而子树上的节点又能连接不相交的子树。</p>
-<p><strong>可以通过平时对真正的树来记忆</strong>：</p>
-<ul>
-<li>深度（从根开始）：根从上往下的到该节点个数</li>
-<li>高度（从节点开始）：节点A从上往下到达叶子，所经路径获得最多的节点个数。</li>
-<li>都是针对某个节点的深度，高度</li>
-</ul>
-<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="双亲存储结构"><a href="#双亲存储结构" class="headerlink" title="双亲存储结构"></a>双亲存储结构</h2><p>双亲存储仅仅需要一个<strong>一维数组</strong>。<code>int tree[maxSize]</code></p>
-<p><strong>它的下标代表此节点的位置，数组元素代表双亲位置。</strong></p>
-<p><img data-src="https://i.imgur.com/twqsQIf.png" alt></p>
-<h1 id="Introduction-of-the-binary-tree"><a href="#Introduction-of-the-binary-tree" class="headerlink" title="Introduction of the binary tree"></a>Introduction of the binary tree</h1><h2 id="definition-1"><a href="#definition-1" class="headerlink" title="definition"></a>definition</h2><ul>
+        <h1 id="Introduction-of-the-binary-tree"><a href="#Introduction-of-the-binary-tree" class="headerlink" title="Introduction of the binary tree"></a>Introduction of the binary tree</h1><h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><ul>
 <li>二叉树是一种有限制的树。</li>
 </ul>
 <ol>
@@ -316,7 +298,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="Detail-1"><a href="#Detail-1" class="headerlink" title="Detail"></a>Detail</h1><h2 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h2><p>通过一维数组存储，根的下标=1，左孩子存在<code>BTree[i * 2]</code>(偶数)，右孩子就在奇数的下标。</p>
+<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h2><p>通过一维数组存储，根的下标=1，左孩子存在<code>BTree[i * 2]</code>(偶数)，右孩子就在奇数的下标。</p>
 <h2 id="链式存储结构"><a href="#链式存储结构" class="headerlink" title="链式存储结构"></a>链式存储结构</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span>* <span class="title">lchild</span>;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span>* <span class="title">rchild</span>;</span></span><br><span class="line">&#125;BTNode;</span><br></pre></td></tr></table></figure>
 
 <h3 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h3><figure class="highlight c"><figcaption><span>先序遍历，中序遍历，后序遍历</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">visit</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; p-&gt;data &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		visit(p);</span><br><span class="line">		preorder(p-&gt;lchild);</span><br><span class="line">		preorder(p-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">		preorder(p-&gt;lchild);</span><br><span class="line">		visit(p);</span><br><span class="line">		preorder(p-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		preorder(p-&gt;lchild);</span><br><span class="line">		preorder(p-&gt;rchild);</span><br><span class="line">		visit(p);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -356,6 +338,75 @@
 <h4 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h4><p><strong>逆后序遍历就是先序遍历过程中，对左右子树遍历交换顺序的结果，然后我们把逆后序遍历再逆过来，就完成了后序遍历。</strong>我们需要两个栈。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorderNonrecursion</span><span class="params">(BTNode* bt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (bt != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		BTNode* Stack1[maxSize]; <span class="keyword">int</span> top1 = <span class="number">-1</span>;</span><br><span class="line">		BTNode* Stack2[maxSize]; <span class="keyword">int</span> top2 = <span class="number">-1</span>;</span><br><span class="line">		BTNode* p = <span class="literal">NULL</span>;</span><br><span class="line">		Stack1[++top1] = bt;</span><br><span class="line">		<span class="keyword">while</span> (top1!=<span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			p = Stack1[top1--];</span><br><span class="line">			Stack2[++top2] = p;<span class="comment">//区别。出栈1后，立刻进栈2</span></span><br><span class="line">			<span class="keyword">if</span> (p-&gt;lchild != <span class="literal">NULL</span>)</span><br><span class="line">				Stack1[++top1] = p-&gt;lchild;</span><br><span class="line">			<span class="keyword">if</span> (p-&gt;rchild != <span class="literal">NULL</span>)</span><br><span class="line">				Stack1[++top1] = p-&gt;rchild;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span> (top2 != <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//最后再出栈2</span></span><br><span class="line">			p = Stack2[top2--];</span><br><span class="line">			visit(p);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h1 id="Introduction-of-the-tree"><a href="#Introduction-of-the-tree" class="headerlink" title="Introduction of the tree"></a>Introduction of the tree</h1><p>树是一种非线性的存储结构。它分为：</p>
+<ul>
+<li>顺序存储结构<ul>
+<li>双亲存储</li>
+</ul>
+</li>
+<li>链式存储结构<ul>
+<li>孩子存储</li>
+<li>孩子兄弟存储</li>
+</ul>
+</li>
+</ul>
+<h2 id="definition-1"><a href="#definition-1" class="headerlink" title="definition"></a>definition</h2><p>一棵树由节点组成。可以是0个节点——空树。树定义是一种递归思想。一个唯一的根连接不相交的子树，而子树上的节点又能连接不相交的子树。</p>
+<p><strong>可以通过平时对真正的树来记忆</strong>：</p>
+<ul>
+<li>深度（从根开始）：根从上往下的到该节点个数</li>
+<li>高度（从节点开始）：节点A从上往下到达叶子，所经路径获得最多的节点个数。</li>
+<li>都是针对某个节点的深度，高度</li>
+</ul>
+<h1 id="Detail-1"><a href="#Detail-1" class="headerlink" title="Detail"></a>Detail</h1><h2 id="双亲存储结构"><a href="#双亲存储结构" class="headerlink" title="双亲存储结构"></a>双亲存储结构</h2><p>双亲存储仅仅需要一个<strong>一维数组</strong>。<code>int tree[maxSize]</code></p>
+<p><strong>它的下标代表此节点的位置，数组元素代表双亲位置。</strong></p>
+<p><img data-src="https://i.imgur.com/twqsQIf.png" alt></p>
+<h2 id="孩子兄弟存储结构"><a href="#孩子兄弟存储结构" class="headerlink" title="孩子兄弟存储结构"></a>孩子兄弟存储结构</h2><p><strong>孩子兄弟存储结构实际上就是一个二叉链表。因为二叉链表中指针域意义不同。lchild变成了child指向一个孩子，rchild变成了sibling指向一个兄弟。</strong></p>
+<h4 id="tree-gt-binary-tree"><a href="#tree-gt-binary-tree" class="headerlink" title="tree-&gt;binary tree"></a>tree-&gt;binary tree</h4><p><img data-src="https://i.imgur.com/6lM2ZDV.png" alt></p>
+<p><img data-src="https://i.imgur.com/4OfQzDh.png" alt></p>
+<ul>
+<li>步骤</li>
+</ul>
+<ol>
+<li><p>连线</p>
+<p>连上所以的兄弟节点</p>
+</li>
+<li><p>剪线</p>
+<p>除了第一个分支，剪掉每一个节点上的其他分支</p>
+</li>
+<li><p>旋转</p>
+</li>
+</ol>
+<h4 id="binary-tree-gt-tree"><a href="#binary-tree-gt-tree" class="headerlink" title="binary tree-&gt;tree"></a>binary tree-&gt;tree</h4><p><img data-src="https://i.imgur.com/dhRNCrB.png" alt></p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li><p>旋转</p>
+</li>
+<li><p>连线</p>
+<p>把节点和父节点都连上</p>
+</li>
+<li><p>剪线</p>
+<p>剪掉所有的兄弟节点</p>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="forest-gt-binary-tree"><a href="#forest-gt-binary-tree" class="headerlink" title="forest-&gt;binary tree"></a>forest-&gt;binary tree</h4><ul>
+<li><p>先来回顾一下概念，<strong>森林是由若干颗互不相交的树的集合</strong></p>
+<p><img data-src="https://i.imgur.com/nhTFa3s.png" alt></p>
+</li>
+</ul>
+<p><strong>因为我们知道孩子兄弟存储结构的根节点是没有兄弟的，所以将树转换成二叉树也是一定没有右孩子的。</strong>所以我们又可以利用第一颗二叉树的根的rchild接上第二颗的根，第二颗的根的rchild接上第三颗的根。以此类推，全部合并成一颗二叉树。</p>
+<ol>
+<li>先把森林中的树转换为二叉树</li>
+<li>合并</li>
+</ol>
+<p><img data-src="https://i.imgur.com/DbPxUm9.png" alt></p>
+<h4 id="binary-tree-gt-forest"><a href="#binary-tree-gt-forest" class="headerlink" title="binary tree-&gt;forest"></a>binary tree-&gt;forest</h4><p>据上，容易得到。从二叉树的根查找rchild右孩子，让rchild指向的节点与根剪掉，再让它成为第二颗树的根，一直到rchild为NULL。然后，再把这一颗颗的二叉树，转换成树。</p>
+<ol>
+<li>拆开。（根据右孩子）</li>
+<li>把每颗二叉树转换成树</li>
+</ol>
 
     </div>
 
@@ -438,7 +489,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-of-the-tree"><span class="nav-number">1.</span> <span class="nav-text">Introduction of the tree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#definition"><span class="nav-number">1.1.</span> <span class="nav-text">definition</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Detail"><span class="nav-number">2.</span> <span class="nav-text">Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#双亲存储结构"><span class="nav-number">2.1.</span> <span class="nav-text">双亲存储结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-of-the-binary-tree"><span class="nav-number">3.</span> <span class="nav-text">Introduction of the binary tree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#definition-1"><span class="nav-number">3.1.</span> <span class="nav-text">definition</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Detail-1"><span class="nav-number">4.</span> <span class="nav-text">Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序存储结构"><span class="nav-number">4.1.</span> <span class="nav-text">顺序存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链式存储结构"><span class="nav-number">4.2.</span> <span class="nav-text">链式存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">4.2.1.</span> <span class="nav-text">二叉树的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层序遍历"><span class="nav-number">4.2.2.</span> <span class="nav-text">层序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非递归深度遍历"><span class="nav-number">4.2.3.</span> <span class="nav-text">非递归深度遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前序遍历"><span class="nav-number">4.2.3.1.</span> <span class="nav-text">前序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中序遍历"><span class="nav-number">4.2.3.2.</span> <span class="nav-text">中序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后序遍历"><span class="nav-number">4.2.3.3.</span> <span class="nav-text">后序遍历</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-of-the-binary-tree"><span class="nav-number">1.</span> <span class="nav-text">Introduction of the binary tree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#definition"><span class="nav-number">1.1.</span> <span class="nav-text">definition</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Detail"><span class="nav-number">2.</span> <span class="nav-text">Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序存储结构"><span class="nav-number">2.1.</span> <span class="nav-text">顺序存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链式存储结构"><span class="nav-number">2.2.</span> <span class="nav-text">链式存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">2.2.1.</span> <span class="nav-text">二叉树的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层序遍历"><span class="nav-number">2.2.2.</span> <span class="nav-text">层序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非递归深度遍历"><span class="nav-number">2.2.3.</span> <span class="nav-text">非递归深度遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前序遍历"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">前序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中序遍历"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">中序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后序遍历"><span class="nav-number">2.2.3.3.</span> <span class="nav-text">后序遍历</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-of-the-tree"><span class="nav-number">3.</span> <span class="nav-text">Introduction of the tree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#definition-1"><span class="nav-number">3.1.</span> <span class="nav-text">definition</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Detail-1"><span class="nav-number">4.</span> <span class="nav-text">Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#双亲存储结构"><span class="nav-number">4.1.</span> <span class="nav-text">双亲存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#孩子兄弟存储结构"><span class="nav-number">4.2.</span> <span class="nav-text">孩子兄弟存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tree-gt-binary-tree"><span class="nav-number">4.2.0.1.</span> <span class="nav-text">tree-&gt;binary tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#binary-tree-gt-tree"><span class="nav-number">4.2.0.2.</span> <span class="nav-text">binary tree-&gt;tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#forest-gt-binary-tree"><span class="nav-number">4.2.0.3.</span> <span class="nav-text">forest-&gt;binary tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#binary-tree-gt-forest"><span class="nav-number">4.2.0.4.</span> <span class="nav-text">binary tree-&gt;forest</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -486,13 +537,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">137k</span>
+    <span title="Symbols count total">138k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:05</span>
+    <span title="Reading time total">2:06</span>
 </div>
 
 <div id="days"></div>

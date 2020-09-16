@@ -3,30 +3,7 @@
   <entry>
     <title>tree and binary tree</title>
     <url>/2020/09/12/exam/tree/tree/</url>
-    <content><![CDATA[<h1 id="Introduction-of-the-tree"><a href="#Introduction-of-the-tree" class="headerlink" title="Introduction of the tree"></a>Introduction of the tree</h1><p>树是一种非线性的存储结构。它分为：</p>
-<ul>
-<li>顺序存储结构<ul>
-<li>双亲存储</li>
-</ul>
-</li>
-<li>链式存储结构<ul>
-<li>孩子存储</li>
-<li>孩子兄弟存储</li>
-<li>二叉链表</li>
-</ul>
-</li>
-</ul>
-<h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><p>一棵树由节点组成。可以是0个节点——空树。树定义是一种递归思想。一个唯一的根连接不相交的子树，而子树上的节点又能连接不相交的子树。</p>
-<p><strong>可以通过平时对真正的树来记忆</strong>：</p>
-<ul>
-<li>深度（从根开始）：根从上往下的到该节点个数</li>
-<li>高度（从节点开始）：节点A从上往下到达叶子，所经路径获得最多的节点个数。</li>
-<li>都是针对某个节点的深度，高度</li>
-</ul>
-<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="双亲存储结构"><a href="#双亲存储结构" class="headerlink" title="双亲存储结构"></a>双亲存储结构</h2><p>双亲存储仅仅需要一个<strong>一维数组</strong>。<code>int tree[maxSize]</code></p>
-<p><strong>它的下标代表此节点的位置，数组元素代表双亲位置。</strong></p>
-<p><img data-src="https://i.imgur.com/twqsQIf.png" alt></p>
-<h1 id="Introduction-of-the-binary-tree"><a href="#Introduction-of-the-binary-tree" class="headerlink" title="Introduction of the binary tree"></a>Introduction of the binary tree</h1><h2 id="definition-1"><a href="#definition-1" class="headerlink" title="definition"></a>definition</h2><ul>
+    <content><![CDATA[<h1 id="Introduction-of-the-binary-tree"><a href="#Introduction-of-the-binary-tree" class="headerlink" title="Introduction of the binary tree"></a>Introduction of the binary tree</h1><h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><ul>
 <li>二叉树是一种有限制的树。</li>
 </ul>
 <ol>
@@ -54,7 +31,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="Detail-1"><a href="#Detail-1" class="headerlink" title="Detail"></a>Detail</h1><h2 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h2><p>通过一维数组存储，根的下标=1，左孩子存在<code>BTree[i * 2]</code>(偶数)，右孩子就在奇数的下标。</p>
+<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h2><p>通过一维数组存储，根的下标=1，左孩子存在<code>BTree[i * 2]</code>(偶数)，右孩子就在奇数的下标。</p>
 <h2 id="链式存储结构"><a href="#链式存储结构" class="headerlink" title="链式存储结构"></a>链式存储结构</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span>* <span class="title">lchild</span>;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span>* <span class="title">rchild</span>;</span></span><br><span class="line">&#125;BTNode;</span><br></pre></td></tr></table></figure>
 
 <h3 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h3><figure class="highlight c"><figcaption><span>先序遍历，中序遍历，后序遍历</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">visit</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; p-&gt;data &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		visit(p);</span><br><span class="line">		preorder(p-&gt;lchild);</span><br><span class="line">		preorder(p-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">		preorder(p-&gt;lchild);</span><br><span class="line">		visit(p);</span><br><span class="line">		preorder(p-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		preorder(p-&gt;lchild);</span><br><span class="line">		preorder(p-&gt;rchild);</span><br><span class="line">		visit(p);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -94,6 +71,75 @@
 <h4 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h4><p><strong>逆后序遍历就是先序遍历过程中，对左右子树遍历交换顺序的结果，然后我们把逆后序遍历再逆过来，就完成了后序遍历。</strong>我们需要两个栈。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorderNonrecursion</span><span class="params">(BTNode* bt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (bt != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		BTNode* Stack1[maxSize]; <span class="keyword">int</span> top1 = <span class="number">-1</span>;</span><br><span class="line">		BTNode* Stack2[maxSize]; <span class="keyword">int</span> top2 = <span class="number">-1</span>;</span><br><span class="line">		BTNode* p = <span class="literal">NULL</span>;</span><br><span class="line">		Stack1[++top1] = bt;</span><br><span class="line">		<span class="keyword">while</span> (top1!=<span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			p = Stack1[top1--];</span><br><span class="line">			Stack2[++top2] = p;<span class="comment">//区别。出栈1后，立刻进栈2</span></span><br><span class="line">			<span class="keyword">if</span> (p-&gt;lchild != <span class="literal">NULL</span>)</span><br><span class="line">				Stack1[++top1] = p-&gt;lchild;</span><br><span class="line">			<span class="keyword">if</span> (p-&gt;rchild != <span class="literal">NULL</span>)</span><br><span class="line">				Stack1[++top1] = p-&gt;rchild;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span> (top2 != <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//最后再出栈2</span></span><br><span class="line">			p = Stack2[top2--];</span><br><span class="line">			visit(p);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h1 id="Introduction-of-the-tree"><a href="#Introduction-of-the-tree" class="headerlink" title="Introduction of the tree"></a>Introduction of the tree</h1><p>树是一种非线性的存储结构。它分为：</p>
+<ul>
+<li>顺序存储结构<ul>
+<li>双亲存储</li>
+</ul>
+</li>
+<li>链式存储结构<ul>
+<li>孩子存储</li>
+<li>孩子兄弟存储</li>
+</ul>
+</li>
+</ul>
+<h2 id="definition-1"><a href="#definition-1" class="headerlink" title="definition"></a>definition</h2><p>一棵树由节点组成。可以是0个节点——空树。树定义是一种递归思想。一个唯一的根连接不相交的子树，而子树上的节点又能连接不相交的子树。</p>
+<p><strong>可以通过平时对真正的树来记忆</strong>：</p>
+<ul>
+<li>深度（从根开始）：根从上往下的到该节点个数</li>
+<li>高度（从节点开始）：节点A从上往下到达叶子，所经路径获得最多的节点个数。</li>
+<li>都是针对某个节点的深度，高度</li>
+</ul>
+<h1 id="Detail-1"><a href="#Detail-1" class="headerlink" title="Detail"></a>Detail</h1><h2 id="双亲存储结构"><a href="#双亲存储结构" class="headerlink" title="双亲存储结构"></a>双亲存储结构</h2><p>双亲存储仅仅需要一个<strong>一维数组</strong>。<code>int tree[maxSize]</code></p>
+<p><strong>它的下标代表此节点的位置，数组元素代表双亲位置。</strong></p>
+<p><img data-src="https://i.imgur.com/twqsQIf.png" alt></p>
+<h2 id="孩子兄弟存储结构"><a href="#孩子兄弟存储结构" class="headerlink" title="孩子兄弟存储结构"></a>孩子兄弟存储结构</h2><p><strong>孩子兄弟存储结构实际上就是一个二叉链表。因为二叉链表中指针域意义不同。lchild变成了child指向一个孩子，rchild变成了sibling指向一个兄弟。</strong></p>
+<h4 id="tree-gt-binary-tree"><a href="#tree-gt-binary-tree" class="headerlink" title="tree-&gt;binary tree"></a>tree-&gt;binary tree</h4><p><img data-src="https://i.imgur.com/6lM2ZDV.png" alt></p>
+<p><img data-src="https://i.imgur.com/4OfQzDh.png" alt></p>
+<ul>
+<li>步骤</li>
+</ul>
+<ol>
+<li><p>连线</p>
+<p>连上所以的兄弟节点</p>
+</li>
+<li><p>剪线</p>
+<p>除了第一个分支，剪掉每一个节点上的其他分支</p>
+</li>
+<li><p>旋转</p>
+</li>
+</ol>
+<h4 id="binary-tree-gt-tree"><a href="#binary-tree-gt-tree" class="headerlink" title="binary tree-&gt;tree"></a>binary tree-&gt;tree</h4><p><img data-src="https://i.imgur.com/dhRNCrB.png" alt></p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li><p>旋转</p>
+</li>
+<li><p>连线</p>
+<p>把节点和父节点都连上</p>
+</li>
+<li><p>剪线</p>
+<p>剪掉所有的兄弟节点</p>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="forest-gt-binary-tree"><a href="#forest-gt-binary-tree" class="headerlink" title="forest-&gt;binary tree"></a>forest-&gt;binary tree</h4><ul>
+<li><p>先来回顾一下概念，<strong>森林是由若干颗互不相交的树的集合</strong></p>
+<p><img data-src="https://i.imgur.com/nhTFa3s.png" alt></p>
+</li>
+</ul>
+<p><strong>因为我们知道孩子兄弟存储结构的根节点是没有兄弟的，所以将树转换成二叉树也是一定没有右孩子的。</strong>所以我们又可以利用第一颗二叉树的根的rchild接上第二颗的根，第二颗的根的rchild接上第三颗的根。以此类推，全部合并成一颗二叉树。</p>
+<ol>
+<li>先把森林中的树转换为二叉树</li>
+<li>合并</li>
+</ol>
+<p><img data-src="https://i.imgur.com/DbPxUm9.png" alt></p>
+<h4 id="binary-tree-gt-forest"><a href="#binary-tree-gt-forest" class="headerlink" title="binary tree-&gt;forest"></a>binary tree-&gt;forest</h4><p>据上，容易得到。从二叉树的根查找rchild右孩子，让rchild指向的节点与根剪掉，再让它成为第二颗树的根，一直到rchild为NULL。然后，再把这一颗颗的二叉树，转换成树。</p>
+<ol>
+<li>拆开。（根据右孩子）</li>
+<li>把每颗二叉树转换成树</li>
+</ol>
 ]]></content>
       <tags>
         <tag>exam</tag>
@@ -1871,7 +1917,22 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   <entry>
     <title>结构体声明和初始化</title>
     <url>/2020/04/09/c/%E7%BB%93%E6%9E%84%E4%BD%93%E5%A3%B0%E6%98%8E%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96/</url>
-    <content><![CDATA[<h2 id="声明结构类型"><a href="#声明结构类型" class="headerlink" title="声明结构类型"></a>声明结构类型</h2><p>声明<code>struct person{...};</code>这个标记为person的结构类型，类似于<code>int</code>类型。<br><strong>这时编译器还没有在内存中分配空间</strong>。什么时候开始分配呢，当然是在初始化变量的时候。</p>
+    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="声明结构类型"><a href="#声明结构类型" class="headerlink" title="声明结构类型"></a>声明结构类型</h2><p>声明<code>struct person{...};</code></p>
+<ul>
+<li><p><strong>这个struct person起的作用就是一般声明中的int</strong></p>
+<p>例如：定义struct person类型的变量。<code>struct person ferry, *pferry</code></p>
+</li>
+<li><p>声明过程与定义结构变量，可以组合成一个步骤。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> /*无结构标记*/</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">&#125;library;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>但如果要多次使用模板，就要加上标记。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span>* <span class="title">lchild</span>;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span>* <span class="title">rchild</span>;</span></span><br><span class="line">&#125;BTNode;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<p><strong>这时编译器还没有在内存中分配空间</strong>。什么时候开始分配呢，当然是在初始化变量的时候。</p>
 <h2 id="初始化结构变量"><a href="#初始化结构变量" class="headerlink" title="初始化结构变量"></a>初始化结构变量</h2><p><code>struct person ferry;</code>这样就初始化了ferry这个变量，同时为该变量分配空间。<br>当然，我们可以用这结构类型定义多个变量。这样就可以存储不同的信息。</p>
 <h2 id="初始化成员"><a href="#初始化成员" class="headerlink" title="初始化成员"></a>初始化成员</h2><p>在刚开始声明结构中就有表明了要什么样的数据类型，再到初始化变量的时候分配空间。<br>而，这些数据类型，就是一个个成员。<br>有两种方式：</p>
 <ul>
@@ -1879,8 +1940,27 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
 <li>指定初始化</li>
 </ul>
 <h2 id="调用成员"><a href="#调用成员" class="headerlink" title="调用成员"></a>调用成员</h2><p>在变量名的后面加　.　然后加上成员变量</p>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><figcaption><span>顺序初始化</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 40</span></span><br><span class="line"><span class="comment">//声明一个标记为Person的结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> title[<span class="number">40</span>];<span class="comment">//声明一个字符数组</span></span><br><span class="line">    <span class="keyword">int</span> since;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">person</span> <span class="title">ferry</span> = //声明变量</span></span><br><span class="line"><span class="class">    &#123;</span><span class="comment">//顺序初始化</span></span><br><span class="line">        <span class="string">"ferry"</span>, <span class="comment">//逗号分隔</span></span><br><span class="line">        <span class="number">2020</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, ferry.title);<span class="comment">//对结构体成员的引用</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ferry.since);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><figcaption><span>指定初始化</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 40</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> title[<span class="number">40</span>];/</span><br><span class="line">    <span class="keyword">int</span> since;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">person</span> <span class="title">ferry</span> =</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        .since = <span class="number">2020</span>,<span class="comment">//指定初始化</span></span><br><span class="line">        .title = <span class="string">"blog"</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, ferry.title);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ferry.since);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight c"><figcaption><span>顺序初始化</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 40</span></span><br><span class="line"><span class="comment">//声明一个标记为Person的结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> title[<span class="number">40</span>];<span class="comment">//声明一个字符数组</span></span><br><span class="line">    <span class="keyword">int</span> since;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">person</span> <span class="title">ferry</span> = //声明变量</span></span><br><span class="line"><span class="class">    &#123;</span><span class="comment">//顺序初始化</span></span><br><span class="line">        <span class="string">"ferry"</span>, <span class="comment">//逗号分隔</span></span><br><span class="line">        <span class="number">2020</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, ferry.title);<span class="comment">//对结构体成员的引用</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ferry.since);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><figcaption><span>指定初始化</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 40</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> title[<span class="number">40</span>];/</span><br><span class="line">    <span class="keyword">int</span> since;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">person</span> <span class="title">ferry</span> =</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        .since = <span class="number">2020</span>,<span class="comment">//指定初始化</span></span><br><span class="line">        .title = <span class="string">"blog"</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, ferry.title);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ferry.since);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="取别名"><a href="#取别名" class="headerlink" title="取别名"></a>取别名</h2><p>为结构体取别名，使用<code>typedef</code></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">complex</span>&#123;</span></span><br><span class="line">    <span class="keyword">float</span> real;</span><br><span class="line">    <span class="keyword">float</span> imag;</span><br><span class="line">&#125;COMPLEX;</span><br></pre></td></tr></table></figure>
+
+<p>这样就给complex这个结构取个别名COMPLEX。</p>
+<p><strong>例如有这样的声明和定义</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">double</span> y;</span><br><span class="line">&#125;<span class="built_in">rect</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">rect</span> r1 = &#123; <span class="number">3.0</span>, <span class="number">6.0</span> &#125;;</span><br><span class="line"><span class="built_in">rect</span> r2;</span><br></pre></td></tr></table></figure>
+
+<p><strong>那么就等价于：</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">double</span> y;</span><br><span class="line">&#125;r1 = &#123; <span class="number">3.0</span>,<span class="number">6.0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">double</span> y;</span><br><span class="line">&#125;r2;</span><br></pre></td></tr></table></figure>
+
+<p><strong>因为r1和r2是同种类型，<code>r2=r1</code>是对的</strong>。没有用typedef就不可以</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">double</span> y;</span><br><span class="line">&#125;<span class="built_in">rect</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">rect</span> r1 = &#123; <span class="number">3.0</span>,<span class="number">6.0</span> &#125;;</span><br><span class="line"><span class="built_in">rect</span> r2;</span><br><span class="line"></span><br><span class="line">r2 = r1;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
       <tags>
         <tag>c</tag>
       </tags>

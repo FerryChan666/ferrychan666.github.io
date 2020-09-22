@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">119</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">120</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -191,6 +191,82 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/09/22/exam/Minimum-Spanning-Tree/Minimum-Spanning-Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/22/exam/Minimum-Spanning-Tree/Minimum-Spanning-Tree/" class="post-title-link" itemprop="url">Minimum Spanning Tree</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-09-22 18:59:20 / Modified: 19:54:19" itemprop="dateCreated datePublished" datetime="2020-09-22T18:59:20+08:00">2020-09-22</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>617</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Prim"><a href="#Prim" class="headerlink" title="Prim"></a>Prim</h1><h2 id="算法思想："><a href="#算法思想：" class="headerlink" title="算法思想："></a>算法思想：</h2><p>需要先创建一颗树T，让首顶点加入这颗树中。再查找与T相邻的最短的边（权值最小）。再让该边指向的顶点加入T中。以此类推，<strong>选择与T集合中距离最近的顶点</strong>，直到让所有的顶点加入到树中为止。</p>
+<p><img data-src="https://i.imgur.com/gZjFi52.png" alt></p>
+<h2 id="算法执行过程"><a href="#算法执行过程" class="headerlink" title="算法执行过程"></a>算法执行过程</h2><h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Prim</span><span class="params">(MGraph g, <span class="keyword">int</span> v0, <span class="keyword">int</span>&amp; sum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> lowcost[maxSize], vset[maxSize], v;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, <span class="built_in">min</span>;</span><br><span class="line">	v = v0;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; g.n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		lowcost[i] = g.edges[v0][i];</span><br><span class="line">		vset[i] = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	vset[v0] = <span class="number">1</span>;</span><br><span class="line">	sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; g.n - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">min</span> = INF;</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; g.n; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (vset[j] == <span class="number">0</span> &amp;&amp; lowcost[j] &lt; <span class="built_in">min</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">min</span> = lowcost[j];</span><br><span class="line">				k = j;</span><br><span class="line">			&#125;</span><br><span class="line">			vset[k] = <span class="number">1</span>;</span><br><span class="line">			v = k;</span><br><span class="line">			sum += <span class="built_in">min</span>;</span><br><span class="line">			<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; g.n; j++)</span><br><span class="line">				<span class="keyword">if</span> (vset[j] == <span class="number">0</span> &amp;&amp; g.edges[v][j] &lt; lowcost[j])</span><br><span class="line">					lowcost[j] = g.edges[v][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/09/20/exam/Graph/Graph/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -222,7 +298,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-21 20:03:42" itemprop="dateModified" datetime="2020-09-21T20:03:42+08:00">2020-09-21</time>
+                <time title="Modified: 2020-09-22 21:38:02" itemprop="dateModified" datetime="2020-09-22T21:38:02+08:00">2020-09-22</time>
               </span>
 
           <br>
@@ -231,7 +307,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.3k</span>
+              <span>2.5k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -263,7 +339,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h2 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h2><p>顾名思义，邻接就是相关联的边，判断两个顶点之间是否存在边。</p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h2 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h2><p>顾名思义，邻接就是相关联的边，判断两个顶点之间是否存在边。<strong>它的存在就是用抽象的数据，表达了图的结构。n代表图中有多少个顶点，e代表有多少条边，edges(arc)代表了点与点之间是否存在边。</strong><code>edges[][]</code>这个二维数组就是一个矩阵，这个矩阵（方阵）包含了n*n个元素，那么这正好是点与点之间相连接的所有情况。</p>
 <ul>
 <li>无向表中，两顶点中有边即赋值为1（邻接）。无边即为0（不邻接）</li>
 <li>有向表中，两顶点中赋值为该边的权值。无边即为无穷大</li>
@@ -295,16 +371,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
+<ul>
+<li><p>深度，广度优先搜索生成树</p>
+<p>因为BFS算法是层层遍历。如果是无向图或者权值全都相同的有向图，那么就可以通过BFS来知道最短路径问题。如果我们把这个图的在BFS过程中所经理的边保留，其余的边删除，那么就生成了一颗广度优先搜索生成树。（深度优先搜索生成树也是一样类似）</p>
+</li>
+</ul>
+<p><img data-src="https://i.imgur.com/2Clgu7x.png" alt></p>
 
       
     </div>
@@ -1344,98 +1416,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/13/algorithm/%E5%8F%AF%E8%BF%AD%E4%BB%A3%E7%9A%84%E8%83%8C%E5%8C%85Bag/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/13/algorithm/%E5%8F%AF%E8%BF%AD%E4%BB%A3%E7%9A%84%E8%83%8C%E5%8C%85Bag/" class="post-title-link" itemprop="url">可迭代的背包Bag</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-08-13 16:55:10" itemprop="dateCreated datePublished" datetime="2020-08-13T16:55:10+08:00">2020-08-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-14 20:44:17" itemprop="dateModified" datetime="2020-08-14T20:44:17+08:00">2020-08-14</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>
-<li><p><strong>在集合数据类型中实现可迭代，需要引入Iterator接口</strong>（可迭代的接口）。<br><code>import java.util.Iterator</code></p>
-</li>
-<li><p>在类声明中添加<code>implements Iterable&lt;Item&gt;</code>（表面该类将会提供一个iterator（）方法）</p>
-</li>
-<li><p>该方法会返回一个Iterator对象，保证该类会实现方法hasNext(), next(), remove() &lt;- 循环链表的方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> ListIterator();</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ListIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Node current = first;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> current != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Item item = current.item;</span><br><span class="line">        current = current.next;</span><br><span class="line">        <span class="keyword">return</span> item;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>Bag, Queue, Stack，如果想要把这些集合的数据类型实现可迭代，要添加以上代码。</strong></li>
-</ul>
-<h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Iterator;<span class="comment">//引用Iterator接口</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bag</span> &lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt;</span>&#123;<span class="comment">//保证该类提供iterator方法</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">private</span> Node first;</span><br><span class="line">		<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">		</span>&#123;</span><br><span class="line">			Item item;</span><br><span class="line">			Node next;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Item item)</span></span></span><br><span class="line"><span class="function">		</span>&#123;</span><br><span class="line">			Node oldfriend = first;</span><br><span class="line">			first = <span class="keyword">new</span> Node();</span><br><span class="line">			first.item = item;</span><br><span class="line">			first.next = oldfriend;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//保证该类会实现方法hasNext(), next(), remove() &lt;- 循环链表的方法</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;<span class="comment">//iterator()方法返回一个Iterator对象</span></span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> ListIterator();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ListIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">			<span class="keyword">private</span> Node current = first;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span></span><br><span class="line"><span class="function">			</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> current != <span class="keyword">null</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> Item <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				Item item = current.item;</span><br><span class="line">				current = current.next;</span><br><span class="line">				<span class="keyword">return</span> item;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1540,13 +1520,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">142k</span>
+    <span title="Symbols count total">143k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:09</span>
+    <span title="Reading time total">2:10</span>
 </div>
 
 <div id="days"></div>

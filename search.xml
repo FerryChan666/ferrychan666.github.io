@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Minimum Spanning Tree</title>
+    <url>/2020/09/22/exam/Minimum-Spanning-Tree/Minimum-Spanning-Tree/</url>
+    <content><![CDATA[<h1 id="Prim"><a href="#Prim" class="headerlink" title="Prim"></a>Prim</h1><h2 id="算法思想："><a href="#算法思想：" class="headerlink" title="算法思想："></a>算法思想：</h2><p>需要先创建一颗树T，让首顶点加入这颗树中。再查找与T相邻的最短的边（权值最小）。再让该边指向的顶点加入T中。以此类推，<strong>选择与T集合中距离最近的顶点</strong>，直到让所有的顶点加入到树中为止。</p>
+<p><img data-src="https://i.imgur.com/gZjFi52.png" alt></p>
+<h2 id="算法执行过程"><a href="#算法执行过程" class="headerlink" title="算法执行过程"></a>算法执行过程</h2><h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Prim</span><span class="params">(MGraph g, <span class="keyword">int</span> v0, <span class="keyword">int</span>&amp; sum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> lowcost[maxSize], vset[maxSize], v;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, <span class="built_in">min</span>;</span><br><span class="line">	v = v0;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; g.n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		lowcost[i] = g.edges[v0][i];</span><br><span class="line">		vset[i] = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	vset[v0] = <span class="number">1</span>;</span><br><span class="line">	sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; g.n - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">min</span> = INF;</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; g.n; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (vset[j] == <span class="number">0</span> &amp;&amp; lowcost[j] &lt; <span class="built_in">min</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">min</span> = lowcost[j];</span><br><span class="line">				k = j;</span><br><span class="line">			&#125;</span><br><span class="line">			vset[k] = <span class="number">1</span>;</span><br><span class="line">			v = k;</span><br><span class="line">			sum += <span class="built_in">min</span>;</span><br><span class="line">			<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; g.n; j++)</span><br><span class="line">				<span class="keyword">if</span> (vset[j] == <span class="number">0</span> &amp;&amp; g.edges[v][j] &lt; lowcost[j])</span><br><span class="line">					lowcost[j] = g.edges[v][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>exam</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Graph</title>
     <url>/2020/09/20/exam/Graph/Graph/</url>
     <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>图是由有穷的节点集合与有穷的边集合构成。</p>
@@ -16,7 +28,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h2 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h2><p>顾名思义，邻接就是相关联的边，判断两个顶点之间是否存在边。</p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h2 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h2><p>顾名思义，邻接就是相关联的边，判断两个顶点之间是否存在边。<strong>它的存在就是用抽象的数据，表达了图的结构。n代表图中有多少个顶点，e代表有多少条边，edges(arc)代表了点与点之间是否存在边。</strong><code>edges[][]</code>这个二维数组就是一个矩阵，这个矩阵（方阵）包含了n*n个元素，那么这正好是点与点之间相连接的所有情况。</p>
 <ul>
 <li>无向表中，两顶点中有边即赋值为1（邻接）。无边即为0（不邻接）</li>
 <li>有向表中，两顶点中赋值为该边的权值。无边即为无穷大</li>
@@ -48,16 +60,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
+<ul>
+<li><p>深度，广度优先搜索生成树</p>
+<p>因为BFS算法是层层遍历。如果是无向图或者权值全都相同的有向图，那么就可以通过BFS来知道最短路径问题。如果我们把这个图的在BFS过程中所经理的边保留，其余的边删除，那么就生成了一颗广度优先搜索生成树。（深度优先搜索生成树也是一样类似）</p>
+</li>
+</ul>
+<p><img data-src="https://i.imgur.com/2Clgu7x.png" alt></p>
 ]]></content>
       <tags>
         <tag>exam</tag>

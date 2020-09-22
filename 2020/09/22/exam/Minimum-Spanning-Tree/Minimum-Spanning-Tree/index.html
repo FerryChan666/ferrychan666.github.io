@@ -22,20 +22,22 @@
     var CONFIG = {"hostname":"ferrychan666.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言(一些命令需要在Linux系统下，windows无法实现)当我们想要编译执行多个文件的时候，我们会由于gcc a.c b.c c.c的命令太长而厌烦，而makefile脚本就解决这些问题。（用IDE不需要理会一些这些内容，只需要按下小三角就可以了） 写法makefile是由于这条gcc命令，而实现的。  我们有ａ．ｃ　　ｂ．ｃ　　ｄ．ｃ　（还有一些头文件。文件会有预处理指令#include &amp;">
+  <meta name="description" content="Prim算法思想：需要先创建一颗树T，让首顶点加入这颗树中。再查找与T相邻的最短的边（权值最小）。再让该边指向的顶点加入T中。以此类推，选择与T集合中距离最近的顶点，直到让所有的顶点加入到树中为止。  算法执行过程程序代码12345678910111213141516171819202122232425262728293031void Prim(MGraph g, int v0, int&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于makefile脚本的多文件编译">
-<meta property="og:url" content="https://ferrychan666.github.io/2020/03/17/c/%E5%85%B3%E4%BA%8Emakefile%E7%9A%84%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/index.html">
+<meta property="og:title" content="Minimum Spanning Tree">
+<meta property="og:url" content="https://ferrychan666.github.io/2020/09/22/exam/Minimum-Spanning-Tree/Minimum-Spanning-Tree/index.html">
 <meta property="og:site_name" content="Ferry&#39;s Blog">
-<meta property="og:description" content="前言(一些命令需要在Linux系统下，windows无法实现)当我们想要编译执行多个文件的时候，我们会由于gcc a.c b.c c.c的命令太长而厌烦，而makefile脚本就解决这些问题。（用IDE不需要理会一些这些内容，只需要按下小三角就可以了） 写法makefile是由于这条gcc命令，而实现的。  我们有ａ．ｃ　　ｂ．ｃ　　ｄ．ｃ　（还有一些头文件。文件会有预处理指令#include &amp;">
+<meta property="og:description" content="Prim算法思想：需要先创建一颗树T，让首顶点加入这颗树中。再查找与T相邻的最短的边（权值最小）。再让该边指向的顶点加入T中。以此类推，选择与T集合中距离最近的顶点，直到让所有的顶点加入到树中为止。  算法执行过程程序代码12345678910111213141516171819202122232425262728293031void Prim(MGraph g, int v0, int&amp;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-16T17:51:38.000Z">
-<meta property="article:modified_time" content="2020-08-08T14:42:18.000Z">
+<meta property="og:image" content="https://i.imgur.com/gZjFi52.png">
+<meta property="article:published_time" content="2020-09-22T10:59:20.000Z">
+<meta property="article:modified_time" content="2020-09-22T11:54:19.037Z">
 <meta property="article:author" content="Ferry">
-<meta property="article:tag" content="c">
+<meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/gZjFi52.png">
 
-<link rel="canonical" href="https://ferrychan666.github.io/2020/03/17/c/%E5%85%B3%E4%BA%8Emakefile%E7%9A%84%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/">
+<link rel="canonical" href="https://ferrychan666.github.io/2020/09/22/exam/Minimum-Spanning-Tree/Minimum-Spanning-Tree/">
 
 
 <script id="page-configurations">
@@ -48,7 +50,7 @@
   };
 </script>
 
-  <title>关于makefile脚本的多文件编译 | Ferry's Blog</title>
+  <title>Minimum Spanning Tree | Ferry's Blog</title>
   
 
 
@@ -196,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/17/c/%E5%85%B3%E4%BA%8Emakefile%E7%9A%84%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/09/22/exam/Minimum-Spanning-Tree/Minimum-Spanning-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -209,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          关于makefile脚本的多文件编译
+          Minimum Spanning Tree
         </h1>
 
         <div class="post-meta">
@@ -218,16 +220,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-03-17 01:51:38" itemprop="dateCreated datePublished" datetime="2020-03-17T01:51:38+08:00">2020-03-17</time>
+              <time title="Created: 2020-09-22 18:59:20 / Modified: 19:54:19" itemprop="dateCreated datePublished" datetime="2020-09-22T18:59:20+08:00">2020-09-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -242,7 +238,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>463</span>
+              <span>617</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -261,24 +257,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言-一些命令需要在Linux系统下，windows无法实现"><a href="#前言-一些命令需要在Linux系统下，windows无法实现" class="headerlink" title="前言(一些命令需要在Linux系统下，windows无法实现)"></a>前言(一些命令需要在Linux系统下，windows无法实现)</h1><p>当我们想要编译执行多个文件的时候，我们会由于<code>gcc a.c b.c c.c</code>的命令太长而厌烦，而makefile脚本就解决这些问题。（用IDE不需要理会一些这些内容，只需要按下小三角就可以了）</p>
-<h1 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h1><p>makefile是由于这条gcc命令，而实现的。</p>
-<ul>
-<li>我们有ａ．ｃ　　ｂ．ｃ　　ｄ．ｃ　<br>（还有一些头文件。文件会有预处理指令<code>#include &quot;e.h&quot;</code>）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">main: a.c b.o d.o　　　　　　　　　　　　　//main(exe)的生成需要依赖：a.c b.o d.o</span><br><span class="line">    gcc a.c b.o d.o -o main 　　　　//（加Tab）做生成main的操作 </span><br><span class="line">b.o: b.c         　　　　　//b.o的生成需要b.c</span><br><span class="line">    gcc -c b.c    　　　　// -c 是要生成 .o文件</span><br><span class="line">d.o: d.c</span><br><span class="line">    gcc -c d.c</span><br><span class="line">clean:</span><br><span class="line">    rm *.o main　　　　　　//最后删除所有的.o文件，exe文件</span><br></pre></td></tr></table></figure>
-<br>
+        <h1 id="Prim"><a href="#Prim" class="headerlink" title="Prim"></a>Prim</h1><h2 id="算法思想："><a href="#算法思想：" class="headerlink" title="算法思想："></a>算法思想：</h2><p>需要先创建一颗树T，让首顶点加入这颗树中。再查找与T相邻的最短的边（权值最小）。再让该边指向的顶点加入T中。以此类推，<strong>选择与T集合中距离最近的顶点</strong>，直到让所有的顶点加入到树中为止。</p>
+<p><img data-src="https://i.imgur.com/gZjFi52.png" alt></p>
+<h2 id="算法执行过程"><a href="#算法执行过程" class="headerlink" title="算法执行过程"></a>算法执行过程</h2><h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Prim</span><span class="params">(MGraph g, <span class="keyword">int</span> v0, <span class="keyword">int</span>&amp; sum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> lowcost[maxSize], vset[maxSize], v;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, <span class="built_in">min</span>;</span><br><span class="line">	v = v0;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; g.n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		lowcost[i] = g.edges[v0][i];</span><br><span class="line">		vset[i] = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	vset[v0] = <span class="number">1</span>;</span><br><span class="line">	sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; g.n - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">min</span> = INF;</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; g.n; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (vset[j] == <span class="number">0</span> &amp;&amp; lowcost[j] &lt; <span class="built_in">min</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">min</span> = lowcost[j];</span><br><span class="line">				k = j;</span><br><span class="line">			&#125;</span><br><span class="line">			vset[k] = <span class="number">1</span>;</span><br><span class="line">			v = k;</span><br><span class="line">			sum += <span class="built_in">min</span>;</span><br><span class="line">			<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; g.n; j++)</span><br><span class="line">				<span class="keyword">if</span> (vset[j] == <span class="number">0</span> &amp;&amp; g.edges[v][j] &lt; lowcost[j])</span><br><span class="line">					lowcost[j] = g.edges[v][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><ol>
-<li>写makefile</li>
-<li>在终端中，<code>make</code>就可以了生成c的可执行文件了</li>
-<li><code>./main</code>执行文件</li>
-<li><code>make clean</code><br>
-</li>
-</ol>
-<ul>
-<li>设置变量<br>在开头写<code>CC = gcc</code><br>即可以将下文的<code>gcc</code>替代成<code>$(CC)</code></li>
-</ul>
 
     </div>
 
@@ -288,7 +270,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/c/" rel="tag"># c</a>
+              <a href="/tags/exam/" rel="tag"># exam</a>
           </div>
 
         
@@ -297,13 +279,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/16/c/%E6%8C%87%E9%92%88%E5%92%8Cconst%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="prev" title="指针和const修饰符">
-      <i class="fa fa-chevron-left"></i> 指针和const修饰符
+    <a href="/2020/09/20/exam/Graph/Graph/" rel="prev" title="Graph">
+      <i class="fa fa-chevron-left"></i> Graph
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/17/linux/command/" rel="next" title="command">
-      command <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -364,7 +343,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言-一些命令需要在Linux系统下，windows无法实现"><span class="nav-number">1.</span> <span class="nav-text">前言(一些命令需要在Linux系统下，windows无法实现)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写法"><span class="nav-number">2.</span> <span class="nav-text">写法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作"><span class="nav-number">3.</span> <span class="nav-text">操作</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Prim"><span class="nav-number">1.</span> <span class="nav-text">Prim</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法思想："><span class="nav-number">1.1.</span> <span class="nav-text">算法思想：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法执行过程"><span class="nav-number">1.2.</span> <span class="nav-text">算法执行过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序代码"><span class="nav-number">1.3.</span> <span class="nav-text">程序代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -589,7 +568,7 @@ window.addEventListener('pjax:success', () => {
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://ferrychan666.github.io/2020/03/17/c/%E5%85%B3%E4%BA%8Emakefile%E7%9A%84%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://ferrychan666.github.io/2020/09/22/exam/Minimum-Spanning-Tree/Minimum-Spanning-Tree/',]
       });
       });
   </script>
@@ -605,7 +584,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'gitalk',
       owner       : 'ferrychan666',
       admin       : ['ferrychan666'],
-      id          : '70e2e35777cbb1aca5bf42f11b448697',
+      id          : '71d68c3cc3a86836294897371d7c29d4',
         language: 'zh-CN',
       distractionFreeMode: true
     });

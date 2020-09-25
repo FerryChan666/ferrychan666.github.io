@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">120</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">122</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -187,6 +187,199 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/27/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/27/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">git的提交修改操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-27 23:41:46" itemprop="dateCreated datePublished" datetime="2020-03-27T23:41:46+08:00">2020-03-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>539</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h1><p>为了能管理文件的所作出的修改。</p>
+<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><h2 id="add到stage"><a href="#add到stage" class="headerlink" title="add到stage"></a>add到stage</h2><ol>
+<li>查看stage<br><code>git status</code>查看stage的状态.</li>
+<li>添加到stage<br>版本库中有git给你创建的暂存区（stage）和分支（master）。<br><code>git add .</code>的作用就是将工作区的文件添加到stage。</li>
+<li>删除stage<br><code>git restore --staged &lt;file&gt;...&quot;</code> to unstage</li>
+</ol>
+<p><img data-src="https://i.ibb.co/LPncLLG/5c017de22bde1b62dcc538cd36510ab.jpg" alt></p>
+<h2 id="commit到master"><a href="#commit到master" class="headerlink" title="commit到master"></a>commit到master</h2><p>接下来就是提交。当我们做这一步之后才能被git所记录（log）<br>`git commit -m “update”<br><img data-src="https://i.ibb.co/ZHJjM02/d7cff4f51de04ce05b149e9a1d44182.jpg" alt></p>
+<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ol>
+<li><p>查看版本历史(master)<br><code>git log</code><br>commit 后面的字符就是版本号<br>HEAD就是指针<br><img data-src="https://i.ibb.co/g3w0zCK/81499340c53b662fca73efcb2b07871.png" alt></p>
+</li>
+<li><p>返回到某个版本(版本号只需写前几个字符)<br><code>git reset --hard &lt;版本号&gt;</code></p>
+</li>
+</ol>
+<p><strong>这样文件就会被改为到原来被commit的那一次</strong></p>
+<ol start="3">
+<li>要把旧版本push到GitHub<strong>要用强制命令</strong><br><code>git push -u origin master -f</code><br>版本回退之后悔</li>
+</ol>
+<hr>
+<ol>
+<li>查看所有的版本<br>因为原来的<code>git log</code>已经看不到还没有返回之前的版本号，所以我们要查看所以的版本<br><code>git reflog</code><br>这样就列出了返回之前的版本号.</li>
+<li>继续执行<br><code>git reset --hard &lt;版本号&gt;</code></li>
+</ol>
+<p><strong>这样我们的文件就会被修改到某次历史</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/27/git/repository%E7%9A%84%E5%88%9B%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/27/git/repository%E7%9A%84%E5%88%9B%E5%BB%BA/" class="post-title-link" itemprop="url">repository的创建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-27 23:24:51" itemprop="dateCreated datePublished" datetime="2020-03-27T23:24:51+08:00">2020-03-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>394</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>git is a distributed version control system.<br>它帮我们记录文件的修改和管理，并且帮我们push到GitHub</p>
+<h1 id="创建一个repo"><a href="#创建一个repo" class="headerlink" title="创建一个repo"></a>创建一个repo</h1><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p><a href="https://git-scm.com/downloads">git官网</a></p>
+<h2 id="创建repo（版本库）"><a href="#创建repo（版本库）" class="headerlink" title="创建repo（版本库）"></a>创建repo（版本库）</h2><ol>
+<li><p>创建文件<br><code>mkdir file</code></p>
+</li>
+<li><p>初始化<br><code>git init</code>这个时候file目录中就会存在一个.git文件。它用来跟踪版本库.</p>
+</li>
+<li><p>set the identity</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">*** Please tell me who you are.</span><br><span class="line"></span><br><span class="line">Run</span><br><span class="line"></span><br><span class="line">  git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">  git config --global user.name &quot;Your Name&quot;</span><br><span class="line"></span><br><span class="line">to set your account&#39;s default identity.</span><br><span class="line">Omit --global to set the identity only in this repository.</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -912,210 +1105,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/20/c/%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/20/c/%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">枚举类型</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-20 09:49:00" itemprop="dateCreated datePublished" datetime="2020-03-20T09:49:00+08:00">2020-03-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>enum Day<br>{mon, tue, wed, thu, fir, sat, sun};<br>枚举类型是为了减少繁多的整数定义。诸如mon（默认=0）,tue这些是枚举符（int类型的常量）<strong>对应一个数字。</strong></p>
-<ul>
-<li>可以给枚举列表中的常量赋值</li>
-<li>没有赋值的枚举符会根据前面被赋予的常量++</li>
-</ul>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p><strong>mon, tue，把这些看作常量。</strong></p>
-<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Day    <span class="comment">//Day是类型名，可不写</span></span><br><span class="line">&#123;</span><br><span class="line">   mon, tue, wed = <span class="number">1</span>, thu, fir, sat, sun</span><br><span class="line">&#125;day;       <span class="comment">//变量名</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><ul>
-<li><p>给枚举变量赋值，然后输出</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Day</span><br><span class="line">&#123;</span><br><span class="line">    mon, tue, wed, thu, fir, sat, sun</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">enum</span> Day day;<span class="comment">//定义变量</span></span><br><span class="line">    day = tue;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, day);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可以用for循环遍历元素(要依赖连续的++值，中间不能有赋值)</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(day = wed; day &lt;= sun; day++)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d "</span>,day);          <span class="comment">//输出1， 2， 3， 4，5</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* enum.c -- uses enumerated values */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;    // for strcmp(), strchr()</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdbool.h&gt;   // C99 feature</span></span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="comment">//枚举类型（常量的数组）</span></span><br><span class="line"><span class="keyword">enum</span> spectrum &#123;red, orange, yellow, green, blue, violet&#125;;</span><br><span class="line"><span class="comment">//字符串数组</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> * colors[] = &#123;<span class="string">"red"</span>, <span class="string">"orange"</span>, <span class="string">"yellow"</span>,</span><br><span class="line">    <span class="string">"green"</span>, <span class="string">"blue"</span>, <span class="string">"violet"</span>&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 30</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> choice[LEN];</span><br><span class="line">    <span class="keyword">enum</span> spectrum color;<span class="comment">//定义color变量表示枚举符（常量）</span></span><br><span class="line">    <span class="keyword">bool</span> color_is_found = <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Enter a color (empty line to quit):"</span>);</span><br><span class="line">    <span class="keyword">while</span> (s_gets(choice, LEN) != <span class="literal">NULL</span> &amp;&amp; choice[<span class="number">0</span>] != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (color = red; color &lt;= violet; color++)<span class="comment">//常量的使用</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">strcmp</span>(choice, colors[color]) == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                color_is_found = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (color_is_found)</span><br><span class="line">            <span class="keyword">switch</span>(color)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">case</span> red    : <span class="built_in">puts</span>(<span class="string">"Roses are red."</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> orange : <span class="built_in">puts</span>(<span class="string">"Poppies are orange."</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> yellow : <span class="built_in">puts</span>(<span class="string">"Sunflowers are yellow."</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> green  : <span class="built_in">puts</span>(<span class="string">"Grass is green."</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> blue   : <span class="built_in">puts</span>(<span class="string">"Bluebells are blue."</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> violet : <span class="built_in">puts</span>(<span class="string">"Violets are violet."</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"I don't know about the color %s.\n"</span>, choice);</span><br><span class="line">        color_is_found = <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Next color, please (empty line to quit):"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Goodbye!"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> * ret_val;</span><br><span class="line">    <span class="keyword">char</span> * <span class="built_in">find</span>;</span><br><span class="line">    </span><br><span class="line">    ret_val = fgets(st, n, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">if</span> (ret_val)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">find</span> = <span class="built_in">strchr</span>(st, <span class="string">'\n'</span>);   <span class="comment">// look for newline</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">find</span>)                  <span class="comment">// if the address is not NULL,</span></span><br><span class="line">            *<span class="built_in">find</span> = <span class="string">'\0'</span>;          <span class="comment">// place a null character there</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;          <span class="comment">// dispose of rest of line</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret_val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/20/c/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/20/c/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5/" class="post-title-link" itemprop="url">字符串输入'char*和char[]'</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-20 00:55:50" itemprop="dateCreated datePublished" datetime="2020-03-20T00:55:50+08:00">2020-03-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>834</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h1><ul>
-<li>定义<br><code>char* a</code>这个a是变量, 可以修改<br><code>char b[]</code>这个b是常量， 不能改变</li>
-</ul>
-<h2 id="内存空间"><a href="#内存空间" class="headerlink" title="内存空间"></a>内存空间</h2><ul>
-<li>一个指针，一个数组<figure class="highlight c"><figcaption><span>没有开辟空间</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* str;      <span class="comment">//没有开辟空间</span></span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%s"</span>, str);<span class="comment">//虽然可以读入，但指针是乱指的，可能会擦拭本来的程序导致崩溃</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>, str);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这里在C primer plus上看到，这里的参数是个未初始化的指针，str会指向任何地方。所以，有可能会scanf改写某个地址上的值，从而擦掉程序中的代码。导致程序异常结束。</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight c"><figcaption><span>开辟空间</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* st;</span><br><span class="line">st = <span class="string">"hello"</span>;        <span class="comment">//开辟空间</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>, st);</span><br></pre></td></tr></table></figure>
-
-<h1 id="字符串的几种输入"><a href="#字符串的几种输入" class="headerlink" title="字符串的几种输入"></a>字符串的几种输入</h1><ul>
-<li>当以数据形式赋值时<br>这种形式可以<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char str[10] = <span class="string">"ferry"</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="这种形式不行（关键理解，数组的形式中str是常量）"><a href="#这种形式不行（关键理解，数组的形式中str是常量）" class="headerlink" title="这种形式不行（关键理解，数组的形式中str是常量）"></a>这种形式不行（关键理解，数组的形式中str是常量）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char str[10];</span><br><span class="line">str = <span class="string">"ferry"</span>;  </span><br><span class="line">// str被看作(数组的地址而且是个常量)（不同于char * str，str是个指针变量）</span><br></pre></td></tr></table></figure></li>
-<li>以改变数组的内容输入（1）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char s[10];</span><br><span class="line">scanf(<span class="string">"%s"</span>, s);     //可以读入</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>, s);</span><br></pre></td></tr></table></figure></li>
-<li>以改变数组的内容输入（2）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include&lt;string.h&gt;</span></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char str[10];</span><br><span class="line">    strcpy(str, <span class="string">"ferry"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, str);</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="关联点输出问题"><a href="#关联点输出问题" class="headerlink" title="关联点输出问题"></a>关联点输出问题</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char str[10] = <span class="string">"ferry"</span>; </span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>, str);   //字符串的地址=首元素的地址(传地址才能打出整个字符串)</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%c\n"</span>, *str);   //首元素的值</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="数组输入的本质"><a href="#数组输入的本质" class="headerlink" title="数组输入的本质"></a>数组输入的本质</h2><p>字符串是在静态存储区，而数组是独立分配，所以是把字符串copy到数组。</p>
-<blockquote>
-<p>此时的字符串有两个副本。一个在静态存储区的字符串字面量，另一个是存储在str数组中的字符串。</p>
-</blockquote>
-<h3 id="有关内存区域"><a href="#有关内存区域" class="headerlink" title="有关内存区域"></a>有关内存区域</h3><p><a href="https://ferrychan666.github.io/2020/03/15/c/%E5%AD%98%E5%82%A8%E7%B1%BB%E5%88%AB/">存储类别</a><br><a href="https://ferrychan666.github.io/2020/03/21/c/4%E5%A4%A7%E5%AD%98%E5%82%A8%E5%8C%BA%E5%9F%9F/">存储区域</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1215,13 +1209,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">143k</span>
+    <span title="Symbols count total">145k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:10</span>
+    <span title="Reading time total">2:12</span>
 </div>
 
 <div id="days"></div>

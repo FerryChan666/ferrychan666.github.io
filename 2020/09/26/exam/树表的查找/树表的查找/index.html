@@ -29,11 +29,15 @@
 <meta property="og:site_name" content="Ferry&#39;s Blog">
 <meta property="og:description" content="Synopsis因为折半查找拥有苛刻的适用条件，既要是顺序表还要有次序。并且如果进行频繁的插入删除操作对于顺序表来说是效率低下的。所以，为了解决可以更有效率地插入删除，我们使用了二叉树作为查找表的组织形式。  二叉排序树 平衡二叉树  Description二叉排序树二叉排序树实际上就是二叉树的链式存储结构。以此来进行查找。 存储结构1234typedef struct BSTNode &amp;#123">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/VRtlZiG.png">
+<meta property="og:image" content="https://i.imgur.com/ibiaKLq.png">
+<meta property="og:image" content="https://i.imgur.com/2Bz62Kv.png">
 <meta property="article:published_time" content="2020-09-26T05:35:12.000Z">
-<meta property="article:modified_time" content="2020-09-26T08:15:13.100Z">
+<meta property="article:modified_time" content="2020-09-29T07:31:43.784Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/VRtlZiG.png">
 
 <link rel="canonical" href="https://ferrychan666.github.io/2020/09/26/exam/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/">
 
@@ -218,10 +222,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-09-26 13:35:12 / Modified: 16:15:13" itemprop="dateCreated datePublished" datetime="2020-09-26T13:35:12+08:00">2020-09-26</time>
+              <time title="Created: 2020-09-26 13:35:12" itemprop="dateCreated datePublished" datetime="2020-09-26T13:35:12+08:00">2020-09-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-29 15:31:43" itemprop="dateModified" datetime="2020-09-29T15:31:43+08:00">2020-09-29</time>
+              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -236,14 +246,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -285,14 +295,13 @@
 
 
 
-
-
-
-
-
-
-
-
+<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>平衡二叉树是一种特殊的二叉排序树，又称AVL树。为什么要研究这种特殊的二叉排序树呢？当然是因为它作为查找树的时候，查找效率更高。通过，查找算法可以发现，树的高度越低，查找速度越快。如果二叉树是线性的，查找时间复杂度为O(n)，如果是平衡二叉树复杂度为O(log2 n)</p>
+<h3 id="建立平衡二叉树"><a href="#建立平衡二叉树" class="headerlink" title="建立平衡二叉树"></a>建立平衡二叉树</h3><p>平衡二叉树的建立也类似与二叉排序树的建立，也是一个一个节点地插入到树中。但要实现平衡。实现平衡就是需要左右子树之间的高度不能超过1。为此为根引入了<strong>平衡因子，即 平衡因子 = 左子树的高度 - 右子树的高度</strong></p>
+<p>那么关键问题就是在像往常一样创建排序二叉树的过程中，如何进行修改？变成平衡二叉树。平衡二叉树的调整需要引入<strong>最小不平衡子树</strong>。就是在逐步建立二叉树的过程中找到其中根平衡因子绝对值大于1的子树。</p>
+<p>而最小不平衡子树也有不同的形态，分为LL，RR，LR，RL型。这几种类型中都是取出顶上的3个节点。最小的变成左子树，最大的变成右子树，排在中间的变为根。</p>
+<p><img data-src="https://i.imgur.com/VRtlZiG.png" alt></p>
+<p><img data-src="https://i.imgur.com/ibiaKLq.png" alt></p>
+<p><img data-src="https://i.imgur.com/2Bz62Kv.png" alt></p>
 
     </div>
 
@@ -375,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Synopsis"><span class="nav-number">1.</span> <span class="nav-text">Synopsis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉排序树"><span class="nav-number">2.1.</span> <span class="nav-text">二叉排序树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储结构"><span class="nav-number">2.1.1.</span> <span class="nav-text">存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">2.1.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本算法"><span class="nav-number">2.1.3.</span> <span class="nav-text">基本算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找关键字"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">查找关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入关键字"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">插入关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建二叉排列树"><span class="nav-number">2.1.3.3.</span> <span class="nav-text">创建二叉排列树</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Synopsis"><span class="nav-number">1.</span> <span class="nav-text">Synopsis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉排序树"><span class="nav-number">2.1.</span> <span class="nav-text">二叉排序树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储结构"><span class="nav-number">2.1.1.</span> <span class="nav-text">存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">2.1.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本算法"><span class="nav-number">2.1.3.</span> <span class="nav-text">基本算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找关键字"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">查找关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入关键字"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">插入关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建二叉排列树"><span class="nav-number">2.1.3.3.</span> <span class="nav-text">创建二叉排列树</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">2.2.</span> <span class="nav-text">平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立平衡二叉树"><span class="nav-number">2.2.1.</span> <span class="nav-text">建立平衡二叉树</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

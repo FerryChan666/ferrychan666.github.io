@@ -64,6 +64,37 @@
 
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(SqList L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= L.length; i++)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; L.r[i].key &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 9</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//初始化</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> d[N] = &#123; <span class="number">50</span>,<span class="number">10</span>,<span class="number">90</span>,<span class="number">30</span>,<span class="number">70</span>,<span class="number">40</span>,<span class="number">80</span>,<span class="number">60</span>,<span class="number">20</span> &#125;;</span><br><span class="line">	SqList l,ll,lll;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= N; i++)</span><br><span class="line">		l.r[i].key = d[i<span class="number">-1</span>];</span><br><span class="line">	l.length = N;</span><br><span class="line">	lll=ll=l;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Original"</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">print</span>(l);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Sorted"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	InsertSort(l);</span><br><span class="line">	<span class="built_in">print</span>(l);</span><br><span class="line"></span><br><span class="line">	BInsertSort(ll);</span><br><span class="line">	<span class="built_in">print</span>(ll);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="交换类"><a href="#交换类" class="headerlink" title="交换类"></a>交换类</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序的基本过程：大的关键字就是一块石头，沉底。小的关键字就像气泡浮上来。</p>
+<ol>
+<li>从第一个关键字和第二个关键字开始比较，如果前面的比后面的大，则交换。否则不交换。然后，再将第二个关键字和第三个比较，判断是否要交换。以此类推，直到最后一个。那么最后一个就是数组中的最大元素。这样第一趟冒泡排序就完成了。</li>
+<li>接着我们进行第二趟，与第一趟不同的是：我们不需要比较已经放到最后的那个最大元素。<code>m--</code></li>
+<li>我们循环的结束条件：本次循环没有元素的交换。使用我们使用了<code>flag</code>来记录该次循环是否交换。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m = L.length - <span class="number">1</span>, flag = <span class="number">1</span>;<span class="comment">//标志本次排序是否交换</span></span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	RedType t;</span><br><span class="line">	<span class="keyword">while</span> ((flag==<span class="number">1</span>)&amp;&amp;(m&gt;<span class="number">0</span>))</span><br><span class="line">	&#123;</span><br><span class="line">		flag = <span class="number">0</span>;<span class="comment">//先记为没有交换</span></span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= m; j++)<span class="comment">//记录从1开始存放</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (L.r[j].key &gt; L.r[j + <span class="number">1</span>].key)</span><br><span class="line">			&#123;</span><br><span class="line">				flag = <span class="number">1</span>;<span class="comment">//标记为有交换</span></span><br><span class="line">				t = L.r[j];</span><br><span class="line">				L.r[j] = L.r[j + <span class="number">1</span>];</span><br><span class="line">				L.r[j + <span class="number">1</span>] = t;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		m--;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><p>顾名思义，先从中选择最小的，再与前面的元素交换。最终，得到有序的数组。</p>
+<ol>
+<li>首先设想将数组分成一个有序的和一个无序的数组。一开始全都是无序的</li>
+<li>遍历整个数组。在遍历中，再遍历无序的数组r[1…n]，并找到最小元素，下标记为k。如果k!=1，那么r[k]与r[1]交换。</li>
+<li>第二次，遍历无序数组r[2…n]，并找到最小元素，下标记为k。如果k!=2，那么r[k]与r[2]交换</li>
+<li>以此类推，可以得到。第i趟，遍历r[i…n]，找到最小元素下标k。if(k != i)，那么r[k]与r[i]交换。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k;</span><br><span class="line">	RedType t;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; L.length; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		k = i;</span><br><span class="line">		<span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt;= L.length; ++j)</span><br><span class="line">			<span class="keyword">if</span> (L.r[j].key &lt; L.r[k].key)</span><br><span class="line">				k = j;</span><br><span class="line">		<span class="keyword">if</span> (k != i)</span><br><span class="line">		&#123;</span><br><span class="line">			t = L.r[i];</span><br><span class="line">			L.r[i] = L.r[k];</span><br><span class="line">			L.r[k] = t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]]></content>
       <tags>
         <tag>exam</tag>
@@ -183,14 +214,6 @@
 
 
 ]]></content>
-      <tags>
-        <tag>exam</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>插入类排序</title>
-    <url>/2020/09/24/exam/%E6%8F%92%E5%85%A5%E7%B1%BB%E6%8E%92%E5%BA%8F/%E6%8F%92%E5%85%A5%E7%B1%BB%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h1 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h1>]]></content>
       <tags>
         <tag>exam</tag>
       </tags>

@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Reporting statements</title>
+    <url>/2020/10/20/English/Reporting-statements/Reporting-statements/</url>
+    <content><![CDATA[<h1 id="that-clauses"><a href="#that-clauses" class="headerlink" title="that-clauses"></a>that-clauses</h1><ol>
+<li><p>When we report statements, we often use a that-clause in the reported clause.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">He said (that) he was enjoying his work.</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Some reporting verbs which are followed by a <strong>that-clause</strong> have an alternative with an <strong>object + to-infinitive</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">I felt that the result were satisfactory. </span><br><span class="line">or</span><br><span class="line">I felt the result to be satisfactory.</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>Some verbs are must followed by <strong>object between the verb and that-clause</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">I notified the bank that I had changed my address.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Some verbs are use with or without object before a that-clause. However, if we do include an object, we put a preposition before it. (This object is sometimes called prepositional object)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">She admitted (to me) that she was seriously ill.</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>verbs</title>
     <url>/2020/10/18/English/verbs/verbs/</url>
     <content><![CDATA[<h1 id="verbs-with-and-without-object"><a href="#verbs-with-and-without-object" class="headerlink" title="verbs with and without object"></a>verbs with and without object</h1><p><strong>After some verbs we typically or always add a completion - a phrase which completes the meaning of the verb - which can be an adverb or preposition phrase.</strong></p>
@@ -109,7 +144,7 @@
   </entry>
   <entry>
     <title>函数的调用问题</title>
-    <url>/2020/10/10/%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E9%97%AE%E9%A2%98/%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+    <url>/2020/10/10/fatal/%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E9%97%AE%E9%A2%98/%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>先来看两个错误</p>
 <ol>
 <li><p>报错</p>

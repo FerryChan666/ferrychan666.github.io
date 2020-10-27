@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">128</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">127</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -187,125 +187,6 @@
             
 
   <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/06/c/getc()%E5%92%8Cputc()/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/06/c/getc()%E5%92%8Cputc()/" class="post-title-link" itemprop="url">面向字符getc()和putc()</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-06 14:48:09" itemprop="dateCreated datePublished" datetime="2020-04-06T14:48:09+08:00">2020-04-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.7k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>面向字符操作。</p>
-<p>这两个函数类似于getchar()和puchar(‘ch’)。</p>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p><strong>在后面加多一个参数(FILE指针)</strong></p>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="fopen"><a href="#fopen" class="headerlink" title="fopen()"></a>fopen()</h2><ol>
-<li>函数声明：在stdio.h中</li>
-<li>参数<br>(文件名，读写等模式)</li>
-<li>返回：文件指针<br><code>FILE * fp;</code><blockquote>
-<p>文件指针并不指向实际的文件，它指向一个包含文件信息的数据对象，其中包含I/O函数所用的缓冲区信息。</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="getc"><a href="#getc" class="headerlink" title="getc()"></a>getc()</h2><p><strong>类似于getchar()</strong></p>
-<ol>
-<li>参数<br>(FILE指针)</li>
-<li>返回：文件中的一个字符<blockquote>
-<p>与getchar()函数类似，getchar()是从<code>标准输入</code>中获取字符。而，getc()是从指定文件中获取字符</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="putc"><a href="#putc" class="headerlink" title="putc()"></a>putc()</h2><p><strong>类似于putchar()</strong></p>
-<ol>
-<li>参数<br>(一个字符，FILE指针)</li>
-<li>作用<br>将这个字符放入指定的文件中</li>
-</ol>
-<h2 id="exit"><a href="#exit" class="headerlink" title="exit()"></a>exit()</h2><ol>
-<li>函数声明：在stdlib.h头文件中</li>
-<li>参数<br>正常结束传递0，非正常传递非0值.</li>
-<li>作用<br>关闭所有打开文件，并结束程序<blockquote>
-<p>与return 不同的是：在main()以外的函数中调用exit()也能结束整个程序</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="fclose"><a href="#fclose" class="headerlink" title="fclose()"></a>fclose()</h2><ol>
-<li>参数<br>FILE指针</li>
-<li>作用<br>关闭指定文件</li>
-<li>返回<br>成功关闭：0<br>不成功：EOF</li>
-</ol>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><figcaption><span>将文件copy到其他文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;//提供exit()的原型</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>*argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *in;<span class="comment">//要被复制的文件指针</span></span><br><span class="line">    FILE *out;<span class="comment">//要复制到的文件指针</span></span><br><span class="line">    <span class="keyword">int</span> ch;<span class="comment">//存储每个字符</span></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;<span class="comment">//计数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">3</span>)<span class="comment">//如果参数不是3就退出</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Usage: %s filename"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((in = fopen(argv[<span class="number">1</span>], <span class="string">"r"</span>)) == <span class="literal">NULL</span>)<span class="comment">//如果argv[1]是空指针，就退出</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Can't open %s"</span>, argv[<span class="number">1</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">if</span> ((out = fopen(argv[<span class="number">2</span>], <span class="string">"w+"</span>)) == <span class="literal">NULL</span>)<span class="comment">//如果argv[2]是空指针，就退出</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Can't open %s"</span>, argv[<span class="number">2</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">while</span>((ch = getc(in)) != EOF)<span class="comment">//循环读入一个字符，直到文件结尾</span></span><br><span class="line">    &#123;</span><br><span class="line">        putc(ch, out);<span class="comment">//将这个字符放入FILE指针指定的文件中</span></span><br><span class="line">        count++;<span class="comment">//增加计数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (fclose(in) != <span class="number">0</span>);<span class="comment">//关闭文件</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Error in closing file %s\n"</span>, argv[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"File %s has %lu characters\n"</span>, argv[<span class="number">1</span>], count);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><figcaption><span>转换为大写文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 40</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE * fs;			<span class="comment">//原始文件指针</span></span><br><span class="line">    FILE * ft;			<span class="comment">//目标文件指针</span></span><br><span class="line">    <span class="keyword">char</span> name_s[SIZE];</span><br><span class="line">    <span class="keyword">char</span> <span class="keyword">name_t</span>[SIZE];</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//输入原始文件和目标文件名</span></span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stdout</span>, <span class="string">"Please enter the source file name:\n"</span>);</span><br><span class="line">    s_gets(name_s, SIZE);</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stdout</span>, <span class="string">"Please enter the target file name:\n"</span>);</span><br><span class="line">    s_gets(<span class="keyword">name_t</span>, SIZE);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//打开原始文件和目标文件</span></span><br><span class="line">    <span class="keyword">if</span> ((fs = fopen(name_s, <span class="string">"r"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open the %s\n"</span>, name_s);</span><br><span class="line">    <span class="keyword">if</span> ((ft = fopen(<span class="keyword">name_t</span>, <span class="string">"w"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open the %s\n"</span>, <span class="keyword">name_t</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//拷贝数据</span></span><br><span class="line">    <span class="keyword">while</span> ((ch = getc(fs)) != EOF)</span><br><span class="line">        putc(<span class="built_in">toupper</span>(ch), ft);</span><br><span class="line">    </span><br><span class="line">    fclose(fs);</span><br><span class="line">    fclose(ft);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//自定义读取文件名的函数</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> * <span class="built_in">find</span>;</span><br><span class="line">    <span class="keyword">char</span> * ret_val;</span><br><span class="line"></span><br><span class="line">    ret_val = fgets(st, n, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">if</span> (ret_val)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">find</span> = <span class="built_in">strchr</span>(st, <span class="string">'\n'</span>);	<span class="comment">//查找换行符</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">find</span>)</span><br><span class="line">            *<span class="built_in">find</span> = <span class="string">'\0'</span>;			<span class="comment">//替换为空字符</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;			<span class="comment">//处理多余输入</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret_val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><figcaption><span>输出文件内容(命令行)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">if</span>(argc == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Usage: %s filename"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; argc; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((fp = fopen(argv[i], <span class="string">"r"</span>)) == <span class="literal">NULL</span>)<span class="comment">//判断文件存在，并赋值给文件指针</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Cound not open %s file"</span>, argv[i]);</span><br><span class="line">            <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> ((ch = getc(fp)) != EOF)</span><br><span class="line">        &#123;</span><br><span class="line">            putc(ch, <span class="built_in">stdout</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
         
   
   
@@ -1088,6 +969,91 @@
 <figure class="highlight java"><figcaption><span>鸡</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chicken</span> <span class="keyword">extends</span> <span class="title">Bird</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Chicken</span><span class="params">(String feather)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(feather);</span><br><span class="line">		System.out.println(<span class="string">"我是一只鸡"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"跑"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"吃米"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><figcaption><span>主方法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Seagull jack = <span class="keyword">new</span> Seagull(<span class="string">"白色"</span>);</span><br><span class="line">		jack.eat();</span><br><span class="line">		jack.move();</span><br><span class="line">		jack.growFeather();</span><br><span class="line">		jack.reproduce();</span><br><span class="line">		</span><br><span class="line">		System.out.println();</span><br><span class="line">		</span><br><span class="line">		Chicken tom = <span class="keyword">new</span> Chicken(<span class="string">"黄色"</span>);</span><br><span class="line">		tom.eat();</span><br><span class="line">		tom.move();</span><br><span class="line">		tom.growFeather();</span><br><span class="line">		tom.reproduce();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><figcaption><span>输出</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">创建一个动物</span><br><span class="line">创建一个鸟类</span><br><span class="line">我是一只海鸥</span><br><span class="line">eat fish</span><br><span class="line">fly</span><br><span class="line">长满白色羽毛</span><br><span class="line">下蛋</span><br><span class="line"></span><br><span class="line">创建一个动物</span><br><span class="line">创建一个鸟类</span><br><span class="line">我是一只鸡</span><br><span class="line">吃米</span><br><span class="line">跑</span><br><span class="line">长满黄色羽毛</span><br><span class="line">下蛋</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/29/java/%E5%A4%9A%E6%80%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/java/%E5%A4%9A%E6%80%81/" class="post-title-link" itemprop="url">多态</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-29 19:43:34" itemprop="dateCreated datePublished" datetime="2020-03-29T19:43:34+08:00">2020-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>714</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>多态就是一种事物的多种形态。</p>
+<h2 id="存在的条件"><a href="#存在的条件" class="headerlink" title="存在的条件"></a>存在的条件</h2><ul>
+<li>继承</li>
+<li>重写</li>
+<li>向上转型（父类引用指向子类对象）</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String kinds)</span> </span>&#123;<span class="comment">//构造方法</span></span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"创建一个"</span> + kinds);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;		<span class="comment">//父类的方法</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fish</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Fish</span><span class="params">(String kinds)</span> </span>&#123;<span class="comment">//子类的构造方法</span></span><br><span class="line">		<span class="keyword">super</span>(kinds);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;		<span class="comment">//改写父类的方法</span></span><br><span class="line">		System.out.println(<span class="string">"swim"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(String kinds)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(kinds);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"run"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Animal xx = <span class="keyword">new</span> Animal(<span class="string">"动物"</span>);</span><br><span class="line">		Animal jack = <span class="keyword">new</span> Fish(<span class="string">"fish"</span>);<span class="comment">//这个动物变成了鱼（多态）</span></span><br><span class="line">		jack.move();</span><br><span class="line">		jack = <span class="keyword">new</span> Dog(<span class="string">"狗"</span>);	<span class="comment">//鱼变成了狗（多态）</span></span><br><span class="line">		jack.move();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

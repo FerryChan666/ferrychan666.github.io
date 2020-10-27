@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Informantion Storage</title>
-    <url>/2020/10/27/Information-Storage/Information-Storage/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Information Storage</title>
-    <url>/2020/10/27/Information-Storage/Informantion-Storage/</url>
+    <url>/2020/10/27/Information-Storage/Information-Storage/</url>
     <content><![CDATA[<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>Modern computers store and process information represented as two-valued signals. Binary values work better when building machines that store and process information. </p>
 <h1 id="How-many-sizes-to-store"><a href="#How-many-sizes-to-store" class="headerlink" title="How many sizes to store?"></a>How many sizes to store?</h1><ul>
 <li><p>A machine-level program views memory as a very large array of bytes, referred to as <strong>virtual memory</strong>. Rather than accessing individual bit in memory, most computers use blocks of 8 bits, or byte, as the smallest addressable unit of memory. </p>

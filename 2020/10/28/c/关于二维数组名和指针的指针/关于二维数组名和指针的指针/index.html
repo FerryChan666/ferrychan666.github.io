@@ -22,22 +22,20 @@
     var CONFIG = {"hostname":"ferrychan666.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="PrefaceModern computers store and process information represented as two-valued signals. Binary values work better when building machines that store and process information.  How many sizes to store?">
+  <meta name="description" content="我们来看一段代码 12345678void f(int **a)&amp;#123;&amp;#125;int main()&amp;#123;    int a[2][2];    f(a);&amp;#125;  这个代码是会报错的，error: cannot convert &#39;int (*)[2]&#39; to &#39;int**&#39; 很明显，二维数组名不是指针的指针(int **)，而是一个指针数组in">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Information Storage">
-<meta property="og:url" content="https://ferrychan666.github.io/2020/10/27/Information-Storage/Information-Storage/index.html">
+<meta property="og:title" content="关于二维数组名和指针的指针">
+<meta property="og:url" content="https://ferrychan666.github.io/2020/10/28/c/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/index.html">
 <meta property="og:site_name" content="Ferry&#39;s Blog">
-<meta property="og:description" content="PrefaceModern computers store and process information represented as two-valued signals. Binary values work better when building machines that store and process information.  How many sizes to store?">
+<meta property="og:description" content="我们来看一段代码 12345678void f(int **a)&amp;#123;&amp;#125;int main()&amp;#123;    int a[2][2];    f(a);&amp;#125;  这个代码是会报错的，error: cannot convert &#39;int (*)[2]&#39; to &#39;int**&#39; 很明显，二维数组名不是指针的指针(int **)，而是一个指针数组in">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.imgur.com/i5sVdr9.png">
-<meta property="article:published_time" content="2020-10-27T12:13:46.000Z">
-<meta property="article:modified_time" content="2020-10-27T13:34:49.100Z">
+<meta property="article:published_time" content="2020-10-28T12:56:06.000Z">
+<meta property="article:modified_time" content="2020-10-28T13:06:24.384Z">
 <meta property="article:author" content="Ferry">
-<meta property="article:tag" content="csapp">
+<meta property="article:tag" content="c">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/i5sVdr9.png">
 
-<link rel="canonical" href="https://ferrychan666.github.io/2020/10/27/Information-Storage/Information-Storage/">
+<link rel="canonical" href="https://ferrychan666.github.io/2020/10/28/c/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/">
 
 
 <script id="page-configurations">
@@ -50,7 +48,7 @@
   };
 </script>
 
-  <title>Information Storage | Ferry's Blog</title>
+  <title>关于二维数组名和指针的指针 | Ferry's Blog</title>
   
 
 
@@ -132,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">127</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">129</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -198,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/10/27/Information-Storage/Information-Storage/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/10/28/c/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -211,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Information Storage
+          关于二维数组名和指针的指针
         </h1>
 
         <div class="post-meta">
@@ -222,7 +220,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-10-27 20:13:46 / Modified: 21:34:49" itemprop="dateCreated datePublished" datetime="2020-10-27T20:13:46+08:00">2020-10-27</time>
+              <time title="Created: 2020-10-28 20:56:06 / Modified: 21:06:24" itemprop="dateCreated datePublished" datetime="2020-10-28T20:56:06+08:00">2020-10-28</time>
             </span>
 
           
@@ -238,14 +236,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.7k</span>
+              <span>293</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -257,40 +255,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>Modern computers store and process information represented as two-valued signals. Binary values work better when building machines that store and process information. </p>
-<h1 id="How-many-sizes-to-store"><a href="#How-many-sizes-to-store" class="headerlink" title="How many sizes to store?"></a>How many sizes to store?</h1><ul>
-<li><p>A machine-level program views memory as a very large array of bytes, referred to as <strong>virtual memory</strong>. Rather than accessing individual bit in memory, most computers use blocks of 8 bits, or byte, as the smallest addressable unit of memory. </p>
-</li>
-<li><p>Every byte of memory is identified by a unique number, know as its <strong>address</strong>, and the set of all possible address is known as the <strong>virtual address space</strong>. </p>
-</li>
-</ul>
-<p>It simply treats each program object as a block of bytes and the program itself as a sequence of bytes.</p>
-<h2 id="Hexadecimal-Notation"><a href="#Hexadecimal-Notation" class="headerlink" title="Hexadecimal Notation"></a>Hexadecimal Notation</h2><ul>
-<li><p>A single byte consists of 8 bits. </p>
-<p>In binary notation, its value ranges from 0000000 to 1111111.</p>
-<p>In decimal notation, its value ranges from 0 to 255.</p>
-<p>In hexadecimal notation, its value ranges from 00 to 0xFF.</p>
-</li>
-</ul>
-<ul>
-<li><p>We write bit pattern as base-16 or hexadecimal number</p>
-<p>Why? Because the binary notation is too verbose, while with decimal notion it is tedious to convert to and from bit patterns.</p>
-<ul>
-<li>Converting between binary and hexadecimal is straightforward. We can convert <code>0x173A4C</code>to binary format by expanding each hexadecimal digit. Conversely, given a binary number, we can convert it to hexadecimal by first splitting it into groups of 4 bit each.</li>
-</ul>
-</li>
-</ul>
-<p><img data-src="https://i.imgur.com/i5sVdr9.png" alt></p>
-<h2 id="Data-Sizes"><a href="#Data-Sizes" class="headerlink" title="Data Sizes"></a>Data Sizes</h2><ul>
-<li><p>word size</p>
-<p><strong>Every computer has a word size, indicating the size of pointer data.</strong> The most important parameter determined by word size is the maximum size of the virtual address space. That is, for a machine with <em>w</em> bits word sizes the virtual addresses can range from 0 to 2^w - 1, giving the program access to at most 2^64 bytes. (A 32-bit word size limits the virtual address space to 4GB, this is, just over 4*10^9 bytes)</p>
-</li>
-</ul>
-<h1 id="Where-to-store"><a href="#Where-to-store" class="headerlink" title="Where to store?"></a>Where to store?</h1><h2 id="Addressing-and-Byte-Ordering"><a href="#Addressing-and-Byte-Ordering" class="headerlink" title="Addressing and Byte Ordering"></a>Addressing and Byte Ordering</h2><ol>
-<li>The different machine/operating system configurations use different conventions for storage allocation.</li>
-<li>For ordering the byes representing an object, there are two conventions.</li>
-</ol>
-<p>Let’s have a look.</p>
+        <p>我们来看一段代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void f(int **a)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int a[2][2];</span><br><span class="line">    f(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个代码是会报错的，<code>error: cannot convert &#39;int (*)[2]&#39; to &#39;int**&#39;</code></p>
+<p><strong>很明显，二维数组名不是指针的指针</strong><code>(int **)</code>，而是一个指针数组<code>int (*)[2]</code></p>
+<p>如果非要用指针的指针，可以这样</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> c[<span class="number">3</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> d[<span class="number">3</span>]=&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> **a</span><br><span class="line">a = <span class="keyword">new</span> <span class="keyword">int</span> *[<span class="number">2</span>];</span><br><span class="line">*(a)=c;</span><br><span class="line">*(a+<span class="number">1</span>)=d;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -300,7 +272,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/csapp/" rel="tag"># csapp</a>
+              <a href="/tags/c/" rel="tag"># c</a>
           </div>
 
         
@@ -309,8 +281,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/10/20/English/Reporting-statements/Reporting-statements/" rel="prev" title="Reporting statements">
-      <i class="fa fa-chevron-left"></i> Reporting statements
+    <a href="/2020/10/28/exam/array-Matrix-%E5%B9%BF%E4%B9%89%E8%A1%A8/array-Matrix-%E5%B9%BF%E4%B9%89%E8%A1%A8/" rel="prev" title="array, Matrix, 广义表'">
+      <i class="fa fa-chevron-left"></i> array, Matrix, 广义表'
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -373,7 +345,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-many-sizes-to-store"><span class="nav-number">2.</span> <span class="nav-text">How many sizes to store?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexadecimal-Notation"><span class="nav-number">2.1.</span> <span class="nav-text">Hexadecimal Notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Sizes"><span class="nav-number">2.2.</span> <span class="nav-text">Data Sizes</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Where-to-store"><span class="nav-number">3.</span> <span class="nav-text">Where to store?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Addressing-and-Byte-Ordering"><span class="nav-number">3.1.</span> <span class="nav-text">Addressing and Byte Ordering</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -421,13 +392,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">158k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:23</span>
+    <span title="Reading time total">2:24</span>
 </div>
 
 <div id="days"></div>
@@ -598,7 +569,7 @@ window.addEventListener('pjax:success', () => {
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://ferrychan666.github.io/2020/10/27/Information-Storage/Information-Storage/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://ferrychan666.github.io/2020/10/28/c/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/',]
       });
       });
   </script>
@@ -614,7 +585,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'gitalk',
       owner       : 'ferrychan666',
       admin       : ['ferrychan666'],
-      id          : 'c2d0325f066c5b6411aa681b675d57a8',
+      id          : 'd2f557d976861bd66ad91d2cb3b9d75b',
         language: 'zh-CN',
       distractionFreeMode: true
     });

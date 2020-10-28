@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>关于二维数组名和指针的指针</title>
+    <url>/2020/10/28/c/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<p>我们来看一段代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void f(int **a)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int a[2][2];</span><br><span class="line">    f(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个代码是会报错的，<code>error: cannot convert &#39;int (*)[2]&#39; to &#39;int**&#39;</code></p>
+<p><strong>很明显，二维数组名不是指针的指针</strong><code>(int **)</code>，而是一个指针数组<code>int (*)[2]</code></p>
+<p>如果非要用指针的指针，可以这样</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> c[<span class="number">3</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> d[<span class="number">3</span>]=&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> **a</span><br><span class="line">a = <span class="keyword">new</span> <span class="keyword">int</span> *[<span class="number">2</span>];</span><br><span class="line">*(a)=c;</span><br><span class="line">*(a+<span class="number">1</span>)=d;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>c</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>array, Matrix, 广义表&#39;</title>
+    <url>/2020/10/28/exam/array-Matrix-%E5%B9%BF%E4%B9%89%E8%A1%A8/array-Matrix-%E5%B9%BF%E4%B9%89%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="数组的顺序存储"><a href="#数组的顺序存储" class="headerlink" title="数组的顺序存储"></a>数组的顺序存储</h2><p>数组的顺序存储有两种方式：<strong>行优先，列优先</strong></p>
+<ul>
+<li>定义二维数组<code>a[4][5]</code>。<ul>
+<li>无论是行优先还是列优先，矩阵都是同型的。</li>
+</ul>
+</li>
+</ul>
+<p><img data-src="https://i.imgur.com/27wVhqO.png" alt></p>
+]]></content>
+      <tags>
+        <tag>exam</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Information Storage</title>
-    <url>/2020/10/27/Information-Storage/Information-Storage/</url>
+    <url>/2020/10/27/csapp/Information-Storage/Information-Storage/</url>
     <content><![CDATA[<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>Modern computers store and process information represented as two-valued signals. Binary values work better when building machines that store and process information. </p>
 <h1 id="How-many-sizes-to-store"><a href="#How-many-sizes-to-store" class="headerlink" title="How many sizes to store?"></a>How many sizes to store?</h1><ul>
 <li><p>A machine-level program views memory as a very large array of bytes, referred to as <strong>virtual memory</strong>. Rather than accessing individual bit in memory, most computers use blocks of 8 bits, or byte, as the smallest addressable unit of memory. </p>
@@ -32,11 +64,18 @@
 <p><strong>Every computer has a word size, indicating the size of pointer data.</strong> The most important parameter determined by word size is the maximum size of the virtual address space. That is, for a machine with <em>w</em> bits word sizes the virtual addresses can range from 0 to 2^w - 1, giving the program access to at most 2^64 bytes. (A 32-bit word size limits the virtual address space to 4GB, this is, just over 4*10^9 bytes)</p>
 </li>
 </ul>
-<h1 id="Where-to-store"><a href="#Where-to-store" class="headerlink" title="Where to store?"></a>Where to store?</h1><h2 id="Addressing-and-Byte-Ordering"><a href="#Addressing-and-Byte-Ordering" class="headerlink" title="Addressing and Byte Ordering"></a>Addressing and Byte Ordering</h2><ol>
-<li>The different machine/operating system configurations use different conventions for storage allocation.</li>
-<li>For ordering the byes representing an object, there are two conventions.</li>
-</ol>
-<p>Let’s have a look.</p>
+<h1 id="Where-to-store"><a href="#Where-to-store" class="headerlink" title="Where to store?"></a>Where to store?</h1><h2 id="Addressing-and-Byte-Ordering"><a href="#Addressing-and-Byte-Ordering" class="headerlink" title="Addressing and Byte Ordering"></a>Addressing and Byte Ordering</h2><ul>
+<li><p>The different machine/operating system configurations use different conventions for storage allocation.</p>
+</li>
+<li><p>For ordering the byes representing an object, there are two conventions.</p>
+<p>Let’s have a look. Suppose the variable x of type int and at address 0x100 has hexadecimal value of 0x1234567. Some machines choose to store the object in memory ordered from least significant bytes to most, while other machines storm them from most to least. </p>
+<ul>
+<li>The former convention -where the least significant byte comes first- is referred to as little endian.</li>
+<li>The least convention -where the most significant byte comes first- is referred to as big endian.</li>
+</ul>
+</li>
+</ul>
+<p><img data-src="https://i.imgur.com/c7mWESs.png" alt></p>
 ]]></content>
       <tags>
         <tag>csapp</tag>
@@ -755,11 +794,17 @@
 
 <h3 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h3><p>KMP算法是模式匹配算法的改进，为了避免i的回溯，和避免出现不匹配的字符时，j直接回溯到1。</p>
 <h4 id="next-数组"><a href="#next-数组" class="headerlink" title="next[]数组"></a>next[]数组</h4><ul>
-<li><p>“前缀”指除了最后一个字符以外，一个字符串的全部头部组合；</p>
-</li>
-<li><p>“后缀”指除了第一个字符以外，一个字符串的全部尾部组合。</p>
-</li>
+<li>“前缀”指除了最后一个字符以外，一个字符串的全部头部组合；</li>
+<li>“后缀”指除了第一个字符以外，一个字符串的全部尾部组合。</li>
+<li>手工求解Next数组</li>
 </ul>
+<p><img data-src="https://i.imgur.com/ih3b9SZ.jpg" alt></p>
+<p>我们通过比较对应的字符i前的最大前后缀，让后让next[i]=i之前的串中最大共同前后缀 + 1。</p>
+<p>首先，我们规定next[1]=0.</p>
+<p>然后，next[2]前，只有一个字符A，那么最大公共前后缀为0，所以next[2]=0+1;</p>
+<p>next[3]的判断也是一样，next[3]前的字符串的最大公共前后缀为0，所以next[3]=0+1;</p>
+<p>next[4]前的字符串的最大公共前后缀为1，所以next[4]=1+1=2;</p>
+<p>….</p>
 <p>next[]数组的存在是为了在配对时，模式串中<strong>避免j直接回溯到1。而是在模式串中第j个字符发生不匹配时，回到next[j]处(这里的位置是：最大匹配前后缀+1），再比较。</strong></p>
 <p><img data-src="https://i.imgur.com/FEhEkdh.png" alt></p>
 <p>因为要找出模式串中所有位置的回溯点，如果前面的配对成功，模式串与主串的字符是一样的，所以，只需研究模式串就够了。</p>
@@ -769,6 +814,69 @@
 
 
 
+<h3 id="KMP算法的改进"><a href="#KMP算法的改进" class="headerlink" title="KMP算法的改进"></a>KMP算法的改进</h3><h4 id="nextval数组"><a href="#nextval数组" class="headerlink" title="nextval数组"></a>nextval数组</h4><ul>
+<li>手工求解nextval</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>j (数组下标)</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P(模式串)</td>
+<td>a</td>
+<td>b</td>
+<td>a</td>
+<td>b</td>
+<td>a</td>
+<td>a</td>
+<td>b</td>
+<td>a</td>
+<td>b</td>
+</tr>
+<tr>
+<td>next[j]</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>nextval[j]</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>根据已知的next[]来手工求解nextval[]。</p>
+<p>首先，规定nextval[0]=0；</p>
+<p>其次，判断Pj = or != Pnext[j]。(P后面的是下标)</p>
+<p>if(Pj = Pnext[j])</p>
+<p>​    nextval[j] = next[j];</p>
+<p>else</p>
+<p>​    nextval[j] = nextval[ next[j] ];</p>
+<p><a href="https://www.bilibili.com/s/video/BV1uJ411s7br">An an example</a></p>
 ]]></content>
       <tags>
         <tag>exam</tag>

@@ -17,7 +17,7 @@
       </tags>
   </entry>
   <entry>
-    <title>array, Matrix, 广义表&#39;</title>
+    <title>array, Matrix, 广义表</title>
     <url>/2020/10/28/exam/array-Matrix-%E5%B9%BF%E4%B9%89%E8%A1%A8/array-Matrix-%E5%B9%BF%E4%B9%89%E8%A1%A8/</url>
     <content><![CDATA[<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="数组的顺序存储"><a href="#数组的顺序存储" class="headerlink" title="数组的顺序存储"></a>数组的顺序存储</h2><p>数组的顺序存储有两种方式：<strong>行优先，列优先</strong></p>
 <ul>

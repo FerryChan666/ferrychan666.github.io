@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>PATH环境变量不见了</title>
+    <url>/2020/10/30/Q&amp;A/PATH%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8D%E8%A7%81%E4%BA%86/</url>
+    <content><![CDATA[<p>Windows下的PATH环境变量不知被哪门子清理软件给清掉了。所以我们New一个PATH</p>
+<p>variable value：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>Q&amp;A</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于二维数组名和指针的指针</title>
     <url>/2020/10/28/c/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<p>我们来看一段代码</p>

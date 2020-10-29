@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">129</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">130</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -187,6 +187,92 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/27/c/%E5%85%B3%E4%BA%8Ec%E7%9A%84%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/27/c/%E5%85%B3%E4%BA%8Ec%E7%9A%84%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">c的简单算法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-27 11:10:14" itemprop="dateCreated datePublished" datetime="2020-03-27T11:10:14+08:00">2020-03-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>634</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="判断英文字母"><a href="#判断英文字母" class="headerlink" title="判断英文字母"></a>判断英文字母</h2><ol>
+<li>当字母区分大小写时，我们只需要写<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ch &lt;= <span class="string">'z'</span> &amp;&amp; ch &gt;= <span class="string">'a'</span></span><br><span class="line">ch &lt;= <span class="string">'Z'</span> &amp;&amp; ch &gt;= <span class="string">'A'</span></span><br></pre></td></tr></table></figure></li>
+<li>当字母不区分大小写，当中就有一个问题。<h6 id="由于ASCII表中的大小字母的对应的十进制数不是连续从65-122的。"><a href="#由于ASCII表中的大小字母的对应的十进制数不是连续从65-122的。" class="headerlink" title="由于ASCII表中的大小字母的对应的十进制数不是连续从65-122的。"></a>由于ASCII表中的大小字母的对应的十进制数不是连续从65-122的。</h6>所以要将大小写分开。<br><code>(ch &lt;= &#39;z&#39; &amp;&amp; ch &gt;= &#39;a&#39;) || (ch &lt;= &#39;Z&#39; &amp;&amp; ch &gt;= &#39;A&#39;)</code></li>
+</ol>
+<h2 id="判断某数不超过几位"><a href="#判断某数不超过几位" class="headerlink" title="判断某数不超过几位"></a>判断某数不超过几位</h2><p>我们可能会用<br><code>n &lt;= 100 &amp;&amp; n &gt;= -100</code><br>更好地，我们用<br><code>n / 100 == 0</code></p>
+<h2 id="计算绝对值"><a href="#计算绝对值" class="headerlink" title="计算绝对值"></a>计算绝对值</h2><p>计算 a　+ |b|<br>可以直接使用三目运算符。<br><code>(b &gt;= 0) ? (a + b) : (a - b)</code></p>
+<h2 id="将小写变大写"><a href="#将小写变大写" class="headerlink" title="将小写变大写"></a>将小写变大写</h2><p>也可以运用三目运算符，（判断）？（是）：（否）<br><code>(a &lt; &#39;Z&#39; &amp;&amp; a &gt; &#39;A&#39;) ? (a - &#39;a&#39; + &#39;A&#39;) : a</code><br>判断是不是大写,          是就变小写,     不是就直接输出</p>
+<h2 id="输出最大值"><a href="#输出最大值" class="headerlink" title="输出最大值"></a>输出最大值</h2><p>可以通过代数的方法，从简单的代码变成复杂的代码<br><img data-src="https://i.ibb.co/QY0pf96/8eeee8f0aa4c7667a1d14fbb24dd4b0.png" alt></p>
+<h2 id="倒序输出"><a href="#倒序输出" class="headerlink" title="倒序输出"></a>倒序输出</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">    <span class="keyword">while</span>(x != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>, x % <span class="number">10</span>);</span><br><span class="line">        x /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1010,97 +1096,6 @@
 <p>此时的字符串有两个副本。一个在静态存储区的字符串字面量，另一个是存储在str数组中的字符串。</p>
 </blockquote>
 <h3 id="有关内存区域"><a href="#有关内存区域" class="headerlink" title="有关内存区域"></a>有关内存区域</h3><p><a href="https://ferrychan666.github.io/2020/03/15/c/%E5%AD%98%E5%82%A8%E7%B1%BB%E5%88%AB/">存储类别</a><br><a href="https://ferrychan666.github.io/2020/03/21/c/4%E5%A4%A7%E5%AD%98%E5%82%A8%E5%8C%BA%E5%9F%9F/">存储区域</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/19/c/%E6%8C%87%E9%92%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/19/c/%E6%8C%87%E9%92%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">指针和字符串</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-19 11:05:53" itemprop="dateCreated datePublished" datetime="2020-03-19T11:05:53+08:00">2020-03-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>838</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>赋予指针地址的时候要类型匹配。</p>
-<ul>
-<li>For instance<br><code>&quot;name&quot;</code>是<code>char*</code>类型<h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1></li>
-<li>让两个指针指向同一个字符串<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span>* name = <span class="string">"faye"</span>;   <span class="comment">//让name(指针)指向字符串，即name就是这个字符串的地址</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, name);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> * str;        <span class="comment">//重新定义一个指针</span></span><br><span class="line">    str = name;       <span class="comment">//让str（地址）被赋予name（地址）so,str也指向这个字符串</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, str);    <span class="comment">//这时name和str的地址一样</span></span><br><span class="line">    str = <span class="string">"hello"</span>;      <span class="comment">//改变了指向的字符串内容</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, str);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="一个间接的"><a href="#一个间接的" class="headerlink" title="一个间接的"></a>一个间接的</h3></li>
-<li>给指针的指针赋值，让两个指针指向同一个字符串<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span>* name = <span class="string">"faye"</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, name);</span><br><span class="line">    <span class="keyword">char</span>** str;         <span class="comment">//char**也是一个类型，定义了指针的指针</span></span><br><span class="line">    str = &amp;name;        <span class="comment">//我让字符串地址的地址赋给了str（也就是name的地址）</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//重点啊，地址的地址是一一对应的，也就是地址上的值还是地址</span></span><br><span class="line">    <span class="comment">//自然而然</span></span><br><span class="line"></span><br><span class="line">    *str = <span class="string">"ferry"</span>;     <span class="comment">//让*str指向“ferry”，改掉 </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, *str);   <span class="comment">//ferry</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, name);   <span class="comment">//ferry</span></span><br><span class="line">    <span class="comment">//发现原来地址上的值被改掉</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<ul>
-<li>字符串类型的地址<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* origin = <span class="string">"origin"</span>;     <span class="comment">//开辟空间</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, origin + i);</span><br><span class="line"></span><br><span class="line"><span class="comment">// *origin *(origin + 1) *(origin + 2)是"origin" "rigin" "igin"</span></span><br></pre></td></tr></table></figure></li>
-</ul>
 
       
     </div>

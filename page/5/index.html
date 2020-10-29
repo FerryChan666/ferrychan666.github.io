@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">129</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">130</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -187,6 +187,114 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/05/12/DS/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97/%E9%98%9F%E5%88%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/12/DS/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97/%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">顺序队列</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-12 17:25:39" itemprop="dateCreated datePublished" datetime="2020-05-12T17:25:39+08:00">2020-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>队列也是一种表。它把线性表限制了<strong>只能在第一项删除和最后一项添加数据</strong>。由此，它的结构–</p>
+<ul>
+<li>指向头和尾的指针</li>
+<li>每一项的数据</li>
+<li>由于队列的删除和插入操作，需要移动数据而且时间复杂度为O(n)，但可以通过引入循环队列来使得时间复杂度变为O(1)</li>
+</ul>
+<p>队列也同线性表类似，可以有两种存储结构。顺序存储结构 和 链式存储结构</p>
+<h1 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>同样地，顺序存储结构用到数组来实现。结构中记录头和尾的指针<strong>其实是数组的下标(int)</strong>（front,rear)<br><strong>注意，rear是指队尾元素的下一个位置，front是队头（第一个元素）</strong></p>
+<ul>
+<li><em>空队列的判断</em>。所以，当<code>rear == front</code>的时候，不是还剩一个元素，而是空队列。（一个元素都没有）</li>
+</ul>
+<p><img data-src="https://i.loli.net/2020/05/12/IBxZ8dk9Lra2HKJ.png" alt></p>
+<ul>
+<li>当我们用循环队列的时候，如果，元素把整个数组都占满的时候，那么<code>rear == front</code>着个等式不是也成立吗？那么我们怎么区分<strong>满队列</strong>和<strong>空队列</strong>呢？我们应该采取一种方法—永远不要让元素占满整个数组。应该留一个空位。</li>
+</ul>
+<p><img data-src="https://i.loli.net/2020/05/12/v7fNVKGUnPhC5yk.png" alt></p>
+<ul>
+<li><p><em>满队列的判断</em>。因为要留下一个位置不能用，要用<code>Q-&gt;rear + 1 == Q-&gt;front</code>判断队列为满</p>
+</li>
+<li><p><em>队列长度</em>。因为队列是循环结构，所以可能会出现两段长度0 + rear 与 MAXSIZE - front。或一段长度rear - front<br>公式：r - f　　　r - f + M <strong>得通用公式</strong> (r - f + M) % M</p>
+</li>
+</ul>
+<h3 id="循环的队列"><a href="#循环的队列" class="headerlink" title="循环的队列"></a>循环的队列</h3><p>因为队列只能在对头删除，队尾添加。如果一直这样操作下去。那么，我们定义的数组就会出现前面的项没有被使用，后面的项一直被占用。所以，为了有效的利用数组的空间。我们可以把着数组想象成环状。<strong>即，队头不一定要从数组的首元素开始，当要数据越界的时候将元素添加到数组的开头</strong></p>
+<h3 id="EnQueue-DeQueue"><a href="#EnQueue-DeQueue" class="headerlink" title="EnQueue(),DeQueue()"></a>EnQueue(),DeQueue()</h3><ol>
+<li>在添加元素的时候，需要事先检查队列是否为满（元素是否占满数组）。</li>
+<li>在删除元素的时候，需要事先检查队列是否为空。</li>
+</ol>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight c"><figcaption><span>queue.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _Queue_h_</span></span><br><span class="line"><span class="comment">/*顺序存储结构的队列*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 5</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdbool.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ElementType data[MAXSIZE];</span><br><span class="line">    <span class="keyword">int</span> front;</span><br><span class="line">    <span class="keyword">int</span> rear;</span><br><span class="line">&#125; Queue;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化操作，建立一个空队列</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitQueue</span><span class="params">(Queue *Q)</span></span>;</span><br><span class="line"><span class="comment">//将队列清空</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ClearQueue</span><span class="params">(Queue *Q)</span></span>;</span><br><span class="line"><span class="comment">//若队列为空返回true，否则返回false</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(Queue *Q)</span></span>;</span><br><span class="line"><span class="comment">//若队列非空，用*e返回队列头元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">GetHead</span><span class="params">(Queue *Q, ElementType *e)</span></span>;</span><br><span class="line"><span class="comment">//若队列存在，则插入元素到队列尾部</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EnQueue</span><span class="params">(Queue *Q, ElementType e)</span></span>;</span><br><span class="line"><span class="comment">//删除队列首元素，并用*e返回其值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DeQueue</span><span class="params">(Queue *Q, ElementType *e)</span></span>;</span><br><span class="line"><span class="comment">//返回队列元素的个数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">QueueLength</span><span class="params">(Queue *Q)</span></span>;</span><br><span class="line"><span class="comment">//从队头至队尾依次对Q中的每个元素输出</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Traverse</span><span class="params">(Queue *Q)</span></span>;</span><br><span class="line"><span class="comment">//打印元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">visit</span><span class="params">(ElementType e)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><figcaption><span>queue.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"queue.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitQueue</span><span class="params">(Queue *Q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Q-&gt;front = <span class="number">0</span>;</span><br><span class="line">    Q-&gt;rear = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ClearQueue</span><span class="params">(Queue *Q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Q-&gt;front = <span class="number">0</span>;</span><br><span class="line">    Q-&gt;rear = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(Queue *Q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q-&gt;rear == Q-&gt;front)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">GetHead</span><span class="params">(Queue *Q, ElementType *e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q-&gt;rear == Q-&gt;front)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"The queue is empty"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    *e = Q-&gt;data[Q-&gt;front];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EnQueue</span><span class="params">(Queue *Q, ElementType e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//因为数组是有界的，所有要判断队列是否为满</span></span><br><span class="line">    <span class="keyword">if</span>((Q-&gt;rear + <span class="number">1</span>) % MAXSIZE == Q-&gt;front)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Out of space."</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Q-&gt;data[Q-&gt;rear] = e;   <span class="comment">//记住，Q-&gt;rear是最后元素的下标+1</span></span><br><span class="line">    Q-&gt;rear = (Q-&gt;rear + <span class="number">1</span>) % MAXSIZE;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DeQueue</span><span class="params">(Queue *Q, ElementType *e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//队列可能为空，所以，要检查</span></span><br><span class="line">    <span class="keyword">if</span>(Q-&gt;front == Q-&gt;rear)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"The queue is empty."</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    *e = Q-&gt;data[Q-&gt;front];</span><br><span class="line">    Q-&gt;front = (Q-&gt;front + <span class="number">1</span>) % MAXSIZE;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">QueueLength</span><span class="params">(Queue *Q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (Q-&gt;rear - Q-&gt;front + MAXSIZE) % MAXSIZE;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Traverse</span><span class="params">(Queue *Q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = Q-&gt;front;</span><br><span class="line">    <span class="keyword">while</span>(count != Q-&gt;rear)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(count &gt;= MAXSIZE)</span><br><span class="line">            count - MAXSIZE;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, Q-&gt;data[count++]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">visit</span><span class="params">(ElementType e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d "</span>, e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1068,109 +1176,6 @@
 <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Exchange</span><span class="params">(Position BeforeP)</span><span class="comment">//我这里传入表头</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//为交换P和AfterP</span></span><br><span class="line">    Position P, AfterP;</span><br><span class="line">    <span class="comment">//定义一下P，和AfterP</span></span><br><span class="line">    P = BeforeP-&gt;next;</span><br><span class="line">    AfterP = P-&gt;next;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//交换是针对3个结构中的next。</span></span><br><span class="line">    <span class="comment">//先想象已经把两个结构交换了，再考虑next要怎么指向</span></span><br><span class="line">    P-&gt;next = AfterP-&gt;next;</span><br><span class="line">    BeforeP-&gt;next = AfterP;</span><br><span class="line">    AfterP-&gt;next = P;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><figcaption><span>单链表</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> * <span class="title">PtrToNode</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> PtrToNode List;</span><br><span class="line"><span class="keyword">typedef</span> PtrToNode Position;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Exchange</span> <span class="params">(Position BeforeP)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintList</span><span class="params">(List L)</span></span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> e;</span><br><span class="line">    PtrToNode next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List L = <span class="literal">NULL</span>;</span><br><span class="line">    Position prev, current; </span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (n &lt; <span class="number">4</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        current = (PtrToNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct Node));</span><br><span class="line">        <span class="keyword">if</span>(L == <span class="literal">NULL</span>)</span><br><span class="line">            L = current;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            prev-&gt;next = current;</span><br><span class="line">        current-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">        current-&gt;e = n;</span><br><span class="line">        prev = current;</span><br><span class="line"></span><br><span class="line">        n++;</span><br><span class="line">    &#125;</span><br><span class="line">    PrintList(L);</span><br><span class="line">    Exchange(L);</span><br><span class="line">    PrintList(L);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Exchange</span><span class="params">(Position BeforeP)</span><span class="comment">//我这里传入表头</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//为交换P和AfterP</span></span><br><span class="line">    Position P, AfterP;</span><br><span class="line">    <span class="comment">//定义一下P，和AfterP</span></span><br><span class="line">    P = BeforeP-&gt;next;</span><br><span class="line">    AfterP = P-&gt;next;</span><br><span class="line">    <span class="comment">//交换是针对3个结构中的next。</span></span><br><span class="line">    <span class="comment">//先想象已经把两个结构交换了，再考虑next要怎么指向</span></span><br><span class="line">    P-&gt;next = AfterP-&gt;next;</span><br><span class="line">    BeforeP-&gt;next = AfterP;</span><br><span class="line">    AfterP-&gt;next = P;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintList</span><span class="params">(List L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (L != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, L-&gt;e);</span><br><span class="line">        L = L-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/05/02/fatal/%E7%BB%93%E6%9E%84%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/02/fatal/%E7%BB%93%E6%9E%84%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">链表中结构指针的指针</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-02 21:00:57" itemprop="dateCreated datePublished" datetime="2020-05-02T21:00:57+08:00">2020-05-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="关于结构指针"><a href="#关于结构指针" class="headerlink" title="关于结构指针"></a>关于结构指针</h1><ol>
-<li><code>struct Node *ps</code>定义一个Node类型的结构指针。</li>
-</ol>
-<p><strong>注意，此时并没有指向Node的某个结构</strong></p>
-<ol start="2">
-<li><p>必须<code>malloc</code>分配结构空间，并返回结构地址，给<code>ps</code></p>
-</li>
-<li><p>这样<code>ps</code>才能有类似的<code>ps-&gt;next</code>操作</p>
-</li>
-</ol>
-<h2 id="想要在函数中改变某个指针的指向的时候"><a href="#想要在函数中改变某个指针的指向的时候" class="headerlink" title="想要在函数中改变某个指针的指向的时候"></a>想要在函数中改变某个指针的指向的时候</h2><p>通常是，函数中malloc返回给指针的情况</p>
-<ol>
-<li><p>显然，如果我们想通过函数改变某个变量的值，那么我们可以传递这个值的指针给函数。<em>让这个指针指向另外一个值</em></p>
-</li>
-<li><p>同样地，如果我们想要<strong>改变某个指针</strong>，那么就要<strong>传递指针的指针给函数</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">List</span>;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitList</span><span class="params">(List *L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    *L = (PtrToNode)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">    <span class="keyword">if</span>(*L == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"out of space."</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    (*L)-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="想要不改变指针在main（）中的指向"><a href="#想要不改变指针在main（）中的指向" class="headerlink" title="想要不改变指针在main（）中的指向"></a>想要不改变指针在main（）中的指向</h2><p><strong>直接传递指针就好啦，不传递指针的指针就不改变原来的指向哦</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    (str)++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, str);         <span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *s[] = &#123;<span class="string">"Ferry"</span>, <span class="string">"Chan"</span>, <span class="string">"faye"</span>, <span class="string">"chan"</span>&#125;;</span><br><span class="line">    <span class="keyword">char</span> * x = s[<span class="number">2</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, x);          <span class="comment">//1</span></span><br><span class="line">    fun(x);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, x);          <span class="comment">//3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><figcaption><span>输出</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">faye</span><br><span class="line">aye</span><br><span class="line">faye</span><br></pre></td></tr></table></figure>
-
-<h1 id="以上两点总结"><a href="#以上两点总结" class="headerlink" title="以上两点总结"></a>以上两点总结</h1><p>传给函数指针只能改变它的值，不能改变它的指向。<br><strong>重点，这是因为定义函数的参数是局部变量，调用函数时（）里的值，只是赋值操作。注意，只是赋值</strong><br><strong>本质都是传值，只不过值，可以是指针。而且传给函数的，都可以理解为是原值的一个副本。既然是副本，那就可以理解了，改变副本是无法改变原值的。</strong></p>
-<p>看看，这里定义了两个指针。p和str。其中p 指向 (malloc)分配的内存，str 还指向 NULL。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">GetMemory</span><span class="params">( <span class="keyword">char</span>*p )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  p = (<span class="keyword">char</span>*) <span class="built_in">malloc</span>( <span class="number">100</span> );</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span><span class="params">( <span class="keyword">void</span> )</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span>*str = <span class="literal">NULL</span>;</span><br><span class="line">  GetMemory( str ); </span><br><span class="line">  <span class="built_in">strcpy</span>( str, <span class="string">"hello world"</span> );</span><br><span class="line">  <span class="built_in">printf</span>( str );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 

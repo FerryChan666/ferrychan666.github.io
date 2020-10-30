@@ -20,12 +20,12 @@
   </entry>
   <entry>
     <title>关于二维数组名和指针的指针</title>
-    <url>/2020/10/28/c/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/</url>
+    <url>/2020/10/28/c/%E5%85%B3%E4%BA%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E5%90%8D%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<p>我们来看一段代码</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void f(int **a)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int a[2][2];</span><br><span class="line">    f(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这个代码是会报错的，<code>error: cannot convert &#39;int (*)[2]&#39; to &#39;int**&#39;</code></p>
-<p><strong>很明显，二维数组名不是指针的指针</strong><code>(int **)</code>，而是一个指针数组<code>int (*)[2]</code></p>
+<p><strong>很明显，二维数组名不是指向指针的指针</strong><code>(int **)</code>，而是一个指向数组的指针<code>int (*)[2]</code></p>
 <p>如果非要用指针的指针，可以这样</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> c[<span class="number">3</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> d[<span class="number">3</span>]=&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> **a</span><br><span class="line">a = <span class="keyword">new</span> <span class="keyword">int</span> *[<span class="number">2</span>];</span><br><span class="line">*(a)=c;</span><br><span class="line">*(a+<span class="number">1</span>)=d;</span><br></pre></td></tr></table></figure>
 
@@ -51,8 +51,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Information Storage</title>
-    <url>/2020/10/27/csapp/Information-Storage/Information-Storage/</url>
+    <title>Representing and Manipulating Information</title>
+    <url>/2020/10/27/csapp/Representing%20and%20Manipulating%20Information/Representing%20and%20Manipulating%20Information/</url>
     <content><![CDATA[<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>Modern computers store and process information represented as two-valued signals. Binary values work better when building machines that store and process information. </p>
 <h1 id="How-many-sizes-to-store"><a href="#How-many-sizes-to-store" class="headerlink" title="How many sizes to store?"></a>How many sizes to store?</h1><ul>
 <li><p>A machine-level program views memory as a very large array of bytes, referred to as <strong>virtual memory</strong>. Rather than accessing individual bit in memory, most computers use blocks of 8 bits, or byte, as the smallest addressable unit of memory. </p>
@@ -94,6 +94,81 @@
 </li>
 </ul>
 <p><img data-src="https://i.imgur.com/c7mWESs.png" alt></p>
+<ul>
+<li>A Function uses hexadecimal to represents the bytes of different program objects.</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *byte_pointer;</span><br><span class="line"><span class="comment">//Note that the statement is like `unsigned char *byte_pointer;`</span></span><br><span class="line"><span class="comment">//So byte_pointer is a pointer variable.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_bytes</span><span class="params">(byte_pointer start, <span class="keyword">size_t</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">size_t</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %.2x"</span>, start[i]);<span class="comment">//%.2x indicate that an iteger should be printed in hexadecimal.</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//if we want to call this function we should cast other pointer type to unsigned char type pointer, such as `(byte_pointer)&amp;x`.</span></span><br><span class="line"><span class="comment">//Note that the casts shown here do not change the actual pointer; they simply direct the complier to refer to the data being pointed to accoring to the new data type</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_float</span><span class="params">(<span class="keyword">float</span> x)</span></span>&#123;</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">float</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_pointer</span><span class="params">(<span class="keyword">void</span> *x)</span></span>&#123;</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">void</span> *));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Representing-Strings"><a href="#Representing-Strings" class="headerlink" title="Representing Strings"></a>Representing Strings</h1><p>A string in C is encoded by an array of characters terminated by null character. Each character is represented by some standard encoding, with the most common being the ASCII character code.</p>
+<ul>
+<li>For example:</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">   <span class="keyword">char</span> *s=<span class="string">"0123456789"</span>;</span><br><span class="line">   show_bytes((byte_pointer)s, <span class="number">11</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//we will get:   30 31 32 33 34 35 36 37 38 39 00</span></span><br></pre></td></tr></table></figure>
+
+<p>This same result would be obtained on any system using ASCII as its character code, independent of the bytes ordering and word size.</p>
+<h1 id="Representing-Code"><a href="#Representing-Code" class="headerlink" title="Representing Code"></a>Representing Code</h1><p>Different machine types use different and incompatible instruction and encodings. Even identical processors running different operating systems have differences in their coding conventions and hence are not binary compatible. So binary code is seldom portable across different combination of machine and operating system.</p>
+<p>A fundamental concept of computer systems is that a program is simply a sequence of bytes. The machine has no information about the original source program.</p>
+<h1 id="Representing-Integer"><a href="#Representing-Integer" class="headerlink" title="Representing Integer"></a>Representing Integer</h1><h2 id="Encoding-the-integer"><a href="#Encoding-the-integer" class="headerlink" title="Encoding the integer"></a>Encoding the integer</h2><p>We has two different way <strong>bits can be used to encode integers</strong>. </p>
+<ol>
+<li>*<em>Unsigned encodings *</em>(It can only represent nonnegative numbers)</li>
+<li><strong>Two’s Complement Encodings</strong> (It can represent negative, zero and positive numbers)</li>
+</ol>
+<p><img data-src="https://i.imgur.com/UKKk3HR.png" alt></p>
+<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><ul>
+<li><p>Binary to Unsigned integer ($B2U_w$)</p>
+<p>This function is bijection.</p>
+</li>
+</ul>
+<p><img data-src="https://i.imgur.com/xEIhOzb.png" alt></p>
+<ul>
+<li><p>Binary to Two’s complement($B2T_w$)</p>
+<p>This function is bijection.</p>
+<p><img data-src="https://i.imgur.com/nHq0Iyy.png" alt></p>
+</li>
+</ul>
+<ul>
+<li><p>Two’s complement to unsigned </p>
+<p><img data-src="https://i.imgur.com/FBGtUuf.png" alt></p>
+</li>
+</ul>
+<ul>
+<li><p>Unsigned to Two’s complement</p>
+<p><img data-src="https://i.imgur.com/9q2eLhE.png" alt></p>
+</li>
+</ul>
+<h3 id="Converting-between-signed-and-unsigned"><a href="#Converting-between-signed-and-unsigned" class="headerlink" title="Converting between signed and unsigned"></a>Converting between signed and unsigned</h3><p>One important feature to note is that the ranges are not symmetric, the range of negative numbers extends on further than the range of positive number.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">unsigned</span> u = <span class="number">4294967295u</span>;<span class="comment">//UMAX</span></span><br><span class="line">    <span class="keyword">int</span> tu = (<span class="keyword">int</span>)u;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"u = %u, tu=%d\n"</span>, u, tu);</span><br><span class="line"></span><br><span class="line"><span class="comment">//result: u = 4294967295, tu=-1</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://i.imgur.com/4LTPUHa.png" alt></p>
+<p>*<em>Converting between signed(two’s complement) and unsigned, we have a simple way to memory. This is, *</em></p>
+<p><img data-src="https://i.imgur.com/JQ7W0bX.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#define INT_MAX 2147483647</span><br><span class="line">#define INT_MIN (-INT_MAX - 1)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Operating-the-integer"><a href="#Operating-the-integer" class="headerlink" title="Operating the integer"></a>Operating the integer</h2><h3 id="Expanding-the-Bit-Representation-of-a-number"><a href="#Expanding-the-Bit-Representation-of-a-number" class="headerlink" title="Expanding the Bit Representation of a number"></a>Expanding the Bit Representation of a number</h3><p>We can do some operations in bits to expand the word size while retaining the same numeric value. </p>
+<ol>
+<li><p>Expansion of an unsigned number by zero extension</p>
+<p>Define bit vectors u = [u_w-1, u_w-2, … , 0] of width w and u’ = [0, … , 0, u_w-1, u_w-2, … , 0] of width w’, where w’ &gt; w. Then B2U_w(u) = B2U_w’(u’)</p>
+</li>
+</ol>
+<p>this operation is like <strong>Logical</strong> right shift in bit operation</p>
+<ol start="2">
+<li><p>Expansion of a two’s complement number by signed extension</p>
+<p>Define bit vectors u =  [x_w-1, x_w-2, … , 0] of width w and u’ = [x_w-1, … , x_w-1, x_w-2, … , 0] of width w’, where w’ &gt; w. Then B2T_w(u) = B2T_w’(u’)</p>
+<p><img data-src="https://i.imgur.com/Pbu9oty.png" alt></p>
+</li>
+</ol>
+<p>this operation is like  <strong>arithmetic</strong> right shift in bit operation</p>
+<ul>
+<li>This is, assuming two Binary values that are not equal, but when we represent them in signed or unsigned they may be equal.</li>
+</ul>
+<h3 id="Truncating-Number"><a href="#Truncating-Number" class="headerlink" title="Truncating Number"></a>Truncating Number</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">int</span> x =<span class="number">53191</span>;</span><br><span class="line">    short sx = (short)x;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sx);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> y=sx;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, y);</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    show_bytes((byte_pointer)&amp;sx, <span class="keyword">sizeof</span>(short));</span><br><span class="line">    show_bytes((byte_pointer)&amp;y, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//result(little endian)</span></span><br><span class="line"> c7 cf <span class="number">00</span> <span class="number">00</span></span><br><span class="line"> c7 cf</span><br><span class="line"> c7 cf ff ff</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <tags>
         <tag>csapp</tag>

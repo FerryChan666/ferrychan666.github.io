@@ -24,21 +24,29 @@
 
   <meta name="description" content="PrefaceModern computers store and process information represented as two-valued signals. Binary values work better when building machines that store and process information.  How many sizes to store?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Information Storage">
-<meta property="og:url" content="https://ferrychan666.github.io/2020/10/27/csapp/Information-Storage/Information-Storage/index.html">
+<meta property="og:title" content="Representing and Manipulating Information">
+<meta property="og:url" content="https://ferrychan666.github.io/2020/10/27/csapp/Representing%20and%20Manipulating%20Information/Representing%20and%20Manipulating%20Information/index.html">
 <meta property="og:site_name" content="Ferry&#39;s Blog">
 <meta property="og:description" content="PrefaceModern computers store and process information represented as two-valued signals. Binary values work better when building machines that store and process information.  How many sizes to store?">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.imgur.com/i5sVdr9.png">
 <meta property="og:image" content="https://i.imgur.com/c7mWESs.png">
+<meta property="og:image" content="https://i.imgur.com/UKKk3HR.png">
+<meta property="og:image" content="https://i.imgur.com/xEIhOzb.png">
+<meta property="og:image" content="https://i.imgur.com/nHq0Iyy.png">
+<meta property="og:image" content="https://i.imgur.com/FBGtUuf.png">
+<meta property="og:image" content="https://i.imgur.com/9q2eLhE.png">
+<meta property="og:image" content="https://i.imgur.com/4LTPUHa.png">
+<meta property="og:image" content="https://i.imgur.com/JQ7W0bX.png">
+<meta property="og:image" content="https://i.imgur.com/Pbu9oty.png">
 <meta property="article:published_time" content="2020-10-27T12:13:46.000Z">
-<meta property="article:modified_time" content="2020-10-28T14:37:37.483Z">
+<meta property="article:modified_time" content="2020-10-30T13:31:42.521Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="csapp">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.imgur.com/i5sVdr9.png">
 
-<link rel="canonical" href="https://ferrychan666.github.io/2020/10/27/csapp/Information-Storage/Information-Storage/">
+<link rel="canonical" href="https://ferrychan666.github.io/2020/10/27/csapp/Representing%20and%20Manipulating%20Information/Representing%20and%20Manipulating%20Information/">
 
 
 <script id="page-configurations">
@@ -51,7 +59,7 @@
   };
 </script>
 
-  <title>Information Storage | Ferry's Blog</title>
+  <title>Representing and Manipulating Information | Ferry's Blog</title>
   
 
 
@@ -199,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/10/27/csapp/Information-Storage/Information-Storage/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/10/27/csapp/Representing%20and%20Manipulating%20Information/Representing%20and%20Manipulating%20Information/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -212,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Information Storage
+          Representing and Manipulating Information
         </h1>
 
         <div class="post-meta">
@@ -229,7 +237,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-28 22:37:37" itemprop="dateModified" datetime="2020-10-28T22:37:37+08:00">2020-10-28</time>
+                <time title="Modified: 2020-10-30 21:31:42" itemprop="dateModified" datetime="2020-10-30T21:31:42+08:00">2020-10-30</time>
               </span>
 
           
@@ -245,14 +253,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.1k</span>
+              <span>5.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>5 mins.</span>
             </span>
 
         </div>
@@ -305,6 +313,81 @@
 </li>
 </ul>
 <p><img data-src="https://i.imgur.com/c7mWESs.png" alt></p>
+<ul>
+<li>A Function uses hexadecimal to represents the bytes of different program objects.</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *byte_pointer;</span><br><span class="line"><span class="comment">//Note that the statement is like `unsigned char *byte_pointer;`</span></span><br><span class="line"><span class="comment">//So byte_pointer is a pointer variable.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_bytes</span><span class="params">(byte_pointer start, <span class="keyword">size_t</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">size_t</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %.2x"</span>, start[i]);<span class="comment">//%.2x indicate that an iteger should be printed in hexadecimal.</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//if we want to call this function we should cast other pointer type to unsigned char type pointer, such as `(byte_pointer)&amp;x`.</span></span><br><span class="line"><span class="comment">//Note that the casts shown here do not change the actual pointer; they simply direct the complier to refer to the data being pointed to accoring to the new data type</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_float</span><span class="params">(<span class="keyword">float</span> x)</span></span>&#123;</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">float</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_pointer</span><span class="params">(<span class="keyword">void</span> *x)</span></span>&#123;</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">void</span> *));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Representing-Strings"><a href="#Representing-Strings" class="headerlink" title="Representing Strings"></a>Representing Strings</h1><p>A string in C is encoded by an array of characters terminated by null character. Each character is represented by some standard encoding, with the most common being the ASCII character code.</p>
+<ul>
+<li>For example:</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">char</span> *s=<span class="string">"0123456789"</span>;</span><br><span class="line">   show_bytes((byte_pointer)s, <span class="number">11</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//we will get:   30 31 32 33 34 35 36 37 38 39 00</span></span><br></pre></td></tr></table></figure>
+
+<p>This same result would be obtained on any system using ASCII as its character code, independent of the bytes ordering and word size.</p>
+<h1 id="Representing-Code"><a href="#Representing-Code" class="headerlink" title="Representing Code"></a>Representing Code</h1><p>Different machine types use different and incompatible instruction and encodings. Even identical processors running different operating systems have differences in their coding conventions and hence are not binary compatible. So binary code is seldom portable across different combination of machine and operating system.</p>
+<p>A fundamental concept of computer systems is that a program is simply a sequence of bytes. The machine has no information about the original source program.</p>
+<h1 id="Representing-Integer"><a href="#Representing-Integer" class="headerlink" title="Representing Integer"></a>Representing Integer</h1><h2 id="Encoding-the-integer"><a href="#Encoding-the-integer" class="headerlink" title="Encoding the integer"></a>Encoding the integer</h2><p>We has two different way <strong>bits can be used to encode integers</strong>. </p>
+<ol>
+<li>*<em>Unsigned encodings *</em>(It can only represent nonnegative numbers)</li>
+<li><strong>Two’s Complement Encodings</strong> (It can represent negative, zero and positive numbers)</li>
+</ol>
+<p><img data-src="https://i.imgur.com/UKKk3HR.png" alt></p>
+<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><ul>
+<li><p>Binary to Unsigned integer ($B2U_w$)</p>
+<p>This function is bijection.</p>
+</li>
+</ul>
+<p><img data-src="https://i.imgur.com/xEIhOzb.png" alt></p>
+<ul>
+<li><p>Binary to Two’s complement($B2T_w$)</p>
+<p>This function is bijection.</p>
+<p><img data-src="https://i.imgur.com/nHq0Iyy.png" alt></p>
+</li>
+</ul>
+<ul>
+<li><p>Two’s complement to unsigned </p>
+<p><img data-src="https://i.imgur.com/FBGtUuf.png" alt></p>
+</li>
+</ul>
+<ul>
+<li><p>Unsigned to Two’s complement</p>
+<p><img data-src="https://i.imgur.com/9q2eLhE.png" alt></p>
+</li>
+</ul>
+<h3 id="Converting-between-signed-and-unsigned"><a href="#Converting-between-signed-and-unsigned" class="headerlink" title="Converting between signed and unsigned"></a>Converting between signed and unsigned</h3><p>One important feature to note is that the ranges are not symmetric, the range of negative numbers extends on further than the range of positive number.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">unsigned</span> u = <span class="number">4294967295u</span>;<span class="comment">//UMAX</span></span><br><span class="line">    <span class="keyword">int</span> tu = (<span class="keyword">int</span>)u;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"u = %u, tu=%d\n"</span>, u, tu);</span><br><span class="line"></span><br><span class="line"><span class="comment">//result: u = 4294967295, tu=-1</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://i.imgur.com/4LTPUHa.png" alt></p>
+<p>*<em>Converting between signed(two’s complement) and unsigned, we have a simple way to memory. This is, *</em></p>
+<p><img data-src="https://i.imgur.com/JQ7W0bX.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define INT_MAX 2147483647</span><br><span class="line">#define INT_MIN (-INT_MAX - 1)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Operating-the-integer"><a href="#Operating-the-integer" class="headerlink" title="Operating the integer"></a>Operating the integer</h2><h3 id="Expanding-the-Bit-Representation-of-a-number"><a href="#Expanding-the-Bit-Representation-of-a-number" class="headerlink" title="Expanding the Bit Representation of a number"></a>Expanding the Bit Representation of a number</h3><p>We can do some operations in bits to expand the word size while retaining the same numeric value. </p>
+<ol>
+<li><p>Expansion of an unsigned number by zero extension</p>
+<p>Define bit vectors u = [u_w-1, u_w-2, … , 0] of width w and u’ = [0, … , 0, u_w-1, u_w-2, … , 0] of width w’, where w’ &gt; w. Then B2U_w(u) = B2U_w’(u’)</p>
+</li>
+</ol>
+<p>this operation is like <strong>Logical</strong> right shift in bit operation</p>
+<ol start="2">
+<li><p>Expansion of a two’s complement number by signed extension</p>
+<p>Define bit vectors u =  [x_w-1, x_w-2, … , 0] of width w and u’ = [x_w-1, … , x_w-1, x_w-2, … , 0] of width w’, where w’ &gt; w. Then B2T_w(u) = B2T_w’(u’)</p>
+<p><img data-src="https://i.imgur.com/Pbu9oty.png" alt></p>
+</li>
+</ol>
+<p>this operation is like  <strong>arithmetic</strong> right shift in bit operation</p>
+<ul>
+<li>This is, assuming two Binary values that are not equal, but when we represent them in signed or unsigned they may be equal.</li>
+</ul>
+<h3 id="Truncating-Number"><a href="#Truncating-Number" class="headerlink" title="Truncating Number"></a>Truncating Number</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> x =<span class="number">53191</span>;</span><br><span class="line">    short sx = (short)x;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sx);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> y=sx;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, y);</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    show_bytes((byte_pointer)&amp;sx, <span class="keyword">sizeof</span>(short));</span><br><span class="line">    show_bytes((byte_pointer)&amp;y, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//result(little endian)</span></span><br><span class="line"> c7 cf <span class="number">00</span> <span class="number">00</span></span><br><span class="line"> c7 cf</span><br><span class="line"> c7 cf ff ff</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -390,7 +473,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-many-sizes-to-store"><span class="nav-number">2.</span> <span class="nav-text">How many sizes to store?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexadecimal-Notation"><span class="nav-number">2.1.</span> <span class="nav-text">Hexadecimal Notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Sizes"><span class="nav-number">2.2.</span> <span class="nav-text">Data Sizes</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Where-to-store"><span class="nav-number">3.</span> <span class="nav-text">Where to store?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Addressing-and-Byte-Ordering"><span class="nav-number">3.1.</span> <span class="nav-text">Addressing and Byte Ordering</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-many-sizes-to-store"><span class="nav-number">2.</span> <span class="nav-text">How many sizes to store?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexadecimal-Notation"><span class="nav-number">2.1.</span> <span class="nav-text">Hexadecimal Notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Sizes"><span class="nav-number">2.2.</span> <span class="nav-text">Data Sizes</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Where-to-store"><span class="nav-number">3.</span> <span class="nav-text">Where to store?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Addressing-and-Byte-Ordering"><span class="nav-number">3.1.</span> <span class="nav-text">Addressing and Byte Ordering</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Representing-Strings"><span class="nav-number">4.</span> <span class="nav-text">Representing Strings</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Representing-Code"><span class="nav-number">5.</span> <span class="nav-text">Representing Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Representing-Integer"><span class="nav-number">6.</span> <span class="nav-text">Representing Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encoding-the-integer"><span class="nav-number">6.1.</span> <span class="nav-text">Encoding the integer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function"><span class="nav-number">6.1.1.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Converting-between-signed-and-unsigned"><span class="nav-number">6.1.2.</span> <span class="nav-text">Converting between signed and unsigned</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operating-the-integer"><span class="nav-number">6.2.</span> <span class="nav-text">Operating the integer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Expanding-the-Bit-Representation-of-a-number"><span class="nav-number">6.2.1.</span> <span class="nav-text">Expanding the Bit Representation of a number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Truncating-Number"><span class="nav-number">6.2.2.</span> <span class="nav-text">Truncating Number</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -438,13 +521,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">158k</span>
+    <span title="Symbols count total">162k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:24</span>
+    <span title="Reading time total">2:27</span>
 </div>
 
 <div id="days"></div>
@@ -607,6 +690,59 @@ window.addEventListener('pjax:success', () => {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
   <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
@@ -615,7 +751,7 @@ window.addEventListener('pjax:success', () => {
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://ferrychan666.github.io/2020/10/27/csapp/Information-Storage/Information-Storage/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://ferrychan666.github.io/2020/10/27/csapp/Representing%20and%20Manipulating%20Information/Representing%20and%20Manipulating%20Information/',]
       });
       });
   </script>
@@ -631,7 +767,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'gitalk',
       owner       : 'ferrychan666',
       admin       : ['ferrychan666'],
-      id          : 'd1cd44ce8deb015ca6e9a3eb1b8194b9',
+      id          : 'd51ebb8f8669b1c98512f46c18bdfbab',
         language: 'zh-CN',
       distractionFreeMode: true
     });

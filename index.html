@@ -536,7 +536,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/27/csapp/Representing%20and%20Manipulating%20Information/Representing%20and%20Manipulating%20Information/" class="post-title-link" itemprop="url">Representing and Manipulating Information</a>
+            <a href="/2020/10/27/csapp/Representing%20and%20Manipulating%20Information/Representing%20and%20Manipulating%20Information/" class="post-title-link" itemprop="url">csapp/Representing and Manipulating Information/Representing and Manipulating Information</a>
         </h2>
 
         <div class="post-meta">
@@ -553,7 +553,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-01 21:10:24" itemprop="dateModified" datetime="2020-11-01T21:10:24+08:00">2020-11-01</time>
+                <time title="Modified: 2020-11-02 00:28:06" itemprop="dateModified" datetime="2020-11-02T00:28:06+08:00">2020-11-02</time>
               </span>
 
           <br>
@@ -562,14 +562,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>6.1k</span>
+              <span>7.6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>6 mins.</span>
+              <span>7 mins.</span>
             </span>
 
         </div>
@@ -604,7 +604,7 @@
 </ul>
 </li>
 </ul>
-<p><img data-src="https://i.imgur.com/i5sVdr9.png" alt></p>
+<p><img data-src="https://i.imgur.com/i5sVdr9.png" alt=""></p>
 <h2 id="Data-Sizes"><a href="#Data-Sizes" class="headerlink" title="Data Sizes"></a>Data Sizes</h2><ul>
 <li><p>word size</p>
 <p><strong>Every computer has a word size, indicating the size of pointer data.</strong> The most important parameter determined by word size is the maximum size of the virtual address space. That is, for a machine with <em>w</em> bits word sizes the virtual addresses can range from 0 to 2^w - 1, giving the program access to at most 2^64 bytes. (A 32-bit word size limits the virtual address space to 4GB, this is, just over 4*10^9 bytes)</p>
@@ -621,7 +621,7 @@
 </ul>
 </li>
 </ul>
-<p><img data-src="https://i.imgur.com/c7mWESs.png" alt></p>
+<p><img data-src="https://i.imgur.com/c7mWESs.png" alt=""></p>
 <ul>
 <li>A Function uses hexadecimal to represents the bytes of different program objects.</li>
 </ul>
@@ -643,35 +643,38 @@
 <li>*<em>Unsigned encodings *</em>(It can only represent nonnegative numbers)</li>
 <li><strong>Two’s Complement Encodings</strong> (It can represent negative, zero and positive numbers)</li>
 </ol>
-<p><img data-src="https://i.imgur.com/UKKk3HR.png" alt></p>
+<p><img data-src="https://i.imgur.com/UKKk3HR.png" alt=""></p>
 <h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><ul>
 <li><p>Binary to Unsigned integer ($B2U_w$)</p>
 <p>This function is bijection.</p>
 </li>
 </ul>
-<p><img data-src="https://i.imgur.com/xEIhOzb.png" alt></p>
+<p><img data-src="https://i.imgur.com/xEIhOzb.png" alt=""></p>
 <ul>
 <li><p>Binary to Two’s complement($B2T_w$)</p>
 <p>This function is bijection.</p>
-<p><img data-src="https://i.imgur.com/nHq0Iyy.png" alt></p>
+<p><img data-src="https://i.imgur.com/nHq0Iyy.png" alt=""></p>
 </li>
 </ul>
 <ul>
 <li><p>Two’s complement to unsigned </p>
-<p><img data-src="https://i.imgur.com/FBGtUuf.png" alt></p>
+<p><img data-src="https://i.imgur.com/FBGtUuf.png" alt=""></p>
 </li>
 </ul>
 <ul>
 <li><p>Unsigned to Two’s complement</p>
-<p><img data-src="https://i.imgur.com/9q2eLhE.png" alt></p>
+<p><img data-src="https://i.imgur.com/9q2eLhE.png" alt=""></p>
 </li>
 </ul>
 <h3 id="Converting-between-signed-and-unsigned"><a href="#Converting-between-signed-and-unsigned" class="headerlink" title="Converting between signed and unsigned"></a>Converting between signed and unsigned</h3><p>One important feature to note is that the ranges are not symmetric, the range of negative numbers extends on further than the range of positive number.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> u = <span class="number">4294967295u</span>;<span class="comment">//UMAX</span></span><br><span class="line"><span class="keyword">int</span> tu = (<span class="keyword">int</span>)u;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"u = %u, tu=%d\n"</span>, u, tu);</span><br><span class="line"></span><br><span class="line"><span class="comment">//result: u = 4294967295, tu=-1</span></span><br></pre></td></tr></table></figure>
 
-<p><img data-src="https://i.imgur.com/4LTPUHa.png" alt></p>
+<img data-src="https://i.imgur.com/4LTPUHa.png" style="zoom:80%;" />
+
+
+
 <p>*<em>Converting between signed(two’s complement) and unsigned, we have a simple way to memory. This is, *</em></p>
-<p><img data-src="https://i.imgur.com/JQ7W0bX.png" alt></p>
+<p><img data-src="https://i.imgur.com/JQ7W0bX.png" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define INT_MAX 2147483647</span><br><span class="line">#define INT_MIN (-INT_MAX - 1)</span><br></pre></td></tr></table></figure>
 
 
@@ -688,7 +691,7 @@
 <ol start="2">
 <li><p>Expansion of a two’s complement number by signed extension</p>
 <p>Define bit vectors u =  [x_w-1, x_w-2, … , 0] of width w and u’ = [x_w-1, … , x_w-1, x_w-2, … , 0] of width w’, where w’ &gt; w. Then B2T_w(u) = B2T_w’(u’)</p>
-<p><img data-src="https://i.imgur.com/Pbu9oty.png" alt></p>
+<p><img data-src="https://i.imgur.com/Pbu9oty.png" alt=""></p>
 </li>
 </ol>
 <p>this operation is like  <strong>arithmetic</strong> right shift of bit operation</p>
@@ -704,12 +707,51 @@
 <li><p>If we truncate Integer number(unsigned and two’s complement) directly, there are two ways: </p>
 </li>
 </ul>
-<p><img data-src="https://i.imgur.com/5gLndkn.png" alt></p>
+<img data-src="https://i.imgur.com/5gLndkn.png" style="zoom:80%;" />
+
+
+
 <h2 id="Integer-Arithmetic"><a href="#Integer-Arithmetic" class="headerlink" title="Integer Arithmetic"></a>Integer Arithmetic</h2><p>Sometimes, we add two positive numbers can yield a negative number or two negative numbers can yield a positive number, which is the overflow. </p>
-<h3 id="Unsigned-Addition"><a href="#Unsigned-Addition" class="headerlink" title="Unsigned Addition"></a>Unsigned Addition</h3><p>Consider two negative integers x and y in the range $0 &lt;= x, y &lt;= 2^w$. If we compute their sum, we have a possible range $0 &lt;= x, y &lt;= 2^(w+1)- 2$. </p>
+<h3 id="Integer-Addition"><a href="#Integer-Addition" class="headerlink" title="Integer Addition"></a>Integer Addition</h3><p>Consider two negative integers x and y in the range $0 &lt;= x, y &lt;= 2^w$. If we compute their sum, we have a possible range 0 &lt;= x, y &lt;= 2^(w+1)- 2</p>
 <p>As an example:</p>
-<p><img data-src="https://i.imgur.com/aDUG69k.png" alt="illustration"></p>
-<p>![](.\unsigned addition.png)</p>
+<img data-src="https://i.imgur.com/aDUG69k.png" alt="illustration" style="zoom:80%;" />
+
+
+
+<h3 id="Unsigned-addition"><a href="#Unsigned-addition" class="headerlink" title="Unsigned addition"></a>Unsigned addition</h3><p>We can see that representing this sum could require w+1 bits. We should truncate it to be w bits because more commonly, programming languages support fixed-size arithmetic, and hence operation such as “addition” and “multiplication” differ from their counterpart operations over integers.</p>
+<ul>
+<li>Define a operation , as a result of truncating the integer sum $x+y$, to be w bits long and then viewing the result as an unsigned number.</li>
+</ul>
+<p><img data-src="https://i.imgur.com/9STRbzV.png" alt=""></p>
+<p><strong>This operation can be characterized as a form of modular arithmetic. Computing a sum modular $2^w$ by discarding any bits with weight greater than 2^(w-1) in the bit-level representation of x+y.</strong></p>
+<img data-src="https://i.imgur.com/0Lm4Ohp.png" style="zoom:80%;" />
+
+
+
+<h3 id="Unsigned-negation"><a href="#Unsigned-negation" class="headerlink" title="Unsigned negation"></a>Unsigned negation</h3><p><strong>Even the unsigned number is nonnegative. But it also has the unsigned negation. Because the unsigned addition uses the modular addition.</strong></p>
+<p>Modular addition, the unsigned addition , forms a mathematical structure known as an abelian group. This is, it has an identity element 0, and every element has an additive inverse. </p>
+<p><strong>For every value x, there must be some negation, such than x + negation = 0</strong></p>
+<p>For x &gt; 0 , consider the value 2^w - x. We see that $(x + (2^w - x)) mod 2^w = 0$. Hence it is the inverse of x under unsigned addition.</p>
+<img data-src="https://i.imgur.com/1rdGBDo.png" style="zoom:80%;" />
+
+
+
+<h3 id="Two’s-complement-addition"><a href="#Two’s-complement-addition" class="headerlink" title="Two’s complement addition"></a>Two’s complement addition</h3><img data-src="https://i.imgur.com/KkXbsGz.png" style="zoom:80%;" />
+
+
+
+
+
+<img data-src="https://i.imgur.com/sFFpnGA.png" style="zoom:80%;" />
+
+<p>Derivation:</p>
+<p>Since the Two’s complement addition has the same bit-level representation as unsigned addition. We can characterize the operation Two’s complement addition as conversing its arguments to unsigned, and performing unsigned addition, and then converting back to two’s complement.</p>
+<img data-src="https://i.imgur.com/1mtpDkZ.png" style="zoom:80%;" />
+
+
+
+<h3 id="Two’s-complement-negation"><a href="#Two’s-complement-negation" class="headerlink" title="Two’s complement negation"></a>Two’s complement negation</h3><p>When x = TMin, we cannot represent the negation of x, . Consider $TMin + TMin =  -2^{w-1} + (-2^{w-1}) = -2^w$. it will cause negative overflow of two’s complement addition. Hence $TMin + TMin = -2^w mod 2^w = 0$. So TMin is its own additive inverse.</p>
+<p><img data-src="https://i.imgur.com/U0cxzuA.png" alt=""></p>
 
       
     </div>
@@ -1465,13 +1507,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">163k</span>
+    <span title="Symbols count total">164k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:28</span>
+    <span title="Reading time total">2:29</span>
 </div>
 
 <div id="days"></div>

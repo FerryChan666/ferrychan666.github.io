@@ -40,8 +40,9 @@
 <meta property="og:image" content="https://i.imgur.com/JQ7W0bX.png">
 <meta property="og:image" content="https://i.imgur.com/Pbu9oty.png">
 <meta property="og:image" content="https://i.imgur.com/5gLndkn.png">
+<meta property="og:image" content="https://i.imgur.com/aDUG69k.png">
 <meta property="article:published_time" content="2020-10-27T12:13:46.000Z">
-<meta property="article:modified_time" content="2020-11-01T12:31:46.233Z">
+<meta property="article:modified_time" content="2020-11-01T13:04:19.197Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="csapp">
 <meta name="twitter:card" content="summary">
@@ -238,7 +239,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-01 20:31:46" itemprop="dateModified" datetime="2020-11-01T20:31:46+08:00">2020-11-01</time>
+                <time title="Modified: 2020-11-01 21:04:19" itemprop="dateModified" datetime="2020-11-01T21:04:19+08:00">2020-11-01</time>
               </span>
 
           
@@ -254,7 +255,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>6.1k</span>
+              <span>6.2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -398,7 +399,10 @@
 </ul>
 <p><img data-src="https://i.imgur.com/5gLndkn.png" alt></p>
 <h2 id="Integer-Arithmetic"><a href="#Integer-Arithmetic" class="headerlink" title="Integer Arithmetic"></a>Integer Arithmetic</h2><p>Sometimes, we add two positive numbers can yield a negative number or two negative numbers can yield a positive number, which is the overflow. </p>
-<h3 id="Unsigned-Addition"><a href="#Unsigned-Addition" class="headerlink" title="Unsigned Addition"></a>Unsigned Addition</h3><p>Consider two negative integers x and y in the range $0 &lt;= x, y &lt;= 2^w$. If we compute their sum, we have a possible range $0 &lt;= x, y &lt;= 2^w+1 - 2$</p>
+<h3 id="Unsigned-Addition"><a href="#Unsigned-Addition" class="headerlink" title="Unsigned Addition"></a>Unsigned Addition</h3><p>Consider two negative integers x and y in the range $0 &lt;= x, y &lt;= 2^w$. If we compute their sum, we have a possible range $0 &lt;= x, y &lt;= 2^(w+1)- 2$. </p>
+<p>As an example:</p>
+<p><img data-src="https://i.imgur.com/aDUG69k.png" alt="illustration"></p>
+<p>![](A:\blog-master\source_posts\csapp\Representing and Manipulating Information\unsigned addition.png)</p>
 
     </div>
 
@@ -532,7 +536,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">162k</span>
+    <span title="Symbols count total">163k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

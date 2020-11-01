@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>关于看书</title>
+    <url>/2020/10/31/%E9%9A%8F%E7%AC%94/%E5%85%B3%E4%BA%8E%E7%9C%8B%E4%B9%A6/</url>
+    <content><![CDATA[<ol>
+<li><p>看书，突然看不懂怎么办？</p>
+<p>先跳过，看看后面是怎么操作的，再翻回来继续看。</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PATH环境变量不见了</title>
     <url>/2020/10/30/Q&amp;A/PATH%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8D%E8%A7%81%E4%BA%86/</url>
     <content><![CDATA[<p>Windows下的PATH环境变量不知被哪门子清理软件给清掉了。所以我们New一个PATH</p>
@@ -105,7 +118,7 @@
 <ul>
 <li>For example:</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">   <span class="keyword">char</span> *s=<span class="string">"0123456789"</span>;</span><br><span class="line">   show_bytes((byte_pointer)s, <span class="number">11</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//we will get:   30 31 32 33 34 35 36 37 38 39 00</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> *s=<span class="string">"0123456789"</span>;</span><br><span class="line">show_bytes((byte_pointer)s, <span class="number">11</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//we will get:   30 31 32 33 34 35 36 37 38 39 00</span></span><br></pre></td></tr></table></figure>
 
 <p>This same result would be obtained on any system using ASCII as its character code, independent of the bytes ordering and word size.</p>
 <h1 id="Representing-Code"><a href="#Representing-Code" class="headerlink" title="Representing Code"></a>Representing Code</h1><p>Different machine types use different and incompatible instruction and encodings. Even identical processors running different operating systems have differences in their coding conventions and hence are not binary compatible. So binary code is seldom portable across different combination of machine and operating system.</p>
@@ -139,7 +152,7 @@
 </li>
 </ul>
 <h3 id="Converting-between-signed-and-unsigned"><a href="#Converting-between-signed-and-unsigned" class="headerlink" title="Converting between signed and unsigned"></a>Converting between signed and unsigned</h3><p>One important feature to note is that the ranges are not symmetric, the range of negative numbers extends on further than the range of positive number.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">unsigned</span> u = <span class="number">4294967295u</span>;<span class="comment">//UMAX</span></span><br><span class="line">    <span class="keyword">int</span> tu = (<span class="keyword">int</span>)u;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"u = %u, tu=%d\n"</span>, u, tu);</span><br><span class="line"></span><br><span class="line"><span class="comment">//result: u = 4294967295, tu=-1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> u = <span class="number">4294967295u</span>;<span class="comment">//UMAX</span></span><br><span class="line"><span class="keyword">int</span> tu = (<span class="keyword">int</span>)u;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"u = %u, tu=%d\n"</span>, u, tu);</span><br><span class="line"></span><br><span class="line"><span class="comment">//result: u = 4294967295, tu=-1</span></span><br></pre></td></tr></table></figure>
 
 <p><img data-src="https://i.imgur.com/4LTPUHa.png" alt></p>
 <p>*<em>Converting between signed(two’s complement) and unsigned, we have a simple way to memory. This is, *</em></p>
@@ -156,19 +169,29 @@
 <p>Define bit vectors u = [u_w-1, u_w-2, … , 0] of width w and u’ = [0, … , 0, u_w-1, u_w-2, … , 0] of width w’, where w’ &gt; w. Then B2U_w(u) = B2U_w’(u’)</p>
 </li>
 </ol>
-<p>this operation is like <strong>Logical</strong> right shift in bit operation</p>
+<p>this operation is like <strong>Logical</strong> right shift of bit operation</p>
 <ol start="2">
 <li><p>Expansion of a two’s complement number by signed extension</p>
 <p>Define bit vectors u =  [x_w-1, x_w-2, … , 0] of width w and u’ = [x_w-1, … , x_w-1, x_w-2, … , 0] of width w’, where w’ &gt; w. Then B2T_w(u) = B2T_w’(u’)</p>
 <p><img data-src="https://i.imgur.com/Pbu9oty.png" alt></p>
 </li>
 </ol>
-<p>this operation is like  <strong>arithmetic</strong> right shift in bit operation</p>
+<p>this operation is like  <strong>arithmetic</strong> right shift of bit operation</p>
 <ul>
 <li>This is, assuming two Binary values that are not equal, but when we represent them in signed or unsigned they may be equal.</li>
 </ul>
-<h3 id="Truncating-Number"><a href="#Truncating-Number" class="headerlink" title="Truncating Number"></a>Truncating Number</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">int</span> x =<span class="number">53191</span>;</span><br><span class="line">    short sx = (short)x;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sx);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> y=sx;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, y);</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    show_bytes((byte_pointer)&amp;sx, <span class="keyword">sizeof</span>(short));</span><br><span class="line">    show_bytes((byte_pointer)&amp;y, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//result(little endian)</span></span><br><span class="line"> c7 cf <span class="number">00</span> <span class="number">00</span></span><br><span class="line"> c7 cf</span><br><span class="line"> c7 cf ff ff</span><br></pre></td></tr></table></figure>
+<h3 id="Truncating-Number"><a href="#Truncating-Number" class="headerlink" title="Truncating Number"></a>Truncating Number</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x =<span class="number">53191</span>;</span><br><span class="line">short sx = (short)x;<span class="comment">//Truncating</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sx);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> y=sx;			<span class="comment">//expanding</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, y);</span><br><span class="line">show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">show_bytes((byte_pointer)&amp;sx, <span class="keyword">sizeof</span>(short));</span><br><span class="line">show_bytes((byte_pointer)&amp;y, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//result(little endian)</span></span><br><span class="line"> c7 cf <span class="number">00</span> <span class="number">00</span></span><br><span class="line"> c7 cf</span><br><span class="line"> c7 cf ff ff</span><br></pre></td></tr></table></figure>
 
+<p><strong>Truncating number can alter its value, a form of overflow.</strong></p>
+<ul>
+<li><p>In Binary level, we truncating a w-bit number  $x = [x_w-1, x_w-2, … , x_0]$ to a k-bit number $x’ = [x_k-1, x_k-2, … , x_0], which we drop the high-order w-k bit. Then, we can use the rules, binary to unsigned or binary to two’s complement, to represent the integer.</p>
+</li>
+<li><p>If we truncate Integer number(unsigned and two’s complement) directly, there are two ways: </p>
+</li>
+</ul>
+<p><img data-src="https://i.imgur.com/5gLndkn.png" alt></p>
+<h2 id="Integer-Arithmetic"><a href="#Integer-Arithmetic" class="headerlink" title="Integer Arithmetic"></a>Integer Arithmetic</h2><p>Sometimes, we add two positive numbers can yield a negative number or two negative numbers can yield a positive number, which is the overflow. </p>
+<h3 id="Unsigned-Addition"><a href="#Unsigned-Addition" class="headerlink" title="Unsigned Addition"></a>Unsigned Addition</h3><p>Consider two negative integers x and y in the range $0 &lt;= x, y &lt;= 2^w$. If we compute their sum, we have a possible range $0 &lt;= x, y &lt;= 2^w+1 - 2$</p>
 ]]></content>
       <tags>
         <tag>csapp</tag>

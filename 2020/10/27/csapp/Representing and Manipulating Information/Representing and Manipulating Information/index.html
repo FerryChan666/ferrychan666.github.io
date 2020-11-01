@@ -39,8 +39,9 @@
 <meta property="og:image" content="https://i.imgur.com/4LTPUHa.png">
 <meta property="og:image" content="https://i.imgur.com/JQ7W0bX.png">
 <meta property="og:image" content="https://i.imgur.com/Pbu9oty.png">
+<meta property="og:image" content="https://i.imgur.com/5gLndkn.png">
 <meta property="article:published_time" content="2020-10-27T12:13:46.000Z">
-<meta property="article:modified_time" content="2020-10-30T13:31:42.521Z">
+<meta property="article:modified_time" content="2020-11-01T12:31:46.233Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="csapp">
 <meta name="twitter:card" content="summary">
@@ -141,7 +142,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">130</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">131</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -237,7 +238,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-30 21:31:42" itemprop="dateModified" datetime="2020-10-30T21:31:42+08:00">2020-10-30</time>
+                <time title="Modified: 2020-11-01 20:31:46" itemprop="dateModified" datetime="2020-11-01T20:31:46+08:00">2020-11-01</time>
               </span>
 
           
@@ -253,14 +254,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>5.4k</span>
+              <span>6.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>5 mins.</span>
+              <span>6 mins.</span>
             </span>
 
         </div>
@@ -324,7 +325,7 @@
 <ul>
 <li>For example:</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">char</span> *s=<span class="string">"0123456789"</span>;</span><br><span class="line">   show_bytes((byte_pointer)s, <span class="number">11</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//we will get:   30 31 32 33 34 35 36 37 38 39 00</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *s=<span class="string">"0123456789"</span>;</span><br><span class="line">show_bytes((byte_pointer)s, <span class="number">11</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//we will get:   30 31 32 33 34 35 36 37 38 39 00</span></span><br></pre></td></tr></table></figure>
 
 <p>This same result would be obtained on any system using ASCII as its character code, independent of the bytes ordering and word size.</p>
 <h1 id="Representing-Code"><a href="#Representing-Code" class="headerlink" title="Representing Code"></a>Representing Code</h1><p>Different machine types use different and incompatible instruction and encodings. Even identical processors running different operating systems have differences in their coding conventions and hence are not binary compatible. So binary code is seldom portable across different combination of machine and operating system.</p>
@@ -358,7 +359,7 @@
 </li>
 </ul>
 <h3 id="Converting-between-signed-and-unsigned"><a href="#Converting-between-signed-and-unsigned" class="headerlink" title="Converting between signed and unsigned"></a>Converting between signed and unsigned</h3><p>One important feature to note is that the ranges are not symmetric, the range of negative numbers extends on further than the range of positive number.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">unsigned</span> u = <span class="number">4294967295u</span>;<span class="comment">//UMAX</span></span><br><span class="line">    <span class="keyword">int</span> tu = (<span class="keyword">int</span>)u;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"u = %u, tu=%d\n"</span>, u, tu);</span><br><span class="line"></span><br><span class="line"><span class="comment">//result: u = 4294967295, tu=-1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> u = <span class="number">4294967295u</span>;<span class="comment">//UMAX</span></span><br><span class="line"><span class="keyword">int</span> tu = (<span class="keyword">int</span>)u;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"u = %u, tu=%d\n"</span>, u, tu);</span><br><span class="line"></span><br><span class="line"><span class="comment">//result: u = 4294967295, tu=-1</span></span><br></pre></td></tr></table></figure>
 
 <p><img data-src="https://i.imgur.com/4LTPUHa.png" alt></p>
 <p>*<em>Converting between signed(two’s complement) and unsigned, we have a simple way to memory. This is, *</em></p>
@@ -375,19 +376,29 @@
 <p>Define bit vectors u = [u_w-1, u_w-2, … , 0] of width w and u’ = [0, … , 0, u_w-1, u_w-2, … , 0] of width w’, where w’ &gt; w. Then B2U_w(u) = B2U_w’(u’)</p>
 </li>
 </ol>
-<p>this operation is like <strong>Logical</strong> right shift in bit operation</p>
+<p>this operation is like <strong>Logical</strong> right shift of bit operation</p>
 <ol start="2">
 <li><p>Expansion of a two’s complement number by signed extension</p>
 <p>Define bit vectors u =  [x_w-1, x_w-2, … , 0] of width w and u’ = [x_w-1, … , x_w-1, x_w-2, … , 0] of width w’, where w’ &gt; w. Then B2T_w(u) = B2T_w’(u’)</p>
 <p><img data-src="https://i.imgur.com/Pbu9oty.png" alt></p>
 </li>
 </ol>
-<p>this operation is like  <strong>arithmetic</strong> right shift in bit operation</p>
+<p>this operation is like  <strong>arithmetic</strong> right shift of bit operation</p>
 <ul>
 <li>This is, assuming two Binary values that are not equal, but when we represent them in signed or unsigned they may be equal.</li>
 </ul>
-<h3 id="Truncating-Number"><a href="#Truncating-Number" class="headerlink" title="Truncating Number"></a>Truncating Number</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">int</span> x =<span class="number">53191</span>;</span><br><span class="line">    short sx = (short)x;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sx);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> y=sx;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, y);</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    show_bytes((byte_pointer)&amp;sx, <span class="keyword">sizeof</span>(short));</span><br><span class="line">    show_bytes((byte_pointer)&amp;y, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//result(little endian)</span></span><br><span class="line"> c7 cf <span class="number">00</span> <span class="number">00</span></span><br><span class="line"> c7 cf</span><br><span class="line"> c7 cf ff ff</span><br></pre></td></tr></table></figure>
+<h3 id="Truncating-Number"><a href="#Truncating-Number" class="headerlink" title="Truncating Number"></a>Truncating Number</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x =<span class="number">53191</span>;</span><br><span class="line">short sx = (short)x;<span class="comment">//Truncating</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sx);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> y=sx;			<span class="comment">//expanding</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, y);</span><br><span class="line">show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">show_bytes((byte_pointer)&amp;sx, <span class="keyword">sizeof</span>(short));</span><br><span class="line">show_bytes((byte_pointer)&amp;y, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//result(little endian)</span></span><br><span class="line"> c7 cf <span class="number">00</span> <span class="number">00</span></span><br><span class="line"> c7 cf</span><br><span class="line"> c7 cf ff ff</span><br></pre></td></tr></table></figure>
 
+<p><strong>Truncating number can alter its value, a form of overflow.</strong></p>
+<ul>
+<li><p>In Binary level, we truncating a w-bit number  $x = [x_w-1, x_w-2, … , x_0]$ to a k-bit number $x’ = [x_k-1, x_k-2, … , x_0], which we drop the high-order w-k bit. Then, we can use the rules, binary to unsigned or binary to two’s complement, to represent the integer.</p>
+</li>
+<li><p>If we truncate Integer number(unsigned and two’s complement) directly, there are two ways: </p>
+</li>
+</ul>
+<p><img data-src="https://i.imgur.com/5gLndkn.png" alt></p>
+<h2 id="Integer-Arithmetic"><a href="#Integer-Arithmetic" class="headerlink" title="Integer Arithmetic"></a>Integer Arithmetic</h2><p>Sometimes, we add two positive numbers can yield a negative number or two negative numbers can yield a positive number, which is the overflow. </p>
+<h3 id="Unsigned-Addition"><a href="#Unsigned-Addition" class="headerlink" title="Unsigned Addition"></a>Unsigned Addition</h3><p>Consider two negative integers x and y in the range $0 &lt;= x, y &lt;= 2^w$. If we compute their sum, we have a possible range $0 &lt;= x, y &lt;= 2^w+1 - 2$</p>
 
     </div>
 
@@ -473,7 +484,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-many-sizes-to-store"><span class="nav-number">2.</span> <span class="nav-text">How many sizes to store?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexadecimal-Notation"><span class="nav-number">2.1.</span> <span class="nav-text">Hexadecimal Notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Sizes"><span class="nav-number">2.2.</span> <span class="nav-text">Data Sizes</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Where-to-store"><span class="nav-number">3.</span> <span class="nav-text">Where to store?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Addressing-and-Byte-Ordering"><span class="nav-number">3.1.</span> <span class="nav-text">Addressing and Byte Ordering</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Representing-Strings"><span class="nav-number">4.</span> <span class="nav-text">Representing Strings</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Representing-Code"><span class="nav-number">5.</span> <span class="nav-text">Representing Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Representing-Integer"><span class="nav-number">6.</span> <span class="nav-text">Representing Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encoding-the-integer"><span class="nav-number">6.1.</span> <span class="nav-text">Encoding the integer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function"><span class="nav-number">6.1.1.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Converting-between-signed-and-unsigned"><span class="nav-number">6.1.2.</span> <span class="nav-text">Converting between signed and unsigned</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operating-the-integer"><span class="nav-number">6.2.</span> <span class="nav-text">Operating the integer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Expanding-the-Bit-Representation-of-a-number"><span class="nav-number">6.2.1.</span> <span class="nav-text">Expanding the Bit Representation of a number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Truncating-Number"><span class="nav-number">6.2.2.</span> <span class="nav-text">Truncating Number</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-many-sizes-to-store"><span class="nav-number">2.</span> <span class="nav-text">How many sizes to store?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexadecimal-Notation"><span class="nav-number">2.1.</span> <span class="nav-text">Hexadecimal Notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Sizes"><span class="nav-number">2.2.</span> <span class="nav-text">Data Sizes</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Where-to-store"><span class="nav-number">3.</span> <span class="nav-text">Where to store?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Addressing-and-Byte-Ordering"><span class="nav-number">3.1.</span> <span class="nav-text">Addressing and Byte Ordering</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Representing-Strings"><span class="nav-number">4.</span> <span class="nav-text">Representing Strings</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Representing-Code"><span class="nav-number">5.</span> <span class="nav-text">Representing Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Representing-Integer"><span class="nav-number">6.</span> <span class="nav-text">Representing Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encoding-the-integer"><span class="nav-number">6.1.</span> <span class="nav-text">Encoding the integer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Function"><span class="nav-number">6.1.1.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Converting-between-signed-and-unsigned"><span class="nav-number">6.1.2.</span> <span class="nav-text">Converting between signed and unsigned</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operating-the-integer"><span class="nav-number">6.2.</span> <span class="nav-text">Operating the integer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Expanding-the-Bit-Representation-of-a-number"><span class="nav-number">6.2.1.</span> <span class="nav-text">Expanding the Bit Representation of a number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Truncating-Number"><span class="nav-number">6.2.2.</span> <span class="nav-text">Truncating Number</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integer-Arithmetic"><span class="nav-number">6.3.</span> <span class="nav-text">Integer Arithmetic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unsigned-Addition"><span class="nav-number">6.3.1.</span> <span class="nav-text">Unsigned Addition</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -527,7 +538,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:27</span>
+    <span title="Reading time total">2:28</span>
 </div>
 
 <div id="days"></div>

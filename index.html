@@ -536,7 +536,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/27/csapp/Representing%20and%20Manipulating%20Information/Representing%20and%20Manipulating%20Information/" class="post-title-link" itemprop="url">csapp/Representing and Manipulating Information/Representing and Manipulating Information</a>
+            <a href="/2020/10/27/csapp/Representing%20and%20Manipulating%20Information/Representing%20and%20Manipulating%20Information/" class="post-title-link" itemprop="url">Representing and Manipulating Information</a>
         </h2>
 
         <div class="post-meta">
@@ -553,7 +553,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-02 00:28:06" itemprop="dateModified" datetime="2020-11-02T00:28:06+08:00">2020-11-02</time>
+                <time title="Modified: 2020-11-04 21:17:30" itemprop="dateModified" datetime="2020-11-04T21:17:30+08:00">2020-11-04</time>
               </span>
 
           <br>
@@ -562,14 +562,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>7.6k</span>
+              <span>8.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>7 mins.</span>
+              <span>8 mins.</span>
             </span>
 
         </div>
@@ -638,7 +638,10 @@
 <p>This same result would be obtained on any system using ASCII as its character code, independent of the bytes ordering and word size.</p>
 <h1 id="Representing-Code"><a href="#Representing-Code" class="headerlink" title="Representing Code"></a>Representing Code</h1><p>Different machine types use different and incompatible instruction and encodings. Even identical processors running different operating systems have differences in their coding conventions and hence are not binary compatible. So binary code is seldom portable across different combination of machine and operating system.</p>
 <p>A fundamental concept of computer systems is that a program is simply a sequence of bytes. The machine has no information about the original source program.</p>
-<h1 id="Representing-Integer"><a href="#Representing-Integer" class="headerlink" title="Representing Integer"></a>Representing Integer</h1><h2 id="Encoding-the-integer"><a href="#Encoding-the-integer" class="headerlink" title="Encoding the integer"></a>Encoding the integer</h2><p>We has two different way <strong>bits can be used to encode integers</strong>. </p>
+<h1 id="Representing-Integer"><a href="#Representing-Integer" class="headerlink" title="Representing Integer"></a>Representing Integer</h1><h2 id="Thoughts-on-integer"><a href="#Thoughts-on-integer" class="headerlink" title="Thoughts on integer"></a>Thoughts on integer</h2><p>*<em>Fist of all, we should state clearly that the a binary value can be represent unsigned or two’s complement. They may look different but their bit-level  are the same, hence operations such as addition, subtraction, multiplication, and even division have either identical or very similar bit-level behaviors, whether the operands are in unsigned or two’s complement. *</em></p>
+<p><img data-src="https://i.imgur.com/3u5SRNE.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/XCnWlIO.png" alt=""></p>
+<h2 id="Encoding-the-integer"><a href="#Encoding-the-integer" class="headerlink" title="Encoding the integer"></a>Encoding the integer</h2><p>We has two different way <strong>bits can be used to encode integers</strong>. </p>
 <ol>
 <li>*<em>Unsigned encodings *</em>(It can only represent nonnegative numbers)</li>
 <li><strong>Two’s Complement Encodings</strong> (It can represent negative, zero and positive numbers)</li>
@@ -702,7 +705,7 @@
 
 <p><strong>Truncating number can alter its value, a form of overflow.</strong></p>
 <ul>
-<li><p>In Binary level, we truncating a w-bit number  $x = [x_w-1, x_w-2, … , x_0]$ to a k-bit number $x’ = [x_k-1, x_k-2, … , x_0], which we drop the high-order w-k bit. Then, we can use the rules, binary to unsigned or binary to two’s complement, to represent the integer.</p>
+<li><p>In Binary level, we truncating a w-bit number  $x = [x_{w-1}, x_{w-2}, … , x_0]$ to a k-bit number $x’ = [x_{k-1}, x_{k-2}, … , x_0]$, which we drop the high-order w-k bit. Then, we can use the rules, binary to unsigned or binary to two’s complement, to represent the integer.</p>
 </li>
 <li><p>If we truncate Integer number(unsigned and two’s complement) directly, there are two ways: </p>
 </li>
@@ -752,6 +755,26 @@
 
 <h3 id="Two’s-complement-negation"><a href="#Two’s-complement-negation" class="headerlink" title="Two’s complement negation"></a>Two’s complement negation</h3><p>When x = TMin, we cannot represent the negation of x, . Consider $TMin + TMin =  -2^{w-1} + (-2^{w-1}) = -2^w$. it will cause negative overflow of two’s complement addition. Hence $TMin + TMin = -2^w mod 2^w = 0$. So TMin is its own additive inverse.</p>
 <p><img data-src="https://i.imgur.com/U0cxzuA.png" alt=""></p>
+<h3 id="Multiplying-by-constants"><a href="#Multiplying-by-constants" class="headerlink" title="Multiplying by constants"></a>Multiplying by constants</h3><p>If we want to multiply something by $2^k$, we just shift it left by k bit. </p>
+<img data-src="https://i.imgur.com/oW0v58o.png" style="zoom: 80%;" />
+
+<p>Since the bit-level operation of fixed size two’s complement is equivalent to that for unsigned arithmetic. we just view it as two’s complement or unsigned after doing the operation.</p>
+<h3 id="Dividing-by-powers-of-2"><a href="#Dividing-by-powers-of-2" class="headerlink" title="Dividing by powers of 2"></a>Dividing by powers of 2</h3><p>If we want to divide something by $2^k$, we just shift it right by k bit. </p>
+<ol>
+<li><p>Unsigned division by a power of 2</p>
+<p>Performing a logical right shift of bit vector$$[x_{w-1}, x_{w-2}, … , x_0]$$ by k yields the bit vector$$[0, … , 0, x_{w-1}, x_{w-2}, … , w_k]$$</p>
+</li>
+<li><p>Two’s complement by a power of 2</p>
+<p>Performing a arithmetically right shift of bit vector$$[x_{w-1}, x_{w-2}, … , x_0]$$ by k yields the bit vector$$[x_{w-1}, … , x_{w-1}, x_{w-2}, … , x_k]$$</p>
+</li>
+</ol>
+<p><img data-src="https://i.imgur.com/YrcMtQB.png" alt=""></p>
+<p>If we want to round it toward zero, we just add a bias. </p>
+<p>$$bias = (1 &lt;&lt; k) - 1$$</p>
+<p>So the expression is :</p>
+<p>$$ (x + bias) &gt;&gt; k$$</p>
+<p><img data-src="https://i.imgur.com/sZEu7Ob.png" alt=""></p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>*<em>As we have seen, the integer arithmetic performed by computers is really a form of modular arithmetic. *</em></p>
 
       
     </div>
@@ -1507,13 +1530,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">164k</span>
+    <span title="Symbols count total">165k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:29</span>
+    <span title="Reading time total">2:30</span>
 </div>
 
 <div id="days"></div>

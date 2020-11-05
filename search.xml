@@ -240,11 +240,15 @@
 
 <h3 id="Two’s-complement-negation"><a href="#Two’s-complement-negation" class="headerlink" title="Two’s complement negation"></a>Two’s complement negation</h3><p>When x = TMin, we cannot represent the negation of x, . Consider $TMin + TMin =  -2^{w-1} + (-2^{w-1}) = -2^w$. it will cause negative overflow of two’s complement addition. Hence $TMin + TMin = -2^w mod 2^w = 0$. So TMin is its own additive inverse.</p>
 <p><img data-src="https://i.imgur.com/U0cxzuA.png" alt=""></p>
-<h3 id="Multiplying-by-constants"><a href="#Multiplying-by-constants" class="headerlink" title="Multiplying by constants"></a>Multiplying by constants</h3><p>If we want to multiply something by $2^k$, we just shift it left by k bit. </p>
+<h3 id="Multiplying-by-constants"><a href="#Multiplying-by-constants" class="headerlink" title="Multiplying by constants"></a>Multiplying by constants</h3><ul>
+<li>If we want to multiply something by $2^k$, we just shift it left by k bit. </li>
+</ul>
 <img data-src="https://i.imgur.com/oW0v58o.png" style="zoom: 80%;" />
 
-<p>Since the bit-level operation of fixed size two’s complement is equivalent to that for unsigned arithmetic. we just view it as two’s complement or unsigned after doing the operation.</p>
-<h3 id="Dividing-by-powers-of-2"><a href="#Dividing-by-powers-of-2" class="headerlink" title="Dividing by powers of 2"></a>Dividing by powers of 2</h3><p>If we want to divide something by $2^k$, we just shift it right by k bit. </p>
+<p>Since the bit-level operation of fixed size two’s complement is equivalent to that for unsigned arithmetic. we just view it as two’s complement or unsigned after doing the operation. </p>
+<h3 id="Dividing-by-powers-of-2"><a href="#Dividing-by-powers-of-2" class="headerlink" title="Dividing by powers of 2"></a>Dividing by powers of 2</h3><ul>
+<li>If we want to divide something by $2^k$, we just shift it right by k bit. </li>
+</ul>
 <ol>
 <li><p>Unsigned division by a power of 2</p>
 <p>Performing a logical right shift of bit vector$$[x_{w-1}, x_{w-2}, … , x_0]$$ by k yields the bit vector$$[0, … , 0, x_{w-1}, x_{w-2}, … , w_k]$$</p>
@@ -253,13 +257,70 @@
 <p>Performing a arithmetically right shift of bit vector$$[x_{w-1}, x_{w-2}, … , x_0]$$ by k yields the bit vector$$[x_{w-1}, … , x_{w-1}, x_{w-2}, … , x_k]$$</p>
 </li>
 </ol>
-<p><img data-src="https://i.imgur.com/YrcMtQB.png" alt=""></p>
+<img data-src="https://i.imgur.com/YrcMtQB.png" style="zoom:80%;" />
+
+
+
 <p>If we want to round it toward zero, we just add a bias. </p>
 <p>$$bias = (1 &lt;&lt; k) - 1$$</p>
 <p>So the expression is :</p>
 <p>$$ (x + bias) &gt;&gt; k$$</p>
 <p><img data-src="https://i.imgur.com/sZEu7Ob.png" alt=""></p>
 <h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>*<em>As we have seen, the integer arithmetic performed by computers is really a form of modular arithmetic. *</em></p>
+<h2 id="Floating-Point-Representation"><a href="#Floating-Point-Representation" class="headerlink" title="Floating-Point Representation"></a>Floating-Point Representation</h2><h3 id="Fractional-binary-representation"><a href="#Fractional-binary-representation" class="headerlink" title="Fractional binary representation"></a>Fractional binary representation</h3><ul>
+<li>Position notation</li>
+</ul>
+<img data-src="https://i.imgur.com/BqxSmH5.png" style="zoom:80%;" />
+
+<img data-src="https://i.imgur.com/DOl16Vt.png" style="zoom:80%;" />
+
+
+
+<p>So we can do that: </p>
+<ol>
+<li>shifting the binary point one position to left has the effect of dividing the number by 2. </li>
+<li>Similarly, shifting the binary point one position to right has the effect of multiplying the number by 2. </li>
+</ol>
+<h3 id="IEEE-Floating-Point-Representation"><a href="#IEEE-Floating-Point-Representation" class="headerlink" title="IEEE Floating-Point Representation"></a>IEEE Floating-Point Representation</h3><p>But the position notation would not be effect for representing a large number. For example, if we want to multiply a number by $2^100$, we need to shift the binary point 100 position to right. </p>
+<p>Instead, we would like to represent numbers in a form $ x * 2^y $ by giving the value of x and y. IEEE Floating-Point standard represents a number in a from<br>$$<br>V = (-1)^S * M * 2^E<br>$$</p>
+<ul>
+<li><p><code>s</code> is a sign bit. </p>
+<p>s = 1 represent negative. s = 0 represent positive. </p>
+</li>
+<li><p><code>M</code> is a fractional binary number between 1 and 2-0 or between 0 and 1-0</p>
+</li>
+<li><p><code>E</code> weight the value by a power of 2. </p>
+</li>
+</ul>
+<img data-src="https://i.imgur.com/5IU0RWl.png" style="zoom:80%;" />
+
+
+
+<ul>
+<li>There are 4 cases of the float values that determined by the exponent. </li>
+</ul>
+<img data-src="https://i.imgur.com/tdaKvcp.png" style="zoom:67%;" />
+$$
+Bias = 2^{k-1}-1
+$$
+
+
+<ol>
+<li>Normalized Values</li>
+</ol>
+<p>$$<br>e = B2U(exp)<br>$$</p>
+<p>$$<br>E = e - Bias<br>$$</p>
+<p>$$<br>M=1+f<br>$$</p>
+<ol start="2">
+<li><p>Denormalized Values<br>$$<br>E=1-Bias<br>$$</p>
+<p>$$<br>M=f<br>$$</p>
+</li>
+</ol>
+<ul>
+<li><p>Example Numbers</p>
+<p><img data-src="https://i.imgur.com/aSJ4G85.png" alt=""></p>
+</li>
+</ul>
 ]]></content>
       <tags>
         <tag>csapp</tag>

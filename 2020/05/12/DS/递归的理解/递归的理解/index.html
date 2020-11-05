@@ -267,7 +267,7 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>递归实际上就是自己调用自己。可我们要去理解它，可以通过另一种方式—-重复调用与自己相同的函数。</p>
 <h1 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h1><h2 id="Fibonacci"><a href="#Fibonacci" class="headerlink" title="Fibonacci"></a>Fibonacci</h2><p>这个数列就是从第3项开始，等于前两项的和（0，1，1，2，3，5…)</p>
 <ul>
-<li><p>数学函数<br><img data-src="https://i.loli.net/2020/05/12/ke5CvsQBoYE3Ufz.png" alt></p>
+<li><p>数学函数<br><img data-src="https://i.loli.net/2020/05/12/ke5CvsQBoYE3Ufz.png" alt=""></p>
 </li>
 <li><p>递归实现</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Fbi</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n &lt; <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> n == <span class="number">0</span> ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> Fbi(n - <span class="number">1</span>) + Fbi(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = Fbi(<span class="number">5</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, x);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -278,7 +278,7 @@
 <li>函数要找到递归出口（需要执行函数之前的语句）</li>
 </ol>
 <p><strong>把函数参数值，局部变量，返回值压如栈中</strong><br>2. 函数找到出口后，函数参数要变回与原来main（）中的一致。（执行函数之后的语句）<br><strong>再将函数的参数值，局部变量，返回值弹出栈</strong>，用于函数之后的语句</p>
-<p><img data-src="https://i.loli.net/2020/05/12/sFWJx7NMiw5Bb3g.png" alt></p>
+<p><img data-src="https://i.loli.net/2020/05/12/sFWJx7NMiw5Bb3g.png" alt=""></p>
 <ol>
 <li><strong>左侧图上的每一行就是每次的return</strong></li>
 <li><strong>再将右侧图所有的结果相加，得到最终return的结果</strong></li>

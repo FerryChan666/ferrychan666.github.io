@@ -290,7 +290,7 @@
 
 
 
-<p><img data-src="https://i.imgur.com/b6FEzAA.png" alt></p>
+<p><img data-src="https://i.imgur.com/b6FEzAA.png" alt=""></p>
 <h2 id="折半查找-二分查找"><a href="#折半查找-二分查找" class="headerlink" title="折半查找(二分查找)"></a>折半查找(二分查找)</h2><p>这种方法就不是从头到尾一个个去对比key。而是折取一半（范围变成一半）比较，不成功再折取一半。那么效率也明显提高了。</p>
 <ul>
 <li>不过好的方法也会有限制<ul>
@@ -304,14 +304,14 @@
 
 
 <h3 id="查找算法效率的优劣标准ASL"><a href="#查找算法效率的优劣标准ASL" class="headerlink" title="查找算法效率的优劣标准ASL"></a>查找算法效率的优劣标准ASL</h3><p>由于查找算法的基本操作是关键字的比较，并且查找次数与待查找的关键字有关。所以，把<strong>对范围内所有关键字的比较次数</strong>（平均查找长度average search length）作为算法效率的优劣标准。</p>
-<p><img data-src="https://i.imgur.com/b6FEzAA.png" alt></p>
+<p><img data-src="https://i.imgur.com/b6FEzAA.png" alt=""></p>
 <p>其中：</p>
 <p><strong>p为查找第i个记录的概率(一般为1/n)，c为查找第i个记录所要用到的次数</strong></p>
 <p>更清晰地，我们可以将折半查找过程用二叉树来描述。把当前查找的中间位作为根，每一条记录对于一个节点。左子表和右子表作为左右子树。由此得到折半查找的判定树。</p>
-<h3 id="折半查找的判定树建立，平均查找长度求法"><a href="#折半查找的判定树建立，平均查找长度求法" class="headerlink" title="折半查找的判定树建立，平均查找长度求法"></a>折半查找的判定树建立，平均查找长度求法</h3><p><img data-src="https://i.imgur.com/fnB0VJs.png" alt></p>
-<p><img data-src="https://i.imgur.com/LNe2OY3.png" alt></p>
+<h3 id="折半查找的判定树建立，平均查找长度求法"><a href="#折半查找的判定树建立，平均查找长度求法" class="headerlink" title="折半查找的判定树建立，平均查找长度求法"></a>折半查找的判定树建立，平均查找长度求法</h3><p><img data-src="https://i.imgur.com/fnB0VJs.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/LNe2OY3.png" alt=""></p>
 <h2 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h2><p>顾名思义，可以把分块查找简单描述为：把线性表分为若干块，再找。这样一来，我们就需要额外建立一个索引表。</p>
-<p><img data-src="https://i.imgur.com/bTnp0WU.png" alt></p>
+<p><img data-src="https://i.imgur.com/bTnp0WU.png" alt=""></p>
 <p>可以看出</p>
 <ul>
 <li><p>每一块表中的元素是任意的</p>

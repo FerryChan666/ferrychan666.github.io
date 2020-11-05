@@ -265,7 +265,7 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>线性表有一种物理结构叫顺序存储结构。它由一系列连续的存储单元组成，从而使得逻辑上相邻的两个元素也连续。</p>
 <ul>
-<li>这样的结构可以使用一维数组来实现。数组的下标从0开始，但我们的元素是从1开始。所以，我们可以这样看：<strong>元素均对应，但标志不一样（只需在用[]时，-1即可）</strong><br><img data-src="https://i.loli.net/2020/05/08/LPTeAaztkmBrnHc.jpg" alt></li>
+<li>这样的结构可以使用一维数组来实现。数组的下标从0开始，但我们的元素是从1开始。所以，我们可以这样看：<strong>元素均对应，但标志不一样（只需在用[]时，-1即可）</strong><br><img data-src="https://i.loli.net/2020/05/08/LPTeAaztkmBrnHc.jpg" alt=""></li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 50  <span class="comment">// 定义线性表的最大长度</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    ElemType data [MaxSize] ;  <span class="comment">// 表的元素</span></span><br><span class="line">    <span class="keyword">int</span> length;  <span class="comment">// 线性表的当前长度</span></span><br><span class="line">&#125;SqList;  <span class="comment">// 表的类型定义</span></span><br></pre></td></tr></table></figure>
 <p><strong>注意线性表长度和数组长度不同</strong></p>

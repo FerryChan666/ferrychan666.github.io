@@ -275,11 +275,11 @@
 <ul>
 <li><em>空队列的判断</em>。所以，当<code>rear == front</code>的时候，不是还剩一个元素，而是空队列。（一个元素都没有）</li>
 </ul>
-<p><img data-src="https://i.loli.net/2020/05/12/IBxZ8dk9Lra2HKJ.png" alt></p>
+<p><img data-src="https://i.loli.net/2020/05/12/IBxZ8dk9Lra2HKJ.png" alt=""></p>
 <ul>
 <li>当我们用循环队列的时候，如果，元素把整个数组都占满的时候，那么<code>rear == front</code>着个等式不是也成立吗？那么我们怎么区分<strong>满队列</strong>和<strong>空队列</strong>呢？我们应该采取一种方法—永远不要让元素占满整个数组。应该留一个空位。</li>
 </ul>
-<p><img data-src="https://i.loli.net/2020/05/12/v7fNVKGUnPhC5yk.png" alt></p>
+<p><img data-src="https://i.loli.net/2020/05/12/v7fNVKGUnPhC5yk.png" alt=""></p>
 <ul>
 <li><p><em>满队列的判断</em>。因为要留下一个位置不能用，要用<code>Q-&gt;rear + 1 == Q-&gt;front</code>判断队列为满</p>
 </li>

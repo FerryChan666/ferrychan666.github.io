@@ -268,11 +268,11 @@
 <h1 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h1><ul>
 <li><p>存放数据的区域（数组），而且数组的下标也要体现节点间的逻辑关系。</p>
 </li>
-<li><p>数组的大小要定义为完全二叉树的大小。当中某些节点有可能是为空的，所以顺序存储结构一般只用于完全二叉树，否则会造成空间的浪费。<br><img data-src="https://i.loli.net/2020/05/17/1bQJupvKSM2sqa6.png" alt></p>
+<li><p>数组的大小要定义为完全二叉树的大小。当中某些节点有可能是为空的，所以顺序存储结构一般只用于完全二叉树，否则会造成空间的浪费。<br><img data-src="https://i.loli.net/2020/05/17/1bQJupvKSM2sqa6.png" alt=""></p>
 </li>
 </ul>
 <h1 id="链式存储结构"><a href="#链式存储结构" class="headerlink" title="链式存储结构"></a>链式存储结构</h1><p>既然顺序存储结构的适用性不强，所以将引入二叉链表。它一般被分为两个区域——数据区和指向左右孩子的指针区。然而它还可以在指针区增加一个指针来指向父母。</p>
-<p><img data-src="https://i.loli.net/2020/05/17/vqMor4FReGQOnjg.png" alt></p>
+<p><img data-src="https://i.loli.net/2020/05/17/vqMor4FReGQOnjg.png" alt=""></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">PtrToNode</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> PtrToNode Tree;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ElementType e;</span><br><span class="line">    PtrToNode lchild, rchild;</span><br><span class="line">&#125;Node</span><br></pre></td></tr></table></figure>
 
     </div>

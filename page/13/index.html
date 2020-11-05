@@ -255,7 +255,7 @@
 <p>在块中，重新定义了局部变量ｘ，（因为同名）所以全局变量暂时被覆盖。当跳出块时ｘ变为全局变量。</p>
 <hr>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int x = 1;</span><br><span class="line">int <span class="keyword">function</span>()</span><br><span class="line">&#123;</span><br><span class="line">    x = 2;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, x);  ／／ｘ　＝　２；</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">printf("</span>%d<span class="string">", x);      // x = 2;</span></span><br></pre></td></tr></table></figure>
-<p>因为全局变量随处可用，所以可在块中修改x的值。<br><br><br>所以全局变量很容易被修改，一般将固定值设为全局变量，使用const修饰。</p>
+<p>因为全局变量随处可用，所以可在块中修改x的值。<br><br/><br>所以全局变量很容易被修改，一般将固定值设为全局变量，使用const修饰。</p>
 <h2 id="函数中的参数。"><a href="#函数中的参数。" class="headerlink" title="函数中的参数。"></a>函数中的参数。</h2><p>一般由主调程序将变量传给函数。</p>
 <ul>
 <li>例如函数<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">function</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> arr[], <span class="keyword">int</span> x, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
@@ -347,7 +347,7 @@
 <li>&amp;　　　　　–&gt;　取地址</li>
 <li>&amp; * []　同时存在时可以互相抵消</li>
 </ul>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>　　地址　　|　　　　　　　　　　　　值　　　　　　　　　　　　　　　　　|<br>　　ａ　　　|　　　ａ［０］　　|　　ａ［１］　　　|　　　ａ［２］　　　　|<br><br></p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>　　地址　　|　　　　　　　　　　　　值　　　　　　　　　　　　　　　　　|<br>　　ａ　　　|　　　ａ［０］　　|　　ａ［１］　　　|　　　ａ［２］　　　　|<br><br/></p>
 <p>　ａ［０］　|　ａ［０］［０］　|　ａ［０］［１］　|　　ａ［０］［２］　　|<br>　　　　　　|　　　　１　　　　|　　　　２　　　　|　　　　　３　　　　　|<br>　ａ［１］　|　ａ［１］［０］　|　ａ［１］［１］　|　　ａ［１］［２］　　|<br>　　　　　　|　　　　４　　　　|　　　　５　　　　|　　　　　７　　　　　|<br>　ａ［２］　|　ａ［２］［０］　|　ａ［２］［１］　|　　ａ［２］［２］　　|<br>　　　　　　|　　　　　８　　　|　　　　９　　　　|　　　　　１０　　　　|</p>
 <ul>
 <li>往下取值，往上地址<br>|    a    |<br>|   a[0]    |<br>|   a[0][0]   |<h2 id="重要切换，原来一维数组a-x-是值，而二维数组是地址。Anyway-最终的取值才是值。"><a href="#重要切换，原来一维数组a-x-是值，而二维数组是地址。Anyway-最终的取值才是值。" class="headerlink" title="重要切换，原来一维数组a[x]是值，而二维数组是地址。Anyway,最终的取值才是值。"></a>重要切换，原来一维数组a[x]是值，而二维数组是地址。Anyway,最终的取值才是值。</h2></li>
@@ -441,7 +441,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="5种存储类别"><a href="#5种存储类别" class="headerlink" title="5种存储类别"></a>5种存储类别</h2><p><img data-src="https://easycaptures.com/fs/uploaded/1300/7957902175.png" alt></p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="5种存储类别"><a href="#5种存储类别" class="headerlink" title="5种存储类别"></a>5种存储类别</h2><p><img data-src="https://easycaptures.com/fs/uploaded/1300/7957902175.png" alt=""></p>
 <h2 id="存储类别说明符"><a href="#存储类别说明符" class="headerlink" title="存储类别说明符"></a>存储类别说明符</h2><ul>
 <li>auto extern static register<br>内容</li>
 </ul>
@@ -1064,7 +1064,7 @@
           <p>Markdown 编写的文档后缀为 .md, .markdown</p>
 <h2 id="1-符号"><a href="#1-符号" class="headerlink" title="1.符号#"></a>1.符号#</h2><p>越少 ——&gt; 笔画越粗</p>
 <h2 id="2-斜体"><a href="#2-斜体" class="headerlink" title="2.*  * 斜体"></a>2.*  * 斜体</h2><p><em>ferry chan</em></p>
-<h2 id="3-代码块"><a href="#3-代码块" class="headerlink" title="3.代码块"></a>3.代码块</h2><h2 id="bash"><a href="#bash" class="headerlink" title="```bash"></a>```bash</h2><h2 id><a href="#" class="headerlink" title="$"></a>$</h2><h2 id="-1"><a href="#-1" class="headerlink" title="```"></a>```</h2><h2 id="4-网页链接"><a href="#4-网页链接" class="headerlink" title="4.网页链接"></a>4.网页链接</h2><pre><code>[name](URL)</code></pre><h2 id="5-加双引号-“-”"><a href="#5-加双引号-“-”" class="headerlink" title="5.加双引号 “ ”"></a>5.加双引号 “ ”</h2><pre><code>——&gt; 变色</code></pre><h2 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h2><ul>
+<h2 id="3-代码块"><a href="#3-代码块" class="headerlink" title="3.代码块"></a>3.代码块</h2><h2 id="bash"><a href="#bash" class="headerlink" title="```bash"></a>```bash</h2><h2 id=""><a href="#" class="headerlink" title="$"></a>$</h2><h2 id="-1"><a href="#-1" class="headerlink" title="```"></a>```</h2><h2 id="4-网页链接"><a href="#4-网页链接" class="headerlink" title="4.网页链接"></a>4.网页链接</h2><pre><code>[name](URL)</code></pre><h2 id="5-加双引号-“-”"><a href="#5-加双引号-“-”" class="headerlink" title="5.加双引号 “ ”"></a>5.加双引号 “ ”</h2><pre><code>——&gt; 变色</code></pre><h2 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h2><ul>
 <li>大标题<br><code>=====</code></li>
 <li>小标题<br><code>-----</code></li>
 </ul>

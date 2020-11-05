@@ -299,9 +299,9 @@
 <h3 id="建立平衡二叉树"><a href="#建立平衡二叉树" class="headerlink" title="建立平衡二叉树"></a>建立平衡二叉树</h3><p>平衡二叉树的建立也类似与二叉排序树的建立，也是一个一个节点地插入到树中。但要实现平衡。实现平衡就是需要左右子树之间的高度不能超过1。为此为根引入了<strong>平衡因子，即 平衡因子 = 左子树的高度 - 右子树的高度</strong></p>
 <p>那么关键问题就是在像往常一样创建排序二叉树的过程中，如何进行修改？变成平衡二叉树。平衡二叉树的调整需要引入<strong>最小不平衡子树</strong>。就是在逐步建立二叉树的过程中找到其中根平衡因子绝对值大于1的子树。</p>
 <p>而最小不平衡子树也有不同的形态，分为LL，RR，LR，RL型。这几种类型中都是取出顶上的3个节点。最小的变成左子树，最大的变成右子树，排在中间的变为根。</p>
-<p><img data-src="https://i.imgur.com/VRtlZiG.png" alt></p>
-<p><img data-src="https://i.imgur.com/ibiaKLq.png" alt></p>
-<p><img data-src="https://i.imgur.com/2Bz62Kv.png" alt></p>
+<p><img data-src="https://i.imgur.com/VRtlZiG.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/ibiaKLq.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/2Bz62Kv.png" alt=""></p>
 
     </div>
 

@@ -291,10 +291,10 @@
 </ul>
 <h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="双亲存储结构"><a href="#双亲存储结构" class="headerlink" title="双亲存储结构"></a>双亲存储结构</h2><p>双亲存储仅仅需要一个<strong>一维数组</strong>。<code>int tree[maxSize]</code></p>
 <p><strong>它的下标代表此节点的位置，数组元素代表双亲位置。</strong></p>
-<p><img data-src="https://i.imgur.com/twqsQIf.png" alt></p>
+<p><img data-src="https://i.imgur.com/twqsQIf.png" alt=""></p>
 <h2 id="孩子兄弟存储结构"><a href="#孩子兄弟存储结构" class="headerlink" title="孩子兄弟存储结构"></a>孩子兄弟存储结构</h2><p><strong>孩子兄弟存储结构实际上就是一个二叉链表。因为二叉链表中指针域意义不同。lchild变成了child指向一个孩子，rchild变成了sibling指向一个兄弟。</strong></p>
-<h4 id="tree-gt-binary-tree"><a href="#tree-gt-binary-tree" class="headerlink" title="tree-&gt;binary tree"></a>tree-&gt;binary tree</h4><p><img data-src="https://i.imgur.com/6lM2ZDV.png" alt></p>
-<p><img data-src="https://i.imgur.com/4OfQzDh.png" alt></p>
+<h4 id="tree-gt-binary-tree"><a href="#tree-gt-binary-tree" class="headerlink" title="tree-&gt;binary tree"></a>tree-&gt;binary tree</h4><p><img data-src="https://i.imgur.com/6lM2ZDV.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/4OfQzDh.png" alt=""></p>
 <ul>
 <li>步骤</li>
 </ul>
@@ -308,7 +308,7 @@
 <li><p>旋转</p>
 </li>
 </ol>
-<h4 id="binary-tree-gt-tree"><a href="#binary-tree-gt-tree" class="headerlink" title="binary tree-&gt;tree"></a>binary tree-&gt;tree</h4><p><img data-src="https://i.imgur.com/dhRNCrB.png" alt></p>
+<h4 id="binary-tree-gt-tree"><a href="#binary-tree-gt-tree" class="headerlink" title="binary tree-&gt;tree"></a>binary tree-&gt;tree</h4><p><img data-src="https://i.imgur.com/dhRNCrB.png" alt=""></p>
 <ul>
 <li><p>步骤</p>
 <ol>
@@ -325,7 +325,7 @@
 </ul>
 <h4 id="forest-gt-binary-tree"><a href="#forest-gt-binary-tree" class="headerlink" title="forest-&gt;binary tree"></a>forest-&gt;binary tree</h4><ul>
 <li><p>先来回顾一下概念，<strong>森林是由若干颗互不相交的树的集合</strong></p>
-<p><img data-src="https://i.imgur.com/nhTFa3s.png" alt></p>
+<p><img data-src="https://i.imgur.com/nhTFa3s.png" alt=""></p>
 </li>
 </ul>
 <p><strong>因为我们知道孩子兄弟存储结构的根节点是没有兄弟的，所以将树转换成二叉树也是一定没有右孩子的。</strong>所以我们又可以利用第一颗二叉树的根的rchild接上第二颗的根，第二颗的根的rchild接上第三颗的根。以此类推，全部合并成一颗二叉树。</p>
@@ -333,7 +333,7 @@
 <li>先把森林中的树转换为二叉树</li>
 <li>合并</li>
 </ol>
-<p><img data-src="https://i.imgur.com/DbPxUm9.png" alt></p>
+<p><img data-src="https://i.imgur.com/DbPxUm9.png" alt=""></p>
 <h4 id="binary-tree-gt-forest"><a href="#binary-tree-gt-forest" class="headerlink" title="binary tree-&gt;forest"></a>binary tree-&gt;forest</h4><p>据上，容易得到。从二叉树的根查找rchild右孩子，让rchild指向的节点与根剪掉，再让它成为第二颗树的根，一直到rchild为NULL。然后，再把这一颗颗的二叉树，转换成树。</p>
 <ol>
 <li>拆开。（根据右孩子）</li>
@@ -360,8 +360,8 @@
 <li>再把根权值最小两棵树取出来（b，c），并作为左右子树构造新的二叉树，根的权值为b，c权值之和。</li>
 <li>现在只剩下两棵树了，再把它们删了，并作为左右子树创造一颗根为两子树根的和的树，这就是赫夫曼树。</li>
 </ol>
-<p><img data-src="https://i.imgur.com/zUkJD69.png" alt></p>
-<p><img data-src="https://i.imgur.com/dYwHFEv.png" alt></p>
+<p><img data-src="https://i.imgur.com/zUkJD69.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/dYwHFEv.png" alt=""></p>
 
     </div>
 

@@ -1037,7 +1037,7 @@
 <h1 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h1><p>makefile是由于这条gcc命令，而实现的。</p>
 <ul>
 <li>我们有ａ．ｃ　　ｂ．ｃ　　ｄ．ｃ　<br>（还有一些头文件。文件会有预处理指令<code>#include &quot;e.h&quot;</code>）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">main: a.c b.o d.o　　　　　　　　　　　　　//main(exe)的生成需要依赖：a.c b.o d.o</span><br><span class="line">    gcc a.c b.o d.o -o main 　　　　//（加Tab）做生成main的操作 </span><br><span class="line">b.o: b.c         　　　　　//b.o的生成需要b.c</span><br><span class="line">    gcc -c b.c    　　　　// -c 是要生成 .o文件</span><br><span class="line">d.o: d.c</span><br><span class="line">    gcc -c d.c</span><br><span class="line">clean:</span><br><span class="line">    rm *.o main　　　　　　//最后删除所有的.o文件，exe文件</span><br></pre></td></tr></table></figure>
-<br>
+<br/>
 
 </li>
 </ul>
@@ -1045,7 +1045,7 @@
 <li>写makefile</li>
 <li>在终端中，<code>make</code>就可以了生成c的可执行文件了</li>
 <li><code>./main</code>执行文件</li>
-<li><code>make clean</code><br>
+<li><code>make clean</code><br/>
 </li>
 </ol>
 <ul>
@@ -1137,7 +1137,7 @@
 <li><p>随即，赋地址<br><code>p = &amp;x;</code></p>
 </li>
 <li><p>到了这里，p就是x变量的地址。<br><code>*p</code> 就是x的值。</p>
-<br>
+<br/>
 
 </li>
 </ul>

@@ -265,9 +265,9 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>双链表和单链表的<strong>插入，删除，交换</strong>。可以想象成锁链，<strong>但是，前后的链不能断开联系</strong></p>
-<p><img data-src="https://i.loli.net/2020/05/03/2tnJyGmlaUBK8VW.png" alt></p>
+<p><img data-src="https://i.loli.net/2020/05/03/2tnJyGmlaUBK8VW.png" alt=""></p>
 <h1 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SwapWithNextAndLast</span><span class="params">(Position BeforeP)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Position P = BeforeP-&gt;next;</span><br><span class="line">    Position AfterP = P-&gt;next;</span><br><span class="line"></span><br><span class="line">    P-&gt;next = AfterP-&gt;next;</span><br><span class="line">    BeforeP-&gt;next = AfterP;</span><br><span class="line">    AfterP-&gt;next = P;</span><br><span class="line">    P-&gt;next-&gt;last = P;<span class="comment">//注意这行！不能用AfterP-&gt;last，因为P和AfterP的位置改变</span></span><br><span class="line">    P-&gt;last = AfterP;</span><br><span class="line">    AfterP-&gt;last = BeforeP;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h1><p><img data-src="https://i.loli.net/2020/05/10/B1RAxiH2bohUmw4.png" alt><br><em>只要把S指针与前后相连，S-&gt;next，S-&gt;prior与前后指针相连。</em>就完成了。</p>
+<h1 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h1><p><img data-src="https://i.loli.net/2020/05/10/B1RAxiH2bohUmw4.png" alt=""><br><em>只要把S指针与前后相连，S-&gt;next，S-&gt;prior与前后指针相连。</em>就完成了。</p>
 <ul>
 <li>主要方法</li>
 </ul>

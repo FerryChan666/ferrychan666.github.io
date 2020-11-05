@@ -264,7 +264,7 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>linux上一个文件添加许多的属性，例如用户组的概念。<br>当我们<code>ls -al</code>的时候，会看到（文件拥有者，用户组，其他人）的读，写，执行权限。</p>
-<p><img data-src="https://i.ibb.co/4fs4bp4/image.png" alt></p>
+<p><img data-src="https://i.ibb.co/4fs4bp4/image.png" alt=""></p>
 <h2 id="代表意义"><a href="#代表意义" class="headerlink" title="代表意义"></a>代表意义</h2><p><code>[权限][链接][拥有者名][用户组名][文件容量][修改日期][文件名]</code></p>
 <ul>
 <li>拥有者，用户组对应相关权限</li>
@@ -283,9 +283,9 @@
 <h1 id="修改属性和权限"><a href="#修改属性和权限" class="headerlink" title="修改属性和权限"></a>修改属性和权限</h1><ul>
 <li><p><code>-R</code><br>如果要修改目录中的子目录和文件，只要在选项中加上<code>-R</code></p>
 </li>
-<li><p><code>chgrp</code>-&gt; change group，修改文件所属的用户组。<br>(chgrp <users> <filename>)<br>users是用户组名，只有当此用户组名，列入 <strong>/etc/passwd</strong>这个文件中才能被执行</filename></users></p>
+<li><p><code>chgrp</code>-&gt; change group，修改文件所属的用户组。<br>(chgrp <users> <filename>)<br>users是用户组名，只有当此用户组名，列入 <strong>/etc/passwd</strong>这个文件中才能被执行</p>
 </li>
-<li><p><code>chown</code>-&gt; change own，修改文件拥有者和用户组<br>(chown <bin> <filename>)</filename></bin></p>
+<li><p><code>chown</code>-&gt; change own，修改文件拥有者和用户组<br>(chown <bin> <filename>)</p>
 </li>
 <li><p><em>(chown ferry:ferry file)*</em>这就将文件的拥有者和用户组都改成ferry</p>
 </li>

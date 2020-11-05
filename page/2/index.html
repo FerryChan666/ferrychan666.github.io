@@ -273,7 +273,7 @@
 
 
 
-<p><img data-src="https://i.imgur.com/b6FEzAA.png" alt></p>
+<p><img data-src="https://i.imgur.com/b6FEzAA.png" alt=""></p>
 <h2 id="折半查找-二分查找"><a href="#折半查找-二分查找" class="headerlink" title="折半查找(二分查找)"></a>折半查找(二分查找)</h2><p>这种方法就不是从头到尾一个个去对比key。而是折取一半（范围变成一半）比较，不成功再折取一半。那么效率也明显提高了。</p>
 <ul>
 <li>不过好的方法也会有限制<ul>
@@ -287,14 +287,14 @@
 
 
 <h3 id="查找算法效率的优劣标准ASL"><a href="#查找算法效率的优劣标准ASL" class="headerlink" title="查找算法效率的优劣标准ASL"></a>查找算法效率的优劣标准ASL</h3><p>由于查找算法的基本操作是关键字的比较，并且查找次数与待查找的关键字有关。所以，把<strong>对范围内所有关键字的比较次数</strong>（平均查找长度average search length）作为算法效率的优劣标准。</p>
-<p><img data-src="https://i.imgur.com/b6FEzAA.png" alt></p>
+<p><img data-src="https://i.imgur.com/b6FEzAA.png" alt=""></p>
 <p>其中：</p>
 <p><strong>p为查找第i个记录的概率(一般为1/n)，c为查找第i个记录所要用到的次数</strong></p>
 <p>更清晰地，我们可以将折半查找过程用二叉树来描述。把当前查找的中间位作为根，每一条记录对于一个节点。左子表和右子表作为左右子树。由此得到折半查找的判定树。</p>
-<h3 id="折半查找的判定树建立，平均查找长度求法"><a href="#折半查找的判定树建立，平均查找长度求法" class="headerlink" title="折半查找的判定树建立，平均查找长度求法"></a>折半查找的判定树建立，平均查找长度求法</h3><p><img data-src="https://i.imgur.com/fnB0VJs.png" alt></p>
-<p><img data-src="https://i.imgur.com/LNe2OY3.png" alt></p>
+<h3 id="折半查找的判定树建立，平均查找长度求法"><a href="#折半查找的判定树建立，平均查找长度求法" class="headerlink" title="折半查找的判定树建立，平均查找长度求法"></a>折半查找的判定树建立，平均查找长度求法</h3><p><img data-src="https://i.imgur.com/fnB0VJs.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/LNe2OY3.png" alt=""></p>
 <h2 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h2><p>顾名思义，可以把分块查找简单描述为：把线性表分为若干块，再找。这样一来，我们就需要额外建立一个索引表。</p>
-<p><img data-src="https://i.imgur.com/bTnp0WU.png" alt></p>
+<p><img data-src="https://i.imgur.com/bTnp0WU.png" alt=""></p>
 <p>可以看出</p>
 <ul>
 <li><p>每一块表中的元素是任意的</p>
@@ -394,13 +394,13 @@
 
       
           <h1 id="Prim"><a href="#Prim" class="headerlink" title="Prim"></a>Prim</h1><h2 id="算法思想："><a href="#算法思想：" class="headerlink" title="算法思想："></a>算法思想：</h2><p>需要先创建一颗树T，让首顶点加入这颗树中。再查找与T相邻的最短的边（权值最小）。再让该边指向的顶点加入T中。以此类推，<strong>选择与T集合中距离最近的顶点</strong>，直到让所有的顶点加入到树中为止。</p>
-<p><img data-src="https://i.imgur.com/gZjFi52.png" alt></p>
+<p><img data-src="https://i.imgur.com/gZjFi52.png" alt=""></p>
 <h2 id="算法执行过程"><a href="#算法执行过程" class="headerlink" title="算法执行过程"></a>算法执行过程</h2><h2 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Prim</span><span class="params">(MGraph g, <span class="keyword">int</span> v0, <span class="keyword">int</span>&amp; sum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> lowcost[maxSize], vset[maxSize], v;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, <span class="built_in">min</span>;</span><br><span class="line">	v = v0;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; g.n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		lowcost[i] = g.edges[v0][i];</span><br><span class="line">		vset[i] = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	vset[v0] = <span class="number">1</span>;</span><br><span class="line">	sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; g.n - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">min</span> = INF;</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; g.n; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (vset[j] == <span class="number">0</span> &amp;&amp; lowcost[j] &lt; <span class="built_in">min</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">min</span> = lowcost[j];</span><br><span class="line">				k = j;</span><br><span class="line">			&#125;</span><br><span class="line">			vset[k] = <span class="number">1</span>;</span><br><span class="line">			v = k;</span><br><span class="line">			sum += <span class="built_in">min</span>;</span><br><span class="line">			<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; g.n; j++)</span><br><span class="line">				<span class="keyword">if</span> (vset[j] == <span class="number">0</span> &amp;&amp; g.edges[v][j] &lt; lowcost[j])</span><br><span class="line">					lowcost[j] = g.edges[v][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 <h1 id="Kruskal"><a href="#Kruskal" class="headerlink" title="Kruskal"></a>Kruskal</h1><h2 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h2><p>先将图初始化，变成一个只有顶点没有边的非连通图T={V, {} }。不断选取当前权值最小且未选择的边，边的顶点可以落在了不同的连通分量上，但不能构成回路。直到所有的顶点都在一个连通分量上。</p>
-<p><img data-src="https://i.imgur.com/FP5nvrG.png" alt></p>
+<p><img data-src="https://i.imgur.com/FP5nvrG.png" alt=""></p>
 
       
     </div>
@@ -500,8 +500,8 @@
 <p>再把这些值放到矩阵（二维数组）中去。矩阵中<code>A[i][j]</code>，i，j分别表示顶点的编号，有向图中即为i-&gt;j的边（弧）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> no;<span class="comment">//顶点编号</span></span><br><span class="line">	<span class="keyword">char</span> info;<span class="comment">//顶点的其他信息（很少用到）</span></span><br><span class="line">&#125;VertexType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> edges[maxSize][maxSize];<span class="comment">//如果有向图，int改为float</span></span><br><span class="line">	<span class="keyword">int</span> n, e;<span class="comment">//顶点，边数</span></span><br><span class="line">	VertexType vex[maxSize];<span class="comment">//存放顶点信息</span></span><br><span class="line">&#125;MGraph;</span><br></pre></td></tr></table></figure>
 
-<p><img data-src="https://i.imgur.com/Mvt3ycG.png" alt></p>
-<h2 id="邻链表"><a href="#邻链表" class="headerlink" title="邻链表"></a>邻链表</h2><p><img data-src="https://i.imgur.com/1SLQ3rn.png" alt></p>
+<p><img data-src="https://i.imgur.com/Mvt3ycG.png" alt=""></p>
+<h2 id="邻链表"><a href="#邻链表" class="headerlink" title="邻链表"></a>邻链表</h2><p><img data-src="https://i.imgur.com/1SLQ3rn.png" alt=""></p>
 <p>顶点（vex)用编号<code>int</code>存储，</p>
 <p>边(arc弧)用指针<code>ArcNode*</code>存储</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//弧节点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ArcNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> adjvex;<span class="comment">//该边所指向的节点位置</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ArcNode</span>* <span class="title">nextarc</span>;</span><span class="comment">//顶点指向下一条边的指针</span></span><br><span class="line">	<span class="keyword">int</span> info;</span><br><span class="line">&#125;ArcNode;</span><br><span class="line"></span><br><span class="line"><span class="comment">//顶点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;</span><br><span class="line">	ArcNode* firstarc;<span class="comment">//指向第一条边的指针</span></span><br><span class="line">&#125;VNode;</span><br><span class="line"></span><br><span class="line"><span class="comment">//整体信息，有maxSize个顶点</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	VNode adjlist[maxSize];</span><br><span class="line">	<span class="keyword">int</span> n, e;</span><br><span class="line">&#125;AGraph;</span><br></pre></td></tr></table></figure>
@@ -513,7 +513,7 @@
 <li>主要思想：从某个顶点a开始，查找没有被访问过的邻接节点b，访问并标记。递归进入b，再查找b中没有被访问过的邻接顶点，访问并标记。（不断重复）直到有一个顶点的邻接顶点被全部访问过<code>visit[p-&gt;adjvex]==0</code>或根本没有<code>p==NULL</code>。那么就递归出去，即退回到最近被访问的顶点，再查找没有被访问过的邻接顶点。（其实本质就是一个递归过程，函数套函数，之前没有做完的回来再做）</li>
 <li>图的遍历和二叉树的遍历雷同。二叉树的遍历也是递归过程：递归进入左孩子，直到lchild为空，就递归出去。完成之前没有完成的事——进入右孩子。（函数套函数，之前没有做完的回来再做）。树就是对于每个节点访问两个分支。而图呢，就是对每个顶点访问多个分支。</li>
 </ul>
-<p><img data-src="https://i.imgur.com/HwZQwJW.png" alt></p>
+<p><img data-src="https://i.imgur.com/HwZQwJW.png" alt=""></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> visit[maxSize];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(AGraph* G, <span class="keyword">int</span> v)</span><span class="comment">//v是起点编号</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ArcNode* p;<span class="comment">//指向边的指针</span></span><br><span class="line">	visit[v] = <span class="number">1</span>;</span><br><span class="line">	Visit(v);<span class="comment">//访问的相关操作</span></span><br><span class="line">	p = G-&gt;adjlist[v].firstarc;<span class="comment">//指向顶点v的第一条边</span></span><br><span class="line">	<span class="keyword">while</span> (p!=<span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (visit[p-&gt;adjvex] == <span class="number">0</span>)<span class="comment">//边指向的顶点是否被访问过</span></span><br><span class="line">			DFS(G, p-&gt;adjvex);</span><br><span class="line">		p = p-&gt;nextarc;<span class="comment">//p节点指向下一条边</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对于非连通图</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(AGraph* g)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; g-&gt;n; i++)</span><br><span class="line">		<span class="keyword">if</span> (visit[i] == <span class="number">0</span>)</span><br><span class="line">			DFS(g, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="BFS广度优先搜索遍历"><a href="#BFS广度优先搜索遍历" class="headerlink" title="BFS广度优先搜索遍历"></a>BFS广度优先搜索遍历</h3><ul>
@@ -529,7 +529,7 @@
 <p>因为BFS算法是层层遍历。如果是无向图或者权值全都相同的有向图，那么就可以通过BFS来知道最短路径问题。如果我们把这个图的在BFS过程中所经理的边保留，其余的边删除，那么就生成了一颗广度优先搜索生成树。（深度优先搜索生成树也是一样类似）</p>
 </li>
 </ul>
-<p><img data-src="https://i.imgur.com/2Clgu7x.png" alt></p>
+<p><img data-src="https://i.imgur.com/2Clgu7x.png" alt=""></p>
 
       
     </div>
@@ -617,7 +617,7 @@
 <li><p>图中，有F则不是完全二叉树，没有F就是。</p>
 </li>
 </ul>
-<p><img data-src="https://i.imgur.com/3C99VxZ.png" alt></p>
+<p><img data-src="https://i.imgur.com/3C99VxZ.png" alt=""></p>
 <h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><p><strong>注意完全二叉树的叶子，它们通常会在最后两层都有，不要漏掉它们。并且如果知道最后一层的叶子，也会知道倒是第二层的叶子</strong></p>
 <ul>
 <li>存储结构<ul>
@@ -633,7 +633,7 @@
 
 <h3 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h3><figure class="highlight c"><figcaption><span>先序遍历，中序遍历，后序遍历</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">visit</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; p-&gt;data &lt;&lt; <span class="string">" "</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		visit(p);</span><br><span class="line">		preorder(p-&gt;lchild);</span><br><span class="line">		preorder(p-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inorder</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">		preorder(p-&gt;lchild);</span><br><span class="line">		visit(p);</span><br><span class="line">		preorder(p-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(BTNode* p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		preorder(p-&gt;lchild);</span><br><span class="line">		preorder(p-&gt;rchild);</span><br><span class="line">		visit(p);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img data-src="https://i.imgur.com/IEJ9VOv.png" alt></p>
+<p><img data-src="https://i.imgur.com/IEJ9VOv.png" alt=""></p>
 <p><strong>这种递归的思想，正好是数学上函数的嵌套。</strong><code>f(f(f(p-&gt;lchild)))</code></p>
 <p><strong>同时递归有函数出口，它的作用是结束一个函数（当然还有一种方法就是走完这个函数）。</strong>这就知道为什么，如果最里面的函数（第3个）没了，那么程序就会回到第二个函数中，<strong>继续执行之前还没有执行完的代码（因为递归没执行完）。</strong></p>
 <ul>
@@ -798,10 +798,10 @@
 </ul>
 <h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="双亲存储结构"><a href="#双亲存储结构" class="headerlink" title="双亲存储结构"></a>双亲存储结构</h2><p>双亲存储仅仅需要一个<strong>一维数组</strong>。<code>int tree[maxSize]</code></p>
 <p><strong>它的下标代表此节点的位置，数组元素代表双亲位置。</strong></p>
-<p><img data-src="https://i.imgur.com/twqsQIf.png" alt></p>
+<p><img data-src="https://i.imgur.com/twqsQIf.png" alt=""></p>
 <h2 id="孩子兄弟存储结构"><a href="#孩子兄弟存储结构" class="headerlink" title="孩子兄弟存储结构"></a>孩子兄弟存储结构</h2><p><strong>孩子兄弟存储结构实际上就是一个二叉链表。因为二叉链表中指针域意义不同。lchild变成了child指向一个孩子，rchild变成了sibling指向一个兄弟。</strong></p>
-<h4 id="tree-gt-binary-tree"><a href="#tree-gt-binary-tree" class="headerlink" title="tree-&gt;binary tree"></a>tree-&gt;binary tree</h4><p><img data-src="https://i.imgur.com/6lM2ZDV.png" alt></p>
-<p><img data-src="https://i.imgur.com/4OfQzDh.png" alt></p>
+<h4 id="tree-gt-binary-tree"><a href="#tree-gt-binary-tree" class="headerlink" title="tree-&gt;binary tree"></a>tree-&gt;binary tree</h4><p><img data-src="https://i.imgur.com/6lM2ZDV.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/4OfQzDh.png" alt=""></p>
 <ul>
 <li>步骤</li>
 </ul>
@@ -815,7 +815,7 @@
 <li><p>旋转</p>
 </li>
 </ol>
-<h4 id="binary-tree-gt-tree"><a href="#binary-tree-gt-tree" class="headerlink" title="binary tree-&gt;tree"></a>binary tree-&gt;tree</h4><p><img data-src="https://i.imgur.com/dhRNCrB.png" alt></p>
+<h4 id="binary-tree-gt-tree"><a href="#binary-tree-gt-tree" class="headerlink" title="binary tree-&gt;tree"></a>binary tree-&gt;tree</h4><p><img data-src="https://i.imgur.com/dhRNCrB.png" alt=""></p>
 <ul>
 <li><p>步骤</p>
 <ol>
@@ -832,7 +832,7 @@
 </ul>
 <h4 id="forest-gt-binary-tree"><a href="#forest-gt-binary-tree" class="headerlink" title="forest-&gt;binary tree"></a>forest-&gt;binary tree</h4><ul>
 <li><p>先来回顾一下概念，<strong>森林是由若干颗互不相交的树的集合</strong></p>
-<p><img data-src="https://i.imgur.com/nhTFa3s.png" alt></p>
+<p><img data-src="https://i.imgur.com/nhTFa3s.png" alt=""></p>
 </li>
 </ul>
 <p><strong>因为我们知道孩子兄弟存储结构的根节点是没有兄弟的，所以将树转换成二叉树也是一定没有右孩子的。</strong>所以我们又可以利用第一颗二叉树的根的rchild接上第二颗的根，第二颗的根的rchild接上第三颗的根。以此类推，全部合并成一颗二叉树。</p>
@@ -840,7 +840,7 @@
 <li>先把森林中的树转换为二叉树</li>
 <li>合并</li>
 </ol>
-<p><img data-src="https://i.imgur.com/DbPxUm9.png" alt></p>
+<p><img data-src="https://i.imgur.com/DbPxUm9.png" alt=""></p>
 <h4 id="binary-tree-gt-forest"><a href="#binary-tree-gt-forest" class="headerlink" title="binary tree-&gt;forest"></a>binary tree-&gt;forest</h4><p>据上，容易得到。从二叉树的根查找rchild右孩子，让rchild指向的节点与根剪掉，再让它成为第二颗树的根，一直到rchild为NULL。然后，再把这一颗颗的二叉树，转换成树。</p>
 <ol>
 <li>拆开。（根据右孩子）</li>
@@ -867,8 +867,8 @@
 <li>再把根权值最小两棵树取出来（b，c），并作为左右子树构造新的二叉树，根的权值为b，c权值之和。</li>
 <li>现在只剩下两棵树了，再把它们删了，并作为左右子树创造一颗根为两子树根的和的树，这就是赫夫曼树。</li>
 </ol>
-<p><img data-src="https://i.imgur.com/zUkJD69.png" alt></p>
-<p><img data-src="https://i.imgur.com/dYwHFEv.png" alt></p>
+<p><img data-src="https://i.imgur.com/zUkJD69.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/dYwHFEv.png" alt=""></p>
 
       
     </div>
@@ -1001,7 +1001,7 @@
 
 
 
-<h2 id="匹配算法"><a href="#匹配算法" class="headerlink" title="匹配算法"></a>匹配算法</h2><h3 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h3><p><img data-src="https://i.imgur.com/4MAZH39.png" alt></p>
+<h2 id="匹配算法"><a href="#匹配算法" class="headerlink" title="匹配算法"></a>匹配算法</h2><h3 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h3><p><img data-src="https://i.imgur.com/4MAZH39.png" alt=""></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">index</span><span class="params">(Str str, Str substr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">1</span>, k = i;<span class="comment">//i记录主串，j记录模式串，k记录比较位置。串从数组下标1开始存储</span></span><br><span class="line">	<span class="keyword">while</span> (i &lt;= str.length, j &lt;= substr.length)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (str.ch[i] == substr.ch[j])</span><br><span class="line">		&#123;</span><br><span class="line">			i++;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>	<span class="comment">//如果匹配失败，则从主串的下一个位置开始</span></span><br><span class="line">		&#123;</span><br><span class="line">			j = <span class="number">1</span>;</span><br><span class="line">			i = ++k;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (j &gt; substr.length)</span><br><span class="line">		<span class="keyword">return</span> k;</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h3><p>KMP算法是模式匹配算法的改进，为了避免i的回溯，和避免出现不匹配的字符时，j直接回溯到1。</p>
@@ -1010,7 +1010,7 @@
 <li>“后缀”指除了第一个字符以外，一个字符串的全部尾部组合。</li>
 <li>手工求解Next数组</li>
 </ul>
-<p><img data-src="https://i.imgur.com/ih3b9SZ.jpg" alt></p>
+<p><img data-src="https://i.imgur.com/ih3b9SZ.jpg" alt=""></p>
 <p>我们通过比较对应的字符i前的最大前后缀，让后让next[i]=i之前的串中最大共同前后缀 + 1。</p>
 <p>首先，我们规定next[1]=0.</p>
 <p>然后，next[2]前，只有一个字符A，那么最大公共前后缀为0，所以next[2]=0+1;</p>
@@ -1018,7 +1018,7 @@
 <p>next[4]前的字符串的最大公共前后缀为1，所以next[4]=1+1=2;</p>
 <p>….</p>
 <p>next[]数组的存在是为了在配对时，模式串中<strong>避免j直接回溯到1。而是在模式串中第j个字符发生不匹配时，回到next[j]处(这里的位置是：最大匹配前后缀+1），再比较。</strong></p>
-<p><img data-src="https://i.imgur.com/FEhEkdh.png" alt></p>
+<p><img data-src="https://i.imgur.com/FEhEkdh.png" alt=""></p>
 <p>因为要找出模式串中所有位置的回溯点，如果前面的配对成功，模式串与主串的字符是一样的，所以，只需研究模式串就够了。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*这个函数是寻找substr中不匹配的情况，并分别记录1，2，3...位置中不匹配时，</span></span><br><span class="line"><span class="comment">应该在需要匹配的位置再匹配，以前配过的就不用再配了，并存在next数组中*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getnext</span><span class="params">(Str substr, <span class="keyword">int</span> next[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;<span class="comment">//串从数组下标1开始，所以i=1。</span></span><br><span class="line">	<span class="comment">//i是在串的右边工作，j是协助i, 记录 最大匹配相同前后缀</span></span><br><span class="line">	next[<span class="number">1</span>] = <span class="number">0</span>;<span class="comment">//因为，第一个字符发生不匹配时，最大匹配前后缀是0</span></span><br><span class="line">	<span class="keyword">while</span> (i &lt; substr.length)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (j == <span class="number">0</span> || substr.ch[i] == substr.ch[j])</span><br><span class="line">			<span class="comment">//如果j指向第一个字符或者有相同前后缀，则到下一位继续看</span></span><br><span class="line">		&#123;</span><br><span class="line">			i++;</span><br><span class="line">			j++;</span><br><span class="line">			next[i] = j;<span class="comment">//因为j前面的已经是配对过了，所以不需要再配了</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			j = next[j];<span class="comment">//找不到相同的，则j前往以前还没有配对的地方继续配对。</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1181,7 +1181,7 @@
 <li><p>满队列<br><code>front == (rear + 1) % maxSize</code></p>
 </li>
 </ul>
-<p><img data-src="https://i.imgur.com/goD6jEc.png" alt></p>
+<p><img data-src="https://i.imgur.com/goD6jEc.png" alt=""></p>
 <h3 id="两个操作"><a href="#两个操作" class="headerlink" title="两个操作"></a>两个操作</h3><p><strong>出队和入队都是先移动指针，再取元素</strong></p>
 <ul>
 <li><p>front, rear指针的移动</p>
@@ -1211,7 +1211,7 @@
 </li>
 </ul>
 <h3 id="两个操作-1"><a href="#两个操作-1" class="headerlink" title="两个操作"></a>两个操作</h3><p><strong>注意，空队列的情况和只有一个节点的情况</strong></p>
-<p><img data-src="https://i.imgur.com/LvEgjTr.png" alt></p>
+<p><img data-src="https://i.imgur.com/LvEgjTr.png" alt=""></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">initQueue</span><span class="params">(LiQueue*&amp; lqu)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	lqu = (LiQueue*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LiQueue));</span><br><span class="line">	lqu-&gt;front = lqu-&gt;rear = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isQueueEmpty</span><span class="params">(LiQueue* lqu)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (lqu-&gt;front == <span class="literal">NULL</span> || lqu-&gt;rear == <span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">enQueue</span><span class="params">(LiQueue* lqu, <span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	QNode* p = (QNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(QNode));</span><br><span class="line">	p-&gt;data = x;</span><br><span class="line">	p-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">if</span> (isQueueEmpty(lqu))	<span class="comment">//若队列为空，让front和rear同时指向p(即创建第一节点时)</span></span><br><span class="line">		lqu-&gt;front = lqu-&gt;rear = p;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		lqu-&gt;rear-&gt;next = p;</span><br><span class="line">		lqu-&gt;rear = p;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">deQueue</span><span class="params">(LiQueue* lqu, <span class="keyword">int</span> &amp;x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	QNode* p;</span><br><span class="line">	<span class="keyword">if</span> (lqu-&gt;front = <span class="literal">NULL</span>)<span class="comment">//如果队列为空</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		p = lqu-&gt;front;<span class="comment">//让p指向第一个，方便以后free</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (lqu-&gt;front == lqu-&gt;rear)<span class="comment">//如果只有第一个节点</span></span><br><span class="line">		lqu-&gt;front = lqu-&gt;rear = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		lqu-&gt;front = lqu-&gt;front-&gt;next;</span><br><span class="line"></span><br><span class="line">	x = p-&gt;data;</span><br><span class="line">	<span class="built_in">free</span>(p);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -1430,7 +1430,7 @@
 <figure class="highlight c"><figcaption><span>颠倒顺序表</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resever</span><span class="params">(Sqlist &amp;L)</span><span class="comment">//要改变L，所以要引用类型（&amp;）</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">int</span> tmp;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>, j = L.length - <span class="number">1</span>; i &lt; j; i++, j--)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = L.data[i];</span><br><span class="line">        L.data[i] = L.data[j];</span><br><span class="line">        L.data[j] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight c"><figcaption><span>以链表头元素n为标准，把表中大于n的元素放在n后，把表中小于n的元素放在n前(不是递增的顺序)。也是快速排序的关键步骤</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(Sqlist &amp;L)</span>    <span class="comment">//要改变L</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>; j = L.length - <span class="number">1</span>;</span><br><span class="line">    tmp = L.data[i];    <span class="comment">//先把头元素存到tmp里面，以后再比较</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(i &lt; j)    <span class="comment">//以后if，while中都需要检查i &lt; j</span></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(i &lt; j &amp;&amp; L.data[j] &gt; tmp)<span class="comment">//从右到左检查，遇到比tmp小就停止</span></span><br><span class="line">            --j;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            L.data[i] = L.data[j];      <span class="comment">//再和i指向的元素交换</span></span><br><span class="line">            i++;<span class="comment">//移一位</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(i &lt; j &amp;&amp; L.data[i] &lt; tmp)<span class="comment">//从左到右检查，遇到比tmp大的就停</span></span><br><span class="line">            ++i;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            L.data[j] = L.data[i];</span><br><span class="line">            j--;    <span class="comment">//移一位</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    L.data[i] = tmp;<span class="comment">//再让表元素tmp放在最终位置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://i.imgur.com/UoeJx2T.png" alt></p>
+<p><img data-src="https://i.imgur.com/UoeJx2T.png" alt=""></p>
 <h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>占用连续的存储空间，随机访问。</p>
 <h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>存储空间一旦分别好了，就不能改变。</p>
 <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;LNode;</span><br></pre></td></tr></table></figure>
@@ -1538,9 +1538,9 @@
 </li>
 <li><p>运行客户端<code>sudo chmod +x ./Qv2ray-refs.tags.v1.99.6-linux.AppImage</code> + <code>./Qv2ray-refs.tags.v1.99.6-linux.AppImage</code></p>
 </li>
-<li><p>在preferences中配置v2ray的core executable path(可执行文件）和v2ray assets directory（解压出来的目录）<br><img data-src="https://i.imgur.com/GdpG72d.png" alt></p>
+<li><p>在preferences中配置v2ray的core executable path(可执行文件）和v2ray assets directory（解压出来的目录）<br><img data-src="https://i.imgur.com/GdpG72d.png" alt=""></p>
 </li>
-<li><p>set system proxy<br><img data-src="https://i.imgur.com/xruYZpU.png" alt></p>
+<li><p>set system proxy<br><img data-src="https://i.imgur.com/xruYZpU.png" alt=""></p>
 </li>
 <li><p>设置subscriptions</p>
 </li>

@@ -265,7 +265,7 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>二叉查找树的插入，删除等操作上都运用了递归来实现。首先，需要了解递归在执行递归调用之后的语句要以之前保存的变量反方向执行。</p>
-<h1 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h1><p><img data-src="https://i.loli.net/2020/05/23/F8GmdISKvin2Xsq.png" alt><br><strong>这里的if-else看成一块，而return看成另一块。</strong></p>
+<h1 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h1><p><img data-src="https://i.loli.net/2020/05/23/F8GmdISKvin2Xsq.png" alt=""><br><strong>这里的if-else看成一块，而return看成另一块。</strong></p>
 <ol>
 <li><p>每次插入会比较节点的大小，<strong>大的return右孩子，小的return左孩子，直到找的到孩子为NULL就创建节点</strong><br><code>T-&gt;Left = Insert(X, T-&gt;Left);T-&gt;Right = Insert(X, T-&gt;Right);</code></p>
 </li>
@@ -274,7 +274,7 @@
 
 </li>
 </ol>
-<h1 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h1><p><img data-src="https://i.loli.net/2020/05/23/CVDcJPkl7s4GWQv.png" alt></p>
+<h1 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h1><p><img data-src="https://i.loli.net/2020/05/23/CVDcJPkl7s4GWQv.png" alt=""></p>
 <h2 id="main-idea"><a href="#main-idea" class="headerlink" title="main idea"></a>main idea</h2><ol>
 <li>节点N只有一个儿子（或没有儿子）<br>查找N。TmpCell记录N，将N的节点指向N的唯一一个儿子（或NULL），再free掉TmpCell</li>
 <li>N有两个儿子<br>查找N。将N-&gt;e = (N的右子树中最小的e)。<br>再查找那个最小的e，free掉（即删除N只有一个儿子的操作）。</li>

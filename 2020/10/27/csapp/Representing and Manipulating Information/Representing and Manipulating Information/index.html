@@ -59,7 +59,7 @@
 <meta property="og:image" content="https://i.imgur.com/tdaKvcp.png">
 <meta property="og:image" content="https://i.imgur.com/aSJ4G85.png">
 <meta property="article:published_time" content="2020-10-27T12:13:46.000Z">
-<meta property="article:modified_time" content="2020-11-05T14:52:29.121Z">
+<meta property="article:modified_time" content="2020-11-06T05:53:48.280Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="csapp">
 <meta name="twitter:card" content="summary">
@@ -160,7 +160,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">131</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">132</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-05 22:52:29" itemprop="dateModified" datetime="2020-11-05T22:52:29+08:00">2020-11-05</time>
+                <time title="Modified: 2020-11-06 13:53:48" itemprop="dateModified" datetime="2020-11-06T13:53:48+08:00">2020-11-06</time>
               </span>
 
           
@@ -272,7 +272,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>9.6k</span>
+              <span>9.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -522,6 +522,13 @@
 
 
 <ul>
+<li><code>exp</code> encodes the exponent E</li>
+</ul>
+<p>$$<br>e = B2U(exp)<br>$$</p>
+<ul>
+<li><code>frac</code> encodes the significand M.<br>$$<br>0&lt;=f&lt;1<br>$$<br>f has binary representation $0. f_{n-1}, …, f_1, f_0$</li>
+</ul>
+<ul>
 <li>There are 4 cases of the float values that determined by the exponent. </li>
 </ul>
 <img data-src="https://i.imgur.com/tdaKvcp.png" style="zoom:67%;" />
@@ -533,7 +540,6 @@ $$
 <ol>
 <li>Normalized Values</li>
 </ol>
-<p>$$<br>e = B2U(exp)<br>$$</p>
 <p>$$<br>E = e - Bias<br>$$</p>
 <p>$$<br>M=1+f<br>$$</p>
 <ol start="2">

@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">131</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">132</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -187,6 +187,121 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/09/26/exam/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/26/exam/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/" class="post-title-link" itemprop="url">树表的查找</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-26 13:35:12" itemprop="dateCreated datePublished" datetime="2020-09-26T13:35:12+08:00">2020-09-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-29 15:31:43" itemprop="dateModified" datetime="2020-09-29T15:31:43+08:00">2020-09-29</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>因为折半查找拥有苛刻的适用条件，既要是顺序表还要有次序。并且如果进行频繁的插入删除操作对于顺序表来说是效率低下的。所以，为了解决可以更有效率地插入删除，我们使用了二叉树作为查找表的组织形式。</p>
+<ul>
+<li>二叉排序树</li>
+<li>平衡二叉树</li>
+</ul>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h2 id="二叉排序树"><a href="#二叉排序树" class="headerlink" title="二叉排序树"></a>二叉排序树</h2><p><strong>二叉排序树实际上就是二叉树的链式存储结构</strong>。以此来进行查找。</p>
+<h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BSTNode</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> key;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BSTNode</span>* <span class="title">lchild</span>, * <span class="title">rchild</span>;</span></span><br><span class="line">&#125;BSTNode;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>二叉排序树可以为空树，或者是具有以下形式的二叉树：</p>
+<ol>
+<li>左子树上的所有节点都小于它的根节点。</li>
+<li>右子树上所有的节点都大于它的根节点。</li>
+<li>且定义是递归的。（它的左右子树也分别为二叉树）</li>
+</ol>
+<ul>
+<li>并由该定义可得一个重要性质：<strong>中序遍历一颗二叉树可得一个以节点值递增的序列</strong></li>
+</ul>
+<h3 id="基本算法"><a href="#基本算法" class="headerlink" title="基本算法"></a>基本算法</h3><h4 id="查找关键字"><a href="#查找关键字" class="headerlink" title="查找关键字"></a>查找关键字</h4><p>根据定义，可以知道二叉排列树跟折半查找法是要求都是按顺序排列。所以，我们沿用折半查找的算法思想，先让key跟根的key比较，如果相等则return根节点（递归出口）。如果小于根的key，那么就递归进入左子树，再跟左子树的根的key比较。如果大于根的key那么就进入右子树。。。如果一直到最后什么也没有，那么就自然而然地return NULL。所以又可以知道折半查找的判定树就是二叉排序树。<strong>但折半查找判定树是唯一的（因为它是靠有序表而建立起来的），二叉排序树是不唯一的（只要满足定义就可以）</strong>因为，树不唯一，深度不为唯一。所以，含有n个节点的ASL也不唯一。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BSTNode* <span class="title">SearchBST</span><span class="params">(BSTNode* T, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (T == <span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (T-&gt;key == key)</span><br><span class="line">			<span class="keyword">return</span> T;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; T-&gt;key)</span><br><span class="line">			<span class="keyword">return</span> SearchBST(T-&gt;lchild, key);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">return</span> SearchBST(T-&gt;rchild, key);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="插入关键字"><a href="#插入关键字" class="headerlink" title="插入关键字"></a>插入关键字</h4><p>插入算法以查找算法为基础的。要插入一个key，先要向下查找，直到遇到节点为空，则创建节点，并且是新增的叶子节点。如果key等于其中某一个节点，则什么也不做。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertBST</span><span class="params">(BSTNode*&amp; T, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//遇到空就插入</span></span><br><span class="line">	<span class="keyword">if</span> (!T)</span><br><span class="line">	&#123;</span><br><span class="line">		T = <span class="keyword">new</span> BSTNode;</span><br><span class="line">		T-&gt;key = key;</span><br><span class="line">		T-&gt;lchild = T-&gt;rchild = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; T-&gt;key)</span><br><span class="line">		<span class="keyword">return</span> InsertBST(T-&gt;lchild, key);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (key &gt; T-&gt;key)			<span class="comment">//这里不能直接用else，因为key如果等于任何一个节点，则不插入</span></span><br><span class="line">		<span class="keyword">return</span> InsertBST(T-&gt;rchild, key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建二叉排列树"><a href="#创建二叉排列树" class="headerlink" title="创建二叉排列树"></a>创建二叉排列树</h4><p><strong>创建二叉排列树的算法就是使用插入算法，一个一个地从空树中插入节点。</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreatBST</span><span class="params">(BSTNode *&amp;T,<span class="keyword">int</span> key[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T = <span class="literal">NULL</span>;<span class="comment">//初始化为空树</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		InsertBST(T, key[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>平衡二叉树是一种特殊的二叉排序树，又称AVL树。为什么要研究这种特殊的二叉排序树呢？当然是因为它作为查找树的时候，查找效率更高。通过，查找算法可以发现，树的高度越低，查找速度越快。如果二叉树是线性的，查找时间复杂度为O(n)，如果是平衡二叉树复杂度为O(log2 n)</p>
+<h3 id="建立平衡二叉树"><a href="#建立平衡二叉树" class="headerlink" title="建立平衡二叉树"></a>建立平衡二叉树</h3><p>平衡二叉树的建立也类似与二叉排序树的建立，也是一个一个节点地插入到树中。但要实现平衡。实现平衡就是需要左右子树之间的高度不能超过1。为此为根引入了<strong>平衡因子，即 平衡因子 = 左子树的高度 - 右子树的高度</strong></p>
+<p>那么关键问题就是在像往常一样创建排序二叉树的过程中，如何进行修改？变成平衡二叉树。平衡二叉树的调整需要引入<strong>最小不平衡子树</strong>。就是在逐步建立二叉树的过程中找到其中根平衡因子绝对值大于1的子树。</p>
+<p>而最小不平衡子树也有不同的形态，分为LL，RR，LR，RL型。这几种类型中都是取出顶上的3个节点。最小的变成左子树，最大的变成右子树，排在中间的变为根。</p>
+<p><img data-src="https://i.imgur.com/VRtlZiG.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/ibiaKLq.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/2Bz62Kv.png" alt=""></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1456,98 +1571,6 @@
 <figure class="highlight c"><figcaption><span>链表的逆序</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(LNode* L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LNode* p = L-&gt;next, * q;</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;<span class="comment">//为现在的第一个节点成为逆序后的最后一个节点</span></span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        q = p-&gt;next;       </span><br><span class="line">        p-&gt;next = L-&gt;next; </span><br><span class="line">        L-&gt;next = p;</span><br><span class="line">        p = q;       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="链表的逆序输出（递归）"><a href="#链表的逆序输出（递归）" class="headerlink" title="链表的逆序输出（递归）"></a>链表的逆序输出（递归）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要传入第一个有数据的节点（不能是头节点）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reprint</span><span class="params">(LNode* C)</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (C != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		reprint(C-&gt;next);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; C-&gt;data &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/16/linux/linux%E4%B8%8A%E9%85%8D%E7%BD%AEv2ray/linux%E4%B8%8A%E9%85%8D%E7%BD%AEv2ray/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/16/linux/linux%E4%B8%8A%E9%85%8D%E7%BD%AEv2ray/linux%E4%B8%8A%E9%85%8D%E7%BD%AEv2ray/" class="post-title-link" itemprop="url">linux上配置v2ray</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-08-16 00:47:53 / Modified: 01:17:27" itemprop="dateCreated datePublished" datetime="2020-08-16T00:47:53+08:00">2020-08-16</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>313</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="预备工作"><a href="#预备工作" class="headerlink" title="预备工作"></a>预备工作</h1><ol>
-<li><p>客户端：<a href="https://github.com/Qv2ray/Qv2ray/releases/download/v1.99.6/Qv2ray-refs.tags.v1.99.6-linux.AppImage">Qv2ray-refs.tags.v1.99.6-linux.AppImage</a></p>
-</li>
-<li><p>v2ray核心文件：<a href="https://github.com/v2ray/v2ray-core/releases/download/v4.22.1/v2ray-linux-64.zip">v2ray-linux-64</a></p>
-</li>
-</ol>
-<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><ol>
-<li><p>将v2ray的zip文件<code>unzip</code>解压。</p>
-</li>
-<li><p>运行客户端<code>sudo chmod +x ./Qv2ray-refs.tags.v1.99.6-linux.AppImage</code> + <code>./Qv2ray-refs.tags.v1.99.6-linux.AppImage</code></p>
-</li>
-<li><p>在preferences中配置v2ray的core executable path(可执行文件）和v2ray assets directory（解压出来的目录）<br><img data-src="https://i.imgur.com/GdpG72d.png" alt=""></p>
-</li>
-<li><p>set system proxy<br><img data-src="https://i.imgur.com/xruYZpU.png" alt=""></p>
-</li>
-<li><p>设置subscriptions</p>
-</li>
-<li><p>Connect and enjoy!</p>
-</li>
-</ol>
-
       
     </div>
 

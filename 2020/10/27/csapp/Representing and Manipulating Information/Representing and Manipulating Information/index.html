@@ -59,7 +59,7 @@
 <meta property="og:image" content="https://i.imgur.com/tdaKvcp.png">
 <meta property="og:image" content="https://i.imgur.com/aSJ4G85.png">
 <meta property="article:published_time" content="2020-10-27T12:13:46.000Z">
-<meta property="article:modified_time" content="2020-11-06T05:53:48.280Z">
+<meta property="article:modified_time" content="2020-11-08T04:03:29.704Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="csapp">
 <meta name="twitter:card" content="summary">
@@ -160,7 +160,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">132</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">133</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -256,7 +256,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-06 13:53:48" itemprop="dateModified" datetime="2020-11-06T13:53:48+08:00">2020-11-06</time>
+                <time title="Modified: 2020-11-08 12:03:29" itemprop="dateModified" datetime="2020-11-08T12:03:29+08:00">2020-11-08</time>
               </span>
 
           
@@ -272,7 +272,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>9.7k</span>
+              <span>9.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -335,7 +335,7 @@
 <ul>
 <li>A Function uses hexadecimal to represents the bytes of different program objects.</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *byte_pointer;</span><br><span class="line"><span class="comment">//Note that the statement is like `unsigned char *byte_pointer;`</span></span><br><span class="line"><span class="comment">//So byte_pointer is a pointer variable.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_bytes</span><span class="params">(byte_pointer start, <span class="keyword">size_t</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">size_t</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %.2x"</span>, start[i]);<span class="comment">//%.2x indicate that an iteger should be printed in hexadecimal.</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//if we want to call this function we should cast other pointer type to unsigned char type pointer, such as `(byte_pointer)&amp;x`.</span></span><br><span class="line"><span class="comment">//Note that the casts shown here do not change the actual pointer; they simply direct the complier to refer to the data being pointed to accoring to the new data type</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_float</span><span class="params">(<span class="keyword">float</span> x)</span></span>&#123;</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">float</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_pointer</span><span class="params">(<span class="keyword">void</span> *x)</span></span>&#123;</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">void</span> *));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *byte_pointer;</span><br><span class="line"><span class="comment">//Note that the statement is like `unsigned char *byte_pointer;`</span></span><br><span class="line"><span class="comment">//So byte_pointer is a pointer variable.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_bytes</span><span class="params">(byte_pointer start, <span class="keyword">size_t</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">size_t</span> i;	<span class="comment">//This type is used to represent the size of an object.</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %.2x"</span>, start[i]);<span class="comment">//%.2x indicate that an integer should be printed in hexadecimal.</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//if we want to call this function we should cast other pointer type to unsigned char type pointer, such as `(byte_pointer)&amp;x`.</span></span><br><span class="line"><span class="comment">//Note that the casts shown here do not change the actual pointer; they simply direct the complier to refer to the data being pointed to accoring to the new data type</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_float</span><span class="params">(<span class="keyword">float</span> x)</span></span>&#123;</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">float</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_pointer</span><span class="params">(<span class="keyword">void</span> *x)</span></span>&#123;</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">void</span> *));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -685,13 +685,13 @@ $$
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">166k</span>
+    <span title="Symbols count total">168k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:31</span>
+    <span title="Reading time total">2:32</span>
 </div>
 
 <div id="days"></div>

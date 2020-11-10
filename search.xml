@@ -3,20 +3,42 @@
   <entry>
     <title>data lab</title>
     <url>/2020/11/07/csapp/Representing%20and%20Manipulating%20Information/data-lab/</url>
-    <content><![CDATA[<h1 id="Confusion"><a href="#Confusion" class="headerlink" title="Confusion"></a>Confusion</h1><h2 id="logical-operators"><a href="#logical-operators" class="headerlink" title="logical operators"></a>logical operators</h2><p><code>||, &amp;&amp;, !</code>, which <strong>treat any nonzero argument as representing TRUE</strong> and <strong>argument 0 as representing FALSE</strong>. And then they <strong>return either 1 or 0</strong>, indicating a result of either TRUE or FALSE, respectively. </p>
+    <content><![CDATA[<h1 id="Confusion"><a href="#Confusion" class="headerlink" title="Confusion"></a>Confusion</h1><h2 id="logical-operators"><a href="#logical-operators" class="headerlink" title="logical operators"></a>logical operators</h2><ul>
+<li><p><code>||, &amp;&amp;, !</code>, which <strong>treat any nonzero argument as representing TRUE</strong> and <strong>argument 0 as representing FALSE</strong>. And then they <strong>return either 1 or 0</strong>, indicating a result of either TRUE or FALSE, respectively. </p>
+</li>
+<li><p>A second important distinction between the logical operators ‘&amp;&amp;’ and ‘||’<br>versus their bit-level counterparts ‘&amp;’ and ‘|’ is that the logical operators do not<br>evaluate their second argument if the result of the expression can be determined<br>by evaluating the first argument.</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Rounding toward zero</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">divide_power2</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> is_neg = INT_MIN &amp; x;</span><br><span class="line">    <span class="keyword">int</span> bias = (<span class="number">1</span>&lt;&lt;k)<span class="number">-1</span>;</span><br><span class="line">    <span class="comment">//if is_neg is false, (x = x + (1 &lt;&lt; k) - 1) would not be execute</span></span><br><span class="line">    is_neg &amp;&amp; (x = x + bias);</span><br><span class="line">    <span class="keyword">return</span> x&gt;&gt;k;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="unsigned-and-two’s-complement"><a href="#unsigned-and-two’s-complement" class="headerlink" title="unsigned and two’s complement"></a>unsigned and two’s complement</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* Return 1 when x can be represented as an n-bit, 2’s-complement</span></span><br><span class="line"><span class="comment">* number; 0 otherwise</span></span><br><span class="line"><span class="comment">* Assume 1 &lt;= n &lt;= w</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fit_bits</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> w = <span class="keyword">sizeof</span>(<span class="keyword">int</span>) &lt;&lt; <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">return</span> x==(x&lt;&lt;(w-n)&gt;&gt;(w-n));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    assert(fit_bits(<span class="number">0b010</span>, <span class="number">3</span>));</span><br><span class="line">    assert(!fit_bits(<span class="number">0b010</span>, <span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
+<h1 id="Fatal"><a href="#Fatal" class="headerlink" title="Fatal"></a>Fatal</h1><p>Some possibly nonintuitive behavior arises due to C’s handing of expressions containing combinations of signed and unsigned quantities. </p>
+<p>*<em>When an operation is preformed  where one operand is signed and the other is unsigned, C implicitly casts the signed argument to unsigned. *</em></p>
+<p>As an example, Since <code>sizeof</code> would return a <code>size_t</code> type, the int type of maxbytes will be implicitly casts to be unsinged. Hence no matter how small the maxbytes is, the condition all way is true and call the function memcpy(). </p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">copy_int</span><span class="params">(<span class="keyword">int</span> val, <span class="keyword">void</span> *buf, <span class="keyword">int</span> maxbytes)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (maxbytes-<span class="keyword">sizeof</span>(val) &gt;= <span class="number">0</span>)</span><br><span class="line">    	<span class="built_in">memcpy</span>(buf, (<span class="keyword">void</span> *) &amp;val, <span class="keyword">sizeof</span>(val));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-<h1 id="Trick"><a href="#Trick" class="headerlink" title="Trick"></a>Trick</h1><h2 id="mask"><a href="#mask" class="headerlink" title="mask"></a>mask</h2><p><strong>We often use a mask to extract the special bits in a value.</strong> We create a mask, its corresponding bits are 1 and the other bits are zeros. </p>
+<p>So we can rewrite the condition to be <code>maxbytes &gt;= sizeof(val)</code></p>
+<h1 id="Trick"><a href="#Trick" class="headerlink" title="Trick"></a>Trick</h1><ul>
+<li><p>x -&gt; -x </p>
+<p>~x + 1</p>
+</li>
+</ul>
+<h2 id="mask"><a href="#mask" class="headerlink" title="mask"></a>mask</h2><p><strong>We often use a mask to extract the special bits in a value.</strong> We create a mask, its corresponding bits are 1 and the other bits are zeros. </p>
 <p><img data-src="https://i.imgur.com/eXp53sG.png" alt=""></p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">any_odd_one</span><span class="params">(<span class="keyword">unsigned</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mask = <span class="number">0xAAAAAAAA</span>;</span><br><span class="line"><span class="comment">//extract all odd numbers of x and use ^ to compare whether all odd numbers are 1</span></span><br><span class="line">    <span class="keyword">return</span> !((mask &amp; x) ^ mask);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 <h2 id="logical-and-arithmetic-right-shift"><a href="#logical-and-arithmetic-right-shift" class="headerlink" title="logical and arithmetic right shift"></a>logical and arithmetic right shift</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lower_one_mask</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mask = <span class="number">1</span>&lt;&lt;<span class="number">31</span>;</span><br><span class="line">    mask = mask &gt;&gt; (n<span class="number">-1</span>);<span class="comment">//arthmetic right shift</span></span><br><span class="line">    mask = (<span class="keyword">unsigned</span>)mask &gt;&gt; <span class="number">31</span> - (n<span class="number">-1</span>);<span class="comment">//logical right shift</span></span><br><span class="line">    <span class="keyword">return</span> mask;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
 
 
 
@@ -306,12 +328,24 @@
 <img data-src="https://i.imgur.com/oW0v58o.png" style="zoom: 80%;" />
 
 <p>Since the bit-level operation of fixed size two’s complement is equivalent to that for unsigned arithmetic. we just view it as two’s complement or unsigned after doing the operation. </p>
+<ul>
+<li><p>Multiplying by arbitrary constants</p>
+<p>If we want to generating code for the expression $x * k$, for some constant k. We could construct the arbitrary constant k by adding the possible results of multiply something by 2^k. According to math, we know that $4x + 2x = 6x$</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//k=17</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x&lt;&lt;<span class="number">4</span>)+x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//k=-7</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">B</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> -(x&lt;&lt;<span class="number">3</span>) + x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//k=60</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">C</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x&lt;&lt;<span class="number">6</span>) - (x&lt;&lt;<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//k=-112</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">D</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> -(x&lt;&lt;<span class="number">7</span>) + (x&lt;&lt;<span class="number">4</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x = <span class="number">0x87654321</span>;</span><br><span class="line">  assert(A(x) == <span class="number">17</span> * x);</span><br><span class="line">  assert(B(x) == <span class="number">-7</span> * x);</span><br><span class="line">  assert(C(x) == <span class="number">60</span> * x);</span><br><span class="line">  assert(D(x) == <span class="number">-112</span> * x);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
 <h3 id="Dividing-by-powers-of-2"><a href="#Dividing-by-powers-of-2" class="headerlink" title="Dividing by powers of 2"></a>Dividing by powers of 2</h3><ul>
 <li>If we want to divide something by $2^k$, we just shift it right by k bit. </li>
 </ul>
 <ol>
 <li><p>Unsigned division by a power of 2</p>
 <p>Performing a logical right shift of bit vector$$[x_{w-1}, x_{w-2}, … , x_0]$$ by k yields the bit vector$$[0, … , 0, x_{w-1}, x_{w-2}, … , w_k]$$</p>
+<p><img data-src="https://i.imgur.com/WgYkWYL.png" alt=""></p>
 </li>
 <li><p>Two’s complement by a power of 2</p>
 <p>Performing a arithmetically right shift of bit vector$$[x_{w-1}, x_{w-2}, … , x_0]$$ by k yields the bit vector$$[x_{w-1}, … , x_{w-1}, x_{w-2}, … , x_k]$$</p>
@@ -321,12 +355,18 @@
 
 
 
-<p>If we want to round it toward zero, we just add a bias. </p>
-<p>$$bias = (1 &lt;&lt; k) - 1$$</p>
-<p>So the expression is :</p>
-<p>$$ (x + bias) &gt;&gt; k$$</p>
+<p>If we want to <strong>round it toward zero</strong> when x is negative, we just add a bias. </p>
+<p>$$<br>bias = (1 &lt;&lt; k) - 1<br>$$<br>So the expression is :</p>
+<p>$$<br>(x + bias) &gt;&gt; k<br>$$</p>
 <p><img data-src="https://i.imgur.com/sZEu7Ob.png" alt=""></p>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>*<em>As we have seen, the integer arithmetic performed by computers is really a form of modular arithmetic. *</em></p>
+<ul>
+<li><p>Summary, we use this function to complement rounding toward zero ,no matter if the number is positive or negative.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">divide_power2</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> is_neg = INT_MIN &amp; x;</span><br><span class="line">    <span class="keyword">int</span> bias = (<span class="number">1</span>&lt;&lt;k)<span class="number">-1</span>;</span><br><span class="line">    <span class="comment">//if is_neg is false, (x = x + (1 &lt;&lt; k) - 1) would not be execute</span></span><br><span class="line">    is_neg &amp;&amp; (x = x + bias);</span><br><span class="line">    <span class="keyword">return</span> x&gt;&gt;k;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
 <h2 id="Floating-Point-Representation"><a href="#Floating-Point-Representation" class="headerlink" title="Floating-Point Representation"></a>Floating-Point Representation</h2><h3 id="Fractional-binary-representation"><a href="#Fractional-binary-representation" class="headerlink" title="Fractional binary representation"></a>Fractional binary representation</h3><ul>
 <li>Position notation</li>
 </ul>
@@ -341,6 +381,7 @@
 <li>shifting the binary point one position to left has the effect of dividing the number by 2. </li>
 <li>Similarly, shifting the binary point one position to right has the effect of multiplying the number by 2. </li>
 </ol>
+<p>This is the opposite of moving to right or left in bit vector. </p>
 <h3 id="IEEE-Floating-Point-Representation"><a href="#IEEE-Floating-Point-Representation" class="headerlink" title="IEEE Floating-Point Representation"></a>IEEE Floating-Point Representation</h3><p>But the position notation would not be effect for representing a large number. For example, if we want to multiply a number by $2^100$, we need to shift the binary point 100 position to right. </p>
 <p>Instead, we would like to represent numbers in a form $ x * 2^y $ by giving the value of x and y. IEEE Floating-Point standard represents a number in a from<br>$$<br>V = (-1)^S * M * 2^E<br>$$</p>
 <ul>
@@ -883,17 +924,29 @@ $$
 </ul>
 </li>
 <li><p>重要技巧</p>
-<p><strong>从图中可见，1，2，3这些数字不只是表示先，中，后序。而且，还是线经过该节点的次数。这又表面了每一个节点都要经过三次。</strong></p>
-<p>据此，如果该树按层划分的话。又能推出在到1的时候是进入本层，到3的时候是退出本层。<strong>而且，所经之处1，2，3，对应右边程序中的（1）（2）（3）</strong></p>
+<p><strong>从图中可见，1，2，3这些数字不只是表示先，中，后序。而且，还是线经过该节点的次数。这又表面了每一个节点都要经过三次。</strong> 第一次经过时，为先序遍历。第二次经过，为中序遍历。第三次经过，为后序遍历。</p>
 </li>
 </ul>
+<p>  据此，如果该树按层划分的话。又能推出在到1的时候是进入本层，到3的时候是退出本层。<strong>而且，所经之处1，2，3，对应右边程序中的（1）（2）（3）</strong></p>
 <h4 id="Q-amp-A-1"><a href="#Q-amp-A-1" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h4><p>先要进行遍历，据图可知，可知遍历的走向是先从上往下，到底了再往上，到顶了又往下。当我们算层数的时候，在（1）位置<code>L++;</code>，在（3）位置<code>L--</code></p>
 <figure class="highlight c++"><figcaption><span>输出x节点所处于第几层</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> L = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">leno</span><span class="params">(BTNode* p, <span class="keyword">char</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (p-&gt;data == x)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; L &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		++L;</span><br><span class="line">		leno(p-&gt;lchild, x);</span><br><span class="line">		leno(p-&gt;rchild, x);</span><br><span class="line">		--L;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-
-
+<ul>
+<li><p>已知序列，画出二叉树</p>
+<p>已知一颗二叉树中序序列，BDCEAFHG，后序序列，DECBHGFA</p>
+<ol>
+<li><p>根据后序遍历，可以知道：A是根</p>
+</li>
+<li><p>根据中序遍历，可以知道：中序序列中，A的左侧BDCE，为左子树。A的右侧FHG，为右子树。</p>
+</li>
+<li><p>不断循环1. 和 2.</p>
+<p> (继续，(1. )根据后序遍历，B为第二层的根，即为根的右子树。(2.)根据中序遍历，B的左侧没有，没有左子树。B的右侧DCE，为B的右子树。继续分析B的右子树，C为根。D, E分别为左右。 会过头，分析A的右子树，F为根，没有左子树，右子树为HG。 G为根，H为左子树)</p>
+</li>
+</ol>
+</li>
+</ul>
 <h3 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h3><p>根为第1层，从左往右，从上往下遍历。</p>
 <ul>
 <li>要求：需要一个循环队列，平时是用结构。下面不用结构。<strong>数组类型是树节点指针<code>BTNode* queue[maxSize]</code>，这里是有maxSize个指针，因为[]优先级比*高。</strong>另外加上rear和front。</li>

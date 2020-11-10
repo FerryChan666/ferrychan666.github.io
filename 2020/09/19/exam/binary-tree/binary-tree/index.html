@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://i.imgur.com/3C99VxZ.png">
 <meta property="og:image" content="https://i.imgur.com/IEJ9VOv.png">
 <meta property="article:published_time" content="2020-09-19T07:45:21.000Z">
-<meta property="article:modified_time" content="2020-09-19T12:58:08.497Z">
+<meta property="article:modified_time" content="2020-11-10T06:20:17.950Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
@@ -221,10 +221,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-09-19 15:45:21 / Modified: 20:58:08" itemprop="dateCreated datePublished" datetime="2020-09-19T15:45:21+08:00">2020-09-19</time>
+              <time title="Created: 2020-09-19 15:45:21" itemprop="dateCreated datePublished" datetime="2020-09-19T15:45:21+08:00">2020-09-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-10 14:20:17" itemprop="dateModified" datetime="2020-11-10T14:20:17+08:00">2020-11-10</time>
+              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -239,7 +245,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.6k</span>
+              <span>4.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -300,17 +306,29 @@
 </ul>
 </li>
 <li><p>重要技巧</p>
-<p><strong>从图中可见，1，2，3这些数字不只是表示先，中，后序。而且，还是线经过该节点的次数。这又表面了每一个节点都要经过三次。</strong></p>
-<p>据此，如果该树按层划分的话。又能推出在到1的时候是进入本层，到3的时候是退出本层。<strong>而且，所经之处1，2，3，对应右边程序中的（1）（2）（3）</strong></p>
+<p><strong>从图中可见，1，2，3这些数字不只是表示先，中，后序。而且，还是线经过该节点的次数。这又表面了每一个节点都要经过三次。</strong> 第一次经过时，为先序遍历。第二次经过，为中序遍历。第三次经过，为后序遍历。</p>
 </li>
 </ul>
+<p>  据此，如果该树按层划分的话。又能推出在到1的时候是进入本层，到3的时候是退出本层。<strong>而且，所经之处1，2，3，对应右边程序中的（1）（2）（3）</strong></p>
 <h4 id="Q-amp-A-1"><a href="#Q-amp-A-1" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h4><p>先要进行遍历，据图可知，可知遍历的走向是先从上往下，到底了再往上，到顶了又往下。当我们算层数的时候，在（1）位置<code>L++;</code>，在（3）位置<code>L--</code></p>
 <figure class="highlight c++"><figcaption><span>输出x节点所处于第几层</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> L = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">leno</span><span class="params">(BTNode* p, <span class="keyword">char</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (p-&gt;data == x)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; L &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		++L;</span><br><span class="line">		leno(p-&gt;lchild, x);</span><br><span class="line">		leno(p-&gt;rchild, x);</span><br><span class="line">		--L;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-
-
+<ul>
+<li><p>已知序列，画出二叉树</p>
+<p>已知一颗二叉树中序序列，BDCEAFHG，后序序列，DECBHGFA</p>
+<ol>
+<li><p>根据后序遍历，可以知道：A是根</p>
+</li>
+<li><p>根据中序遍历，可以知道：中序序列中，A的左侧BDCE，为左子树。A的右侧FHG，为右子树。</p>
+</li>
+<li><p>不断循环1. 和 2.</p>
+<p> (继续，(1. )根据后序遍历，B为第二层的根，即为根的右子树。(2.)根据中序遍历，B的左侧没有，没有左子树。B的右侧DCE，为B的右子树。继续分析B的右子树，C为根。D, E分别为左右。 会过头，分析A的右子树，F为根，没有左子树，右子树为HG。 G为根，H为左子树)</p>
+</li>
+</ol>
+</li>
+</ul>
 <h3 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h3><p>根为第1层，从左往右，从上往下遍历。</p>
 <ul>
 <li>要求：需要一个循环队列，平时是用结构。下面不用结构。<strong>数组类型是树节点指针<code>BTNode* queue[maxSize]</code>，这里是有maxSize个指针，因为[]优先级比*高。</strong>另外加上rear和front。</li>
@@ -488,13 +506,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">168k</span>
+    <span title="Symbols count total">170k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:32</span>
+    <span title="Reading time total">2:34</span>
 </div>
 
 <div id="days"></div>

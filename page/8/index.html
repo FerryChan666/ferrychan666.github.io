@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">133</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">134</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -187,6 +187,93 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/13/c/for%E5%BE%AA%E7%8E%AF%E7%9A%84%E8%B7%B3%E5%87%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/13/c/for%E5%BE%AA%E7%8E%AF%E7%9A%84%E8%B7%B3%E5%87%BA/" class="post-title-link" itemprop="url">for循环的跳出导致的数组越界</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-13 21:14:08" itemprop="dateCreated datePublished" datetime="2020-04-13T21:14:08+08:00">2020-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>439</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于for循环的判断失误导致的数组越界，本以为会执行后面的语句i++。随后，将i–，不料for循环是因break；跳出而导致访问了arr[0 - 1];</p>
+<ul>
+<li>for循环因判断语句为false跳出，<strong>也会执行完后面的i++</strong></li>
+<li>此外，不会执行后面的语句</li>
+</ul>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><figcaption><span>i的值</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">		<span class="keyword">continue</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i);      <span class="comment">//4</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i);      <span class="comment">//0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="数组越界"><a href="#数组越界" class="headerlink" title="数组越界"></a>数组越界</h1><p><strong>程序可能崩溃，可能不崩溃</strong><br>面对数组越界编译器不报错。</p>
+<p>例如：访问<code>arr[0 - 1];</code>，只要前面分配给本内存区域的空间足够大，则不会崩溃。如果前面空间补充足，可能会擦拭掉程序的代码，或者更改变量的值。这种操作可能debug也看不出问题，而且直到程序中止的那一行，也不会是出现错误的一行。但是可以依赖注释部分代码来排除。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1024,95 +1111,6 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/08/c/%E5%86%8D%E6%8E%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E7%9A%84%E5%88%86%E9%85%8D%E7%A9%BA%E9%97%B4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/08/c/%E5%86%8D%E6%8E%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E7%9A%84%E5%88%86%E9%85%8D%E7%A9%BA%E9%97%B4/" class="post-title-link" itemprop="url">again再探字符串输入的分配空间</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-08 18:33:01" itemprop="dateCreated datePublished" datetime="2020-04-08T18:33:01+08:00">2020-04-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-14 21:21:28" itemprop="dateModified" datetime="2020-09-14T21:21:28+08:00">2020-09-14</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们平时使用<br><code>char str[] = &quot;ferry&quot;;</code>可以。<br><code>char str[10]; str = &quot;ferry&quot;;</code>不可以。<br>然鹅，还有给<strong>结构中的成员赋值的时候</strong>，可以直接用字符串初始化。这些原因都是因为开辟空间的问题。</p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p><strong>在初始化变量时，分配空间。结构也是如此。</strong></p>
-<h2 id="不能将指针赋值给常量"><a href="#不能将指针赋值给常量" class="headerlink" title="不能将指针赋值给常量"></a>不能将指针赋值给常量</h2><p><code>char str1[]</code>是array type<br><strong>str1是常量，不是指针啊~</strong><br><code>char *str2</code><br><strong>str2是个指针(是个变量)</strong></p>
-<figure class="highlight c"><figcaption><span>错误，不能给数组的地址（常量）赋值</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[<span class="number">30</span>];<span class="comment">//已经分配好空间。</span></span><br><span class="line">    <span class="keyword">char</span> * str2;</span><br><span class="line">    str2 = <span class="string">"ferry"</span>;</span><br><span class="line">    str1 = str2;<span class="comment">//错误，str1是个地址</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>如果我想要给str1数组添加字符咋办？那就用<code>strcpy()</code>复制进去</strong></p>
-<h2 id="可以将数组的地址赋给指针"><a href="#可以将数组的地址赋给指针" class="headerlink" title="可以将数组的地址赋给指针"></a>可以将数组的地址赋给指针</h2><figure class="highlight c"><figcaption><span>正确</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[<span class="number">30</span>] = <span class="string">"ferry"</span>;</span><br><span class="line">    <span class="keyword">char</span> * str2;</span><br><span class="line"></span><br><span class="line">    str2 = str1;<span class="comment">//字符数组的地址给指针</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c"</span>, *(str2 + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="结构的说明"><a href="#结构的说明" class="headerlink" title="结构的说明"></a>结构的说明</h2><p><strong>字符串在静态存储区，str[0]只不过是个地址，它指向了字符串。*str[0]只是一个字符‘o’</strong></p>
-<figure class="highlight c"><figcaption><span>只能以"<...>"这种字符串形式初始化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">names</span></span></span><br><span class="line"><span class="class">&#123;</span><span class="comment">//注意这里还没分配空间。</span></span><br><span class="line">	<span class="keyword">char</span> first[<span class="number">20</span>];</span><br><span class="line">	<span class="keyword">char</span> last[<span class="number">20</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="keyword">char</span> * str[<span class="number">2</span>] = &#123;<span class="string">"ok"</span>, <span class="string">"ko"</span>&#125;;</span><br><span class="line">    <span class="comment">//初始化，分配空间</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">names</span> <span class="title">veep</span> = &#123;</span>str[<span class="number">0</span>], str[<span class="number">1</span>]&#125;;<span class="comment">//Warning!!这里的str[0]存储的是个地址，不是字符串</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">names</span> <span class="title">treas</span> = &#123;</span><span class="string">"ok"</span>, <span class="string">"ko"</span>&#125;;<span class="comment">//正确!!这里才是真正的字符串</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">lens</span> &#123;</span><span class="comment">//typedef定义一种结构，名为LENS</span></span><br><span class="line">    <span class="keyword">float</span> foclen;</span><br><span class="line">    <span class="keyword">float</span> fstop;</span><br><span class="line">    <span class="keyword">char</span> brand[<span class="number">30</span>];<span class="comment">//预留空间，还没分配</span></span><br><span class="line">&#125;LENS;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//对每个成员单独赋值</span></span><br><span class="line">    LENS bigeyes[<span class="number">10</span>];<span class="comment">//结构数组</span></span><br><span class="line">    bigeyes[<span class="number">2</span>].foclen = <span class="number">500</span>;</span><br><span class="line">    bigeyes[<span class="number">2</span>].fstop = <span class="number">2.0</span>;</span><br><span class="line">    <span class="built_in">strcpy</span>(bigeyes[<span class="number">2</span>].brand, <span class="string">"Remarkata"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用待指定初始化器</span></span><br><span class="line">    LENS smalleyes[<span class="number">10</span>] = &#123;</span><br><span class="line">        [<span class="number">2</span>] = &#123;</span><br><span class="line">            <span class="number">500</span>,</span><br><span class="line">            <span class="number">2</span>,</span><br><span class="line">            <span class="string">"Remarkatar"</span><span class="comment">//这里是初始化，开始分配空间</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1217,13 +1215,13 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">170k</span>
+    <span title="Symbols count total">172k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:34</span>
+    <span title="Reading time total">2:36</span>
 </div>
 
 <div id="days"></div>

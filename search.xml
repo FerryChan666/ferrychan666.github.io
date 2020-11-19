@@ -907,7 +907,16 @@ $$
   <entry>
     <title>binary tree</title>
     <url>/2020/09/19/exam/binary-tree/binary-tree/</url>
-    <content><![CDATA[<h1 id="Introduction-of-the-binary-tree"><a href="#Introduction-of-the-binary-tree" class="headerlink" title="Introduction of the binary tree"></a>Introduction of the binary tree</h1><h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><ul>
+    <content><![CDATA[<h1 id="Introduction-of-the-binary-tree"><a href="#Introduction-of-the-binary-tree" class="headerlink" title="Introduction of the binary tree"></a>Introduction of the binary tree</h1><p>先来明确一些重要的二叉树特性，并且这些对考题有重要作用。</p>
+<p>二叉树，就是只能有0, 1, 2这三种分支的节点。</p>
+<ul>
+<li>性质一：2分支节点总是比0分支（叶子）节点少一个。</li>
+</ul>
+<p>$$<br>叶子=二分支节点-1<br>$$</p>
+<ul>
+<li>性质五：函数Catalan()：给n个节点，能构成h(n)种不同的二叉树（因为有左右之分）<br>$$<br>h(n)=C^n_{2n}/(n+1)<br>$$</li>
+</ul>
+<h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><ul>
 <li>二叉树是一种有限制的树。</li>
 </ul>
 <ol>
@@ -923,16 +932,10 @@ $$
 </li>
 </ul>
 <p><img data-src="https://i.imgur.com/3C99VxZ.png" alt=""></p>
-<h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><p><strong>注意完全二叉树的叶子，它们通常会在最后两层都有，不要漏掉它们。并且如果知道最后一层的叶子，也会知道倒是第二层的叶子</strong></p>
+<h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><p><strong>注意完全二叉树的叶子，它们通常会在最后两层都有，不要漏掉它们。</strong></p>
 <ul>
-<li>存储结构<ul>
-<li>顺序存储</li>
-<li>链式存储</li>
+<li><strong>并且如果知道最后一层的叶子，也会知道倒数第二层的叶子。(最后一层少掉的叶子为n（和满二叉树相比少掉的）)，那么倒数第二层的叶子为n/2</strong>(如果n的为奇数，就减一)，(n-1)/2</li>
 </ul>
-</li>
-</ul>
-<h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>前n层：</p>
-<p>第n层：</p>
 <h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h2><p>通过一维数组存储，根的下标=1，左孩子存在<code>BTree[i * 2]</code>(偶数)，右孩子就在奇数的下标。</p>
 <h2 id="链式存储结构"><a href="#链式存储结构" class="headerlink" title="链式存储结构"></a>链式存储结构</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span>* <span class="title">lchild</span>;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span>* <span class="title">rchild</span>;</span></span><br><span class="line">&#125;BTNode;</span><br></pre></td></tr></table></figure>
 
@@ -1016,6 +1019,74 @@ $$
 
 <figure class="highlight c++"><figcaption><span>创建线索二叉树</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">creatInThread</span><span class="params">(TBTNode* root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	TBTNode* pre = <span class="literal">NULL</span>;<span class="comment">//前驱节点初始化为空</span></span><br><span class="line">	<span class="keyword">if</span> (root != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		InThread(root, pre);<span class="comment">//线索化</span></span><br><span class="line"></span><br><span class="line">		pre-&gt;rchild = <span class="literal">NULL</span>;</span><br><span class="line">		pre-&gt;rtag = <span class="number">1</span>;<span class="comment">//处理最后的节点</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+<h2 id="赫夫曼树"><a href="#赫夫曼树" class="headerlink" title="赫夫曼树"></a>赫夫曼树</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li><p>树的带权路径（WPL）最短。<strong>因此称最优二叉树</strong></p>
+</li>
+<li><p>没有度为1的节点</p>
+<p><strong>需要说明一下这个特点</strong>，回归前面的性质一：现在就是分支为1的节点没了，只剩下2分支和0分支的节点了。因为，2分支节点总是比0分支少一个。又因为在二叉树种，<br>$$<br>节点总数=0分支+1分支+2分支<br>$$<br>所以，得出结论，假如叶子为n个，那么总节点数为2n-1</p>
+</li>
+<li><p>权值越大的节点离根越近</p>
+</li>
+</ol>
+<h3 id="Construction"><a href="#Construction" class="headerlink" title="Construction"></a>Construction</h3><ol>
+<li>先把<strong>权值最小的两个根</strong>两取出来（c, d），并作为左右子树构造新的二叉树，新的二叉树的根节点权值为a和b的权值之和。</li>
+<li>然后再把权根值最小两棵树树删了（c, d），图6-30（由4颗树变成了3课树）。</li>
+<li>（以此类推）再把根权值最小两棵树取出来（根的权值为5，6），并作为左右子树构造新的二叉树，根的权值为这两根的权值之和。</li>
+<li>现在只剩下两棵树了，并作为左右子树创造一颗根为两子树根的和的树，这就是赫夫曼树。</li>
+</ol>
+<img data-src="https://i.imgur.com/zUkJD69.png" style="zoom:80%;" />
+
+<img data-src="https://i.imgur.com/dYwHFEv.png" style="zoom:80%;" />
+
+
+
+
+
+<h3 id="WPL"><a href="#WPL" class="headerlink" title="WPL"></a>WPL</h3><p>首先，需要理解3个概念</p>
+<ol>
+<li><p>路径长度：路径上的分支数目之和。</p>
+</li>
+<li><p>树的路径长度：从根到每个节点的分支数目之和。</p>
+</li>
+<li><p>带权 路径长度：从该节点到根的路径长度 * 该节点的权值</p>
+</li>
+</ol>
+<ul>
+<li><p>搞懂了这些，树的 带权 路径长度（WPL)就清晰明了了，就是<strong>所有叶子节点的 带权 路径长度之和</strong></p>
+</li>
+<li><p>形如上面图6-32的赫夫曼树，<br>$$<br>WPL = (7<em>1)+(5</em>2)+(2<em>3)+(4</em>3)=35<br>$$</p>
+</li>
+</ul>
+<h3 id="赫夫曼编码"><a href="#赫夫曼编码" class="headerlink" title="赫夫曼编码"></a>赫夫曼编码</h3><ul>
+<li><p>主要思想：为出现次数较多的字符编以较短的编码。</p>
+</li>
+<li><p>性质</p>
+<ol>
+<li><p>赫夫曼编码是前缀编码，</p>
+<p>in which, 前缀编码：任一个编码都不是其他任何编码的前缀。</p>
+<p>为什么？根据赫夫曼数的编码方法，根通往任何叶子都不可能是通往其他叶子节点的子路径。</p>
+</li>
+<li><p>赫夫曼编码是最优前缀编码</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>赫夫曼编码方法</p>
+<p>例如有字符串<code>S=AAABBACCCDEEA</code></p>
+<ol>
+<li>先统计各字符出现的次数，以字符为根节点，并以他们为根节点权值。</li>
+<li>将他们构造成赫夫曼树</li>
+<li>将每一个节点的左右分支编号为0，1。</li>
+<li>最终，从根到每个叶子路径上的编号序列即为该字符的编码。</li>
+</ol>
+</li>
+</ul>
+<img data-src="https://i.imgur.com/rdn5Pj5.png" style="zoom: 67%;" />
+
+<p><img data-src="https://i.imgur.com/ExNfEr5.png" alt=""></p>
 ]]></content>
       <tags>
         <tag>exam</tag>
@@ -1103,19 +1174,6 @@ $$
 <li>同时要注意一点，树和森林转换成二叉树之后，<strong>它们的先序遍历顺序与二叉树相同，但后序遍历的次序与二叉树的中序遍历相同</strong>。</li>
 <li><strong>所以可以得出，如果想要遍历树和森林，那么可以把树和森林转换成二叉树，再对二叉树进行遍历。</strong></li>
 </ul>
-<h2 id="赫夫曼树"><a href="#赫夫曼树" class="headerlink" title="赫夫曼树"></a>赫夫曼树</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
-<li>树的带权路径（WPL）最短。<strong>因此称最优二叉树</strong></li>
-<li>没有度为1的节点</li>
-<li>权值越大的节点离根越近</li>
-</ol>
-<h3 id="Construction"><a href="#Construction" class="headerlink" title="Construction"></a>Construction</h3><ol>
-<li>先把<strong>根权值最小</strong>两棵树取出来（a, b)，并作为左右子树构造新的二叉树，根c的权值为a和b的权值之和。</li>
-<li>然后再把权根值最小两棵树树删了（a，b），图6-30</li>
-<li>再把根权值最小两棵树取出来（b，c），并作为左右子树构造新的二叉树，根的权值为b，c权值之和。</li>
-<li>现在只剩下两棵树了，再把它们删了，并作为左右子树创造一颗根为两子树根的和的树，这就是赫夫曼树。</li>
-</ol>
-<p><img data-src="https://i.imgur.com/zUkJD69.png" alt=""></p>
-<p><img data-src="https://i.imgur.com/dYwHFEv.png" alt=""></p>
 ]]></content>
       <tags>
         <tag>exam</tag>

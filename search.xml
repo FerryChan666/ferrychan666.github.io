@@ -1,6 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>长句写法</title>
+    <url>/2020/11/29/English/%E9%95%BF%E5%8F%A5%E5%86%99%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="五大句型"><a href="#五大句型" class="headerlink" title="五大句型"></a>五大句型</h1><ol>
+<li>主谓</li>
+<li>主谓宾</li>
+<li>主系表</li>
+<li>主谓双宾</li>
+<li>主谓宾宾补（Money makes people selfish.</li>
+</ol>
+<p>主要使用2，3</p>
+<h1 id="并列句"><a href="#并列句" class="headerlink" title="并列句"></a>并列句</h1><ol>
+<li>or, not only…, but also… (and)</li>
+<li>whereas, while, yet (but)</li>
+</ol>
+<h1 id="从句"><a href="#从句" class="headerlink" title="从句"></a>从句</h1><h2 id="定语从句"><a href="#定语从句" class="headerlink" title="定语从句"></a>定语从句</h2><p>本从句需要引导词充当成分。</p>
+<ol>
+<li>人+ who(人充当主语）, whom（人充当宾语）,whose</li>
+<li>物+ that, which</li>
+<li>时间+ when</li>
+<li>地点+where</li>
+<li>As …, …<ul>
+<li>As is symbolically illustrated in the cartoon, a person …</li>
+</ul>
+</li>
+</ol>
+<h2 id="状语从句"><a href="#状语从句" class="headerlink" title="状语从句"></a>状语从句</h2><ol>
+<li>when（当）</li>
+<li>Once …, … (一旦)</li>
+<li>As…, …(由于)</li>
+<li>in that = because, since, as, for(因为（强度由高到低)</li>
+<li>while, through(尽管)</li>
+</ol>
+<h2 id="宾语从句"><a href="#宾语从句" class="headerlink" title="宾语从句"></a>宾语从句</h2><ol>
+<li>动词/介词 + that, what</li>
+</ol>
+<h2 id="主语从句"><a href="#主语从句" class="headerlink" title="主语从句"></a>主语从句</h2><p>It is … that…</p>
+<h2 id="同位语从句"><a href="#同位语从句" class="headerlink" title="同位语从句"></a>同位语从句</h2><p>一般用于抽象名词后, </p>
+<ul>
+<li>I cling to the idea that …</li>
+</ul>
+<h1 id="非谓语动词"><a href="#非谓语动词" class="headerlink" title="非谓语动词"></a>非谓语动词</h1><h2 id="动名词"><a href="#动名词" class="headerlink" title="动名词"></a>动名词</h2><p><code>doing</code>将<strong>动词+ing</strong>变成名词</p>
+<p>成分：主语和宾语</p>
+<ul>
+<li>[Participating] in volunteer works could boost my development of interpersonal relationship. </li>
+</ul>
+<p>Participating充当主语</p>
+<h2 id="不定式"><a href="#不定式" class="headerlink" title="不定式"></a>不定式</h2><p><code>to do</code></p>
+<p>成分：能充当任何成分</p>
+<ul>
+<li>It is necessary for us [to use computer in a reasonable way and restrain from overindulgence].</li>
+</ul>
+<p>It 为形式主语，真正的主语是不定式，to use computer in a reasonable way and restrain from overindulgence</p>
+<ul>
+<li>The computer is invented [to connect you and me]. </li>
+</ul>
+<p>不定式to connect you and me，作目的状语</p>
+<h2 id="分词"><a href="#分词" class="headerlink" title="分词"></a>分词</h2><h3 id="现在分词"><a href="#现在分词" class="headerlink" title="现在分词"></a>现在分词</h3><p><code>doing</code></p>
+<p>成分：定语，状语</p>
+<p>且动作由主语发出</p>
+<ul>
+<li>I remember that we always anticipated [talking] with him with great eagerness because his lectures are delivered, never [failing to provoke chuckles or loud laughs]</li>
+</ul>
+<p>talking动名词，作宾语</p>
+<p>failing to provoke chuckles or loud laughs现在分词，作状语</p>
+<h3 id="过去分词"><a href="#过去分词" class="headerlink" title="过去分词"></a>过去分词</h3><p><code>do + ed</code></p>
+<p>表被动，修饰最近的名词</p>
+<ul>
+<li>A good teacher add considerably to the materials [contained in the mobile phones]</li>
+</ul>
+<h3 id="独立主格结构"><a href="#独立主格结构" class="headerlink" title="独立主格结构"></a>独立主格结构</h3><p>[Being 20], I meet you. </p>
+<p>being 与主语I动作一致</p>
+<p>[The eyes sparkling with delight], the daughter tell her mother. </p>
+<p>想表达的sparkling与主语动作不一致，在其前加上逻辑主语The eyes</p>
+]]></content>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>class and object</title>
     <url>/2020/11/29/cpp/OOP/</url>
     <content><![CDATA[<h1 id="members"><a href="#members" class="headerlink" title="members"></a>members</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> &#123;</span>  <span class="comment">// The class</span></span><br><span class="line">  <span class="keyword">public</span>:        <span class="comment">// Access specifier</span></span><br><span class="line">    <span class="comment">// class members goes here</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -60,7 +139,7 @@
 
 ]]></content>
       <tags>
-        <tag>cpp</tag>
+        <tag>OOP</tag>
       </tags>
   </entry>
   <entry>
@@ -583,7 +662,7 @@ $$
   </entry>
   <entry>
     <title>Reporting statements</title>
-    <url>/2020/10/20/English/Reporting-statements/Reporting-statements/</url>
+    <url>/2020/10/20/English/Reporting-statements/</url>
     <content><![CDATA[<h1 id="that-clauses"><a href="#that-clauses" class="headerlink" title="that-clauses"></a>that-clauses</h1><ol>
 <li><p>When we report statements, we often use a that-clause in the reported clause.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">He said (that) he was enjoying his work.</span><br></pre></td></tr></table></figure>
@@ -618,7 +697,7 @@ $$
   </entry>
   <entry>
     <title>verbs</title>
-    <url>/2020/10/18/English/verbs/verbs/</url>
+    <url>/2020/10/18/English/verbs/</url>
     <content><![CDATA[<h1 id="verbs-with-and-without-object"><a href="#verbs-with-and-without-object" class="headerlink" title="verbs with and without object"></a>verbs with and without object</h1><p><strong>After some verbs we typically or always add a completion - a phrase which completes the meaning of the verb - which can be an adverb or preposition phrase.</strong></p>
 <ol>
 <li><p>Some verbs are followed by an object. (There are called transitive verbs)</p>

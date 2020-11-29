@@ -125,12 +125,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">138</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">139</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">15</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">16</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -187,6 +187,93 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/13/algorithm/Queue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/13/algorithm/Queue/" class="post-title-link" itemprop="url">Queue队列</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-13 14:50:41 / Modified: 17:38:19" itemprop="dateCreated datePublished" datetime="2020-08-13T14:50:41+08:00">2020-08-13</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>
+<li>实例变量：指向队头的<code>first</code>, 指向队尾的<code>last</code>, 节点个数<code>N</code></li>
+<li>方法：添加到对尾<code>enqueue()</code>，删除对头<code>dequeue()</code></li>
+</ul>
+<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    Item item;</span><br><span class="line">    Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="enqueue"><a href="#enqueue" class="headerlink" title="enqueue()"></a>enqueue()</h2><ul>
+<li>如果链表为空，则要给first变量赋值（指向last）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(Item item)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node oldlast = last;</span><br><span class="line">    last = <span class="keyword">new</span> Node();</span><br><span class="line">    last.item = item;</span><br><span class="line">    last.next = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(isEmpty())       <span class="comment">//考虑极端情况</span></span><br><span class="line">        first = last;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        oldlast.next = last;</span><br><span class="line">    N++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="dequeue"><a href="#dequeue" class="headerlink" title="dequeue()"></a>dequeue()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Item <span class="title">dequeue</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Item item = first.item;</span><br><span class="line">    first = first.next;</span><br><span class="line">    <span class="keyword">if</span>(isEmpty())</span><br><span class="line">        last = <span class="keyword">null</span>;</span><br><span class="line">    N--;</span><br><span class="line">    <span class="keyword">return</span> item;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Queue</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Node first; <span class="comment">//</span></span><br><span class="line">	<span class="keyword">private</span> Node last;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> N;</span><br><span class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">	</span>&#123;</span><br><span class="line">		Item item;</span><br><span class="line">		Node next;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> first == <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> N;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(Item item)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Node oldlast = last;</span><br><span class="line">		last = <span class="keyword">new</span> Node();</span><br><span class="line">		last.item = item;</span><br><span class="line">		last.next = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">if</span>(isEmpty())</span><br><span class="line">			first = last;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			oldlast.next = last;</span><br><span class="line">			N++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Item <span class="title">dequeue</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Item item = first.item;</span><br><span class="line">		first = first.next;</span><br><span class="line">		<span class="keyword">if</span>(isEmpty())</span><br><span class="line">			last = <span class="keyword">null</span>;</span><br><span class="line">		N--;</span><br><span class="line">		<span class="keyword">return</span> item;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> edu.princeton.cs.algs4.StdIn;</span><br><span class="line"><span class="keyword">import</span> edu.princeton.cs.algs4.StdOut;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		Queue&lt;String&gt; q = <span class="keyword">new</span> Queue&lt;String&gt;();</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">while</span> (!StdIn.isEmpty())</span><br><span class="line">		&#123;</span><br><span class="line">			String item = StdIn.readString();</span><br><span class="line">			<span class="keyword">if</span>(!item.equals(<span class="string">"-"</span>))</span><br><span class="line">				q.enqueue(item);</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(!q.isEmpty())</span><br><span class="line">				StdOut.print(q.dequeue() + <span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		StdOut.println(<span class="string">"("</span> + q.size() + <span class="string">" left on queue)"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1097,102 +1184,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/05/23/DS/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/23/DS/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/" class="post-title-link" itemprop="url">二叉查找树</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-23 22:36:10" itemprop="dateCreated datePublished" datetime="2020-05-23T22:36:10+08:00">2020-05-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.5k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>二叉查找树的插入，删除等操作上都运用了递归来实现。首先，需要了解递归在执行递归调用之后的语句要以之前保存的变量反方向执行。</p>
-<h1 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h1><p><img data-src="https://i.loli.net/2020/05/23/F8GmdISKvin2Xsq.png" alt=""><br><strong>这里的if-else看成一块，而return看成另一块。</strong></p>
-<ol>
-<li><p>每次插入会比较节点的大小，<strong>大的return右孩子，小的return左孩子，直到找的到孩子为NULL就创建节点</strong><br><code>T-&gt;Left = Insert(X, T-&gt;Left);T-&gt;Right = Insert(X, T-&gt;Right);</code></p>
-</li>
-<li><p><strong>如果，我们传入根节点</strong>，那么递归调用之前的语句被执行后，均按被调函数相反的顺序执行。所以，<strong>最后会传回根节点</strong>。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">SearchTree <span class="title">Insert</span><span class="params">(ElementType X, SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/* Create and return a one-node tree */</span></span><br><span class="line">        T = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(TreeNode));</span><br><span class="line">        <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">            Error(<span class="string">"Out of space."</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            T-&gt;e = X;</span><br><span class="line">            T-&gt;Left = T-&gt;Right = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &lt; T-&gt;e)</span><br><span class="line">        T-&gt;Left = Insert(X, T-&gt;Left);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &gt; T-&gt;e)</span><br><span class="line">        T-&gt;Right = Insert(X, T-&gt;Right);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h1 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h1><p><img data-src="https://i.loli.net/2020/05/23/CVDcJPkl7s4GWQv.png" alt=""></p>
-<h2 id="main-idea"><a href="#main-idea" class="headerlink" title="main idea"></a>main idea</h2><ol>
-<li>节点N只有一个儿子（或没有儿子）<br>查找N。TmpCell记录N，将N的节点指向N的唯一一个儿子（或NULL），再free掉TmpCell</li>
-<li>N有两个儿子<br>查找N。将N-&gt;e = (N的右子树中最小的e)。<br>再查找那个最小的e，free掉（即删除N只有一个儿子的操作）。</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">SearchTree Delete(ElementType X, SearchTree T)。</span><br><span class="line">&#123;</span><br><span class="line">    Position TmpCell;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">        Error(<span class="string">"Element not found"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &lt; T-&gt;e)</span><br><span class="line">        T-&gt;Left = Delete(X, T-&gt;Left);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &gt; T-&gt;e)</span><br><span class="line">        T-&gt;Right = Delete(X, T-&gt;Right);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;Left &amp;&amp; T-&gt;Right)<span class="comment">/* two children */</span></span><br><span class="line">    &#123;</span><br><span class="line">        TmpCell = FindMin(T-&gt;Right);</span><br><span class="line">        T-&gt;e = TmpCell-&gt;e;</span><br><span class="line">        T-&gt;Right = Delete(T-&gt;e, T-&gt;Right);<span class="comment">//T-&gt;Right = Delete的返回值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span><span class="comment">/* One or zero children */</span></span><br><span class="line">    &#123;</span><br><span class="line">        TmpCell = T;</span><br><span class="line">        <span class="keyword">if</span>(T-&gt;Left == <span class="literal">NULL</span>)</span><br><span class="line">            T = T-&gt;Right;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;Right == <span class="literal">NULL</span>)</span><br><span class="line">            T = T-&gt;Left;</span><br><span class="line">        <span class="built_in">free</span>(TmpCell);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Search-Tree"><a href="#Search-Tree" class="headerlink" title="Search Tree"></a>Search Tree</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _Tree_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Error(str) fprintf(stderr, <span class="meta-string">"%s\n"</span>, str),exit(1)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> *<span class="title">Position</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> *<span class="title">SearchTree</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ElementType e;</span><br><span class="line">    SearchTree Left;</span><br><span class="line">    SearchTree Right;</span><br><span class="line">&#125;TreeNode;</span><br><span class="line"></span><br><span class="line"><span class="function">SearchTree <span class="title">MakeEmpty</span><span class="params">(SearchTree T)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">Find</span><span class="params">(ElementType X, SearchTree T)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">FindMin</span><span class="params">(SearchTree T)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">FindMax</span><span class="params">(SearchTree T)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">SearchTree <span class="title">Insert</span><span class="params">(ElementType X, SearchTree T)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">SearchTree <span class="title">Delete</span><span class="params">(ElementType X, SearchTree T)</span></span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"tree.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">SearchTree <span class="title">MakeEmpty</span><span class="params">(SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        MakeEmpty(T-&gt;Left);</span><br><span class="line">        MakeEmpty(T-&gt;Right);</span><br><span class="line">        <span class="built_in">free</span>(T);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">Find</span><span class="params">(ElementType X, SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &gt; T-&gt;e)</span><br><span class="line">        <span class="keyword">return</span> Find(X, T-&gt;Left);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &lt; T-&gt;e)</span><br><span class="line">        <span class="keyword">return</span> Find(X, T-&gt;Right);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">FindMin</span><span class="params">(SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;Left == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> T;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> FindMin(T-&gt;Left);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">FindMax</span><span class="params">(SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">while</span> (T-&gt;Right != <span class="literal">NULL</span>)</span><br><span class="line">            T = T-&gt;Right;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">SearchTree <span class="title">Insert</span><span class="params">(ElementType X, SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/* Create and return a one-node tree */</span></span><br><span class="line">        T = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(TreeNode));</span><br><span class="line">        <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">            Error(<span class="string">"Out of space."</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            T-&gt;e = X;</span><br><span class="line">            T-&gt;Left = T-&gt;Right = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &lt; T-&gt;e)</span><br><span class="line">        T-&gt;Left = Insert(X, T-&gt;Left);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &gt; T-&gt;e)</span><br><span class="line">        T-&gt;Right = Insert(X, T-&gt;Right);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">SearchTree <span class="title">Delete</span><span class="params">(ElementType X, SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Position TmpCell;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">        Error(<span class="string">"Element not found"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &lt; T-&gt;e)</span><br><span class="line">        T-&gt;Left = Delete(X, T-&gt;Left);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &gt; T-&gt;e)</span><br><span class="line">        T-&gt;Right = Delete(X, T-&gt;Right);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;Left &amp;&amp; T-&gt;Right)</span><br><span class="line">    &#123;</span><br><span class="line">        TmpCell = FindMin(T-&gt;Right);</span><br><span class="line">        T-&gt;e = TmpCell-&gt;e;</span><br><span class="line">        T-&gt;Right = Delete(T-&gt;e, T-&gt;Right);<span class="comment">//T-&gt;Right = Delete的返回值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        TmpCell = T;</span><br><span class="line">        <span class="keyword">if</span>(T-&gt;Left == <span class="literal">NULL</span>)</span><br><span class="line">            T = T-&gt;Right;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;Right == <span class="literal">NULL</span>)</span><br><span class="line">            T = T-&gt;Left;</span><br><span class="line">        <span class="built_in">free</span>(TmpCell);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1297,13 +1288,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">185k</span>
+    <span title="Symbols count total">186k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:48</span>
+    <span title="Reading time total">2:49</span>
 </div>
 
 <div id="days"></div>

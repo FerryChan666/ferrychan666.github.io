@@ -1,6 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>特殊句型</title>
+    <url>/2020/12/01/English/%E7%89%B9%E6%AE%8A%E5%8F%A5%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="强调句"><a href="#强调句" class="headerlink" title="强调句"></a>强调句</h1><p><code>It is/was (not) ... that ...</code></p>
+<p>首先，写出一个普通句子</p>
+<p>I want to go to America this summer. </p>
+<ol>
+<li><p>提取强调的部分（<strong>不能用于动词或形容词</strong>，这种情况是主语从句）</p>
+</li>
+<li><p>放到*<em>is/was(根据原来句子时态变化) *</em>和 that的中间(假如我要强调America)</p>
+</li>
+</ol>
+<ul>
+<li>It is America that I want to go to this summer. </li>
+</ul>
+<p>that 可以根据要强调的东西换成who, whom, which</p>
+<h1 id="倒转句（主谓倒装）"><a href="#倒转句（主谓倒装）" class="headerlink" title="倒转句（主谓倒装）"></a>倒转句（主谓倒装）</h1><p><strong>倒装句因为要强调adj, adv, 介词短语，而存在</strong></p>
+<h2 id="全部倒装"><a href="#全部倒装" class="headerlink" title="全部倒装"></a>全部倒装</h2><p>把普通的句子的主语和全部谓语动词移到主语前</p>
+<p>A temple sits on the north bank of the River. </p>
+<ul>
+<li>On the north bank of the River sits a temple. (倒装)</li>
+</ul>
+<h2 id="部分倒装"><a href="#部分倒装" class="headerlink" title="部分倒装"></a>部分倒装</h2><p>把普通的句子的主语和部分谓语动词移到主语前</p>
+<p>三种部分倒装用法：</p>
+<ol>
+<li><strong>否定</strong>副词或词组（Not only … but…, No sooner, Never, etc. )位于句前。</li>
+<li>Only位于句首。</li>
+<li>虚拟条件句省略if</li>
+</ol>
+<ul>
+<li><strong>最后，把他们变成一般疑问句的形式</strong></li>
+</ul>
+<h3 id="As-an-Example"><a href="#As-an-Example" class="headerlink" title="As an Example"></a>As an Example</h3><ol>
+<li><p>They not only developed such a device but they had also embed into it in a worldwide system. </p>
+</li>
+</ol>
+<p><font color=red>Not only</font> they <font color=red>did</font> develop such a device but they had also embed into it in a worldwide system. </p>
+<p>He had hardly had time to settle down when he left the country. </p>
+<p><font color=red>Hardly</font> had he had time to settle down when he left the country. </p>
+<ol start="2">
+<li><p>He achieved his goal only by working hard. </p>
+</li>
+</ol>
+<p><font color=red>Only</font> by working hard <font color=red>did</font> he achieve his goal. </p>
+<ol start="3">
+<li><p>If I were you, I would do it myself. </p>
+</li>
+</ol>
+<p><font color=red>Were</font> I you, I would do it myself. </p>
+<h1 id="省略句"><a href="#省略句" class="headerlink" title="省略句"></a>省略句</h1><h2 id="并列句"><a href="#并列句" class="headerlink" title="并列句"></a>并列句</h2><p>..and/ or/ but …</p>
+<p>not only … but also…</p>
+<p>both… and …</p>
+<p>只要前后有相同都可以省略。（一般省略后面部分）</p>
+<h2 id="定语从句的省略"><a href="#定语从句的省略" class="headerlink" title="定语从句的省略"></a>定语从句的省略</h2><ol>
+<li><p>关系词充当从句的主语</p>
+</li>
+<li><p>从句中有be</p>
+<p>满足这两个条件可以（省略关系词和be）</p>
+</li>
+</ol>
+<h2 id="状语从句的省略"><a href="#状语从句的省略" class="headerlink" title="状语从句的省略"></a>状语从句的省略</h2><ol>
+<li><p>从句主语和主句主语一致</p>
+</li>
+<li><p>从句中有be</p>
+<p>满足这两个条件可以（省略从句主语和be）</p>
+</li>
+</ol>
+<ul>
+<li>非谓语动词充当定语和状语都来自于定语从句和状语从句的省略</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>长句写法</title>
     <url>/2020/11/29/English/%E9%95%BF%E5%8F%A5%E5%86%99%E6%B3%95/</url>
     <content><![CDATA[<h1 id="五大句型"><a href="#五大句型" class="headerlink" title="五大句型"></a>五大句型</h1><ol>
@@ -21,7 +96,7 @@
 <li>物+ that, which</li>
 <li>时间+ when</li>
 <li>地点+where</li>
-<li>As …, …<ul>
+<li>As …, …（As 指代, 后面整句话<ul>
 <li>As is symbolically illustrated in the cartoon, a person …</li>
 </ul>
 </li>
@@ -57,14 +132,14 @@
 <li>The computer is invented [to connect you and me]. </li>
 </ul>
 <p>不定式to connect you and me，作目的状语</p>
-<h2 id="分词"><a href="#分词" class="headerlink" title="分词"></a>分词</h2><h3 id="现在分词"><a href="#现在分词" class="headerlink" title="现在分词"></a>现在分词</h3><p><code>doing</code></p>
+<h2 id="分词短语"><a href="#分词短语" class="headerlink" title="分词短语"></a>分词短语</h2><h3 id="现在分词短语"><a href="#现在分词短语" class="headerlink" title="现在分词短语"></a>现在分词短语</h3><p><code>doing</code>+短语</p>
 <p>成分：定语，状语</p>
 <p>且动作由主语发出</p>
 <ul>
 <li>I remember that we always anticipated [talking] with him with great eagerness because his lectures are delivered, never [failing to provoke chuckles or loud laughs]</li>
 </ul>
 <p>talking动名词，作宾语</p>
-<p>failing to provoke chuckles or loud laughs现在分词，作状语</p>
+<p>failing to provoke chuckles or loud laughs现在分词短语，作状语</p>
 <h3 id="过去分词"><a href="#过去分词" class="headerlink" title="过去分词"></a>过去分词</h3><p><code>do + ed</code></p>
 <p>表被动，修饰最近的名词</p>
 <ul>
@@ -74,13 +149,43 @@
 <p>being 与主语I动作一致</p>
 <p>[The eyes sparkling with delight], the daughter tell her mother. </p>
 <p>想表达的sparkling与主语动作不一致，在其前加上逻辑主语The eyes</p>
+<h1 id="介词短语"><a href="#介词短语" class="headerlink" title="介词短语"></a>介词短语</h1><p><em>介词短语</em>，是介词和其它代词或名词或词组搭配形成的短语。（它包括不定式）</p>
+<p>成分：任何成分</p>
+<p><img data-src="https://i.imgur.com/oyu03uh.png" alt=""></p>
+<ol>
+<li><p>作状语</p>
+<p>There is a shop at the school gate.</p>
+</li>
+<li><p><img data-src="https://i.imgur.com/SJYkBiQ.png" alt=""></p>
+</li>
+<li><p><img data-src="https://i.imgur.com/16QPjCE.png" alt=""></p>
+</li>
+</ol>
+<ul>
+<li><p>for</p>
+<ul>
+<li>benefits</li>
+<li>duration</li>
+<li>helping someone</li>
+<li>function</li>
+</ul>
+</li>
+<li><p>to</p>
+<ul>
+<li>destination</li>
+<li>preference</li>
+<li>time to</li>
+<li>limit</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <tags>
         <tag>English</tag>
       </tags>
   </entry>
   <entry>
-    <title>class and object</title>
+    <title>OOP</title>
     <url>/2020/11/29/cpp/OOP/</url>
     <content><![CDATA[<h1 id="members"><a href="#members" class="headerlink" title="members"></a>members</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> &#123;</span>  <span class="comment">// The class</span></span><br><span class="line">  <span class="keyword">public</span>:        <span class="comment">// Access specifier</span></span><br><span class="line">    <span class="comment">// class members goes here</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
@@ -139,7 +244,7 @@
 
 ]]></content>
       <tags>
-        <tag>OOP</tag>
+        <tag>cpp</tag>
       </tags>
   </entry>
   <entry>

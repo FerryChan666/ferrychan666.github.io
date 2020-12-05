@@ -22,22 +22,25 @@
     var CONFIG = {"hostname":"ferrychan666.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Synopsis图是由有穷的节点集合与有穷的边集合构成。 此外，为了使图与树区别开来。我们用顶点(vertex)这个词来代替节点(node)。  图分为有向图和无向图。 完全图     顺序存储结构 邻接矩阵   链式存储结构 邻接表    Description邻接矩阵顾名思义，邻接就是相关联的边，判断两个顶点之间是否存在边。它的存在就是用抽象的数据，表达了图的结构。n代表图中有多少个顶点，e代">
+  <meta name="description" content="Synopsis图是由有穷的节点集合与有穷的边集合构成。 此外，为了使图与树区别开来。我们用顶点(vertex)这个词来代替节点(node)。  图分为有向图和无向图。 完全图     连通图和连通分量 针对于无向图，如果图中任何两个顶点，都有其对应的边（一条或多条），与之相连，即有路径。那么该无向图为连通图。否则，其中的极大连通子图称为连通分量。  强连通图和强连通分量 针对于有向图，对于每一对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Graph">
 <meta property="og:url" content="https://ferrychan666.github.io/2020/09/20/exam/Graph/Graph/index.html">
 <meta property="og:site_name" content="Ferry&#39;s Blog">
-<meta property="og:description" content="Synopsis图是由有穷的节点集合与有穷的边集合构成。 此外，为了使图与树区别开来。我们用顶点(vertex)这个词来代替节点(node)。  图分为有向图和无向图。 完全图     顺序存储结构 邻接矩阵   链式存储结构 邻接表    Description邻接矩阵顾名思义，邻接就是相关联的边，判断两个顶点之间是否存在边。它的存在就是用抽象的数据，表达了图的结构。n代表图中有多少个顶点，e代">
+<meta property="og:description" content="Synopsis图是由有穷的节点集合与有穷的边集合构成。 此外，为了使图与树区别开来。我们用顶点(vertex)这个词来代替节点(node)。  图分为有向图和无向图。 完全图     连通图和连通分量 针对于无向图，如果图中任何两个顶点，都有其对应的边（一条或多条），与之相连，即有路径。那么该无向图为连通图。否则，其中的极大连通子图称为连通分量。  强连通图和强连通分量 针对于有向图，对于每一对">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.imgur.com/C7evIOU.png">
+<meta property="og:image" content="https://i.imgur.com/kbAT8lB.png">
 <meta property="og:image" content="https://i.imgur.com/Mvt3ycG.png">
 <meta property="og:image" content="https://i.imgur.com/C6ZPead.jpeg">
 <meta property="og:image" content="https://i.imgur.com/vXfIbqj.png">
 <meta property="og:image" content="https://i.imgur.com/1SLQ3rn.png">
 <meta property="og:image" content="https://i.imgur.com/HwZQwJW.png">
+<meta property="og:image" content="https://i.imgur.com/HLw2EDY.jpeg">
+<meta property="og:image" content="https://i.imgur.com/eKRAXgO.png">
 <meta property="og:image" content="https://i.imgur.com/2Clgu7x.png">
 <meta property="article:published_time" content="2020-09-20T07:17:56.000Z">
-<meta property="article:modified_time" content="2020-11-27T12:22:06.481Z">
+<meta property="article:modified_time" content="2020-12-03T11:48:00.868Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
@@ -138,7 +141,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">140</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">139</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -234,7 +237,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-27 20:22:06" itemprop="dateModified" datetime="2020-11-27T20:22:06+08:00">2020-11-27</time>
+                <time title="Modified: 2020-12-03 19:48:00" itemprop="dateModified" datetime="2020-12-03T19:48:00+08:00">2020-12-03</time>
               </span>
 
           
@@ -250,14 +253,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>6k</span>
+              <span>6.3k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>5 mins.</span>
+              <span>6 mins.</span>
             </span>
 
         </div>
@@ -278,6 +281,16 @@
 <img data-src="https://i.imgur.com/C7evIOU.png" style="zoom: 37%;" />
 
 <ul>
+<li><p>连通图和连通分量</p>
+<p><strong>针对于无向图</strong>，如果图中任何两个顶点，都有其对应的边（一条或多条），与之相连，即有路径。那么该无向图为连通图。否则，其中的极大连通子图称为连通分量。</p>
+</li>
+<li><p>强连通图和强连通分量</p>
+<p><strong>针对于有向图</strong>，对于每一对顶点vi和vj，都有从vi到vj和vj到vi的路径。那么称该有向图为强连通图。否则，其中极大连通子图为强连通分量。</p>
+</li>
+</ul>
+<img data-src="https://i.imgur.com/kbAT8lB.png" style="zoom: 33%;" />
+
+<ul>
 <li>顺序存储结构<ul>
 <li>邻接矩阵</li>
 </ul>
@@ -287,10 +300,16 @@
 </ul>
 </li>
 </ul>
-<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h2 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h2><p>顾名思义，邻接就是相关联的边，判断两个顶点之间是否存在边。<strong>它的存在就是用抽象的数据，表达了图的结构。n代表图中有多少个顶点，e代表有多少条边，edges(arc)代表了点与点之间是否存在边。</strong><code>edges[][]</code>这个二维数组就是一个矩阵，这个矩阵（方阵）包含了n*n个元素，那么这正好是点与点之间相连接的所有情况。</p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h2 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h2><p>顾名思义，邻接就是相关联的边，判断两个顶点之间是否存在边。<strong>（边与边的关系）</strong></p>
+<p><strong>它的存在就是用抽象的数据，表达了图的结构。n代表图中有多少个顶点，e代表有多少条边，edges(arc)代表了点与点之间是否存在边。</strong><code>edges[][]</code>这个二维数组就是一个矩阵，这个矩阵（方阵）包含了n*n个元素，那么这正好是点与点之间相连接的所有情况。</p>
 <ul>
-<li>无向表中，两顶点中有边即赋值为1（邻接）。无边即为0（不邻接）</li>
-<li>有向表中，两顶点中赋值为该边的权值。无边即为无穷大</li>
+<li><p>无向表中，两顶点中有边即赋值为1（邻接）。无边即为0（不邻接）</p>
+<ul>
+<li>邻接矩阵对称（那么就会导致——1条边占2个格）</li>
+</ul>
+</li>
+<li><p>有向表中，两顶点中赋值为该边的权值。无边即为无穷大</p>
+</li>
 </ul>
 <p>再把这些值放到矩阵（二维数组）中去。矩阵中<code>A[i][j]</code>，i，j分别表示顶点的编号，有向图中即为i-&gt;j的边（弧）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> no;<span class="comment">//顶点编号</span></span><br><span class="line">	<span class="keyword">char</span> info;<span class="comment">//顶点的其他信息（很少用到）</span></span><br><span class="line">&#125;VertexType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> edges[maxSize][maxSize];<span class="comment">//如果有向图，int改为float</span></span><br><span class="line">	<span class="keyword">int</span> n, e;<span class="comment">//顶点，边数</span></span><br><span class="line">	VertexType vex[maxSize];<span class="comment">//存放顶点信息</span></span><br><span class="line">&#125;MGraph;</span><br></pre></td></tr></table></figure>
@@ -318,11 +337,19 @@
 
 
 <h3 id="DFS深度优先搜索遍历"><a href="#DFS深度优先搜索遍历" class="headerlink" title="DFS深度优先搜索遍历"></a>DFS深度优先搜索遍历</h3><ul>
-<li>首先需要一个<code>visit[maxSize];</code>数组作为顶点是否被访问过的标记</li>
-<li>主要思想：从某个顶点a开始，查找没有被访问过的邻接节点b，访问并标记。递归进入b，再查找b中没有被访问过的邻接顶点，访问并标记。（不断重复）直到有一个顶点的邻接顶点被全部访问过<code>visit[p-&gt;adjvex]==0</code>或根本没有<code>p==NULL</code>。那么就递归出去，即退回到最近被访问的顶点，再查找没有被访问过的邻接顶点。（其实本质就是一个递归过程，函数套函数，之前没有做完的回来再做）</li>
-<li>图的遍历和二叉树的遍历雷同。二叉树的遍历也是递归过程：递归进入左孩子，直到lchild为空，就递归出去。完成之前没有完成的事——进入右孩子。（函数套函数，之前没有做完的回来再做）。树就是对于每个节点访问两个分支。而图呢，就是对每个顶点访问多个分支。</li>
+<li><p>首先需要一个<code>visit[maxSize];</code>数组作为顶点是否被访问过的标记</p>
+</li>
+<li><p>主要思想：从某个顶点a开始，查找没有被访问过的邻接节点b，访问并标记。递归进入b，再查找b中没有被访问过的邻接顶点，访问并标记。（不断重复）直到有一个顶点的邻接顶点被全部访问过<code>visit[p-&gt;adjvex]==0</code>或根本没有<code>p==NULL</code>。那么就递归出去，即退回到最近被访问的顶点，再查找没有被访问过的邻接顶点。（其实本质就是一个递归过程，函数套函数，之前没有做完的回来再做）</p>
+</li>
+<li><p>图的遍历和二叉树的遍历雷同。二叉树的遍历也是递归过程：递归进入左孩子，直到lchild为空，就递归出去。完成之前没有完成的事——进入右孩子。（函数套函数，之前没有做完的回来再做）。树就是对于每个节点访问两个分支。而图呢，就是对每个顶点访问多个分支。</p>
+</li>
 </ul>
-<p><img data-src="https://i.imgur.com/HwZQwJW.png" alt=""></p>
+<img data-src="https://i.imgur.com/HwZQwJW.png" style="zoom:50%;" />
+
+
+
+
+
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> visit[maxSize];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(AGraph* G, <span class="keyword">int</span> v)</span><span class="comment">//v是起点编号</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ArcNode* p;<span class="comment">//指向边的指针</span></span><br><span class="line">	visit[v] = <span class="number">1</span>;</span><br><span class="line">	Visit(v);<span class="comment">//访问的相关操作</span></span><br><span class="line">	p = G-&gt;adjlist[v].firstarc;<span class="comment">//指向顶点v的第一条边</span></span><br><span class="line">	<span class="keyword">while</span> (p!=<span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (visit[p-&gt;adjvex] == <span class="number">0</span>)<span class="comment">//边指向的顶点是否被访问过</span></span><br><span class="line">			DFS(G, p-&gt;adjvex);</span><br><span class="line">		p = p-&gt;nextarc;<span class="comment">//p节点指向下一条边</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对于非连通图</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(AGraph* g)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; g-&gt;n; i++)</span><br><span class="line">		<span class="keyword">if</span> (visit[i] == <span class="number">0</span>)</span><br><span class="line">			DFS(g, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="BFS广度优先搜索遍历"><a href="#BFS广度优先搜索遍历" class="headerlink" title="BFS广度优先搜索遍历"></a>BFS广度优先搜索遍历</h3><ul>
@@ -331,13 +358,17 @@
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(AGraph* G, <span class="keyword">int</span> v, <span class="keyword">int</span> visit[maxSize])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ArcNode* p;<span class="comment">//指向边</span></span><br><span class="line">	<span class="keyword">int</span> que[maxSize], front = <span class="number">0</span>, rear = <span class="number">0</span>;<span class="comment">//定义一个队列</span></span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	Visit(v);</span><br><span class="line">	visit[v] = <span class="number">1</span>;</span><br><span class="line">	rear = (rear + <span class="number">1</span>) % maxSize;</span><br><span class="line">	que[rear] = v;</span><br><span class="line">	<span class="keyword">while</span> (front != rear)<span class="comment">//如果front==rear（队列为空）就退出</span></span><br><span class="line">	&#123;</span><br><span class="line">		front = (front + <span class="number">1</span>) % maxSize;</span><br><span class="line">		j = que[front];</span><br><span class="line">		p = G-&gt;adjlist[j].firstarc;</span><br><span class="line">		<span class="keyword">while</span> (p!=<span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (visit[p-&gt;adjvex] == <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				Visit(p-&gt;adjvex);</span><br><span class="line">				visit[p-&gt;adjvex] = <span class="number">1</span>;</span><br><span class="line">				rear = (rear + <span class="number">1</span>) % maxSize;</span><br><span class="line">				que[rear] = p-&gt;adjvex;</span><br><span class="line">			&#125;</span><br><span class="line">			p = p-&gt;nextarc;<span class="comment">//p指向下一条边</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对于非连通图</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(AGraph* g)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; g-&gt;n; i++)</span><br><span class="line">		<span class="keyword">if</span> (visit[i] == <span class="number">0</span>)</span><br><span class="line">			BFS(g, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<ul>
-<li><p>深度，广度优先搜索生成树</p>
-<p>因为BFS算法是层层遍历。如果是无向图或者权值全都相同的有向图，那么就可以通过BFS来知道最短路径问题。如果我们把这个图的在BFS过程中所经理的边保留，其余的边删除，那么就生成了一颗广度优先搜索生成树。（深度优先搜索生成树也是一样类似）</p>
+<h3 id="DFS-BFS的邻接矩阵和邻接表在计算机中的可视化实现"><a href="#DFS-BFS的邻接矩阵和邻接表在计算机中的可视化实现" class="headerlink" title="DFS, BFS的邻接矩阵和邻接表在计算机中的可视化实现"></a>DFS, BFS的邻接矩阵和邻接表在计算机中的可视化实现</h3><ul>
+<li><p>说明</p>
+<p>无论是邻接表或者邻接矩阵，都能实现DFS, BFS.</p>
+<p>图中，不一定非要限定DFS和BFS，但要了解算法思想。</p>
 </li>
 </ul>
+<img data-src="https://i.imgur.com/HLw2EDY.jpeg" style="zoom:50%;" />
+
+<img data-src="https://i.imgur.com/eKRAXgO.png" style="zoom:50%;" />
+
+<h3 id="深度，广度优先搜索生成树"><a href="#深度，广度优先搜索生成树" class="headerlink" title="深度，广度优先搜索生成树"></a>深度，广度优先搜索生成树</h3><p>因为BFS算法是层层遍历。如果是无向图或者权值全都相同的有向图，那么就可以通过BFS来知道最短路径问题。如果我们把这个图的在<strong>BFS过程中所经的边保留，其余的边删除，那么就生成了一颗广度优先搜索生成树</strong>。（深度优先搜索生成树也是一样类似）</p>
 <p><img data-src="https://i.imgur.com/2Clgu7x.png" alt=""></p>
 
     </div>
@@ -361,8 +392,8 @@
       <i class="fa fa-chevron-left"></i> binary tree
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/09/22/exam/Graph/Minimum-Spanning-Tree/Minimum-Spanning-Tree/" rel="next" title="Minimum Spanning Tree">
-      Minimum Spanning Tree <i class="fa fa-chevron-right"></i>
+    <a href="/2020/09/25/exam/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/" rel="next" title="线性表的查找">
+      线性表的查找 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -424,7 +455,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Synopsis"><span class="nav-number">1.</span> <span class="nav-text">Synopsis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#邻接矩阵"><span class="nav-number">2.1.</span> <span class="nav-text">邻接矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有向图的创建"><span class="nav-number">2.1.1.</span> <span class="nav-text">有向图的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无向图的创建"><span class="nav-number">2.1.2.</span> <span class="nav-text">无向图的创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邻链表"><span class="nav-number">2.2.</span> <span class="nav-text">邻链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无向图邻接表"><span class="nav-number">2.2.1.</span> <span class="nav-text">无向图邻接表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有向图邻接表"><span class="nav-number">2.2.2.</span> <span class="nav-text">有向图邻接表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DFS深度优先搜索遍历"><span class="nav-number">2.2.3.</span> <span class="nav-text">DFS深度优先搜索遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFS广度优先搜索遍历"><span class="nav-number">2.2.4.</span> <span class="nav-text">BFS广度优先搜索遍历</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Synopsis"><span class="nav-number">1.</span> <span class="nav-text">Synopsis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#邻接矩阵"><span class="nav-number">2.1.</span> <span class="nav-text">邻接矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有向图的创建"><span class="nav-number">2.1.1.</span> <span class="nav-text">有向图的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无向图的创建"><span class="nav-number">2.1.2.</span> <span class="nav-text">无向图的创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邻链表"><span class="nav-number">2.2.</span> <span class="nav-text">邻链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无向图邻接表"><span class="nav-number">2.2.1.</span> <span class="nav-text">无向图邻接表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有向图邻接表"><span class="nav-number">2.2.2.</span> <span class="nav-text">有向图邻接表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DFS深度优先搜索遍历"><span class="nav-number">2.2.3.</span> <span class="nav-text">DFS深度优先搜索遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFS广度优先搜索遍历"><span class="nav-number">2.2.4.</span> <span class="nav-text">BFS广度优先搜索遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DFS-BFS的邻接矩阵和邻接表在计算机中的可视化实现"><span class="nav-number">2.2.5.</span> <span class="nav-text">DFS, BFS的邻接矩阵和邻接表在计算机中的可视化实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度，广度优先搜索生成树"><span class="nav-number">2.2.6.</span> <span class="nav-text">深度，广度优先搜索生成树</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

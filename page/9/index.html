@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">139</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">141</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -187,6 +187,203 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/13/c/strcmp-%E5%AF%BB%E6%89%BE%E7%9B%B8%E5%90%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/13/c/strcmp-%E5%AF%BB%E6%89%BE%E7%9B%B8%E5%90%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">strcmp()寻找相同的字符串</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-13 00:31:39" itemprop="dateCreated datePublished" datetime="2020-04-13T00:31:39+08:00">2020-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有一个字符串数组，需要用户输入的字符与字符串数组的字符串相匹配。可以使用strcmp()函数在循环中查找，如果，找到了就break;</p>
+<h1 id="strcmp"><a href="#strcmp" class="headerlink" title="strcmp()"></a>strcmp()</h1><ol>
+<li>参数<br>(str1，str2)</li>
+<li>返回值<br>返回<strong>str1 - str2的字符数值</strong>(通常用ASCII值)<br>所以，但两个字符串相同的时候就返回0</li>
+</ol>
+<ul>
+<li>判断两个字符串是否相等，<strong>直到出现不同的字符为止</strong><br><code>if(strcmp(str1, str2) == 0)</code></li>
+</ul>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MON 12</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">year</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> * m_name;</span><br><span class="line">    <span class="keyword">int</span> days;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Days</span><span class="params">(<span class="keyword">int</span>, struct year *, <span class="keyword">int</span> *sum)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">year</span> <span class="title">month</span>[<span class="title">MON</span>];</span><span class="comment">//结构数组</span></span><br><span class="line">    <span class="keyword">char</span> * name[<span class="number">12</span>] = &#123;<span class="string">"Jan"</span>, <span class="string">"Feb"</span>, <span class="string">"Mar"</span>, <span class="string">"Ari"</span>, <span class="string">"May"</span>,</span><br><span class="line">    <span class="string">"Jun"</span>, <span class="string">"Jul"</span>, <span class="string">"Aug"</span>, <span class="string">"Set"</span>, <span class="string">"Oct"</span>, <span class="string">"Nov"</span>, <span class="string">"Dem"</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> mon, sum;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">40</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; MON; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        month[i].m_name = name[i];</span><br><span class="line">        <span class="keyword">if</span>(i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">            month[i].days = <span class="number">31</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            month[i].days = <span class="number">30</span>;</span><br><span class="line">        month[i].m = i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    month[<span class="number">1</span>].days = <span class="number">28</span>;<span class="comment">//不是闰年</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the month(else to quit): "</span>);</span><br><span class="line">    <span class="keyword">while</span>(s_gets(str, <span class="number">40</span>) != <span class="literal">NULL</span> &amp;&amp; str[<span class="number">0</span>] != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= <span class="number">12</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">strcmp</span>(str, name[i - <span class="number">1</span>]) == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                temp = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;      </span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">if</span>(temp == <span class="number">1</span> &amp;&amp; i &lt; <span class="number">12</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            sum = <span class="number">0</span>;</span><br><span class="line">            sum = Days(i, month, &amp;sum);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Enter the month again: "</span>); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Days</span><span class="params">(<span class="keyword">int</span> mon, struct year * month, <span class="keyword">int</span> *sum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mon; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        *sum += month[i].days;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> * <span class="built_in">find</span>;</span><br><span class="line">    <span class="keyword">char</span> * ret_val;</span><br><span class="line"></span><br><span class="line">    ret_val = fgets(st, n, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">if</span> (ret_val)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">find</span> = <span class="built_in">strchr</span>(st, <span class="string">'\n'</span>);	<span class="comment">//查找换行符</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">find</span>)</span><br><span class="line">            *<span class="built_in">find</span> = <span class="string">'\0'</span>;			<span class="comment">//替换为空字符</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;			<span class="comment">//处理多余输入</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret_val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/11/c/%E5%87%BD%E6%95%B0%E5%92%8C%E6%8C%87%E9%92%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/11/c/%E5%87%BD%E6%95%B0%E5%92%8C%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">函数和指针</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-11 20:44:34" itemprop="dateCreated datePublished" datetime="2020-04-11T20:44:34+08:00">2020-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>首先，了解两个不同的概念。</p>
+<ol>
+<li>函数指针<br>这是个指针。它指向函数的地址。</li>
+<li>指针函数<br>这是个函数。它用来返回指针。</li>
+</ol>
+<h1 id="声明函数指针"><a href="#声明函数指针" class="headerlink" title="声明函数指针"></a>声明函数指针</h1><p>指针有它所对应的类型，比如<code>int*</code>，int类型的指针。所以函数指针也有其类型。<br>我们又知道，要将一个地址赋给一个指针，它们对应的类型要相同。</p>
+<ul>
+<li><p>首先，函数的声明有<strong>两要素。（1）函数的返回值 （2）函数接收的参数的类型</strong></p>
+</li>
+<li><p>如果有一个函数指针和一个函数，它们各自的两要素一样，这就可以让这个函数的地址赋给这个函数指针。</p>
+</li>
+<li><p>例如*<em>声明函数指针时只需把`(</em>pf)<code>这个指针和</code>ToUpper`这个函数名换掉</p>
+</li>
+</ul>
+<p>函数声明：<code>void ToUpper(char *);</code><br>函数指针的声明：<code>void (*pf)(char *);</code></p>
+<p>*<em>这样一来，`(</em>pf)<code>当作</code>ToUpper`</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
+<li>这里<strong>必须要将*pf用()括起来</strong>。如果不，就成了指针函数了。</li>
+<li>在以后调用函数也要()括起来</li>
+</ol>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ul>
+<li><p>首先，我们要知道函数的地址怎么表示。数组就把数组名作为它的首元素地址。函数代码就把函数名作为函数起始处的地址。</p>
+</li>
+<li><p>赋函数地址给指针<br><code>pf = ToUpper</code></p>
+</li>
+<li><p>怎么通过函数指针调用函数<br>pf指针存有函数的地址，(*pf)()这个就是相当与ToUpper()。另外，还有pf()这种调用函数的方法也被认同。</p>
+</li>
+</ul>
+<h1 id="一般用法"><a href="#一般用法" class="headerlink" title="一般用法"></a>一般用法</h1><ul>
+<li>将函数指针作为函数的参数传递给函数。<br><code>void show(void (* fp)(char *), char * str);</code>//接受函数指针</li>
+</ul>
+<figure class="highlight c"><figcaption><span>俩要素要相同，char*才是返回值噢</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">fun</span><span class="params">(<span class="keyword">char</span> *, <span class="keyword">char</span>)</span></span>;<span class="comment">//指针函数，返回指针</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span>* (*pp)(<span class="keyword">char</span> *, <span class="keyword">char</span>);<span class="comment">//这是一个函数指针，别忘了，char*才是返回值噢</span></span><br><span class="line">    pp = fun;<span class="comment">//它指向（指针函数)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">fun</span><span class="params">(<span class="keyword">char</span> *p, <span class="keyword">char</span> ch)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><figcaption><span>函数指针数组</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f1</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f2</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f3</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f4</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x = <span class="number">10.0</span>, y = <span class="number">2.5</span>;</span><br><span class="line">    <span class="keyword">double</span> (*pf[<span class="number">4</span>])(<span class="keyword">double</span>, <span class="keyword">double</span>) = &#123;f1, f2, f3, f4&#125;;<span class="comment">//声明一个函数指针数组</span></span><br><span class="line"></span><br><span class="line">    (*pf[<span class="number">1</span>])(x, y);/这里的*pf[<span class="number">1</span>]一定要加(),才能表示为函数/</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f1</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f2</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"ok"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f3</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f4</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -926,223 +1123,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/06/c/%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9A%84%E6%8C%87%E9%92%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/06/c/%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9A%84%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">标准文件(万物皆文件)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-06 17:41:54" itemprop="dateCreated datePublished" datetime="2020-04-06T17:41:54+08:00">2020-04-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-15 15:53:57" itemprop="dateModified" datetime="2020-09-15T15:53:57+08:00">2020-09-15</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>420</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><blockquote>
-<p>stdio.h头文件把<strong>3个文件指针(stdin,stdout,stderr)</strong>，与<strong>3个标准文件</strong>相关联。C程序会自动打开这3个标准文件</p>
-</blockquote>
-<h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1><h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>唉？为什么跟我们平时所看到的文件（word文档，txt文件。。。）不一样？那么这些文件又是放在哪里，是在磁盘吗？</p>
-<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><p>操作系统为了对各种硬件进行操作，简化接口。所以，把电脑的硬件设备也看成了文件。<br>如：scanf()函数的作用，就是从stdin（键盘）上面获取信息。<br>printf()函数的作用，就是从stdout（显示器）上输出信息。</p>
-<h2 id="标准输入"><a href="#标准输入" class="headerlink" title="标准输入"></a>标准输入</h2><ol>
-<li>指针：stdin</li>
-<li>设备：键盘</li>
-</ol>
-<h2 id="标准输出"><a href="#标准输出" class="headerlink" title="标准输出"></a>标准输出</h2><ol>
-<li>指针：stdout</li>
-<li>设备：显示器</li>
-</ol>
-<h2 id="标准错误"><a href="#标准错误" class="headerlink" title="标准错误"></a>标准错误</h2><ol>
-<li>指针：stderr</li>
-<li>设备：显示器</li>
-</ol>
-<p>有了这个基础，可以暂时看作<strong>万物皆文件</strong></p>
-<h1 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h1><ol>
-<li>这两行代码本质上一样<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">fprintf</span>(<span class="built_in">stdout</span>, <span class="string">"%s"</span>, <span class="built_in">string</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>, <span class="built_in">string</span>);</span><br></pre></td></tr></table></figure></li>
-<li>这行的区别也只不过是写在标准错误上<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">fprintf</span>(strerr, <span class="string">"%s"</span>, <span class="built_in">string</span>);</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/06/c/fgets-%E5%92%8Cfputs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/06/c/fgets-%E5%92%8Cfputs/" class="post-title-link" itemprop="url">面向行fgets()和fputs()</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-06 17:04:33" itemprop="dateCreated datePublished" datetime="2020-04-06T17:04:33+08:00">2020-04-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.7k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>该函数是面向行操作。<br>不同于，getc()是处理字符</p>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="fgets"><a href="#fgets" class="headerlink" title="fgets()"></a>fgets()</h2><ul>
-<li>作用<br>把读入的内容添加到字符串中。</li>
-</ul>
-<ol>
-<li>参数<br>(字符串地址，字符个数，FILE指针)</li>
-<li>返回值<br>如果读到文件结尾（EOF），返回NULL<br>如果还没有到EOF，返回之前传给它的字符串地址</li>
-<li>范围<blockquote>
-<p>1.读取到第一个换行符后面。<br>2.读到文件结尾<br>3.读到<code>字符个数-1</code><br>4.如果读到字符上限已经读完一行，则会把结尾的’\n’放在’\0’前面</p>
-</blockquote>
-</li>
-</ol>
-<p><strong>最后，在最后一个字符后面加’\0’</strong></p>
-<p>Don’t forget ！<br>字符串的大小是：<strong>字符个数＋最后的空字符</strong></p>
-<h2 id="fputs"><a href="#fputs" class="headerlink" title="fputs()"></a>fputs()</h2><ul>
-<li>参数<br>(字符串地址，FILE指针)</li>
-</ul>
-<blockquote>
-<p>fgets()保留了换行符，fputs()不会再添加换行符<br>不同于puts()函数会在末尾添加换行符</p>
-</blockquote>
-<h2 id="strstr"><a href="#strstr" class="headerlink" title="strstr()"></a>strstr()</h2><ul>
-<li>作用</li>
-<li><em>查找字符串中要查找的字符串*</em></li>
-</ul>
-<ol>
-<li><p>参数<br>(被查找的字符串str1，需要的字符串str2)</p>
-</li>
-<li><p>返回值<br>返回str1中str2的首位置</p>
-</li>
-</ol>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><figcaption><span>显示含有某个字符的一整行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 256</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">has_ch</span><span class="params">(<span class="keyword">char</span> ch, <span class="keyword">const</span> <span class="keyword">char</span> * <span class="built_in">line</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">line</span>[SIZE];<span class="comment">//每一行的字符串</span></span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Usage: filename"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    ch = argv[<span class="number">1</span>][<span class="number">0</span>];<span class="comment">//获取第二个参数的第一个字符</span></span><br><span class="line">    <span class="keyword">if</span> ((fp = fopen(argv[<span class="number">2</span>], <span class="string">"r"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line"></span><br><span class="line"><span class="comment">//fgets()假设每一行不超过256个字符,或读到换行符，然后存储到字符串line[]中</span></span><br><span class="line">    <span class="keyword">while</span>(fgets(<span class="built_in">line</span>, SIZE, fp) != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (has_ch(ch, <span class="built_in">line</span>))</span><br><span class="line">            <span class="built_in">fputs</span>(<span class="built_in">line</span>, <span class="built_in">stdout</span>);<span class="comment">//输出本行字符串</span></span><br><span class="line">    &#125;</span><br><span class="line">    fclose(fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">has_ch</span><span class="params">(<span class="keyword">char</span> ch, <span class="keyword">const</span> <span class="keyword">char</span> * <span class="built_in">line</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(*<span class="built_in">line</span>)<span class="comment">//读到'\0'结束</span></span><br><span class="line">        <span class="keyword">if</span>(ch == *(<span class="built_in">line</span>++))</span><br><span class="line">            <span class="keyword">return</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><figcaption><span>交换地输出两个文件的每一行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 40</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 256</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> name1[SIZE];</span><br><span class="line">    <span class="keyword">char</span> name2[SIZE];</span><br><span class="line">    FILE * f1, *f2;</span><br><span class="line">    <span class="keyword">char</span> *temp1;<span class="comment">//将被fgets()返回字符串地址，或者NULL</span></span><br><span class="line">    <span class="keyword">char</span> *temp2;</span><br><span class="line">    <span class="keyword">char</span> str[LEN];<span class="comment">//暂时存储每一行</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the first file: "</span>);</span><br><span class="line">    s_gets(name1, SIZE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the second file: "</span>);</span><br><span class="line">    s_gets(name2, SIZE);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>((f1 = fopen(name1, <span class="string">"r"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open the %s file"</span>, name1);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>((f2 = fopen(name2, <span class="string">"r"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open the %s file"</span>, name2);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    这样做，只能但输出到最少行的文件，循环就结束了（不可取）</span></span><br><span class="line"><span class="comment">    如果我们用||运算符的话，一真全真，右侧语句就短路了，就不能给temp2字符数组赋值了（也不可取）</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    while ((fgets(str1, LEN, f1) != NULL) &amp;&amp; (fgets(str2, LEN, f2) != NULL))</span></span><br><span class="line"><span class="comment">    &#123;</span></span><br><span class="line"><span class="comment">        fputs(str1, stdout);</span></span><br><span class="line"><span class="comment">        fputs(str2, stdout);</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="comment">/*但我们可以</span></span><br><span class="line"><span class="comment">    先把 fgets()函数提取出来，另外用if语句判断</span></span><br><span class="line"><span class="comment">    再用 || 运算符</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((temp1 = fgets(str, LEN, f1)) != <span class="literal">NULL</span>)<span class="comment">//如果其中一个读到文件结尾，</span></span><br><span class="line">            <span class="built_in">fputs</span>(str, <span class="built_in">stdout</span>);</span><br><span class="line">        <span class="keyword">if</span>((temp2 = fgets(str, LEN, f2)) != <span class="literal">NULL</span>)<span class="comment">//则不输出。</span></span><br><span class="line">            <span class="built_in">fputs</span>(str, <span class="built_in">stdout</span>);</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">while</span> ((temp1 != <span class="literal">NULL</span>) || (temp2 != <span class="literal">NULL</span>));<span class="comment">//要两个文件都读到文件结尾才结束</span></span><br><span class="line">    </span><br><span class="line">    fclose(f1);</span><br><span class="line">    fclose(f2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><figcaption><span>在文件中查找字符</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 256</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp;</span><br><span class="line">    <span class="keyword">char</span> str[LEN];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(argc != <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"Usage: %s filename"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>((fp = fopen(argv[<span class="number">2</span>], <span class="string">"r"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open %s file"</span>, argv[<span class="number">2</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(fgets(str, LEN, fp) != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strstr</span>(str, argv[<span class="number">1</span>]))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">fputs</span>(str, <span class="built_in">stdout</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(fclose(fp) != <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Error for closing file.\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1242,13 +1227,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">187k</span>
+    <span title="Symbols count total">189k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:50</span>
+    <span title="Reading time total">2:52</span>
 </div>
 
 <div id="days"></div>

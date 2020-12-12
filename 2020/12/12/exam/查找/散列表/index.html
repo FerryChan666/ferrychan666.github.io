@@ -22,24 +22,23 @@
     var CONFIG = {"hostname":"ferrychan666.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Synopsis因为折半查找拥有苛刻的适用条件，既要是顺序表还要有次序。并且如果进行频繁的插入删除操作对于顺序表来说是效率低下的。所以，为了解决可以更有效率地插入删除，我们使用了二叉树作为查找表的组织形式。  二叉排序树 平衡二叉树  Description二叉排序树二叉排序树实际上就是二叉树的链式存储结构。以此来进行查找。 存储结构1234typedef struct BSTNode &amp;#123">
+  <meta name="description" content="散列(Hash)表的构造由于前面的查找表当中，它们的关键字与关键字在存储中的地址是没有关联的，所以就会导致：如果数据过多就会出现查找变慢的情况。Hash的建立就是通过Hash函数来构造关键字key与地址H(key)的关联，从而加快查找速度，最快可以达到O(1)（一般来说：地址是数组下标，关键字是数组） 除留余数法 冲突的解决方法开放定址法线性探查法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树表的查找">
-<meta property="og:url" content="https://ferrychan666.github.io/2020/09/26/exam/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/index.html">
+<meta property="og:title" content="散列表">
+<meta property="og:url" content="https://ferrychan666.github.io/2020/12/12/exam/%E6%9F%A5%E6%89%BE/%E6%95%A3%E5%88%97%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Ferry&#39;s Blog">
-<meta property="og:description" content="Synopsis因为折半查找拥有苛刻的适用条件，既要是顺序表还要有次序。并且如果进行频繁的插入删除操作对于顺序表来说是效率低下的。所以，为了解决可以更有效率地插入删除，我们使用了二叉树作为查找表的组织形式。  二叉排序树 平衡二叉树  Description二叉排序树二叉排序树实际上就是二叉树的链式存储结构。以此来进行查找。 存储结构1234typedef struct BSTNode &amp;#123">
+<meta property="og:description" content="散列(Hash)表的构造由于前面的查找表当中，它们的关键字与关键字在存储中的地址是没有关联的，所以就会导致：如果数据过多就会出现查找变慢的情况。Hash的建立就是通过Hash函数来构造关键字key与地址H(key)的关联，从而加快查找速度，最快可以达到O(1)（一般来说：地址是数组下标，关键字是数组） 除留余数法 冲突的解决方法开放定址法线性探查法">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.imgur.com/VRtlZiG.png">
-<meta property="og:image" content="https://i.imgur.com/ibiaKLq.png">
-<meta property="og:image" content="https://i.imgur.com/2Bz62Kv.png">
-<meta property="article:published_time" content="2020-09-26T05:35:12.000Z">
-<meta property="article:modified_time" content="2020-09-29T07:31:43.784Z">
+<meta property="og:image" content="https://i.imgur.com/5BEbmFl.png">
+<meta property="og:image" content="https://i.imgur.com/E4Kbhsk.png">
+<meta property="article:published_time" content="2020-12-12T08:54:03.000Z">
+<meta property="article:modified_time" content="2020-12-12T12:07:55.432Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/VRtlZiG.png">
+<meta name="twitter:image" content="https://i.imgur.com/5BEbmFl.png">
 
-<link rel="canonical" href="https://ferrychan666.github.io/2020/09/26/exam/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/">
+<link rel="canonical" href="https://ferrychan666.github.io/2020/12/12/exam/%E6%9F%A5%E6%89%BE/%E6%95%A3%E5%88%97%E8%A1%A8/">
 
 
 <script id="page-configurations">
@@ -52,7 +51,7 @@
   };
 </script>
 
-  <title>树表的查找 | Ferry's Blog</title>
+  <title>散列表 | Ferry's Blog</title>
   
 
 
@@ -134,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">141</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">143</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -200,7 +199,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/09/26/exam/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/12/12/exam/%E6%9F%A5%E6%89%BE/%E6%95%A3%E5%88%97%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -213,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          树表的查找
+          散列表
         </h1>
 
         <div class="post-meta">
@@ -222,16 +221,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-09-26 13:35:12" itemprop="dateCreated datePublished" datetime="2020-09-26T13:35:12+08:00">2020-09-26</time>
+              <time title="Created: 2020-12-12 16:54:03 / Modified: 20:07:55" itemprop="dateCreated datePublished" datetime="2020-12-12T16:54:03+08:00">2020-12-12</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-29 15:31:43" itemprop="dateModified" datetime="2020-09-29T15:31:43+08:00">2020-09-29</time>
-              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -246,14 +239,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.8k</span>
+              <span>173</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -265,43 +258,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>因为折半查找拥有苛刻的适用条件，既要是顺序表还要有次序。并且如果进行频繁的插入删除操作对于顺序表来说是效率低下的。所以，为了解决可以更有效率地插入删除，我们使用了二叉树作为查找表的组织形式。</p>
-<ul>
-<li>二叉排序树</li>
-<li>平衡二叉树</li>
-</ul>
-<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><h2 id="二叉排序树"><a href="#二叉排序树" class="headerlink" title="二叉排序树"></a>二叉排序树</h2><p><strong>二叉排序树实际上就是二叉树的链式存储结构</strong>。以此来进行查找。</p>
-<h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BSTNode</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> key;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BSTNode</span>* <span class="title">lchild</span>, * <span class="title">rchild</span>;</span></span><br><span class="line">&#125;BSTNode;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>二叉排序树可以为空树，或者是具有以下形式的二叉树：</p>
-<ol>
-<li>左子树上的所有节点都小于它的根节点。</li>
-<li>右子树上所有的节点都大于它的根节点。</li>
-<li>且定义是递归的。（它的左右子树也分别为二叉树）</li>
-</ol>
-<ul>
-<li>并由该定义可得一个重要性质：<strong>中序遍历一颗二叉树可得一个以节点值递增的序列</strong></li>
-</ul>
-<h3 id="基本算法"><a href="#基本算法" class="headerlink" title="基本算法"></a>基本算法</h3><h4 id="查找关键字"><a href="#查找关键字" class="headerlink" title="查找关键字"></a>查找关键字</h4><p>根据定义，可以知道二叉排列树跟折半查找法是要求都是按顺序排列。所以，我们沿用折半查找的算法思想，先让key跟根的key比较，如果相等则return根节点（递归出口）。如果小于根的key，那么就递归进入左子树，再跟左子树的根的key比较。如果大于根的key那么就进入右子树。。。如果一直到最后什么也没有，那么就自然而然地return NULL。所以又可以知道折半查找的判定树就是二叉排序树。<strong>但折半查找判定树是唯一的（因为它是靠有序表而建立起来的），二叉排序树是不唯一的（只要满足定义就可以）</strong>因为，树不唯一，深度不为唯一。所以，含有n个节点的ASL也不唯一。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BSTNode* <span class="title">SearchBST</span><span class="params">(BSTNode* T, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (T == <span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (T-&gt;key == key)</span><br><span class="line">			<span class="keyword">return</span> T;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; T-&gt;key)</span><br><span class="line">			<span class="keyword">return</span> SearchBST(T-&gt;lchild, key);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">return</span> SearchBST(T-&gt;rchild, key);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="插入关键字"><a href="#插入关键字" class="headerlink" title="插入关键字"></a>插入关键字</h4><p>插入算法以查找算法为基础的。要插入一个key，先要向下查找，直到遇到节点为空，则创建节点，并且是新增的叶子节点。如果key等于其中某一个节点，则什么也不做。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertBST</span><span class="params">(BSTNode*&amp; T, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//遇到空就插入</span></span><br><span class="line">	<span class="keyword">if</span> (!T)</span><br><span class="line">	&#123;</span><br><span class="line">		T = <span class="keyword">new</span> BSTNode;</span><br><span class="line">		T-&gt;key = key;</span><br><span class="line">		T-&gt;lchild = T-&gt;rchild = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; T-&gt;key)</span><br><span class="line">		<span class="keyword">return</span> InsertBST(T-&gt;lchild, key);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (key &gt; T-&gt;key)			<span class="comment">//这里不能直接用else，因为key如果等于任何一个节点，则不插入</span></span><br><span class="line">		<span class="keyword">return</span> InsertBST(T-&gt;rchild, key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="创建二叉排列树"><a href="#创建二叉排列树" class="headerlink" title="创建二叉排列树"></a>创建二叉排列树</h4><p><strong>创建二叉排列树的算法就是使用插入算法，一个一个地从空树中插入节点。</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreatBST</span><span class="params">(BSTNode *&amp;T,<span class="keyword">int</span> key[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T = <span class="literal">NULL</span>;<span class="comment">//初始化为空树</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		InsertBST(T, key[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>平衡二叉树是一种特殊的二叉排序树，又称AVL树。为什么要研究这种特殊的二叉排序树呢？当然是因为它作为查找树的时候，查找效率更高。通过，查找算法可以发现，树的高度越低，查找速度越快。如果二叉树是线性的，查找时间复杂度为O(n)，如果是平衡二叉树复杂度为O(log2 n)</p>
-<h3 id="建立平衡二叉树"><a href="#建立平衡二叉树" class="headerlink" title="建立平衡二叉树"></a>建立平衡二叉树</h3><p>平衡二叉树的建立也类似与二叉排序树的建立，也是一个一个节点地插入到树中。但要实现平衡。实现平衡就是需要左右子树之间的高度不能超过1。为此为根引入了<strong>平衡因子，即 平衡因子 = 左子树的高度 - 右子树的高度</strong></p>
-<p>那么关键问题就是在像往常一样创建排序二叉树的过程中，如何进行修改？变成平衡二叉树。平衡二叉树的调整需要引入<strong>最小不平衡子树</strong>。就是在逐步建立二叉树的过程中找到其中根平衡因子绝对值大于1的子树。</p>
-<p>而最小不平衡子树也有不同的形态，分为LL，RR，LR，RL型。这几种类型中都是取出顶上的3个节点。最小的变成左子树，最大的变成右子树，排在中间的变为根。</p>
-<p><img data-src="https://i.imgur.com/VRtlZiG.png" alt=""></p>
-<p><img data-src="https://i.imgur.com/ibiaKLq.png" alt=""></p>
-<p><img data-src="https://i.imgur.com/2Bz62Kv.png" alt=""></p>
+        <h1 id="散列-Hash-表的构造"><a href="#散列-Hash-表的构造" class="headerlink" title="散列(Hash)表的构造"></a>散列(Hash)表的构造</h1><p>由于前面的查找表当中，它们的关键字与关键字在存储中的地址是没有关联的，所以就会导致：如果数据过多就会出现查找变慢的情况。Hash的建立就是通过<strong>Hash函数</strong>来构造关键字<code>key</code>与地址<code>H(key)</code>的关联，从而加快查找速度，最快可以达到O(1)（一般来说：地址是数组下标，关键字是数组）</p>
+<h2 id="除留余数法"><a href="#除留余数法" class="headerlink" title="除留余数法"></a>除留余数法</h2><p><img data-src="https://i.imgur.com/5BEbmFl.png" alt=""></p>
+<h1 id="冲突的解决方法"><a href="#冲突的解决方法" class="headerlink" title="冲突的解决方法"></a>冲突的解决方法</h1><h2 id="开放定址法"><a href="#开放定址法" class="headerlink" title="开放定址法"></a>开放定址法</h2><h3 id="线性探查法"><a href="#线性探查法" class="headerlink" title="线性探查法"></a>线性探查法</h3><p><img data-src="https://i.imgur.com/E4Kbhsk.png" alt=""></p>
 
     </div>
 
@@ -320,12 +279,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/09/25/exam/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/" rel="prev" title="线性表的查找">
-      <i class="fa fa-chevron-left"></i> 线性表的查找
+    <a href="/2020/12/07/English/%E8%AF%AD%E6%B3%95/" rel="prev" title="语法">
+      <i class="fa fa-chevron-left"></i> 语法
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/09/30/exam/%E6%8E%92%E5%BA%8F/%E6%8E%92%E5%BA%8F/" rel="next" title="排序">
-      排序 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/12/12/exam/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6/" rel="next" title="算法复杂度">
+      算法复杂度 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -387,7 +346,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Synopsis"><span class="nav-number">1.</span> <span class="nav-text">Synopsis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉排序树"><span class="nav-number">2.1.</span> <span class="nav-text">二叉排序树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储结构"><span class="nav-number">2.1.1.</span> <span class="nav-text">存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">2.1.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本算法"><span class="nav-number">2.1.3.</span> <span class="nav-text">基本算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找关键字"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">查找关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入关键字"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">插入关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建二叉排列树"><span class="nav-number">2.1.3.3.</span> <span class="nav-text">创建二叉排列树</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平衡二叉树"><span class="nav-number">2.2.</span> <span class="nav-text">平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立平衡二叉树"><span class="nav-number">2.2.1.</span> <span class="nav-text">建立平衡二叉树</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#散列-Hash-表的构造"><span class="nav-number">1.</span> <span class="nav-text">散列(Hash)表的构造</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#除留余数法"><span class="nav-number">1.1.</span> <span class="nav-text">除留余数法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#冲突的解决方法"><span class="nav-number">2.</span> <span class="nav-text">冲突的解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开放定址法"><span class="nav-number">2.1.</span> <span class="nav-text">开放定址法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线性探查法"><span class="nav-number">2.1.1.</span> <span class="nav-text">线性探查法</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -435,13 +394,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">190k</span>
+    <span title="Symbols count total">191k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:53</span>
+    <span title="Reading time total">2:54</span>
 </div>
 
 <div id="days"></div>
@@ -612,7 +571,7 @@ window.addEventListener('pjax:success', () => {
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://ferrychan666.github.io/2020/09/26/exam/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://ferrychan666.github.io/2020/12/12/exam/%E6%9F%A5%E6%89%BE/%E6%95%A3%E5%88%97%E8%A1%A8/',]
       });
       });
   </script>
@@ -628,7 +587,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'gitalk',
       owner       : 'ferrychan666',
       admin       : ['ferrychan666'],
-      id          : 'b71857d1067c39b21eb1c7bcc8d5a78a',
+      id          : 'e9e37acfe5e1e8fe6e53ef72176e5dbe',
         language: 'zh-CN',
       distractionFreeMode: true
     });

@@ -31,7 +31,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.imgur.com/UoeJx2T.png">
 <meta property="article:published_time" content="2020-08-18T09:54:47.000Z">
-<meta property="article:modified_time" content="2020-08-25T13:02:15.426Z">
+<meta property="article:modified_time" content="2020-12-12T13:21:47.195Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
@@ -132,7 +132,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">141</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">143</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -228,7 +228,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-25 21:02:15" itemprop="dateModified" datetime="2020-08-25T21:02:15+08:00">2020-08-25</time>
+                <time title="Modified: 2020-12-12 21:21:47" itemprop="dateModified" datetime="2020-12-12T21:21:47+08:00">2020-12-12</time>
               </span>
 
           
@@ -288,10 +288,14 @@
 <h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>存储空间一旦分别好了，就不能改变。</p>
 <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;LNode;</span><br></pre></td></tr></table></figure>
 
-<ul>
+
+
+
+
+<h2 id="极其重要："><a href="#极其重要：" class="headerlink" title="极其重要："></a>极其重要：</h2><ul>
 <li>First, 要明白一个情况。<code>L-&gt;next</code><strong>这个东西，做为左值，右值是什么意义。</strong><ul>
 <li>左值：该节点中存储的下个节点的地址</li>
-<li>右值：下一个节点的地址</li>
+<li>右值：下一个节点</li>
 </ul>
 </li>
 </ul>
@@ -393,7 +397,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Detail"><span class="nav-number">2.</span> <span class="nav-text">Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序表"><span class="nav-number">2.1.</span> <span class="nav-text">顺序表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">2.1.1.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">2.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表"><span class="nav-number">2.2.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的删除"><span class="nav-number">2.2.1.</span> <span class="nav-text">链表的删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头插法-尾插法"><span class="nav-number">2.2.2.</span> <span class="nav-text">头插法|尾插法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的逆序"><span class="nav-number">2.2.3.</span> <span class="nav-text">链表的逆序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的逆序输出（递归）"><span class="nav-number">2.2.4.</span> <span class="nav-text">链表的逆序输出（递归）</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Detail"><span class="nav-number">2.</span> <span class="nav-text">Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序表"><span class="nav-number">2.1.</span> <span class="nav-text">顺序表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">2.1.1.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">2.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表"><span class="nav-number">2.2.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极其重要："><span class="nav-number">2.3.</span> <span class="nav-text">极其重要：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的删除"><span class="nav-number">2.3.1.</span> <span class="nav-text">链表的删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头插法-尾插法"><span class="nav-number">2.3.2.</span> <span class="nav-text">头插法|尾插法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的逆序"><span class="nav-number">2.3.3.</span> <span class="nav-text">链表的逆序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的逆序输出（递归）"><span class="nav-number">2.3.4.</span> <span class="nav-text">链表的逆序输出（递归）</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -441,13 +445,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">190k</span>
+    <span title="Symbols count total">191k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:53</span>
+    <span title="Reading time total">2:54</span>
 </div>
 
 <div id="days"></div>

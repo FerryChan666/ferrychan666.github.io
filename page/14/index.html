@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">143</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">144</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -187,6 +187,146 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/17/linux/command/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/17/linux/command/" class="post-title-link" itemprop="url">command</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-17 12:18:39" itemprop="dateCreated datePublished" datetime="2020-03-17T12:18:39+08:00">2020-03-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>895</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><p><code>date</code>日期</p>
+</li>
+<li><p><code>cal</code>日历<br><code>cal month year</code></p>
+</li>
+<li><p><code>pwd</code>显示当前目录（路径）</p>
+</li>
+<li><p><code>ls</code>显示当前目录中的文件和目录<br><code>ls -l</code></p>
+</li>
+<li><p><code>mkdir</code>创建空目录（只能一层一层来）<br>要想创建多层的目录要加选项<code>-p</code></p>
+</li>
+<li><p><code>rmdir</code>删除目录(要为空)</p>
+</li>
+<li><p><code>rm -rf</code>删除目录（可以不为空）</p>
+</li>
+<li><p><code>wc</code>查看单词数量</p>
+</li>
+<li><p><code>cp &lt;file1&gt; &lt;directory/file2&gt;</code> 将file1文件复制到目录，还能更换成file2这个名字</p>
+</li>
+<li><p><code>cp -r &lt;dir1&gt; &lt;dir2&gt;</code> 将目录1复制到目录2</p>
+</li>
+<li><p><code>cp -s &lt;file1&gt; &lt;firectory/file2&gt;</code> 复制为符号链接</p>
+</li>
+<li><p><code>cp -l &lt;file1&gt; &lt;firectory/file2&gt;</code> 复制为硬链接</p>
+</li>
+<li><p><code>cat</code> 查看文件信息</p>
+</li>
+<li><p><code>less</code> 查看文件信息</p>
+</li>
+</ul>
+<ol>
+<li>搜索输入的字符<code>/&lt;str&gt;</code></li>
+<li>支持上下翻页</li>
+</ol>
+<ul>
+<li><p><code>head</code> <code>tail</code> 查看前面10行，后面10行<br><code>-n number</code>显示number行</p>
+</li>
+<li><p><code>nl</code> 显示文件内容，同时打印行号</p>
+</li>
+<li><p><code>diff</code> 检查文件的不同</p>
+</li>
+<li><p><code>head &lt;file&gt; -n 2</code>查看文件的前两行</p>
+</li>
+<li><p><code>tail &lt;file&gt; -n 2</code>查看文件的后两行</p>
+</li>
+<li><p><code>rm</code>删除文件</p>
+</li>
+<li><p><code>mv</code>移动文件，重命名文件<br><code>mv &lt;file1&gt; &lt;folder&gt;  //移动</code><br><code>mv &lt;file&gt; &lt;File&gt;   //重命名</code></p>
+</li>
+<li><p><code>touch</code>创建一个不存在的文件，或者更新（修改，读取）文件的时间</p>
+</li>
+<li><p><code>ll --time=atime</code>查看文件读取时间<br><code>ll --time=ctime</code>查看文件权限更改时间<br><code>ll --time=mtime</code>查看文件修改时间<br>（<code>ll</code>是<code>ls -l</code>的缩写）</p>
+</li>
+<li><p><code>chmod</code>权限管理<br><code>chmod &lt;ugo-rwx&gt; &lt;file&gt;</code><br>关于权限:<br>输入<code>ls -l</code>可以看到，开头的（－）（ｄ）是表示（文件）（文件夹）<br>－ｒｗｘ｜ｒ－－｜ｒ－－｜　　　　／／作者（ｕ）｜小组（ｇ）｜其他人（ｏ）<br>ｒ　可读<br>ｗ　可写<br>ｘ　可执行<br>＋　添加权限<br>－　去除权限</p>
+</li>
+<li><p><code>chown</code>改变文件/目录拥有者</p>
+</li>
+<li><p><code>chgrp</code>改变文件/目录加入的用户组</p>
+</li>
+<li><p><code>grep</code>查找内容<br><code>grep &lt;查找内容内容&gt; &lt;file&gt;</code><br>关于查找方式:<br>….<br>….<br>….</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1069,127 +1209,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/12/github/%E5%A4%87%E4%BB%BD%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%E5%88%B0Github/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/12/github/%E5%A4%87%E4%BB%BD%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%E5%88%B0Github/" class="post-title-link" itemprop="url">备份博客源文件到Github</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-12 13:38:02" itemprop="dateCreated datePublished" datetime="2020-03-12T13:38:02+08:00">2020-03-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>*前言<br>在部署完个网站后<code>hexo g</code>，我发现了一个问题。<br>我的Github上面只有一些实实在在的HTML文件。HTML文件却不同于我们平时所写的 md文件，我们不能直接在HTML上面写博客。假如想要换台电脑写，或者某天本地环境挂了导致文件消失。所以，麻烦就来了。</p>
-<ul>
-<li>要用到的命令介绍</li>
-</ul>
-<ol>
-<li>git push与git pull是一对推送/拉取分支的git命令。<br>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</li>
-<li>本地通过 git软件 将信息传递给 GitHub</li>
-</ol>
-<ul>
-<li>解决方案<br>有一种可行的方案就是将本地的源代码文件托管到Github上面去。</li>
-<li>在Github上面创建一个repo</li>
-</ul>
-<ol>
-<li>把名字命名为与你Hexo文件夹同名（不这样做的话，后面的<code>push origin master</code>会出错。）</li>
-</ol>
-<p>比如，要取回origin主机的next分支，与本地的master分支合并，需要写成下面这样 -<br><code>git pull origin next:master</code><br>如果远程分支(next)要与当前分支合并，则冒号后面的部分可以省略。上面命令可以简写为：<br><code>git pull origin next</code></p>
-<ul>
-<li>让git关联远程主机一下</li>
-</ul>
-<ol>
-<li>初始化git.在hexo文件的目录下，<br><code>git init</code></li>
-<li>告诉Git你的远程主机名master和分支名<br><code>git remote add origin git@github.com:ferrychan666/blog.git</code> </li>
-<li>获取远端分支（这里需要SSH密钥生成，操作在后方)<br><code>git pull origin master</code><br>修改.gitignore文件（如果没有请手动创建一个），在里面加入<em>.log 和 public/ 以及.deploy</em>/。因为每次执行hexo generate命令时，上述目录都会被重写更新。因此忽略这两个目录下的文件更新，加快push速度。<br>执行命令以下命令，完成Hexo源码在本地的提交。</li>
-</ol>
-<ul>
-<li>在git上添加本地修改的文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;把源码文件作为备份&quot;</span><br></pre></td></tr></table></figure></li>
-<li>git把本地文件推到Github<br><code>git push origin master</code></li>
-</ul>
-<h1 id="关于SSH密钥生成"><a href="#关于SSH密钥生成" class="headerlink" title="关于SSH密钥生成"></a>关于SSH密钥生成</h1><ol>
-<li>创建用户<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config –global user.name &quot;yourname&quot;</span><br><span class="line">git config –global user.email &quot;your@email.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;your@email.com&quot;</span><br></pre></td></tr></table></figure>
-一直回车直到<br><img data-src="https://i.ibb.co/d51HDkb/20170213195627978.png" alt="demo"></li>
-<li>打开那个id_rsa.pub路径，复制里面内容</li>
-<li>进入<a href="https://github.com/settings/keys">Github上</a>点击New shhKey 粘贴里面的内容到Key</li>
-<li>验证：<code>ssh -T git@github.com</code> 看到<br>Hi ***! You’ve successfully authenticated, but GitHub does not provide shell access.<br>表示成功了！！</li>
-</ol>
-<p>在hexo一连贯的操作</p>
-<ul>
-<li>deploy<br><code>hexo clean &amp;&amp; hexo g -d</code></li>
-<li>push<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m&quot;...更新&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1294,13 +1313,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">191k</span>
+    <span title="Symbols count total">192k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:54</span>
+    <span title="Reading time total">2:55</span>
 </div>
 
 <div id="days"></div>

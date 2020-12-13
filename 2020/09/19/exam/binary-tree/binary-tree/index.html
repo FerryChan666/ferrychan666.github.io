@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"ferrychan666.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Introduction of the binary tree先来明确一些重要的二叉树特性，并且这些对考题有重要作用。 二叉树，就是只能有0, 1, 2这三种分支的节点。  性质零：总分支&#x3D;总节点数-1  性质一：2分支节点总是比0分支（叶子）节点少一个。   $$叶子&#x3D;二分支节点-1$$  性质五：函数Catalan()：给n个节点，能构成h(n)种不同的二叉树（因为有左右之分）$$h(n)&#x3D;C">
+  <meta name="description" content="Introduction of the binary tree先来明确一些重要的二叉树特性，并且这些对考题有重要作用。 二叉树，就是只能有0, 1, 2这三种分支的节点。  性质0：$$总分支&#x3D;总节点数-1$$  性质1：2分支节点总是比0分支（叶子）节点少一个。   $$叶子&#x3D;二分支节点-1$$  性质2：二叉树第k层上最多有节点$$2^{k-1}$$  性质3：高度或深度为k的二叉树最多有节点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="binary tree">
 <meta property="og:url" content="https://ferrychan666.github.io/2020/09/19/exam/binary-tree/binary-tree/index.html">
 <meta property="og:site_name" content="Ferry&#39;s Blog">
-<meta property="og:description" content="Introduction of the binary tree先来明确一些重要的二叉树特性，并且这些对考题有重要作用。 二叉树，就是只能有0, 1, 2这三种分支的节点。  性质零：总分支&#x3D;总节点数-1  性质一：2分支节点总是比0分支（叶子）节点少一个。   $$叶子&#x3D;二分支节点-1$$  性质五：函数Catalan()：给n个节点，能构成h(n)种不同的二叉树（因为有左右之分）$$h(n)&#x3D;C">
+<meta property="og:description" content="Introduction of the binary tree先来明确一些重要的二叉树特性，并且这些对考题有重要作用。 二叉树，就是只能有0, 1, 2这三种分支的节点。  性质0：$$总分支&#x3D;总节点数-1$$  性质1：2分支节点总是比0分支（叶子）节点少一个。   $$叶子&#x3D;二分支节点-1$$  性质2：二叉树第k层上最多有节点$$2^{k-1}$$  性质3：高度或深度为k的二叉树最多有节点">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.imgur.com/3C99VxZ.png">
 <meta property="og:image" content="https://i.imgur.com/IEJ9VOv.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://i.imgur.com/rdn5Pj5.png">
 <meta property="og:image" content="https://i.imgur.com/ExNfEr5.png">
 <meta property="article:published_time" content="2020-09-19T07:45:21.000Z">
-<meta property="article:modified_time" content="2020-12-03T10:11:04.294Z">
+<meta property="article:modified_time" content="2020-12-13T02:22:51.998Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
@@ -137,7 +137,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">143</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">144</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -233,7 +233,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-03 18:11:04" itemprop="dateModified" datetime="2020-12-03T18:11:04+08:00">2020-12-03</time>
+                <time title="Modified: 2020-12-13 10:22:51" itemprop="dateModified" datetime="2020-12-13T10:22:51+08:00">2020-12-13</time>
               </span>
 
           
@@ -249,7 +249,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>9.1k</span>
+              <span>9.2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -271,14 +271,19 @@
         <h1 id="Introduction-of-the-binary-tree"><a href="#Introduction-of-the-binary-tree" class="headerlink" title="Introduction of the binary tree"></a>Introduction of the binary tree</h1><p>先来明确一些重要的二叉树特性，并且这些对考题有重要作用。</p>
 <p>二叉树，就是只能有0, 1, 2这三种分支的节点。</p>
 <ul>
-<li><p>性质零：总分支=总节点数-1</p>
+<li><p>性质0：<br>$$<br>总分支=总节点数-1<br>$$</p>
 </li>
-<li><p>性质一：2分支节点总是比0分支（叶子）节点少一个。</p>
+<li><p>性质1：2分支节点总是比0分支（叶子）节点少一个。</p>
 </li>
 </ul>
 <p>$$<br>叶子=二分支节点-1<br>$$</p>
 <ul>
-<li>性质五：函数Catalan()：给n个节点，能构成h(n)种不同的二叉树（因为有左右之分）<br>$$<br>h(n)=C^n_{2n}/(n+1)<br>$$</li>
+<li><p>性质2：二叉树第k层上最多有节点<br>$$<br>2^{k-1}<br>$$</p>
+</li>
+<li><p>性质3：高度或深度为k的二叉树最多有节点<br>$$<br>2^k-1<br>$$</p>
+</li>
+<li><p>性质5：函数Catalan()：给n个节点，能构成h(n)种不同的二叉树（因为有左右之分）<br>$$<br>h(n)=C^n_{2n}/(n+1)<br>$$</p>
+</li>
 </ul>
 <h1 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h1><ul>
 <li>二叉树是一种有限制的树。</li>
@@ -395,7 +400,7 @@
 <li><p>树的带权路径（WPL）最短。<strong>因此称最优二叉树</strong></p>
 </li>
 <li><p>没有度为1的节点</p>
-<p><strong>需要说明一下这个特点</strong>，回归前面的性质一：现在就是分支为1的节点没了，只剩下2分支和0分支的节点了。因为，2分支节点总是比0分支少一个。又因为在二叉树种，<br>$$<br>节点总数=0分支+1分支+2分支<br>$$<br>所以，得出结论，假如叶子为n个，那么总节点数为2n-1</p>
+<p><strong>需要说明一下这个特点</strong>，回归前面的性质一：现在就是分支为1的节点没了，只剩下2分支和0分支的节点了。因为，2分支节点总是比0分支少一个。又因为在二叉树种，<br>$$<br>节点总数=0分支+1分支+2分支<br>$$<br>所以，得出结论，假如叶子为n个，2分支为n-1，那么总节点数为2n-1</p>
 </li>
 <li><p>权值越大的节点离根越近</p>
 </li>
@@ -592,13 +597,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">191k</span>
+    <span title="Symbols count total">192k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:54</span>
+    <span title="Reading time total">2:55</span>
 </div>
 
 <div id="days"></div>
@@ -761,6 +766,59 @@ window.addEventListener('pjax:success', () => {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
   <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>

@@ -766,7 +766,8 @@
     <content><![CDATA[<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="数组的顺序存储"><a href="#数组的顺序存储" class="headerlink" title="数组的顺序存储"></a>数组的顺序存储</h2><p>数组的顺序存储有两种方式：<strong>行优先，列优先</strong></p>
 <ul>
 <li>定义二维数组<code>a[4][5]</code>。<ul>
-<li>无论是行优先还是列优先，矩阵都是同型的。</li>
+<li>无论是行优先还是列优先，<strong>矩阵都是同型</strong>的。但，取数组时的<code>a[][]</code>这两个方框的是<code>[行][列]</code>或者是<code>[列][行]</code></li>
+<li>还要清晰地知道：<strong><code>a[2][3]</code>前有2行3列</strong>（行优先）</li>
 </ul>
 </li>
 </ul>
@@ -1462,19 +1463,42 @@ $$
       </tags>
   </entry>
   <entry>
+    <title>图的应用</title>
+    <url>/2020/09/22/exam/Graph/%E5%9B%BE%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="最小代价生成树"><a href="#最小代价生成树" class="headerlink" title="最小代价生成树"></a>最小代价生成树</h1><p>图中边都有一个权值。假设有n个顶点的无向图，最多可以有$n(n-1)/2$条边，至少有$n-1$条边才能构成一个连通的无向图（涵盖图中所有的顶点）。<strong>最小代价生成树就是权值之和最小的n-1条边生成的树</strong></p>
+<h2 id="Prim"><a href="#Prim" class="headerlink" title="Prim"></a>Prim</h2><h3 id="算法思想："><a href="#算法思想：" class="headerlink" title="算法思想："></a>算法思想：</h3><p>需要先创建一颗树T，让首顶点加入这颗树中。再查找与T相邻的最短的边（权值最小）。再让该边指向的顶点加入T中。以此类推，<strong>选择与T集合中距离最近的顶点</strong>，直到让所有的顶点加入到树中为止。</p>
+<p><img data-src="https://i.imgur.com/gZjFi52.png" alt=""></p>
+<h3 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Prim</span><span class="params">(MGraph g, <span class="keyword">int</span> v0, <span class="keyword">int</span>&amp; sum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> lowcost[maxSize], vset[maxSize], v;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, <span class="built_in">min</span>;</span><br><span class="line">	v = v0;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; g.n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		lowcost[i] = g.edges[v0][i];</span><br><span class="line">		vset[i] = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	vset[v0] = <span class="number">1</span>;</span><br><span class="line">	sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; g.n - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">min</span> = INF;</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; g.n; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (vset[j] == <span class="number">0</span> &amp;&amp; lowcost[j] &lt; <span class="built_in">min</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">min</span> = lowcost[j];</span><br><span class="line">				k = j;</span><br><span class="line">			&#125;</span><br><span class="line">			vset[k] = <span class="number">1</span>;</span><br><span class="line">			v = k;</span><br><span class="line">			sum += <span class="built_in">min</span>;</span><br><span class="line">			<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; g.n; j++)</span><br><span class="line">				<span class="keyword">if</span> (vset[j] == <span class="number">0</span> &amp;&amp; g.edges[v][j] &lt; lowcost[j])</span><br><span class="line">					lowcost[j] = g.edges[v][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Kruskal"><a href="#Kruskal" class="headerlink" title="Kruskal"></a>Kruskal</h2><h3 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h3><p>先将图初始化，变成一个只有顶点没有边的非连通图T={V, {} }。不断选取当前权值最小且未选择的边，边的顶点可以落在了不同的连通分量上，但不能构成回路。直到所有的顶点都在一个连通分量上。</p>
+<p><img data-src="https://i.imgur.com/FP5nvrG.png" alt=""></p>
+<ul>
+<li>Prim和Kruskal都只针对无向图</li>
+</ul>
+<h1 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h1><h1 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h1><h1 id="关键路径"><a href="#关键路径" class="headerlink" title="关键路径"></a>关键路径</h1>]]></content>
+      <tags>
+        <tag>exam</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Graph</title>
     <url>/2020/09/20/exam/Graph/Graph/</url>
     <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>图是由有穷的节点集合与有穷的边集合构成。</p>
 <p>此外，为了使图与树区别开来。我们用顶点(vertex)这个词来代替节点(node)。</p>
 <ul>
 <li>图分为有向图和无向图。</li>
-<li>完全图</li>
+<li>完全图：任意两个顶点都有一条边相连</li>
 </ul>
 <img data-src="https://i.imgur.com/C7evIOU.png" style="zoom: 37%;" />
 
 <ul>
 <li><p>连通图和连通分量</p>
-<p><strong>针对于无向图</strong>，如果图中任何两个顶点，都有其对应的边（一条或多条），与之相连，即有路径。那么该无向图为连通图。否则，其中的极大连通子图称为连通分量。</p>
+<p><strong>针对于无向图</strong>，如果图中任何两个顶点，都有其对应的边（一条或多条），与之相连，即有路径。那么该无向图为连通图。否则，其中的<strong>极大连通子图称为连通分量</strong>。</p>
+<ul>
+<li>有n个顶点的连通图，至少要有$n-1$条边才能保持图的连通</li>
+</ul>
 </li>
 <li><p>强连通图和强连通分量</p>
 <p><strong>针对于有向图</strong>，对于每一对顶点vi和vj，都有从vi到vj和vj到vi的路径。那么称该有向图为强连通图。否则，其中极大连通子图为强连通分量。</p>
@@ -1545,7 +1569,7 @@ $$
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> visit[maxSize];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(AGraph* G, <span class="keyword">int</span> v)</span><span class="comment">//v是起点编号</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ArcNode* p;<span class="comment">//指向边的指针</span></span><br><span class="line">	visit[v] = <span class="number">1</span>;</span><br><span class="line">	Visit(v);<span class="comment">//访问的相关操作</span></span><br><span class="line">	p = G-&gt;adjlist[v].firstarc;<span class="comment">//指向顶点v的第一条边</span></span><br><span class="line">	<span class="keyword">while</span> (p!=<span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (visit[p-&gt;adjvex] == <span class="number">0</span>)<span class="comment">//边指向的顶点是否被访问过</span></span><br><span class="line">			DFS(G, p-&gt;adjvex);</span><br><span class="line">		p = p-&gt;nextarc;<span class="comment">//p节点指向下一条边</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对于非连通图</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(AGraph* g)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; g-&gt;n; i++)</span><br><span class="line">		<span class="keyword">if</span> (visit[i] == <span class="number">0</span>)</span><br><span class="line">			DFS(g, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="BFS广度优先搜索遍历"><a href="#BFS广度优先搜索遍历" class="headerlink" title="BFS广度优先搜索遍历"></a>BFS广度优先搜索遍历</h3><ul>
-<li>需要一个队列以存储当前顶点的相邻顶点</li>
+<li><strong>需要一个队列以存储当前顶点的相邻顶点</strong></li>
 <li>主要思想：首先访问起始顶点v，再访问与之相邻顶点的w1,w2,w3….，再依次访问w1,w2,w3…的全部相邻顶点。类似于二叉树的层序遍历</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(AGraph* G, <span class="keyword">int</span> v, <span class="keyword">int</span> visit[maxSize])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ArcNode* p;<span class="comment">//指向边</span></span><br><span class="line">	<span class="keyword">int</span> que[maxSize], front = <span class="number">0</span>, rear = <span class="number">0</span>;<span class="comment">//定义一个队列</span></span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	Visit(v);</span><br><span class="line">	visit[v] = <span class="number">1</span>;</span><br><span class="line">	rear = (rear + <span class="number">1</span>) % maxSize;</span><br><span class="line">	que[rear] = v;</span><br><span class="line">	<span class="keyword">while</span> (front != rear)<span class="comment">//如果front==rear（队列为空）就退出</span></span><br><span class="line">	&#123;</span><br><span class="line">		front = (front + <span class="number">1</span>) % maxSize;</span><br><span class="line">		j = que[front];</span><br><span class="line">		p = G-&gt;adjlist[j].firstarc;</span><br><span class="line">		<span class="keyword">while</span> (p!=<span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (visit[p-&gt;adjvex] == <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				Visit(p-&gt;adjvex);</span><br><span class="line">				visit[p-&gt;adjvex] = <span class="number">1</span>;</span><br><span class="line">				rear = (rear + <span class="number">1</span>) % maxSize;</span><br><span class="line">				que[rear] = p-&gt;adjvex;</span><br><span class="line">			&#125;</span><br><span class="line">			p = p-&gt;nextarc;<span class="comment">//p指向下一条边</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对于非连通图</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(AGraph* g)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; g-&gt;n; i++)</span><br><span class="line">		<span class="keyword">if</span> (visit[i] == <span class="number">0</span>)</span><br><span class="line">			BFS(g, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1561,7 +1585,14 @@ $$
 <img data-src="https://i.imgur.com/eKRAXgO.png" style="zoom:50%;" />
 
 <h3 id="深度，广度优先搜索生成树"><a href="#深度，广度优先搜索生成树" class="headerlink" title="深度，广度优先搜索生成树"></a>深度，广度优先搜索生成树</h3><p>因为BFS算法是层层遍历。如果是无向图或者权值全都相同的有向图，那么就可以通过BFS来知道最短路径问题。如果我们把这个图的在<strong>BFS过程中所经的边保留，其余的边删除，那么就生成了一颗广度优先搜索生成树</strong>。（深度优先搜索生成树也是一样类似）</p>
-<p><img data-src="https://i.imgur.com/2Clgu7x.png" alt=""></p>
+<img data-src="https://i.imgur.com/2Clgu7x.png" style="zoom: 80%;" />
+
+
+
+
+
+
+
 ]]></content>
       <tags>
         <tag>exam</tag>
@@ -1573,14 +1604,19 @@ $$
     <content><![CDATA[<h1 id="Introduction-of-the-binary-tree"><a href="#Introduction-of-the-binary-tree" class="headerlink" title="Introduction of the binary tree"></a>Introduction of the binary tree</h1><p>先来明确一些重要的二叉树特性，并且这些对考题有重要作用。</p>
 <p>二叉树，就是只能有0, 1, 2这三种分支的节点。</p>
 <ul>
-<li><p>性质零：总分支=总节点数-1</p>
+<li><p>性质0：<br>$$<br>总分支=总节点数-1<br>$$</p>
 </li>
-<li><p>性质一：2分支节点总是比0分支（叶子）节点少一个。</p>
+<li><p>性质1：2分支节点总是比0分支（叶子）节点少一个。</p>
 </li>
 </ul>
 <p>$$<br>叶子=二分支节点-1<br>$$</p>
 <ul>
-<li>性质五：函数Catalan()：给n个节点，能构成h(n)种不同的二叉树（因为有左右之分）<br>$$<br>h(n)=C^n_{2n}/(n+1)<br>$$</li>
+<li><p>性质2：二叉树第k层上最多有节点<br>$$<br>2^{k-1}<br>$$</p>
+</li>
+<li><p>性质3：高度或深度为k的二叉树最多有节点<br>$$<br>2^k-1<br>$$</p>
+</li>
+<li><p>性质5：函数Catalan()：给n个节点，能构成h(n)种不同的二叉树（因为有左右之分）<br>$$<br>h(n)=C^n_{2n}/(n+1)<br>$$</p>
+</li>
 </ul>
 <h1 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h1><ul>
 <li>二叉树是一种有限制的树。</li>
@@ -1697,7 +1733,7 @@ $$
 <li><p>树的带权路径（WPL）最短。<strong>因此称最优二叉树</strong></p>
 </li>
 <li><p>没有度为1的节点</p>
-<p><strong>需要说明一下这个特点</strong>，回归前面的性质一：现在就是分支为1的节点没了，只剩下2分支和0分支的节点了。因为，2分支节点总是比0分支少一个。又因为在二叉树种，<br>$$<br>节点总数=0分支+1分支+2分支<br>$$<br>所以，得出结论，假如叶子为n个，那么总节点数为2n-1</p>
+<p><strong>需要说明一下这个特点</strong>，回归前面的性质一：现在就是分支为1的节点没了，只剩下2分支和0分支的节点了。因为，2分支节点总是比0分支少一个。又因为在二叉树种，<br>$$<br>节点总数=0分支+1分支+2分支<br>$$<br>所以，得出结论，假如叶子为n个，2分支为n-1，那么总节点数为2n-1</p>
 </li>
 <li><p>权值越大的节点离根越近</p>
 </li>
@@ -1783,14 +1819,16 @@ $$
 </ul>
 <h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><p>一棵树由节点组成。可以是0个节点——空树。树定义是一种递归思想。一个唯一的根连接不相交的子树，而子树上的节点又能连接不相交的子树。</p>
 <p><strong>可以通过平时对真正的树来记忆</strong>：</p>
+<p>节点的深度和高度</p>
 <ul>
-<li>深度（从根开始）：根从上往下的到该<strong>节点个数</strong></li>
-<li>高度（从节点开始）：节点A从上往下到达叶子，所经路径获得最多的<strong>节点个数</strong>。</li>
+<li>深度（从根开始）：根从上往下的到该<strong>节点个数（根到节点，且包括本节点）</strong></li>
+<li>高度（从节点开始）：节点A从上往下到达叶子，所经路径获得最多的<strong>节点个数（节点到叶子，且包括本节点）</strong></li>
 <li>都是针对某个节点的深度，高度</li>
 </ul>
 <h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="双亲存储结构"><a href="#双亲存储结构" class="headerlink" title="双亲存储结构"></a>双亲存储结构</h2><p>双亲存储仅仅需要一个<strong>一维数组</strong>。<code>int tree[maxSize]</code></p>
 <p><strong>它的下标代表此节点的位置，数组元素代表双亲位置。</strong></p>
-<p><img data-src="https://i.imgur.com/twqsQIf.png" alt=""></p>
+<img data-src="https://i.imgur.com/twqsQIf.png" style="zoom: 67%;" />
+
 <h2 id="孩子兄弟存储结构"><a href="#孩子兄弟存储结构" class="headerlink" title="孩子兄弟存储结构"></a>孩子兄弟存储结构</h2><p><strong>孩子兄弟存储结构实际上就是一个二叉链表。因为二叉链表中指针域意义不同。lchild变成了child指向一个孩子，rchild变成了sibling指向一个兄弟。</strong></p>
 <h4 id="tree-gt-binary-tree"><a href="#tree-gt-binary-tree" class="headerlink" title="tree-&gt;binary tree"></a>tree-&gt;binary tree</h4><p><img data-src="https://i.imgur.com/6lM2ZDV.png" alt=""></p>
 <p><img data-src="https://i.imgur.com/4OfQzDh.png" alt=""></p>
@@ -1824,7 +1862,8 @@ $$
 </ul>
 <h4 id="forest-gt-binary-tree"><a href="#forest-gt-binary-tree" class="headerlink" title="forest-&gt;binary tree"></a>forest-&gt;binary tree</h4><ul>
 <li><p>先来回顾一下概念，<strong>森林是由若干颗互不相交的树的集合</strong></p>
-<p><img data-src="https://i.imgur.com/nhTFa3s.png" alt=""></p>
+<img data-src="https://i.imgur.com/nhTFa3s.png" style="zoom:67%;" />
+
 </li>
 </ul>
 <p><strong>因为我们知道孩子兄弟存储结构的根节点是没有兄弟的，所以将树转换成二叉树也是一定没有右孩子的。</strong>所以我们又可以利用第一颗二叉树的根的rchild接上第二颗的根，第二颗的根的rchild接上第三颗的根。以此类推，全部合并成一颗二叉树。</p>

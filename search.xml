@@ -3,11 +3,83 @@
   <entry>
     <title>java syntax</title>
     <url>/2020/12/13/java/java-syntax/</url>
-    <content><![CDATA[<p>First, every line of the code must be in the class. </p>
-<p>When the individual objects are created, they inherit all the variables and methods from the class.</p>
-<ul>
+    <content><![CDATA[<ul>
+<li><p>First, every line of the code must be in the class. </p>
+</li>
+<li><p>Second, a java file can have more than one class. However, there can only be one public class per java file and the name of public class must be the same name as its file name. </p>
+</li>
+<li><p>float</p>
+<p>The <code>float</code> data type can store fractional numbers from 3.4e−038 to 3.4e+038. Note that you should end the value with an “f”.</p>
+</li>
 <li><p>static</p>
-<p>In the example above, we created a <code>static</code> method, which means that it can be accessed without creating an object of the class, unlike <code>public</code>, which can only be accessed by objects:</p>
+<p>In the example above, we created a <code>static</code> method, which means that it can be accessed without creating an object of the class, unlike <code>public</code>, which can only be accessed by objects.</p>
+<ul>
+<li><p>This instance method cannot override the static method from A</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> m;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		m=<span class="number">20</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;		<span class="comment">//wrong</span></span><br><span class="line">		m=<span class="number">222</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Non-Primitive Data Types</p>
+<p>Non-primitive data types are called <strong>reference types</strong> because they refer to objects.</p>
+<ul>
+<li>Primitive types are predefined (already defined) in Java. Non-primitive types are created by the programmer and is not defined by Java (except for <code>String</code>).</li>
+<li>Non-primitive types can be used to call methods to perform certain operations, while primitive types cannot.</li>
+<li>A primitive type has always a value, while non-primitive types can be <code>null</code>.</li>
+<li>A primitive type starts with a lowercase letter, while non-primitive types starts with an uppercase letter.</li>
+<li>The size of a primitive type depends on the data type, while non-primitive types have all the same size.</li>
+</ul>
+</li>
+<li><p>Type Casting</p>
+<p>In Java, there are two types of casting:</p>
+<ul>
+<li><strong>Widening Casting</strong> (automatically) - converting a smaller type to a larger type size<br><code>byte</code> -&gt; <code>short</code> -&gt; <code>char</code> -&gt; <code>int</code> -&gt; <code>long</code> -&gt; <code>float</code> -&gt; <code>double</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>Narrowing Casting</strong> (manually) - converting a larger type to a smaller size type<br><code>double</code> -&gt; <code>float</code> -&gt; <code>long</code> -&gt; <code>int</code> -&gt; <code>char</code> -&gt; <code>short</code> -&gt; <code>byte</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">float</span> n=<span class="number">1.1f</span>;</span><br><span class="line"><span class="keyword">double</span> m =<span class="number">1.1</span>;</span><br><span class="line">m=n;		<span class="comment">//Widening Casting(automatically)</span></span><br><span class="line">n=(<span class="keyword">float</span>)m;	<span class="comment">//Narrowing Casting(manually)</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<ul>
+<li><p>special character</p>
+<p>The backslash (<code>\</code>) escape character turns special characters into string characters:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Escape character</th>
+<th align="left">Result</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>\&#39;</code></td>
+<td align="left">‘</td>
+<td align="left">Single quote</td>
+</tr>
+<tr>
+<td align="center"><code>\&quot;</code></td>
+<td align="left">“</td>
+<td align="left">Double quote</td>
+</tr>
+<tr>
+<td align="center"><code>\\</code></td>
+<td align="left">\</td>
+<td align="left">Backslash</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Loop the Array</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (type variable : arrayname) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">  String[] cars = &#123;<span class="string">"Volvo"</span>, <span class="string">"BMW"</span>, <span class="string">"Ford"</span>, <span class="string">"Mazda"</span>&#125;;</span><br><span class="line">  <span class="keyword">for</span> (String i : cars) &#123;</span><br><span class="line">    System.out.println(i);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <ul>
@@ -17,12 +89,34 @@
 <p>All classes have constructors by default: if you do not create a class constructor yourself, Java creates one for you. However, then you are not able to set initial values for object attributes.</p>
 </li>
 </ul>
+<h1 id="Java-Exceptions"><a href="#Java-Exceptions" class="headerlink" title="Java Exceptions"></a>Java Exceptions</h1><p>If an error occurs, we can use <code>try...catch</code> to catch the error and execute some code to handle it:</p>
+<p>The <code>try</code> statement allows you to define a block of code to be tested for errors while it is being executed.</p>
+<p>The <code>catch</code> statement allows you to define a block of code to be executed, if an error occurs in the try block.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Excpetions</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">int</span>[] arr= &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line">		System.out.println(arr[<span class="number">10</span>]);</span><br><span class="line">		&#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"Someting worng"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <h1 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h1><p>To inherit from a class, use the <code>extends</code> keyword.</p>
 <p>We can inherit attributes and methods from one class to another</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">  <span class="keyword">protected</span> String brand = <span class="string">"Ford"</span>;        <span class="comment">// Vehicle attribute</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">honk</span><span class="params">()</span> </span>&#123;                    <span class="comment">// Vehicle method</span></span><br><span class="line">    System.out.println(<span class="string">"Tuut, tuut!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> <span class="keyword">extends</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String modelName = <span class="string">"Mustang"</span>;    <span class="comment">// Car attribute</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create a myCar object</span></span><br><span class="line">    Car myCar = <span class="keyword">new</span> Car();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Call the honk() method (from the Vehicle class) on the myCar object</span></span><br><span class="line">    myCar.honk();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Display the value of the brand attribute (from the Vehicle class) and the value of the modelName from the Car class</span></span><br><span class="line">    System.out.println(myCar.brand + <span class="string">" "</span> + myCar.modelName);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li><p>overload the method</p>
+<p>The class will have two method of having the same name but the different is the number of the parameters. </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">float</span> <span class="title">computer</span><span class="params">(<span class="keyword">float</span> x, <span class="keyword">float</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x+y;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">g</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x+y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">float</span> <span class="title">computer</span><span class="params">(<span class="keyword">float</span> x, <span class="keyword">float</span> y,<span class="keyword">double</span> z)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x*y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+
+</li>
+</ul>
+<ul>
+<li><p>overwrite the method</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">float</span> <span class="title">computer</span><span class="params">(<span class="keyword">float</span> x, <span class="keyword">float</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x+y;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">g</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x+y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">float</span> <span class="title">computer</span><span class="params">(<span class="keyword">float</span> x, <span class="keyword">float</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x*y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
 <h1 id="Polymorphism"><a href="#Polymorphism" class="headerlink" title="Polymorphism"></a>Polymorphism</h1><p>For example, think of a superclass called <code>Animal</code> that has a method called <code>animalSound()</code>. Subclasses of Animals could be Pigs, Cats, Dogs, Birds - And they also have their own implementation of an animal sound</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"The animal makes a sound"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pig</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"nu nu"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"wow wow"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Animal myAnimal = <span class="keyword">new</span> Animal();</span><br><span class="line">		Pig myPig=<span class="keyword">new</span> Pig();</span><br><span class="line">		Dog myDog=<span class="keyword">new</span> Dog();</span><br><span class="line">		</span><br><span class="line">		myAnimal.animalSound();</span><br><span class="line">		myPig.animalSound();</span><br><span class="line">		myDog.animalSound();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -42,9 +136,9 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//abstract class</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="comment">//abstract method</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//regular method</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"zzz"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//SubClass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pig</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"wee wee"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Pig myPig = <span class="keyword">new</span> Pig();</span><br><span class="line">		myPig.animalSound();</span><br><span class="line">		myPig.sleep();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h2><p>An <code>interface</code> is a completely “<strong>abstract class</strong>“ that is used to group related methods with empty bodies:</p>
+<h2 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h2><p>An <code>interface</code> is a completely “<strong>abstract class</strong>“ that is used to group related methods with empty bodies. There are not variables in the interface only constants. </p>
 <p>To access the interface methods, the interface must be “implemented” by another class with the <code>implements</code> keyword (instead of <code>extends</code>).The body of the interface method is provided by the “implement” class:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="comment">//the method in interface has not body</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pig</span> <span class="keyword">implements</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"wee wee"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"The pig is running"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main4</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Pig myPig = <span class="keyword">new</span> Pig();</span><br><span class="line">		myPig.animalSound();</span><br><span class="line">		myPig.run();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> MAX=<span class="number">100</span>;</span><br><span class="line">    <span class="comment">//equal to </span></span><br><span class="line">    <span class="comment">//public static final int MAX=100;</span></span><br><span class="line">	<span class="comment">//the method in interface has not body</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pig</span> <span class="keyword">implements</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"wee wee"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"The pig is running"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main4</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Pig myPig = <span class="keyword">new</span> Pig();</span><br><span class="line">		myPig.animalSound();</span><br><span class="line">		myPig.run();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -1327,6 +1421,7 @@ $$
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="comment">//数组中第一个数一定是有序的，所以从2开始</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=L.length;++i)</span><br><span class="line">		<span class="keyword">if</span> (L.r[i].key &lt; L.r[i - <span class="number">1</span>].key)<span class="comment">//寻找适当位置，并插入</span></span><br><span class="line">		&#123;</span><br><span class="line">			L.r[<span class="number">0</span>] = L.r[i];<span class="comment">//待插入元素存储在监视哨中(L.r[0]用来临时存储要插入的数)</span></span><br><span class="line">			L.r[i] = L.r[i - <span class="number">1</span>];<span class="comment">//如果i位比i-1位小，那么i-1覆盖到i位。</span></span><br><span class="line">            <span class="comment">//继续找地方插入</span></span><br><span class="line">			<span class="keyword">for</span> (j = i - <span class="number">2</span>; L.r[<span class="number">0</span>].key &lt; L.r[j].key; --j)</span><br><span class="line">				L.r[j + <span class="number">1</span>] = L.r[j];</span><br><span class="line">			L.r[j + <span class="number">1</span>] = L.r[<span class="number">0</span>];<span class="comment">//插入</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="https://i.imgur.com/KTlBzdF.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/RzB5RyM.gif" alt=""></p>
 <h3 id="折半插入"><a href="#折半插入" class="headerlink" title="折半插入"></a>折半插入</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BInsertSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j,low,high,m;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= L.length; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		L.r[<span class="number">0</span>] = L.r[i];</span><br><span class="line">		low = <span class="number">1</span>; high = i - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (low&lt;=high)</span><br><span class="line">		&#123;</span><br><span class="line">			m = (low + high) / <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span> (L.r[<span class="number">0</span>].key &lt; L.r[m].key)</span><br><span class="line">				high = m - <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				low = m + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= high + <span class="number">1</span>; --j)</span><br><span class="line">			L.r[j + <span class="number">1</span>] = L.r[j];</span><br><span class="line">		L.r[high + <span class="number">1</span>] = L.r[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -1340,39 +1435,48 @@ $$
 <h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>希尔排序也叫缩小增量排序。它是直接插入排序算法的一个改进。因为，直接插入排序算法在<strong>序列基本有序</strong>，<strong>排序记录个数较少</strong>，满足这两个条件的时候，效率较高。所以，希尔排序在这两方面做出改进。</p>
 <p>实质上，先通过对排序数组进行分割（根据增量），分成几组，对这几组进行直接插入排序。然后，<strong>缩小增量以增加数据量</strong>，再进行分割分组，对这几组进行直接插入排序。<strong>经几次分组以后，整个序列基本有序</strong></p>
 <p>这样一来直到增量为1，即对数组进行直接插入排序。</p>
-<p><img data-src="https://i.imgur.com/uj44iCp.png" alt=""></p>
-<p><img data-src="https://i.imgur.com/GOUAqZp.png" alt=""></p>
+<img data-src="https://i.imgur.com/uj44iCp.png" style="zoom:67%;" />
+
+<img data-src="https://i.imgur.com/GOUAqZp.png" style="zoom:67%;" />
+
 <h2 id="交换类"><a href="#交换类" class="headerlink" title="交换类"></a>交换类</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序的基本过程：大的关键字就是一块石头，沉底。小的关键字就像气泡浮上来。</p>
 <ol>
 <li>从第一个关键字和第二个关键字开始比较，如果前面的比后面的大，则交换。否则不交换。然后，再将第二个关键字和第三个比较，判断是否要交换。以此类推，直到最后一个。那么最后一个就是数组中的最大元素。这样第一趟冒泡排序就完成了。</li>
 <li>接着我们进行第二趟，与第一趟不同的是：我们不需要比较已经放到最后的那个最大元素。<code>m--</code></li>
 <li>我们循环的结束条件：本次循环没有元素的交换。使用我们使用了<code>flag</code>来记录该次循环是否交换。</li>
 </ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m = L.length - <span class="number">1</span>, flag = <span class="number">1</span>;<span class="comment">//标志本次排序是否交换</span></span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	RedType t;</span><br><span class="line">	<span class="keyword">while</span> ((flag==<span class="number">1</span>)&amp;&amp;(m&gt;<span class="number">0</span>))</span><br><span class="line">	&#123;</span><br><span class="line">		flag = <span class="number">0</span>;<span class="comment">//先记为没有交换</span></span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= m; j++)<span class="comment">//记录从1开始存放</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (L.r[j].key &gt; L.r[j + <span class="number">1</span>].key)</span><br><span class="line">			&#123;</span><br><span class="line">				flag = <span class="number">1</span>;<span class="comment">//标记为有交换</span></span><br><span class="line">				t = L.r[j];</span><br><span class="line">				L.r[j] = L.r[j + <span class="number">1</span>];</span><br><span class="line">				L.r[j + <span class="number">1</span>] = t;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		m--;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m = L.length - <span class="number">1</span>, flag = <span class="number">1</span>;<span class="comment">//标志本次排序是否交换</span></span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	RedType t;</span><br><span class="line">	<span class="keyword">while</span> ((flag==<span class="number">1</span>)&amp;&amp;(m&gt;<span class="number">0</span>))	<span class="comment">//有几趟</span></span><br><span class="line">	&#123;</span><br><span class="line">		flag = <span class="number">0</span>;<span class="comment">//先记为没有交换</span></span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= m; j++)<span class="comment">//记录从1开始存放	//	比较次数</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (L.r[j].key &gt; L.r[j + <span class="number">1</span>].key)</span><br><span class="line">			&#123;</span><br><span class="line">				flag = <span class="number">1</span>;<span class="comment">//标记为有交换</span></span><br><span class="line">				t = L.r[j];</span><br><span class="line">				L.r[j] = L.r[j + <span class="number">1</span>];</span><br><span class="line">				L.r[j + <span class="number">1</span>] = t;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		m--;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><p>顾名思义，先从中选择最小的，再与前面的元素交换。最终，得到有序的数组。</p>
-<ol>
-<li>首先设想将数组分成一个有序的和一个无序的数组。一开始全都是无序的</li>
-<li>遍历整个数组。在遍历中，再遍历无序的数组r[1…n]，并找到最小元素，下标记为k。如果k!=1，那么r[k]与r[1]交换。</li>
-<li>第二次，遍历无序数组r[2…n]，并找到最小元素，下标记为k。如果k!=2，那么r[k]与r[2]交换</li>
+<p><img data-src="https://i.imgur.com/EJV4rRt.jpg" alt=""></p>
+<p><img data-src="https://i.imgur.com/JHGjAsR.gif" alt=""></p>
+<h4 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h4><ol>
+<li><p>时间复杂度</p>
+<p>可见，冒泡排序根据原始序列来说，是分情况的。比较有序的序列就不用排序这么多趟，同时也不用排那么多次了。</p>
+<ul>
+<li><p>最坏情况：初始序列为逆序。根据算法思想可知，<strong>每趟都会把1个最大关键字沉底</strong>，所以，最坏情况，最多能进行$n-1$趟排序。(n为关键字个数)</p>
+<p>据算法代码分析，第一趟需要比较$n-1$次，以后每趟递减一次。所以第一趟，有n-1次。第二趟,n-2……</p>
+<p>可以根据等差数列求和，来算出一共有比较多少次。<br>$$<br>(n-1)*[(n-1)+1]/2 = (n-1)*n/2<br>$$</p>
+</li>
+<li><p>最好情况：只需要1趟，比较n-1次。（不用交换）</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><ol>
+<li>首先设想将数组<strong>分成一个有序的和一个无序的数组</strong>。一开始全都是无序的</li>
+<li>遍历整个数组。在遍历中，再遍历<strong>无序的数组r[1…n]</strong>，并找到最小元素，下标记为k。如果k!=1，那么r[k]与r[1]交换。</li>
+<li>第二次，遍历<strong>无序数组r[2…n]</strong>，并找到最小元素，下标记为k。如果k!=2，那么r[k]与r[2]交换</li>
 <li>以此类推，可以得到。第i趟，遍历r[i…n]，找到最小元素下标k。if(k != i)，那么r[k]与r[i]交换。</li>
 </ol>
+<p><img data-src="https://i.imgur.com/1J2CDaX.gif" alt="selectionSort"></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k;</span><br><span class="line">	RedType t;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; L.length; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		k = i;</span><br><span class="line">		<span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt;= L.length; ++j)</span><br><span class="line">			<span class="keyword">if</span> (L.r[j].key &lt; L.r[k].key)</span><br><span class="line">				k = j;</span><br><span class="line">		<span class="keyword">if</span> (k != i)</span><br><span class="line">		&#123;</span><br><span class="line">			t = L.r[i];</span><br><span class="line">			L.r[i] = L.r[k];</span><br><span class="line">			L.r[k] = t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<img data-src="https://i.imgur.com/YcYq3Vt.png" style="zoom:67%;" />
 
+<img data-src="https://i.imgur.com/vFV3nJe.png" style="zoom:67%;" />
 
-
-
-
-
-
-
-
-
-
-
+<h1 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h1><p><img data-src="https://i.imgur.com/40sVKUW.png" alt=""></p>
+<p><a href="https://github.com/hustcc/JS-Sorting-Algorithm">参考</a></p>
 ]]></content>
       <tags>
         <tag>exam</tag>

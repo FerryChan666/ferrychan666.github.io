@@ -487,7 +487,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-10-19 20:35:16" itemprop="dateModified" datetime="2020-10-19T20:35:16+08:00">2020-10-19</time>
+                <time title="Modified: 2020-12-15 17:21:11" itemprop="dateModified" datetime="2020-12-15T17:21:11+08:00">2020-12-15</time>
               </span>
 
           <br>
@@ -496,7 +496,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.5k</span>
+              <span>2.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -548,6 +548,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="comment">//数组中第一个数一定是有序的，所以从2开始</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=L.length;++i)</span><br><span class="line">		<span class="keyword">if</span> (L.r[i].key &lt; L.r[i - <span class="number">1</span>].key)<span class="comment">//寻找适当位置，并插入</span></span><br><span class="line">		&#123;</span><br><span class="line">			L.r[<span class="number">0</span>] = L.r[i];<span class="comment">//待插入元素存储在监视哨中(L.r[0]用来临时存储要插入的数)</span></span><br><span class="line">			L.r[i] = L.r[i - <span class="number">1</span>];<span class="comment">//如果i位比i-1位小，那么i-1覆盖到i位。</span></span><br><span class="line">            <span class="comment">//继续找地方插入</span></span><br><span class="line">			<span class="keyword">for</span> (j = i - <span class="number">2</span>; L.r[<span class="number">0</span>].key &lt; L.r[j].key; --j)</span><br><span class="line">				L.r[j + <span class="number">1</span>] = L.r[j];</span><br><span class="line">			L.r[j + <span class="number">1</span>] = L.r[<span class="number">0</span>];<span class="comment">//插入</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="https://i.imgur.com/KTlBzdF.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/RzB5RyM.gif" alt=""></p>
 <h3 id="折半插入"><a href="#折半插入" class="headerlink" title="折半插入"></a>折半插入</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BInsertSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j,low,high,m;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= L.length; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		L.r[<span class="number">0</span>] = L.r[i];</span><br><span class="line">		low = <span class="number">1</span>; high = i - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (low&lt;=high)</span><br><span class="line">		&#123;</span><br><span class="line">			m = (low + high) / <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span> (L.r[<span class="number">0</span>].key &lt; L.r[m].key)</span><br><span class="line">				high = m - <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				low = m + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= high + <span class="number">1</span>; --j)</span><br><span class="line">			L.r[j + <span class="number">1</span>] = L.r[j];</span><br><span class="line">		L.r[high + <span class="number">1</span>] = L.r[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -561,39 +562,48 @@
 <h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>希尔排序也叫缩小增量排序。它是直接插入排序算法的一个改进。因为，直接插入排序算法在<strong>序列基本有序</strong>，<strong>排序记录个数较少</strong>，满足这两个条件的时候，效率较高。所以，希尔排序在这两方面做出改进。</p>
 <p>实质上，先通过对排序数组进行分割（根据增量），分成几组，对这几组进行直接插入排序。然后，<strong>缩小增量以增加数据量</strong>，再进行分割分组，对这几组进行直接插入排序。<strong>经几次分组以后，整个序列基本有序</strong></p>
 <p>这样一来直到增量为1，即对数组进行直接插入排序。</p>
-<p><img data-src="https://i.imgur.com/uj44iCp.png" alt=""></p>
-<p><img data-src="https://i.imgur.com/GOUAqZp.png" alt=""></p>
+<img data-src="https://i.imgur.com/uj44iCp.png" style="zoom:67%;" />
+
+<img data-src="https://i.imgur.com/GOUAqZp.png" style="zoom:67%;" />
+
 <h2 id="交换类"><a href="#交换类" class="headerlink" title="交换类"></a>交换类</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序的基本过程：大的关键字就是一块石头，沉底。小的关键字就像气泡浮上来。</p>
 <ol>
 <li>从第一个关键字和第二个关键字开始比较，如果前面的比后面的大，则交换。否则不交换。然后，再将第二个关键字和第三个比较，判断是否要交换。以此类推，直到最后一个。那么最后一个就是数组中的最大元素。这样第一趟冒泡排序就完成了。</li>
 <li>接着我们进行第二趟，与第一趟不同的是：我们不需要比较已经放到最后的那个最大元素。<code>m--</code></li>
 <li>我们循环的结束条件：本次循环没有元素的交换。使用我们使用了<code>flag</code>来记录该次循环是否交换。</li>
 </ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m = L.length - <span class="number">1</span>, flag = <span class="number">1</span>;<span class="comment">//标志本次排序是否交换</span></span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	RedType t;</span><br><span class="line">	<span class="keyword">while</span> ((flag==<span class="number">1</span>)&amp;&amp;(m&gt;<span class="number">0</span>))</span><br><span class="line">	&#123;</span><br><span class="line">		flag = <span class="number">0</span>;<span class="comment">//先记为没有交换</span></span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= m; j++)<span class="comment">//记录从1开始存放</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (L.r[j].key &gt; L.r[j + <span class="number">1</span>].key)</span><br><span class="line">			&#123;</span><br><span class="line">				flag = <span class="number">1</span>;<span class="comment">//标记为有交换</span></span><br><span class="line">				t = L.r[j];</span><br><span class="line">				L.r[j] = L.r[j + <span class="number">1</span>];</span><br><span class="line">				L.r[j + <span class="number">1</span>] = t;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		m--;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m = L.length - <span class="number">1</span>, flag = <span class="number">1</span>;<span class="comment">//标志本次排序是否交换</span></span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	RedType t;</span><br><span class="line">	<span class="keyword">while</span> ((flag==<span class="number">1</span>)&amp;&amp;(m&gt;<span class="number">0</span>))	<span class="comment">//有几趟</span></span><br><span class="line">	&#123;</span><br><span class="line">		flag = <span class="number">0</span>;<span class="comment">//先记为没有交换</span></span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= m; j++)<span class="comment">//记录从1开始存放	//	比较次数</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (L.r[j].key &gt; L.r[j + <span class="number">1</span>].key)</span><br><span class="line">			&#123;</span><br><span class="line">				flag = <span class="number">1</span>;<span class="comment">//标记为有交换</span></span><br><span class="line">				t = L.r[j];</span><br><span class="line">				L.r[j] = L.r[j + <span class="number">1</span>];</span><br><span class="line">				L.r[j + <span class="number">1</span>] = t;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		m--;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><p>顾名思义，先从中选择最小的，再与前面的元素交换。最终，得到有序的数组。</p>
-<ol>
-<li>首先设想将数组分成一个有序的和一个无序的数组。一开始全都是无序的</li>
-<li>遍历整个数组。在遍历中，再遍历无序的数组r[1…n]，并找到最小元素，下标记为k。如果k!=1，那么r[k]与r[1]交换。</li>
-<li>第二次，遍历无序数组r[2…n]，并找到最小元素，下标记为k。如果k!=2，那么r[k]与r[2]交换</li>
+<p><img data-src="https://i.imgur.com/EJV4rRt.jpg" alt=""></p>
+<p><img data-src="https://i.imgur.com/JHGjAsR.gif" alt=""></p>
+<h4 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h4><ol>
+<li><p>时间复杂度</p>
+<p>可见，冒泡排序根据原始序列来说，是分情况的。比较有序的序列就不用排序这么多趟，同时也不用排那么多次了。</p>
+<ul>
+<li><p>最坏情况：初始序列为逆序。根据算法思想可知，<strong>每趟都会把1个最大关键字沉底</strong>，所以，最坏情况，最多能进行$n-1$趟排序。(n为关键字个数)</p>
+<p>据算法代码分析，第一趟需要比较$n-1$次，以后每趟递减一次。所以第一趟，有n-1次。第二趟,n-2……</p>
+<p>可以根据等差数列求和，来算出一共有比较多少次。<br>$$<br>(n-1)*[(n-1)+1]/2 = (n-1)*n/2<br>$$</p>
+</li>
+<li><p>最好情况：只需要1趟，比较n-1次。（不用交换）</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><ol>
+<li>首先设想将数组<strong>分成一个有序的和一个无序的数组</strong>。一开始全都是无序的</li>
+<li>遍历整个数组。在遍历中，再遍历<strong>无序的数组r[1…n]</strong>，并找到最小元素，下标记为k。如果k!=1，那么r[k]与r[1]交换。</li>
+<li>第二次，遍历<strong>无序数组r[2…n]</strong>，并找到最小元素，下标记为k。如果k!=2，那么r[k]与r[2]交换</li>
 <li>以此类推，可以得到。第i趟，遍历r[i…n]，找到最小元素下标k。if(k != i)，那么r[k]与r[i]交换。</li>
 </ol>
+<p><img data-src="https://i.imgur.com/1J2CDaX.gif" alt="selectionSort"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k;</span><br><span class="line">	RedType t;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; L.length; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		k = i;</span><br><span class="line">		<span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt;= L.length; ++j)</span><br><span class="line">			<span class="keyword">if</span> (L.r[j].key &lt; L.r[k].key)</span><br><span class="line">				k = j;</span><br><span class="line">		<span class="keyword">if</span> (k != i)</span><br><span class="line">		&#123;</span><br><span class="line">			t = L.r[i];</span><br><span class="line">			L.r[i] = L.r[k];</span><br><span class="line">			L.r[k] = t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<img data-src="https://i.imgur.com/YcYq3Vt.png" style="zoom:67%;" />
 
+<img data-src="https://i.imgur.com/vFV3nJe.png" style="zoom:67%;" />
 
-
-
-
-
-
-
-
-
-
-
+<h1 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h1><p><img data-src="https://i.imgur.com/40sVKUW.png" alt=""></p>
+<p><a href="https://github.com/hustcc/JS-Sorting-Algorithm">参考</a></p>
 
       
     </div>
@@ -1927,13 +1937,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">197k</span>
+    <span title="Symbols count total">200k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:59</span>
+    <span title="Reading time total">3:02</span>
 </div>
 
 <div id="days"></div>

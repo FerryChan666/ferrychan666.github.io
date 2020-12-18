@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">145</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">147</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -187,6 +187,184 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/11/27/cpp/cpp-basic-concept/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/27/cpp/cpp-basic-concept/" class="post-title-link" itemprop="url">cpp basic concept</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-11-27 10:02:32 / Modified: 10:11:07" itemprop="dateCreated datePublished" datetime="2020-11-27T10:02:32+08:00">2020-11-27</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>953</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Pass-by-reference"><a href="#Pass-by-reference" class="headerlink" title="Pass by reference"></a>Pass by reference</h1><p>This can be useful when you need to change the value of the arguments:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swapNums</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> z = x;</span><br><span class="line">  x = y;</span><br><span class="line">  y = z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> firstNum = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">int</span> secondNum = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Before swap: "</span> &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; firstNum &lt;&lt; secondNum &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Call the function, which will change the values of firstNum and secondNum</span></span><br><span class="line">  swapNums(firstNum, secondNum);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"After swap: "</span> &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; firstNum &lt;&lt; secondNum &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Overloading"><a href="#Overloading" class="headerlink" title="Overloading"></a>Overloading</h1><p>Instead of defining two functions that should do the same thing, it is better to overload one.</p>
+<ul>
+<li>Multiple functions can have the same name as long as the <strong>number and/or type of parameters</strong> are different.</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">plusFunc</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">plusFunc</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> myNum1 = plusFunc(<span class="number">8</span>, <span class="number">5</span>);</span><br><span class="line">  <span class="keyword">double</span> myNum2 = plusFunc(<span class="number">4.3</span>, <span class="number">6.26</span>);</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Int: "</span> &lt;&lt; myNum1 &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Double: "</span> &lt;&lt; myNum2;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/11/23/Q&A/sublime%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/23/Q&A/sublime%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">sublime的一些配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-11-23 01:34:06 / Modified: 01:39:55" itemprop="dateCreated datePublished" datetime="2020-11-23T01:34:06+08:00">2020-11-23</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>945</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><p>在cmd窗口中执行</p>
+<p>tools-&gt;<strong>Build System</strong>-&gt;<strong>New Build System</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;cmd&quot;: [&quot;g++&quot;, &quot;$&#123;file&#125;&quot;, &quot;-fexec-charset&#x3D;gbk&quot;, &quot;-o&quot;, &quot;$&#123;file_path&#125;&#x2F;$&#123;file_base_name&#125;&quot;],</span><br><span class="line">    &quot;file_regex&quot;: &quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;,</span><br><span class="line">    &quot;working_dir&quot;: &quot;$&#123;file_path&#125;&quot;,</span><br><span class="line">    &quot;selector&quot;: &quot;source.c, source.c++&quot;,</span><br><span class="line">    &quot;variants&quot;:</span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Run&quot;,</span><br><span class="line">            &quot;cmd&quot;: [&quot;cmd&quot;, &quot;&#x2F;c&quot;, &quot;g++&quot;, &quot;$&#123;file&#125;&quot;, &quot;-o&quot;, &quot;$&#123;file_path&#125;&#x2F;$&#123;file_base_name&#125;&quot;, &quot;&amp;&amp;&quot;, &quot;start&quot;, &quot;cmd&quot;, &quot;&#x2F;c&quot;, &quot;$&#123;file_path&#125;&#x2F;$&#123;file_base_name&#125; &amp; pause&quot;]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>转换格式</p>
+<p>解决中文乱码</p>
+<p><code>ctrl+shift+p</code></p>
+<ol>
+<li><p><strong>安装ConvertToUTF8，</strong></p>
+</li>
+<li><p>ConvertToUTF8:Reload encoding with</p>
+</li>
+<li><p>选择Chinese Simplified(GBK)</p>
+</li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -910,463 +1088,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/10/27/csapp/Representing%20and%20Manipulating%20Information/Representing%20and%20Manipulating%20Information/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/27/csapp/Representing%20and%20Manipulating%20Information/Representing%20and%20Manipulating%20Information/" class="post-title-link" itemprop="url">Representing and Manipulating Information</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-10-27 20:13:46" itemprop="dateCreated datePublished" datetime="2020-10-27T20:13:46+08:00">2020-10-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-10 21:16:38" itemprop="dateModified" datetime="2020-11-10T21:16:38+08:00">2020-11-10</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>11k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>10 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>Modern computers store and process information represented as two-valued signals. Binary values work better when building machines that store and process information. </p>
-<h1 id="How-many-sizes-to-store"><a href="#How-many-sizes-to-store" class="headerlink" title="How many sizes to store?"></a>How many sizes to store?</h1><ul>
-<li><p>A machine-level program views memory as a very large array of bytes, referred to as <strong>virtual memory</strong>. Rather than accessing individual bit in memory, most computers use blocks of 8 bits, or byte, as the smallest addressable unit of memory. </p>
-</li>
-<li><p>Every byte of memory is identified by a unique number, know as its <strong>address</strong>, and the set of all possible address is known as the <strong>virtual address space</strong>. </p>
-</li>
-</ul>
-<p>It simply treats each program object as a block of bytes and the program itself as a sequence of bytes.</p>
-<h2 id="Hexadecimal-Notation"><a href="#Hexadecimal-Notation" class="headerlink" title="Hexadecimal Notation"></a>Hexadecimal Notation</h2><ul>
-<li><p>A single byte consists of 8 bits. </p>
-<p>In binary notation, its value ranges from 0000000 to 1111111.</p>
-<p>In decimal notation, its value ranges from 0 to 255.</p>
-<p>In hexadecimal notation, its value ranges from 00 to 0xFF.</p>
-</li>
-</ul>
-<ul>
-<li><p>We write bit pattern as base-16 or hexadecimal number</p>
-<p>Why? Because the binary notation is too verbose, while with decimal notion it is tedious to convert to and from bit patterns.</p>
-<ul>
-<li>Converting between binary and hexadecimal is straightforward. We can convert <code>0x173A4C</code>to binary format by expanding each hexadecimal digit. Conversely, given a binary number, we can convert it to hexadecimal by first splitting it into groups of 4 bit each.</li>
-</ul>
-</li>
-</ul>
-<p><img data-src="https://i.imgur.com/i5sVdr9.png" alt=""></p>
-<h2 id="Data-Sizes"><a href="#Data-Sizes" class="headerlink" title="Data Sizes"></a>Data Sizes</h2><ul>
-<li><p>word size</p>
-<p><strong>Every computer has a word size, indicating the size of pointer data.</strong> The most important parameter determined by word size is the maximum size of the virtual address space. That is, for a machine with <em>w</em> bits word sizes the virtual addresses can range from 0 to 2^w - 1, giving the program access to at most 2^64 bytes. (A 32-bit word size limits the virtual address space to 4GB, this is, just over 4*10^9 bytes)</p>
-</li>
-</ul>
-<h1 id="Where-to-store"><a href="#Where-to-store" class="headerlink" title="Where to store?"></a>Where to store?</h1><h2 id="Addressing-and-Byte-Ordering"><a href="#Addressing-and-Byte-Ordering" class="headerlink" title="Addressing and Byte Ordering"></a>Addressing and Byte Ordering</h2><ul>
-<li><p>The different machine/operating system configurations use different conventions for storage allocation.</p>
-</li>
-<li><p>For ordering the byes representing an object, there are two conventions.</p>
-<p>Let’s have a look. Suppose the variable x of type int and at address 0x100 has hexadecimal value of 0x1234567. Some machines choose to store the object in memory ordered from least significant bytes to most, while other machines storm them from most to least. </p>
-<ul>
-<li>The former convention -where the least significant byte comes first- is referred to as little endian.</li>
-<li>The least convention -where the most significant byte comes first- is referred to as big endian.</li>
-</ul>
-</li>
-</ul>
-<p><img data-src="https://i.imgur.com/c7mWESs.png" alt=""></p>
-<ul>
-<li>A Function uses hexadecimal to represents the bytes of different program objects.</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *byte_pointer;</span><br><span class="line"><span class="comment">//Note that the statement is like `unsigned char *byte_pointer;`</span></span><br><span class="line"><span class="comment">//So byte_pointer is a pointer variable.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_bytes</span><span class="params">(byte_pointer start, <span class="keyword">size_t</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">size_t</span> i;	<span class="comment">//This type is used to represent the size of an object.</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %.2x"</span>, start[i]);<span class="comment">//%.2x indicate that an integer should be printed in hexadecimal.</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//if we want to call this function we should cast other pointer type to unsigned char type pointer, such as `(byte_pointer)&amp;x`.</span></span><br><span class="line"><span class="comment">//Note that the casts shown here do not change the actual pointer; they simply direct the complier to refer to the data being pointed to accoring to the new data type</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_float</span><span class="params">(<span class="keyword">float</span> x)</span></span>&#123;</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">float</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_pointer</span><span class="params">(<span class="keyword">void</span> *x)</span></span>&#123;</span><br><span class="line">    show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">void</span> *));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Representing-Strings"><a href="#Representing-Strings" class="headerlink" title="Representing Strings"></a>Representing Strings</h1><p>A string in C is encoded by an array of characters terminated by null character. Each character is represented by some standard encoding, with the most common being the ASCII character code.</p>
-<ul>
-<li>For example:</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *s=<span class="string">"0123456789"</span>;</span><br><span class="line">show_bytes((byte_pointer)s, <span class="number">11</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//we will get:   30 31 32 33 34 35 36 37 38 39 00</span></span><br></pre></td></tr></table></figure>
-
-<p>This same result would be obtained on any system using ASCII as its character code, independent of the bytes ordering and word size.</p>
-<h1 id="Representing-Code"><a href="#Representing-Code" class="headerlink" title="Representing Code"></a>Representing Code</h1><p>Different machine types use different and incompatible instruction and encodings. Even identical processors running different operating systems have differences in their coding conventions and hence are not binary compatible. So binary code is seldom portable across different combination of machine and operating system.</p>
-<p>A fundamental concept of computer systems is that a program is simply a sequence of bytes. The machine has no information about the original source program.</p>
-<h1 id="Representing-Integer"><a href="#Representing-Integer" class="headerlink" title="Representing Integer"></a>Representing Integer</h1><h2 id="Thoughts-on-integer"><a href="#Thoughts-on-integer" class="headerlink" title="Thoughts on integer"></a>Thoughts on integer</h2><p>*<em>Fist of all, we should state clearly that the a binary value can be represent unsigned or two’s complement. They may look different but their bit-level  are the same, hence operations such as addition, subtraction, multiplication, and even division have either identical or very similar bit-level behaviors, whether the operands are in unsigned or two’s complement. *</em></p>
-<p><img data-src="https://i.imgur.com/3u5SRNE.png" alt=""></p>
-<p><img data-src="https://i.imgur.com/XCnWlIO.png" alt=""></p>
-<h2 id="Encoding-the-integer"><a href="#Encoding-the-integer" class="headerlink" title="Encoding the integer"></a>Encoding the integer</h2><p>We has two different way <strong>bits can be used to encode integers</strong>. </p>
-<ol>
-<li>*<em>Unsigned encodings *</em>(It can only represent nonnegative numbers)</li>
-<li><strong>Two’s Complement Encodings</strong> (It can represent negative, zero and positive numbers)</li>
-</ol>
-<p><img data-src="https://i.imgur.com/UKKk3HR.png" alt=""></p>
-<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><ul>
-<li><p>Binary to Unsigned integer ($B2U_w$)</p>
-<p>This function is bijection.</p>
-</li>
-</ul>
-<p><img data-src="https://i.imgur.com/xEIhOzb.png" alt=""></p>
-<ul>
-<li><p>Binary to Two’s complement($B2T_w$)</p>
-<p>This function is bijection.</p>
-<p><img data-src="https://i.imgur.com/nHq0Iyy.png" alt=""></p>
-</li>
-</ul>
-<ul>
-<li><p>Two’s complement to unsigned </p>
-<p><img data-src="https://i.imgur.com/FBGtUuf.png" alt=""></p>
-</li>
-</ul>
-<ul>
-<li><p>Unsigned to Two’s complement</p>
-<p><img data-src="https://i.imgur.com/9q2eLhE.png" alt=""></p>
-</li>
-</ul>
-<h3 id="Converting-between-signed-and-unsigned"><a href="#Converting-between-signed-and-unsigned" class="headerlink" title="Converting between signed and unsigned"></a>Converting between signed and unsigned</h3><p>One important feature to note is that the ranges are not symmetric, the range of negative numbers extends on further than the range of positive number.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> u = <span class="number">4294967295u</span>;<span class="comment">//UMAX</span></span><br><span class="line"><span class="keyword">int</span> tu = (<span class="keyword">int</span>)u;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"u = %u, tu=%d\n"</span>, u, tu);</span><br><span class="line"></span><br><span class="line"><span class="comment">//result: u = 4294967295, tu=-1</span></span><br></pre></td></tr></table></figure>
-
-<img data-src="https://i.imgur.com/4LTPUHa.png" style="zoom:80%;" />
-
-
-
-<p>*<em>Converting between signed(two’s complement) and unsigned, we have a simple way to memory. This is, *</em></p>
-<p><img data-src="https://i.imgur.com/JQ7W0bX.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define INT_MAX 2147483647</span><br><span class="line">#define INT_MIN (-INT_MAX - 1)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="Operating-the-integer"><a href="#Operating-the-integer" class="headerlink" title="Operating the integer"></a>Operating the integer</h2><h3 id="Expanding-the-Bit-Representation-of-a-number"><a href="#Expanding-the-Bit-Representation-of-a-number" class="headerlink" title="Expanding the Bit Representation of a number"></a>Expanding the Bit Representation of a number</h3><p>We can do some operations in bits to expand the word size while retaining the same numeric value. </p>
-<ol>
-<li><p>Expansion of an unsigned number by zero extension</p>
-<p>Define bit vectors u = [u_w-1, u_w-2, … , 0] of width w and u’ = [0, … , 0, u_w-1, u_w-2, … , 0] of width w’, where w’ &gt; w. Then B2U_w(u) = B2U_w’(u’)</p>
-</li>
-</ol>
-<p>this operation is like <strong>Logical</strong> right shift of bit operation</p>
-<ol start="2">
-<li><p>Expansion of a two’s complement number by signed extension</p>
-<p>Define bit vectors u =  [x_w-1, x_w-2, … , 0] of width w and u’ = [x_w-1, … , x_w-1, x_w-2, … , 0] of width w’, where w’ &gt; w. Then B2T_w(u) = B2T_w’(u’)</p>
-<p><img data-src="https://i.imgur.com/Pbu9oty.png" alt=""></p>
-</li>
-</ol>
-<p>this operation is like  <strong>arithmetic</strong> right shift of bit operation</p>
-<ul>
-<li>This is, assuming two Binary values that are not equal, but when we represent them in signed or unsigned they may be equal.</li>
-</ul>
-<h3 id="Truncating-Number"><a href="#Truncating-Number" class="headerlink" title="Truncating Number"></a>Truncating Number</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x =<span class="number">53191</span>;</span><br><span class="line">short sx = (short)x;<span class="comment">//Truncating</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sx);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> y=sx;			<span class="comment">//expanding</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, y);</span><br><span class="line">show_bytes((byte_pointer)&amp;x, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">show_bytes((byte_pointer)&amp;sx, <span class="keyword">sizeof</span>(short));</span><br><span class="line">show_bytes((byte_pointer)&amp;y, <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//result(little endian)</span></span><br><span class="line"> c7 cf <span class="number">00</span> <span class="number">00</span></span><br><span class="line"> c7 cf</span><br><span class="line"> c7 cf ff ff</span><br></pre></td></tr></table></figure>
-
-<p><strong>Truncating number can alter its value, a form of overflow.</strong></p>
-<ul>
-<li><p>In Binary level, we truncating a w-bit number  $x = [x_{w-1}, x_{w-2}, … , x_0]$ to a k-bit number $x’ = [x_{k-1}, x_{k-2}, … , x_0]$, which we drop the high-order w-k bit. Then, we can use the rules, binary to unsigned or binary to two’s complement, to represent the integer.</p>
-</li>
-<li><p>If we truncate Integer number(unsigned and two’s complement) directly, there are two ways: </p>
-</li>
-</ul>
-<img data-src="https://i.imgur.com/5gLndkn.png" style="zoom:80%;" />
-
-
-
-<h2 id="Integer-Arithmetic"><a href="#Integer-Arithmetic" class="headerlink" title="Integer Arithmetic"></a>Integer Arithmetic</h2><p>Sometimes, we add two positive numbers can yield a negative number or two negative numbers can yield a positive number, which is the overflow. </p>
-<h3 id="Integer-Addition"><a href="#Integer-Addition" class="headerlink" title="Integer Addition"></a>Integer Addition</h3><p>Consider two negative integers x and y in the range $0 &lt;= x, y &lt;= 2^w$. If we compute their sum, we have a possible range 0 &lt;= x, y &lt;= 2^(w+1)- 2</p>
-<p>As an example:</p>
-<img data-src="https://i.imgur.com/aDUG69k.png" alt="illustration" style="zoom:80%;" />
-
-
-
-<h3 id="Unsigned-addition"><a href="#Unsigned-addition" class="headerlink" title="Unsigned addition"></a>Unsigned addition</h3><p>We can see that representing this sum could require w+1 bits. We should truncate it to be w bits because more commonly, programming languages support fixed-size arithmetic, and hence operation such as “addition” and “multiplication” differ from their counterpart operations over integers.</p>
-<ul>
-<li>Define a operation , as a result of truncating the integer sum $x+y$, to be w bits long and then viewing the result as an unsigned number.</li>
-</ul>
-<p><img data-src="https://i.imgur.com/9STRbzV.png" alt=""></p>
-<p><strong>This operation can be characterized as a form of modular arithmetic. Computing a sum modular $2^w$ by discarding any bits with weight greater than 2^(w-1) in the bit-level representation of x+y.</strong></p>
-<img data-src="https://i.imgur.com/0Lm4Ohp.png" style="zoom:80%;" />
-
-
-
-<h3 id="Unsigned-negation"><a href="#Unsigned-negation" class="headerlink" title="Unsigned negation"></a>Unsigned negation</h3><p><strong>Even the unsigned number is nonnegative. But it also has the unsigned negation. Because the unsigned addition uses the modular addition.</strong></p>
-<p>Modular addition, the unsigned addition , forms a mathematical structure known as an abelian group. This is, it has an identity element 0, and every element has an additive inverse. </p>
-<p><strong>For every value x, there must be some negation, such than x + negation = 0</strong></p>
-<p>For x &gt; 0 , consider the value 2^w - x. We see that $(x + (2^w - x)) mod 2^w = 0$. Hence it is the inverse of x under unsigned addition.</p>
-<img data-src="https://i.imgur.com/1rdGBDo.png" style="zoom:80%;" />
-
-
-
-<h3 id="Two’s-complement-addition"><a href="#Two’s-complement-addition" class="headerlink" title="Two’s complement addition"></a>Two’s complement addition</h3><img data-src="https://i.imgur.com/KkXbsGz.png" style="zoom:80%;" />
-
-
-
-
-
-<img data-src="https://i.imgur.com/sFFpnGA.png" style="zoom:80%;" />
-
-<p>Derivation:</p>
-<p>Since the Two’s complement addition has the same bit-level representation as unsigned addition. We can characterize the operation Two’s complement addition as conversing its arguments to unsigned, and performing unsigned addition, and then converting back to two’s complement.</p>
-<img data-src="https://i.imgur.com/1mtpDkZ.png" style="zoom:80%;" />
-
-
-
-<h3 id="Two’s-complement-negation"><a href="#Two’s-complement-negation" class="headerlink" title="Two’s complement negation"></a>Two’s complement negation</h3><p>When x = TMin, we cannot represent the negation of x, . Consider $TMin + TMin =  -2^{w-1} + (-2^{w-1}) = -2^w$. it will cause negative overflow of two’s complement addition. Hence $TMin + TMin = -2^w mod 2^w = 0$. So TMin is its own additive inverse.</p>
-<p><img data-src="https://i.imgur.com/U0cxzuA.png" alt=""></p>
-<h3 id="Multiplying-by-constants"><a href="#Multiplying-by-constants" class="headerlink" title="Multiplying by constants"></a>Multiplying by constants</h3><ul>
-<li>If we want to multiply something by $2^k$, we just shift it left by k bit. </li>
-</ul>
-<img data-src="https://i.imgur.com/oW0v58o.png" style="zoom: 80%;" />
-
-<p>Since the bit-level operation of fixed size two’s complement is equivalent to that for unsigned arithmetic. we just view it as two’s complement or unsigned after doing the operation. </p>
-<ul>
-<li><p>Multiplying by arbitrary constants</p>
-<p>If we want to generating code for the expression $x * k$, for some constant k. We could construct the arbitrary constant k by adding the possible results of multiply something by 2^k. According to math, we know that $4x + 2x = 6x$</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//k=17</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x&lt;&lt;<span class="number">4</span>)+x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//k=-7</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">B</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> -(x&lt;&lt;<span class="number">3</span>) + x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//k=60</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">C</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x&lt;&lt;<span class="number">6</span>) - (x&lt;&lt;<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//k=-112</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">D</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> -(x&lt;&lt;<span class="number">7</span>) + (x&lt;&lt;<span class="number">4</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x = <span class="number">0x87654321</span>;</span><br><span class="line">  assert(A(x) == <span class="number">17</span> * x);</span><br><span class="line">  assert(B(x) == <span class="number">-7</span> * x);</span><br><span class="line">  assert(C(x) == <span class="number">60</span> * x);</span><br><span class="line">  assert(D(x) == <span class="number">-112</span> * x);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-</li>
-</ul>
-<h3 id="Dividing-by-powers-of-2"><a href="#Dividing-by-powers-of-2" class="headerlink" title="Dividing by powers of 2"></a>Dividing by powers of 2</h3><ul>
-<li>If we want to divide something by $2^k$, we just shift it right by k bit. </li>
-</ul>
-<ol>
-<li><p>Unsigned division by a power of 2</p>
-<p>Performing a logical right shift of bit vector$$[x_{w-1}, x_{w-2}, … , x_0]$$ by k yields the bit vector$$[0, … , 0, x_{w-1}, x_{w-2}, … , w_k]$$</p>
-<p><img data-src="https://i.imgur.com/WgYkWYL.png" alt=""></p>
-</li>
-<li><p>Two’s complement by a power of 2</p>
-<p>Performing a arithmetically right shift of bit vector$$[x_{w-1}, x_{w-2}, … , x_0]$$ by k yields the bit vector$$[x_{w-1}, … , x_{w-1}, x_{w-2}, … , x_k]$$</p>
-</li>
-</ol>
-<img data-src="https://i.imgur.com/YrcMtQB.png" style="zoom:80%;" />
-
-
-
-<p>If we want to <strong>round it toward zero</strong> when x is negative, we just add a bias. </p>
-<p>$$<br>bias = (1 &lt;&lt; k) - 1<br>$$<br>So the expression is :</p>
-<p>$$<br>(x + bias) &gt;&gt; k<br>$$</p>
-<p><img data-src="https://i.imgur.com/sZEu7Ob.png" alt=""></p>
-<ul>
-<li><p>Summary, we use this function to complement rounding toward zero ,no matter if the number is positive or negative.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">divide_power2</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> is_neg = INT_MIN &amp; x;</span><br><span class="line">    <span class="keyword">int</span> bias = (<span class="number">1</span>&lt;&lt;k)<span class="number">-1</span>;</span><br><span class="line">    <span class="comment">//if is_neg is false, (x = x + (1 &lt;&lt; k) - 1) would not be execute</span></span><br><span class="line">    is_neg &amp;&amp; (x = x + bias);</span><br><span class="line">    <span class="keyword">return</span> x&gt;&gt;k;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<h2 id="Floating-Point-Representation"><a href="#Floating-Point-Representation" class="headerlink" title="Floating-Point Representation"></a>Floating-Point Representation</h2><h3 id="Fractional-binary-representation"><a href="#Fractional-binary-representation" class="headerlink" title="Fractional binary representation"></a>Fractional binary representation</h3><ul>
-<li>Position notation</li>
-</ul>
-<img data-src="https://i.imgur.com/BqxSmH5.png" style="zoom:80%;" />
-
-<img data-src="https://i.imgur.com/DOl16Vt.png" style="zoom:80%;" />
-
-
-
-<p>So we can do that: </p>
-<ol>
-<li>shifting the binary point one position to left has the effect of dividing the number by 2. </li>
-<li>Similarly, shifting the binary point one position to right has the effect of multiplying the number by 2. </li>
-</ol>
-<p>This is the opposite of moving to right or left in bit vector. </p>
-<h3 id="IEEE-Floating-Point-Representation"><a href="#IEEE-Floating-Point-Representation" class="headerlink" title="IEEE Floating-Point Representation"></a>IEEE Floating-Point Representation</h3><p>But the position notation would not be effect for representing a large number. For example, if we want to multiply a number by $2^100$, we need to shift the binary point 100 position to right. </p>
-<p>Instead, we would like to represent numbers in a form $ x * 2^y $ by giving the value of x and y. IEEE Floating-Point standard represents a number in a from<br>$$<br>V = (-1)^S * M * 2^E<br>$$</p>
-<ul>
-<li><p><code>s</code> is a sign bit. </p>
-<p>s = 1 represent negative. s = 0 represent positive. </p>
-</li>
-<li><p><code>M</code> is a fractional binary number between 1 and 2-0 or between 0 and 1-0</p>
-</li>
-<li><p><code>E</code> weight the value by a power of 2. </p>
-</li>
-</ul>
-<img data-src="https://i.imgur.com/5IU0RWl.png" style="zoom:80%;" />
-
-
-
-<ul>
-<li><code>exp</code> encodes the exponent E</li>
-</ul>
-<p>$$<br>e = B2U(exp)<br>$$</p>
-<ul>
-<li><code>frac</code> encodes the significand M.<br>$$<br>0&lt;=f&lt;1<br>$$<br>f has binary representation $0. f_{n-1}, …, f_1, f_0$</li>
-</ul>
-<ul>
-<li>There are 4 cases of the float values that determined by the exponent. </li>
-</ul>
-<img data-src="https://i.imgur.com/tdaKvcp.png" style="zoom:67%;" />
-$$
-Bias = 2^{k-1}-1
-$$
-
-
-<ol>
-<li>Normalized Values</li>
-</ol>
-<p>$$<br>E = e - Bias<br>$$</p>
-<p>$$<br>M=1+f<br>$$</p>
-<ol start="2">
-<li><p>Denormalized Values<br>$$<br>E=1-Bias<br>$$</p>
-<p>$$<br>M=f<br>$$</p>
-</li>
-</ol>
-<ul>
-<li><p>Example Numbers</p>
-<p><img data-src="https://i.imgur.com/aSJ4G85.png" alt=""></p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/10/20/English/Reporting-statements/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/20/English/Reporting-statements/" class="post-title-link" itemprop="url">Reporting statements</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-10-20 15:48:33 / Modified: 16:10:20" itemprop="dateCreated datePublished" datetime="2020-10-20T15:48:33+08:00">2020-10-20</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>574</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="that-clauses"><a href="#that-clauses" class="headerlink" title="that-clauses"></a>that-clauses</h1><ol>
-<li><p>When we report statements, we often use a that-clause in the reported clause.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">He said (that) he was enjoying his work.</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>Some reporting verbs which are followed by a <strong>that-clause</strong> have an alternative with an <strong>object + to-infinitive</strong>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I felt that the result were satisfactory. </span><br><span class="line">or</span><br><span class="line">I felt the result to be satisfactory.</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-</li>
-</ol>
-<ol start="2">
-<li><p>Some verbs are must followed by <strong>object between the verb and that-clause</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I notified the bank that I had changed my address.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Some verbs are use with or without object before a that-clause. However, if we do include an object, we put a preposition before it. (This object is sometimes called prepositional object)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">She admitted (to me) that she was seriously ill.</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1471,13 +1192,13 @@ $$
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">200k</span>
+    <span title="Symbols count total">206k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:02</span>
+    <span title="Reading time total">3:07</span>
 </div>
 
 <div id="days"></div>
@@ -1640,59 +1361,6 @@ window.addEventListener('pjax:success', () => {
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
   <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>

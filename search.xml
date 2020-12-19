@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>整数和小数</title>
+    <url>/2020/12/19/fatal/%E6%95%B4%E6%95%B0%E5%92%8C%E5%B0%8F%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="int-amp-float"><a href="#int-amp-float" class="headerlink" title="int &amp; float"></a>int &amp; float</h1><ul>
+<li><p>前提</p>
+<p>我们已经知道int是整形(只能输出整数)，float是浮点型（能输出小数）</p>
+</li>
+<li><p>仍需知道一点</p>
+<p>在两个int类型进行运算的时候，C默认会把计算结果变成int。那么：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"%f"</span>, <span class="number">1</span>/<span class="number">2</span>);	<span class="comment">//0.000000</span></span><br></pre></td></tr></table></figure>
+
+<p>为什么结果是小数，但又是0呢？</p>
+<p><strong>因为先算<code>1/2=0</code>，再将int类型的0，变成float</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"%f\n"</span>, <span class="number">1.0</span>/<span class="number">2</span>); <span class="comment">//0.500000</span></span><br></pre></td></tr></table></figure>
+
+<p>这里的1.0是double型，在计算前先把2变成double，再计算。那么就是得到double型的值0.500000。</p>
+</li>
+</ul>
+<ul>
+<li><p>总结</p>
+<p>计算的时候要<strong>留意数字的类型，防止结果的出乎意料</strong></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>fatal</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MenuBar</title>
     <url>/2020/12/18/java/swing/MenuBar/</url>
     <content><![CDATA[<p>说明：</p>

@@ -30,7 +30,7 @@
 <meta property="og:description" content="int &amp; float 前提 我们已经知道int是整形(只能输出整数)，float是浮点型（能输出小数）  仍需知道一点 在两个int类型进行运算的时候，C默认会把计算结果变成int。那么： 1print(&quot;%f&quot;, 1&#x2F;2);	&#x2F;&#x2F;0.000000  为什么结果是小数，但又是0呢？ 因为先算1&#x2F;2&#x3D;0，再将int类型的0，变成float 1printf(&quot;%f\n&quot;, 1.0&#x2F;2); &#x2F;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-19T06:42:36.000Z">
-<meta property="article:modified_time" content="2020-12-19T08:04:20.358Z">
+<meta property="article:modified_time" content="2020-12-19T16:39:45.862Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="fatal">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">148</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">149</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -218,10 +218,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-19 14:42:36 / Modified: 16:04:20" itemprop="dateCreated datePublished" datetime="2020-12-19T14:42:36+08:00">2020-12-19</time>
+              <time title="Created: 2020-12-19 14:42:36" itemprop="dateCreated datePublished" datetime="2020-12-19T14:42:36+08:00">2020-12-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-20 00:39:45" itemprop="dateModified" datetime="2020-12-20T00:39:45+08:00">2020-12-20</time>
+              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -270,11 +276,7 @@
 <p>这里的1.0是double型，在计算前先把2变成double，再计算。那么就是得到double型的值0.500000。</p>
 </li>
 </ul>
-<ul>
-<li><p>总结</p>
-<p>计算的时候要<strong>留意数字的类型，防止结果的出乎意料</strong></p>
-</li>
-</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>计算的时候要<strong>留意数字的类型，防止结果的出乎意料</strong></p>
 
     </div>
 
@@ -296,7 +298,10 @@
     <a href="/2020/12/18/java/swing/MenuBar/" rel="prev" title="MenuBar">
       <i class="fa fa-chevron-left"></i> MenuBar
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/20/function/" rel="next" title="function">
+      function <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -357,7 +362,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#int-amp-float"><span class="nav-number">1.</span> <span class="nav-text">int &amp; float</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#int-amp-float"><span class="nav-number">1.</span> <span class="nav-text">int &amp; float</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -405,7 +410,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">206k</span>
+    <span title="Symbols count total">207k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

@@ -125,12 +125,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">153</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">156</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">17</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -187,6 +187,290 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/12/27/C-struct/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/27/C-struct/" class="post-title-link" itemprop="url">C struct</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-27 19:59:48 / Modified: 20:19:59" itemprop="dateCreated datePublished" datetime="2020-12-27T19:59:48+08:00">2020-12-27</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Define"><a href="#Define" class="headerlink" title="Define"></a>Define</h1><h3 id="Syntax-of-struct"><a href="#Syntax-of-struct" class="headerlink" title="Syntax of struct"></a>Syntax of struct</h3><p>After you define this data type , you can create variables of this type.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct structureName </span><br><span class="line">&#123;</span><br><span class="line">    dataType member1;</span><br><span class="line">    dataType member2;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Allocate"><a href="#Allocate" class="headerlink" title="Allocate"></a>Allocate</h1><p>When a struct type is declared, no storage or memory is allocated. To allocate memory of a given structure type and work with it, we need to create variables.</p>
+<p>Here’s how we create structure variables:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">struct Person</span><br><span class="line">&#123;</span><br><span class="line">    char name[50];</span><br><span class="line">    int citNo;</span><br><span class="line">    float salary;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    struct Person person1, person2, p[20];</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Define-and-Allocate-together"><a href="#Define-and-Allocate-together" class="headerlink" title="Define and Allocate together"></a>Define and Allocate together</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct Person</span><br><span class="line">&#123;</span><br><span class="line">    char name[50];</span><br><span class="line">    int citNo;</span><br><span class="line">    float salary;</span><br><span class="line">&#125; person1, person2, p[20];</span><br></pre></td></tr></table></figure>
+
+<p>In both cases, two variables person1, person2, and an array variable p having 20 elements of type <code>struct Person</code> are created.</p>
+<h1 id="Keyword-typedef"><a href="#Keyword-typedef" class="headerlink" title="Keyword typedef"></a>Keyword typedef</h1><p>We use the <code>typedef</code> keyword to create an alias name for data types. It is commonly used with structures to simplify the syntax of declaring variables.</p>
+<p><strong>This code</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct Distance&#123;</span><br><span class="line">    int feet;</span><br><span class="line">    float inch;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    struct Distance d1, d2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>is equivalent to</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typedef struct Distance&#123;</span><br><span class="line">    int feet;</span><br><span class="line">    float inch;</span><br><span class="line">&#125; distances;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    distances d1, d2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>we also needn’t to write the struct name, if we use <code>typedef</code></strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PtrToNode front;</span><br><span class="line">    PtrToNode rear;</span><br><span class="line">&#125;Queue;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/12/27/Q&A/%E5%B0%86%E5%BA%8F%E5%8F%B7%E5%AF%B9%E5%BA%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/27/Q&A/%E5%B0%86%E5%BA%8F%E5%8F%B7%E5%AF%B9%E5%BA%94/" class="post-title-link" itemprop="url">将序号对应</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-27 15:53:58 / Modified: 16:06:45" itemprop="dateCreated datePublished" datetime="2020-12-27T15:53:58+08:00">2020-12-27</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>108</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在编写程序的过程中，会定义数组，有的语言的数组的编号是从0开始的，但平常我们计数是从1开始的。</p>
+<p>如果，我们偏要使用从1开始的计数方法，并将序号对应到数组中，应该怎么做呢？</p>
+<p>答案就在一念之间，</p>
+<p><strong>只要将原数组偏移(-1)就好了</strong></p>
+<p><img data-src="https://i.imgur.com/U0Mzjx1.png" alt=""></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/12/27/algorithm/Merge-Sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/27/algorithm/Merge-Sort/" class="post-title-link" itemprop="url">Merge Sort</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-27 09:20:18 / Modified: 10:40:32" itemprop="dateCreated datePublished" datetime="2020-12-27T09:20:18+08:00">2020-12-27</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="原地归并排序"><a href="#原地归并排序" class="headerlink" title="原地归并排序"></a>原地归并排序</h1><h2 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h2><p>有这样的一个问题，要使得两个有序的数组，合并成一个有序的数组。归并排序就是以这样的想法递归地对一个无序的数组进行排序。</p>
+<p>先来思考：如何才能能将两个有序的数组，合并成一个有序的数组。</p>
+<p>因为两个数组是有序的，所以使用指针指向这两个数组的首元，一一进行比较。</p>
+<ul>
+<li>较小的一方放在新数组的前面，并且往后移动指针。</li>
+<li>如果，指针越过了数组范围，那么就把另一个数组的所有元素放到新数组的最后面。</li>
+</ul>
+<p><img data-src="https://i.imgur.com/OBcuBsP.png" alt=""></p>
+<h2 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h2><ul>
+<li>格外开通一个辅助数组<code>aux[]</code></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">less_</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a &lt; b)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> lo, <span class="keyword">int</span> mid, <span class="keyword">int</span> hi)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = lo, j = mid + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> aux[maxsize];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = lo; k &lt;= hi; k++)</span><br><span class="line">        aux[k] = a[k];<span class="comment">//辅助数组</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = lo; k &lt;= hi; k++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; mid)</span><br><span class="line">            a[k] = aux[j++];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; hi)</span><br><span class="line">            a[k] = aux[i++];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (less_(aux[j], aux[i]))</span><br><span class="line">            a[k] = aux[j++];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            a[k] = aux[i++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">9</span>,   <span class="number">0</span>,<span class="number">2</span>&#125;;	<span class="comment">//先决条件，左右两边都有序</span></span><br><span class="line">    <span class="keyword">int</span> length = <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(a[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">int</span> lo=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> hi=length<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> mid=(lo+hi)/<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    merge(a, lo, mid, hi);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="无需开通额外数组"><a href="#无需开通额外数组" class="headerlink" title="无需开通额外数组"></a>无需开通额外数组</h1><p>上一算法中，需要开通额外数组复制数据。下面的算法<strong>不是针对一个数组的排序</strong>（其实前面的两个是我们自己拆分的，这里是<strong>真的两个数组</strong>），他能将有序A数组和有序B数组合并，并排序，最终结果放到A（前提A够大）</p>
+<p><img data-src="https://i.imgur.com/p3QtX2B.png" alt=""></p>
+<h2 id="算法描述-1"><a href="#算法描述-1" class="headerlink" title="算法描述"></a>算法描述</h2><p>这里稍微修改了一下：</p>
+<ul>
+<li>限定A的数组长度<code>na+nb</code></li>
+<li>把大的一方往A最后放，并<code>--1</code></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comb</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> &amp;na, <span class="keyword">int</span> B[], <span class="keyword">int</span> nb)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(na+nb&gt;MAXSIZE)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> i=na, j=nb;</span><br><span class="line">    <span class="keyword">while</span> (j&gt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">0</span>||A[i<span class="number">-1</span>]&lt;B[j<span class="number">-1</span>])&#123;</span><br><span class="line">            A[j+i<span class="number">-1</span>]=B[j<span class="number">-1</span>];</span><br><span class="line">            --j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            A[j+i<span class="number">-1</span>]=A[i<span class="number">-1</span>];</span><br><span class="line">            --i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    na=na+nb;</span><br><span class="line">    <span class="keyword">return</span> na;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> na=<span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> nb=<span class="number">3</span>;</span><br><span class="line">    <span class="comment">// merge(l);</span></span><br><span class="line">    <span class="keyword">int</span> a[MAXSIZE]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">8</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> b[MAXSIZE]=&#123;<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">    comb(a,na,b,nb);</span><br><span class="line">    <span class="built_in">display</span>(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><ol>
+<li>有两个递增数组A,B。组成将A，B中相同的元素进行从大到小排序的数组C<ul>
+<li>因为是C从大到小，而A，B递增，所以指针首先指向A，B的最后。</li>
+<li>根据归并排序的算法思想，非常简单</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> na, <span class="keyword">int</span> b[], <span class="keyword">int</span> nb, <span class="keyword">int</span> c[], <span class="keyword">int</span> &amp;nc)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=na<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> j=nb<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> k=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (j&gt;=<span class="number">0</span> &amp;&amp; i&gt;=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]==b[j])&#123;</span><br><span class="line">            c[k]=a[i];</span><br><span class="line">            k++;</span><br><span class="line">            i--;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a[i]&lt;b[j])&#123;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    nc=k;</span><br><span class="line">    <span class="keyword">return</span> nc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">(<span class="keyword">int</span> c[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;c[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">4</span>]=&#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> b[<span class="number">4</span>]=&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">8</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> c[<span class="number">4</span>];</span><br><span class="line">    <span class="keyword">int</span> na=<span class="number">4</span>;</span><br><span class="line">    <span class="keyword">int</span> nb=<span class="number">4</span>;</span><br><span class="line">    <span class="keyword">int</span> nc=merge(a,<span class="number">4</span>,b,<span class="number">4</span>,c,nc);</span><br><span class="line">    <span class="built_in">display</span>(c,nc);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -794,523 +1078,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/12/18/java/swing/Calculator/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/18/java/swing/Calculator/" class="post-title-link" itemprop="url">Calculator</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-18 19:32:00" itemprop="dateCreated datePublished" datetime="2020-12-18T19:32:00+08:00">2020-12-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-24 09:45:33" itemprop="dateModified" datetime="2020-12-24T09:45:33+08:00">2020-12-24</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.5k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>4 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img data-src="https://i.imgur.com/yROQFPR.png" alt=""></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.FlowLayout;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Calculator</span> <span class="keyword">extends</span> <span class="title">JFrame</span> <span class="keyword">implements</span> <span class="title">ActionListener</span></span>&#123;</span><br><span class="line">	<span class="comment">//声明组件</span></span><br><span class="line">	JTextField t1, t2, t3;</span><br><span class="line">	JButton add, sub, tim, div;</span><br><span class="line">	JButton save;</span><br><span class="line">	<span class="comment">//属性，变量</span></span><br><span class="line">	<span class="keyword">double</span> result=<span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	Calculator()&#123;</span><br><span class="line">		init();</span><br><span class="line">        <span class="keyword">this</span>.setTitle(<span class="string">"Calculator"</span>);</span><br><span class="line">		<span class="keyword">this</span>.setLayout(<span class="keyword">new</span> FlowLayout());</span><br><span class="line">		<span class="keyword">this</span>.setSize(<span class="number">500</span>, <span class="number">500</span>);</span><br><span class="line">		<span class="keyword">this</span>.setVisible(<span class="keyword">true</span>);</span><br><span class="line">		<span class="keyword">this</span>.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//新建组件</span></span><br><span class="line">		t1=<span class="keyword">new</span> JTextField(<span class="number">10</span>);</span><br><span class="line">		t2=<span class="keyword">new</span> JTextField(<span class="number">10</span>);</span><br><span class="line">		t3=<span class="keyword">new</span> JTextField(<span class="number">20</span>);</span><br><span class="line">		add=<span class="keyword">new</span> JButton(<span class="string">"+"</span>);</span><br><span class="line">		sub=<span class="keyword">new</span> JButton(<span class="string">"-"</span>);</span><br><span class="line">		tim=<span class="keyword">new</span> JButton(<span class="string">"*"</span>);</span><br><span class="line">		div=<span class="keyword">new</span> JButton(<span class="string">"/"</span>);</span><br><span class="line">		save=<span class="keyword">new</span> JButton(<span class="string">"save"</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//添加组件</span></span><br><span class="line">		add(t1);</span><br><span class="line">		add(t2);</span><br><span class="line">		add(t3);</span><br><span class="line">		add(add);</span><br><span class="line">		add(sub);</span><br><span class="line">		add(tim);</span><br><span class="line">		add(div);</span><br><span class="line">		add(save);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//注册监听</span></span><br><span class="line">		t1.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		t2.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		t3.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		sub.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		add.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		tim.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		div.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		save.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		<span class="comment">//额外功能</span></span><br><span class="line">		t3.setEditable(<span class="keyword">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		String first=t1.getText();</span><br><span class="line">		String second=t2.getText();</span><br><span class="line">		<span class="keyword">double</span> n1 =Double.parseDouble(first);</span><br><span class="line">		<span class="keyword">double</span> n2=Double.parseDouble(second);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(e.getSource().equals(add)) &#123;</span><br><span class="line">			result=n1+n2;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(e.getSource().equals(sub)) &#123;</span><br><span class="line">			result=n1-n2;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(e.getSource().equals(tim)) &#123;</span><br><span class="line">			result=n1*n2;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(e.getSource().equals(div)) &#123;</span><br><span class="line">			result=n1/n2;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(e.getSource().equals(save)) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				File myObj=<span class="keyword">new</span> File(<span class="string">"result.txt"</span>);</span><br><span class="line">				<span class="keyword">if</span>(myObj.createNewFile()) </span><br><span class="line">					System.out.println(<span class="string">"Successfully create the file "</span>+myObj.getName());</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					System.out.println(<span class="string">"The file already exists"</span>);</span><br><span class="line">			&#125;<span class="keyword">catch</span>(IOException e1) &#123;</span><br><span class="line">				System.out.println(<span class="string">"ERROR"</span>);</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				FileWriter w=<span class="keyword">new</span> FileWriter(<span class="string">"result.txt"</span>);</span><br><span class="line">				w.write(result+<span class="string">"\n"</span>);</span><br><span class="line">				System.out.println(<span class="string">"Sucessfully wrote to the file"</span>);</span><br><span class="line">				w.close();</span><br><span class="line">			&#125;<span class="keyword">catch</span>(IOException e1) &#123;</span><br><span class="line">				System.out.println(<span class="string">"ERROR"</span>);</span><br><span class="line">				e1.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		t3.setText(result+<span class="string">"\n"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">		Calculator c=<span class="keyword">new</span> Calculator();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.FlowLayout;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Calc</span> <span class="keyword">extends</span> <span class="title">JFrame</span> <span class="keyword">implements</span> <span class="title">ActionListener</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	JButton b1,b2,b3,b4;</span><br><span class="line">	JTextField t1,t2,t3;</span><br><span class="line"></span><br><span class="line">	Calc()&#123;</span><br><span class="line">		init();</span><br><span class="line">		<span class="keyword">this</span>.setSize(<span class="number">300</span>, <span class="number">300</span>);</span><br><span class="line">		<span class="keyword">this</span>.setTitle(<span class="string">"计算"</span>);</span><br><span class="line">		<span class="keyword">this</span>.setLayout(<span class="keyword">new</span> FlowLayout());</span><br><span class="line">		<span class="keyword">this</span>.setVisible(<span class="keyword">true</span>);</span><br><span class="line">		<span class="keyword">this</span>.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		b1=<span class="keyword">new</span> JButton(<span class="string">"加"</span>);</span><br><span class="line">		b2=<span class="keyword">new</span> JButton(<span class="string">"减"</span>);</span><br><span class="line">		b3=<span class="keyword">new</span> JButton(<span class="string">"乘"</span>);</span><br><span class="line">		b4=<span class="keyword">new</span> JButton(<span class="string">"除"</span>);</span><br><span class="line">		t1=<span class="keyword">new</span> JTextField(<span class="number">10</span>);</span><br><span class="line">		t2=<span class="keyword">new</span> JTextField(<span class="number">10</span>);</span><br><span class="line">		t3=<span class="keyword">new</span> JTextField(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">		add(b1);</span><br><span class="line">		add(b2);</span><br><span class="line">		add(b3);</span><br><span class="line">		add(b4);</span><br><span class="line">		add(t1);</span><br><span class="line">		add(t2);</span><br><span class="line">		add(t3);</span><br><span class="line"></span><br><span class="line">		t1.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		t2.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		b1.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		b2.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		b3.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		b4.addActionListener(<span class="keyword">this</span>);</span><br><span class="line">		</span><br><span class="line">		t3.setEditable(<span class="keyword">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">double</span> n1;</span><br><span class="line">		<span class="keyword">double</span> n2;</span><br><span class="line">		<span class="keyword">double</span> result=<span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(e.getSource().equals(b1)) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				n1=Double.parseDouble(t1.getText());</span><br><span class="line">				n2=Double.parseDouble(t2.getText());</span><br><span class="line">				result=n1+n2;</span><br><span class="line">				t3.setText(String.valueOf(result));</span><br><span class="line">			&#125;<span class="keyword">catch</span>(NumberFormatException ee) &#123;</span><br><span class="line">				t3.setText(<span class="string">"请输入数字"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(e.getSource().equals(b2)) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				n1=Double.parseDouble(t1.getText());</span><br><span class="line">				n2=Double.parseDouble(t2.getText());</span><br><span class="line">				result=n1-n2;</span><br><span class="line">				t3.setText(String.valueOf(result));</span><br><span class="line">			&#125;<span class="keyword">catch</span>(NumberFormatException ee) &#123;</span><br><span class="line">				t3.setText(<span class="string">"请输入数字"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(e.getSource().equals(b3)) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				n1=Double.parseDouble(t1.getText());</span><br><span class="line">				n2=Double.parseDouble(t2.getText());</span><br><span class="line">				result=n1*n2;</span><br><span class="line">				t3.setText(String.valueOf(result));</span><br><span class="line">			&#125;<span class="keyword">catch</span>(NumberFormatException ee) &#123;</span><br><span class="line">				t3.setText(<span class="string">"请输入数字"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(e.getSource().equals(b4)) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				n1=Double.parseDouble(t1.getText());</span><br><span class="line">				n2=Double.parseDouble(t2.getText());</span><br><span class="line">				result=n1*n2;</span><br><span class="line">				t3.setText(String.valueOf(result));</span><br><span class="line">			&#125;<span class="keyword">catch</span>(NumberFormatException ee) &#123;</span><br><span class="line">				t3.setText(<span class="string">"请输入数字"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">		Calc c=<span class="keyword">new</span> Calc();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/12/13/java/java-syntax/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/13/java/java-syntax/" class="post-title-link" itemprop="url">java syntax</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-13 20:45:27" itemprop="dateCreated datePublished" datetime="2020-12-13T20:45:27+08:00">2020-12-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-24 17:44:22" itemprop="dateModified" datetime="2020-12-24T17:44:22+08:00">2020-12-24</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>16k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>15 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Basic-conception"><a href="#Basic-conception" class="headerlink" title="Basic conception"></a>Basic conception</h1><ul>
-<li><p>First, every line of the code must be in the class. </p>
-</li>
-<li><p>Second, a java file can have more than one class. However, there can only be <strong>one public class per java file</strong> and the name of public class must be the same name as its file name. </p>
-</li>
-</ul>
-<h2 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h2><p>A class can contain any of the following variable types.</p>
-<ul>
-<li><strong>Local variables</strong> − Variables defined inside methods, constructors or blocks are called local variables. The variable will be declared and initialized within the method and the variable will be destroyed when the method has completed.</li>
-<li><strong>Instance variables</strong> − Instance variables are variables within a class but outside any method. These variables are initialized when the class is instantiated. Instance variables can be accessed from inside any method, constructor or blocks of that particular class.</li>
-<li><strong>Class variables</strong> − Class variables are variables declared within a class, outside any method, with the static keyword.</li>
-</ul>
-<ul>
-<li><p>float</p>
-<p>The <code>float</code> data type can store fractional numbers from 3.4e−038 to 3.4e+038. <strong>Note that you should end the value with an “f”.</strong></p>
-</li>
-<li><p>static</p>
-<p>In the example above, we created a <code>static</code> method, which means that it can be accessed without creating an object of the class, unlike <code>public</code>, which can only be accessed by objects.</p>
-<ul>
-<li><p>This instance method cannot override the static method from A</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> m;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		m=<span class="number">20</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;		<span class="comment">//wrong</span></span><br><span class="line">		m=<span class="number">222</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>Non-Primitive Data Types</p>
-<p>Non-primitive data types are called <strong>reference types</strong> because they refer to objects.</p>
-<ul>
-<li>Primitive types are predefined (already defined) in Java. Non-primitive types are created by the programmer and is not defined by Java (except for <code>String</code>).</li>
-<li>Non-primitive types can be used to call methods to perform certain operations, while primitive types cannot.</li>
-<li>A primitive type has always a value, while non-primitive types can be <code>null</code>.</li>
-<li>A primitive type starts with a lowercase letter, while non-primitive types starts with an uppercase letter.</li>
-<li>The size of a primitive type depends on the data type, while non-primitive types have all the same size.</li>
-</ul>
-</li>
-<li><p>Type Casting</p>
-<p>In Java, there are two types of casting:</p>
-<ul>
-<li><strong>Widening Casting</strong> (automatically) - converting a smaller type to a larger type size<br><code>byte</code> -&gt; <code>short</code> -&gt; <code>char</code> -&gt; <code>int</code> -&gt; <code>long</code> -&gt; <code>float</code> -&gt; <code>double</code></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><strong>Narrowing Casting</strong> (manually) - converting a larger type to a smaller size type<br><code>double</code> -&gt; <code>float</code> -&gt; <code>long</code> -&gt; <code>int</code> -&gt; <code>char</code> -&gt; <code>short</code> -&gt; <code>byte</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> n=<span class="number">1.1f</span>;</span><br><span class="line"><span class="keyword">double</span> m =<span class="number">1.1</span>;</span><br><span class="line">m=n;		<span class="comment">//Widening Casting(automatically)</span></span><br><span class="line">n=(<span class="keyword">float</span>)m;	<span class="comment">//Narrowing Casting(manually)</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<ul>
-<li><p>special character</p>
-<p>The backslash (<code>\</code>) escape character turns special characters into string characters:</p>
-<table>
-<thead>
-<tr>
-<th align="center">Escape character</th>
-<th align="left">Result</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>\&#39;</code></td>
-<td align="left">‘</td>
-<td align="left">Single quote</td>
-</tr>
-<tr>
-<td align="center"><code>\&quot;</code></td>
-<td align="left">“</td>
-<td align="left">Double quote</td>
-</tr>
-<tr>
-<td align="center"><code>\\</code></td>
-<td align="left">\</td>
-<td align="left">Backslash</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>Loop the Array</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (type variable : arrayname) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">  String[] cars = &#123;<span class="string">"Volvo"</span>, <span class="string">"BMW"</span>, <span class="string">"Ford"</span>, <span class="string">"Mazda"</span>&#125;;</span><br><span class="line">  <span class="keyword">for</span> (String i : cars) &#123;</span><br><span class="line">    System.out.println(i);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>constructor</p>
-<p>Note that the constructor name must <strong>match the class name</strong>, and it cannot have a <strong>return type</strong> (like <code>void</code>).</p>
-<p>Also note that the constructor is called when the object is created.</p>
-<p>All classes have constructors by default: if you do not create a class constructor yourself, Java creates one for you. However, then you are not able to set initial values for object attributes.</p>
-</li>
-</ul>
-<h2 id="Overload-the-method"><a href="#Overload-the-method" class="headerlink" title="Overload the method"></a>Overload the method</h2><p>After we overloaded  a method, there will be  <strong>two method that have the same name</strong> but have the differences that are <strong>the numbers or the type of the parameters</strong>. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">float</span> <span class="title">computer</span><span class="params">(<span class="keyword">float</span> x, <span class="keyword">float</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x+y;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">g</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x+y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">float</span> <span class="title">computer</span><span class="params">(<span class="keyword">float</span> x, <span class="keyword">float</span> y,<span class="keyword">double</span> z)</span> </span>&#123;<span class="comment">//overload</span></span><br><span class="line">		<span class="keyword">return</span> x*y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h1><p>A package in Java is used to group related classes. Think of it as <strong>a folder in a file directory</strong>.</p>
-<p> We use packages to avoid name conflicts.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">package</span>.name.Class;   <span class="comment">// Import a single class</span></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">package</span>.name.*;   <span class="comment">// Import the whole package</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h1><p>Inheritance can be defined as the process where one class acquires the properties (methods and fields) of another. With the use of the extends keyword, the subclasses will be able to inherit all the properties of the superclass <strong>except for the private properties of the superclass</strong>.</p>
-<p>To inherit from a class, use the <code>extends</code> keyword.</p>
-<p>We can inherit attributes and methods from one class to another</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculation</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> z;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addition</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		z=x+y;</span><br><span class="line">		System.out.println(<span class="string">"The sum of the given number: "</span>+z);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">subtraction</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		z=x-y;</span><br><span class="line">		System.out.println(<span class="string">"The difference between the given number: "</span>+z);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">My_Calculation</span> <span class="keyword">extends</span> <span class="title">Calculation</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">multiplication</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		z=x*y;</span><br><span class="line">		System.out.println(<span class="string">"The product of the given number: "</span>+z);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">int</span> a=<span class="number">20</span>, b=<span class="number">10</span>;</span><br><span class="line">		My_Calculation c=<span class="keyword">new</span> My_Calculation();</span><br><span class="line">		c.addition(a, b);</span><br><span class="line">		c.subtraction(a, b);</span><br><span class="line">		c.multiplication(a, b);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>If we create a reference variable to the superclass, it can only access the members of the superclass, so to access the members of both classes it is recommend to always create reference variables to the subclass. </li>
-</ul>
-<p><strong>Note</strong> − A subclass inherits all the members (fields, methods, and nested classes) from its superclass. <strong>Constructors are not members, so they are not inherited by subclasses</strong>, but the constructor of the superclass can be invoked from the subclass. (How do we invoke it? we just use the <code>super</code> keyword)</p>
-<h2 id="The-super-keyword"><a href="#The-super-keyword" class="headerlink" title="The super keyword"></a>The super keyword</h2><p>The <strong>super</strong> keyword is similar to <strong>this</strong> keyword. Following are the scenarios where the super keyword is used.</p>
-<ul>
-<li><p>It is used to <strong>differentiate the members</strong> of superclass from the members of subclass, if they have same names.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Super_class</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num=<span class="number">20</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"This is the display method of the super class"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sub_class</span> <span class="keyword">extends</span> <span class="title">Super_class</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num=<span class="number">10</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"This is the display method of the sub class"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Sub_class sub=<span class="keyword">new</span> Sub_class();</span><br><span class="line">		sub.display();</span><br><span class="line">		<span class="keyword">super</span>.display();</span><br><span class="line">		System.out.println(<span class="string">"value of the variable named num in sub class: "</span>+num);</span><br><span class="line">		System.out.println(<span class="string">"value of the variable named num in super class: "</span>+ <span class="keyword">super</span>.num);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		Sub_class obj=<span class="keyword">new</span> Sub_class();</span><br><span class="line">		obj.method();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>It is used to <strong>invoke the superclass</strong> constructor from subclass.</p>
-<p>If a class is inheriting the properties of another class, the subclass automatically acquires the default constructor of the superclass. But if you want to call a parameterized constructor of the superclass, you need to use the super keyword </p>
-</li>
-</ul>
-<p>  As the following example, we use <code>super(val)</code> to call the parameterized constructor. </p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	</span><br><span class="line">	SuperClass(<span class="keyword">int</span> age)&#123;</span><br><span class="line">		<span class="keyword">this</span>.age=age;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"The value of varible named age in the super class name is "</span>+ age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	SubClass(<span class="keyword">int</span> age) &#123;</span><br><span class="line">		<span class="keyword">super</span>(age);</span><br><span class="line">		<span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		SubClass s=<span class="keyword">new</span> SubClass(<span class="number">19</span>);</span><br><span class="line">		s.getAge();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p>Let us use the <strong>instanceof</strong> operator to check determine whether Mammal is actually an Animal, and dog is actually an Animal.</p>
-<p><code>(obj name) instanceof (class name)</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mammal</span> <span class="keyword">implements</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Mammal</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		Mammal m=<span class="keyword">new</span> Mammal();</span><br><span class="line">		Dog d=<span class="keyword">new</span> Dog();</span><br><span class="line">		System.out.println(m <span class="keyword">instanceof</span> Animal);</span><br><span class="line">		System.out.println(d <span class="keyword">instanceof</span> Mammal);</span><br><span class="line">		System.out.println(d <span class="keyword">instanceof</span> Animal);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">true</span><br><span class="line">true</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Override-the-method"><a href="#Override-the-method" class="headerlink" title="Override the method"></a>Override the method</h2><p>After we override, the method in the subclass <strong>covers</strong> the method in the superclass that has the same name. Note that the method in the subclass must have the same <strong>name</strong>, <strong>the same numbers and same type of parameters</strong> as the superclass. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">float</span> <span class="title">computer</span><span class="params">(<span class="keyword">float</span> x, <span class="keyword">float</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x+y;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">g</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x+y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">float</span> <span class="title">computer</span><span class="params">(<span class="keyword">float</span> x, <span class="keyword">float</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x*y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><strong>Even though b is a type of Animal it runs the move method in the Dog class</strong></p>
-<p>In compile time, the check is made on the reference type. However, in the runtime, JVM figures out the object type and would run the method that belongs to that particular object.</p>
-<p>As an example, the program will compile properly since Animal class has the method move. Then, at the runtime, it runs the method specific for that object. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"Animals can move"</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"Dogs can walk and run"</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">T</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      Animal a = <span class="keyword">new</span> Animal();   <span class="comment">// Animal reference and object</span></span><br><span class="line">      Animal b = <span class="keyword">new</span> Dog();   <span class="comment">// Animal reference but Dog object</span></span><br><span class="line"></span><br><span class="line">      a.move();   <span class="comment">// runs the method in Animal class</span></span><br><span class="line">      b.move();   <span class="comment">// runs the method in Dog class</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p><strong>If we call the method only exists in the Animal but not in the Dog, the error will occur.</strong> This program will throw a compile time error since b’s reference type Animal doesn’t have a method by the name of bark.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> a;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"The animals move"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"The dog moves"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"The dog barks"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDog</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		Animal d=<span class="keyword">new</span> Dog();	<span class="comment">// Animal reference but Dog object</span></span><br><span class="line">		d.move();	<span class="comment">//output: The dog moves</span></span><br><span class="line">        </span><br><span class="line">        d.bark(); <span class="comment">//error</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-</li>
-</ul>
-<p><strong>Certainly, it is possible to invoke the method that has been overridden. Just use the super keyword</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">super</span>.move();</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"The dog moves"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The animals move</span><br><span class="line">The dog moves</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Polymorphism"><a href="#Polymorphism" class="headerlink" title="Polymorphism"></a>Polymorphism</h1><p><strong>Polymorphism in Java</strong> is a concept by which we can perform a <em>single action in different ways</em>.</p>
-<p>There are two types of polymorphism in Java: compile-time polymorphism and runtime polymorphism. We can perform polymorphism in java <strong>by method overloading and method overriding</strong>.</p>
-<ul>
-<li><p>runtime polymorphism</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">cry</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">cry</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"wang wang"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">cry</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"miao miao"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">E</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Animal a;</span><br><span class="line">		a =<span class="keyword">new</span> Dog();</span><br><span class="line">		a.cry();</span><br><span class="line">		</span><br><span class="line">		a=<span class="keyword">new</span> Cat();</span><br><span class="line">		a.cry();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wang wang</span><br><span class="line">miao miao</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-</li>
-</ul>
-<h1 id="Inner-Classes"><a href="#Inner-Classes" class="headerlink" title="Inner Classes"></a>Inner Classes</h1><p>To access the inner class, create an object of the outer class, and then create an object of the inner class. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> y = <span class="number">5</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		OuterClass myOuter=<span class="keyword">new</span> OuterClass();</span><br><span class="line">		OuterClass.InnerClass myInner = myOuter.<span class="keyword">new</span> InnerClass();</span><br><span class="line">		System.out.println(myInner.y + myOuter.x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><h2 id="Abstract-class"><a href="#Abstract-class" class="headerlink" title="Abstract class"></a>Abstract class</h2><p>Abstraction can be achieved with either <strong>abstract classes</strong> or <strong>interface</strong>. </p>
-<ul>
-<li><p><strong>Abstract class:</strong> is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).</p>
-</li>
-<li><p><strong>Abstract method:</strong> can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//abstract class</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="comment">//abstract method</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//regular method</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"zzz"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//SubClass</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pig</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"wee wee"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Pig myPig = <span class="keyword">new</span> Pig();</span><br><span class="line">		myPig.animalSound();</span><br><span class="line">		myPig.sleep();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h2><p>An <code>interface</code> is a completely “<strong>abstract class</strong>“ that is used to group related methods with empty bodies. There are not variables in the interface only constants. </p>
-<p>To access the interface methods, the interface must be “implemented” by another class with the <code>implements</code> keyword (instead of <code>extends</code>).The body of the interface method is provided by the “implement” class:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a=<span class="number">0</span>;<span class="comment">//constant</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">f1</span><span class="params">()</span></span>;<span class="comment">//public abstract can be omitted</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f2</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> MAX=<span class="number">100</span>;</span><br><span class="line">    <span class="comment">//equal to </span></span><br><span class="line">    <span class="comment">//public static final int MAX=100;</span></span><br><span class="line">	<span class="comment">//the method in interface has not body</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pig</span> <span class="keyword">implements</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">animalSound</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"wee wee"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"The pig is running"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main4</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Pig myPig = <span class="keyword">new</span> Pig();</span><br><span class="line">		myPig.animalSound();</span><br><span class="line">		myPig.run();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Multiple-Interfaces"><a href="#Multiple-Interfaces" class="headerlink" title="Multiple Interfaces"></a>Multiple Interfaces</h2><p>To implement multiple Interfaces, separate them with a comma:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">FirstInterface</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myMethod</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">SecondInterface</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myOtherMethod</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> <span class="keyword">implements</span> <span class="title">FirstInterface</span>, <span class="title">SecondInterface</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myOtherMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"Some other text..."</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"Some text"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main5</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		MyClass myClass = <span class="keyword">new</span> MyClass();</span><br><span class="line">		myClass.myMethod();</span><br><span class="line">		myClass.myOtherMethod();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Inner-Class"><a href="#Inner-Class" class="headerlink" title="Inner Class"></a>Inner Class</h1><p>Creating an inner class is quite simple. You just need to write a class within a class. Unlike a class, an inner class can be private and once you declare an inner class private, it cannot be accessed from an object outside the class.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer_Demo</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//inner class</span></span><br><span class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner_Demo</span></span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"This is an inner class"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">display_Inner</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Inner_Demo inner=<span class="keyword">new</span> Inner_Demo();</span><br><span class="line">		inner.print();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		Outer_Demo o=<span class="keyword">new</span> Outer_Demo();</span><br><span class="line">		o.display_Inner();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>To instantiate a inner class, initially we have to instantiate the outer class. </p>
-<p>We need to instantiate inside the outer class and new the object inside the outer object. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Outer_Demo outer = <span class="keyword">new</span> Outer_Demo();</span><br><span class="line">Outer_Demo.Inner_Demo inner = outer.<span class="keyword">new</span> Inner_Demo();</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h1 id="File-Handing"><a href="#File-Handing" class="headerlink" title="File Handing"></a>File Handing</h1><h2 id="Create-a-file"><a href="#Create-a-file" class="headerlink" title="Create a file"></a>Create a file</h2><p>The <code>File</code> class from the <code>java.io</code> package, allows us to work with files.</p>
-<p>To use the <code>File</code> class, create an object of the class, and specify the filename or directory name:</p>
-<p>To create a file in Java, you can use the <code>createNewFile()</code> method. This method returns a boolean value: <code>true</code> if the file was successfully created, and <code>false</code> if the file already exists. Note that the method is enclosed in a <code>try...catch</code> block. This is necessary because it throws an <code>IOException</code> if an error occurs (if the file cannot be created for some reason):</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFile</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			File myObj=<span class="keyword">new</span> File(<span class="string">"filename.txt"</span>);</span><br><span class="line">			<span class="keyword">if</span>(myObj.createNewFile()) &#123;</span><br><span class="line">				System.out.println(<span class="string">"File created: "</span>+myObj.getName());</span><br><span class="line">			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">				System.out.println(<span class="string">"The file already exists"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">catch</span>(IOException e)&#123;</span><br><span class="line">			System.out.println(<span class="string">"An error occured"</span>);</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Write-to-a-file"><a href="#Write-to-a-file" class="headerlink" title="Write to a file"></a>Write to a file</h2><p>In the following example, we use the <code>FileWriter</code> class together with its <code>write()</code> method to write some text to the file we created in the example above. If the file isn’t exists, it will be created. </p>
-<p>Note that when you are done writing to the file, you should close it with the <code>close()</code> method:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	FileWriter myWriter=<span class="keyword">new</span> FileWriter(<span class="string">"filename.txt"</span>);</span><br><span class="line">	myWriter.write(<span class="string">"File in java is fun enough"</span>);</span><br><span class="line">	myWriter.close();</span><br><span class="line">	System.out.println(<span class="string">"Sucessfully wrote to the file"</span>);</span><br><span class="line">&#125;<span class="keyword">catch</span>(IOException e) &#123;</span><br><span class="line">	System.out.println(<span class="string">"An error occurred"</span>);</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Read-Files"><a href="#Read-Files" class="headerlink" title="Read Files"></a>Read Files</h2><p>In the following example, we use the <code>Scanner</code> class to read the contents of the text file we created, </p>
-<p>After we read the file, we should close the reader <code>myReader.close();</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">      File myObj = <span class="keyword">new</span> File(<span class="string">"filename.txt"</span>);</span><br><span class="line">      Scanner myReader = <span class="keyword">new</span> Scanner(myObj);</span><br><span class="line">      <span class="keyword">while</span> (myReader.hasNextLine()) &#123;</span><br><span class="line">        String data = myReader.nextLine();</span><br><span class="line">        System.out.println(data);</span><br><span class="line">      &#125;</span><br><span class="line">      myReader.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">      System.out.println(<span class="string">"An error occurred."</span>);</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Delete-Files"><a href="#Delete-Files" class="headerlink" title="Delete Files"></a>Delete Files</h2><p>To delete a file in Java, use the <code>delete()</code> method:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">File myObj=<span class="keyword">new</span> File(<span class="string">"Filename.txt"</span>);</span><br><span class="line"><span class="keyword">if</span>(myObj.delete()) &#123;</span><br><span class="line">	System.out.println(<span class="string">"Successfully delete the file"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">	System.out.println(<span class="string">"Failed to delete the file"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Java-Exceptions"><a href="#Java-Exceptions" class="headerlink" title="Java Exceptions"></a>Java Exceptions</h1><p>When an <strong>Exception</strong> occurs the normal flow of the program is disrupted and the program/Application terminates abnormally, which is not recommended, therefore, these exceptions are to be handled.</p>
-<p>If an error occurs, we can use <code>try...catch</code> to catch the error and execute some code to handle it:</p>
-<p>The <code>try</code> statement allows you to define a block of code to be tested for errors while it is being executed.</p>
-<p>The <code>catch</code> statement allows you to define a block of code to be executed, if an error occurs in the try block.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Excpetions</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">int</span>[] arr= &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line">		System.out.println(arr[<span class="number">10</span>]);</span><br><span class="line">		&#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"Someting worng"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/12/12/exam/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/12/exam/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6/" class="post-title-link" itemprop="url">算法复杂度</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-12-12 20:08:31 / Modified: 20:26:43" itemprop="dateCreated datePublished" datetime="2020-12-12T20:08:31+08:00">2020-12-12</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>89</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="什么是算法复杂度"><a href="#什么是算法复杂度" class="headerlink" title="什么是算法复杂度"></a>什么是算法复杂度</h2><p>算法复杂度由基本操作的执行次数来度量，</p>
-<ol>
-<li><p>总有一个n的规模（未知，已知则为O(1)）</p>
-</li>
-<li><p>确定执行次数m</p>
-</li>
-<li><p>根据</p>
-<p>例如<code>while(i &lt; n)</code></p>
-<p>根据<code>i</code>在m的次数下，i的增长速度。</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1415,13 +1182,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">223k</span>
+    <span title="Symbols count total">229k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:23</span>
+    <span title="Reading time total">3:28</span>
 </div>
 
 <div id="days"></div>

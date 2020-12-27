@@ -125,12 +125,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">153</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">156</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">17</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -187,6 +187,312 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/05/08/DS/%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/08/DS/%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/" class="post-title-link" itemprop="url">算法分析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-08 15:58:36" itemprop="dateCreated datePublished" datetime="2020-05-08T15:58:36+08:00">2020-05-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>946</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在进行算法分析时，我们需要了解程序的运行时间，和占用的内存</p>
+<ul>
+<li>用T（n）表示程序总执行次数（即一个<code>;</code>为一次）。表示，这个函数是通过n来判断T的大小</li>
+<li>用大O来体现时间复杂度。T（n）= O（f（n））。f（n）是程序中某个函数</li>
+</ul>
+<h2 id="推导bigO"><a href="#推导bigO" class="headerlink" title="推导bigＯ"></a>推导bigＯ</h2><p><strong>大Ｏ就是表示一个算法T(ｎ)执行次数的数量级</strong></p>
+<ol>
+<li>将所有的常数变成1</li>
+<li>只保留最高阶项</li>
+<li>如果最高阶项存在，且不是1。那么<strong>去除</strong>与最高阶项<strong>相乘的常数</strong></li>
+</ol>
+<p><img data-src="https://i.loli.net/2020/05/08/a64dthHwZBPCE3J.png" alt=""></p>
+<hr>
+<h1 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h1><h2 id="对数阶"><a href="#对数阶" class="headerlink" title="对数阶"></a>对数阶</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(count &lt; n)</span><br><span class="line">&#123;</span><br><span class="line">    count = count * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>这段代码的执行次数是：<strong>在超过n的时候，要将2乘多少次</strong><br>由此可知，$2^x = n$<strong>（x是执行次数）</strong>，即$x = log_2 n$</p>
+</li>
+<li><p>我们一般不写底数2，所以时间复杂度为$O(log n)$</p>
+</li>
+</ul>
+<h2 id="平方阶"><a href="#平方阶" class="headerlink" title="平方阶"></a>平方阶</h2><ul>
+<li><p>所谓的平方阶，就是从线到面的过程。可以看到这中双重循环在打印平面图形的练习中出现。So，可以联想到时间复杂度为$O(m \times n)$</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)</span><br><span class="line">    <span class="comment">/*时间复杂度为O（1）*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再来看这段代码。明显，这里的第二重循环<code>j = i</code>，这要怎么计算呢。第一个for循环n次，但是循环体里有这另外一个不确定次数的for，这时候的循环次数就<strong>不应该简单相乘了，可以看成是不规则平面图形</strong>。So，我们可以从一次一次循环去看。</p>
+</li>
+</ul>
+<p>ｉ＝０，执行ｎ次<br>ｉ＝１，执行ｎ－１次<br>ｉ＝２，执行ｎ－２次<br>．．．<br>．．．<br>ｉ＝ｎ－１，执行１次</p>
+<p>已得知，这个是公差为1的等差数列，只要进行等差数列求和就可以计算出执行次数<br>$$n+(n-1)+(n-2)+…+1$$<br>又$$S_n = n(a_1 + a_n)\div 2$$<br>得$$\frac{n^2}{2} + \frac{n}{2}$$</p>
+<p><strong>注意，最后bigO不能直接写运行次数。要经过3步推导。</strong></p>
+<ol>
+<li>将常数变为1。（这里没常数不用改）</li>
+<li>保留最高阶项。只留下$\frac{n^2}{2}$</li>
+<li>去除这个最高阶项的系数。最终得$O(n^2)$</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; n; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt; n; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/*时间复杂度为O（1）*/</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>求时间复杂度<strong>难的在于最数列进行运算</strong>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/05/06/DS/ADT%E7%9A%84%E8%AE%BE%E8%AE%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/06/DS/ADT%E7%9A%84%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">ADT的设计</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-06 21:07:34" itemprop="dateCreated datePublished" datetime="2020-05-06T21:07:34+08:00">2020-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>249</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>ADT（抽象数据类型），如果我们的程序需要使用类型，C中没有与之匹配的基本类型。那我们可以自己定义抽象数据类型。如果，我们要设计一个数据类型需要：</p>
+<ol>
+<li>提供存储数据的方法。（定义一个结构）</li>
+<li>描述操控该数据的方法</li>
+</ol>
+<h1 id="如何实现？"><a href="#如何实现？" class="headerlink" title="如何实现？"></a>如何实现？</h1><ol>
+<li>对数据类型进行一个属性和操作的描述。</li>
+<li>开发一个<em>实现ADT</em>的<strong>接口</strong>。（在.h头文件）</li>
+<li>编写代码实现接口。（.c文件）</li>
+</ol>
+<h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><p>int类型<br>给我们的属性是：它代表一个整数值。<br>操作是：可以进行<code>+ - * / %</code></p>
+<ul>
+<li>Anyway.ADT就是描述一些这个类型是<strong>属性和操作</strong>。如果要实现它，再通过接口(.h .c)来实现它。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/05/05/DS/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/ADT%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/05/DS/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/ADT%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="post-title-link" itemprop="url">线性表的顺序存储结构</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-05 10:22:49" itemprop="dateCreated datePublished" datetime="2020-05-05T10:22:49+08:00">2020-05-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>线性表有一种物理结构叫顺序存储结构。它由一系列连续的存储单元组成，从而使得逻辑上相邻的两个元素也连续。</p>
+<ul>
+<li>这样的结构可以使用一维数组来实现。数组的下标从0开始，但我们的元素是从1开始。所以，我们可以这样看：<strong>元素均对应，但标志不一样（只需在用[]时，-1即可）</strong><br><img data-src="https://i.loli.net/2020/05/08/LPTeAaztkmBrnHc.jpg" alt=""></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 50  <span class="comment">// 定义线性表的最大长度</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    ElemType data [MaxSize] ;  <span class="comment">// 表的元素</span></span><br><span class="line">    <span class="keyword">int</span> length;  <span class="comment">// 线性表的当前长度</span></span><br><span class="line">&#125;SqList;  <span class="comment">// 表的类型定义</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意线性表长度和数组长度不同</strong></p>
+<hr>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h2><ol>
+<li>如果线性表长度等于数组长度，退出</li>
+<li>如果插入到线性表长度+1以外，退出</li>
+<li>如果不是插到最后（length + 1），那么for，<strong>从最后一个元素到第i个</strong>，一个个往后退</li>
+</ol>
+<h2 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h2><ol>
+<li>如果线性表为空，退出</li>
+<li>如果删除表以外的数据，退出</li>
+<li>如果不是删除最后位置，for，从i+1到length一个个向前移</li>
+</ol>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><figcaption><span>1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TSIZE      45    <span class="comment">/* size of array to hold title  */</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 100</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">film</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> title[TSIZE];</span><br><span class="line">    <span class="keyword">int</span> rating;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* general type definitions */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">film</span> <span class="title">Item</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">list</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    Item entries[MAXSIZE];<span class="comment">//内含项的数组，**这时字符数组已经分配空间，赋值要用strcpy()**</span></span><br><span class="line">    <span class="keyword">int</span> items;  <span class="comment">//list中的一共的项数</span></span><br><span class="line">&#125; List;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><figcaption><span>2</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdbool.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAKESIZE 20</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Elememnt;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">PtrToNode</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> PtrToNode List;</span><br><span class="line"><span class="keyword">typedef</span> PtrToNode Position;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    Elememnt e[MAKESIZE];</span><br><span class="line">    <span class="keyword">int</span> length;     <span class="comment">//线性表长度</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitList</span><span class="params">(List L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    L-&gt;length = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListEmpty</span><span class="params">(List L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ClearList</span><span class="params">(List L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    L-&gt;length = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ListLength</span><span class="params">(List L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> L-&gt;length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Elememnt <span class="title">GetElement</span><span class="params">(List L, <span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> L-&gt;e[i - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">LocateElement</span><span class="params">(<span class="keyword">int</span> x, List L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L-&gt;length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(x == L-&gt;e[i])</span><br><span class="line">            <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Insert</span><span class="params">(List L,<span class="keyword">int</span> i,Elememnt e)</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="keyword">if</span> (L-&gt;length == MAKESIZE)  <span class="comment">/* 顺序线性表已经满 */</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span> (i&lt;<span class="number">1</span> || i &gt; L-&gt;length + <span class="number">1</span>)<span class="comment">/* 当i比第一位置小或者比最后一位置后一位置还要大时 */</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(i &lt; L-&gt;length)<span class="comment">//若插入的元素不在末尾</span></span><br><span class="line">    <span class="keyword">for</span>(k=L-&gt;length<span class="number">-1</span>;k&gt;=i<span class="number">-1</span>;k--)  <span class="comment">/* 将要插入位置之后的数据元素向后移动一位 */</span></span><br><span class="line">        L-&gt;e[k+<span class="number">1</span>]=L-&gt;e[k];</span><br><span class="line">	L-&gt;e[i<span class="number">-1</span>]=e;          <span class="comment">/* 将新元素插入 */</span></span><br><span class="line">	L-&gt;length++;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DeElement</span><span class="params">(List L, <span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L-&gt;length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(i &lt; <span class="number">1</span> || i &gt; L-&gt;length)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt; L-&gt;length; j++)</span><br><span class="line">        L-&gt;e[j - <span class="number">1</span>] = L-&gt;e[j];</span><br><span class="line">    L-&gt;length--;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintList</span><span class="params">(List L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L-&gt;length; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, L-&gt;e[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List L;</span><br><span class="line">    InitList(L);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Insert(L , i + <span class="number">1</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    DeElement(L, <span class="number">2</span>);</span><br><span class="line">    PrintList(L);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -852,331 +1158,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/27/c/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/27/c/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" class="post-title-link" itemprop="url">字符串输入输出</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-27 15:06:19" itemprop="dateCreated datePublished" datetime="2020-04-27T15:06:19+08:00">2020-04-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-14 21:12:54" itemprop="dateModified" datetime="2020-09-14T21:12:54+08:00">2020-09-14</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>568</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
-<li><p>当我们进行字符串输入时，<strong>scanf函数和转换说明%s只能读取一个单词</strong>。所以，要进行整行输入，需要用到gets</p>
-</li>
-<li><p>puts()<strong>一定要是字符串，即最后需要有’\0’</strong></p>
-</li>
-</ul>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="gets"><a href="#gets" class="headerlink" title="gets()"></a>gets()</h2><ol>
-<li><p>参数<br>(字符数组地址)</p>
-</li>
-<li><p>说明<br>遇到’\n’结束，丢弃’\n’，在最后加上’\0’。这使得gets()可以于puts()有很好的配合</p>
-</li>
-<li><p>缺点<br>缓冲区溢出，破坏栈中的内容。<br>当我们传入字符串数组的首地址时，gets只知道元素的开始处。这样会导致缓冲区溢出。它在遇到 EOF 字符或换行字符之前，不会停止读入文本。也就是：gets() 根本不执行边界检查。因此，使用 gets() 总是有可能使任何缓冲区溢出。</p>
-</li>
-</ol>
-<h2 id="puts"><a href="#puts" class="headerlink" title="puts()"></a>puts()</h2><ol>
-<li><p>参数<br>(字符数组地址)</p>
-</li>
-<li><p>说明<br>遇到’\0’结束，并且在最后加上’\n’</p>
-</li>
-</ol>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c++"><figcaption><span>逐个字符输入，pus()要加上'\0'</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str1[] = <span class="string">"we are learning C language."</span>;</span><br><span class="line">	<span class="keyword">char</span> str2[<span class="number">40</span>] = <span class="string">"we are learning C language."</span>;</span><br><span class="line">	<span class="keyword">char</span> str3[<span class="number">40</span>];</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>((str3[i] = getchar()) != <span class="string">'\n'</span>)</span><br><span class="line">		i++;</span><br><span class="line">    str3[i++] = <span class="string">'\0'</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">puts</span>(str3);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/26/linux/%E9%93%BE%E6%8E%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/26/linux/%E9%93%BE%E6%8E%A5/" class="post-title-link" itemprop="url">链接</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-26 20:24:14" itemprop="dateCreated datePublished" datetime="2020-04-26T20:24:14+08:00">2020-04-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>803</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>链接有两种<strong>硬链接</strong>（hard link）和<strong>字符链接</strong><br>当我们<code>ln</code>一个硬链接时，<code>ls -al</code>显示出来的文件链接数量就会加1，但是<code>ln -s</code>一个字符链接却不会。</p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
-<li><p>文件的读取<br>文件名——&gt;inode——&gt;数据区块</p>
-</li>
-<li><p>用<code>ln</code>来创建链接</p>
-</li>
-</ul>
-<ol>
-<li>符合链接，有参数<code>-s</code></li>
-<li>硬链接，无参数</li>
-</ol>
-<h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><ul>
-<li>这种链接只是新创建一个文件，这个文件里面的inode与源文件的inode相同，所以都会指向相同的数据区块。</li>
-</ul>
-<p>ｆ１<br>　　　＼<br>　　　　－＞ｉｎｏｄｅ－＞ｄａｔｅ　ｂｌｏｃｋ<br>　　　／<br>ｆ２　</p>
-<p><img data-src="https://i.loli.net/2020/04/26/rhjQode3vRcPyqz.png" alt="image.png"></p>
-<ul>
-<li><p>所以，我们新建一个硬链接<code>ln test testing</code>。我们把其中的一个文件删除，另外一个文件也能够访问到原始数据。</p>
-</li>
-<li><p>优点<br>可以将源文件删除，也能访问到原来的数据。</p>
-</li>
-<li><p>缺点</p>
-</li>
-</ul>
-<ol>
-<li>不能创建目录的硬链接</li>
-<li>不能跨文件系统</li>
-</ol>
-<h2 id="符号链接"><a href="#符号链接" class="headerlink" title="符号链接"></a>符号链接</h2><ul>
-<li>也是创建一个新文件，但是这个文件指向源文件的文件名，它等同于Windows的快捷方式。</li>
-</ul>
-<p>ｆ２－＞ｆ１－＞ｉｏｎｄｅ－＞ｄａｔｅ　ｂｌｏｃｋ</p>
-<p><img data-src="https://i.loli.net/2020/04/26/lDv1o7VQFPZn4wT.png" alt="image.png"></p>
-<ul>
-<li><p>所以，我们新建一个符号链接<code>ln -s test test2</code>。我们把源文件删除了（f1），那么符合链接文件无效（f2）</p>
-</li>
-<li><p>优点<br>可以创建目录的符号链接</p>
-</li>
-<li><p>缺点<br>删除源文件，通过符合链接不能访问原始数据</p>
-</li>
-</ul>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><h2 id="目录的符号链接"><a href="#目录的符号链接" class="headerlink" title="目录的符号链接"></a>目录的符号链接</h2><ul>
-<li><code>ln -s test test2</code><br>如果我们修改test2目录中的文件，那么test中的文件也会做相应的改变。因为，<strong>test2</strong>文件只是当作指向作用，<code>cd test2</code>的时候，就等于<code>cd test</code></li>
-</ul>
-<h2 id="目录的链接数量"><a href="#目录的链接数量" class="headerlink" title="目录的链接数量"></a>目录的链接数量</h2><p><code>mkdir /test/workspace</code><br>但我们创建这个目录时，相应地会产生两个隐藏目录。一共三个目录。<br>分别是<br>/test/workspace<br>/test/workspace .<br>/test/workspace ..</p>
-<ul>
-<li><p>因为<code>/test/workspace .</code>和<code>/test/workspace</code>相同，所以<code>ls -al</code>下，workspace的链接有2</p>
-</li>
-<li><p>/test/workspace ..和/test相同，所以/test的链接会+1</p>
-</li>
-</ul>
-<p><strong>当我们新建目录时，本目录的链接数为2，上级目录的链接数+1</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/23/linux/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/23/linux/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">文件系统</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-23 19:36:42" itemprop="dateCreated datePublished" datetime="2020-04-23T19:36:42+08:00">2020-04-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>460</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>文件系统，就是用来管理和存储文件的权限，属性，内容等文件信息的系统。<br>因操作系统的不同，文件系统也并不相同。Linux的正统文件系统为ext2。U盘使用的文件系统是FAT格式。</p>
-<h1 id="ext2（索引式文件系统）"><a href="#ext2（索引式文件系统）" class="headerlink" title="ext2（索引式文件系统）"></a>ext2（索引式文件系统）</h1><h2 id="包括"><a href="#包括" class="headerlink" title="包括"></a>包括</h2><ol>
-<li><p>inode<br>一个文件占用一个inode，主要是存储文件的权限和属性，还记录文件所存储所在的数据区块的号码。</p>
-</li>
-<li><p>数据区块<br>存储文件的内容，当文件太大时，就会占用多个区块</p>
-</li>
-<li><p>超级区块<br>记录整个文件系统的信息，比如使用了多少个inode，数据区块的使用量</p>
-</li>
-</ol>
-<h2 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h2><ul>
-<li><p>inode指向文件<br>因为，每个inode都对应这个文件的数据块。所以，当我们要读取文件时，就可以通过inode作为索引，找到该文件的数据区块。</p>
-</li>
-<li><p>inode指向目录<br>数据区块中仅存放文件名</p>
-</li>
-</ul>
-<p><img data-src="https://i.loli.net/2020/04/23/lg19EAWjm2aV6Yk.jpg" alt=""></p>
-<h1 id="FAT"><a href="#FAT" class="headerlink" title="FAT"></a>FAT</h1><p>这种格式的文件系统没有inode的存在，就没有索引了。所以，它的读取数据区块速度较慢。<br><img data-src="https://i.loli.net/2020/04/23/bLr6FNjPf4zvedK.png" alt=""></p>
-<h1 id="碎片整理"><a href="#碎片整理" class="headerlink" title="碎片整理"></a>碎片整理</h1><p>当我们要读取一个文件时，磁头会在磁盘上转动，如果保存文件的各个数据区块分散严重的话，磁头就会在磁盘中要多转几圈才能读取数据。碎片整理，就是要把这些数据区块整理到一起，这样读取文件的速度就会更快。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1281,13 +1262,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">223k</span>
+    <span title="Symbols count total">229k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:23</span>
+    <span title="Reading time total">3:28</span>
 </div>
 
 <div id="days"></div>
@@ -1450,6 +1431,59 @@ window.addEventListener('pjax:success', () => {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
   <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>

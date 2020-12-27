@@ -31,7 +31,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.imgur.com/UoeJx2T.png">
 <meta property="article:published_time" content="2020-08-18T09:54:47.000Z">
-<meta property="article:modified_time" content="2020-12-26T17:03:38.004Z">
+<meta property="article:modified_time" content="2020-12-27T03:55:19.189Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
@@ -132,12 +132,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">153</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">156</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">17</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -228,7 +228,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-27 01:03:38" itemprop="dateModified" datetime="2020-12-27T01:03:38+08:00">2020-12-27</time>
+                <time title="Modified: 2020-12-27 11:55:19" itemprop="dateModified" datetime="2020-12-27T11:55:19+08:00">2020-12-27</time>
               </span>
 
           
@@ -244,7 +244,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>5.8k</span>
+              <span>6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -325,9 +325,16 @@
 
 
 <h3 id="极其重要："><a href="#极其重要：" class="headerlink" title="极其重要："></a>极其重要：</h3><ul>
-<li>First, 要明白一个情况。<code>L-&gt;next</code><strong>这个东西，做为左值，右值是什么意义。</strong><ul>
+<li><p>First, 要明白一个情况。<code>L-&gt;next</code><strong>这个东西，做为左值，右值是什么意义。</strong></p>
+<ul>
 <li>左值：该节点中存储的下个节点的地址</li>
 <li>右值：下一个节点</li>
+</ul>
+</li>
+<li><p>Second, <code>rear-&gt;next-&gt;next</code>，从左到右第一个next肯定是下一个节点，而第二个next要分情况（也是根据First原则。</p>
+<ul>
+<li>rear-&gt;next-&gt;next = s-&gt;next;（左值，rear-&gt;next节点的next指针域）</li>
+<li>s=rear-&gt;next-&gt;next;（右值，下俩个节点）</li>
 </ul>
 </li>
 </ul>
@@ -488,13 +495,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">223k</span>
+    <span title="Symbols count total">229k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:23</span>
+    <span title="Reading time total">3:28</span>
 </div>
 
 <div id="days"></div>

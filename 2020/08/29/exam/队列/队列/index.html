@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://i.imgur.com/goD6jEc.png">
 <meta property="og:image" content="https://i.imgur.com/LvEgjTr.png">
 <meta property="article:published_time" content="2020-08-29T06:40:59.000Z">
-<meta property="article:modified_time" content="2020-09-02T06:01:48.288Z">
+<meta property="article:modified_time" content="2020-12-27T11:48:31.328Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
@@ -133,12 +133,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">153</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">156</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">17</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -229,7 +229,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-02 14:01:48" itemprop="dateModified" datetime="2020-09-02T14:01:48+08:00">2020-09-02</time>
+                <time title="Modified: 2020-12-27 19:48:31" itemprop="dateModified" datetime="2020-12-27T19:48:31+08:00">2020-12-27</time>
               </span>
 
           
@@ -245,14 +245,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.4k</span>
+              <span>4.2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
+              <span>4 mins.</span>
             </span>
 
         </div>
@@ -299,7 +299,11 @@
 
 
 
-<h2 id="链队列"><a href="#链队列" class="headerlink" title="链队列"></a>链队列</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">QNode</span>//链队列的节点定义</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">QNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;QNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>//链队列的类型定义</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	QNode* front;</span><br><span class="line">	QNode* rear;</span><br><span class="line">&#125;LiQueue;</span><br></pre></td></tr></table></figure>
+<h3 id="implement"><a href="#implement" class="headerlink" title="implement"></a>implement</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxSize 10</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data[maxSize];</span><br><span class="line">    <span class="comment">//下标</span></span><br><span class="line">    <span class="keyword">int</span> front;</span><br><span class="line">    <span class="keyword">int</span> rear;</span><br><span class="line">&#125;Queue;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(Queue &amp;q)</span></span>&#123;</span><br><span class="line">    q.front=q.rear=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">length</span><span class="params">(Queue q)</span></span>&#123;</span><br><span class="line">    <span class="comment">//rear-front后可能是负数，所以要+maxSize</span></span><br><span class="line">    <span class="keyword">return</span> ((q.rear-q.front)+maxSize)%maxSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">enqueue</span><span class="params">(Queue &amp;q, <span class="keyword">int</span> e)</span></span>&#123;</span><br><span class="line">    <span class="comment">//入队先判断是否为满</span></span><br><span class="line">    <span class="keyword">if</span>(q.front==(q.rear+<span class="number">1</span>)%maxSize)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    q.rear=(q.rear+<span class="number">1</span>)%maxSize;</span><br><span class="line">    q.data[q.rear]=e;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dequeue</span><span class="params">(Queue &amp;q, <span class="keyword">int</span> &amp;e)</span></span>&#123;</span><br><span class="line">    <span class="comment">//判断是否为空</span></span><br><span class="line">    <span class="keyword">if</span>(q.front==q.rear)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    q.front=(q.front+<span class="number">1</span>)%maxSize;</span><br><span class="line">    e=q.data[q.front];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Queue q;</span><br><span class="line">    init(q);</span><br><span class="line">    enqueue(q,<span class="number">11</span>);</span><br><span class="line">    <span class="keyword">int</span> e;</span><br><span class="line">    dequeue(q,e);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;e&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="链队列"><a href="#链队列" class="headerlink" title="链队列"></a>链队列</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">QNode</span>//链队列的节点定义</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">QNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;QNode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>//链队列的类型定义</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	QNode* front;</span><br><span class="line">	QNode* rear;</span><br><span class="line">&#125;LiQueue;</span><br></pre></td></tr></table></figure>
 
 <h3 id="两个状态-1"><a href="#两个状态-1" class="headerlink" title="两个状态"></a>两个状态</h3><ul>
 <li><p>空队列<br>当rear和front其中一个为空的时候（看图说明）<br><code>rear == NULL || front == NULL</code></p>
@@ -404,7 +408,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Detail"><span class="nav-number">2.</span> <span class="nav-text">Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#循环队列"><span class="nav-number">2.1.</span> <span class="nav-text">循环队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两个状态"><span class="nav-number">2.1.1.</span> <span class="nav-text">两个状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个操作"><span class="nav-number">2.1.2.</span> <span class="nav-text">两个操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#占满整个数组的循环队列"><span class="nav-number">2.1.3.</span> <span class="nav-text">占满整个数组的循环队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链队列"><span class="nav-number">2.2.</span> <span class="nav-text">链队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两个状态-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">两个状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个操作-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">两个操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有尾指针的链队列"><span class="nav-number">2.2.3.</span> <span class="nav-text">有尾指针的链队列</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Detail"><span class="nav-number">2.</span> <span class="nav-text">Detail</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#循环队列"><span class="nav-number">2.1.</span> <span class="nav-text">循环队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两个状态"><span class="nav-number">2.1.1.</span> <span class="nav-text">两个状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个操作"><span class="nav-number">2.1.2.</span> <span class="nav-text">两个操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#占满整个数组的循环队列"><span class="nav-number">2.1.3.</span> <span class="nav-text">占满整个数组的循环队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#implement"><span class="nav-number">2.1.4.</span> <span class="nav-text">implement</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链队列"><span class="nav-number">2.2.</span> <span class="nav-text">链队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两个状态-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">两个状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个操作-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">两个操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有尾指针的链队列"><span class="nav-number">2.2.3.</span> <span class="nav-text">有尾指针的链队列</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -452,13 +456,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">223k</span>
+    <span title="Symbols count total">229k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:23</span>
+    <span title="Reading time total">3:28</span>
 </div>
 
 <div id="days"></div>

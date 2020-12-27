@@ -125,12 +125,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">153</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">156</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">17</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -187,6 +187,331 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/27/c/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/27/c/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" class="post-title-link" itemprop="url">字符串输入输出</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-27 15:06:19" itemprop="dateCreated datePublished" datetime="2020-04-27T15:06:19+08:00">2020-04-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-14 21:12:54" itemprop="dateModified" datetime="2020-09-14T21:12:54+08:00">2020-09-14</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>568</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li><p>当我们进行字符串输入时，<strong>scanf函数和转换说明%s只能读取一个单词</strong>。所以，要进行整行输入，需要用到gets</p>
+</li>
+<li><p>puts()<strong>一定要是字符串，即最后需要有’\0’</strong></p>
+</li>
+</ul>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="gets"><a href="#gets" class="headerlink" title="gets()"></a>gets()</h2><ol>
+<li><p>参数<br>(字符数组地址)</p>
+</li>
+<li><p>说明<br>遇到’\n’结束，丢弃’\n’，在最后加上’\0’。这使得gets()可以于puts()有很好的配合</p>
+</li>
+<li><p>缺点<br>缓冲区溢出，破坏栈中的内容。<br>当我们传入字符串数组的首地址时，gets只知道元素的开始处。这样会导致缓冲区溢出。它在遇到 EOF 字符或换行字符之前，不会停止读入文本。也就是：gets() 根本不执行边界检查。因此，使用 gets() 总是有可能使任何缓冲区溢出。</p>
+</li>
+</ol>
+<h2 id="puts"><a href="#puts" class="headerlink" title="puts()"></a>puts()</h2><ol>
+<li><p>参数<br>(字符数组地址)</p>
+</li>
+<li><p>说明<br>遇到’\0’结束，并且在最后加上’\n’</p>
+</li>
+</ol>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c++"><figcaption><span>逐个字符输入，pus()要加上'\0'</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str1[] = <span class="string">"we are learning C language."</span>;</span><br><span class="line">	<span class="keyword">char</span> str2[<span class="number">40</span>] = <span class="string">"we are learning C language."</span>;</span><br><span class="line">	<span class="keyword">char</span> str3[<span class="number">40</span>];</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>((str3[i] = getchar()) != <span class="string">'\n'</span>)</span><br><span class="line">		i++;</span><br><span class="line">    str3[i++] = <span class="string">'\0'</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">puts</span>(str3);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/26/linux/%E9%93%BE%E6%8E%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/26/linux/%E9%93%BE%E6%8E%A5/" class="post-title-link" itemprop="url">链接</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-26 20:24:14" itemprop="dateCreated datePublished" datetime="2020-04-26T20:24:14+08:00">2020-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>803</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>链接有两种<strong>硬链接</strong>（hard link）和<strong>字符链接</strong><br>当我们<code>ln</code>一个硬链接时，<code>ls -al</code>显示出来的文件链接数量就会加1，但是<code>ln -s</code>一个字符链接却不会。</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ul>
+<li><p>文件的读取<br>文件名——&gt;inode——&gt;数据区块</p>
+</li>
+<li><p>用<code>ln</code>来创建链接</p>
+</li>
+</ul>
+<ol>
+<li>符合链接，有参数<code>-s</code></li>
+<li>硬链接，无参数</li>
+</ol>
+<h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><ul>
+<li>这种链接只是新创建一个文件，这个文件里面的inode与源文件的inode相同，所以都会指向相同的数据区块。</li>
+</ul>
+<p>ｆ１<br>　　　＼<br>　　　　－＞ｉｎｏｄｅ－＞ｄａｔｅ　ｂｌｏｃｋ<br>　　　／<br>ｆ２　</p>
+<p><img data-src="https://i.loli.net/2020/04/26/rhjQode3vRcPyqz.png" alt="image.png"></p>
+<ul>
+<li><p>所以，我们新建一个硬链接<code>ln test testing</code>。我们把其中的一个文件删除，另外一个文件也能够访问到原始数据。</p>
+</li>
+<li><p>优点<br>可以将源文件删除，也能访问到原来的数据。</p>
+</li>
+<li><p>缺点</p>
+</li>
+</ul>
+<ol>
+<li>不能创建目录的硬链接</li>
+<li>不能跨文件系统</li>
+</ol>
+<h2 id="符号链接"><a href="#符号链接" class="headerlink" title="符号链接"></a>符号链接</h2><ul>
+<li>也是创建一个新文件，但是这个文件指向源文件的文件名，它等同于Windows的快捷方式。</li>
+</ul>
+<p>ｆ２－＞ｆ１－＞ｉｏｎｄｅ－＞ｄａｔｅ　ｂｌｏｃｋ</p>
+<p><img data-src="https://i.loli.net/2020/04/26/lDv1o7VQFPZn4wT.png" alt="image.png"></p>
+<ul>
+<li><p>所以，我们新建一个符号链接<code>ln -s test test2</code>。我们把源文件删除了（f1），那么符合链接文件无效（f2）</p>
+</li>
+<li><p>优点<br>可以创建目录的符号链接</p>
+</li>
+<li><p>缺点<br>删除源文件，通过符合链接不能访问原始数据</p>
+</li>
+</ul>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><h2 id="目录的符号链接"><a href="#目录的符号链接" class="headerlink" title="目录的符号链接"></a>目录的符号链接</h2><ul>
+<li><code>ln -s test test2</code><br>如果我们修改test2目录中的文件，那么test中的文件也会做相应的改变。因为，<strong>test2</strong>文件只是当作指向作用，<code>cd test2</code>的时候，就等于<code>cd test</code></li>
+</ul>
+<h2 id="目录的链接数量"><a href="#目录的链接数量" class="headerlink" title="目录的链接数量"></a>目录的链接数量</h2><p><code>mkdir /test/workspace</code><br>但我们创建这个目录时，相应地会产生两个隐藏目录。一共三个目录。<br>分别是<br>/test/workspace<br>/test/workspace .<br>/test/workspace ..</p>
+<ul>
+<li><p>因为<code>/test/workspace .</code>和<code>/test/workspace</code>相同，所以<code>ls -al</code>下，workspace的链接有2</p>
+</li>
+<li><p>/test/workspace ..和/test相同，所以/test的链接会+1</p>
+</li>
+</ul>
+<p><strong>当我们新建目录时，本目录的链接数为2，上级目录的链接数+1</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/23/linux/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/23/linux/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">文件系统</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-23 19:36:42" itemprop="dateCreated datePublished" datetime="2020-04-23T19:36:42+08:00">2020-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>460</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>文件系统，就是用来管理和存储文件的权限，属性，内容等文件信息的系统。<br>因操作系统的不同，文件系统也并不相同。Linux的正统文件系统为ext2。U盘使用的文件系统是FAT格式。</p>
+<h1 id="ext2（索引式文件系统）"><a href="#ext2（索引式文件系统）" class="headerlink" title="ext2（索引式文件系统）"></a>ext2（索引式文件系统）</h1><h2 id="包括"><a href="#包括" class="headerlink" title="包括"></a>包括</h2><ol>
+<li><p>inode<br>一个文件占用一个inode，主要是存储文件的权限和属性，还记录文件所存储所在的数据区块的号码。</p>
+</li>
+<li><p>数据区块<br>存储文件的内容，当文件太大时，就会占用多个区块</p>
+</li>
+<li><p>超级区块<br>记录整个文件系统的信息，比如使用了多少个inode，数据区块的使用量</p>
+</li>
+</ol>
+<h2 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h2><ul>
+<li><p>inode指向文件<br>因为，每个inode都对应这个文件的数据块。所以，当我们要读取文件时，就可以通过inode作为索引，找到该文件的数据区块。</p>
+</li>
+<li><p>inode指向目录<br>数据区块中仅存放文件名</p>
+</li>
+</ul>
+<p><img data-src="https://i.loli.net/2020/04/23/lg19EAWjm2aV6Yk.jpg" alt=""></p>
+<h1 id="FAT"><a href="#FAT" class="headerlink" title="FAT"></a>FAT</h1><p>这种格式的文件系统没有inode的存在，就没有索引了。所以，它的读取数据区块速度较慢。<br><img data-src="https://i.loli.net/2020/04/23/bLr6FNjPf4zvedK.png" alt=""></p>
+<h1 id="碎片整理"><a href="#碎片整理" class="headerlink" title="碎片整理"></a>碎片整理</h1><p>当我们要读取一个文件时，磁头会在磁盘上转动，如果保存文件的各个数据区块分散严重的话，磁头就会在磁盘中要多转几圈才能读取数据。碎片整理，就是要把这些数据区块整理到一起，这样读取文件的速度就会更快。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -867,280 +1192,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/14/c/%E8%BF%90%E7%AE%97%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/14/c/%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">++ --运算符</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-14 10:00:20" itemprop="dateCreated datePublished" datetime="2020-04-14T10:00:20+08:00">2020-04-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>508</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="使用的先后"><a href="#使用的先后" class="headerlink" title="使用的先后"></a>使用的先后</h2><ul>
-<li>i++; 即 i = i + 1</li>
-<li>i++ 与 ++i<br>i++，先使用后递增。++i，先递增后使用</li>
-<li><em>注意，如果单独是一个表达式，就没区别，都要加1*</em></li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> p[<span class="number">8</span>] = &#123;<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>&#125;, j = <span class="number">0</span>, i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (i++ &lt; <span class="number">7</span>)      <span class="comment">//i与7比较后+1</span></span><br><span class="line">		<span class="keyword">if</span>(p[i] % <span class="number">2</span>)	<span class="comment">//这里的i已经是 = 1了</span></span><br><span class="line">		j += p[i];</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, j);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="参数执行的顺序是未定义的"><a href="#参数执行的顺序是未定义的" class="headerlink" title="参数执行的顺序是未定义的"></a>参数执行的顺序是未定义的</h2><p>例1：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">5</span>;</span><br><span class="line">While (num &lt; <span class="number">21</span>)</span><br><span class="line">&#123;</span><br><span class="line">	Printf(“%<span class="number">10</span>d %<span class="number">10</span>d\n”, num, num*num++);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译器可能先算num， 或者先算num*num++ 这就导致了不同的结果：<br>5                25<br>6                25</p>
-<p>例2：<br>Ans = num / 2 + 5 * (1 + num++);<br>这也可能先算num / 2， 或者先算5 * (1 + num++)；<br>Second:<br>原因：<br>由于++，–的运算使得变量会发生改变。</p>
-<h1 id="改进方法"><a href="#改进方法" class="headerlink" title="改进方法"></a>改进方法</h1><p>这些变量不要使用++ || –</p>
-<ul>
-<li>一个变量出现在一个函数的多个参数中</li>
-<li>一个变量多次出现在一个表达式中</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/14/c/%E7%A8%8B%E5%BA%8F%E5%B4%A9%E6%BA%83%E7%9A%84%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/14/c/%E7%A8%8B%E5%BA%8F%E5%B4%A9%E6%BA%83%E7%9A%84%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0/" class="post-title-link" itemprop="url">程序崩溃的可能原因</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-14 00:26:15" itemprop="dateCreated datePublished" datetime="2020-04-14T00:26:15+08:00">2020-04-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>173</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>程序的崩溃的可能由于：</p>
-<ol>
-<li><p>擦拭调程序的代码（把赋值给野指针）</p>
-</li>
-<li><p>内存越界<br>数组下标越界和指针移动越界</p>
-</li>
-<li><p>参数错误</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"%s %s's grade is %lf %lf %lf and your average is %lf\n"</span>, </span><br><span class="line">            p[i].grade[<span class="number">0</span>], p[i].grade[<span class="number">1</span>], p[i].grade[<span class="number">2</span>], p[i].average);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函数栈溢出</p>
-</li>
-<li><p>读取未赋值的变量</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/13/c/for%E5%BE%AA%E7%8E%AF%E7%9A%84%E8%B7%B3%E5%87%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/13/c/for%E5%BE%AA%E7%8E%AF%E7%9A%84%E8%B7%B3%E5%87%BA/" class="post-title-link" itemprop="url">for循环的跳出导致的数组越界</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-13 21:14:08" itemprop="dateCreated datePublished" datetime="2020-04-13T21:14:08+08:00">2020-04-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>439</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于for循环的判断失误导致的数组越界，本以为会执行后面的语句i++。随后，将i–，不料for循环是因break；跳出而导致访问了arr[0 - 1];</p>
-<ul>
-<li>for循环因判断语句为false跳出，<strong>也会执行完后面的i++</strong></li>
-<li>此外，不会执行后面的语句</li>
-</ul>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><figcaption><span>i的值</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">		<span class="keyword">continue</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i);      <span class="comment">//4</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i);      <span class="comment">//0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="数组越界"><a href="#数组越界" class="headerlink" title="数组越界"></a>数组越界</h1><p><strong>程序可能崩溃，可能不崩溃</strong><br>面对数组越界编译器不报错。</p>
-<p>例如：访问<code>arr[0 - 1];</code>，只要前面分配给本内存区域的空间足够大，则不会崩溃。如果前面空间补充足，可能会擦拭掉程序的代码，或者更改变量的值。这种操作可能debug也看不出问题，而且直到程序中止的那一行，也不会是出现错误的一行。但是可以依赖注释部分代码来排除。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1245,13 +1296,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">223k</span>
+    <span title="Symbols count total">229k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:23</span>
+    <span title="Reading time total">3:28</span>
 </div>
 
 <div id="days"></div>

@@ -22,24 +22,20 @@
     var CONFIG = {"hostname":"ferrychan666.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Goal为了能管理文件的所作出的修改。 Operationadd到stage 查看stagegit status查看stage的状态. 添加到stage版本库中有git给你创建的暂存区（stage）和分支（master）。git add .的作用就是将工作区的文件添加到stage。 删除stagegit restore --staged &lt;file&gt;...&quot; to unsta">
+  <meta name="description" content="前言为了将本地的repo托管到GitHub上的repo，需要创建SSH　key，通过SSH协议进行传输。并且通过git添加远程repo，进而推送到GitHub Operation创建SSH key这个key和本机相联系，保存在你GitHub的账户中。ssh-keygen -t rsa -C &quot;youremail@example.com&quot; 关联远程repo 在GitHub上new">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git的提交修改操作">
-<meta property="og:url" content="https://ferrychan666.github.io/2020/03/27/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:title" content="使用SSH加密传输到远程repo">
+<meta property="og:url" content="https://ferrychan666.github.io/2020/03/28/github/git/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/index.html">
 <meta property="og:site_name" content="Ferry&#39;s Blog">
-<meta property="og:description" content="Goal为了能管理文件的所作出的修改。 Operationadd到stage 查看stagegit status查看stage的状态. 添加到stage版本库中有git给你创建的暂存区（stage）和分支（master）。git add .的作用就是将工作区的文件添加到stage。 删除stagegit restore --staged &lt;file&gt;...&quot; to unsta">
+<meta property="og:description" content="前言为了将本地的repo托管到GitHub上的repo，需要创建SSH　key，通过SSH协议进行传输。并且通过git添加远程repo，进而推送到GitHub Operation创建SSH key这个key和本机相联系，保存在你GitHub的账户中。ssh-keygen -t rsa -C &quot;youremail@example.com&quot; 关联远程repo 在GitHub上new">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.ibb.co/LPncLLG/5c017de22bde1b62dcc538cd36510ab.jpg">
-<meta property="og:image" content="https://i.ibb.co/ZHJjM02/d7cff4f51de04ce05b149e9a1d44182.jpg">
-<meta property="og:image" content="https://i.ibb.co/g3w0zCK/81499340c53b662fca73efcb2b07871.png">
-<meta property="article:published_time" content="2020-03-27T15:41:46.000Z">
+<meta property="article:published_time" content="2020-03-28T05:20:06.000Z">
 <meta property="article:modified_time" content="2020-08-08T14:42:18.000Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.ibb.co/LPncLLG/5c017de22bde1b62dcc538cd36510ab.jpg">
 
-<link rel="canonical" href="https://ferrychan666.github.io/2020/03/27/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/">
+<link rel="canonical" href="https://ferrychan666.github.io/2020/03/28/github/git/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/">
 
 
 <script id="page-configurations">
@@ -52,7 +48,7 @@
   };
 </script>
 
-  <title>git的提交修改操作 | Ferry's Blog</title>
+  <title>使用SSH加密传输到远程repo | Ferry's Blog</title>
   
 
 
@@ -134,12 +130,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">153</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">156</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">17</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -200,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/27/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/28/github/git/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -213,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          git的提交修改操作
+          使用SSH加密传输到远程repo
         </h1>
 
         <div class="post-meta">
@@ -223,7 +219,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-03-27 23:41:46" itemprop="dateCreated datePublished" datetime="2020-03-27T23:41:46+08:00">2020-03-27</time>
+              <time title="Created: 2020-03-28 13:20:06" itemprop="dateCreated datePublished" datetime="2020-03-28T13:20:06+08:00">2020-03-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -246,7 +242,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>539</span>
+              <span>338</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -265,30 +261,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h1><p>为了能管理文件的所作出的修改。</p>
-<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><h2 id="add到stage"><a href="#add到stage" class="headerlink" title="add到stage"></a>add到stage</h2><ol>
-<li>查看stage<br><code>git status</code>查看stage的状态.</li>
-<li>添加到stage<br>版本库中有git给你创建的暂存区（stage）和分支（master）。<br><code>git add .</code>的作用就是将工作区的文件添加到stage。</li>
-<li>删除stage<br><code>git restore --staged &lt;file&gt;...&quot;</code> to unstage</li>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了将本地的repo托管到GitHub上的repo，需要创建SSH　key，通过SSH协议进行传输。并且通过git添加远程repo，进而推送到GitHub</p>
+<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><h2 id="创建SSH-key"><a href="#创建SSH-key" class="headerlink" title="创建SSH key"></a>创建SSH key</h2><p>这个key和本机相联系，保存在你GitHub的账户中。<br><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></p>
+<h2 id="关联远程repo"><a href="#关联远程repo" class="headerlink" title="关联远程repo"></a>关联远程repo</h2><ol>
+<li>在GitHub上new一个repo。与想要托管的本地repo同名。</li>
+<li>cd到本地repo。</li>
+<li>在git上添加远程repo，<br><code>git remote add origin your.ssh.url</code><br>origin就是远程仓库的名字。</li>
 </ol>
-<p><img data-src="https://i.ibb.co/LPncLLG/5c017de22bde1b62dcc538cd36510ab.jpg" alt=""></p>
-<h2 id="commit到master"><a href="#commit到master" class="headerlink" title="commit到master"></a>commit到master</h2><p>接下来就是提交。当我们做这一步之后才能被git所记录（log）<br>`git commit -m “update”<br><img data-src="https://i.ibb.co/ZHJjM02/d7cff4f51de04ce05b149e9a1d44182.jpg" alt=""></p>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ol>
-<li><p>查看版本历史(master)<br><code>git log</code><br>commit 后面的字符就是版本号<br>HEAD就是指针<br><img data-src="https://i.ibb.co/g3w0zCK/81499340c53b662fca73efcb2b07871.png" alt=""></p>
-</li>
-<li><p>返回到某个版本(版本号只需写前几个字符)<br><code>git reset --hard &lt;版本号&gt;</code></p>
-</li>
-</ol>
-<p><strong>这样文件就会被改为到原来被commit的那一次</strong></p>
-<ol start="3">
-<li>要把旧版本push到GitHub<strong>要用强制命令</strong><br><code>git push -u origin master -f</code><br>版本回退之后悔</li>
-</ol>
-<hr>
-<ol>
-<li>查看所有的版本<br>因为原来的<code>git log</code>已经看不到还没有返回之前的版本号，所以我们要查看所以的版本<br><code>git reflog</code><br>这样就列出了返回之前的版本号.</li>
-<li>继续执行<br><code>git reset --hard &lt;版本号&gt;</code></li>
-</ol>
-<p><strong>这样我们的文件就会被修改到某次历史</strong></p>
+<h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><p><code>git push -u origin master</code></p>
+<p><strong>这样就把本地的master分支关联且推送到远程的master分支</strong></p>
 
     </div>
 
@@ -307,12 +288,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/27/git/repository%E7%9A%84%E5%88%9B%E5%BB%BA/" rel="prev" title="repository的创建">
-      <i class="fa fa-chevron-left"></i> repository的创建
+    <a href="/2020/03/27/github/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/" rel="prev" title="git的提交修改操作">
+      <i class="fa fa-chevron-left"></i> git的提交修改操作
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/03/28/git/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/" rel="next" title="使用SSH加密传输到远程repo">
-      使用SSH加密传输到远程repo <i class="fa fa-chevron-right"></i>
+    <a href="/2020/03/28/github/git/%E5%B0%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93clone%E5%88%B0%E6%9C%AC%E5%9C%B0/" rel="next" title="将远程仓库clone到本地">
+      将远程仓库clone到本地 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -374,7 +355,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Goal"><span class="nav-number">1.</span> <span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Operation"><span class="nav-number">2.</span> <span class="nav-text">Operation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#add到stage"><span class="nav-number">2.1.</span> <span class="nav-text">add到stage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit到master"><span class="nav-number">2.2.</span> <span class="nav-text">commit到master</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本回退"><span class="nav-number">2.3.</span> <span class="nav-text">版本回退</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Operation"><span class="nav-number">2.</span> <span class="nav-text">Operation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建SSH-key"><span class="nav-number">2.1.</span> <span class="nav-text">创建SSH key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联远程repo"><span class="nav-number">2.2.</span> <span class="nav-text">关联远程repo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送"><span class="nav-number">2.3.</span> <span class="nav-text">推送</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -422,13 +403,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">223k</span>
+    <span title="Symbols count total">229k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:23</span>
+    <span title="Reading time total">3:28</span>
 </div>
 
 <div id="days"></div>
@@ -599,7 +580,7 @@ window.addEventListener('pjax:success', () => {
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://ferrychan666.github.io/2020/03/27/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://ferrychan666.github.io/2020/03/28/github/git/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/',]
       });
       });
   </script>
@@ -615,7 +596,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'gitalk',
       owner       : 'ferrychan666',
       admin       : ['ferrychan666'],
-      id          : '144b52a49588108c2395474e1c09f9d9',
+      id          : 'a3b7c03a239cda9316d56f3896494359',
         language: 'zh-CN',
       distractionFreeMode: true
     });

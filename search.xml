@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>C struct</title>
-    <url>/2020/12/27/C-struct/</url>
+    <url>/2020/12/27/c/C-struct/</url>
     <content><![CDATA[<h1 id="Define"><a href="#Define" class="headerlink" title="Define"></a>Define</h1><h3 id="Syntax-of-struct"><a href="#Syntax-of-struct" class="headerlink" title="Syntax of struct"></a>Syntax of struct</h3><p>After you define this data type , you can create variables of this type.  </p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">struct structureName </span><br><span class="line">&#123;</span><br><span class="line">    dataType member1;</span><br><span class="line">    dataType member2;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
@@ -521,17 +521,14 @@
   <entry>
     <title>算法复杂度</title>
     <url>/2020/12/12/exam/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
-    <content><![CDATA[<h2 id="什么是算法复杂度"><a href="#什么是算法复杂度" class="headerlink" title="什么是算法复杂度"></a>什么是算法复杂度</h2><p>算法复杂度由基本操作的执行次数来度量，</p>
-<ol>
-<li><p>总有一个n的规模（未知，已知则为O(1)）</p>
+    <content><![CDATA[<h2 id="什么是算法复杂度"><a href="#什么是算法复杂度" class="headerlink" title="什么是算法复杂度"></a>什么是算法复杂度</h2><p>将算法中<strong>基本操作的执行次数</strong>作为算法时间复杂度的度量。</p>
+<p>并不是整个算法的运行时间，而是基本操作次数。</p>
+<ul>
+<li><p>方法</p>
+<p>找到最大重复次数的语句，计算语句与规模n的函数f(n)，取O即可。</p>
 </li>
-<li><p>确定执行次数m</p>
-</li>
-<li><p>根据</p>
-<p>例如<code>while(i &lt; n)</code></p>
-<p>根据<code>i</code>在m的次数下，i的增长速度。</p>
-</li>
-</ol>
+</ul>
+<p>所以，时间复杂度<br>$$<br>T(n)=O(f(n)取其数量级)<br>$$</p>
 ]]></content>
       <tags>
         <tag>exam</tag>
@@ -1285,11 +1282,52 @@
 <ul>
 <li>定义二维数组<code>a[4][5]</code>。<ul>
 <li>无论是行优先还是列优先，<strong>矩阵都是同型</strong>的。但，取数组时的<code>a[][]</code>这两个方框的是<code>[行][列]</code>或者是<code>[列][行]</code></li>
-<li>还要清晰地知道：<strong><code>a[2][3]</code>前有2行3列</strong>（行优先）</li>
+<li>还要清晰地知道：<strong><code>a[2][3]</code>前有2行3列</strong>（行优先），<strong>因为下标从0开始</strong></li>
 </ul>
 </li>
 </ul>
 <p><img data-src="https://i.imgur.com/27wVhqO.png" alt=""></p>
+<h1 id="广义表"><a href="#广义表" class="headerlink" title="广义表"></a>广义表</h1><p>广义表是线性表的一种推广，线性表每一项仅限于单个元素。而广义表中的元素也可以是一个广义表（子表）。由此，可以得知广义表是递归的。（类似于集合）</p>
+<p>记作：<br>$$<br>L=(a_1,a_2,a_3…,a_n)<br>$$<br>由于广义表的复杂性，广义表一般使用链式存储结构。</p>
+<h2 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h2><p>大写字母表示：表     </p>
+<p>小写表示：元素</p>
+<ol>
+<li>A=()</li>
+<li>B=(d, e)</li>
+<li>C=(b, (c, d))</li>
+<li>D=(B,C)</li>
+<li>E=(a, E) 无限递归</li>
+</ol>
+<p>由于是递归定义的，所以可以表示成树型结构</p>
+<p><img data-src="https://i.imgur.com/e4biQR7.png" alt=""></p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
+<li><p>长度</p>
+<p>第二层的个数。C的长度是2</p>
+</li>
+<li><p>宽度</p>
+<p>根下面有几层</p>
+</li>
+<li><p>表头（第二层）</p>
+<p>第一个<strong>元素</strong></p>
+</li>
+<li><p>表尾（第二层）</p>
+<p>除了第一个元素，<strong>其他元素构成的表</strong></p>
+</li>
+</ol>
+<h1 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h1><h2 id="头尾链表存储结构"><a href="#头尾链表存储结构" class="headerlink" title="头尾链表存储结构"></a>头尾链表存储结构</h2><p>定义两种节点：</p>
+<ul>
+<li>表节点（标记域（1），头指针，尾指针）</li>
+<li>原子节点（标记域（0），数据域）</li>
+</ul>
+<img data-src="https://i.imgur.com/BHmKozw.png" style="zoom:67%;" />
+
+
+
+<h2 id="扩展线性链表存储结构"><a href="#扩展线性链表存储结构" class="headerlink" title="扩展线性链表存储结构"></a>扩展线性链表存储结构</h2><ul>
+<li>表节点（标记域（1），头指针，尾指针）</li>
+<li>原子节点（标记域（0），数据域，尾指针）</li>
+</ul>
+<p><img data-src="https://i.imgur.com/YkXORNh.png" alt=""></p>
 ]]></content>
       <tags>
         <tag>exam</tag>
@@ -2378,10 +2416,9 @@ $$
 </ul>
 <img data-src="https://i.imgur.com/ioGVm9J.jpg" style="zoom:67%;" />
 
-
-
-
-
+<ul>
+<li>树的高度和深度：树中节点的最大层次（图中为4）</li>
+</ul>
 <h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="双亲存储结构"><a href="#双亲存储结构" class="headerlink" title="双亲存储结构"></a>双亲存储结构</h2><p>双亲存储仅仅需要一个<strong>一维数组</strong>。<code>int tree[maxSize]</code></p>
 <p><strong>它的下标代表此节点的位置，数组元素代表双亲位置。</strong></p>
 <img data-src="https://i.imgur.com/twqsQIf.png" style="zoom: 67%;" />
@@ -2467,19 +2504,19 @@ $$
 
 
 <ul>
-<li>串的长度</li>
-</ul>
+<li><p>串的长度</p>
 <p><strong>串的长度是指串中字符的个数</strong>，而不是数组的长度。</p>
+</li>
+<li><p>串的存储结构</p>
 <ul>
-<li>串的存储结构<ul>
 <li>顺序存储结构</li>
 <li>动态分配存储</li>
 </ul>
 </li>
 </ul>
-<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="def"><a href="#def" class="headerlink" title="def"></a>def</h2><h3 id="定长顺序存储结构"><a href="#定长顺序存储结构" class="headerlink" title="定长顺序存储结构"></a>定长顺序存储结构</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> ch[maxsize + <span class="number">1</span>];<span class="comment">//maxsize是串的最大长度，+1是为了存储'\0'</span></span><br><span class="line">	<span class="keyword">int</span> length;<span class="comment">//串的长度</span></span><br><span class="line">&#125;Str;</span><br></pre></td></tr></table></figure>
+<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="定长顺序存储结构"><a href="#定长顺序存储结构" class="headerlink" title="定长顺序存储结构"></a>定长顺序存储结构</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> ch[maxsize + <span class="number">1</span>];<span class="comment">//maxsize是串的最大长度，+1是为了存储'\0'</span></span><br><span class="line">	<span class="keyword">int</span> length;<span class="comment">//串的长度</span></span><br><span class="line">&#125;Str;</span><br></pre></td></tr></table></figure>
 
-<h3 id="动态分配存储结构"><a href="#动态分配存储结构" class="headerlink" title="动态分配存储结构"></a>动态分配存储结构</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//动态分配存储结构</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span>* ch;<span class="comment">//指向串首地址的指针</span></span><br><span class="line">	<span class="keyword">int</span> length;<span class="comment">//串长度</span></span><br><span class="line">&#125;Str;</span><br></pre></td></tr></table></figure>
+<h2 id="动态分配存储结构"><a href="#动态分配存储结构" class="headerlink" title="动态分配存储结构"></a>动态分配存储结构</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//动态分配存储结构</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span>* ch;<span class="comment">//指向串首地址的指针</span></span><br><span class="line">	<span class="keyword">int</span> length;<span class="comment">//串长度</span></span><br><span class="line">&#125;Str;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -2518,6 +2555,46 @@ $$
 <h2 id="匹配算法"><a href="#匹配算法" class="headerlink" title="匹配算法"></a>匹配算法</h2><h3 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h3><p><img data-src="https://i.imgur.com/4MAZH39.png" alt=""></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">index</span><span class="params">(Str str, Str substr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">1</span>, k = i;<span class="comment">//i记录主串，j记录模式串，k记录比较位置。串从数组下标1开始存储</span></span><br><span class="line">	<span class="keyword">while</span> (i &lt;= str.length, j &lt;= substr.length)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (str.ch[i] == substr.ch[j])</span><br><span class="line">		&#123;</span><br><span class="line">			i++;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>	<span class="comment">//如果匹配失败，则从主串的下一个位置开始</span></span><br><span class="line">		&#123;</span><br><span class="line">			j = <span class="number">1</span>;</span><br><span class="line">			i = ++k;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (j &gt; substr.length)</span><br><span class="line">		<span class="keyword">return</span> k;</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p>定义主串长度为<code>n</code>，模式串长度为<code>m</code>，第<code>i</code>位匹配成功。</p>
+<p>所以，规模m, n。ASL为函数f(n)，基本语句执行次数。</p>
+<ul>
+<li><p>ASL最好情况</p>
+<p>当每一次进行比较时，第一位就匹配失败。</p>
+</li>
+</ul>
+<ul>
+<li><p>C(i)匹配次数：当匹配到第<code>i</code>位时，匹配成功。那么，匹配字符次数:<br>$$<br>C_i=i-1+m<br>$$<br>又因为，<code>i</code>的取值范围：<br>$$<br>(1，n-m+1)<br>$$</p>
+</li>
+<li><p>P(i)<br>$$<br>P_1=P_2=…=P_n=\frac1{n-m+1}<br>$$</p>
+</li>
+</ul>
+<ul>
+<li><p>ASL</p>
+<p>$$<br>ASL=\frac1{n-m+1}\sum_1^{n-m+1}(i-1+m)<br>$$</p>
+</li>
+</ul>
+<p>  <img data-src="https://i.imgur.com/XVFaap6.png" alt=""></p>
+<ul>
+<li><p>ASL最坏情况</p>
+<p>当每趟都不成功的匹配都发生在模式串的最后一个字符。</p>
+<ul>
+<li><p>C(i)<br>$$<br>C_i=i*m<br>$$</p>
+</li>
+<li><p>P(i)<br>$$<br>P_i=n-m+1<br>$$</p>
+</li>
+<li><p>ASL<br>$$<br>ASL=\frac1{n-m+1}\sum_1^{n-m+1}i*m<br>$$</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>  <img data-src="https://i.imgur.com/QxNgkJ6.png" alt=""></p>
+<ul>
+<li><p>平均时间复杂度</p>
+<p>经计算<strong>都为O(n*m)</strong></p>
+</li>
+</ul>
 <h3 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h3><p>KMP算法是模式匹配算法的改进，为了避免i的回溯，和避免出现不匹配的字符时，j直接回溯到1。</p>
 <h4 id="next-数组"><a href="#next-数组" class="headerlink" title="next[]数组"></a>next[]数组</h4><ul>
 <li>“前缀”指除了最后一个字符以外，一个字符串的全部头部组合；</li>
@@ -3285,24 +3362,16 @@ $$
   <entry>
     <title>递归</title>
     <url>/2020/05/17/c/%E9%80%92%E5%BD%92/</url>
-    <content><![CDATA[<h1 id="主要思想"><a href="#主要思想" class="headerlink" title="主要思想"></a>主要思想</h1><ol>
-<li><p>递归函数中位于递归调用之前的语句：均按被调函数的顺序执行</p>
-</li>
-<li><p>递归函数中位于递归调用之后的语句：均按被调函数<strong>相反的顺序</strong>执行</p>
-<p>这都是因为f(f(f(variable)))，可参照树的递归深度遍历</p>
-</li>
-<li><p>每次递归都创建变量</p>
-</li>
-</ol>
+    <content><![CDATA[<h1 id="主要思想"><a href="#主要思想" class="headerlink" title="主要思想"></a>主要思想</h1><p>递归不仅仅出现在编程中，还有广泛的应用。例如，一个问题中，还有一个一样的问题。与此同时，两个问题，都有同样的解决方法。</p>
+<p>​    <img data-src="https://i.imgur.com/z6KjqPX.png" alt=""></p>
 <ul>
-<li><p>printf语句在被调函数之后，所以打印 <strong>1~n</strong> 的数字</p>
-</li>
-<li><p><strong>经过树形结构，和嵌套结构后的思想：可像数学函数一样，一个个嵌套，完美解决递归</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printN</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n)</span><br><span class="line">    &#123;</span><br><span class="line">        printN(n - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    printN(n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
+<li><strong>经过树形结构，和嵌套结构后的思想：可像数学函数一样，一个个嵌套，完美解决递归</strong><figure class="highlight c"><figcaption><span>演示递归 debug</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">/* recur.c -- recursion illustration */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">up_and_down</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    up_and_down(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">up_and_down</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Level %d: n location %p\n"</span>, n, &amp;n); <span class="comment">// 1</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">4</span>)</span><br><span class="line">        up_and_down(n+<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"LEVEL %d: n location %p\n"</span>, n, &amp;n); <span class="comment">// 2</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><em>output*</em></li>
 </ul>
-<figure class="highlight c"><figcaption><span>演示递归 debug</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">/* recur.c -- recursion illustration */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">up_and_down</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    up_and_down(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">up_and_down</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Level %d: n location %p\n"</span>, n, &amp;n); <span class="comment">// 1</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">4</span>)</span><br><span class="line">        up_and_down(n+<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"LEVEL %d: n location %p\n"</span>, n, &amp;n); <span class="comment">// 2</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Level 1: n location 000000000061FE00</span><br><span class="line">Level 2: n location 000000000061FDD0</span><br><span class="line">Level 3: n location 000000000061FDA0</span><br><span class="line">Level 4: n location 000000000061FD70</span><br><span class="line">LEVEL 4: n location 000000000061FD70</span><br><span class="line">LEVEL 3: n location 000000000061FDA0</span><br><span class="line">LEVEL 2: n location 000000000061FDD0</span><br><span class="line">LEVEL 1: n location 000000000061FE00</span><br></pre></td></tr></table></figure>
+
+
+
 <h1 id="函数思想解决简单递归"><a href="#函数思想解决简单递归" class="headerlink" title="函数思想解决简单递归"></a>函数思想解决简单递归</h1><ol>
 <li>G(10)</li>
 <li>G(9) + 10</li>
@@ -3483,33 +3552,6 @@ $$
       </tags>
   </entry>
   <entry>
-    <title>递归的理解</title>
-    <url>/2020/05/12/DS/%E9%80%92%E5%BD%92%E7%9A%84%E7%90%86%E8%A7%A3/%E9%80%92%E5%BD%92%E7%9A%84%E7%90%86%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>递归实际上就是自己调用自己。可我们要去理解它，可以通过另一种方式—-重复调用与自己相同的函数。</p>
-<h1 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h1><h2 id="Fibonacci"><a href="#Fibonacci" class="headerlink" title="Fibonacci"></a>Fibonacci</h2><p>这个数列就是从第3项开始，等于前两项的和（0，1，1，2，3，5…)</p>
-<ul>
-<li><p>数学函数<br><img data-src="https://i.loli.net/2020/05/12/ke5CvsQBoYE3Ufz.png" alt=""></p>
-</li>
-<li><p>递归实现</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Fbi</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n &lt; <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> n == <span class="number">0</span> ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> Fbi(n - <span class="number">1</span>) + Fbi(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = Fbi(<span class="number">5</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, x);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="图示理解"><a href="#图示理解" class="headerlink" title="图示理解"></a>图示理解</h1><ol>
-<li>函数要找到递归出口（需要执行函数之前的语句）</li>
-</ol>
-<p><strong>把函数参数值，局部变量，返回值压如栈中</strong><br>2. 函数找到出口后，函数参数要变回与原来main（）中的一致。（执行函数之后的语句）<br><strong>再将函数的参数值，局部变量，返回值弹出栈</strong>，用于函数之后的语句</p>
-<p><img data-src="https://i.loli.net/2020/05/12/sFWJx7NMiw5Bb3g.png" alt=""></p>
-<ol>
-<li><strong>左侧图上的每一行就是每次的return</strong></li>
-<li><strong>再将右侧图所有的结果相加，得到最终return的结果</strong></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>DS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>栈</title>
     <url>/2020/05/11/DS/%E6%A0%88/%E6%A0%88/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>栈是<strong>为了限制插入，删除只能在末端的一种表</strong>。栈通常的操作有Push和Pop。<br>与同表类似，栈也有顺序存储结构和链式存储结构。<br><img data-src="https://i.loli.net/2020/05/15/H2cBp3FI9vORryX.jpg" alt=""></p>
@@ -3594,7 +3636,7 @@ $$
     <url>/2020/05/08/DS/%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在进行算法分析时，我们需要了解程序的运行时间，和占用的内存</p>
 <ul>
-<li>用T（n）表示程序总执行次数（即一个<code>;</code>为一次）。表示，这个函数是通过n来判断T的大小</li>
+<li>用T（n）表示程序总执行次数（即一个<code>;</code>为一次）。这个函数是通过n来判断T的大小</li>
 <li>用大O来体现时间复杂度。T（n）= O（f（n））。f（n）是程序中某个函数</li>
 </ul>
 <h2 id="推导bigO"><a href="#推导bigO" class="headerlink" title="推导bigＯ"></a>推导bigＯ</h2><p><strong>大Ｏ就是表示一个算法T(ｎ)执行次数的数量级</strong></p>
@@ -3630,7 +3672,7 @@ $$
 </ol>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; n; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt; n; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/*时间复杂度为O（1）*/</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>求时间复杂度<strong>难的在于最数列进行运算</strong>。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>求时间复杂度<strong>难的在于数列进行运算</strong>。</p>
 ]]></content>
       <tags>
         <tag>DS</tag>

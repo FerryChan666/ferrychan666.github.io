@@ -586,7 +586,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-15 17:21:11" itemprop="dateModified" datetime="2020-12-15T17:21:11+08:00">2020-12-15</time>
+                <time title="Modified: 2020-12-31 19:08:56" itemprop="dateModified" datetime="2020-12-31T19:08:56+08:00">2020-12-31</time>
               </span>
 
           <br>
@@ -595,14 +595,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.7k</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>3 mins.</span>
             </span>
 
         </div>
@@ -642,15 +642,16 @@
 <h2 id="插入类"><a href="#插入类" class="headerlink" title="插入类"></a>插入类</h2><h3 id="直接插入"><a href="#直接插入" class="headerlink" title="直接插入"></a>直接插入</h3><ul>
 <li><p>算法思想</p>
 <p><strong>遍历数组，将每一个数都按照从大到小的顺序插入到适当的位置上。</strong>（可以划分为一个有序数组和无序数组）</p>
+<p><img data-src="https://i.imgur.com/RzB5RyM.gif" alt=""></p>
+<p><img data-src="https://i.imgur.com/KTlBzdF.png" alt=""></p>
 </li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="comment">//数组中第一个数一定是有序的，所以从2开始</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=L.length;++i)</span><br><span class="line">		<span class="keyword">if</span> (L.r[i].key &lt; L.r[i - <span class="number">1</span>].key)<span class="comment">//寻找适当位置，并插入</span></span><br><span class="line">		&#123;</span><br><span class="line">			L.r[<span class="number">0</span>] = L.r[i];<span class="comment">//待插入元素存储在监视哨中(L.r[0]用来临时存储要插入的数)</span></span><br><span class="line">			L.r[i] = L.r[i - <span class="number">1</span>];<span class="comment">//如果i位比i-1位小，那么i-1覆盖到i位。</span></span><br><span class="line">            <span class="comment">//继续找地方插入</span></span><br><span class="line">			<span class="keyword">for</span> (j = i - <span class="number">2</span>; L.r[<span class="number">0</span>].key &lt; L.r[j].key; --j)</span><br><span class="line">				L.r[j + <span class="number">1</span>] = L.r[j];</span><br><span class="line">			L.r[j + <span class="number">1</span>] = L.r[<span class="number">0</span>];<span class="comment">//插入</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img data-src="https://i.imgur.com/KTlBzdF.png" alt=""></p>
-<p><img data-src="https://i.imgur.com/RzB5RyM.gif" alt=""></p>
-<h3 id="折半插入"><a href="#折半插入" class="headerlink" title="折半插入"></a>折半插入</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BInsertSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j,low,high,m;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= L.length; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		L.r[<span class="number">0</span>] = L.r[i];</span><br><span class="line">		low = <span class="number">1</span>; high = i - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (low&lt;=high)</span><br><span class="line">		&#123;</span><br><span class="line">			m = (low + high) / <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span> (L.r[<span class="number">0</span>].key &lt; L.r[m].key)</span><br><span class="line">				high = m - <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				low = m + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= high + <span class="number">1</span>; --j)</span><br><span class="line">			L.r[j + <span class="number">1</span>] = L.r[j];</span><br><span class="line">		L.r[high + <span class="number">1</span>] = L.r[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+<h3 id="折半插入"><a href="#折半插入" class="headerlink" title="折半插入"></a>折半插入</h3><p>跟直接插入排序类似，只不过在查找插入位置时，使用了折半查找。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BInsertSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j,low,high,m;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= L.length; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		L.r[<span class="number">0</span>] = L.r[i];</span><br><span class="line">		low = <span class="number">1</span>; high = i - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (low&lt;=high)</span><br><span class="line">		&#123;</span><br><span class="line">			m = (low + high) / <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span> (L.r[<span class="number">0</span>].key &lt; L.r[m].key)</span><br><span class="line">				high = m - <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				low = m + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= high + <span class="number">1</span>; --j)</span><br><span class="line">			L.r[j + <span class="number">1</span>] = L.r[j];</span><br><span class="line">		L.r[high + <span class="number">1</span>] = L.r[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -753,7 +754,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-12 16:46:08" itemprop="dateModified" datetime="2020-12-12T16:46:08+08:00">2020-12-12</time>
+                <time title="Modified: 2020-12-31 17:05:31" itemprop="dateModified" datetime="2020-12-31T17:05:31+08:00">2020-12-31</time>
               </span>
 
           <br>
@@ -800,27 +801,29 @@
 <ul>
 <li>并由该定义可得一个重要性质：<strong>中序遍历一颗二叉树可得一个以节点值递增的序列</strong></li>
 </ul>
-<h3 id="基本算法"><a href="#基本算法" class="headerlink" title="基本算法"></a>基本算法</h3><h4 id="查找关键字"><a href="#查找关键字" class="headerlink" title="查找关键字"></a>查找关键字</h4><p>根据定义，可以知道二叉排列树跟折半查找法是要求都是按顺序排列。所以，我们沿用折半查找的算法思想，先让key跟根的key比较，如果相等则return根节点（递归出口）。如果小于根的key，那么就递归进入左子树，再跟左子树的根的key比较。如果大于根的key那么就进入右子树。。。如果一直到最后什么也没有，那么就自然而然地return NULL。所以又可以知道<strong>折半查找的判定树（前面的）就是二叉排序树。但折半查找判定树是唯一的（因为它是靠有序表而建立起来的），二叉排序树是不唯一的（只要满足定义就可以）</strong>因为，树不唯一，深度不为唯一。所以，含有n个节点的ASL也不唯一。</p>
+<h3 id="基本算法"><a href="#基本算法" class="headerlink" title="基本算法"></a>基本算法</h3><h4 id="查找关键字"><a href="#查找关键字" class="headerlink" title="查找关键字"></a>查找关键字</h4><p>根据定义，可以知道二叉排列树跟折半查找法是要求都是按顺序排列。所以，我们沿用折半查找的算法思想，先让key跟根的key比较，如果相等则return根节点（递归出口）。如果小于根的key，那么就递归进入左子树，再跟左子树的根的key比较。如果大于根的key那么就进入右子树。。。如果一直到最后什么也没有，那么就自然而然地return NULL。所以又可以知道<strong><span style="color: red;">折半查找的判定树（折半查找生成的）就是二叉排序树。但折半查找判定树是唯一的（因为它是靠有序表而建立起来的），二叉排序树是不唯一的（只要满足定义就可以）</span></strong>因为，树不唯一，深度不为唯一。所以，含有n个节点的ASL也不唯一。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BSTNode* <span class="title">SearchBST</span><span class="params">(BSTNode* T, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (T == <span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (T-&gt;key == key)</span><br><span class="line">			<span class="keyword">return</span> T;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; T-&gt;key)</span><br><span class="line">			<span class="keyword">return</span> SearchBST(T-&gt;lchild, key);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">return</span> SearchBST(T-&gt;rchild, key);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="插入关键字"><a href="#插入关键字" class="headerlink" title="插入关键字"></a>插入关键字</h4><p>插入算法以查找算法为基础的。要插入一个key，先要向下查找，直到遇到节点为空，则创建节点，并且是新增的叶子节点。如果key等于其中某一个节点，则什么也不做。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertBST</span><span class="params">(BSTNode*&amp; T, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//遇到空就插入</span></span><br><span class="line">	<span class="keyword">if</span> (!T)</span><br><span class="line">	&#123;</span><br><span class="line">		T = <span class="keyword">new</span> BSTNode;</span><br><span class="line">		T-&gt;key = key;</span><br><span class="line">		T-&gt;lchild = T-&gt;rchild = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; T-&gt;key)</span><br><span class="line">		<span class="keyword">return</span> InsertBST(T-&gt;lchild, key);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (key &gt; T-&gt;key)			<span class="comment">//这里不能直接用else，因为key如果等于任何一个节点，则不插入</span></span><br><span class="line">		<span class="keyword">return</span> InsertBST(T-&gt;rchild, key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="创建二叉排序树"><a href="#创建二叉排序树" class="headerlink" title="创建二叉排序树"></a>创建二叉排序树</h4><p><strong>创建二叉排序树的算法就是使用插入算法，一个一个地从空树中插入节点。</strong></p>
+<h4 id="创建二叉排序树"><a href="#创建二叉排序树" class="headerlink" title="创建二叉排序树"></a>创建二叉排序树</h4><p>创建二叉排序树的算法就是<strong>使用插入算法</strong>，<strong>一个一个地</strong>从空树中插入节点。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreatBST</span><span class="params">(BSTNode *&amp;T,<span class="keyword">int</span> key[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T = <span class="literal">NULL</span>;<span class="comment">//初始化为空树</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		InsertBST(T, key[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 <p>总结：</p>
 <p>二叉排序树的插入算法以查找算法为基础，创建算法以插入算法为基础。</p>
-<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>平衡二叉树是一种特殊的二叉排序树，又称AVL树。为什么要研究这种特殊的二叉排序树呢？当然是因为它作为查找树的时候，查找效率更高。通过，查找算法可以发现，树的高度越低，查找速度越快。如果二叉树是线性的，查找时间复杂度为O(n)，如果是平衡二叉树复杂度为O(log2 n)</p>
+<h2 id="AVL平衡二叉树"><a href="#AVL平衡二叉树" class="headerlink" title="AVL平衡二叉树"></a>AVL平衡二叉树</h2><p>平衡二叉树是一种特殊的二叉排序树，又称AVL树。为什么要研究这种特殊的二叉排序树呢？当然是因为它作为查找树的时候，查找效率更高。通过，查找算法可以发现，树的高度越低，查找速度越快。如果二叉树是线性的，查找时间复杂度为O(n)，如果是平衡二叉树复杂度为O(log2 n)</p>
 <h3 id="建立平衡二叉树"><a href="#建立平衡二叉树" class="headerlink" title="建立平衡二叉树"></a>建立平衡二叉树</h3><p>平衡二叉树的建立也类似与二叉排序树的建立，也是一个一个节点地插入到树中。但要实现平衡。实现平衡就是需要左右子树之间的高度不能超过1。为此为根引入了<strong>平衡因子，即 平衡因子 = 左子树的高度 - 右子树的高度</strong></p>
 <p>那么关键问题就是在像往常一样创建排序二叉树的过程中，如何进行修改？变成平衡二叉树。平衡二叉树的调整需要引入<strong>最小不平衡子树</strong>。就是在逐步建立二叉树的过程中找到其中根平衡因子绝对值大于1的子树。</p>
 <p>而最小不平衡子树也有不同的形态，分为LL，RR，LR，RL型。这几种类型中都是取出顶上的3个节点。最小的变成左子树，最大的变成右子树，排在中间的变为根。</p>
-<img data-src="https://i.imgur.com/VRtlZiG.png" style="zoom: 67%;" />
+<img data-src="https://i.imgur.com/VRtlZiG.png" style="zoom: 50%;" />
 
 <p><img data-src="https://i.imgur.com/ibiaKLq.png" alt=""></p>
-<img data-src="https://i.imgur.com/2Bz62Kv.png" style="zoom: 67%;" />
+<img data-src="https://i.imgur.com/2Bz62Kv.png" style="zoom: 50%;" />
+
+
       
     </div>
 
@@ -870,7 +873,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-12 16:30:18" itemprop="dateModified" datetime="2020-12-12T16:30:18+08:00">2020-12-12</time>
+                <time title="Modified: 2020-12-31 11:33:22" itemprop="dateModified" datetime="2020-12-31T11:33:22+08:00">2020-12-31</time>
               </span>
 
           <br>
@@ -879,14 +882,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.5k</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>3 mins.</span>
             </span>
 
         </div>
@@ -928,13 +931,22 @@
 <p>可得<br>$$<br>ASL=(1+n)/2<br>$$</p>
 <h2 id="折半查找-二分查找"><a href="#折半查找-二分查找" class="headerlink" title="折半查找(二分查找)"></a>折半查找(二分查找)</h2><p>这种方法就不是从头到尾一个个去对比key。而是折取一半（范围变成一半）比较，不成功再折取一半。那么效率也明显提高了。</p>
 <ul>
-<li>不过好的方法也会有限制<ul>
+<li><p>不过好的方法也会有限制</p>
+<ul>
 <li>查找表中元素只能按有序排列</li>
 <li>必须是顺序存储结构，不能是链式</li>
 </ul>
 </li>
+<li><p>算法步骤</p>
+<ol>
+<li>设立当前查找区间，设low, high和mid=(low+high)/2</li>
+<li>用key与中间值比较，如果相等则直接返回。</li>
+<li>如果是key&gt;mid，则令low=mid+1。如果是key&lt;mid，则令high=mid-1;</li>
+<li>循环以上步骤，直至查找成功，或者low&gt;high退出循环</li>
+</ol>
+</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Searching_Bin</span><span class="params">(SSTable ST, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> low = <span class="number">1</span>, high = ST.length, mid;</span><br><span class="line">	<span class="keyword">while</span> (low &lt;= high)</span><br><span class="line">	&#123;</span><br><span class="line">		mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (key == ST.R[mid].key)</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; ST.R[mid].key)</span><br><span class="line">			high = mid - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			low = mid + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//若元素不存在，则返回0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//递归形式</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Searching_Bin_Recursion</span><span class="params">(SSTable ST, <span class="keyword">int</span> key, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span> (key == ST.R[mid].key)</span><br><span class="line">		<span class="keyword">return</span> mid;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; ST.R[mid].key)</span><br><span class="line">		Searching_Bin_Recursion(ST, key, low, mid - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		Searching_Bin_Recursion(ST, key, mid + <span class="number">1</span>, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Searching_Bin</span><span class="params">(SSTable ST, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> low = <span class="number">1</span>, high = ST.length, mid;</span><br><span class="line">	<span class="keyword">while</span> (low &lt;= high)</span><br><span class="line">	&#123;</span><br><span class="line">		mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (key == ST.R[mid].key)</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; ST.R[mid].key)</span><br><span class="line">			high = mid - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			low = mid + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//若元素不存在，则返回0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//递归形式</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Searching_Bin_Recursion</span><span class="params">(SSTable ST, <span class="keyword">int</span> key, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span> (key == ST.R[mid].key)</span><br><span class="line">		<span class="keyword">return</span> mid;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (key &lt; ST.R[mid].key)</span><br><span class="line">		Searching_Bin_Recursion(ST, key, low, mid - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		Searching_Bin_Recursion(ST, key, mid + <span class="number">1</span>, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -942,9 +954,20 @@
 <p><img data-src="https://i.imgur.com/b6FEzAA.png" alt=""></p>
 <p>其中：</p>
 <p><strong>p为查找第i个记录的概率(一般为1/n)，c为查找第i个记录所要用到的次数</strong></p>
-<h3 id="折半查找的判定树建立，平均查找长度求法"><a href="#折半查找的判定树建立，平均查找长度求法" class="headerlink" title="折半查找的判定树建立，平均查找长度求法"></a>折半查找的判定树建立，平均查找长度求法</h3><p>更清晰地，<strong>将折半查找过程用二叉树来描述</strong>。把当前查找的中间位作为根，每一条记录对于一个节点。左子表和右子表作为左右子树。由此得到折半查找的判定树。<strong>这样有助于求解，折半查找的比较次数</strong></p>
+<h3 id="折半查找的判定树建立-amp-平均查找长度求法"><a href="#折半查找的判定树建立-amp-平均查找长度求法" class="headerlink" title="折半查找的判定树建立&amp;平均查找长度求法"></a>折半查找的判定树建立&amp;平均查找长度求法</h3><ol>
+<li>把范围(low, high)内当前查找区间的mid作为根，左子表和右子表分别作为左右子树。</li>
+<li>low, high, mid的变化跟折半查找的算法步骤一样，画出所有节点。</li>
+</ol>
+<p>至于为什么要画出折半查找的判定树呢？</p>
 <ul>
-<li>节点的查找长度（比较次数）：<strong>为从根节点走到该叶子节点，所经过的节点个数（注意，不把空指针比较次数，计算在内）</strong></li>
+<li><p>结点所在树的<strong>层次即为折半查找中的比较次数</strong>。</p>
+</li>
+<li><p>如果是查找不成功的点，那么他将会走到一个空指针，空指针不和key比较。所以，比较次数为空指针的上一层。（最终，即便是不成功，也不会超过树的最大层数，$\lfloor log_2n\rfloor+1$）</p>
+</li>
+<li><p>$$<br>ASL=\frac1n(该层数*结点所在该层数的个数)<br>$$</p>
+</li>
+<li><p>比较次数</p>
+</li>
 </ul>
 <p><img data-src="https://i.imgur.com/fnB0VJs.png" alt=""></p>
 <p><img data-src="https://i.imgur.com/LNe2OY3.png" alt=""></p>
@@ -962,13 +985,13 @@
 <li><p>每一块表中的元素是任意的</p>
 </li>
 <li><p>但块与块之间要按关键字的大小有序排列</p>
-<p>所以根据二分查找和顺序查找的适用范围，<strong>可以知道分块查找，首先对块进行折半查找，对块中元素进行顺序查找。</strong>对应的平均查找长度ASL，就是<strong>二分查找的平均查找长度+顺序查找的平均查找长度</strong></p>
+<p>所以根据二分查找和顺序查找的适用范围，<strong>可以知道分块查找，首先对块进行折半查找，对块中元素进行顺序查找。</strong>对应的平均查找长度ASL就是<strong>二分查找的平均查找长度+顺序查找的平均查找长度</strong></p>
 <p>由此，就可以得到</p>
 </li>
 <li><p>优点</p>
 <ol>
 <li>找到对应的块，就能进行插入删除操作。</li>
-<li>由于外部能进行折半查找，所以查找速度又能比折半查找更快</li>
+<li>由于外部能进行折半查找，所以查找速度又能比顺序查找更快</li>
 </ol>
 </li>
 <li><p>缺点</p>
@@ -1351,7 +1374,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-29 19:29:32" itemprop="dateModified" datetime="2020-12-29T19:29:32+08:00">2020-12-29</time>
+                <time title="Modified: 2020-12-31 11:00:57" itemprop="dateModified" datetime="2020-12-31T11:00:57+08:00">2020-12-31</time>
               </span>
 
           <br>
@@ -1398,6 +1421,9 @@
 <li><p>性质3：高度或深度为k的二叉树最多有节点<br>$$<br>2^k-1<br>$$</p>
 </li>
 <li><p>性质5：函数Catalan()：给n个节点，能构成h(n)种不同的二叉树（因为有左右之分）<br>$$<br>h(n)=C^n_{2n}/(n+1)<br>$$</p>
+</li>
+<li></li>
+<li><p>性质6：具有n个节点的二叉树<strong>完全二叉树</strong>的高度或深度为<br>$$<br>\lfloor log_2n\rfloor+1<br>$$</p>
 </li>
 </ul>
 <h1 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h1><p>二叉树是一种有限制的树。</p>
@@ -1909,13 +1935,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">231k</span>
+    <span title="Symbols count total">232k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:30</span>
+    <span title="Reading time total">3:31</span>
 </div>
 
 <div id="days"></div>

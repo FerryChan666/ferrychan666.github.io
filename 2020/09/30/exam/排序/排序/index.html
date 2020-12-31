@@ -29,8 +29,8 @@
 <meta property="og:site_name" content="Ferry&#39;s Blog">
 <meta property="og:description" content="Synopsis排序分为内部排序和外部排序。内部排序是指待排序记录全部放在内存中实现，而外部排序适用于数据量较大的情况，需要使用到外存。  内部排序 插入类 直接插入 折半插入 希尔排序   交换类 冒泡排序 快速排序   选择类 归并类 分配类   外部排序  Descriptiondefinition12345678910#define MAXSIZE 20typedef int KeyTyp">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.imgur.com/KTlBzdF.png">
 <meta property="og:image" content="https://i.imgur.com/RzB5RyM.gif">
+<meta property="og:image" content="https://i.imgur.com/KTlBzdF.png">
 <meta property="og:image" content="https://i.imgur.com/uj44iCp.png">
 <meta property="og:image" content="https://i.imgur.com/GOUAqZp.png">
 <meta property="og:image" content="https://i.imgur.com/EJV4rRt.jpg">
@@ -40,11 +40,11 @@
 <meta property="og:image" content="https://i.imgur.com/vFV3nJe.png">
 <meta property="og:image" content="https://i.imgur.com/40sVKUW.png">
 <meta property="article:published_time" content="2020-09-30T08:19:20.000Z">
-<meta property="article:modified_time" content="2020-12-15T09:21:11.885Z">
+<meta property="article:modified_time" content="2020-12-31T11:08:56.262Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/KTlBzdF.png">
+<meta name="twitter:image" content="https://i.imgur.com/RzB5RyM.gif">
 
 <link rel="canonical" href="https://ferrychan666.github.io/2020/09/30/exam/%E6%8E%92%E5%BA%8F/%E6%8E%92%E5%BA%8F/">
 
@@ -237,7 +237,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-15 17:21:11" itemprop="dateModified" datetime="2020-12-15T17:21:11+08:00">2020-12-15</time>
+                <time title="Modified: 2020-12-31 19:08:56" itemprop="dateModified" datetime="2020-12-31T19:08:56+08:00">2020-12-31</time>
               </span>
 
           
@@ -253,14 +253,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.7k</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>3 mins.</span>
             </span>
 
         </div>
@@ -300,15 +300,16 @@
 <h2 id="插入类"><a href="#插入类" class="headerlink" title="插入类"></a>插入类</h2><h3 id="直接插入"><a href="#直接插入" class="headerlink" title="直接插入"></a>直接插入</h3><ul>
 <li><p>算法思想</p>
 <p><strong>遍历数组，将每一个数都按照从大到小的顺序插入到适当的位置上。</strong>（可以划分为一个有序数组和无序数组）</p>
+<p><img data-src="https://i.imgur.com/RzB5RyM.gif" alt=""></p>
+<p><img data-src="https://i.imgur.com/KTlBzdF.png" alt=""></p>
 </li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="comment">//数组中第一个数一定是有序的，所以从2开始</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=L.length;++i)</span><br><span class="line">		<span class="keyword">if</span> (L.r[i].key &lt; L.r[i - <span class="number">1</span>].key)<span class="comment">//寻找适当位置，并插入</span></span><br><span class="line">		&#123;</span><br><span class="line">			L.r[<span class="number">0</span>] = L.r[i];<span class="comment">//待插入元素存储在监视哨中(L.r[0]用来临时存储要插入的数)</span></span><br><span class="line">			L.r[i] = L.r[i - <span class="number">1</span>];<span class="comment">//如果i位比i-1位小，那么i-1覆盖到i位。</span></span><br><span class="line">            <span class="comment">//继续找地方插入</span></span><br><span class="line">			<span class="keyword">for</span> (j = i - <span class="number">2</span>; L.r[<span class="number">0</span>].key &lt; L.r[j].key; --j)</span><br><span class="line">				L.r[j + <span class="number">1</span>] = L.r[j];</span><br><span class="line">			L.r[j + <span class="number">1</span>] = L.r[<span class="number">0</span>];<span class="comment">//插入</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img data-src="https://i.imgur.com/KTlBzdF.png" alt=""></p>
-<p><img data-src="https://i.imgur.com/RzB5RyM.gif" alt=""></p>
-<h3 id="折半插入"><a href="#折半插入" class="headerlink" title="折半插入"></a>折半插入</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BInsertSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j,low,high,m;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= L.length; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		L.r[<span class="number">0</span>] = L.r[i];</span><br><span class="line">		low = <span class="number">1</span>; high = i - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (low&lt;=high)</span><br><span class="line">		&#123;</span><br><span class="line">			m = (low + high) / <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span> (L.r[<span class="number">0</span>].key &lt; L.r[m].key)</span><br><span class="line">				high = m - <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				low = m + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= high + <span class="number">1</span>; --j)</span><br><span class="line">			L.r[j + <span class="number">1</span>] = L.r[j];</span><br><span class="line">		L.r[high + <span class="number">1</span>] = L.r[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+<h3 id="折半插入"><a href="#折半插入" class="headerlink" title="折半插入"></a>折半插入</h3><p>跟直接插入排序类似，只不过在查找插入位置时，使用了折半查找。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BInsertSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j,low,high,m;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= L.length; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		L.r[<span class="number">0</span>] = L.r[i];</span><br><span class="line">		low = <span class="number">1</span>; high = i - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (low&lt;=high)</span><br><span class="line">		&#123;</span><br><span class="line">			m = (low + high) / <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span> (L.r[<span class="number">0</span>].key &lt; L.r[m].key)</span><br><span class="line">				high = m - <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				low = m + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= high + <span class="number">1</span>; --j)</span><br><span class="line">			L.r[j + <span class="number">1</span>] = L.r[j];</span><br><span class="line">		L.r[high + <span class="number">1</span>] = L.r[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -494,13 +495,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">231k</span>
+    <span title="Symbols count total">232k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:30</span>
+    <span title="Reading time total">3:31</span>
 </div>
 
 <div id="days"></div>

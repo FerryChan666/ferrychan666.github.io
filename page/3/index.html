@@ -953,7 +953,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-01 01:20:50" itemprop="dateModified" datetime="2021-01-01T01:20:50+08:00">2021-01-01</time>
+                <time title="Modified: 2021-01-05 11:40:45" itemprop="dateModified" datetime="2021-01-05T11:40:45+08:00">2021-01-05</time>
               </span>
 
           <br>
@@ -962,7 +962,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>501</span>
+              <span>496</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -983,9 +983,13 @@
       
           <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="数组的顺序存储"><a href="#数组的顺序存储" class="headerlink" title="数组的顺序存储"></a>数组的顺序存储</h2><p>数组的顺序存储有两种方式：<strong>行优先，列优先</strong></p>
 <ul>
-<li>定义二维数组<code>a[4][5]</code>。<ul>
-<li>无论是行优先还是列优先，<strong>矩阵都是同型</strong>的。但，取数组时的<code>a[][]</code>这两个方框的是<code>[行][列]</code>或者是<code>[列][行]</code></li>
-<li>还要清晰地知道：<strong><code>a[2][3]</code>前有2行3列</strong>（行优先），<strong>因为下标从0开始</strong></li>
+<li><p>定义二维数组<code>a[4][5]</code>。</p>
+<ul>
+<li><p>无论是行优先还是列优先存储，都是以先行后列表示，即<code>a[行][列]</code>。<strong>存放方式只影响地址。</strong></p>
+</li>
+<li><p>还要清晰地知道：下标从1开始，还是从0开始。</p>
+<p><strong><code>a[2][3]</code>前有2行3列</strong>（行优先），<strong>因为下标从0开始</strong></p>
+</li>
 </ul>
 </li>
 </ul>
@@ -1006,9 +1010,6 @@
 <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
 <li><p>长度</p>
 <p>第二层的个数。C的长度是2</p>
-</li>
-<li><p>宽度</p>
-<p>根下面有几层</p>
 </li>
 <li><p>表头（第二层）</p>
 <p>第一个<strong>元素</strong></p>

@@ -742,7 +742,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-01 01:20:09" itemprop="dateModified" datetime="2021-01-01T01:20:09+08:00">2021-01-01</time>
+                <time title="Modified: 2021-01-05 15:15:42" itemprop="dateModified" datetime="2021-01-05T15:15:42+08:00">2021-01-05</time>
               </span>
 
           <br>
@@ -751,7 +751,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>652</span>
+              <span>820</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -774,7 +774,10 @@
 <ul>
 <li>一般来说：散列表的存储空间是一个数组，<strong>地址是数组下标，关键字是数组元素</strong>。下面是种Hash函数的构造方法</li>
 </ul>
-<h2 id="除留余数法"><a href="#除留余数法" class="headerlink" title="除留余数法"></a>除留余数法</h2><p><img data-src="https://i.imgur.com/5BEbmFl.png" alt=""></p>
+<h2 id="除留余数法"><a href="#除留余数法" class="headerlink" title="除留余数法"></a>除留余数法</h2><ul>
+<li>Hash函数<br>$$<br>k(key)=key\ Mod\ p<br>$$<br>其中，p为不大于表长m的素数（可以使得散列地址分布均匀）</li>
+</ul>
+<p><img data-src="https://i.imgur.com/5BEbmFl.png" alt=""></p>
 <p>这种方法中，会出现一种情况。<code>key1!=key2</code>，但H(key1)=H(key2)。这种不同的关键字只有一个对应的地址。那么这种现象就称为：冲突。而此时，key1和key2就称为同义词。</p>
 <h1 id="冲突的解决方法"><a href="#冲突的解决方法" class="headerlink" title="冲突的解决方法"></a>冲突的解决方法</h1><h2 id="开放定址法"><a href="#开放定址法" class="headerlink" title="开放定址法"></a>开放定址法</h2><p>如果<code>H0=H(key)</code>发生冲突，则采取合适的处理方法，得到另一个地址H1，如果H1仍冲突，则再求得H2，以此类推。</p>
 <ul>
@@ -794,7 +797,7 @@
 <p>它能探测所有的地址。</p>
 </li>
 <li><p>缺点</p>
-<p>发生<strong>二次聚集</strong>（两个不同地址的冲突争夺后继同一个地址的现象）</p>
+<p>发生<strong>二次聚集</strong><span style="color:red">（两个不同地址的冲突争夺后继同一个地址的现象）</span></p>
 </li>
 </ul>
 <p><img data-src="https://i.imgur.com/E4Kbhsk.png" alt=""></p>
@@ -804,6 +807,13 @@
 <p>为所有的地址都创建一个单链表，即表长为m，就有m个单链表。用数组存放各个链表的头指针。每个单链表存放具有相同地址的key（同义词）</p>
 </li>
 </ul>
+<p><img data-src="https://i.imgur.com/QXFKPOw.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/xXea4Gm.png" alt=""></p>
+<h1 id="散列表的性能分析"><a href="#散列表的性能分析" class="headerlink" title="散列表的性能分析"></a>散列表的性能分析</h1><p>由于冲突的出现，散列表仍需一定的时间。所以，适用平均查找长度ASL来衡量散列表的查找效率。</p>
+<ul>
+<li>装填因子<br>$$<br>a=\frac{表中填入的记录数}{散列表的长度}<br>$$</li>
+</ul>
+<p>经过研究，散列表的ASL和装填因子a有关，与表长n无关。</p>
 
       
     </div>

@@ -33,14 +33,13 @@
 <meta property="og:image" content="https://i.imgur.com/KTlBzdF.png">
 <meta property="og:image" content="https://i.imgur.com/uj44iCp.png">
 <meta property="og:image" content="https://i.imgur.com/GOUAqZp.png">
-<meta property="og:image" content="https://i.imgur.com/EJV4rRt.jpg">
 <meta property="og:image" content="https://i.imgur.com/JHGjAsR.gif">
 <meta property="og:image" content="https://i.imgur.com/1J2CDaX.gif">
 <meta property="og:image" content="https://i.imgur.com/YcYq3Vt.png">
 <meta property="og:image" content="https://i.imgur.com/vFV3nJe.png">
 <meta property="og:image" content="https://i.imgur.com/40sVKUW.png">
 <meta property="article:published_time" content="2020-09-30T08:19:20.000Z">
-<meta property="article:modified_time" content="2020-12-31T11:08:56.262Z">
+<meta property="article:modified_time" content="2021-01-05T07:29:06.695Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="exam">
 <meta name="twitter:card" content="summary">
@@ -237,7 +236,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-31 19:08:56" itemprop="dateModified" datetime="2020-12-31T19:08:56+08:00">2020-12-31</time>
+                <time title="Modified: 2021-01-05 15:29:06" itemprop="dateModified" datetime="2021-01-05T15:29:06+08:00">2021-01-05</time>
               </span>
 
           
@@ -332,7 +331,6 @@
 </ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(SqList&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m = L.length - <span class="number">1</span>, flag = <span class="number">1</span>;<span class="comment">//标志本次排序是否交换</span></span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	RedType t;</span><br><span class="line">	<span class="keyword">while</span> ((flag==<span class="number">1</span>)&amp;&amp;(m&gt;<span class="number">0</span>))	<span class="comment">//有几趟</span></span><br><span class="line">	&#123;</span><br><span class="line">		flag = <span class="number">0</span>;<span class="comment">//先记为没有交换</span></span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">1</span>; j &lt;= m; j++)<span class="comment">//记录从1开始存放	//	比较次数</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (L.r[j].key &gt; L.r[j + <span class="number">1</span>].key)</span><br><span class="line">			&#123;</span><br><span class="line">				flag = <span class="number">1</span>;<span class="comment">//标记为有交换</span></span><br><span class="line">				t = L.r[j];</span><br><span class="line">				L.r[j] = L.r[j + <span class="number">1</span>];</span><br><span class="line">				L.r[j + <span class="number">1</span>] = t;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		m--;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img data-src="https://i.imgur.com/EJV4rRt.jpg" alt=""></p>
 <p><img data-src="https://i.imgur.com/JHGjAsR.gif" alt=""></p>
 <h4 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h4><ol>
 <li><p>时间复杂度</p>
@@ -347,9 +345,10 @@
 </ul>
 </li>
 </ol>
-<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><ol>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>快速排序一次交换可消除多个逆序。</p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><ol>
 <li>首先设想将数组<strong>分成一个有序的和一个无序的数组</strong>。一开始全都是无序的</li>
-<li>遍历整个数组。在遍历中，再遍历<strong>无序的数组r[1…n]</strong>，并找到最小元素，下标记为k。如果k!=1，那么r[k]与r[1]交换。</li>
+<li>遍历整个数组。在遍历中，再遍历<strong>无序的数组r[1…n]</strong>，<strong>并找到最小元素，</strong>下标记为k。如果k!=1，那么r[k]与r[1]交换。</li>
 <li>第二次，遍历<strong>无序数组r[2…n]</strong>，并找到最小元素，下标记为k。如果k!=2，那么r[k]与r[2]交换</li>
 <li>以此类推，可以得到。第i趟，遍历r[i…n]，找到最小元素下标k。if(k != i)，那么r[k]与r[i]交换。</li>
 </ol>

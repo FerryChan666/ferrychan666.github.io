@@ -5945,15 +5945,18 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
 </ul>
 <h1 id="关于SSH密钥生成"><a href="#关于SSH密钥生成" class="headerlink" title="关于SSH密钥生成"></a>关于SSH密钥生成</h1><ol>
 <li>创建用户<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config –global user.name &quot;yourname&quot;</span><br><span class="line">git config –global user.email &quot;your@email.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;your@email.com&quot;</span><br></pre></td></tr></table></figure>
-一直回车直到<br><img data-src="https://i.ibb.co/d51HDkb/20170213195627978.png" alt="demo"></li>
-<li>打开那个id_rsa.pub路径，复制里面内容</li>
-<li>进入<a href="https://github.com/settings/keys">Github上</a>点击New shhKey 粘贴里面的内容到Key</li>
+一直回车直到（中间存在passphrase，如果一直按enter，就表示无密码。）</li>
+</ol>
+<p><img data-src="https://i.ibb.co/d51HDkb/20170213195627978.png" alt="demo"></p>
+<ol start="2">
+<li>打开那个<code>id_rsa.pub</code>路径，复制里面内容</li>
+<li>进入<a href="https://github.com/settings/keys">Github上</a>点击New shh Key 粘贴里面的内容到Key</li>
 <li>验证：<code>ssh -T git@github.com</code> 看到<br>Hi ***! You’ve successfully authenticated, but GitHub does not provide shell access.<br>表示成功了！！</li>
 </ol>
 <p>在hexo一连贯的操作</p>
 <ul>
 <li>deploy<br><code>hexo clean &amp;&amp; hexo g -d</code></li>
-<li>push<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m&quot;...更新&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<li>push<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 
 
 </li>

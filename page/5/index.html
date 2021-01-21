@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">154</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">155</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -187,6 +187,197 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/09/12/exam/tree/tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/12/exam/tree/tree/" class="post-title-link" itemprop="url">tree</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-12 14:57:20" itemprop="dateCreated datePublished" datetime="2020-09-12T14:57:20+08:00">2020-09-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-29 16:09:25" itemprop="dateModified" datetime="2020-12-29T16:09:25+08:00">2020-12-29</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>树是一种非线性的存储结构。它分为：</p>
+<ul>
+<li>顺序存储结构<ul>
+<li>双亲存储</li>
+</ul>
+</li>
+<li>链式存储结构<ul>
+<li>孩子存储</li>
+<li>孩子兄弟存储</li>
+</ul>
+</li>
+</ul>
+<h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><p>一棵树由节点组成。可以是0个节点——空树。树定义是一种递归思想。一个唯一的根连接不相交的子树，而子树上的节点又能连接不相交的子树</p>
+<p><strong>可以通过平时对真正的树来记忆</strong>：</p>
+<ul>
+<li><p>路径(path)长度：从节点n到节点m的边数</p>
+<blockquote>
+<p>A path from node n1 to nk is defined as a sequence of nodes n1, n2, . . . , nk</p>
+<p>The length of this path is the number of edges on the path, namely k -1.</p>
+<p>Notice that in a tree there is exactly one path from the root to each node.</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>深度（从根开始）：<strong>根到该节点</strong>的边数</p>
+<blockquote>
+<p>For any node ni, the depth of ni is the length of the unique path from the root to ni. Thus, the root is at depth 0.</p>
+</blockquote>
+</li>
+<li><p>高度（从节点开始）：<strong>节点到叶子</strong>的最长路径长度。</p>
+<blockquote>
+<p>The height of ni is the longest path from ni to a leaf. Thus all leaves are at height 0.</p>
+</blockquote>
+</li>
+<li><p>As an example, C的深度为1，高度为2。D的深度为1，高度也为1。</p>
+</li>
+</ul>
+<img data-src="https://i.imgur.com/ioGVm9J.jpg" style="zoom:67%;" />
+
+<ul>
+<li>树的高度和深度：树中节点的最大层次（图中为4）</li>
+</ul>
+<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="双亲存储结构"><a href="#双亲存储结构" class="headerlink" title="双亲存储结构"></a>双亲存储结构</h2><p>双亲存储仅仅需要一个<strong>一维数组</strong>。<code>int tree[maxSize]</code></p>
+<p><strong>它的下标代表此节点的位置，数组元素代表双亲位置。</strong></p>
+<img data-src="https://i.imgur.com/twqsQIf.png" style="zoom: 67%;" />
+
+<h2 id="孩子兄弟存储结构"><a href="#孩子兄弟存储结构" class="headerlink" title="孩子兄弟存储结构"></a>孩子兄弟存储结构</h2><p><strong>孩子兄弟存储结构实际上就是一个二叉链表。因为二叉链表中指针域意义不同。lchild变成了child指向一个孩子，rchild变成了sibling指向一个兄弟。</strong></p>
+<h2 id="树的实现"><a href="#树的实现" class="headerlink" title="树的实现"></a>树的实现</h2><p>每个数节点有一个FirstChild指针向下指向第一个孩子。NextSibling指向旁边的兄弟。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span>* <span class="title">PtrToNode</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> &#123;</span></span><br><span class="line">	ElementType Element;</span><br><span class="line">	PtrToNode FirstChild;</span><br><span class="line">	PtrToNode NextSibling;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<img data-src="https://i.imgur.com/taopsKN.jpg" style="zoom:67%;" />
+
+
+
+
+
+<h4 id="tree-gt-binary-tree"><a href="#tree-gt-binary-tree" class="headerlink" title="tree-&gt;binary tree"></a>tree-&gt;binary tree</h4><p><img data-src="https://i.imgur.com/6lM2ZDV.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/4OfQzDh.png" alt=""></p>
+<ul>
+<li>步骤</li>
+</ul>
+<ol>
+<li><p>连线</p>
+<p>连上所有的兄弟节点</p>
+</li>
+<li><p>剪线</p>
+<p>除了第一个分支，剪掉每一个节点上的其他分支</p>
+</li>
+<li><p>旋转</p>
+</li>
+</ol>
+<h4 id="binary-tree-gt-tree"><a href="#binary-tree-gt-tree" class="headerlink" title="binary tree-&gt;tree"></a>binary tree-&gt;tree</h4><p><img data-src="https://i.imgur.com/dhRNCrB.png" alt=""></p>
+<ul>
+<li><p>步骤</p>
+<ol>
+<li><p>旋转</p>
+</li>
+<li><p>连线</p>
+<p>把节点和父节点都连上</p>
+</li>
+<li><p>剪线</p>
+<p>剪掉所有的兄弟节点</p>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="forest-gt-binary-tree"><a href="#forest-gt-binary-tree" class="headerlink" title="forest-&gt;binary tree"></a>forest-&gt;binary tree</h4><ul>
+<li><p>先来回顾一下概念，<strong>森林是由若干颗互不相交的树的集合</strong></p>
+<img data-src="https://i.imgur.com/nhTFa3s.png" style="zoom:67%;" />
+
+</li>
+</ul>
+<p><strong>因为我们知道孩子兄弟存储结构的根节点是没有兄弟的，所以将树转换成二叉树也是一定没有右孩子的。</strong>所以我们又可以利用第一颗二叉树的根的rchild接上第二颗的根，第二颗的根的rchild接上第三颗的根。以此类推，全部合并成一颗二叉树。</p>
+<ol>
+<li>先把森林中的树转换为二叉树</li>
+<li>合并</li>
+</ol>
+<p><img data-src="https://i.imgur.com/DbPxUm9.png" alt=""></p>
+<h4 id="binary-tree-gt-forest"><a href="#binary-tree-gt-forest" class="headerlink" title="binary tree-&gt;forest"></a>binary tree-&gt;forest</h4><p>据上，容易得到。从二叉树的根查找rchild右孩子，让rchild指向的节点与根剪掉，再让它成为第二颗树的根，一直到rchild为NULL。然后，再把这一颗颗的二叉树，转换成树。</p>
+<ol>
+<li>拆开。（根据右孩子）</li>
+<li>把每颗二叉树转换成树</li>
+</ol>
+<h4 id="树和森林的遍历"><a href="#树和森林的遍历" class="headerlink" title="树和森林的遍历"></a>树和森林的遍历</h4><p>树和森林的遍历是差不多的。都是分为先序遍历和后序遍历。</p>
+<ul>
+<li>先序遍历：先访问根，再访问子树的根。就是<strong>遵循先根再子树的原则</strong></li>
+<li>后序遍历：先访问子树，再访问根。<strong>遵循先子树再根的原则</strong></li>
+</ul>
+<p>（具体手动的遍历方法就是与二叉树的遍历技巧相同）</p>
+<ul>
+<li>同时要注意一点，树和森林转换成二叉树之后，<strong>它们的先序遍历顺序与二叉树相同，但后序遍历的次序与二叉树的中序遍历相同。</strong></li>
+<li><strong>所以可以得出，如果想要遍历树和森林，那么可以把树和森林转换成二叉树，再对二叉树进行遍历。</strong></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1337,108 +1528,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/08/algorithm/%E6%A0%88%E7%9A%84%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/08/algorithm/%E6%A0%88%E7%9A%84%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">栈的链表实现</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-08-08 21:51:04" itemprop="dateCreated datePublished" datetime="2020-08-08T21:51:04+08:00">2020-08-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-12 04:44:52" itemprop="dateModified" datetime="2020-08-12T04:44:52+08:00">2020-08-12</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>java中链表的实现，除了不需要释放没用的结点之外，与C的实现相同。</p>
-<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="用嵌套类来声明结点。"><a href="#用嵌套类来声明结点。" class="headerlink" title="用嵌套类来声明结点。"></a>用嵌套类来声明结点。</h2><ul>
-<li>需要表明next（下一结点）和item（该节点的值）。在需要使用该类的时候，标记为private<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</span><br><span class="line">	Item item;</span><br><span class="line">	Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="构造链表"><a href="#构造链表" class="headerlink" title="构造链表"></a>构造链表</h2><ul>
-<li><p><strong>根据递归的定义，只要一个Node类型就能表示整条链表</strong>因为节点就是一个对象，我们就用new来创建它，<code>Node first = new Node();</code>。 然后，再定义Node里面的值，<code>first.item = &quot;to&quot; first.next = second</code></p>
-</li>
-<li><p>而Stack类的实例变量就是创建Node的引用，然后再从实例中创建它</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Node first; <span class="comment">//实例变量创建引用，没有用new新建对象</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> N;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="增加删除表头结点"><a href="#增加删除表头结点" class="headerlink" title="增加删除表头结点"></a>增加删除表头结点</h2><ul>
-<li><strong>因我们是用链表实现栈，栈是除了最上面的元素first，其它都不要动。所以我们不需要遍历链表就能实现push()和pop()的方法</strong><br><img data-src="https://i.imgur.com/Q4a4EtW.png" alt=""></li>
-</ul>
-<h2 id="表尾删除节点"><a href="#表尾删除节点" class="headerlink" title="表尾删除节点"></a>表尾删除节点</h2><ul>
-<li>如果要遍历链表那么效率太低了， 所以采用一种方法：再创建个已知节点<code>Node last = new Node();</code><br><img data-src="https://i.imgur.com/4ITjhpk.png" alt=""></li>
-</ul>
-<h2 id="增加删除指定节点"><a href="#增加删除指定节点" class="headerlink" title="增加删除指定节点"></a>增加删除指定节点</h2><ul>
-<li>唯一方法就是遍历链表，如果要减少时间的复杂度，即采用<strong>双向链表</strong>。</li>
-</ul>
-<h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Node first; <span class="comment">//实例变量创建引用，没有用new新建对象</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> N;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</span><br><span class="line">		Item item;</span><br><span class="line">		Node next;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> first == <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.N;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Item item)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Node oldfirst = first;</span><br><span class="line">		first = <span class="keyword">new</span> Node();</span><br><span class="line">		first.next = oldfirst;</span><br><span class="line">		first.item = item;</span><br><span class="line">		N++;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Item <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Item item = first.item;</span><br><span class="line">		first = first.next;</span><br><span class="line">		N--;</span><br><span class="line">		<span class="keyword">return</span> item;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><figcaption><span>test</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> edu.princeton.cs.algs4.StdIn;</span><br><span class="line"><span class="keyword">import</span> edu.princeton.cs.algs4.StdOut;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		Stack&lt;String&gt; s = <span class="keyword">new</span> Stack&lt;String&gt;();</span><br><span class="line">		<span class="keyword">while</span>(!StdIn.isEmpty())</span><br><span class="line">		&#123;</span><br><span class="line">			String item = StdIn.readString();</span><br><span class="line">			<span class="keyword">if</span>(!item.equals(<span class="string">"-"</span>))</span><br><span class="line">				s.push(item);</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(!s.isEmpty())</span><br><span class="line">				StdOut.print(s.pop() + <span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		StdOut.println(<span class="string">"("</span> + s.size() + <span class="string">" left on stack)"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1543,13 +1632,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">232k</span>
+    <span title="Symbols count total">235k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:31</span>
+    <span title="Reading time total">3:33</span>
 </div>
 
 <div id="days"></div>

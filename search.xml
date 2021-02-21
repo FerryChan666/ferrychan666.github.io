@@ -3180,7 +3180,7 @@ $$
 </li>
 <li><p>先不用(<code>npm install hexo-deployer-git --save</code>)</p>
 </li>
-<li><p>中间需要新建key <a href="https://ferrychan666.github.io/2020/03/11/github/%E5%A4%87%E4%BB%BD%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%E5%88%B0Github/">New key method</a></p>
+<li><p>中间需要新建key</p>
 </li>
 <li><p><code>git remote add origin git@github.com:ferrychan666/blog.git</code>(提交不成功就强制提交)</p>
 </li>

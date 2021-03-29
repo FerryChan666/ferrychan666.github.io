@@ -1,8 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hope</title>
+    <url>/2021/03/30/hope/</url>
+    <content><![CDATA[<p>hope?</p>
+<p>May be my childhood is no hope. </p>
+<p>At that time, I ‘m impacted by my parents, environment in the countryside, and the poor.</p>
+<p>But now I am picking up my dream, being the true of me and I want to make sense in my life, happy, sad, up and down, so I want to change my circumstance.  </p>
+<p>If I can do it or keep doing it, there is the hope. </p>
+]]></content>
+      <tags>
+        <tag>my thought</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>autohotkey自动化工具</title>
+    <url>/2021/02/25/autohotkey%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<p>按键语法</p>
+<p><img data-src="https://i.imgur.com/eZjwYwM.png" alt></p>
+<p>鼠标</p>
+<p>globe</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^+z:: </span><br><span class="line">loop,1&#123;	</span><br><span class="line">    Click, 1531, 1057 Right</span><br><span class="line">    Click, 1303, 860</span><br><span class="line">    Click, 928, 856</span><br><span class="line">&#125;</span><br><span class="line">Return</span><br></pre></td></tr></table></figure>
+
+<p>pac</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^+X:: </span><br><span class="line">loop,1&#123;</span><br><span class="line">    Click, 1531, 1057 Right</span><br><span class="line">    Click, 1303, 860</span><br><span class="line">    Click, 905, 897</span><br><span class="line">&#125;</span><br><span class="line">Return</span><br></pre></td></tr></table></figure>
+
+
+
+<p>最后，把文件移动到starup中就可以开机自启了</p>
+]]></content>
+      <tags>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PSO</title>
-    <url>/2021/01/20/algorithm/PSO/PSO/</url>
+    <url>/2021/01/21/algorithm/PSO/PSO/</url>
     <content><![CDATA[<h1 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h1><p>该算法，通过追随当前搜索到的最优值来寻找全局最优</p>
 <p>试着想一下一群鸟在寻找食物，在这个区域中只有一只虫子，所有的鸟都不知道它在哪。但是它们知道自己的当前位置距离食物有多远，它们通过相互联系，知道离食物最近的鸟的位置，同时各只鸟在位置不停变化时候离食物的距离也不断变化。</p>
 <p>现在把鸟抽象为粒子。</p>
@@ -61,7 +94,7 @@
   </entry>
   <entry>
     <title>将序号对应</title>
-    <url>/2020/12/26/Q&amp;A/%E5%B0%86%E5%BA%8F%E5%8F%B7%E5%AF%B9%E5%BA%94/</url>
+    <url>/2020/12/27/Q&amp;A/%E5%B0%86%E5%BA%8F%E5%8F%B7%E5%AF%B9%E5%BA%94/</url>
     <content><![CDATA[<p>在编写程序的过程中，会定义数组，有的语言的数组的编号是从0开始的，但平常我们计数是从1开始的。</p>
 <p>如果，我们偏要使用从1开始的计数方法，并将序号对应到数组中，应该怎么做呢？</p>
 <p>答案就在一念之间，</p>
@@ -74,7 +107,7 @@
   </entry>
   <entry>
     <title>Merge Sort</title>
-    <url>/2020/12/26/algorithm/Merge-Sort/</url>
+    <url>/2020/12/27/algorithm/Merge-Sort/</url>
     <content><![CDATA[<h1 id="原地归并排序"><a href="#原地归并排序" class="headerlink" title="原地归并排序"></a>原地归并排序</h1><h2 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h2><p>有这样的一个问题，要使得两个有序的数组，合并成一个有序的数组。归并排序就是以这样的想法递归地对一个无序的数组进行排序。</p>
 <p>先来思考：如何才能能将两个有序的数组，合并成一个有序的数组。</p>
 <p>因为两个数组是有序的，所以使用指针指向这两个数组的首元，一一进行比较。</p>
@@ -134,7 +167,7 @@
   </entry>
   <entry>
     <title>数组名的传递</title>
-    <url>/2020/12/25/fatal/%E6%95%B0%E7%BB%84%E5%90%8D%E7%9A%84%E4%BC%A0%E9%80%92/</url>
+    <url>/2020/12/26/fatal/%E6%95%B0%E7%BB%84%E5%90%8D%E7%9A%84%E4%BC%A0%E9%80%92/</url>
     <content><![CDATA[<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">t</span><span class="params">(<span class="keyword">int</span>* a)</span></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(a)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//8</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">5</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">	t(a);</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(a)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//20</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>很明显cout的那么两行，是同样的，但为什么输出一个是8，一个20呢？我们已知64位的gcc中一个pointer是由8bytes的。所以，传递数组名（地址）给函数，<code>sizeof</code>计算的是a的指针大小，不是整个数组的大小。</p>
@@ -179,7 +212,7 @@
   </entry>
   <entry>
     <title>函数（映射）</title>
-    <url>/2020/12/19/Math/function/</url>
+    <url>/2020/12/20/Math/function/</url>
     <content><![CDATA[<h1 id="函数（映射）"><a href="#函数（映射）" class="headerlink" title="函数（映射）"></a>函数（映射）</h1><img data-src="https://i.imgur.com/rND6WTA.png" style="zoom: 67%;" />
 
 <p>满足条件：</p>
@@ -209,7 +242,7 @@
   </entry>
   <entry>
     <title>整数和小数</title>
-    <url>/2020/12/18/fatal/%E6%95%B4%E6%95%B0%E5%92%8C%E5%B0%8F%E6%95%B0/</url>
+    <url>/2020/12/19/fatal/%E6%95%B4%E6%95%B0%E5%92%8C%E5%B0%8F%E6%95%B0/</url>
     <content><![CDATA[<h1 id="int-amp-float"><a href="#int-amp-float" class="headerlink" title="int &amp; float"></a>int &amp; float</h1><ul>
 <li><p>前提</p>
 <p>我们已经知道int是整形(只能输出整数)，float是浮点型（能输出小数）</p>
@@ -961,7 +994,7 @@
   </entry>
   <entry>
     <title>长句写法</title>
-    <url>/2020/11/28/English/%E9%95%BF%E5%8F%A5%E5%86%99%E6%B3%95/</url>
+    <url>/2020/11/29/English/%E9%95%BF%E5%8F%A5%E5%86%99%E6%B3%95/</url>
     <content><![CDATA[<h1 id="五大句型"><a href="#五大句型" class="headerlink" title="五大句型"></a>五大句型</h1><ol>
 <li>主谓</li>
 <li>主谓宾</li>
@@ -1070,7 +1103,7 @@
   </entry>
   <entry>
     <title>OOP</title>
-    <url>/2020/11/28/cpp/OOP/</url>
+    <url>/2020/11/29/cpp/OOP/</url>
     <content><![CDATA[<h1 id="members"><a href="#members" class="headerlink" title="members"></a>members</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> &#123;</span>  <span class="comment">// The class</span></span><br><span class="line">  <span class="keyword">public</span>:        <span class="comment">// Access specifier</span></span><br><span class="line">    <span class="comment">// class members goes here</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p><strong>members</strong> include <strong>attributes</strong>(all types of the variables) and <strong>method</strong>(the functions that belongs to the class). </p>
@@ -1133,7 +1166,7 @@
   </entry>
   <entry>
     <title>cpp basic concept</title>
-    <url>/2020/11/26/cpp/cpp-basic-concept/</url>
+    <url>/2020/11/27/cpp/cpp-basic-concept/</url>
     <content><![CDATA[<h1 id="Pass-by-reference"><a href="#Pass-by-reference" class="headerlink" title="Pass by reference"></a>Pass by reference</h1><p>This can be useful when you need to change the value of the arguments:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swapNums</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> z = x;</span><br><span class="line">  x = y;</span><br><span class="line">  y = z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> firstNum = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">int</span> secondNum = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Before swap: "</span> &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; firstNum &lt;&lt; secondNum &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Call the function, which will change the values of firstNum and secondNum</span></span><br><span class="line">  swapNums(firstNum, secondNum);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"After swap: "</span> &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; firstNum &lt;&lt; secondNum &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1152,7 +1185,7 @@
   </entry>
   <entry>
     <title>sublime的一些配置</title>
-    <url>/2020/11/22/Q&amp;A/sublime%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/</url>
+    <url>/2020/11/23/Q&amp;A/sublime%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<ul>
 <li><p>在cmd窗口中执行</p>
 <p>tools-&gt;<strong>Build System</strong>-&gt;<strong>New Build System</strong></p>
@@ -1183,7 +1216,7 @@
   </entry>
   <entry>
     <title>遇到困难怎么办</title>
-    <url>/2020/11/21/%E9%9A%8F%E7%AC%94/%E9%81%87%E5%88%B0%E5%9B%B0%E9%9A%BE%E6%80%8E%E4%B9%88%E5%8A%9E/</url>
+    <url>/2020/11/22/%E9%9A%8F%E7%AC%94/%E9%81%87%E5%88%B0%E5%9B%B0%E9%9A%BE%E6%80%8E%E4%B9%88%E5%8A%9E/</url>
     <content><![CDATA[<p>遇到困难的知识和任务。</p>
 <p>需要对他们进行拆分，每一天完成一点，日积月累，就能解决。</p>
 ]]></content>
@@ -1218,7 +1251,7 @@
   </entry>
   <entry>
     <title>data lab</title>
-    <url>/2020/11/06/csapp/Representing%20and%20Manipulating%20Information/data-lab/</url>
+    <url>/2020/11/07/csapp/Representing%20and%20Manipulating%20Information/data-lab/</url>
     <content><![CDATA[<h1 id="Confusion"><a href="#Confusion" class="headerlink" title="Confusion"></a>Confusion</h1><h2 id="logical-operators"><a href="#logical-operators" class="headerlink" title="logical operators"></a>logical operators</h2><ul>
 <li><p><code>||, &amp;&amp;, !</code>, which <strong>treat any nonzero argument as representing TRUE</strong> and <strong>argument 0 as representing FALSE</strong>. And then they <strong>return either 1 or 0</strong>, indicating a result of either TRUE or FALSE, respectively. </p>
 </li>
@@ -1313,7 +1346,7 @@
   </entry>
   <entry>
     <title>PATH环境变量不见了</title>
-    <url>/2020/10/29/Q&amp;A/PATH%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8D%E8%A7%81%E4%BA%86/</url>
+    <url>/2020/10/30/Q&amp;A/PATH%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8D%E8%A7%81%E4%BA%86/</url>
     <content><![CDATA[<p>Windows下的PATH环境变量不知被哪门子清理软件给清掉了。所以我们New一个PATH</p>
 <p>variable value：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\</span><br></pre></td></tr></table></figure>
@@ -1836,7 +1869,7 @@ $$
   </entry>
   <entry>
     <title>函数的调用问题</title>
-    <url>/2020/10/09/fatal/%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+    <url>/2020/10/10/fatal/%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>先来看两个错误</p>
 <ol>
 <li><p>报错</p>
@@ -1958,7 +1991,7 @@ $$
   </entry>
   <entry>
     <title>树表的查找</title>
-    <url>/2020/09/25/exam/%E6%9F%A5%E6%89%BE/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/</url>
+    <url>/2020/09/26/exam/%E6%9F%A5%E6%89%BE/%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/</url>
     <content><![CDATA[<h1 id="Synopsis"><a href="#Synopsis" class="headerlink" title="Synopsis"></a>Synopsis</h1><p>因为折半查找拥有苛刻的适用条件，既要是顺序表还要有次序。并且如果进行频繁的插入删除操作对于顺序表来说是效率低下的。所以，为了解决可以更有效率地插入删除，我们使用了二叉树作为查找表的组织形式。</p>
 <ul>
 <li>二叉排序树</li>
@@ -2528,7 +2561,7 @@ $$
   </entry>
   <entry>
     <title>tree</title>
-    <url>/2020/09/11/exam/tree/tree/</url>
+    <url>/2020/09/12/exam/tree/tree/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>树是一种非线性的存储结构。它分为：</p>
 <ul>
 <li>顺序存储结构<ul>
@@ -2838,7 +2871,7 @@ $$
   </entry>
   <entry>
     <title>队列</title>
-    <url>/2020/08/28/exam/%E9%98%9F%E5%88%97/%E9%98%9F%E5%88%97/</url>
+    <url>/2020/08/29/exam/%E9%98%9F%E5%88%97/%E9%98%9F%E5%88%97/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>队列就是先进来的元素能第一个出去(FIFO)。有队尾（rear）和对头（front）</p>
 <ul>
 <li>顺序队列（循环队列）</li>
@@ -3084,7 +3117,7 @@ $$
   </entry>
   <entry>
     <title>linux上配置v2ray</title>
-    <url>/2020/08/15/linux/linux%E4%B8%8A%E9%85%8D%E7%BD%AEv2ray/</url>
+    <url>/2020/08/16/linux/linux%E4%B8%8A%E9%85%8D%E7%BD%AEv2ray/</url>
     <content><![CDATA[<h1 id="预备工作"><a href="#预备工作" class="headerlink" title="预备工作"></a>预备工作</h1><ol>
 <li><p>客户端：<a href="https://github.com/Qv2ray/Qv2ray/releases/download/v1.99.6/Qv2ray-refs.tags.v1.99.6-linux.AppImage">Qv2ray-refs.tags.v1.99.6-linux.AppImage</a></p>
 </li>
@@ -3112,7 +3145,7 @@ $$
   </entry>
   <entry>
     <title>将HTML添加到网页上</title>
-    <url>/2020/08/13/github/%E5%B0%86HTML%E6%B7%BB%E5%8A%A0%E5%88%B0%E7%BD%91%E9%A1%B5%E4%B8%8A/</url>
+    <url>/2020/08/14/github/%E5%B0%86HTML%E6%B7%BB%E5%8A%A0%E5%88%B0%E7%BD%91%E9%A1%B5%E4%B8%8A/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>假如想把一个日历的嵌在网页上，需要在文件中（.md上都可以）加一段HTML</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;iframe src&#x3D;&quot;https:&#x2F;&#x2F;calendar.google.com&#x2F;calendar&#x2F;embed?height&#x3D;400&amp;wkst&#x3D;1&amp;bgcolor&#x3D;%23ffffff&amp;ctz&#x3D;Asia%2FHong_Kong&amp;src&#x3D;ZmVycnljaGFuNjY2QGdtYWlsLmNvbQ&amp;src&#x3D;YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color&#x3D;%23039BE5&amp;color&#x3D;%2333B679&amp;showTitle&#x3D;0&amp;showNav&#x3D;0&amp;showPrint&#x3D;0&amp;showTz&#x3D;0&amp;showCalendars&#x3D;0&amp;showTabs&#x3D;0&amp;showDate&#x3D;0&amp;mode&#x3D;AGENDA&quot; style&#x3D;&quot;border-width:0&quot; width&#x3D;&quot;500&quot; height&#x3D;&quot;400&quot; frameborder&#x3D;&quot;0&quot; scrolling&#x3D;&quot;no&quot;&gt;&lt;&#x2F;iframe&gt;</span><br></pre></td></tr></table></figure>
 
@@ -3146,7 +3179,7 @@ $$
   </entry>
   <entry>
     <title>Queue队列</title>
-    <url>/2020/08/12/algorithm/Queue/</url>
+    <url>/2020/08/13/algorithm/Queue/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>
 <li>实例变量：指向队头的<code>first</code>, 指向队尾的<code>last</code>, 节点个数<code>N</code></li>
 <li>方法：添加到对尾<code>enqueue()</code>，删除对头<code>dequeue()</code></li>
@@ -3480,7 +3513,7 @@ $$
   </entry>
   <entry>
     <title>指针</title>
-    <url>/2020/05/21/fatal/%E6%8C%87%E9%92%88/</url>
+    <url>/2020/05/22/fatal/%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<h1 id="不要使用没初始化的指针"><a href="#不要使用没初始化的指针" class="headerlink" title="不要使用没初始化的指针"></a>不要使用没初始化的指针</h1><p>即<strong>只能使用指向已经分配空间的指针</strong>。否则可能会擦拭掉数据或代码。</p>
 <figure class="highlight c"><figcaption><span>可以，因为第二行就让指针指向字符串ferry</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> *str;</span><br><span class="line">str = <span class="string">"ferry"</span></span><br></pre></td></tr></table></figure>
 
@@ -3496,7 +3529,7 @@ $$
   </entry>
   <entry>
     <title>Error and Concept</title>
-    <url>/2020/05/18/%E9%9A%8F%E7%AC%94/Error-and-Concept/</url>
+    <url>/2020/05/19/%E9%9A%8F%E7%AC%94/Error-and-Concept/</url>
     <content><![CDATA[<ol>
 <li><p>解题，首先，不要轻视题目</p>
 </li>
@@ -3757,7 +3790,7 @@ $$
   </entry>
   <entry>
     <title>线性表的链式存储结构</title>
-    <url>/2020/05/08/DS/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/</url>
+    <url>/2020/05/09/DS/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="拥有头节点的链表"><a href="#拥有头节点的链表" class="headerlink" title="拥有头节点的链表"></a>拥有头节点的链表</h2><p><img data-src="https://i.loli.net/2020/05/10/YLKe4ZHjOmVrAFT.jpg" alt=""></p>
 <p>头节点的date区可以存放链表的整体数据（例如：长度）</p>
 <h1 id="实现接口"><a href="#实现接口" class="headerlink" title="实现接口"></a>实现接口</h1><h2 id="遍历链表"><a href="#遍历链表" class="headerlink" title="遍历链表"></a>遍历链表</h2><p>遍历链表一般使用while循环。相关操作有：GetElement() ListLength() Insert()很多很多都可以使用遍历链表来实现</p>
@@ -3857,7 +3890,7 @@ $$
   </entry>
   <entry>
     <title>线性表的顺序存储结构</title>
-    <url>/2020/05/04/DS/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/ADT%E7%BA%BF%E6%80%A7%E8%A1%A8/</url>
+    <url>/2020/05/05/DS/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/ADT%E7%BA%BF%E6%80%A7%E8%A1%A8/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>线性表有一种物理结构叫顺序存储结构。它由一系列连续的存储单元组成，从而使得逻辑上相邻的两个元素也连续。</p>
 <ul>
 <li>这样的结构可以使用一维数组来实现。数组的下标从0开始，但我们的元素是从1开始。所以，我们可以这样看：<strong>元素均对应，但标志不一样（只需在用[]时，-1即可）</strong><br><img data-src="https://i.loli.net/2020/05/08/LPTeAaztkmBrnHc.jpg" alt=""></li>
@@ -3934,7 +3967,7 @@ $$
   </entry>
   <entry>
     <title>单链表中交换元素</title>
-    <url>/2020/05/02/DS/%E9%93%BE%E8%A1%A8%E4%B8%AD%E4%BA%A4%E6%8D%A2%E5%85%83%E7%B4%A0/%E9%93%BE%E8%A1%A8%E4%B8%AD%E4%BA%A4%E6%8D%A2%E5%85%83%E7%B4%A0/</url>
+    <url>/2020/05/03/DS/%E9%93%BE%E8%A1%A8%E4%B8%AD%E4%BA%A4%E6%8D%A2%E5%85%83%E7%B4%A0/%E9%93%BE%E8%A1%A8%E4%B8%AD%E4%BA%A4%E6%8D%A2%E5%85%83%E7%B4%A0/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>链表中的交换元素，不同于数组。链表中的操作主要是针对结构中的next</p>
 <p><img data-src="https://i.loli.net/2020/05/03/2tnJyGmlaUBK8VW.png" alt=""></p>
 <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Exchange</span><span class="params">(Position BeforeP)</span><span class="comment">//我这里传入表头</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//为交换P和AfterP</span></span><br><span class="line">    Position P, AfterP;</span><br><span class="line">    <span class="comment">//定义一下P，和AfterP</span></span><br><span class="line">    P = BeforeP-&gt;next;</span><br><span class="line">    AfterP = P-&gt;next;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//交换是针对3个结构中的next。</span></span><br><span class="line">    <span class="comment">//先想象已经把两个结构交换了，再考虑next要怎么指向</span></span><br><span class="line">    P-&gt;next = AfterP-&gt;next;</span><br><span class="line">    BeforeP-&gt;next = AfterP;</span><br><span class="line">    AfterP-&gt;next = P;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -4015,7 +4048,7 @@ $$
   </entry>
   <entry>
     <title>函数的效率</title>
-    <url>/2020/04/27/DS/clock-%E5%87%BD%E6%95%B0/</url>
+    <url>/2020/04/28/DS/clock-%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>比较两个函数的效率，可以通过它的运行时间来确定。所以可以通过clock()函数来确定<strong>某段程序</strong>走过多少ticks。</p>
 <ul>
 <li>如何确定运行时间</li>
@@ -4047,7 +4080,7 @@ $$
   </entry>
   <entry>
     <title>vscode debug</title>
-    <url>/2020/04/27/Q&amp;A/vscode-debug/</url>
+    <url>/2020/04/28/Q&amp;A/vscode-debug/</url>
     <content><![CDATA[<h2 id="launch-json"><a href="#launch-json" class="headerlink" title="launch.json"></a>launch.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>, <span class="comment">//配置版本</span></span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 配置名称，在启动配置下拉菜单中显示</span></span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"(gdb) Launch"</span>, </span><br><span class="line">            <span class="comment">// 调试会话开始前要运行的任务</span></span><br><span class="line">            <span class="attr">"preLaunchTask"</span>: <span class="string">"build"</span>, </span><br><span class="line">            <span class="comment">// 配置类型</span></span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>, </span><br><span class="line">            <span class="comment">// 请求配置类型，可以为启动（launch）或附加（attach）</span></span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>, </span><br><span class="line">            <span class="comment">// 将要进行调试的程序的路径</span></span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>, </span><br><span class="line">            <span class="comment">// 程序调试时传递给程序的命令行参数，一般设为空即可</span></span><br><span class="line">            <span class="attr">"args"</span>: [], </span><br><span class="line">            <span class="comment">// 设为true时程序将暂停在程序入口处，一般设置为false</span></span><br><span class="line">            <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>, </span><br><span class="line">            <span class="comment">// 调试程序时的工作目录，一般为$&#123;workspaceFolder&#125;即代码所在目录</span></span><br><span class="line">            <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>, </span><br><span class="line">            <span class="attr">"environment"</span>: [],</span><br><span class="line">            <span class="comment">// 调试时是否显示控制台窗口，一般设置为true显示控制台</span></span><br><span class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">true</span>, </span><br><span class="line">            <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="comment">// GDB的路径，注意替换成自己的位置中的 gdb</span></span><br><span class="line">            <span class="attr">"miDebuggerPath"</span>: <span class="string">"C:/MinGW/mingw64/bin/gdb.exe"</span>, </span><br><span class="line">            <span class="attr">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">                    <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="attr">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="tasks-json"><a href="#tasks-json" class="headerlink" title="tasks.json"></a>tasks.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="attr">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"build"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="comment">// 编译参数 ggc -g $&#123;file&#125; -o $&#123;fileDirname&#125;$&#123;fileBasenameNoExtension&#125;.exe</span></span><br><span class="line">            <span class="attr">"windows"</span>: &#123;</span><br><span class="line">                <span class="attr">"command"</span>: <span class="string">"gcc"</span>,</span><br><span class="line">                <span class="attr">"args"</span>: [</span><br><span class="line">                    <span class="string">"-g"</span>,</span><br><span class="line">                    <span class="string">"\"$&#123;file&#125;\""</span>,</span><br><span class="line">                    <span class="string">"-o"</span>,</span><br><span class="line">                    <span class="string">"\"$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe\""</span></span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// 控制台输出的错误信息</span></span><br><span class="line">            <span class="attr">"problemMatcher"</span>: &#123;</span><br><span class="line">                <span class="attr">"owner"</span>: <span class="string">"cpp"</span>,</span><br><span class="line">                <span class="attr">"fileLocation"</span>: [</span><br><span class="line">                    <span class="string">"relative"</span>,</span><br><span class="line">                    <span class="string">"."</span> <span class="comment">// $&#123;workspaceFolder&#125;</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="attr">"pattern"</span>: &#123;</span><br><span class="line">                    <span class="attr">"regexp"</span>: <span class="string">"^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$"</span>,</span><br><span class="line">                    <span class="attr">"file"</span>: <span class="number">1</span>,</span><br><span class="line">                    <span class="attr">"line"</span>: <span class="number">2</span>,</span><br><span class="line">                    <span class="attr">"column"</span>: <span class="number">3</span>,</span><br><span class="line">                    <span class="attr">"severity"</span>: <span class="number">4</span>,</span><br><span class="line">                    <span class="attr">"message"</span>: <span class="number">5</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"group"</span>: &#123;</span><br><span class="line">                <span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">                <span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// 终端面板配置</span></span><br><span class="line">            <span class="attr">"presentation"</span>: &#123;</span><br><span class="line">                <span class="attr">"echo"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="attr">"reveal"</span>: <span class="string">"always"</span>,</span><br><span class="line">                <span class="attr">"focus"</span>: <span class="literal">false</span>,</span><br><span class="line">                <span class="attr">"panel"</span>: <span class="string">"shared"</span> <span class="comment">// 控制面板是否在任务中共享面板，shared=共享，new=新面板</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -4201,7 +4234,7 @@ $$
   </entry>
   <entry>
     <title>环境变量PATH</title>
-    <url>/2020/04/19/linux/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8FPATH/</url>
+    <url>/2020/04/20/linux/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8FPATH/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>当我们要查看当前目录的子目录和文件时，可以用ls命令，但是ls这是一个文件，单单一个ls命令，不是绝对路径，不是相对路径，也不在当前目录下的文件。那ls这个文件是怎么执行的呢？</p>
 <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>在命令行中，要执行文件时，系统先要到环境变量PATH中查找文件。（PATH中记录了一些目录。）<br>然后，再到当前所在目录下，查找文件。</p>
 <h2 id="查看PATH变量"><a href="#查看PATH变量" class="headerlink" title="查看PATH变量"></a>查看PATH变量</h2><ul>
@@ -4217,7 +4250,7 @@ $$
   </entry>
   <entry>
     <title>绝对路径与相对路径</title>
-    <url>/2020/04/19/linux/%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%E4%B8%8E%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84/</url>
+    <url>/2020/04/20/linux/%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%E4%B8%8E%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><code>/</code>这个表示<strong>根目录</strong>下<br><code>bin/</code>这个表示bin的目录下</p>
 <h1 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h1><p>一定要从根目录（<code>/</code>)写起，就是要写<strong>完整的路径名</strong></p>
 <h1 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h1><p>不是从根目录写起</p>
@@ -4367,7 +4400,7 @@ $$
   </entry>
   <entry>
     <title>++ --运算符</title>
-    <url>/2020/04/13/c/%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <url>/2020/04/14/c/%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
     <content><![CDATA[<h2 id="使用的先后"><a href="#使用的先后" class="headerlink" title="使用的先后"></a>使用的先后</h2><ul>
 <li>i++; 即 i = i + 1</li>
 <li>i++ 与 ++i<br>i++，先使用后递增。++i，先递增后使用</li>
@@ -4392,7 +4425,7 @@ $$
   </entry>
   <entry>
     <title>程序崩溃的可能原因</title>
-    <url>/2020/04/13/c/%E7%A8%8B%E5%BA%8F%E5%B4%A9%E6%BA%83%E7%9A%84%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0/</url>
+    <url>/2020/04/14/c/%E7%A8%8B%E5%BA%8F%E5%B4%A9%E6%BA%83%E7%9A%84%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0/</url>
     <content><![CDATA[<p>程序的崩溃的可能由于：</p>
 <ol>
 <li><p>擦拭调程序的代码（把赋值给野指针）</p>
@@ -4461,7 +4494,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>strcmp()寻找相同的字符串</title>
-    <url>/2020/04/12/c/strcmp-%E5%AF%BB%E6%89%BE%E7%9B%B8%E5%90%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <url>/2020/04/13/c/strcmp-%E5%AF%BB%E6%89%BE%E7%9B%B8%E5%90%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有一个字符串数组，需要用户输入的字符与字符串数组的字符串相匹配。可以使用strcmp()函数在循环中查找，如果，找到了就break;</p>
 <h1 id="strcmp"><a href="#strcmp" class="headerlink" title="strcmp()"></a>strcmp()</h1><ol>
 <li>参数<br>(str1，str2)</li>
@@ -4587,7 +4620,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>结构体声明和初始化</title>
-    <url>/2020/04/08/c/%E7%BB%93%E6%9E%84%E4%BD%93%E5%A3%B0%E6%98%8E%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96/</url>
+    <url>/2020/04/09/c/%E7%BB%93%E6%9E%84%E4%BD%93%E5%A3%B0%E6%98%8E%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="声明结构类型"><a href="#声明结构类型" class="headerlink" title="声明结构类型"></a>声明结构类型</h2><p>声明<code>struct person{...};</code></p>
 <ul>
 <li><p><strong>这个struct person起的作用就是一般声明中的int</strong></p>
@@ -4801,7 +4834,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>面向字符getc()和putc()</title>
-    <url>/2020/04/05/c/getc()%E5%92%8Cputc()/</url>
+    <url>/2020/04/06/c/getc()%E5%92%8Cputc()/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>面向字符操作。</p>
 <p>这两个函数类似于getchar()和puchar(‘ch’)。</p>
 <h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p><strong>在后面加多一个参数(FILE指针)</strong></p>
@@ -4949,7 +4982,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>接口</title>
-    <url>/2020/03/29/java/%E6%8E%A5%E5%8F%A3/</url>
+    <url>/2020/03/30/java/%E6%8E%A5%E5%8F%A3/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们知道，java中，<br>一个类只能有一个父类。但是，如果，我们想要实现的方法在父类中没有，那怎么办呢？<br>这个时候就需要接口。<br><img data-src="https://i.ibb.co/b6t2VDy/0a0901ba569ee3955958705c8bec979.jpg" alt=""></p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
 <li>可以把接口看成纯粹的抽象类，因为里面都是抽象方法。</li>
@@ -5125,7 +5158,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>将远程仓库clone到本地</title>
-    <url>/2020/03/27/github/git/%E5%B0%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93clone%E5%88%B0%E6%9C%AC%E5%9C%B0/</url>
+    <url>/2020/03/28/github/git/%E5%B0%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93clone%E5%88%B0%E6%9C%AC%E5%9C%B0/</url>
     <content><![CDATA[<h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><p>当一起合作开发项目的时候，就可以直接通过到GitHub上面，将仓库clone到本地，不需要在本创建仓库了。<br>clone有两种传输协议。</p>
 <ol>
 <li>HTTPS<br>这种协议不用SSH　KEY，方便直接。但clone起来会较慢。</li>
@@ -5144,7 +5177,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>使用SSH加密传输到远程repo</title>
-    <url>/2020/03/27/github/git/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/</url>
+    <url>/2020/03/28/github/git/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了将本地的repo托管到GitHub上的repo，需要创建SSH　key，通过SSH协议进行传输。并且通过git添加远程repo，进而推送到GitHub</p>
 <h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><h2 id="创建SSH-key"><a href="#创建SSH-key" class="headerlink" title="创建SSH key"></a>创建SSH key</h2><p>这个key和本机相联系，保存在你GitHub的账户中。<br><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></p>
 <h2 id="关联远程repo"><a href="#关联远程repo" class="headerlink" title="关联远程repo"></a>关联远程repo</h2><ol>
@@ -5223,7 +5256,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>c的简单算法</title>
-    <url>/2020/03/26/c/%E5%85%B3%E4%BA%8Ec%E7%9A%84%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95/</url>
+    <url>/2020/03/27/c/%E5%85%B3%E4%BA%8Ec%E7%9A%84%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h2 id="判断英文字母"><a href="#判断英文字母" class="headerlink" title="判断英文字母"></a>判断英文字母</h2><ol>
 <li>当字母区分大小写时，我们只需要写<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">ch &lt;= <span class="string">'z'</span> &amp;&amp; ch &gt;= <span class="string">'a'</span></span><br><span class="line">ch &lt;= <span class="string">'Z'</span> &amp;&amp; ch &gt;= <span class="string">'A'</span></span><br></pre></td></tr></table></figure></li>
 <li>当字母不区分大小写，当中就有一个问题。<h6 id="由于ASCII表中的大小字母的对应的十进制数不是连续从65-122的。"><a href="#由于ASCII表中的大小字母的对应的十进制数不是连续从65-122的。" class="headerlink" title="由于ASCII表中的大小字母的对应的十进制数不是连续从65-122的。"></a>由于ASCII表中的大小字母的对应的十进制数不是连续从65-122的。</h6>所以要将大小写分开。<br><code>(ch &lt;= &#39;z&#39; &amp;&amp; ch &gt;= &#39;a&#39;) || (ch &lt;= &#39;Z&#39; &amp;&amp; ch &gt;= &#39;A&#39;)</code></li>
@@ -5378,7 +5411,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>4大存储区域</title>
-    <url>/2020/03/20/c/4%E5%A4%A7%E5%AD%98%E5%82%A8%E5%8C%BA%E5%9F%9F/</url>
+    <url>/2020/03/21/c/4%E5%A4%A7%E5%AD%98%E5%82%A8%E5%8C%BA%E5%9F%9F/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>当我们讨论到地址的时候，很必要了解这些内存区域。比如，数组是什么时候分配内存的，指针形式和数组形式初始化字符串，有什么不同。</p>
 <h1 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h1><ul>
 <li><p>数组和其他变量类似，可以创建成不同的存储类别。</p>
@@ -5406,7 +5439,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>枚举类型</title>
-    <url>/2020/03/19/c/%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B/</url>
+    <url>/2020/03/20/c/%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>enum Day<br>{mon, tue, wed, thu, fir, sat, sun};<br>枚举类型是为了减少繁多的整数定义。诸如mon（默认=0）,tue这些是枚举符（int类型的常量）<strong>对应一个数字。</strong></p>
 <ul>
 <li>可以给枚举列表中的常量赋值</li>
@@ -5434,7 +5467,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>字符串输入&#39;char*和char[]&#39;</title>
-    <url>/2020/03/19/c/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5/</url>
+    <url>/2020/03/20/c/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5/</url>
     <content><![CDATA[<h1 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h1><ul>
 <li>定义<br><code>char* a</code>这个a是变量, 可以修改<br><code>char b[]</code>这个b是常量， 不能改变</li>
 </ul>
@@ -5471,7 +5504,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>指针和字符串</title>
-    <url>/2020/03/18/c/%E6%8C%87%E9%92%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <url>/2020/03/19/c/%E6%8C%87%E9%92%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>赋予指针地址的时候要类型匹配。</p>
 <ul>
 <li>For instance<br><code>&quot;name&quot;</code>是<code>char*</code>类型<h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1></li>
@@ -5495,7 +5528,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>字符串数组</title>
-    <url>/2020/03/18/c/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E7%BB%84/</url>
+    <url>/2020/03/19/c/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h1 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h1><ol>
 <li><code>char *</code>和<code>char **</code>和<code>char *arr[]</code>是指针类型。字节是8(64位操作系统)。(<code>int *</code>也一样)<br>而数组 <code>char arr[1][1]</code>字节是1。</li>
 <li><code>char *arr[]</code>是定义了多个指针。<br>把数组写成指针时按顺序替换。</li>
@@ -5560,7 +5593,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>main()中的参数是什么</title>
-    <url>/2020/03/17/c/main%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0%E6%98%AF%E4%BB%80%E4%B9%88/</url>
+    <url>/2020/03/18/c/main%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0%E6%98%AF%E4%BB%80%E4%B9%88/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在步入<code>命令行编译程序</code>和<code>C语言</code>的学习时，会涉及到我在编写主函数<code>int main()</code>中有关main参数的问题。</p>
 <h1 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h1><ul>
 <li>命令行输入中会有一个又一个以空格间隔的字符串。<br>例如：<code>./test</code>这是执行命令时的一个字符串。</li>
@@ -5608,7 +5641,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>command</title>
-    <url>/2020/03/16/linux/command/</url>
+    <url>/2020/03/17/linux/command/</url>
     <content><![CDATA[<ul>
 <li><p><code>date</code>日期</p>
 </li>
@@ -5681,7 +5714,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>关于makefile脚本的多文件编译</title>
-    <url>/2020/03/16/c/%E5%85%B3%E4%BA%8Emakefile%E7%9A%84%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/</url>
+    <url>/2020/03/17/c/%E5%85%B3%E4%BA%8Emakefile%E7%9A%84%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/</url>
     <content><![CDATA[<h1 id="前言-一些命令需要在Linux系统下，windows无法实现"><a href="#前言-一些命令需要在Linux系统下，windows无法实现" class="headerlink" title="前言(一些命令需要在Linux系统下，windows无法实现)"></a>前言(一些命令需要在Linux系统下，windows无法实现)</h1><p>当我们想要编译执行多个文件的时候，我们会由于<code>gcc a.c b.c c.c</code>的命令太长而厌烦，而makefile脚本就解决这些问题。（用IDE不需要理会一些这些内容，只需要按下小三角就可以了）</p>
 <h1 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h1><p>makefile是由于这条gcc命令，而实现的。</p>
 <ul>
@@ -5764,7 +5797,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>指针和多维数组</title>
-    <url>/2020/03/15/c/%E6%8C%87%E9%92%88%E5%92%8C%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84/</url>
+    <url>/2020/03/16/c/%E6%8C%87%E9%92%88%E5%92%8C%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h3 id="指针和数组的关系，首先要知道一些人为的表示符号。"><a href="#指针和数组的关系，首先要知道一些人为的表示符号。" class="headerlink" title="指针和数组的关系，首先要知道一些人为的表示符号。"></a>指针和数组的关系，首先要知道一些人为的表示符号。</h3><ul>
 <li>[]　和　*　–&gt;　取值　　　　　　／／所以，这两种写法可以替换</li>
 <li>&amp;　　　　　–&gt;　取地址</li>
@@ -5948,7 +5981,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>备份博客源文件到Github</title>
-    <url>/2020/03/11/github/%E5%A4%87%E4%BB%BD%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%E5%88%B0Github/</url>
+    <url>/2020/03/12/github/%E5%A4%87%E4%BB%BD%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%E5%88%B0Github/</url>
     <content><![CDATA[<p>*前言<br>在部署完个网站后<code>hexo g</code>，我发现了一个问题。<br>我的Github上面只有一些实实在在的HTML文件。HTML文件却不同于我们平时所写的 md文件，我们不能直接在HTML上面写博客。假如想要换台电脑写，或者某天本地环境挂了导致文件消失。所以，麻烦就来了。</p>
 <ul>
 <li>要用到的命令介绍</li>
@@ -6005,7 +6038,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   </entry>
   <entry>
     <title>Markdown标记语言</title>
-    <url>/2020/03/10/github/Markdown%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/</url>
+    <url>/2020/03/11/github/Markdown%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/</url>
     <content><![CDATA[<p>Markdown 编写的文档后缀为 .md, .markdown</p>
 <h2 id="1-符号"><a href="#1-符号" class="headerlink" title="1.符号#"></a>1.符号#</h2><p>越少 ——&gt; 笔画越粗</p>
 <h2 id="2-斜体"><a href="#2-斜体" class="headerlink" title="2.*  * 斜体"></a>2.*  * 斜体</h2><p><em>ferry chan</em></p>

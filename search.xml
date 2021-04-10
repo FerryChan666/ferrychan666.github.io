@@ -1,8 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>html</title>
+    <url>/2021/04/10/html/html/</url>
+    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>HTML consists of a series of elements. </p>
+<h2 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h2><p>An element is defined by a <strong>start tag</strong>, some content, and a <strong>end tag</strong>: </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tagname</span>&gt;</span>Content goes here...<span class="tag">&lt;/<span class="name">tagname</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>An Example</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>My title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>My first Heading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>My first paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Example Explained</p>
+<ul>
+<li>The <code>&lt;!DOCTYPE html&gt;</code> declaration defines that this document is an HTML5 document</li>
+<li>The <code>&lt;html&gt;</code> element is the root element of an HTML page</li>
+<li>The <code>&lt;head&gt;</code> element contains meta information about the HTML page</li>
+<li>The <code>&lt;title&gt;</code> element specifies a title for the HTML page (which is shown in the browser’s title bar or in the page’s tab)</li>
+<li>The <code>&lt;body&gt;</code> element defines the document’s body, and is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, lists, etc.</li>
+<li>The <code>&lt;h1&gt;</code> element defines a large heading</li>
+<li>The <code>&lt;p&gt;</code> element defines a paragraph</li>
+</ul>
+<p>*<em>The content inside the <code>&lt;body&gt;</code> will be showed in the web pages. *</em></p>
+<h1 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h1><p>Attributes privide additional information about element. </p>
+<ul>
+<li>All HTML elements can have <strong>attributes</strong></li>
+<li>Attributes provide <strong>additional information</strong> about elements</li>
+<li>Attributes are always specified in <strong>the start tag</strong></li>
+<li>Attributes usually come in name/value pairs like: <strong>name=”value”</strong></li>
+</ul>
+<h2 id="href"><a href="#href" class="headerlink" title="href"></a>href</h2><p><code>href</code> is a attribute specifying the URL of the page the link goes: </p>
+<p><code>&lt;a&gt;</code> is a tag defining a hyperlink. </p>
+<p><strong>Example</strong></p>
+<p><code>&lt;a href=&quot;https://ferrychan666.github.io&quot;&gt;my blog&lt;/a&gt;</code></p>
+<h2 id="src"><a href="#src" class="headerlink" title="src"></a>src</h2><p><code>src</code> is the attribute specifying the path of the image:</p>
+<p><code>&lt;img&gt;</code> is a tag that is used to embed the image in the html page. </p>
+<p><strong>Example</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"eren.jpg"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hope</title>
-    <url>/2021/03/30/hope/</url>
+    <url>/2021/03/30/%E9%9A%8F%E7%AC%94/hope/</url>
     <content><![CDATA[<p>hope?</p>
 <p>May be my childhood is no hope. </p>
 <p>At that time, I ‘m impacted by my parents, environment in the countryside, and the poor.</p>
@@ -14,28 +60,8 @@
       </tags>
   </entry>
   <entry>
-    <title>autohotkey自动化工具</title>
-    <url>/2021/02/25/autohotkey%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<p>按键语法</p>
-<p><img data-src="https://i.imgur.com/eZjwYwM.png" alt></p>
-<p>鼠标</p>
-<p>globe</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^+z:: </span><br><span class="line">loop,1&#123;	</span><br><span class="line">    Click, 1531, 1057 Right</span><br><span class="line">    Click, 1303, 860</span><br><span class="line">    Click, 928, 856</span><br><span class="line">&#125;</span><br><span class="line">Return</span><br></pre></td></tr></table></figure>
-
-<p>pac</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^+X:: </span><br><span class="line">loop,1&#123;</span><br><span class="line">    Click, 1531, 1057 Right</span><br><span class="line">    Click, 1303, 860</span><br><span class="line">    Click, 905, 897</span><br><span class="line">&#125;</span><br><span class="line">Return</span><br></pre></td></tr></table></figure>
-
-
-
-<p>最后，把文件移动到starup中就可以开机自启了</p>
-]]></content>
-      <tags>
-        <tag>tools</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PSO</title>
-    <url>/2021/01/21/algorithm/PSO/PSO/</url>
+    <url>/2021/01/21/algorithm/PSO/</url>
     <content><![CDATA[<h1 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h1><p>该算法，通过追随当前搜索到的最优值来寻找全局最优</p>
 <p>试着想一下一群鸟在寻找食物，在这个区域中只有一只虫子，所有的鸟都不知道它在哪。但是它们知道自己的当前位置距离食物有多远，它们通过相互联系，知道离食物最近的鸟的位置，同时各只鸟在位置不停变化时候离食物的距离也不断变化。</p>
 <p>现在把鸟抽象为粒子。</p>
@@ -45,9 +71,9 @@
 <li>每个粒子还知道到目前为止整个群体中所有粒子发现的最好位置(<code>gbest</code>)(gbest是pbest中的最好值)</li>
 </ol>
 <p>最终，粒子就是通过自己的经验和同伴中最好的经验来决定下一步的运动。 </p>
-<h2 id="粒子速度和位置的更新"><a href="#粒子速度和位置的更新" class="headerlink" title="粒子速度和位置的更新"></a>粒子速度和位置的更新</h2><p><img data-src="https://i.imgur.com/1k2i2Gy.png" alt=""></p>
+<h2 id="粒子速度和位置的更新"><a href="#粒子速度和位置的更新" class="headerlink" title="粒子速度和位置的更新"></a>粒子速度和位置的更新</h2><p><img data-src="https://i.imgur.com/1k2i2Gy.png" alt></p>
 <p>该公式是从上面公式中的一个改进，增加了一个惯性因子。</p>
-<p><img data-src="https://i.imgur.com/gZlglie.png" alt=""></p>
+<p><img data-src="https://i.imgur.com/gZlglie.png" alt></p>
 <p>这两条公式称为标准的PSO算法。</p>
 <h1 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h1><p>举例<code>y=-x*(x-2)</code> 该函数，让PSO寻找该顶点的y值</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AlgorithmPSO</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n=<span class="number">2</span>; <span class="comment">//粒子个数</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span>[] y;</span><br><span class="line">    <span class="keyword">double</span>[] x;<span class="comment">//每个粒子位置</span></span><br><span class="line">    <span class="keyword">double</span>[] v;<span class="comment">//每个粒子速度v</span></span><br><span class="line">    <span class="comment">//学习因子</span></span><br><span class="line">    <span class="keyword">double</span> c1=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">double</span> c2=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> pbest[];<span class="comment">//每个粒子走过的最好位置</span></span><br><span class="line">    <span class="keyword">double</span> gbest;<span class="comment">//是pbest中最好的值</span></span><br><span class="line">    <span class="keyword">double</span> vmax=<span class="number">0.1</span>; <span class="comment">//速度最大值</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//适应度计算函数，每个粒子都有它的适应度</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fitnessFunction</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            y[i]=-<span class="number">1</span>*x[i]*(x[i]-<span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123; <span class="comment">//初始化</span></span><br><span class="line">        x=<span class="keyword">new</span> <span class="keyword">double</span>[n];</span><br><span class="line">        v=<span class="keyword">new</span> <span class="keyword">double</span>[n];</span><br><span class="line">        y=<span class="keyword">new</span> <span class="keyword">double</span>[n];</span><br><span class="line">        pbest=<span class="keyword">new</span> <span class="keyword">double</span>[n];</span><br><span class="line">        <span class="comment">/***</span></span><br><span class="line"><span class="comment">         * 本来是应该随机产生的，为了方便演示，我这里手动随机落两个点，分别落在最大值两边</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        x[<span class="number">0</span>]=<span class="number">0.0</span>;</span><br><span class="line">        x[<span class="number">1</span>]=<span class="number">2.0</span>;</span><br><span class="line">        v[<span class="number">0</span>]=<span class="number">0.01</span>;</span><br><span class="line">        v[<span class="number">1</span>]=<span class="number">0.02</span>;</span><br><span class="line">        fitnessFunction();</span><br><span class="line">        <span class="comment">//初始化当前个体最优位置，并找到群体最优位置</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            pbest[i]=y[i];</span><br><span class="line">            <span class="keyword">if</span>(y[i]&gt;gbest) gbest=y[i];</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"算法开始，起始最优解:"</span>+gbest);</span><br><span class="line">        System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getMAX</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a&gt;b?a:b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//粒子群算法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PSO</span><span class="params">(<span class="keyword">int</span> max)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;max;i++)&#123;<span class="comment">//迭代次数max</span></span><br><span class="line">            <span class="keyword">double</span> w=<span class="number">0.4</span>;<span class="comment">//惯性因子</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="comment">//更新位置和速度</span></span><br><span class="line">                v[j]=w*v[j]+c1*Math.random()*(pbest[j]-x[j])+c2*Math.random()*(gbest-x[j]);</span><br><span class="line">                <span class="keyword">if</span>(v[j]&gt;vmax) </span><br><span class="line">                    v[j]=vmax;<span class="comment">//控制速度不超过最大值</span></span><br><span class="line"></span><br><span class="line">                x[j]+=v[j];<span class="comment">//位置变化</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment">//越界判断，范围限定在[0, 2]</span></span><br><span class="line">                <span class="keyword">if</span>(x[j]&gt;<span class="number">2</span>) x[j]=<span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span>(x[j]&lt;<span class="number">0</span>) x[j]=<span class="number">0</span>;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            fitnessFunction();<span class="comment">//更改y值</span></span><br><span class="line">            <span class="comment">//更新pbest和gbest</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                pbest[j]=getMAX(y[j],pbest[j]);</span><br><span class="line">                <span class="keyword">if</span>(pbest[j]&gt;gbest) </span><br><span class="line">                    gbest=pbest[j];</span><br><span class="line">                System.out.println(<span class="string">"粒子n"</span>+j+<span class="string">": x = "</span>+x[j]+<span class="string">"  "</span>+<span class="string">"v = "</span>+v[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"第"</span>+(i+<span class="number">1</span>)+<span class="string">"次迭代，全局最优解 gbest = "</span>+gbest);</span><br><span class="line">            System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    	AlgorithmPSO ts=<span class="keyword">new</span> AlgorithmPSO();</span><br><span class="line">        ts.init();</span><br><span class="line">        ts.PSO(<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

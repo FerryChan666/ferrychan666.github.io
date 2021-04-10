@@ -37,7 +37,10 @@
 <p><strong>Example</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"eren.jpg"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-
+<p>There are two way to specify the URL in the scr attribute. </p>
+<p><strong>1. Absolute URL</strong> - Links to an external image that is hosted on another website.</p>
+<p><strong>2. Relative URL</strong> - Links to an image that is hosted within the website.</p>
+<img data-src="eren.jpg">
 
 
 

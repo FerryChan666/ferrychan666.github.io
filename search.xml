@@ -40,10 +40,110 @@
 <p>There are two way to specify the URL in the scr attribute. </p>
 <p><strong>1. Absolute URL</strong> - Links to an external image that is hosted on another website.</p>
 <p><strong>2. Relative URL</strong> - Links to an image that is hosted within the website.</p>
-<img data-src="eren.jpg">
+<h2 id="the-width-and-height"><a href="#the-width-and-height" class="headerlink" title="the width and height"></a>the width and height</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"eren.jpg"</span> <span class="attr">width</span>=<span class="string">"500"</span> <span class="attr">height</span> =<span class="string">"600"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 
+<img data-src="eren.jpg" width="500" height="600">
+
+
+
+<h2 id="alt"><a href="#alt" class="headerlink" title="alt"></a>alt</h2><p>The required <code>alt</code> attribute for the <code>&lt;img&gt;</code> tag specifies an alternate text for an image, if the image for some reason cannot be displayed.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"eren"</span> <span class="attr">alt</span>=<span class="string">"eren long hair"</span> <span class="attr">width</span>=<span class="string">"500"</span> <span class="attr">height</span> =<span class="string">"600"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img data-src="eren" alt="eren long hair" width="500" height="600">
+
+
+
+<h2 id="style"><a href="#style" class="headerlink" title="style"></a>style</h2><p>The <code>style</code> attribute is used to add styles to an element, such as color, font, size, and more.</p>
+<p>Setting the style of an HTML element, can be done with the <code>style</code> attribute.</p>
+<p>The HTML <code>style</code> attribute has the following syntax:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;tagname style&#x3D;&quot;property:value;&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>The <strong><em>property</em></strong> is a CSS property. The <strong><em>value</em></strong> is a CSS value.</p>
+<h3 id="color"><a href="#color" class="headerlink" title="color"></a>color</h3><p>HTML colors are specified with predefined color <strong>names, or with RGB, HEX, HSL, RGBA, or HSLA values</strong>.</p>
+<ol>
+<li><p>background-color</p>
+<p><code>&lt;p style=&quot;background-color: violet&quot;&gt;the violet background color&lt;/p&gt;</code></p>
+</li>
+<li><p>text color</p>
+<p><code>&lt;p style=&quot;color: violet&quot;&gt;the violet text color&lt;/p&gt;</code></p>
+</li>
+</ol>
+<h4 id="RGB-amp-RGBA-color"><a href="#RGB-amp-RGBA-color" class="headerlink" title="RGB &amp; RGBA color"></a>RGB &amp; RGBA color</h4><p>An RGB color value represents RED, GREEN, and BLUE light sources.</p>
+<p><code>rgb(red, green, blue)</code></p>
+<p>An RGBA color value is an extension of RGB with an Alpha channel (opacity).</p>
+<p><code>rgba(red, green, blue, alpha)</code></p>
+<h4 id="HEX-color"><a href="#HEX-color" class="headerlink" title="HEX color"></a>HEX color</h4><p>A hexadecimal color is specified with: #RRGGBB, where the RR (red), GG (green) and BB (blue) hexadecimal integers specify the components of the color.</p>
+<h4 id="HSL-amp-HSLA-color"><a href="#HSL-amp-HSLA-color" class="headerlink" title="HSL &amp; HSLA color"></a>HSL &amp; HSLA color</h4><p>HSL stands for hue, saturation, and lightness.</p>
+<p>HSLA color values are an extension of HSL with an Alpha channel (opacity).</p>
+<ul>
+<li>Hue is a degree on the color wheel from 0 to 360. 0 is red, 120 is green, and 240 is blue.</li>
+<li>Saturation can be described as the intensity of a color.</li>
+<li>The lightness of a color can be described as how much light you want to give the color, where 0% means no light (black), 50% means 50% light (neither dark nor light) 100% means full lightness (white).</li>
+</ul>
+<h2 id="title"><a href="#title" class="headerlink" title="title"></a>title</h2><p>The value of the title attribute will be displayed as a tooltip when you mouse over the element:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">title</span>=<span class="string">"I'm a tooltip"</span>&gt;</span>This is a paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p>We have 3 way to add the css into the html</p>
+<ol>
+<li><p>Inline</p>
+<p>Use the attribute <code>style=&quot;&quot;</code> inside the tag, </p>
+</li>
+<li><p>Internal</p>
+<p>Use the <code>&lt;style&gt;</code> element inside the <code>&lt;head&gt;</code> element,</p>
+</li>
+<li><p>External</p>
+<p>Use a <code>&lt;link&gt;</code> element to link the external css file</p>
+</li>
+</ol>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><strong>index.htm</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>css<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--internal--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">		<span class="selector-tag">p</span>&#123;<span class="attribute">color</span>: red&#125;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--external--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"styles.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--inline--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">"color: violet"</span>&gt;</span>the first heading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>the second heading<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>this is a paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>styles.css</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h2</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Paragraph"><a href="#Paragraph" class="headerlink" title="Paragraph"></a>Paragraph</h1><p>The HTML <code>&lt;p&gt;</code> element defines a paragraph.</p>
+<p>A paragraph always starts on a new line, and browsers automatically add some white space (a margin) before and after a paragraph.</p>
+<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h2><p><strong>However, the browser will automatically remove any extra lines or spaces in the html text</strong></p>
+<p><strong>So, this example will be displayed on a single line.</strong> </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">the first line</span><br><span class="line">the second line</span><br><span class="line">the third line</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<p>
+the first line
+the second line
+the third line
+</p>
+
+<h2 id="Soultion"><a href="#Soultion" class="headerlink" title="Soultion"></a>Soultion</h2><ol>
+<li><p>Horizontal Rules</p>
+<p>The <code>&lt;hr&gt;</code> tag defines a thematic break in an HTML page,</p>
+</li>
+<li><p>Line Breaks</p>
+<p>The HTML <code>&lt;br&gt;</code> element defines a line break.</p>
+</li>
+<li><p><code>&lt;pre&gt;</code>Element</p>
+<p>The HTML <code>&lt;pre&gt;</code> element defines preformatted text.</p>
+<p>The text inside a <code>&lt;pre&gt;</code> element is displayed in a fixed-width font (usually Courier), and it preserves both spaces and line breaks:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span></span><br><span class="line">the first line</span><br><span class="line">the second line</span><br><span class="line">the third line</span><br><span class="line"><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<pre>
+the first line
+the second line
+the third line
+</pre>
+
+</li>
+</ol>
+<h1 id="Formatting"><a href="#Formatting" class="headerlink" title="Formatting"></a>Formatting</h1><p>HTML Text Formatting Elements<br>Tag    Description<br><b>    Defines bold text<br><em>    Defines emphasized text<br><i>    Defines a part of text in an alternate voice or mood<br><small>    Defines smaller text<br><strong>    Defines important text<br><sub>    Defines subscripted text<br><sup>    Defines superscripted text<br><ins>    Defines inserted text<br><del>    Defines deleted text<br><mark>    Defines marked/highlighted text</mark></del></ins></sup></sub></strong></small></i></em></b></p>
+<h1 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h1><p>You can add comments to your HTML source by using the following syntax:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Write your comments here --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Comments are not displayed by the browser</strong></p>
 ]]></content>
       <tags>
         <tag>HTML</tag>

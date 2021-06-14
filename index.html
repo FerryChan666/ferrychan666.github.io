@@ -125,12 +125,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">153</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">19</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">18</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -187,6 +187,95 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2021/05/31/database/database/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/31/database/database/" class="post-title-link" itemprop="url">database</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-05-31 10:39:46 / Modified: 12:13:12" itemprop="dateCreated datePublished" datetime="2021-05-31T10:39:46+08:00">2021-05-31</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>435</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h1><ol>
+<li><p>条件查询</p>
+<p>在关系代数中的原型为<img data-src="https://www.zhihu.com/equation?tex=%5Csigma_%7Bpred%7D%28M%29" alt="[公式]">，表示在<code>pred</code>条件下从集合M中产生一个子集。</p>
+<hr>
+<p>从集合<code>instructor</code>中取出工资<code>salary</code>大于20000的大佬，写成关系代数就是<img data-src="https://www.zhihu.com/equation?tex=%5Csigma_%7Bsalary%3E20000%7D%28instructor%29" alt="[公式]"></p>
+<p>SQL就是<code>select * from instructor where salary &gt; 2000;</code></p>
+</li>
+<li><p>选择列</p>
+<p>从集合<code>instructor</code>中取出姓名<code>name</code>和性别<code>gender</code>，写成关系代数就是<img data-src="https://www.zhihu.com/equation?tex=%5CPi_%7Bname%2C+gender%7D%28instructor%29" alt="[公式]">。</p>
+<p>SQL就是<code>select name gender from instructor;</code></p>
+</li>
+<li><p>笛卡尔乘积</p>
+<p><img data-src="https://pic3.zhimg.com/80/v2-b0a3fd59fa4be6b841c0c42577400f32_1440w.png" alt></p>
+</li>
+</ol>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p><em>连接=筛选+笛卡尔乘积</em></p>
+<p>要连接两个表格，只需要筛选结果集就可以了。如有两个表，一个表示授课教师<code>instructor</code>，一个是课程信息<code>course</code>，他们分别包含<code>name</code>属性和<code>teacher</code>属性，都表示「教师姓名」。将两个表做笛卡尔乘积，结果集中保留教师姓名相同的行就是我们想要的结果。写成关系代数<img data-src="https://www.zhihu.com/equation?tex=%5Csigma_%7Binstructor.name%3Dcourse.teacher%7D%28instructor%5Ctimes+course%29" alt="[公式]">，写成SQL语句<code>select * from instructor, course where instructor.name = course.teacher;</code>。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -353,7 +442,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-03 15:41:05" itemprop="dateModified" datetime="2021-05-03T15:41:05+08:00">2021-05-03</time>
+                <time title="Modified: 2021-06-14 14:26:38" itemprop="dateModified" datetime="2021-06-14T14:26:38+08:00">2021-06-14</time>
               </span>
 
           <br>
@@ -369,7 +458,7 @@
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>10 mins.</span>
+              <span>9 mins.</span>
             </span>
 
         </div>
@@ -647,93 +736,8 @@ the third line
 
 
 
-<h1 id="lt-iframe-gt"><a href="#lt-iframe-gt" class="headerlink" title="&lt;iframe&gt;"></a><code>&lt;iframe&gt;</code></h1><p>An <code>&lt;iframe&gt;</code> element is used to display a web page within a web page.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"url"</span> <span class="attr">title</span>=<span class="string">"description"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>Besides, we can insert the attributes,<code>height</code> and <code>width</code>, to specify the size of the iframe or use the attribute <code>style</code> and the properties <code>height</code> and <code>width</code>. </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"https:ferrychan666.github.io"</span> <span class="attr">height</span>=<span class="string">"400"</span> <span class="attr">width</span>=<span class="string">"500"</span> <span class="attr">title</span>=<span class="string">"my blog"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"index.htm"</span> <span class="attr">style</span>=<span class="string">"height: 400; width: 300; border: none;"</span> <span class="attr">title</span>=<span class="string">"my index"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
 <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>The JavaScript make the web page more interactive and dynamic. </p>
 <p>The first we should know is the <code>&lt;script&gt;</code> tag, which create a space that can either display the script or the external script file.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2021/03/30/%E9%9A%8F%E7%AC%94/hope/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/30/%E9%9A%8F%E7%AC%94/hope/" class="post-title-link" itemprop="url">hope</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-03-30 00:11:23 / Modified: 00:15:42" itemprop="dateCreated datePublished" datetime="2021-03-30T00:11:23+08:00">2021-03-30</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>262</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>hope?</p>
-<p>May be my childhood is no hope. </p>
-<p>At that time, I ‘m impacted by my parents, environment in the countryside, and the poor.</p>
-<p>But now I am picking up my dream, being the true of me and I want to make sense in my life, happy, sad, up and down, so I want to change my circumstance.  </p>
-<p>If I can do it or keep doing it, there is the hope. </p>
 
       
     </div>
@@ -1468,13 +1472,13 @@ the third line
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">248k</span>
+    <span title="Symbols count total">247k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:46</span>
+    <span title="Reading time total">3:45</span>
 </div>
 
 <div id="days"></div>

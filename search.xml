@@ -1,6 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>APIs</title>
+    <url>/2021/06/15/html/APIs/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>plug-ins</title>
+    <url>/2021/06/15/html/plug-ins/</url>
+    <content><![CDATA[<p>Plug-ins are computer programs that extend the standard functionality of the browser.</p>
+<h2 id="The-lt-object-gt-Element"><a href="#The-lt-object-gt-Element" class="headerlink" title="The &lt;object&gt; Element"></a>The <code>&lt;object&gt;</code> Element</h2><p>The <code>&lt;object&gt;</code> element defines an embedded object within an HTML document.</p>
+<p>It was designed to embed plug-ins (like Java applets, PDF readers, and Flash Players) in web pages, but can also be used to include HTML in HTML:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"500px"</span> <span class="attr">data</span>=<span class="string">"canvas.htm"</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">"eren.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"500px"</span> <span class="attr">data</span>=<span class="string">"test.pdf"</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="The-lt-embed-gt-Element"><a href="#The-lt-embed-gt-Element" class="headerlink" title="The &lt;embed&gt; Element"></a>The <code>&lt;embed&gt;</code> Element</h2><p>The <code>&lt;embed&gt;</code> element also defines an embedded object within an HTML document.</p>
+<p>Note that the <code>&lt;embed&gt;</code> element does not have a closing tag. It can not contain alternative text.</p>
+]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Multimedia</title>
+    <url>/2021/06/15/html/Multimedia/</url>
+    <content><![CDATA[<p>Multimedia comes in many different formats. It can be almost anything you can hear or see, like images, music, sound, videos, records, films, animations, and more.</p>
+<h1 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h1><p>To show a video in HTML, use the  <code>&lt;video&gt;</code> element. </p>
+<p>The <code>controls</code> attribute adds audio controls, like play, pause, and volume.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"400"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"myWar.mp4"</span>&gt;</span></span><br><span class="line">    you brower do not support video tag.</span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"400"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">src</span>=<span class="string">"myWar.mp4"</span> <span class="attr">controls</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Audio"><a href="#Audio" class="headerlink" title="Audio"></a>Audio</h1><p>To play an audio file in HTML, use the <code>&lt;audio&gt;</code> element:</p>
+<p>The <code>controls</code> attribute adds audio controls, like play, pause, and volume.</p>
+]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html canvas</title>
+    <url>/2021/06/15/html/html-canvas/</url>
+    <content><![CDATA[<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>Canvas is a container for graphics. You must use JavaScript to draw the graphics. </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"100"</span> <span class="attr">style</span>=<span class="string">"border: 1px solid black;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><canvas id="myCanvas" width="200" height="100" style="border: 1px solid black;"></canvas></p>
+<h1 id="Draw-on-the-canvas-with-JavaScript"><a href="#Draw-on-the-canvas-with-JavaScript" class="headerlink" title="Draw on the canvas with JavaScript"></a>Draw on the canvas with JavaScript</h1><ol>
+<li><p><strong>Get the canvas</strong></p>
+<p>We can get it by using the JS method <code>document.getElementById(&quot;&quot;)</code></p>
+</li>
+<li><p><strong>set an object from canvas</strong></p>
+<p><code>var ctx=c.getContext(&quot;2d&quot;);</code> </p>
+<p>This means the drawing object draws with 2 dimension.</p>
+</li>
+<li><p><strong>draw the graph by using the object</strong></p>
+<p>We can use this drawing object to draw the graphics with <code>moveTo(x,y)</code>,  <code>lineTo(x,y)</code> and <code>arc(x, y, r, startangle, endangle)</code> method. </p>
+<p>And Then, it is imperative for us to add the ink by using <code>stroke()</code>method.</p>
+</li>
+</ol>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><strong>Draw a line</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"300"</span> <span class="attr">style</span>=<span class="string">"border: 1px black solid;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> canvas=<span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</span></span><br><span class="line"><span class="actionscript">		<span class="keyword">var</span> ctx=canvas.getContext(<span class="string">"2d"</span>);</span></span><br><span class="line">		ctx.moveTo(0,0);</span><br><span class="line">		ctx.lineTo(200,300);</span><br><span class="line">		ctx.stroke();</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Draw a circle</strong></p>
+<p><code>beginPath()</code> - clear the canvas and restart to draw the graphics</p>
+<p><code>arc(x, y, r, startangle, endangle)</code> - The x and y parameters define the x- and y-coordinates of the center of the circle. The r parameter defines the radius of the circle.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">var canvas = document.getElementById("myCanvas");</span><br><span class="line">var ctx = canvas.getContext("2d");</span><br><span class="line">ctx.beginPath();</span><br><span class="line">ctx.arc(95, 50, 40, 0, 2 * Math.PI);</span><br><span class="line">ctx.stroke();</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html forms</title>
+    <url>/2021/06/15/html/html-forms/</url>
+    <content><![CDATA[<h1 id="Forms"><a href="#Forms" class="headerlink" title="Forms"></a>Forms</h1><p>The <code>&lt;form&gt;</code> element is used to create a HTHML form for user input, which is a container for different types of input elements, such as: text fields, checkboxes, radio buttons, submit buttons, etc.</p>
+<h2 id="The-HTML-lt-form-gt-Elements"><a href="#The-HTML-lt-form-gt-Elements" class="headerlink" title="The HTML &lt;form&gt; Elements"></a>The HTML <code>&lt;form&gt;</code> Elements</h2><p>The HTML <code>&lt;form&gt;</code> element can contain one or more of the following form elements:</p>
+<ul>
+<li><code>&lt;input&gt;</code></li>
+<li><code>&lt;label&gt;</code></li>
+<li><code>&lt;select&gt;</code></li>
+<li><code>&lt;textarea&gt;</code></li>
+<li><code>&lt;button&gt;</code></li>
+<li><code>&lt;fieldset&gt;</code></li>
+<li><code>&lt;legend&gt;</code></li>
+<li><code>&lt;datalist&gt;</code></li>
+<li><code>&lt;output&gt;</code></li>
+<li><code>&lt;option&gt;</code></li>
+<li><code>&lt;optgroup&gt;</code></li>
+</ul>
+<h3 id="The-lt-input-gt-Element"><a href="#The-lt-input-gt-Element" class="headerlink" title="The &lt;input&gt; Element"></a>The <code>&lt;input&gt;</code> Element</h3><p>One of the most used form element is the <code>&lt;input&gt;</code> element.</p>
+<p>The <code>&lt;input&gt;</code> element can be displayed in several ways, depending on the <code>type</code> attribute.</p>
+<h3 id="The-lt-label-gt-Element"><a href="#The-lt-label-gt-Element" class="headerlink" title="The &lt;label&gt; Element"></a>The <code>&lt;label&gt;</code> Element</h3><p>When the user clicks the text within the <code>&lt;label&gt;</code> element, it toggles the radio button/checkbox.</p>
+<p>The <code>for</code> attribute of the <code>&lt;label&gt;</code> tag should be equal to the <code>id</code> attribute of the <code>&lt;input&gt;</code> element to bind them together.</p>
+<p><strong>Usage</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span>First Name:</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"ferry"</span> <span class="attr">name</span>=<span class="string">"fname"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"LN"</span>&gt;</span>Last Name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"LN"</span> <span class="attr">value</span>=<span class="string">"chan"</span> <span class="attr">name</span>=<span class="string">"lname"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="The-lt-select-gt-Element"><a href="#The-lt-select-gt-Element" class="headerlink" title="The &lt;select&gt; Element"></a>The <code>&lt;select&gt;</code> Element</h3><p>The <code>&lt;select&gt;</code> element defines a drop-down list:</p>
+<p>The <code>&lt;option&gt;</code> elements defines an option that can be selected.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"cars"</span> <span class="attr">name</span>=<span class="string">"cars"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"volvo"</span>&gt;</span>Volvo<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"saab"</span>&gt;</span>Saab<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"fiat"</span>&gt;</span>Fiat<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"audi"</span>&gt;</span>Audi<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><label for="cars">Choose a car:</label></p>
+<select id="cars" name="cars">
+ <option value="volvo">Volvo</option>
+ <option value="saab">Saab</option>
+ <option value="fiat">Fiat</option>
+ <option value="audi">Audi</option>
+</select>
+
+
+
+
+<h3 id="The-lt-button-gt-Element"><a href="#The-lt-button-gt-Element" class="headerlink" title="The &lt;button&gt; Element"></a>The <code>&lt;button&gt;</code> Element</h3><p>The <code>&lt;button&gt;</code> element defines a clickable button:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"alert('Hello World!')"</span>&gt;</span>Click Me!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="The-lt-fieldset-gt-and-lt-legend-gt-Elements"><a href="#The-lt-fieldset-gt-and-lt-legend-gt-Elements" class="headerlink" title="The &lt;fieldset&gt; and &lt;legend&gt; Elements"></a>The <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> Elements</h3><p>The <code>&lt;fieldset&gt;</code> element is used to group related data in a form.</p>
+<p>The <code>&lt;legend&gt;</code> element defines a caption for the <code>&lt;fieldset&gt;</code> element.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/action_page.php"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">legend</span>&gt;</span>Personalia:<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"fname"</span>&gt;</span>First name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"fname"</span> <span class="attr">name</span>=<span class="string">"fname"</span> <span class="attr">value</span>=<span class="string">"John"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"lname"</span>&gt;</span>Last name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"lname"</span> <span class="attr">name</span>=<span class="string">"lname"</span> <span class="attr">value</span>=<span class="string">"Doe"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<form action="/action_page.php">
+  <fieldset>
+    <legend>Personalia:</legend>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+
+
+<h2 id="The-Input-Type"><a href="#The-Input-Type" class="headerlink" title="The Input Type"></a>The Input Type</h2><p>Here are the different input types you can use in HTML:</p>
+<ul>
+<li><code>&lt;input type=&quot;button&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;checkbox&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;color&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;date&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;datetime-local&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;email&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;file&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;hidden&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;image&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;month&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;number&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;password&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;radio&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;range&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;reset&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;search&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;submit&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;tel&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;text&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;time&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;url&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;week&quot;&gt;</code></li>
+</ul>
+<h3 id="Radio"><a href="#Radio" class="headerlink" title="Radio"></a>Radio</h3><p>Radio is one of the values of the <code>type</code> attribute. </p>
+<p><strong>Specify the same values of in name attributes of the input elements, which are grouped together as a set of radios.</strong> </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"one"</span> <span class="attr">name</span>=<span class="string">"number"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"one"</span>&gt;</span>one<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"one"</span> <span class="attr">name</span>=<span class="string">"number"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"two"</span>&gt;</span>two<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"three"</span> <span class="attr">name</span>=<span class="string">"number"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"three"</span>&gt;</span>three<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Checkbox"><a href="#Checkbox" class="headerlink" title="Checkbox"></a>Checkbox</h3><p>Checkboxes let a user select ZERO or MORE options of a limited number of choices.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"Bike"</span> <span class="attr">name</span>=<span class="string">"vehicle1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"Bike"</span>&gt;</span>Bike<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"Car"</span> <span class="attr">name</span>=<span class="string">"vehicle2"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"Car"</span>&gt;</span>Car<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"Boat"</span> <span class="attr">name</span>=<span class="string">"vehicle3"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"Boat"</span>&gt;</span>Boat<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Submit"><a href="#Submit" class="headerlink" title="Submit"></a>Submit</h3><p>The submit also is one of the values of type attribute in input element, which submits the form data to a form-handler, a server file that is specify in the form’s action attribute. </p>
+<p>In the example below, the form data is sent to a file called “action_page.php”. This file contains a server-side script that handles the form data:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/action_page.php"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"fname"</span>&gt;</span>First name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"fname"</span> <span class="attr">name</span>=<span class="string">"fname"</span> <span class="attr">value</span>=<span class="string">"John"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"lname"</span>&gt;</span>Last name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"lname"</span> <span class="attr">name</span>=<span class="string">"lname"</span> <span class="attr">value</span>=<span class="string">"Doe"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Reset"><a href="#Reset" class="headerlink" title="Reset"></a>Reset</h3><p><code>&lt;input type=&quot;reset&quot;&gt;</code> defines a <strong>reset button</strong> that will reset all form values to their default values.</p>
+<h2 id="The-Input-Attribute"><a href="#The-Input-Attribute" class="headerlink" title="The Input Attribute"></a>The Input Attribute</h2><h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><p>This attribute specifies a default value in the input filed. </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span>First Name:</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"ferry"</span> <span class="attr">name</span>=<span class="string">"fname"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"LN"</span>&gt;</span>Last Name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"LN"</span> <span class="attr">value</span>=<span class="string">"chan"</span> <span class="attr">name</span>=<span class="string">"lname"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img data-src="https://i.imgur.com/2ZUlVGt.png" alt="e.g." style="zoom: 80%;">
+
+
+
+<h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><p>Notice that each input field must have a <code>name</code> attribute to be submitted.</p>
+<p><strong>If the <code>name</code> attribute is omitted, the value of the input field will not be sent at all.</strong></p>
+<h3 id="placeholder"><a href="#placeholder" class="headerlink" title="placeholder"></a>placeholder</h3><p>The input placeholder attribute specifies a  short hint to describes the expected value of input. </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"phone"</span>&gt;</span>Enter a phone number:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"tel"</span> <span class="attr">id</span>=<span class="string">"phone"</span> <span class="attr">name</span>=<span class="string">"phone"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">placeholder</span>=<span class="string">"123-45-678"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">pattern</span>=<span class="string">"[0-9]&#123;3&#125;-[0-9]&#123;2&#125;-[0-9]&#123;3&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<form>
+ <label for="phone">Enter a phone number:</label>
+ <input type="tel" id="phone" name="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+</form>
+
+
+
+
+<h3 id="required"><a href="#required" class="headerlink" title="required"></a>required</h3><p>The input <code>required</code> attribute specifies that an input field must be filled out before submitting the form.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"one"</span> <span class="attr">name</span>=<span class="string">"number"</span> <span class="attr">required</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>The form attribute specifies the form the input element belongs to. </p>
+<p>An input field located outside of the HTML form (but still a part of the form):</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/action_page.php"</span> <span class="attr">id</span>=<span class="string">"form1"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"fname"</span>&gt;</span>First name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"fname"</span> <span class="attr">name</span>=<span class="string">"fname"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"lname"</span>&gt;</span>Last name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"lname"</span> <span class="attr">name</span>=<span class="string">"lname"</span> <span class="attr">form</span>=<span class="string">"form1"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>database</title>
     <url>/2021/05/31/database/database/</url>
     <content><![CDATA[<h1 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h1><ol>
@@ -43,7 +269,7 @@
 
 
 <h1 id="External-JavaScript"><a href="#External-JavaScript" class="headerlink" title="External JavaScript"></a>External JavaScript</h1><p>JavaScript files have the  files extension <code>.js</code></p>
-<p><strong>To use the external js file, we should put the Js file name in the <code>scr</code> attribute of  the <code>&lt;script&gt;</code> tag</strong></p>
+<p><strong>To use the external JS file, we should put the JS file name in the <code>scr</code> attribute of  the <code>&lt;script&gt;</code> tag</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"myScript.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
@@ -53,7 +279,7 @@
 
 
 
-<p><strong>Js file</strong></p>
+<p><strong>JS file</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML=<span class="string">"Paragraph changed"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -355,8 +581,9 @@ the third line
 
 
 
-<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>The JavaScript make the web page more interactive and dynamic. </p>
-<p>The first we should know is the <code>&lt;script&gt;</code> tag, which create a space that can either display the script or the external script file.</p>
+<h1 id="Iframe"><a href="#Iframe" class="headerlink" title="Iframe"></a>Iframe</h1><p>An HTML iframe is used to display a web page within a web page.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"demo_iframe.htm"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">title</span>=<span class="string">"Iframe Example"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <tags>
         <tag>HTML</tag>

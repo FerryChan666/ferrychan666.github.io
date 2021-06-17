@@ -125,12 +125,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">153</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">158</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">18</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">19</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -187,6 +187,528 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/18/exam/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/18/exam/%E7%BA%BF%E6%80%A7%E8%A1%A8/%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="post-title-link" itemprop="url">线性表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-18 17:54:47" itemprop="dateCreated datePublished" datetime="2020-08-18T17:54:47+08:00">2020-08-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-05 09:14:20" itemprop="dateModified" datetime="2021-01-05T09:14:20+08:00">2021-01-05</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>6k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>
+<li><p>线性表两大类：顺序存储结构，链式存储结构。</p>
+<ul>
+<li><p>顺序存储结构（顺序表）</p>
+<p>  ——实例就是稠密多项式的运用</p>
+</li>
+<li><p>链式存储结构（链表），5种形式</p>
+<p>  ——实例就是稀疏多项式的运用</p>
+<p>  单链表，双链表，循环单链表，循环双链表，静态链表（结构体数组）。</p>
+</li>
+</ul>
+</li>
+<li><p>线性表的应用</p>
+<p>最常见的一个应用就是图书管理系统。具体的要使用线性存储结构还是链式存储结构，需要视情况而定。</p>
+<ol>
+<li>把每本图书作为数据元素。(Element Type)</li>
+</ol>
+<ul>
+<li>每个元素都有对应的数据项<ul>
+<li>书名(String)</li>
+<li>价格(double)</li>
+<li>作者(String)</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>实现操作<ul>
+<li>查找</li>
+<li>插入</li>
+<li>删除</li>
+<li>排序</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h2><p><strong>顺序表类似于数组，只不过它是一个结构体</strong>， 他的结构体中有一个<code>length</code>，和一个数组<code>data[maxSize]</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxSize 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data[maxSize];</span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">&#125;Sqlist;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><figure class="highlight c"><figcaption><span>颠倒顺序表</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resever</span><span class="params">(Sqlist &amp;L)</span><span class="comment">//要改变L，所以要引用类型（&amp;）</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">int</span> tmp;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>, j = L.length - <span class="number">1</span>; i &lt; j; i++, j--)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = L.data[i];</span><br><span class="line">        L.data[i] = L.data[j];</span><br><span class="line">        L.data[j] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><figcaption><span>以链表头元素n为标准，把表中大于n的元素放在n后，把表中小于n的元素放在n前(不是递增的顺序)。也是快速排序的关键步骤</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(Sqlist &amp;L)</span>    <span class="comment">//要改变L</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>; j = L.length - <span class="number">1</span>;</span><br><span class="line">    tmp = L.data[i];    <span class="comment">//先把头元素存到tmp里面，以后再比较</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(i &lt; j)    <span class="comment">//以后if，while中都需要检查i &lt; j</span></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(i &lt; j &amp;&amp; L.data[j] &gt; tmp)<span class="comment">//从右到左检查，遇到比tmp小就停止</span></span><br><span class="line">            --j;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            L.data[i] = L.data[j];      <span class="comment">//再和i指向的元素交换</span></span><br><span class="line">            i++;<span class="comment">//移一位</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(i &lt; j &amp;&amp; L.data[i] &lt; tmp)<span class="comment">//从左到右检查，遇到比tmp大的就停</span></span><br><span class="line">            ++i;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            L.data[j] = L.data[i];</span><br><span class="line">            j--;    <span class="comment">//移一位</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    L.data[i] = tmp;<span class="comment">//再让表元素tmp放在最终位置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://i.imgur.com/UoeJx2T.png" alt=""></p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>占用连续的存储空间，随机访问。</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>存储空间一旦分别好了，就不能改变。</p>
+<h3 id="implement"><a href="#implement" class="headerlink" title="implement"></a>implement</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 100</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>;</span></span><br><span class="line"><span class="keyword">typedef</span>	<span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="keyword">typedef</span> Node <span class="built_in">list</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	ElementType *elem;</span><br><span class="line">	<span class="keyword">int</span> length;</span><br><span class="line">&#125; Node;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="built_in">list</span> &amp;l, ElementType *a, <span class="keyword">int</span> a_l)</span></span>&#123;<span class="comment">//must to pass the size of the array</span></span><br><span class="line"></span><br><span class="line">	l.elem=a;</span><br><span class="line">	l.length=a_l;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ElementType <span class="title">value</span><span class="params">(<span class="built_in">list</span> l, <span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> l.elem[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">(<span class="built_in">list</span> l)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;l.length; i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;l.elem[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="built_in">list</span> l, ElementType e)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;l.length;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(e==l.elem[i])</span><br><span class="line">			<span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(<span class="built_in">list</span> &amp;l, ElementType e, <span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>((index&lt;<span class="number">0</span>+<span class="number">1</span>)||(index&gt;l.length+<span class="number">1</span>))</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(l.length&gt;=MaxSize)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=l.length<span class="number">-1</span>;i&gt;=index<span class="number">-1</span>;i--)&#123;</span><br><span class="line">		l.elem[i+<span class="number">1</span>]=l.elem[i];</span><br><span class="line">	&#125;</span><br><span class="line">	l.elem[index<span class="number">-1</span>]=e;</span><br><span class="line"></span><br><span class="line">	l.length++;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">delet</span><span class="params">(<span class="built_in">list</span> &amp;l, <span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>((index&lt;<span class="number">0</span>+<span class="number">1</span>)||index&gt;l.length+<span class="number">1</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(l.length==<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = index<span class="number">-1</span>; i &lt; l.length; ++i)</span><br><span class="line">		l.elem[i]=l.elem[i+<span class="number">1</span>];</span><br><span class="line">	l.length--;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[]=&#123;<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">5</span>&#125;;</span><br><span class="line">	<span class="built_in">list</span> l;</span><br><span class="line">	init(l, a,<span class="number">5</span>);</span><br><span class="line">	<span class="built_in">display</span>(l);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"the third element is "</span>&lt;&lt;value(l,<span class="number">3</span><span class="number">-1</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"where the number 1? "</span>&lt;&lt;<span class="built_in">find</span>(l,<span class="number">1</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	insert(l, <span class="number">8</span>, <span class="number">1</span>);</span><br><span class="line">	<span class="built_in">display</span>(l);</span><br><span class="line"></span><br><span class="line">	delet(l,<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">display</span>(l);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;LNode;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="极其重要："><a href="#极其重要：" class="headerlink" title="极其重要："></a>极其重要：</h3><ul>
+<li><p>First, 要明白一个情况。<code>L-&gt;next</code><strong>这个东西，做为左值，右值是什么意义。</strong></p>
+<ul>
+<li>左值：该节点中存储的下个节点的地址</li>
+<li>右值：下一个节点</li>
+</ul>
+</li>
+<li><p>Second, <code>rear-&gt;next-&gt;next</code>，从左到右第一个next肯定是下一个节点，而第二个next要分情况（也是根据First原则。</p>
+<ul>
+<li>rear-&gt;next-&gt;next = s-&gt;next;（左值，rear-&gt;next节点的next指针域）</li>
+<li>s=rear-&gt;next-&gt;next;（右值，下俩个节点）</li>
+</ul>
+</li>
+</ul>
+<h3 id="链表的删除"><a href="#链表的删除" class="headerlink" title="链表的删除"></a>链表的删除</h3><ul>
+<li>要删除一个节点a，那么要找到a的前一个节点，因为要把断的链连上。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">delminnode</span><span class="params">(LNode* L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LNode* pre = L, * p = pre-&gt;next, * minp = p, * minpre = pre;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (p-&gt;data &lt; minp-&gt;data)</span><br><span class="line">        &#123;</span><br><span class="line">            minp = p;</span><br><span class="line">            minpre = pre;</span><br><span class="line">        &#125;</span><br><span class="line">        pre = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    minpre-&gt;next = minp-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(minp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="链表的创建"><a href="#链表的创建" class="headerlink" title="链表的创建"></a>链表的创建</h3><h4 id="头插法-尾插法"><a href="#头插法-尾插法" class="headerlink" title="头插法|尾插法"></a>头插法|尾插法</h4><ul>
+<li>掌握头尾插法，就能掌握其他更多的类似的链表操作<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//尾插法(顺序）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createListR</span><span class="params">(LNode** C, <span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span><span class="comment">//要改变C的地址要用**</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	LNode* s, * r;<span class="comment">//s指向新建节点(该指针不需要被保存，只需要头节点），r指向C的终端节点</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	*C = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">	r = *C;</span><br><span class="line">	r-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		s = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">		s-&gt;data = a[i];</span><br><span class="line">		r-&gt;next = s;</span><br><span class="line">		r = r-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//头插法(倒序)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createListH</span><span class="params">(LNode** C, <span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	LNode* s;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	*C = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">	(*C)-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		s = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">		s-&gt;data = a[i];</span><br><span class="line">		s-&gt;next = (*C)-&gt;next;<span class="comment">//接上原来链表中的部分</span></span><br><span class="line">		(*C)-&gt;next = s;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="链表的逆序"><a href="#链表的逆序" class="headerlink" title="链表的逆序"></a>链表的逆序</h3><p><strong>类似于头插法，把从第二个以及以后的节点插到头节点和第一个节点之间</strong><br><strong>注：第一个节点稍微做修改，第一次循环没有移动元素</strong></p>
+<figure class="highlight c"><figcaption><span>链表的逆序</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(LNode* L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LNode* p = L-&gt;next, * q;</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;<span class="comment">//为现在的第一个节点成为逆序后的最后一个节点</span></span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        q = p-&gt;next;       </span><br><span class="line">        p-&gt;next = L-&gt;next; </span><br><span class="line">        L-&gt;next = p;</span><br><span class="line">        p = q;       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="链表的逆序输出（递归）"><a href="#链表的逆序输出（递归）" class="headerlink" title="链表的逆序输出（递归）"></a>链表的逆序输出（递归）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//需要传入第一个有数据的节点（不能是头节点）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reprint</span><span class="params">(LNode* C)</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (C != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		reprint(C-&gt;next);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; C-&gt;data &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="implement-1"><a href="#implement-1" class="headerlink" title="implement"></a>implement</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> Node* PtrToNode;</span><br><span class="line"><span class="keyword">typedef</span> PtrToNode List;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	ElementType e;</span><br><span class="line">	PtrToNode next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(List&amp; l, ElementType* a, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">	l = <span class="keyword">new</span> Node;</span><br><span class="line">	l-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	PtrToNode p = l;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">		PtrToNode n = <span class="keyword">new</span> Node;</span><br><span class="line">		n-&gt;e = a[i];</span><br><span class="line">		n-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">		p-&gt;next = n;</span><br><span class="line">		p = n;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ElementType <span class="title">value</span><span class="params">(List l, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">	PtrToNode p = l-&gt;next;</span><br><span class="line">	<span class="keyword">if</span> (index &lt;= <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (p &amp;&amp; i &lt; index) &#123;</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> p-&gt;e;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">PtrToNode <span class="title">find</span><span class="params">(List l, ElementType e)</span></span>&#123;</span><br><span class="line">	PtrToNode p=l-&gt;next;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(p&amp;&amp;(p-&gt;e!=e))&#123;</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(List &amp;l, ElementType e, <span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">	PtrToNode p=l;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (p&amp;&amp;i&lt;index<span class="number">-1</span>)<span class="comment">//即当i=index-1时，停止。且p指向index-1的前一个</span></span><br><span class="line">	&#123;</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(i&gt;index<span class="number">-1</span>||!p)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	PtrToNode s=<span class="keyword">new</span> Node;</span><br><span class="line">	s-&gt;e=e;</span><br><span class="line">	s-&gt;next=p-&gt;next;</span><br><span class="line">	p-&gt;next=s;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">delet</span><span class="params">(List l, <span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">	PtrToNode p=l;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(p&amp;&amp;i&lt;index<span class="number">-1</span>)&#123;</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	PtrToNode s=p-&gt;next;</span><br><span class="line">	p-&gt;next=p-&gt;next-&gt;next;</span><br><span class="line">	<span class="built_in">free</span>(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">(List &amp;l)</span></span>&#123;</span><br><span class="line">	PtrToNode p=l-&gt;next;</span><br><span class="line">	<span class="keyword">while</span> (p)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;p-&gt;e&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">		p=p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[] = &#123; <span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span> &#125;;</span><br><span class="line">	List l;</span><br><span class="line">	init(l, a, <span class="number">5</span>);</span><br><span class="line">	<span class="built_in">display</span>(l);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"The third value is: "</span> &lt;&lt; value(l, <span class="number">1</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt; <span class="string">"The address of the 5 is: "</span>&lt;&lt;<span class="built_in">find</span>(l, <span class="number">5</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	insert(l,<span class="number">8</span>,<span class="number">3</span>);</span><br><span class="line">	<span class="built_in">display</span>(l);</span><br><span class="line"></span><br><span class="line">	delet(l, <span class="number">3</span>);</span><br><span class="line">	<span class="built_in">display</span>(l);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h1><ul>
+<li><p>特点</p>
+<p>最后节点的next指向头节点。从而形成一个环。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/16/linux/linux%E4%B8%8A%E9%85%8D%E7%BD%AEv2ray/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/16/linux/linux%E4%B8%8A%E9%85%8D%E7%BD%AEv2ray/" class="post-title-link" itemprop="url">linux上配置v2ray</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-16 00:47:53 / Modified: 01:17:27" itemprop="dateCreated datePublished" datetime="2020-08-16T00:47:53+08:00">2020-08-16</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>313</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="预备工作"><a href="#预备工作" class="headerlink" title="预备工作"></a>预备工作</h1><ol>
+<li><p>客户端：<a href="https://github.com/Qv2ray/Qv2ray/releases/download/v1.99.6/Qv2ray-refs.tags.v1.99.6-linux.AppImage">Qv2ray-refs.tags.v1.99.6-linux.AppImage</a></p>
+</li>
+<li><p>v2ray核心文件：<a href="https://github.com/v2ray/v2ray-core/releases/download/v4.22.1/v2ray-linux-64.zip">v2ray-linux-64</a></p>
+</li>
+</ol>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><ol>
+<li><p>将v2ray的zip文件<code>unzip</code>解压。</p>
+</li>
+<li><p>运行客户端<code>sudo chmod +x ./Qv2ray-refs.tags.v1.99.6-linux.AppImage</code> + <code>./Qv2ray-refs.tags.v1.99.6-linux.AppImage</code></p>
+</li>
+<li><p>在preferences中配置v2ray的core executable path(可执行文件）和v2ray assets directory（解压出来的目录）<br><img data-src="https://i.imgur.com/GdpG72d.png" alt=""></p>
+</li>
+<li><p>set system proxy<br><img data-src="https://i.imgur.com/xruYZpU.png" alt=""></p>
+</li>
+<li><p>设置subscriptions</p>
+</li>
+<li><p>Connect and enjoy!</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/14/github/%E5%B0%86HTML%E6%B7%BB%E5%8A%A0%E5%88%B0%E7%BD%91%E9%A1%B5%E4%B8%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/14/github/%E5%B0%86HTML%E6%B7%BB%E5%8A%A0%E5%88%B0%E7%BD%91%E9%A1%B5%E4%B8%8A/" class="post-title-link" itemprop="url">将HTML添加到网页上</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-14 01:50:41 / Modified: 19:07:14" itemprop="dateCreated datePublished" datetime="2020-08-14T01:50:41+08:00">2020-08-14</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>794</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>假如想把一个日历的嵌在网页上，需要在文件中（.md上都可以）加一段HTML</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src&#x3D;&quot;https:&#x2F;&#x2F;calendar.google.com&#x2F;calendar&#x2F;embed?height&#x3D;400&amp;wkst&#x3D;1&amp;bgcolor&#x3D;%23ffffff&amp;ctz&#x3D;Asia%2FHong_Kong&amp;src&#x3D;ZmVycnljaGFuNjY2QGdtYWlsLmNvbQ&amp;src&#x3D;YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color&#x3D;%23039BE5&amp;color&#x3D;%2333B679&amp;showTitle&#x3D;0&amp;showNav&#x3D;0&amp;showPrint&#x3D;0&amp;showTz&#x3D;0&amp;showCalendars&#x3D;0&amp;showTabs&#x3D;0&amp;showDate&#x3D;0&amp;mode&#x3D;AGENDA&quot; style&#x3D;&quot;border-width:0&quot; width&#x3D;&quot;500&quot; height&#x3D;&quot;400&quot; frameborder&#x3D;&quot;0&quot; scrolling&#x3D;&quot;no&quot;&gt;&lt;&#x2F;iframe&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此blog就加在<br>themes\next\layout_partials\header\menu.swig</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/13/algorithm/%E5%8F%AF%E8%BF%AD%E4%BB%A3%E7%9A%84%E8%83%8C%E5%8C%85Bag/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/13/algorithm/%E5%8F%AF%E8%BF%AD%E4%BB%A3%E7%9A%84%E8%83%8C%E5%8C%85Bag/" class="post-title-link" itemprop="url">可迭代的背包Bag</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-13 16:55:10" itemprop="dateCreated datePublished" datetime="2020-08-13T16:55:10+08:00">2020-08-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-14 20:44:17" itemprop="dateModified" datetime="2020-08-14T20:44:17+08:00">2020-08-14</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>
+<li><p><strong>在集合数据类型中实现可迭代，需要引入Iterator接口</strong>（可迭代的接口）。<br><code>import java.util.Iterator</code></p>
+</li>
+<li><p>在类声明中添加<code>implements Iterable&lt;Item&gt;</code>（表面该类将会提供一个iterator（）方法）</p>
+</li>
+<li><p>该方法会返回一个Iterator对象，保证该类会实现方法hasNext(), next(), remove() &lt;- 循环链表的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> ListIterator();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ListIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Node current = first;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> current != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Item item = current.item;</span><br><span class="line">        current = current.next;</span><br><span class="line">        <span class="keyword">return</span> item;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Bag, Queue, Stack，如果想要把这些集合的数据类型实现可迭代，要添加以上代码。</strong></li>
+</ul>
+<h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Iterator;<span class="comment">//引用Iterator接口</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bag</span> &lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt;</span>&#123;<span class="comment">//保证该类提供iterator方法</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">private</span> Node first;</span><br><span class="line">		<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">		</span>&#123;</span><br><span class="line">			Item item;</span><br><span class="line">			Node next;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Item item)</span></span></span><br><span class="line"><span class="function">		</span>&#123;</span><br><span class="line">			Node oldfriend = first;</span><br><span class="line">			first = <span class="keyword">new</span> Node();</span><br><span class="line">			first.item = item;</span><br><span class="line">			first.next = oldfriend;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//保证该类会实现方法hasNext(), next(), remove() &lt;- 循环链表的方法</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;<span class="comment">//iterator()方法返回一个Iterator对象</span></span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> ListIterator();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ListIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">			<span class="keyword">private</span> Node current = first;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span></span><br><span class="line"><span class="function">			</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> current != <span class="keyword">null</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> Item <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				Item item = current.item;</span><br><span class="line">				current = current.next;</span><br><span class="line">				<span class="keyword">return</span> item;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/08/13/algorithm/Queue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/13/algorithm/Queue/" class="post-title-link" itemprop="url">Queue队列</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-13 14:50:41 / Modified: 17:38:19" itemprop="dateCreated datePublished" datetime="2020-08-13T14:50:41+08:00">2020-08-13</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>
+<li>实例变量：指向队头的<code>first</code>, 指向队尾的<code>last</code>, 节点个数<code>N</code></li>
+<li>方法：添加到对尾<code>enqueue()</code>，删除对头<code>dequeue()</code></li>
+</ul>
+<h1 id="Detail"><a href="#Detail" class="headerlink" title="Detail"></a>Detail</h1><h2 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    Item item;</span><br><span class="line">    Node next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="enqueue"><a href="#enqueue" class="headerlink" title="enqueue()"></a>enqueue()</h2><ul>
+<li>如果链表为空，则要给first变量赋值（指向last）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(Item item)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node oldlast = last;</span><br><span class="line">    last = <span class="keyword">new</span> Node();</span><br><span class="line">    last.item = item;</span><br><span class="line">    last.next = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(isEmpty())       <span class="comment">//考虑极端情况</span></span><br><span class="line">        first = last;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        oldlast.next = last;</span><br><span class="line">    N++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="dequeue"><a href="#dequeue" class="headerlink" title="dequeue()"></a>dequeue()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Item <span class="title">dequeue</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Item item = first.item;</span><br><span class="line">    first = first.next;</span><br><span class="line">    <span class="keyword">if</span>(isEmpty())</span><br><span class="line">        last = <span class="keyword">null</span>;</span><br><span class="line">    N--;</span><br><span class="line">    <span class="keyword">return</span> item;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Queue</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Node first; <span class="comment">//</span></span><br><span class="line">	<span class="keyword">private</span> Node last;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> N;</span><br><span class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">	</span>&#123;</span><br><span class="line">		Item item;</span><br><span class="line">		Node next;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> first == <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> N;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enqueue</span><span class="params">(Item item)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Node oldlast = last;</span><br><span class="line">		last = <span class="keyword">new</span> Node();</span><br><span class="line">		last.item = item;</span><br><span class="line">		last.next = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">if</span>(isEmpty())</span><br><span class="line">			first = last;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			oldlast.next = last;</span><br><span class="line">			N++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Item <span class="title">dequeue</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Item item = first.item;</span><br><span class="line">		first = first.next;</span><br><span class="line">		<span class="keyword">if</span>(isEmpty())</span><br><span class="line">			last = <span class="keyword">null</span>;</span><br><span class="line">		N--;</span><br><span class="line">		<span class="keyword">return</span> item;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> edu.princeton.cs.algs4.StdIn;</span><br><span class="line"><span class="keyword">import</span> edu.princeton.cs.algs4.StdOut;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		Queue&lt;String&gt; q = <span class="keyword">new</span> Queue&lt;String&gt;();</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">while</span> (!StdIn.isEmpty())</span><br><span class="line">		&#123;</span><br><span class="line">			String item = StdIn.readString();</span><br><span class="line">			<span class="keyword">if</span>(!item.equals(<span class="string">"-"</span>))</span><br><span class="line">				q.enqueue(item);</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(!q.isEmpty())</span><br><span class="line">				StdOut.print(q.dequeue() + <span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		StdOut.println(<span class="string">"("</span> + q.size() + <span class="string">" left on queue)"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -678,526 +1200,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/05/30/DS/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/30/DS/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="post-title-link" itemprop="url">最小生成树</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-30 21:19:47" itemprop="dateCreated datePublished" datetime="2020-05-30T21:19:47+08:00">2020-05-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>89</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Minimum-Spanning-Tree"><a href="#Minimum-Spanning-Tree" class="headerlink" title="Minimum Spanning　Tree"></a>Minimum Spanning　Tree</h1><ol>
-<li>若图中有v个顶点，那么将生成v-1条边</li>
-<li>这棵树包含了全部的顶点</li>
-<li>不能有回路，且向树添加一条边就有回路</li>
-<li>图连通&lt;=&gt;最小生成树存在</li>
-<li>不唯一</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/05/28/DS/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/28/DS/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" class="post-title-link" itemprop="url">图的遍历</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-28 21:37:03" itemprop="dateCreated datePublished" datetime="2020-05-28T21:37:03+08:00">2020-05-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Depth-First-Search"><a href="#Depth-First-Search" class="headerlink" title="Depth_First_Search"></a>Depth_First_Search</h1><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><ol>
-<li><p>从某个顶点v1出发，然后找到并访问与v1的邻接点（且从未访问过）v2，再从v2出发访问与v2相邻的顶点。–&gt;<strong>这就是递归思想</strong></p>
-</li>
-<li><p>直到所有的顶点被访问到。</p>
-</li>
-</ol>
-<ul>
-<li>因为要记录该点是否被访问过，所以需要一个数组<code>bool visited[MAXVEX];</code></li>
-</ul>
-<p><img data-src="https://i.loli.net/2020/05/28/CNcEdp2P1g5K3aJ.png" alt=""></p>
-<h2 id="邻接矩阵遍历"><a href="#邻接矩阵遍历" class="headerlink" title="邻接矩阵遍历"></a>邻接矩阵遍历</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(MGraph G, <span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j;</span><br><span class="line">    visited[i] = <span class="literal">true</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c "</span>, G.vexs[i]);</span><br><span class="line">    <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; G.numVertexs; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//有边(i--j)，且 j 顶点没被访问</span></span><br><span class="line">        <span class="keyword">if</span>(G.arc[i][j] == <span class="number">1</span> &amp;&amp; visited[j] == <span class="literal">false</span>)</span><br><span class="line">            DFS(G, j);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFSTraverse</span><span class="params">(MGraph G)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; G.numVertexs; i++)</span><br><span class="line">        visited[i] = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; G.numVertexs; i++)</span><br><span class="line">        <span class="keyword">if</span>(visited[i] == <span class="literal">false</span>)</span><br><span class="line">            DFS(G, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="邻接表遍历"><a href="#邻接表遍历" class="headerlink" title="邻接表遍历"></a>邻接表遍历</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(GraphAdjList *G, <span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    EdgeNode *p;</span><br><span class="line">    visited[i] = <span class="literal">true</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c"</span>, G-&gt;adjList[i].data);</span><br><span class="line">    p = G-&gt;adjList[i].firstedge;</span><br><span class="line">    <span class="keyword">while</span> (p)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!visited[p-&gt;adjvex])</span><br><span class="line">            DFS(G, p-&gt;adjvex);</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFSTraverse</span><span class="params">(GraphAdjList *G)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; G-&gt;numVertexs; i++)</span><br><span class="line">        visited[i] = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; G-&gt;numVertexs; i++)</span><br><span class="line">        <span class="keyword">if</span>(!visited[i])</span><br><span class="line">            DFS(G, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><ul>
-<li>对比邻接矩阵和邻接表的遍历过程，可容易得出<br>假如n个顶点，e条边</li>
-</ul>
-<ol>
-<li>邻接矩阵：$O(n^2)$</li>
-<li>邻接表：$O(n + e)$</li>
-</ol>
-<ul>
-<li>所以，对于<strong>多顶点少边</strong>的这种情况，邻接表不但节省了空间，还提高了函数的运行效率</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/05/28/c/%E5%86%8D%E6%8E%A2scanf-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E-c/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/28/c/%E5%86%8D%E6%8E%A2scanf-%E7%9A%84%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E-c/" class="post-title-link" itemprop="url">再探scanf()的转换说明</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-28 20:20:56" itemprop="dateCreated datePublished" datetime="2020-05-28T20:20:56+08:00">2020-05-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-15 16:26:09" itemprop="dateModified" datetime="2020-09-15T16:26:09+08:00">2020-09-15</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>910</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天终于要把scanf()这个函数理清了。<strong>要理清这个函数关键是要分清它的转换说明符</strong><br>%s %d %c..<strong>这些转换说明符呢，就是将输入的字符串转换为对应的字符串，整数，字符。。。</strong></p>
-<h1 id="d-f-lf"><a href="#d-f-lf" class="headerlink" title="%d %f %lf"></a>%d %f %lf</h1><ul>
-<li><p>遇到第一个数字开始读取。（跳过一开始的空白），直到遇到非数字字符结束</p>
-</li>
-<li><p>所以’\n‘会留在缓冲区，但但<strong>不要忘记这是一个%d，它只认数字，不认’\n’</strong>。所以这样可以</p>
-<figure class="highlight c"><figcaption><span>OK</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, arr + i);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="s"><a href="#s" class="headerlink" title="%s"></a>%s</h1><p><code>scanf(&quot;%s&quot;, str);</code></p>
-<ul>
-<li>从非空白开始到遇到空白（这意味着<strong>它一次读一个单词</strong>）</li>
-</ul>
-<p><strong>如果我要一次读一个句子怎么办？</strong></p>
-<ul>
-<li><code>gets()</code></li>
-<li><code>strcpy_s()</code></li>
-<li>等等</li>
-</ul>
-<h1 id="c"><a href="#c" class="headerlink" title="%c"></a>%c</h1><p>这个转换符才是困惑我的地方。<code>scanf(&quot;%c&quot;, ch)</code>它读取一个字符。关键是<strong>它不会跳过空白</strong></p>
-<ul>
-<li><p>如果我要读入5个字符，它会把空格读入。这就不是我的预期结果了。</p>
-<figure class="highlight c"><figcaption><span>Error</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> arr[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%c"</span>, arr + i);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>最容易出错的情况<br>当我用<code>scanf(&quot;%d&quot;, a);</code>读入整数的时候，如果我下面要读一个字符。<code>scanf(&quot;%c&quot;, ch);</code><br>不好意思，这里会读一个’\n’符。因为第一次读入整数的时候，把换行符留在了缓冲区。<strong>千万注意</strong></p>
-</li>
-</ul>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="Method-One"><a href="#Method-One" class="headerlink" title="Method One"></a>Method One</h3><ul>
-<li>%c前加一个空格<br>注意这里的 <code>scanf(&quot; %c&quot;, ch + i);</code><strong>%c前面有一个空格</strong>，它的意思是<strong>从输入中的第一个字符开始读取（不会读入’\n’)。跳过空白符（空格、换行符、制表符）</strong><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch[<span class="number">5</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">" %c"</span>, ch + i);<span class="comment">//！！！</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c"</span>, ch[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="Method-Two"><a href="#Method-Two" class="headerlink" title="Method Two"></a>Method Two</h3><ul>
-<li>清空缓冲区<br><code>fflush(stdin)</code></li>
-</ul>
-<h3 id="Method-Three"><a href="#Method-Three" class="headerlink" title="Method Three"></a>Method Three</h3><ul>
-<li><code>getchar</code>清除’\n’</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/05/26/DS/%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/26/DS/%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">图的存储结构</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-26 17:36:17" itemprop="dateCreated datePublished" datetime="2020-05-26T17:36:17+08:00">2020-05-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于图的多方向性，不能用顺序存储结构来实现。如果我用多重链表的话，那么结构中的多个指针就会造成空间资源的浪费（因为图的顶点上的度是不确定的）。因此图的存储结构，不应该使用物理存储去实现。图的实现被提供了5种存储结构。1. 邻接矩阵 2.邻链表 3.十字链表 4. 邻接多重链表 5. 边集数组。</p>
-<h1 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h1><p><strong>由顶点数组（一维）和边或弧数组（二维）组成</strong></p>
-<h2 id="无向图"><a href="#无向图" class="headerlink" title="无向图"></a>无向图</h2><p><img data-src="https://i.loli.net/2020/05/26/SvO6QgncdNYkEez.png" alt=""></p>
-<ol>
-<li><p>例如<br><code>a[i][j]</code>的0，1值表示，<strong>从i–j这个edge是否存在，1存在，0不存在</strong>。<br>所以类似于<code>a[i][i]</code>这样的顶点到顶点的值都为0</p>
-</li>
-<li><p>无向图的边数组是一个<strong>对称矩阵</strong>，即满足<code>a[i][j] == a[j][i]</code><br>因为它是无向的，i–j不存在，则j–i也不存在。那么i–j存在，则，j–i也存在啊<br>所以，<strong>在无向图中<code>a[i][j]</code>和<code>a[j][i]</code>无区别</strong></p>
-</li>
-<li><p>Vi的<em>度</em>就是把第i行（或列）的元素加起来</p>
-</li>
-</ol>
-<h2 id="有向图"><a href="#有向图" class="headerlink" title="有向图"></a>有向图</h2><p><img data-src="https://i.loli.net/2020/05/26/dAbn2vwRO4oimHV.png" alt=""></p>
-<ol>
-<li><p><strong>有向图就不是对称矩阵了</strong>。因为它们顶点的指向是有方向的，i–&gt;j不一定j–&gt;i。</p>
-</li>
-<li><p>出度和入度。有向图中，要研究这两个。只要知道前面的指向问题，就可以知道。<strong>Vi的出度是看矩阵中的行<code>a[i]--[]</code>，Vi的入度是看矩阵中的列<code>a[]--[i]</code>。将行或列加起来就是出度和入度的值了</strong>。</p>
-</li>
-</ol>
-<h2 id="网Network"><a href="#网Network" class="headerlink" title="网Network"></a>网Network</h2><p><strong>网就是每条edge上带有权的图</strong></p>
-<ol>
-<li>矩阵上的值<br><img data-src="https://i.loli.net/2020/05/26/6CbIFjnAK2Vc73m.png" alt=""></li>
-</ol>
-<p><img data-src="https://i.loli.net/2020/05/26/pCIuSRf2jNeP1Mc.png" alt=""></p>
-<h2 id="无向图的创建"><a href="#无向图的创建" class="headerlink" title="无向图的创建"></a>无向图的创建</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _Graph_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdbool.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> VertexType;<span class="comment">//顶点类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> EdgeType;<span class="comment">//边上的权类型</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXVEX 100 <span class="comment">//最大顶点数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INFINITY 65535 <span class="comment">//用65535代表无穷大</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> visited[MAXVEX];</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    VertexType vexs[MAXVEX]; <span class="comment">//顶点表</span></span><br><span class="line">    EdgeType arc[MAXVEX][MAXVEX];<span class="comment">//邻接矩阵，</span></span><br><span class="line">    <span class="keyword">int</span> numVertexs, numEldge;<span class="comment">//顶点数，边数</span></span><br><span class="line">&#125;MGraph;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateMGraph</span><span class="params">(MGraph *G)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(MGraph G, <span class="keyword">int</span> i)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFSTraverse</span><span class="params">(MGraph G)</span></span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"graph.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateMGraph</span><span class="params">(MGraph *G)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, k, w;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the number of Vertexs and edge:"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;G-&gt;numVertexs, &amp;G-&gt;numEldge);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the information of Vertexs array:"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; G-&gt;numVertexs; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">" %c"</span>, &amp;G-&gt;vexs[i]);</span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; G-&gt;numEldge; i++)</span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; G-&gt;numEldge; j++)</span><br><span class="line">            G-&gt;arc[i][j] = MAXVEX;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(k = <span class="number">0</span>; k &lt; G-&gt;numEldge; k++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter double dimensional array indexs and weight of the edges:"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;i, &amp;j, &amp;w);</span><br><span class="line">        G-&gt;arc[i][j] = w;</span><br><span class="line">        G-&gt;arc[j][i] = G-&gt;arc[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h1><p>邻接矩阵如果要处理<strong>顶点很多，而边很少</strong>的图那么会造成空间的浪费。所以，引入邻接表来避免这种现象发生。</p>
-<ol>
-<li><p>结构数组。每个数组的元素是代表<strong>每个顶点</strong>。每个结构包含<strong>链表节点指针（firstedge），每个顶点类型（data(V1 ，V2))</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">VertexNode</span>        //顶点表节点</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    VertexType data;</span><br><span class="line">    EdgeNode *firstedge;</span><br><span class="line">&#125;VertexNode, AdjList[MAXVEX];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>链表。每个节点包含<strong>顶点下标值（i（Vi）)，权值，指向下一个节点点指针（next）</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">EdgeNode</span>         //边表节点</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> adjvex;<span class="comment">//邻接点域，用于存储对应顶点下标</span></span><br><span class="line">    EdgeType weight;<span class="comment">//用于存储权值</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">EdgeNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;EdgeNode;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li>然鹅，如果是面对有向图的话，因为弧有方向，所以有出度和入度。这样一来，这个邻接表，又可以分为两种。<strong>以弧头为链表的头（邻接表方便计算出度），以弧尾为链表的表头（逆邻接表方便计算入度）</strong>。</li>
-</ul>
-<p><img data-src="https://i.loli.net/2020/05/27/3wQb2mRrT1C7iof.png" alt=""></p>
-<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _List_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXVEX 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> VertexType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> EdgeType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">EdgeNode</span>         //边表节点</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> adjvex;<span class="comment">//邻接点域，用于存储对应顶点下标</span></span><br><span class="line">    EdgeType weight;<span class="comment">//用于存储权值</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">EdgeNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;EdgeNode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">VertexNode</span>        //顶点表节点</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    VertexType data;</span><br><span class="line">    EdgeNode *firstedge;</span><br><span class="line">&#125;VertexNode, AdjList[MAXVEX];</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>              //整个邻接表</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    AdjList adjList;</span><br><span class="line">    <span class="keyword">int</span> numVertexs, numEdges;</span><br><span class="line">&#125;GraphAdjList;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateAdjList</span><span class="params">(GraphAdjList *G)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"list.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateAdjList</span><span class="params">(GraphAdjList *G)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, k;</span><br><span class="line">    EdgeNode *e;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the number of Vertexs and edges:"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;G-&gt;numVertexs, &amp;G-&gt;numEdges);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the elements of Vertexs List:"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; G-&gt;numVertexs; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%c"</span>, &amp;G-&gt;adjList[i].data);</span><br><span class="line">        G-&gt;adjList[i].firstedge = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(k = <span class="number">0</span>; k &lt; G-&gt;numEdges; k++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter the value of i and j with the edge(Vi,Vj):"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;i, &amp;j);</span><br><span class="line">        <span class="comment">//生成节点Vj</span></span><br><span class="line">        e = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(EdgeNode));</span><br><span class="line">        e-&gt;adjvex = j;</span><br><span class="line">        <span class="comment">//头插法</span></span><br><span class="line">        e-&gt;next = G-&gt;adjList[i].firstedge;<span class="comment">//将e指针指向当前顶点指向的节点</span></span><br><span class="line">        G-&gt;adjList[i].firstedge = e;<span class="comment">//将当前顶点指针指向e</span></span><br><span class="line">        <span class="comment">//生成节点Vi</span></span><br><span class="line">        e = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(EdgeNode));</span><br><span class="line">        e-&gt;adjvex = i;</span><br><span class="line">        e-&gt;next = G-&gt;adjList[i].firstedge;</span><br><span class="line">        G-&gt;adjList[j].firstedge = e;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="十字链表"><a href="#十字链表" class="headerlink" title="十字链表"></a>十字链表</h1><p>因为邻接表容易解决出度情况，要想了解入度就要遍历整个表才能知道。而逆邻接表也有这个情况。如果我们想要将两者的优势互补，就引入了十字链表。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/05/23/DS/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/23/DS/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91/" class="post-title-link" itemprop="url">二叉查找树</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-23 22:36:10" itemprop="dateCreated datePublished" datetime="2020-05-23T22:36:10+08:00">2020-05-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.5k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>二叉查找树的插入，删除等操作上都运用了递归来实现。首先，需要了解递归在执行递归调用之后的语句要以之前保存的变量反方向执行。</p>
-<h1 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h1><p><img data-src="https://i.loli.net/2020/05/23/F8GmdISKvin2Xsq.png" alt=""><br><strong>这里的if-else看成一块，而return看成另一块。</strong></p>
-<ol>
-<li><p>每次插入会比较节点的大小，<strong>大的return右孩子，小的return左孩子，直到找的到孩子为NULL就创建节点</strong><br><code>T-&gt;Left = Insert(X, T-&gt;Left);T-&gt;Right = Insert(X, T-&gt;Right);</code></p>
-</li>
-<li><p><strong>如果，我们传入根节点</strong>，那么递归调用之前的语句被执行后，均按被调函数相反的顺序执行。所以，<strong>最后会传回根节点</strong>。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">SearchTree <span class="title">Insert</span><span class="params">(ElementType X, SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/* Create and return a one-node tree */</span></span><br><span class="line">        T = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(TreeNode));</span><br><span class="line">        <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">            Error(<span class="string">"Out of space."</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            T-&gt;e = X;</span><br><span class="line">            T-&gt;Left = T-&gt;Right = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &lt; T-&gt;e)</span><br><span class="line">        T-&gt;Left = Insert(X, T-&gt;Left);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &gt; T-&gt;e)</span><br><span class="line">        T-&gt;Right = Insert(X, T-&gt;Right);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h1 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h1><p><img data-src="https://i.loli.net/2020/05/23/CVDcJPkl7s4GWQv.png" alt=""></p>
-<h2 id="main-idea"><a href="#main-idea" class="headerlink" title="main idea"></a>main idea</h2><ol>
-<li>节点N只有一个儿子（或没有儿子）<br>查找N。TmpCell记录N，将N的节点指向N的唯一一个儿子（或NULL），再free掉TmpCell</li>
-<li>N有两个儿子<br>查找N。将N-&gt;e = (N的右子树中最小的e)。<br>再查找那个最小的e，free掉（即删除N只有一个儿子的操作）。</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">SearchTree Delete(ElementType X, SearchTree T)。</span><br><span class="line">&#123;</span><br><span class="line">    Position TmpCell;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">        Error(<span class="string">"Element not found"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &lt; T-&gt;e)</span><br><span class="line">        T-&gt;Left = Delete(X, T-&gt;Left);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &gt; T-&gt;e)</span><br><span class="line">        T-&gt;Right = Delete(X, T-&gt;Right);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;Left &amp;&amp; T-&gt;Right)<span class="comment">/* two children */</span></span><br><span class="line">    &#123;</span><br><span class="line">        TmpCell = FindMin(T-&gt;Right);</span><br><span class="line">        T-&gt;e = TmpCell-&gt;e;</span><br><span class="line">        T-&gt;Right = Delete(T-&gt;e, T-&gt;Right);<span class="comment">//T-&gt;Right = Delete的返回值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span><span class="comment">/* One or zero children */</span></span><br><span class="line">    &#123;</span><br><span class="line">        TmpCell = T;</span><br><span class="line">        <span class="keyword">if</span>(T-&gt;Left == <span class="literal">NULL</span>)</span><br><span class="line">            T = T-&gt;Right;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;Right == <span class="literal">NULL</span>)</span><br><span class="line">            T = T-&gt;Left;</span><br><span class="line">        <span class="built_in">free</span>(TmpCell);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Search-Tree"><a href="#Search-Tree" class="headerlink" title="Search Tree"></a>Search Tree</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _Tree_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Error(str) fprintf(stderr, <span class="meta-string">"%s\n"</span>, str),exit(1)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> *<span class="title">Position</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> *<span class="title">SearchTree</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ElementType e;</span><br><span class="line">    SearchTree Left;</span><br><span class="line">    SearchTree Right;</span><br><span class="line">&#125;TreeNode;</span><br><span class="line"></span><br><span class="line"><span class="function">SearchTree <span class="title">MakeEmpty</span><span class="params">(SearchTree T)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">Find</span><span class="params">(ElementType X, SearchTree T)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">FindMin</span><span class="params">(SearchTree T)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">FindMax</span><span class="params">(SearchTree T)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">SearchTree <span class="title">Insert</span><span class="params">(ElementType X, SearchTree T)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">SearchTree <span class="title">Delete</span><span class="params">(ElementType X, SearchTree T)</span></span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"tree.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">SearchTree <span class="title">MakeEmpty</span><span class="params">(SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        MakeEmpty(T-&gt;Left);</span><br><span class="line">        MakeEmpty(T-&gt;Right);</span><br><span class="line">        <span class="built_in">free</span>(T);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">Find</span><span class="params">(ElementType X, SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &gt; T-&gt;e)</span><br><span class="line">        <span class="keyword">return</span> Find(X, T-&gt;Left);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &lt; T-&gt;e)</span><br><span class="line">        <span class="keyword">return</span> Find(X, T-&gt;Right);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">FindMin</span><span class="params">(SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;Left == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> T;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> FindMin(T-&gt;Left);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Position <span class="title">FindMax</span><span class="params">(SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">while</span> (T-&gt;Right != <span class="literal">NULL</span>)</span><br><span class="line">            T = T-&gt;Right;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">SearchTree <span class="title">Insert</span><span class="params">(ElementType X, SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/* Create and return a one-node tree */</span></span><br><span class="line">        T = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(TreeNode));</span><br><span class="line">        <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">            Error(<span class="string">"Out of space."</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            T-&gt;e = X;</span><br><span class="line">            T-&gt;Left = T-&gt;Right = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &lt; T-&gt;e)</span><br><span class="line">        T-&gt;Left = Insert(X, T-&gt;Left);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &gt; T-&gt;e)</span><br><span class="line">        T-&gt;Right = Insert(X, T-&gt;Right);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">SearchTree <span class="title">Delete</span><span class="params">(ElementType X, SearchTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Position TmpCell;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)</span><br><span class="line">        Error(<span class="string">"Element not found"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &lt; T-&gt;e)</span><br><span class="line">        T-&gt;Left = Delete(X, T-&gt;Left);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(X &gt; T-&gt;e)</span><br><span class="line">        T-&gt;Right = Delete(X, T-&gt;Right);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;Left &amp;&amp; T-&gt;Right)</span><br><span class="line">    &#123;</span><br><span class="line">        TmpCell = FindMin(T-&gt;Right);</span><br><span class="line">        T-&gt;e = TmpCell-&gt;e;</span><br><span class="line">        T-&gt;Right = Delete(T-&gt;e, T-&gt;Right);<span class="comment">//T-&gt;Right = Delete的返回值</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        TmpCell = T;</span><br><span class="line">        <span class="keyword">if</span>(T-&gt;Left == <span class="literal">NULL</span>)</span><br><span class="line">            T = T-&gt;Right;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;Right == <span class="literal">NULL</span>)</span><br><span class="line">            T = T-&gt;Left;</span><br><span class="line">        <span class="built_in">free</span>(TmpCell);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1302,13 +1304,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">247k</span>
+    <span title="Symbols count total">256k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:45</span>
+    <span title="Reading time total">3:52</span>
 </div>
 
 <div id="days"></div>
@@ -1471,59 +1473,6 @@ window.addEventListener('pjax:success', () => {
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
   <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>

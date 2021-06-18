@@ -1,9 +1,437 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>basic operations</title>
+    <url>/2021/06/18/linux/basic-operations/</url>
+    <content><![CDATA[<h1 id="File"><a href="#File" class="headerlink" title="File"></a>File</h1><h2 id="Listing-File"><a href="#Listing-File" class="headerlink" title="Listing File"></a>Listing File</h2><ul>
+<li><p><code>ls</code>- listing files in current directory</p>
+<p><code>ls -l</code>  will help you get more information of the files</p>
+<p>To list the invisible files, specify the <strong>-a</strong> option to <strong>ls</strong> −</p>
+</li>
+</ul>
+<h2 id="Copying-Files"><a href="#Copying-Files" class="headerlink" title="Copying Files"></a>Copying Files</h2><p>To make a copy of a file use the <strong>cp</strong> command. The basic syntax of the command is −</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cp source_file destination_file</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Renaming-Files"><a href="#Renaming-Files" class="headerlink" title="Renaming Files"></a>Renaming Files</h2><p>To change the name of a file, use the <strong>mv</strong> command. Following is the basic syntax −</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mv old_file new_file</span></span><br></pre></td></tr></table></figure>
+
+<p>The <strong>mv</strong> command will move the existing file completely into the new file. In this case, you will find only <strong>newfile</strong> in your current directory.</p>
+<h1 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h1><p> <code>mkdir [name]</code> create a directory</p>
+<p><code>rmdir [name]</code> remove a directory, but it only to be useful with the empty directory. </p>
+<p><code>rm -rf [name]</code> can remove the files or directories permanently. </p>
+<h2 id="Changing-Directories"><a href="#Changing-Directories" class="headerlink" title="Changing Directories"></a>Changing Directories</h2><p>You can use it to change to any directory by specifying a valid absolute or relative path. The syntax is as given below −</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> dirname</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="File-Permission"><a href="#File-Permission" class="headerlink" title="File Permission"></a>File Permission</h1><p>Every file in Unix has the following attributes −</p>
+<ul>
+<li><strong>Owner permissions</strong> − The owner’s permissions determine what actions the owner of the file can perform on the file.</li>
+<li><strong>Group permissions</strong> − The group’s permissions determine what actions a user, who is a member of the group that a file belongs to, can perform on the file.</li>
+<li><strong>Other (world) permissions</strong> − The permissions for others indicate what action all other users can perform on the file.</li>
+</ul>
+<p>The permissions are broken into groups of threes, and each position in the group denotes a specific permission, <strong>in this order: read (r), write (w), execute (x) −</strong></p>
+<ul>
+<li>The first three characters (2-4) represent the permissions for the file’s owner. For example, <strong>-rwxr-xr–</strong> represents that the owner has read (r), write (w) and execute (x) permission.</li>
+<li>The second group of three characters (5-7) consists of the permissions for the group to which the file belongs. For example, <strong>-rwxr-xr–</strong> represents that the group has read (r) and execute (x) permission, but no write permission.</li>
+<li>The last group of three characters (8-10) represents the permissions for everyone else. For example, <strong>-rwxr-xr–</strong> represents that there is <strong>read (r)</strong> only permission.</li>
+</ul>
+<p>When we use <code>ls -l</code> command, the permission information will be shown. </p>
+<p><img data-src="https://i.imgur.com/uSwxH68.png" alt></p>
+<p>The first character represent what type it is. </p>
+<p><code>-</code> represents a file</p>
+<p><code>d</code> represents a directory</p>
+<h2 id="Change-Permission"><a href="#Change-Permission" class="headerlink" title="Change Permission"></a>Change Permission</h2><p>We have two modes to change the permission of files. </p>
+<h3 id="Symbolic-Mode"><a href="#Symbolic-Mode" class="headerlink" title="Symbolic Mode"></a>Symbolic Mode</h3><p><code>a</code> -&gt;all（user，group，other）<br><code>u</code> -&gt;user<br><code>g</code> -&gt;group<br><code>o</code> -&gt;other</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Chmod operator &amp; Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+</td>
+<td align="center">****Adds the designated permission(s) to a file or directory.</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">****Removes the designated permission(s) from a file or directory.</td>
+</tr>
+<tr>
+<td align="center">=</td>
+<td align="center">****Sets the designated permission(s).</td>
+</tr>
+</tbody></table>
+<p><strong>Example</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">chmod o+wx testfile</span></span><br><span class="line"><span class="meta">$</span><span class="bash">ls -l testfile</span></span><br><span class="line">-rwxrwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br><span class="line"><span class="meta">$</span><span class="bash">chmod u-x testfile</span></span><br><span class="line"><span class="meta">$</span><span class="bash">ls -l testfile</span></span><br><span class="line">-rw-rwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br><span class="line"><span class="meta">$</span><span class="bash">chmod g = rx testfile</span></span><br><span class="line"><span class="meta">$</span><span class="bash">ls -l testfile</span></span><br><span class="line">-rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Absolute-Permissions"><a href="#Absolute-Permissions" class="headerlink" title="Absolute Permissions"></a>Absolute Permissions</h3><p>The second way to modify permissions with the chmod command is to use a number to specify each set of permissions for the file.</p>
+<p>Each permission is assigned a value, as the following table shows, and the total of each set of permissions provides a number for that set.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Number</th>
+<th align="center">Octal Permission Representation</th>
+<th align="center">Ref</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>0</strong></td>
+<td align="center">No permission</td>
+<td align="center">—</td>
+</tr>
+<tr>
+<td align="center"><strong>1</strong></td>
+<td align="center">Execute permission</td>
+<td align="center">–x</td>
+</tr>
+<tr>
+<td align="center"><strong>2</strong></td>
+<td align="center">Write permission</td>
+<td align="center">-w-</td>
+</tr>
+<tr>
+<td align="center"><strong>3</strong></td>
+<td align="center">Execute and write permission: 1 (execute) + 2 (write) = 3</td>
+<td align="center">-wx</td>
+</tr>
+<tr>
+<td align="center"><strong>4</strong></td>
+<td align="center">Read permission</td>
+<td align="center">r–</td>
+</tr>
+<tr>
+<td align="center"><strong>5</strong></td>
+<td align="center">Read and execute permission: 4 (read) + 1 (execute) = 5</td>
+<td align="center">r-x</td>
+</tr>
+<tr>
+<td align="center"><strong>6</strong></td>
+<td align="center">Read and write permission: 4 (read) + 2 (write) = 6</td>
+<td align="center">rw-</td>
+</tr>
+<tr>
+<td align="center"><strong>7</strong></td>
+<td align="center">All permissions: 4 (read) + 2 (write) + 1 (execute) = 7</td>
+<td align="center">rwx</td>
+</tr>
+</tbody></table>
+<p>Here’s an example using the testfile. Running <strong>ls -1</strong> on the testfile shows that the file’s permissions are as follows −</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ls -l testfile</span><br><span class="line">-rwxrwxr--  1 amrood   users 1024  Nov 2 00:10  testfile</span><br></pre></td></tr></table></figure>
+
+<p>Then each example <strong>chmod</strong> command from the preceding table is run on the testfile, followed by <strong>ls –l</strong>, so you can see the permission changes −</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ chmod 755 testfile</span><br><span class="line">$ls -l testfile</span><br><span class="line">-rwxr-xr-x  1 amrood   users 1024  Nov 2 00:10  testfile</span><br><span class="line">$chmod 743 testfile</span><br><span class="line">$ls -l testfile</span><br><span class="line">-rwxr---wx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br><span class="line">$chmod 043 testfile</span><br><span class="line">$ls -l testfile</span><br><span class="line">----r---wx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shell &amp; Shell scripts</title>
+    <url>/2021/06/17/linux/shell/</url>
+    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Users communicate with the kernel through a program known as the <strong>shell</strong>. </p>
+<p>The shell is a command line interpreter; it translates commands entered by the user and converts them into a language that is understood by the kernel.</p>
+<p><strong>Shell</strong> is an environment in which we can run our commands, programs, and shell scripts. A shell provides an interface to your Linux System. It gathers your inputs and executes programs based on that input. </p>
+<p>The shell is, after all, a real programming language, complete with variables, control structures, and so forth.</p>
+<h1 id="Shell-Scripts"><a href="#Shell-Scripts" class="headerlink" title="Shell Scripts"></a>Shell Scripts</h1><p>The basic concept of a shell script is a list of commands, which are listed in the order of execution. A good shell script will have comments, preceded by # sign, describing the steps.</p>
+<ol>
+<li><p>Create</p>
+<p>The <code>.sh</code> file is start by using <code>#! /bin/sh</code> , which alert the system that shell scripts are as follows. </p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">echo -e "Hello World! \a \n"</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>Comments</li>
+</ol>
+<p>We can add some comments by using <code>#</code> in the begin of a line.</p>
+<ol start="3">
+<li><p>Execute</p>
+<p>Make the script executable and execute it. </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod +x test.sh ;./test.sh</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><strong>Example</strong></p>
+<p>The following script uses the <strong>read</strong> command which takes the input from the keyboard and assigns it as the value of the variable PERSON and finally prints it on STDOUT.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line"># Author : Zara Ali</span><br><span class="line"># Copyright (c) Tutorialspoint.com</span><br><span class="line"># Script follows here:</span><br><span class="line"></span><br><span class="line">echo &quot;What is your name?&quot;</span><br><span class="line">read PERSON</span><br><span class="line">echo &quot;Hello, $PERSON&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Here is a sample run of the script −</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$.&#x2F;test.sh</span><br><span class="line">What is your name?</span><br><span class="line">Zara Ali</span><br><span class="line">Hello, Zara Ali</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="Shell-Variables"><a href="#Shell-Variables" class="headerlink" title="Shell Variables"></a>Shell Variables</h1><p>Variable is nothing more than a pointer to the actual value. </p>
+<h2 id="Defining-Variables"><a href="#Defining-Variables" class="headerlink" title="Defining Variables"></a>Defining Variables</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">variable_name=variable_value</span><br></pre></td></tr></table></figure>
+
+<h2 id="Accessing-Values"><a href="#Accessing-Values" class="headerlink" title="Accessing Values"></a>Accessing Values</h2><p>To access the value stored in a variable, prefix its name with the dollar sign (<strong>$</strong>) </p>
+<h2 id="Unsetting-Variables"><a href="#Unsetting-Variables" class="headerlink" title="Unsetting Variables"></a>Unsetting Variables</h2><p>Following is the syntax to unset a defined variable using the <strong>unset</strong> command −</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">unset variable_name</span><br></pre></td></tr></table></figure>
+
+<h2 id="Special-Variable"><a href="#Special-Variable" class="headerlink" title="Special Variable"></a>Special Variable</h2><table>
+<thead>
+<tr>
+<th align="center">Sr.No.</th>
+<th align="center">Variable &amp; Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><strong>$0</strong>The filename of the current script.</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><strong>$n</strong>These variables correspond to the arguments with which a script was invoked. Here <strong>n</strong> is a positive decimal number corresponding to the position of an argument (the first argument is $1, the second argument is $2, and so on).</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><strong>$#</strong>The number of arguments supplied to a script.</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"><strong>$*</strong>All the arguments are double quoted. If a script receives two arguments, $* is equivalent to $1 $2.</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"><strong>$@</strong>All the arguments are individually double quoted. If a script receives two arguments, $@ is equivalent to $1 $2.</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center"><strong>$?</strong>The exit status of the last command executed.</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center"><strong>$$</strong>The process number of the current shell. For shell scripts, this is the process ID under which they are executing.</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center"><strong>$!</strong>The process number of the last background command.</td>
+</tr>
+</tbody></table>
+<h3 id="Exit-Status"><a href="#Exit-Status" class="headerlink" title="Exit Status"></a>Exit Status</h3><p>The <strong>$?</strong> variable represents the exit status of the previous command.</p>
+<p>Exit status is a numerical value returned by every command upon its completion. As a rule, most commands return an exit status of 0 if they were successful, and 1 if they were unsuccessful.</p>
+<h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">NAME[0]="Zara"</span><br><span class="line">NAME[1]="Qadir"</span><br><span class="line">NAME[2]="Mahnaz"</span><br><span class="line">NAME[3]="Ayan"</span><br><span class="line">NAME[4]="Daisy"</span><br><span class="line">echo "First Method: $&#123;NAME[*]&#125;"</span><br><span class="line">echo "Second Method: $&#123;NAME[@]&#125;"</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h1><ul>
+<li><p><code>$((expression))</code></p>
+<figure class="highlight shell"><figcaption><span>factorial</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">read -p "Enter the value of n, I will calculate the factorial of n:" n</span><br><span class="line">s=$n</span><br><span class="line">while [ $n -gt 1 ]</span><br><span class="line">do</span><br><span class="line">	n=$((n-1))</span><br><span class="line">	s=$(($s*$n))</span><br><span class="line">done</span><br><span class="line">echo -e "The factorial is $s"</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><code>expr</code> or <code>awk</code></li>
+</ul>
+<p>Bourne shell didn’t originally have any mechanism to perform simple arithmetic operations but it uses external programs, either <strong>awk</strong> or <strong>expr</strong>.</p>
+<p>The following example shows how to add two numbers −</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">val=`expr 2 + 2`</span><br><span class="line">echo "Total value : $val"</span><br></pre></td></tr></table></figure>
+
+<p>The above script will generate the following result −</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Total value : 4</span><br></pre></td></tr></table></figure>
+
+<p>The following points need to be considered while adding −</p>
+<ul>
+<li>There must be spaces between operators and expressions. For example, 2+2 is not correct; it should be written as 2 + 2.</li>
+<li>The complete expression should be enclosed between <strong>``</strong>, called the backtick.</li>
+</ul>
+<h1 id="Quoting"><a href="#Quoting" class="headerlink" title="Quoting"></a>Quoting</h1><ol>
+<li><p>double quoting</p>
+<p>The double quote ( “quote” ) protects everything enclosed between two double quote marks except $, ‘, “ and .</p>
+<p>(Use the double quotes when you want only <strong>variables and command substitution</strong>.)</p>
+</li>
+<li><p>The single quote</p>
+<p>The single quote ( ‘quote’ ) protects everything enclosed between two single quote marks. It is used to <strong>turn off the special meaning</strong> of all characters.</p>
+</li>
+</ol>
+<h2 id="Arithmetic-Operators"><a href="#Arithmetic-Operators" class="headerlink" title="Arithmetic Operators"></a>Arithmetic Operators</h2><table>
+<thead>
+<tr>
+<th align="center">Operator</th>
+<th align="center">Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+ (Addition)</td>
+<td align="center">Adds values on either side of the operator</td>
+<td align="center"><code>expr $a + $b</code> will give 30</td>
+</tr>
+<tr>
+<td align="center">- (Subtraction)</td>
+<td align="center">Subtracts right hand operand from left hand operand</td>
+<td align="center"><code>expr $a - $b</code> will give -10</td>
+</tr>
+<tr>
+<td align="center">* (Multiplication)</td>
+<td align="center">Multiplies values on either side of the operator</td>
+<td align="center"><code>expr $a \* $b</code> will give 200</td>
+</tr>
+<tr>
+<td align="center">/ (Division)</td>
+<td align="center">Divides left hand operand by right hand operand</td>
+<td align="center"><code>expr $b / $a</code> will give 2</td>
+</tr>
+<tr>
+<td align="center">% (Modulus)</td>
+<td align="center">Divides left hand operand by right hand operand and returns remainder</td>
+<td align="center"><code>expr $b % $a</code> will give 0</td>
+</tr>
+<tr>
+<td align="center">= (Assignment)</td>
+<td align="center">Assigns right operand in left operand</td>
+<td align="center">a = $b would assign value of b into a</td>
+</tr>
+<tr>
+<td align="center">== (Equality)</td>
+<td align="center">Compares two numbers, if both are same then returns true.</td>
+<td align="center">[ $a == $b ] would return false.</td>
+</tr>
+<tr>
+<td align="center">!= (Not Equality)</td>
+<td align="center">Compares two numbers, if both are different then returns true.</td>
+<td align="center">[ $a != $b ] would return true.</td>
+</tr>
+</tbody></table>
+<h2 id="Relational-Operators"><a href="#Relational-Operators" class="headerlink" title="Relational Operators"></a>Relational Operators</h2><table>
+<thead>
+<tr>
+<th align="center">Operator</th>
+<th align="center">Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>-eq</strong>(equal)</td>
+<td align="center">Checks if the value of two operands are equal or not; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -eq $b ] is not true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-ne</strong>(not equal)</td>
+<td align="center">Checks if the value of two operands are equal or not; if values are not equal, then the condition becomes true.</td>
+<td align="center">[ $a -ne $b ] is true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-gt</strong>(greater than)</td>
+<td align="center">Checks if the value of left operand is greater than the value of right operand; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -gt $b ] is not true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-lt</strong>(less than)</td>
+<td align="center">Checks if the value of left operand is less than the value of right operand; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -lt $b ] is true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-ge</strong>(greater or equal)</td>
+<td align="center">Checks if the value of left operand is greater than or equal to the value of right operand; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -ge $b ] is not true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-le</strong>(less or equal)</td>
+<td align="center">Checks if the value of left operand is less than or equal to the value of right operand; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -le $b ] is true.</td>
+</tr>
+</tbody></table>
+<h1 id="Conditional-Statements"><a href="#Conditional-Statements" class="headerlink" title="Conditional Statements"></a>Conditional Statements</h1><p>Unix Shell supports conditional statements which are used to perform different actions based on different conditions.</p>
+<h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">if [ expression 1 ]</span><br><span class="line">then</span><br><span class="line">   Statement(s) to be executed if expression 1 is true</span><br><span class="line">elif [ expression 2 ]</span><br><span class="line">then</span><br><span class="line">   Statement(s) to be executed if expression 2 is true</span><br><span class="line">elif [ expression 3 ]</span><br><span class="line">then</span><br><span class="line">   Statement(s) to be executed if expression 3 is true</span><br><span class="line">else</span><br><span class="line">   Statement(s) to be executed if no expression is true</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">a=10</span><br><span class="line">b=20</span><br><span class="line"></span><br><span class="line">if [ $a == $b ]</span><br><span class="line">then</span><br><span class="line">   echo "a is equal to b"</span><br><span class="line">elif [ $a -gt $b ]</span><br><span class="line">then</span><br><span class="line">   echo "a is greater than b"</span><br><span class="line">elif [ $a -lt $b ]</span><br><span class="line">then</span><br><span class="line">   echo "a is less than b"</span><br><span class="line">else</span><br><span class="line">   echo "None of the condition met"</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h1><h2 id="Syntax-1"><a href="#Syntax-1" class="headerlink" title="Syntax"></a>Syntax</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">while command1 ; # this is loop1, the outer loop</span><br><span class="line">do</span><br><span class="line">   Statement(s) to be executed if command1 is true</span><br><span class="line"></span><br><span class="line">   while command2 ; # this is loop2, the inner loop</span><br><span class="line">   do</span><br><span class="line">      Statement(s) to be executed if command2 is true</span><br><span class="line">   done</span><br><span class="line"></span><br><span class="line">   Statement(s) to be executed if command1 is true</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">a=0</span><br><span class="line">while [ "$a" -lt 10 ]    # this is loop1</span><br><span class="line">do</span><br><span class="line">   b="$a"</span><br><span class="line">   while [ "$b" -ge 0 ]  # this is loop2</span><br><span class="line">   do</span><br><span class="line">      echo -n "$b "</span><br><span class="line">      b=`expr $b - 1`</span><br><span class="line">   done</span><br><span class="line">   echo</span><br><span class="line">   a=`expr $a + 1`</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0</span><br><span class="line">1 0</span><br><span class="line">2 1 0</span><br><span class="line">3 2 1 0</span><br><span class="line">4 3 2 1 0</span><br><span class="line">5 4 3 2 1 0</span><br><span class="line">6 5 4 3 2 1 0</span><br><span class="line">7 6 5 4 3 2 1 0</span><br><span class="line">8 7 6 5 4 3 2 1 0</span><br><span class="line">9 8 7 6 5 4 3 2 1 0</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">a=1</span><br><span class="line">b=1</span><br><span class="line">while [ "$a" -le 9 ]</span><br><span class="line">do</span><br><span class="line">        b=1</span><br><span class="line">        while [ "$b" -le "$a" ]</span><br><span class="line">        do</span><br><span class="line">                c=`expr $a \* $b`</span><br><span class="line">                echo -n "$b*$a=$c "</span><br><span class="line"></span><br><span class="line">                b=`expr $b + 1`</span><br><span class="line">        done</span><br><span class="line">        echo -e "\n"</span><br><span class="line">        a=`expr $a + 1`</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p><strong>NOTE</strong></p>
+<ol>
+<li>It is important to note how <strong>echo -n</strong> works here. Here <strong>-n</strong> option lets echo avoid printing a new line character.</li>
+<li>Among the <code>[]</code>, we use a condition statement with <strong>two spaces between it</strong>. <code>[ condition ]</code></li>
+</ol>
+<p><strong>output</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1*1=1 </span><br><span class="line"></span><br><span class="line">1*2=2 2*2=4 </span><br><span class="line"></span><br><span class="line">1*3=3 2*3=6 3*3=9 </span><br><span class="line"></span><br><span class="line">1*4=4 2*4=8 3*4=12 4*4=16 </span><br><span class="line"></span><br><span class="line">1*5=5 2*5=10 3*5=15 4*5=20 5*5=25 </span><br><span class="line"></span><br><span class="line">1*6=6 2*6=12 3*6=18 4*6=24 5*6=30 6*6=36 </span><br><span class="line"></span><br><span class="line">1*7=7 2*7=14 3*7=21 4*7=28 5*7=35 6*7=42 7*7=49 </span><br><span class="line"></span><br><span class="line">1*8=8 2*8=16 3*8=24 4*8=32 5*8=40 6*8=48 7*8=56 8*8=64 </span><br><span class="line"></span><br><span class="line">1*9=9 2*9=18 3*9=27 4*9=36 5*9=45 6*9=54 7*9=63 8*9=72 9*9=81</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><figcaption><span>addtion</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">a=1</span><br><span class="line">b=1</span><br><span class="line">while [ $a -le 9 ]</span><br><span class="line">do</span><br><span class="line">        b=1</span><br><span class="line">        while [ $b -le $a ]</span><br><span class="line">        do</span><br><span class="line">                c=`expr $a + $b`</span><br><span class="line">                echo -n "$a+$b=$c "</span><br><span class="line">                b=`expr $b + 1`</span><br><span class="line">        done</span><br><span class="line">        a=`expr $a + 1`</span><br><span class="line">        echo -e ""</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1+1=2 </span><br><span class="line">2+1=3 2+2=4 </span><br><span class="line">3+1=4 3+2=5 3+3=6 </span><br><span class="line">4+1=5 4+2=6 4+3=7 4+4=8 </span><br><span class="line">5+1=6 5+2=7 5+3=8 5+4=9 5+5=10 </span><br><span class="line">6+1=7 6+2=8 6+3=9 6+4=10 6+5=11 6+6=12 </span><br><span class="line">7+1=8 7+2=9 7+3=10 7+4=11 7+5=12 7+6=13 7+7=14 </span><br><span class="line">8+1=9 8+2=10 8+3=11 8+4=12 8+5=13 8+6=14 8+7=15 8+8=16 </span><br><span class="line">9+1=10 9+2=11 9+3=12 9+4=13 9+5=14 9+6=15 9+7=16 9+8=17 9+9=18</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Substitution"><a href="#Substitution" class="headerlink" title="Substitution"></a>Substitution</h1><p>The <strong>-e</strong> option enables the interpretation of backslash escapes. </p>
+<p>The printing value of the variable is substituted by its value. </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">a=10</span><br><span class="line">echo -e "Value of a is $a \n"</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Command-Substitution"><a href="#Command-Substitution" class="headerlink" title="Command Substitution"></a>Command Substitution</h2><p>Command substitution is the mechanism by which the shell performs a given set of commands and then substitutes their output in the place of the commands.</p>
+<h3 id="Syntax-2"><a href="#Syntax-2" class="headerlink" title="Syntax"></a>Syntax</h3><p>The command substitution is performed when a command is given as −</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;command&#96;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">DATE=`date`</span><br><span class="line">echo "Date is $DATE"</span><br></pre></td></tr></table></figure>
+
+<p>Upon execution, you will receive the following result −</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Date is Thu Jul  2 03:59:57 MST 2009</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Define your <span class="keyword">function</span> here</span></span><br><span class="line">Hello () &#123;</span><br><span class="line">   echo "Hello World"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Invoke your <span class="keyword">function</span></span></span><br><span class="line">Hello</span><br></pre></td></tr></table></figure>
+
+<p>Upon execution, you will receive the following output −</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Hello World</span><br></pre></td></tr></table></figure>
+
+<h2 id="Pass-Parameters-to-a-Function"><a href="#Pass-Parameters-to-a-Function" class="headerlink" title="Pass Parameters to a Function"></a>Pass Parameters to a Function</h2><p>You can define a function that will accept parameters while calling the function. These parameters would be represented by <strong>$1</strong>, <strong>$2</strong> and so on.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Define your <span class="keyword">function</span> here</span></span><br><span class="line">Hello () &#123;</span><br><span class="line">   echo "Hello World $1 $2"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Invoke your <span class="keyword">function</span></span></span><br><span class="line">Hello Zara Ali</span><br></pre></td></tr></table></figure>
+
+<p>Upon execution, you will receive the following result −</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Hello World Zara Ali</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Returning-Values-from-Functions"><a href="#Returning-Values-from-Functions" class="headerlink" title="Returning Values from Functions"></a>Returning Values from Functions</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Define your <span class="keyword">function</span> here</span></span><br><span class="line">Hello () &#123;</span><br><span class="line">   echo "Hello World $1 $2"</span><br><span class="line">   return 10</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Invoke your <span class="keyword">function</span></span></span><br><span class="line">Hello Zara Ali</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Capture value returnd by last <span class="built_in">command</span></span></span><br><span class="line">ret=$?</span><br><span class="line"></span><br><span class="line">echo "Return value is $ret"</span><br></pre></td></tr></table></figure>
+
+<p>Upon execution, you will receive the following result −</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Hello World Zara Ali</span><br><span class="line">Return value is 10</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>APIs</title>
     <url>/2021/06/15/html/APIs/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="Web-Storage"><a href="#Web-Storage" class="headerlink" title="Web Storage"></a>Web Storage</h1><p>Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance.</p>
+<p>Unlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.</p>
+<h2 id="Two-Storage-Objects"><a href="#Two-Storage-Objects" class="headerlink" title="Two Storage Objects"></a>Two Storage Objects</h2><p>HTML web storage provides two objects for storing data on the client:</p>
+<ul>
+<li><code>window.localStorage</code> - stores data with no expiration date</li>
+<li><code>window.sessionStorage</code> - stores data for one session (data is lost when the browser tab is closed)</li>
+</ul>
+]]></content>
       <tags>
         <tag>html</tag>
       </tags>
@@ -4703,30 +5131,6 @@ $$
       </tags>
   </entry>
   <entry>
-    <title>文件隐藏属性</title>
-    <url>/2020/04/21/linux/%E6%96%87%E4%BB%B6%E9%9A%90%E8%97%8F%E5%B1%9E%E6%80%A7/</url>
-    <content><![CDATA[<h1 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h1><h2 id="chattr"><a href="#chattr" class="headerlink" title="chattr"></a>chattr</h2><p>change attribute (修改隐藏属性)</p>
-<ul>
-<li>Usage: <code>chattr +i &lt;file&gt;</code></li>
-</ul>
-<ol>
-<li><p><code>+</code> <code>-</code> <code>=</code><br>加号减号用来添加属性，等于号设置属性</p>
-</li>
-<li><p>i<br>如果添加了该属性，这该文件将无法被修改，删除。。。无法变动</p>
-</li>
-<li><p>a<br>该属性，让文件变得只能添加数据，不能删除，不能更改数据</p>
-</li>
-</ol>
-<h2 id="lsattr"><a href="#lsattr" class="headerlink" title="lsattr"></a>lsattr</h2><p>list attribute(查看隐藏属性)</p>
-<ul>
-<li>Usage: <code>lsattr &lt;file&gt;</code></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>环境变量PATH</title>
     <url>/2020/04/20/linux/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8FPATH/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>当我们要查看当前目录的子目录和文件时，可以用ls命令，但是ls这是一个文件，单单一个ls命令，不是绝对路径，不是相对路径，也不在当前目录下的文件。那ls这个文件是怎么执行的呢？</p>
@@ -4762,8 +5166,8 @@ $$
   <entry>
     <title>目录权限</title>
     <url>/2020/04/19/linux/%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相对于windows上的的文件，只要是.exe .bat .com后缀的就可以执行。而Linux上的目录或文件，只需要x这个权限就可以执行。<br>但是，<strong>可执行的程序代码</strong>，与<strong>可执行权限</strong>是两回事。也就是说，拥有可执行权限，但是能不能成功执行，就要看文件的内容<br>难道，目录也可以执行吗？</p>
-<p><img data-src="https://i.ibb.co/4fs4bp4/image.png" alt=""></p>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相对于windows上的的文件，只要是.exe .bat .com后缀的就可以执行。而Linux上的目录或文件，只需要x这个权限就可以执行。<br>但是，<strong>可执行的程序代码</strong>，与<strong>可执行权限</strong>是两回事。也就是说，拥有可执行权限，但是能不能成功执行，就要看文件的内容</p>
+<p><img data-src="https://i.ibb.co/4fs4bp4/image.png" alt></p>
 <h2 id="代表意义"><a href="#代表意义" class="headerlink" title="代表意义"></a>代表意义</h2><p><code>[权限][链接][拥有者名][用户组名][文件容量][修改日期][文件名]</code></p>
 <ul>
 <li>拥有者，用户组对应相关权限</li>
@@ -6117,79 +6521,6 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
       </tags>
   </entry>
   <entry>
-    <title>command</title>
-    <url>/2020/03/17/linux/command/</url>
-    <content><![CDATA[<ul>
-<li><p><code>date</code>日期</p>
-</li>
-<li><p><code>cal</code>日历<br><code>cal month year</code></p>
-</li>
-<li><p><code>pwd</code>显示当前目录（路径）</p>
-</li>
-<li><p><code>ls</code>显示当前目录中的文件和目录<br><code>ls -l</code></p>
-</li>
-<li><p><code>mkdir</code>创建空目录（只能一层一层来）<br>要想创建多层的目录要加选项<code>-p</code></p>
-</li>
-<li><p><code>rmdir</code>删除目录(要为空)</p>
-</li>
-<li><p><code>rm -rf</code>删除目录（可以不为空）</p>
-</li>
-<li><p><code>wc</code>查看单词数量</p>
-</li>
-<li><p><code>cp &lt;file1&gt; &lt;directory/file2&gt;</code> 将file1文件复制到目录，还能更换成file2这个名字</p>
-</li>
-<li><p><code>cp -r &lt;dir1&gt; &lt;dir2&gt;</code> 将目录1复制到目录2</p>
-</li>
-<li><p><code>cp -s &lt;file1&gt; &lt;firectory/file2&gt;</code> 复制为符号链接</p>
-</li>
-<li><p><code>cp -l &lt;file1&gt; &lt;firectory/file2&gt;</code> 复制为硬链接</p>
-</li>
-<li><p><code>cat</code> 查看文件信息</p>
-</li>
-<li><p><code>less</code> 查看文件信息</p>
-</li>
-</ul>
-<ol>
-<li>搜索输入的字符<code>/&lt;str&gt;</code></li>
-<li>支持上下翻页</li>
-</ol>
-<ul>
-<li><p><code>head</code> <code>tail</code> 查看前面10行，后面10行<br><code>-n number</code>显示number行</p>
-</li>
-<li><p><code>nl</code> 显示文件内容，同时打印行号</p>
-</li>
-<li><p><code>diff</code> 检查文件的不同</p>
-</li>
-<li><p><code>head &lt;file&gt; -n 2</code>查看文件的前两行</p>
-</li>
-<li><p><code>tail &lt;file&gt; -n 2</code>查看文件的后两行</p>
-</li>
-<li><p><code>rm</code>删除文件</p>
-</li>
-<li><p><code>mv</code>移动文件，重命名文件<br><code>mv &lt;file1&gt; &lt;folder&gt;  //移动</code><br><code>mv &lt;file&gt; &lt;File&gt;   //重命名</code></p>
-</li>
-<li><p><code>touch</code>创建一个不存在的文件，或者更新（修改，读取）文件的时间</p>
-</li>
-<li><p><code>ll --time=atime</code>查看文件读取时间<br><code>ll --time=ctime</code>查看文件权限更改时间<br><code>ll --time=mtime</code>查看文件修改时间<br>（<code>ll</code>是<code>ls -l</code>的缩写）</p>
-</li>
-<li><p><code>chmod</code>权限管理<br><code>chmod &lt;ugo-rwx&gt; &lt;file&gt;</code><br>关于权限:<br>输入<code>ls -l</code>可以看到，开头的（－）（ｄ）是表示（文件）（文件夹）<br>－ｒｗｘ｜ｒ－－｜ｒ－－｜　　　　／／作者（ｕ）｜小组（ｇ）｜其他人（ｏ）<br>ｒ　可读<br>ｗ　可写<br>ｘ　可执行<br>＋　添加权限<br>－　去除权限</p>
-</li>
-<li><p><code>chown</code>改变文件/目录拥有者</p>
-</li>
-<li><p><code>chgrp</code>改变文件/目录加入的用户组</p>
-</li>
-<li><p><code>grep</code>查找内容<br><code>grep &lt;查找内容内容&gt; &lt;file&gt;</code><br>关于查找方式:<br>….<br>….<br>….</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于makefile脚本的多文件编译</title>
     <url>/2020/03/17/c/%E5%85%B3%E4%BA%8Emakefile%E7%9A%84%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/</url>
     <content><![CDATA[<h1 id="前言-一些命令需要在Linux系统下，windows无法实现"><a href="#前言-一些命令需要在Linux系统下，windows无法实现" class="headerlink" title="前言(一些命令需要在Linux系统下，windows无法实现)"></a>前言(一些命令需要在Linux系统下，windows无法实现)</h1><p>当我们想要编译执行多个文件的时候，我们会由于<code>gcc a.c b.c c.c</code>的命令太长而厌烦，而makefile脚本就解决这些问题。（用IDE不需要理会一些这些内容，只需要按下小三角就可以了）</p>
@@ -6415,26 +6746,6 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
       </tags>
   </entry>
   <entry>
-    <title>关于yilia主题的备份问题</title>
-    <url>/2020/03/13/github/%E5%85%B3%E4%BA%8Eyilia%20themes%E7%9A%84%E5%A4%87%E4%BB%BD/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>待我将博客源码备份到Github上后，我又发现了一个问题。themes这个文件夹并没有备份到，这是一个实实在在的坑，这可能是由于yilia themes中有个文件.git关联到了作者的仓库,故而无法提交到本地git仓库中从而无法成功推送到自己的github上，再者这竟然还是一个隐藏文件。所以，我不得不进行相关的删除操作。<br>解决<br>====</p>
-<ol>
-<li>将yilia剪切出来，查看隐藏文件，将.git 和 .gitignore 删除<br>.git文件夹：代表此目录本身是一个git仓库<br>.gitignore：忽略你不想提交到git仓库的内容</li>
-<li>将源码备份(删除git中的yilia)<br><code>git add .</code></li>
-<li>提交修改给git<br><code>git commit -m &quot;update&quot;</code></li>
-<li>git 堆到 GitHub<br><code>git push</code></li>
-<li>将已经修改的本地yilia文件粘贴到原处</li>
-<li>再进行一系列的操作（2， 3， 4）<h1 id="推送成功"><a href="#推送成功" class="headerlink" title="推送成功"></a>推送成功</h1></li>
-</ol>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo评论区的设置</title>
     <url>/2020/03/12/github/%E8%AF%84%E8%AE%BA%E5%8C%BA%E7%9A%84%E8%AE%BE%E7%BD%AE/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为文章添加评论功能</p>
@@ -6459,9 +6770,11 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   <entry>
     <title>备份博客源文件到Github</title>
     <url>/2020/03/12/github/%E5%A4%87%E4%BB%BD%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%E5%88%B0Github/</url>
-    <content><![CDATA[<p>*前言<br>在部署完个网站后<code>hexo g</code>，我发现了一个问题。<br>我的Github上面只有一些实实在在的HTML文件。HTML文件却不同于我们平时所写的 md文件，我们不能直接在HTML上面写博客。假如想要换台电脑写，或者某天本地环境挂了导致文件消失。所以，麻烦就来了。</p>
-<ul>
-<li>要用到的命令介绍</li>
+    <content><![CDATA[<ul>
+<li><p>前言<br>在部署完个网站后<code>hexo g</code>，我发现了一个问题。<br>我的Github上面只有一些实实在在的HTML文件。HTML文件却不同于我们平时所写的 md文件，我们不能直接在HTML上面写博客。假如想要换台电脑写，或者某天本地环境挂了导致文件消失。所以，麻烦就来了。</p>
+</li>
+<li><p>要用到的命令介绍</p>
+</li>
 </ul>
 <ol>
 <li>git push与git pull是一对推送/拉取分支的git命令。<br>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</li>
@@ -6502,39 +6815,9 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
 <li>deploy<br><code>hexo clean &amp;&amp; hexo g -d</code></li>
 <li>push<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 
-
 </li>
 </ul>
 ]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown标记语言</title>
-    <url>/2020/03/11/github/Markdown%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/</url>
-    <content><![CDATA[<p>Markdown 编写的文档后缀为 .md, .markdown</p>
-<h2 id="1-符号"><a href="#1-符号" class="headerlink" title="1.符号#"></a>1.符号#</h2><p>越少 ——&gt; 笔画越粗</p>
-<h2 id="2-斜体"><a href="#2-斜体" class="headerlink" title="2.*  * 斜体"></a>2.*  * 斜体</h2><p><em>ferry chan</em></p>
-<h2 id="3-代码块"><a href="#3-代码块" class="headerlink" title="3.代码块"></a>3.代码块</h2><h2 id="bash"><a href="#bash" class="headerlink" title="```bash"></a>```bash</h2><h2 id=""><a href="#" class="headerlink" title="$"></a>$</h2><h2 id="-1"><a href="#-1" class="headerlink" title="```"></a>```</h2><h2 id="4-网页链接"><a href="#4-网页链接" class="headerlink" title="4.网页链接"></a>4.网页链接</h2><pre><code>[name](URL)</code></pre><h2 id="5-加双引号-“-”"><a href="#5-加双引号-“-”" class="headerlink" title="5.加双引号 “ ”"></a>5.加双引号 “ ”</h2><pre><code>——&gt; 变色</code></pre><h2 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h2><ul>
-<li>大标题<br><code>=====</code></li>
-<li>小标题<br><code>-----</code></li>
-</ul>
-<h2 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h2><ul>
-<li>斜体<br><code>*hhh*</code></li>
-<li>加粗<br><code>**hhh**</code></li>
-</ul>
-<h2 id="在代码块中加标题和语言"><a href="#在代码块中加标题和语言" class="headerlink" title="在代码块中加标题和语言"></a>在代码块中加标题和语言</h2><ul>
-<li><p>示例</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;&#96;&#96;&lt;语言&gt; &lt;标题&gt;</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main(void)&#123;</span><br><span class="line">    printf(&quot;Hello World&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>效果</p>
-</li>
-</ul>
-<figure class="highlight c"><figcaption><span>title</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello World"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>github</category>
       </categories>

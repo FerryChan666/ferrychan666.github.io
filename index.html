@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">156</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -191,6 +191,561 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2021/06/18/linux/basic-operations/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/18/linux/basic-operations/" class="post-title-link" itemprop="url">basic operations</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-06-18 15:49:05 / Modified: 17:33:22" itemprop="dateCreated datePublished" datetime="2021-06-18T15:49:05+08:00">2021-06-18</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="File"><a href="#File" class="headerlink" title="File"></a>File</h1><h2 id="Listing-File"><a href="#Listing-File" class="headerlink" title="Listing File"></a>Listing File</h2><ul>
+<li><p><code>ls</code>- listing files in current directory</p>
+<p><code>ls -l</code>  will help you get more information of the files</p>
+<p>To list the invisible files, specify the <strong>-a</strong> option to <strong>ls</strong> −</p>
+</li>
+</ul>
+<h2 id="Copying-Files"><a href="#Copying-Files" class="headerlink" title="Copying Files"></a>Copying Files</h2><p>To make a copy of a file use the <strong>cp</strong> command. The basic syntax of the command is −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cp source_file destination_file</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Renaming-Files"><a href="#Renaming-Files" class="headerlink" title="Renaming Files"></a>Renaming Files</h2><p>To change the name of a file, use the <strong>mv</strong> command. Following is the basic syntax −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mv old_file new_file</span></span><br></pre></td></tr></table></figure>
+
+<p>The <strong>mv</strong> command will move the existing file completely into the new file. In this case, you will find only <strong>newfile</strong> in your current directory.</p>
+<h1 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h1><p> <code>mkdir [name]</code> create a directory</p>
+<p><code>rmdir [name]</code> remove a directory, but it only to be useful with the empty directory. </p>
+<p><code>rm -rf [name]</code> can remove the files or directories permanently. </p>
+<h2 id="Changing-Directories"><a href="#Changing-Directories" class="headerlink" title="Changing Directories"></a>Changing Directories</h2><p>You can use it to change to any directory by specifying a valid absolute or relative path. The syntax is as given below −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> dirname</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="File-Permission"><a href="#File-Permission" class="headerlink" title="File Permission"></a>File Permission</h1><p>Every file in Unix has the following attributes −</p>
+<ul>
+<li><strong>Owner permissions</strong> − The owner’s permissions determine what actions the owner of the file can perform on the file.</li>
+<li><strong>Group permissions</strong> − The group’s permissions determine what actions a user, who is a member of the group that a file belongs to, can perform on the file.</li>
+<li><strong>Other (world) permissions</strong> − The permissions for others indicate what action all other users can perform on the file.</li>
+</ul>
+<p>The permissions are broken into groups of threes, and each position in the group denotes a specific permission, <strong>in this order: read (r), write (w), execute (x) −</strong></p>
+<ul>
+<li>The first three characters (2-4) represent the permissions for the file’s owner. For example, <strong>-rwxr-xr–</strong> represents that the owner has read (r), write (w) and execute (x) permission.</li>
+<li>The second group of three characters (5-7) consists of the permissions for the group to which the file belongs. For example, <strong>-rwxr-xr–</strong> represents that the group has read (r) and execute (x) permission, but no write permission.</li>
+<li>The last group of three characters (8-10) represents the permissions for everyone else. For example, <strong>-rwxr-xr–</strong> represents that there is <strong>read (r)</strong> only permission.</li>
+</ul>
+<p>When we use <code>ls -l</code> command, the permission information will be shown. </p>
+<p><img data-src="https://i.imgur.com/uSwxH68.png" alt></p>
+<p>The first character represent what type it is. </p>
+<p><code>-</code> represents a file</p>
+<p><code>d</code> represents a directory</p>
+<h2 id="Change-Permission"><a href="#Change-Permission" class="headerlink" title="Change Permission"></a>Change Permission</h2><p>We have two modes to change the permission of files. </p>
+<h3 id="Symbolic-Mode"><a href="#Symbolic-Mode" class="headerlink" title="Symbolic Mode"></a>Symbolic Mode</h3><p><code>a</code> -&gt;all（user，group，other）<br><code>u</code> -&gt;user<br><code>g</code> -&gt;group<br><code>o</code> -&gt;other</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Chmod operator &amp; Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+</td>
+<td align="center">****Adds the designated permission(s) to a file or directory.</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">****Removes the designated permission(s) from a file or directory.</td>
+</tr>
+<tr>
+<td align="center">=</td>
+<td align="center">****Sets the designated permission(s).</td>
+</tr>
+</tbody></table>
+<p><strong>Example</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">chmod o+wx testfile</span></span><br><span class="line"><span class="meta">$</span><span class="bash">ls -l testfile</span></span><br><span class="line">-rwxrwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br><span class="line"><span class="meta">$</span><span class="bash">chmod u-x testfile</span></span><br><span class="line"><span class="meta">$</span><span class="bash">ls -l testfile</span></span><br><span class="line">-rw-rwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br><span class="line"><span class="meta">$</span><span class="bash">chmod g = rx testfile</span></span><br><span class="line"><span class="meta">$</span><span class="bash">ls -l testfile</span></span><br><span class="line">-rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Absolute-Permissions"><a href="#Absolute-Permissions" class="headerlink" title="Absolute Permissions"></a>Absolute Permissions</h3><p>The second way to modify permissions with the chmod command is to use a number to specify each set of permissions for the file.</p>
+<p>Each permission is assigned a value, as the following table shows, and the total of each set of permissions provides a number for that set.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Number</th>
+<th align="center">Octal Permission Representation</th>
+<th align="center">Ref</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>0</strong></td>
+<td align="center">No permission</td>
+<td align="center">—</td>
+</tr>
+<tr>
+<td align="center"><strong>1</strong></td>
+<td align="center">Execute permission</td>
+<td align="center">–x</td>
+</tr>
+<tr>
+<td align="center"><strong>2</strong></td>
+<td align="center">Write permission</td>
+<td align="center">-w-</td>
+</tr>
+<tr>
+<td align="center"><strong>3</strong></td>
+<td align="center">Execute and write permission: 1 (execute) + 2 (write) = 3</td>
+<td align="center">-wx</td>
+</tr>
+<tr>
+<td align="center"><strong>4</strong></td>
+<td align="center">Read permission</td>
+<td align="center">r–</td>
+</tr>
+<tr>
+<td align="center"><strong>5</strong></td>
+<td align="center">Read and execute permission: 4 (read) + 1 (execute) = 5</td>
+<td align="center">r-x</td>
+</tr>
+<tr>
+<td align="center"><strong>6</strong></td>
+<td align="center">Read and write permission: 4 (read) + 2 (write) = 6</td>
+<td align="center">rw-</td>
+</tr>
+<tr>
+<td align="center"><strong>7</strong></td>
+<td align="center">All permissions: 4 (read) + 2 (write) + 1 (execute) = 7</td>
+<td align="center">rwx</td>
+</tr>
+</tbody></table>
+<p>Here’s an example using the testfile. Running <strong>ls -1</strong> on the testfile shows that the file’s permissions are as follows −</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ls -l testfile</span><br><span class="line">-rwxrwxr--  1 amrood   users 1024  Nov 2 00:10  testfile</span><br></pre></td></tr></table></figure>
+
+<p>Then each example <strong>chmod</strong> command from the preceding table is run on the testfile, followed by <strong>ls –l</strong>, so you can see the permission changes −</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 755 testfile</span><br><span class="line">$ls -l testfile</span><br><span class="line">-rwxr-xr-x  1 amrood   users 1024  Nov 2 00:10  testfile</span><br><span class="line">$chmod 743 testfile</span><br><span class="line">$ls -l testfile</span><br><span class="line">-rwxr---wx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br><span class="line">$chmod 043 testfile</span><br><span class="line">$ls -l testfile</span><br><span class="line">----r---wx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2021/06/17/linux/shell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/17/linux/shell/" class="post-title-link" itemprop="url">Shell & Shell scripts</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-06-17 16:17:49" itemprop="dateCreated datePublished" datetime="2021-06-17T16:17:49+08:00">2021-06-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-18 17:33:24" itemprop="dateModified" datetime="2021-06-18T17:33:24+08:00">2021-06-18</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>8.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>8 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Users communicate with the kernel through a program known as the <strong>shell</strong>. </p>
+<p>The shell is a command line interpreter; it translates commands entered by the user and converts them into a language that is understood by the kernel.</p>
+<p><strong>Shell</strong> is an environment in which we can run our commands, programs, and shell scripts. A shell provides an interface to your Linux System. It gathers your inputs and executes programs based on that input. </p>
+<p>The shell is, after all, a real programming language, complete with variables, control structures, and so forth.</p>
+<h1 id="Shell-Scripts"><a href="#Shell-Scripts" class="headerlink" title="Shell Scripts"></a>Shell Scripts</h1><p>The basic concept of a shell script is a list of commands, which are listed in the order of execution. A good shell script will have comments, preceded by # sign, describing the steps.</p>
+<ol>
+<li><p>Create</p>
+<p>The <code>.sh</code> file is start by using <code>#! /bin/sh</code> , which alert the system that shell scripts are as follows. </p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">echo -e "Hello World! \a \n"</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>Comments</li>
+</ol>
+<p>We can add some comments by using <code>#</code> in the begin of a line.</p>
+<ol start="3">
+<li><p>Execute</p>
+<p>Make the script executable and execute it. </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x test.sh ;./test.sh</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><strong>Example</strong></p>
+<p>The following script uses the <strong>read</strong> command which takes the input from the keyboard and assigns it as the value of the variable PERSON and finally prints it on STDOUT.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line"># Author : Zara Ali</span><br><span class="line"># Copyright (c) Tutorialspoint.com</span><br><span class="line"># Script follows here:</span><br><span class="line"></span><br><span class="line">echo &quot;What is your name?&quot;</span><br><span class="line">read PERSON</span><br><span class="line">echo &quot;Hello, $PERSON&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Here is a sample run of the script −</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.&#x2F;test.sh</span><br><span class="line">What is your name?</span><br><span class="line">Zara Ali</span><br><span class="line">Hello, Zara Ali</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="Shell-Variables"><a href="#Shell-Variables" class="headerlink" title="Shell Variables"></a>Shell Variables</h1><p>Variable is nothing more than a pointer to the actual value. </p>
+<h2 id="Defining-Variables"><a href="#Defining-Variables" class="headerlink" title="Defining Variables"></a>Defining Variables</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">variable_name=variable_value</span><br></pre></td></tr></table></figure>
+
+<h2 id="Accessing-Values"><a href="#Accessing-Values" class="headerlink" title="Accessing Values"></a>Accessing Values</h2><p>To access the value stored in a variable, prefix its name with the dollar sign (<strong>$</strong>) </p>
+<h2 id="Unsetting-Variables"><a href="#Unsetting-Variables" class="headerlink" title="Unsetting Variables"></a>Unsetting Variables</h2><p>Following is the syntax to unset a defined variable using the <strong>unset</strong> command −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unset variable_name</span><br></pre></td></tr></table></figure>
+
+<h2 id="Special-Variable"><a href="#Special-Variable" class="headerlink" title="Special Variable"></a>Special Variable</h2><table>
+<thead>
+<tr>
+<th align="center">Sr.No.</th>
+<th align="center">Variable &amp; Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><strong>$0</strong>The filename of the current script.</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><strong>$n</strong>These variables correspond to the arguments with which a script was invoked. Here <strong>n</strong> is a positive decimal number corresponding to the position of an argument (the first argument is $1, the second argument is $2, and so on).</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><strong>$#</strong>The number of arguments supplied to a script.</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"><strong>$*</strong>All the arguments are double quoted. If a script receives two arguments, $* is equivalent to $1 $2.</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"><strong>$@</strong>All the arguments are individually double quoted. If a script receives two arguments, $@ is equivalent to $1 $2.</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center"><strong>$?</strong>The exit status of the last command executed.</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center"><strong>$$</strong>The process number of the current shell. For shell scripts, this is the process ID under which they are executing.</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center"><strong>$!</strong>The process number of the last background command.</td>
+</tr>
+</tbody></table>
+<h3 id="Exit-Status"><a href="#Exit-Status" class="headerlink" title="Exit Status"></a>Exit Status</h3><p>The <strong>$?</strong> variable represents the exit status of the previous command.</p>
+<p>Exit status is a numerical value returned by every command upon its completion. As a rule, most commands return an exit status of 0 if they were successful, and 1 if they were unsuccessful.</p>
+<h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">NAME[0]="Zara"</span><br><span class="line">NAME[1]="Qadir"</span><br><span class="line">NAME[2]="Mahnaz"</span><br><span class="line">NAME[3]="Ayan"</span><br><span class="line">NAME[4]="Daisy"</span><br><span class="line">echo "First Method: $&#123;NAME[*]&#125;"</span><br><span class="line">echo "Second Method: $&#123;NAME[@]&#125;"</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h1><ul>
+<li><p><code>$((expression))</code></p>
+<figure class="highlight shell"><figcaption><span>factorial</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">read -p "Enter the value of n, I will calculate the factorial of n:" n</span><br><span class="line">s=$n</span><br><span class="line">while [ $n -gt 1 ]</span><br><span class="line">do</span><br><span class="line">	n=$((n-1))</span><br><span class="line">	s=$(($s*$n))</span><br><span class="line">done</span><br><span class="line">echo -e "The factorial is $s"</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><code>expr</code> or <code>awk</code></li>
+</ul>
+<p>Bourne shell didn’t originally have any mechanism to perform simple arithmetic operations but it uses external programs, either <strong>awk</strong> or <strong>expr</strong>.</p>
+<p>The following example shows how to add two numbers −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">val=`expr 2 + 2`</span><br><span class="line">echo "Total value : $val"</span><br></pre></td></tr></table></figure>
+
+<p>The above script will generate the following result −</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Total value : 4</span><br></pre></td></tr></table></figure>
+
+<p>The following points need to be considered while adding −</p>
+<ul>
+<li>There must be spaces between operators and expressions. For example, 2+2 is not correct; it should be written as 2 + 2.</li>
+<li>The complete expression should be enclosed between <strong>``</strong>, called the backtick.</li>
+</ul>
+<h1 id="Quoting"><a href="#Quoting" class="headerlink" title="Quoting"></a>Quoting</h1><ol>
+<li><p>double quoting</p>
+<p>The double quote ( “quote” ) protects everything enclosed between two double quote marks except $, ‘, “ and .</p>
+<p>(Use the double quotes when you want only <strong>variables and command substitution</strong>.)</p>
+</li>
+<li><p>The single quote</p>
+<p>The single quote ( ‘quote’ ) protects everything enclosed between two single quote marks. It is used to <strong>turn off the special meaning</strong> of all characters.</p>
+</li>
+</ol>
+<h2 id="Arithmetic-Operators"><a href="#Arithmetic-Operators" class="headerlink" title="Arithmetic Operators"></a>Arithmetic Operators</h2><table>
+<thead>
+<tr>
+<th align="center">Operator</th>
+<th align="center">Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+ (Addition)</td>
+<td align="center">Adds values on either side of the operator</td>
+<td align="center"><code>expr $a + $b</code> will give 30</td>
+</tr>
+<tr>
+<td align="center">- (Subtraction)</td>
+<td align="center">Subtracts right hand operand from left hand operand</td>
+<td align="center"><code>expr $a - $b</code> will give -10</td>
+</tr>
+<tr>
+<td align="center">* (Multiplication)</td>
+<td align="center">Multiplies values on either side of the operator</td>
+<td align="center"><code>expr $a \* $b</code> will give 200</td>
+</tr>
+<tr>
+<td align="center">/ (Division)</td>
+<td align="center">Divides left hand operand by right hand operand</td>
+<td align="center"><code>expr $b / $a</code> will give 2</td>
+</tr>
+<tr>
+<td align="center">% (Modulus)</td>
+<td align="center">Divides left hand operand by right hand operand and returns remainder</td>
+<td align="center"><code>expr $b % $a</code> will give 0</td>
+</tr>
+<tr>
+<td align="center">= (Assignment)</td>
+<td align="center">Assigns right operand in left operand</td>
+<td align="center">a = $b would assign value of b into a</td>
+</tr>
+<tr>
+<td align="center">== (Equality)</td>
+<td align="center">Compares two numbers, if both are same then returns true.</td>
+<td align="center">[ $a == $b ] would return false.</td>
+</tr>
+<tr>
+<td align="center">!= (Not Equality)</td>
+<td align="center">Compares two numbers, if both are different then returns true.</td>
+<td align="center">[ $a != $b ] would return true.</td>
+</tr>
+</tbody></table>
+<h2 id="Relational-Operators"><a href="#Relational-Operators" class="headerlink" title="Relational Operators"></a>Relational Operators</h2><table>
+<thead>
+<tr>
+<th align="center">Operator</th>
+<th align="center">Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>-eq</strong>(equal)</td>
+<td align="center">Checks if the value of two operands are equal or not; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -eq $b ] is not true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-ne</strong>(not equal)</td>
+<td align="center">Checks if the value of two operands are equal or not; if values are not equal, then the condition becomes true.</td>
+<td align="center">[ $a -ne $b ] is true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-gt</strong>(greater than)</td>
+<td align="center">Checks if the value of left operand is greater than the value of right operand; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -gt $b ] is not true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-lt</strong>(less than)</td>
+<td align="center">Checks if the value of left operand is less than the value of right operand; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -lt $b ] is true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-ge</strong>(greater or equal)</td>
+<td align="center">Checks if the value of left operand is greater than or equal to the value of right operand; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -ge $b ] is not true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-le</strong>(less or equal)</td>
+<td align="center">Checks if the value of left operand is less than or equal to the value of right operand; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -le $b ] is true.</td>
+</tr>
+</tbody></table>
+<h1 id="Conditional-Statements"><a href="#Conditional-Statements" class="headerlink" title="Conditional Statements"></a>Conditional Statements</h1><p>Unix Shell supports conditional statements which are used to perform different actions based on different conditions.</p>
+<h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if [ expression 1 ]</span><br><span class="line">then</span><br><span class="line">   Statement(s) to be executed if expression 1 is true</span><br><span class="line">elif [ expression 2 ]</span><br><span class="line">then</span><br><span class="line">   Statement(s) to be executed if expression 2 is true</span><br><span class="line">elif [ expression 3 ]</span><br><span class="line">then</span><br><span class="line">   Statement(s) to be executed if expression 3 is true</span><br><span class="line">else</span><br><span class="line">   Statement(s) to be executed if no expression is true</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">a=10</span><br><span class="line">b=20</span><br><span class="line"></span><br><span class="line">if [ $a == $b ]</span><br><span class="line">then</span><br><span class="line">   echo "a is equal to b"</span><br><span class="line">elif [ $a -gt $b ]</span><br><span class="line">then</span><br><span class="line">   echo "a is greater than b"</span><br><span class="line">elif [ $a -lt $b ]</span><br><span class="line">then</span><br><span class="line">   echo "a is less than b"</span><br><span class="line">else</span><br><span class="line">   echo "None of the condition met"</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h1><h2 id="Syntax-1"><a href="#Syntax-1" class="headerlink" title="Syntax"></a>Syntax</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">while command1 ; # this is loop1, the outer loop</span><br><span class="line">do</span><br><span class="line">   Statement(s) to be executed if command1 is true</span><br><span class="line"></span><br><span class="line">   while command2 ; # this is loop2, the inner loop</span><br><span class="line">   do</span><br><span class="line">      Statement(s) to be executed if command2 is true</span><br><span class="line">   done</span><br><span class="line"></span><br><span class="line">   Statement(s) to be executed if command1 is true</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">a=0</span><br><span class="line">while [ "$a" -lt 10 ]    # this is loop1</span><br><span class="line">do</span><br><span class="line">   b="$a"</span><br><span class="line">   while [ "$b" -ge 0 ]  # this is loop2</span><br><span class="line">   do</span><br><span class="line">      echo -n "$b "</span><br><span class="line">      b=`expr $b - 1`</span><br><span class="line">   done</span><br><span class="line">   echo</span><br><span class="line">   a=`expr $a + 1`</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1 0</span><br><span class="line">2 1 0</span><br><span class="line">3 2 1 0</span><br><span class="line">4 3 2 1 0</span><br><span class="line">5 4 3 2 1 0</span><br><span class="line">6 5 4 3 2 1 0</span><br><span class="line">7 6 5 4 3 2 1 0</span><br><span class="line">8 7 6 5 4 3 2 1 0</span><br><span class="line">9 8 7 6 5 4 3 2 1 0</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">a=1</span><br><span class="line">b=1</span><br><span class="line">while [ "$a" -le 9 ]</span><br><span class="line">do</span><br><span class="line">        b=1</span><br><span class="line">        while [ "$b" -le "$a" ]</span><br><span class="line">        do</span><br><span class="line">                c=`expr $a \* $b`</span><br><span class="line">                echo -n "$b*$a=$c "</span><br><span class="line"></span><br><span class="line">                b=`expr $b + 1`</span><br><span class="line">        done</span><br><span class="line">        echo -e "\n"</span><br><span class="line">        a=`expr $a + 1`</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p><strong>NOTE</strong></p>
+<ol>
+<li>It is important to note how <strong>echo -n</strong> works here. Here <strong>-n</strong> option lets echo avoid printing a new line character.</li>
+<li>Among the <code>[]</code>, we use a condition statement with <strong>two spaces between it</strong>. <code>[ condition ]</code></li>
+</ol>
+<p><strong>output</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1*1=1 </span><br><span class="line"></span><br><span class="line">1*2=2 2*2=4 </span><br><span class="line"></span><br><span class="line">1*3=3 2*3=6 3*3=9 </span><br><span class="line"></span><br><span class="line">1*4=4 2*4=8 3*4=12 4*4=16 </span><br><span class="line"></span><br><span class="line">1*5=5 2*5=10 3*5=15 4*5=20 5*5=25 </span><br><span class="line"></span><br><span class="line">1*6=6 2*6=12 3*6=18 4*6=24 5*6=30 6*6=36 </span><br><span class="line"></span><br><span class="line">1*7=7 2*7=14 3*7=21 4*7=28 5*7=35 6*7=42 7*7=49 </span><br><span class="line"></span><br><span class="line">1*8=8 2*8=16 3*8=24 4*8=32 5*8=40 6*8=48 7*8=56 8*8=64 </span><br><span class="line"></span><br><span class="line">1*9=9 2*9=18 3*9=27 4*9=36 5*9=45 6*9=54 7*9=63 8*9=72 9*9=81</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><figcaption><span>addtion</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">a=1</span><br><span class="line">b=1</span><br><span class="line">while [ $a -le 9 ]</span><br><span class="line">do</span><br><span class="line">        b=1</span><br><span class="line">        while [ $b -le $a ]</span><br><span class="line">        do</span><br><span class="line">                c=`expr $a + $b`</span><br><span class="line">                echo -n "$a+$b=$c "</span><br><span class="line">                b=`expr $b + 1`</span><br><span class="line">        done</span><br><span class="line">        a=`expr $a + 1`</span><br><span class="line">        echo -e ""</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1+1=2 </span><br><span class="line">2+1=3 2+2=4 </span><br><span class="line">3+1=4 3+2=5 3+3=6 </span><br><span class="line">4+1=5 4+2=6 4+3=7 4+4=8 </span><br><span class="line">5+1=6 5+2=7 5+3=8 5+4=9 5+5=10 </span><br><span class="line">6+1=7 6+2=8 6+3=9 6+4=10 6+5=11 6+6=12 </span><br><span class="line">7+1=8 7+2=9 7+3=10 7+4=11 7+5=12 7+6=13 7+7=14 </span><br><span class="line">8+1=9 8+2=10 8+3=11 8+4=12 8+5=13 8+6=14 8+7=15 8+8=16 </span><br><span class="line">9+1=10 9+2=11 9+3=12 9+4=13 9+5=14 9+6=15 9+7=16 9+8=17 9+9=18</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Substitution"><a href="#Substitution" class="headerlink" title="Substitution"></a>Substitution</h1><p>The <strong>-e</strong> option enables the interpretation of backslash escapes. </p>
+<p>The printing value of the variable is substituted by its value. </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">a=10</span><br><span class="line">echo -e "Value of a is $a \n"</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Command-Substitution"><a href="#Command-Substitution" class="headerlink" title="Command Substitution"></a>Command Substitution</h2><p>Command substitution is the mechanism by which the shell performs a given set of commands and then substitutes their output in the place of the commands.</p>
+<h3 id="Syntax-2"><a href="#Syntax-2" class="headerlink" title="Syntax"></a>Syntax</h3><p>The command substitution is performed when a command is given as −</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;command&#96;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">DATE=`date`</span><br><span class="line">echo "Date is $DATE"</span><br></pre></td></tr></table></figure>
+
+<p>Upon execution, you will receive the following result −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date is Thu Jul  2 03:59:57 MST 2009</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Define your <span class="keyword">function</span> here</span></span><br><span class="line">Hello () &#123;</span><br><span class="line">   echo "Hello World"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Invoke your <span class="keyword">function</span></span></span><br><span class="line">Hello</span><br></pre></td></tr></table></figure>
+
+<p>Upon execution, you will receive the following output −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World</span><br></pre></td></tr></table></figure>
+
+<h2 id="Pass-Parameters-to-a-Function"><a href="#Pass-Parameters-to-a-Function" class="headerlink" title="Pass Parameters to a Function"></a>Pass Parameters to a Function</h2><p>You can define a function that will accept parameters while calling the function. These parameters would be represented by <strong>$1</strong>, <strong>$2</strong> and so on.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Define your <span class="keyword">function</span> here</span></span><br><span class="line">Hello () &#123;</span><br><span class="line">   echo "Hello World $1 $2"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Invoke your <span class="keyword">function</span></span></span><br><span class="line">Hello Zara Ali</span><br></pre></td></tr></table></figure>
+
+<p>Upon execution, you will receive the following result −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World Zara Ali</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Returning-Values-from-Functions"><a href="#Returning-Values-from-Functions" class="headerlink" title="Returning Values from Functions"></a>Returning Values from Functions</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Define your <span class="keyword">function</span> here</span></span><br><span class="line">Hello () &#123;</span><br><span class="line">   echo "Hello World $1 $2"</span><br><span class="line">   return 10</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Invoke your <span class="keyword">function</span></span></span><br><span class="line">Hello Zara Ali</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Capture value returnd by last <span class="built_in">command</span></span></span><br><span class="line">ret=$?</span><br><span class="line"></span><br><span class="line">echo "Return value is $ret"</span><br></pre></td></tr></table></figure>
+
+<p>Upon execution, you will receive the following result −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hello World Zara Ali</span><br><span class="line">Return value is 10</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2021/06/15/html/APIs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,10 +769,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-06-15 21:11:42 / Modified: 21:29:23" itemprop="dateCreated datePublished" datetime="2021-06-15T21:11:42+08:00">2021-06-15</time>
+              <time title="Created: 2021-06-15 21:11:42" itemprop="dateCreated datePublished" datetime="2021-06-15T21:11:42+08:00">2021-06-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-18 09:31:27" itemprop="dateModified" datetime="2021-06-18T09:31:27+08:00">2021-06-18</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="Symbols count in article">
@@ -225,7 +786,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>0</span>
+              <span>411</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -244,7 +805,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="Web-Storage"><a href="#Web-Storage" class="headerlink" title="Web Storage"></a>Web Storage</h1><p>Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance.</p>
+<p>Unlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.</p>
+<h2 id="Two-Storage-Objects"><a href="#Two-Storage-Objects" class="headerlink" title="Two Storage Objects"></a>Two Storage Objects</h2><p>HTML web storage provides two objects for storing data on the client:</p>
+<ul>
+<li><code>window.localStorage</code> - stores data with no expiration date</li>
+<li><code>window.sessionStorage</code> - stores data for one session (data is lost when the browser tab is closed)</li>
+</ul>
+
       
     </div>
 
@@ -1300,199 +1868,6 @@ the third line
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2021/01/21/algorithm/PSO/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/21/algorithm/PSO/" class="post-title-link" itemprop="url">PSO</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-21 13:22:13 / Modified: 16:17:37" itemprop="dateCreated datePublished" datetime="2021-01-21T13:22:13+08:00">2021-01-21</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.5k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h1><p>该算法，通过追随当前搜索到的最优值来寻找全局最优</p>
-<p>试着想一下一群鸟在寻找食物，在这个区域中只有一只虫子，所有的鸟都不知道它在哪。但是它们知道自己的当前位置距离食物有多远，它们通过相互联系，知道离食物最近的鸟的位置，同时各只鸟在位置不停变化时候离食物的距离也不断变化。</p>
-<p>现在把鸟抽象为粒子。</p>
-<ol>
-<li>粒子仅具有两个属性：速度V和位置X。粒子i在N维空间的位置表示为矢量Xi＝(x1，x2，…，xN)，飞行速度表示为矢量Vi＝(v1，v2，…，vN)。</li>
-<li>它们知道自己到目前为止发现的最好位置(<code>pbest</code>)和现在的位置<code>Xi</code></li>
-<li>每个粒子还知道到目前为止整个群体中所有粒子发现的最好位置(<code>gbest</code>)(gbest是pbest中的最好值)</li>
-</ol>
-<p>最终，粒子就是通过自己的经验和同伴中最好的经验来决定下一步的运动。 </p>
-<h2 id="粒子速度和位置的更新"><a href="#粒子速度和位置的更新" class="headerlink" title="粒子速度和位置的更新"></a>粒子速度和位置的更新</h2><p><img data-src="https://i.imgur.com/1k2i2Gy.png" alt></p>
-<p>该公式是从上面公式中的一个改进，增加了一个惯性因子。</p>
-<p><img data-src="https://i.imgur.com/gZlglie.png" alt></p>
-<p>这两条公式称为标准的PSO算法。</p>
-<h1 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h1><p>举例<code>y=-x*(x-2)</code> 该函数，让PSO寻找该顶点的y值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AlgorithmPSO</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n=<span class="number">2</span>; <span class="comment">//粒子个数</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span>[] y;</span><br><span class="line">    <span class="keyword">double</span>[] x;<span class="comment">//每个粒子位置</span></span><br><span class="line">    <span class="keyword">double</span>[] v;<span class="comment">//每个粒子速度v</span></span><br><span class="line">    <span class="comment">//学习因子</span></span><br><span class="line">    <span class="keyword">double</span> c1=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">double</span> c2=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> pbest[];<span class="comment">//每个粒子走过的最好位置</span></span><br><span class="line">    <span class="keyword">double</span> gbest;<span class="comment">//是pbest中最好的值</span></span><br><span class="line">    <span class="keyword">double</span> vmax=<span class="number">0.1</span>; <span class="comment">//速度最大值</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//适应度计算函数，每个粒子都有它的适应度</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fitnessFunction</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            y[i]=-<span class="number">1</span>*x[i]*(x[i]-<span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123; <span class="comment">//初始化</span></span><br><span class="line">        x=<span class="keyword">new</span> <span class="keyword">double</span>[n];</span><br><span class="line">        v=<span class="keyword">new</span> <span class="keyword">double</span>[n];</span><br><span class="line">        y=<span class="keyword">new</span> <span class="keyword">double</span>[n];</span><br><span class="line">        pbest=<span class="keyword">new</span> <span class="keyword">double</span>[n];</span><br><span class="line">        <span class="comment">/***</span></span><br><span class="line"><span class="comment">         * 本来是应该随机产生的，为了方便演示，我这里手动随机落两个点，分别落在最大值两边</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        x[<span class="number">0</span>]=<span class="number">0.0</span>;</span><br><span class="line">        x[<span class="number">1</span>]=<span class="number">2.0</span>;</span><br><span class="line">        v[<span class="number">0</span>]=<span class="number">0.01</span>;</span><br><span class="line">        v[<span class="number">1</span>]=<span class="number">0.02</span>;</span><br><span class="line">        fitnessFunction();</span><br><span class="line">        <span class="comment">//初始化当前个体最优位置，并找到群体最优位置</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            pbest[i]=y[i];</span><br><span class="line">            <span class="keyword">if</span>(y[i]&gt;gbest) gbest=y[i];</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"算法开始，起始最优解:"</span>+gbest);</span><br><span class="line">        System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getMAX</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a&gt;b?a:b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//粒子群算法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PSO</span><span class="params">(<span class="keyword">int</span> max)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;max;i++)&#123;<span class="comment">//迭代次数max</span></span><br><span class="line">            <span class="keyword">double</span> w=<span class="number">0.4</span>;<span class="comment">//惯性因子</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="comment">//更新位置和速度</span></span><br><span class="line">                v[j]=w*v[j]+c1*Math.random()*(pbest[j]-x[j])+c2*Math.random()*(gbest-x[j]);</span><br><span class="line">                <span class="keyword">if</span>(v[j]&gt;vmax) </span><br><span class="line">                    v[j]=vmax;<span class="comment">//控制速度不超过最大值</span></span><br><span class="line"></span><br><span class="line">                x[j]+=v[j];<span class="comment">//位置变化</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment">//越界判断，范围限定在[0, 2]</span></span><br><span class="line">                <span class="keyword">if</span>(x[j]&gt;<span class="number">2</span>) x[j]=<span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span>(x[j]&lt;<span class="number">0</span>) x[j]=<span class="number">0</span>;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            fitnessFunction();<span class="comment">//更改y值</span></span><br><span class="line">            <span class="comment">//更新pbest和gbest</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                pbest[j]=getMAX(y[j],pbest[j]);</span><br><span class="line">                <span class="keyword">if</span>(pbest[j]&gt;gbest) </span><br><span class="line">                    gbest=pbest[j];</span><br><span class="line">                System.out.println(<span class="string">"粒子n"</span>+j+<span class="string">": x = "</span>+x[j]+<span class="string">"  "</span>+<span class="string">"v = "</span>+v[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"第"</span>+(i+<span class="number">1</span>)+<span class="string">"次迭代，全局最优解 gbest = "</span>+gbest);</span><br><span class="line">            System.out.print(<span class="string">"\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    	AlgorithmPSO ts=<span class="keyword">new</span> AlgorithmPSO();</span><br><span class="line">        ts.init();</span><br><span class="line">        ts.PSO(<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">算法开始，起始最优解:0.0</span><br><span class="line"></span><br><span class="line">粒子n0: x &#x3D; 0.004  v &#x3D; 0.004</span><br><span class="line">粒子n1: x &#x3D; 0.0  v &#x3D; -5.50216355503498</span><br><span class="line">第1次迭代，全局最优解 gbest &#x3D; 0.007984</span><br><span class="line"></span><br><span class="line">粒子n0: x &#x3D; 0.014336945856940293  v &#x3D; 0.010336945856940293</span><br><span class="line">粒子n1: x &#x3D; 0.0  v &#x3D; -2.187807943275182</span><br><span class="line">第2次迭代，全局最优解 gbest &#x3D; 0.02846834369737575</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">粒子n0: x &#x3D; 0.9999999999963437  v &#x3D; -7.097994640685072E-12</span><br><span class="line">粒子n1: x &#x3D; 1.0000000000000309  v &#x3D; 4.865719800421376E-14</span><br><span class="line">第100次迭代，全局最优解 gbest &#x3D; 1.0</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/12/27/c/C-struct/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/27/c/C-struct/" class="post-title-link" itemprop="url">C struct</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-27 19:59:48" itemprop="dateCreated datePublished" datetime="2020-12-27T19:59:48+08:00">2020-12-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-29 02:57:06" itemprop="dateModified" datetime="2020-12-29T02:57:06+08:00">2020-12-29</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Define"><a href="#Define" class="headerlink" title="Define"></a>Define</h1><h3 id="Syntax-of-struct"><a href="#Syntax-of-struct" class="headerlink" title="Syntax of struct"></a>Syntax of struct</h3><p>After you define this data type , you can create variables of this type.  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct structureName </span><br><span class="line">&#123;</span><br><span class="line">    dataType member1;</span><br><span class="line">    dataType member2;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Allocate"><a href="#Allocate" class="headerlink" title="Allocate"></a>Allocate</h1><p>When a struct type is declared, no storage or memory is allocated. To allocate memory of a given structure type and work with it, we need to create variables.</p>
-<p>Here’s how we create structure variables:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">struct Person</span><br><span class="line">&#123;</span><br><span class="line">    char name[50];</span><br><span class="line">    int citNo;</span><br><span class="line">    float salary;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    struct Person person1, person2, p[20];</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Define-and-Allocate-together"><a href="#Define-and-Allocate-together" class="headerlink" title="Define and Allocate together"></a>Define and Allocate together</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct Person</span><br><span class="line">&#123;</span><br><span class="line">    char name[50];</span><br><span class="line">    int citNo;</span><br><span class="line">    float salary;</span><br><span class="line">&#125; person1, person2, p[20];</span><br></pre></td></tr></table></figure>
-
-<p>In both cases, two variables person1, person2, and an array variable p having 20 elements of type <code>struct Person</code> are created.</p>
-<h1 id="Keyword-typedef"><a href="#Keyword-typedef" class="headerlink" title="Keyword typedef"></a>Keyword typedef</h1><p>We use the <code>typedef</code> keyword to create an alias name for data types. It is commonly used with structures to simplify the syntax of declaring variables.</p>
-<p><strong>This code</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct Distance&#123;</span><br><span class="line">    int feet;</span><br><span class="line">    float inch;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    struct Distance d1, d2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>is equivalent to</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typedef struct Distance&#123;</span><br><span class="line">    int feet;</span><br><span class="line">    float inch;</span><br><span class="line">&#125; distances;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    distances d1, d2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>we also needn’t to write the struct name, if we use <code>typedef</code></strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PtrToNode front;</span><br><span class="line">    PtrToNode rear;</span><br><span class="line">&#125;Queue;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1597,13 +1972,13 @@ the third line
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">256k</span>
+    <span title="Symbols count total">266k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:52</span>
+    <span title="Reading time total">4:02</span>
 </div>
 
 <div id="days"></div>

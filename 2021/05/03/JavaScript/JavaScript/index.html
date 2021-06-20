@@ -30,7 +30,7 @@
 <meta property="og:description" content="IntroductionJavaScript can change HTML content.  Example 12&lt;p id&#x3D;&quot;demo&quot;&gt;JavaScript can change HTML content.&lt;&#x2F;p&gt;&lt;button type&#x3D;&quot;button&quot; onclick&#x3D;&#39;document.getElementById(&quot;demo&quot;).innerHTML &#x3D;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-05-03T07:55:46.000Z">
-<meta property="article:modified_time" content="2021-06-17T08:06:30.280Z">
+<meta property="article:modified_time" content="2021-06-18T13:15:37.911Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">156</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">157</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -226,7 +226,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-17 16:06:30" itemprop="dateModified" datetime="2021-06-17T16:06:30+08:00">2021-06-17</time>
+                <time title="Modified: 2021-06-18 21:15:37" itemprop="dateModified" datetime="2021-06-18T21:15:37+08:00">2021-06-18</time>
               </span>
 
           
@@ -242,14 +242,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.7k</span>
+              <span>4.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>4 mins.</span>
             </span>
 
         </div>
@@ -314,6 +314,94 @@
 
 
 <h1 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h1><p>A JS function is a block of code designed to perform a particular task, which is executed when something invokes it. </p>
+<p><strong>JavaScript function can be invoked on anywhere or be invoked when a event occur.</strong> </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"test()"</span>&gt;</span>click me to invoketest()<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">		<span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">			alert(<span class="string">"test() was invoked"</span>);</span></span><br><span class="line">		&#125;</span><br><span class="line"><span class="actionscript">		<span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">			alert(<span class="string">"Hello"</span>);</span></span><br><span class="line">		&#125;</span><br><span class="line">		f();</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="DOM-Document-Object-Model"><a href="#DOM-Document-Object-Model" class="headerlink" title="DOM(Document Object Model)"></a>DOM(Document Object Model)</h1><p>The document object represent a page. </p>
+<p>With the object model, JavaScript gets all the power it needs to create dynamic HTML. </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>).innerHTML = <span class="string">"Hello World!"</span>;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>In the example above, we use the method, <code>getElementById(&quot;&quot;)</code>, to get the element “demo”, and exert the <code>innerHTML</code> property to acquire the content of the “demo” element. Eventually, the content was changed to “Hello World”</p>
+<h2 id="Finding-HTML-Elements"><a href="#Finding-HTML-Elements" class="headerlink" title="Finding HTML Elements"></a>Finding HTML Elements</h2><table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">document.getElementById(<em>id</em>)</td>
+<td align="left">Find an element by element id</td>
+</tr>
+<tr>
+<td align="left">document.getElementsByTagName(<em>name</em>)</td>
+<td align="left">Find elements by tag name</td>
+</tr>
+<tr>
+<td align="left">document.getElementsByClassName(<em>name</em>)</td>
+<td align="left">Find elements by class name</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="Changing-HTML-Elements"><a href="#Changing-HTML-Elements" class="headerlink" title="Changing HTML Elements"></a>Changing HTML Elements</h2><table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><em>element</em>.innerHTML = <em>new html content</em></td>
+<td align="left">Change the inner HTML of an element</td>
+</tr>
+<tr>
+<td align="left"><em>element</em>.<em>attribute = new value</em></td>
+<td align="left">Change the attribute value of an HTML element</td>
+</tr>
+<tr>
+<td align="left"><em>element</em>.style.<em>property = new style</em></td>
+<td align="left">Change the style of an HTML element</td>
+</tr>
+<tr>
+<td align="left">Method</td>
+<td align="left">Description</td>
+</tr>
+<tr>
+<td align="left"><em>element</em>.setAttribute<em>(attribute, value)</em></td>
+<td align="left">Change the attribute value of an HTML element</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="Adding-and-Deleting-Elements"><a href="#Adding-and-Deleting-Elements" class="headerlink" title="Adding and Deleting Elements"></a>Adding and Deleting Elements</h2><table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">document.createElement(<em>element</em>)</td>
+<td align="left">Create an HTML element</td>
+</tr>
+<tr>
+<td align="left">document.removeChild(<em>element</em>)</td>
+<td align="left">Remove an HTML element</td>
+</tr>
+<tr>
+<td align="left">document.appendChild(<em>element</em>)</td>
+<td align="left">Add an HTML element</td>
+</tr>
+<tr>
+<td align="left">document.replaceChild(<em>new, old</em>)</td>
+<td align="left">Replace an HTML element</td>
+</tr>
+<tr>
+<td align="left">document.write(<em>text</em>)</td>
+<td align="left">Write into the HTML output stream</td>
+</tr>
+</tbody></table>
 
     </div>
 
@@ -399,7 +487,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-Script-gt"><span class="nav-number">2.</span> <span class="nav-text">&lt;Script&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#External-JavaScript"><span class="nav-number">3.</span> <span class="nav-text">External JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-1"><span class="nav-number">3.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-Output"><span class="nav-number">4.</span> <span class="nav-text">JavaScript Output</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Variables"><span class="nav-number">5.</span> <span class="nav-text">Variables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Functions"><span class="nav-number">6.</span> <span class="nav-text">Functions</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-Script-gt"><span class="nav-number">2.</span> <span class="nav-text">&lt;Script&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#External-JavaScript"><span class="nav-number">3.</span> <span class="nav-text">External JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-1"><span class="nav-number">3.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-Output"><span class="nav-number">4.</span> <span class="nav-text">JavaScript Output</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Variables"><span class="nav-number">5.</span> <span class="nav-text">Variables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Functions"><span class="nav-number">6.</span> <span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM-Document-Object-Model"><span class="nav-number">7.</span> <span class="nav-text">DOM(Document Object Model)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Finding-HTML-Elements"><span class="nav-number">7.1.</span> <span class="nav-text">Finding HTML Elements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Changing-HTML-Elements"><span class="nav-number">7.2.</span> <span class="nav-text">Changing HTML Elements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adding-and-Deleting-Elements"><span class="nav-number">7.3.</span> <span class="nav-text">Adding and Deleting Elements</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -447,13 +535,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">266k</span>
+    <span title="Symbols count total">269k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">4:02</span>
+    <span title="Reading time total">4:05</span>
 </div>
 
 <div id="days"></div>

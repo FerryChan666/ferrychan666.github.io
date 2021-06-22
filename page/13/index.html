@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">157</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">158</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -187,6 +187,84 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/02/java/swing/swing%E4%B8%AD%E7%9A%84JFrame/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/02/java/swing/swing%E4%B8%AD%E7%9A%84JFrame/" class="post-title-link" itemprop="url">JFrame窗体</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-02 16:37:05" itemprop="dateCreated datePublished" datetime="2020-04-02T16:37:05+08:00">2020-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>608</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 创建JFrame窗体;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="comment">//继承JFrame，以下方法都来源于JFrame类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example1</span> <span class="keyword">extends</span> <span class="title">JFrame</span></span>&#123;<span class="comment">//让Example1成为一个窗体</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Example1</span><span class="params">()</span> </span>&#123;<span class="comment">//构造方法，与类同名</span></span><br><span class="line">		setVisible(<span class="keyword">true</span>);<span class="comment">//让窗口可见</span></span><br><span class="line">		setTitle(<span class="string">"Hello"</span>);<span class="comment">//窗口标题</span></span><br><span class="line">		setDefaultCloseOperation(EXIT_ON_CLOSE);<span class="comment">//窗口关闭，并结束程序</span></span><br><span class="line">		setBounds(<span class="number">200</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">200</span>);<span class="comment">//窗口大小,和坐标</span></span><br><span class="line">		</span><br><span class="line">		Container c  = getContentPane();<span class="comment">//获取窗口容器</span></span><br><span class="line">		c.setBackground(Color.white);<span class="comment">//背景颜色</span></span><br><span class="line">		JLabel xxx = <span class="keyword">new</span> JLabel(<span class="string">"I'm Ferry"</span>);<span class="comment">//标签内容</span></span><br><span class="line">		c.add(xxx);<span class="comment">//添加组件,把标签添加到容器中</span></span><br><span class="line"><span class="comment">//		 c.remove(xxx);//删除组件</span></span><br><span class="line">		c.validate();<span class="comment">//刷新容器中的组件</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Example1();<span class="comment">//新建一个窗口对象</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1010,108 +1088,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/27/github/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/27/github/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">git的提交修改操作</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-27 23:41:46" itemprop="dateCreated datePublished" datetime="2020-03-27T23:41:46+08:00">2020-03-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>539</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h1><p>为了能管理文件的所作出的修改。</p>
-<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><h2 id="add到stage"><a href="#add到stage" class="headerlink" title="add到stage"></a>add到stage</h2><ol>
-<li>查看stage<br><code>git status</code>查看stage的状态.</li>
-<li>添加到stage<br>版本库中有git给你创建的暂存区（stage）和分支（master）。<br><code>git add .</code>的作用就是将工作区的文件添加到stage。</li>
-<li>删除stage<br><code>git restore --staged &lt;file&gt;...&quot;</code> to unstage</li>
-</ol>
-<p><img data-src="https://i.ibb.co/LPncLLG/5c017de22bde1b62dcc538cd36510ab.jpg" alt=""></p>
-<h2 id="commit到master"><a href="#commit到master" class="headerlink" title="commit到master"></a>commit到master</h2><p>接下来就是提交。当我们做这一步之后才能被git所记录（log）<br>`git commit -m “update”<br><img data-src="https://i.ibb.co/ZHJjM02/d7cff4f51de04ce05b149e9a1d44182.jpg" alt=""></p>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ol>
-<li><p>查看版本历史(master)<br><code>git log</code><br>commit 后面的字符就是版本号<br>HEAD就是指针<br><img data-src="https://i.ibb.co/g3w0zCK/81499340c53b662fca73efcb2b07871.png" alt=""></p>
-</li>
-<li><p>返回到某个版本(版本号只需写前几个字符)<br><code>git reset --hard &lt;版本号&gt;</code></p>
-</li>
-</ol>
-<p><strong>这样文件就会被改为到原来被commit的那一次</strong></p>
-<ol start="3">
-<li>要把旧版本push到GitHub<strong>要用强制命令</strong><br><code>git push -u origin master -f</code><br>版本回退之后悔</li>
-</ol>
-<hr>
-<ol>
-<li>查看所有的版本<br>因为原来的<code>git log</code>已经看不到还没有返回之前的版本号，所以我们要查看所以的版本<br><code>git reflog</code><br>这样就列出了返回之前的版本号.</li>
-<li>继续执行<br><code>git reset --hard &lt;版本号&gt;</code></li>
-</ol>
-<p><strong>这样我们的文件就会被修改到某次历史</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1216,13 +1192,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">269k</span>
+    <span title="Symbols count total">273k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">4:05</span>
+    <span title="Reading time total">4:08</span>
 </div>
 
 <div id="days"></div>

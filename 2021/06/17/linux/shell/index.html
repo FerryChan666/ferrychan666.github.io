@@ -30,7 +30,7 @@
 <meta property="og:description" content="IntroductionUsers communicate with the kernel through a program known as the shell.  The shell is a command line interpreter; it translates commands entered by the user and converts them into a langua">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-17T08:17:49.000Z">
-<meta property="article:modified_time" content="2021-06-18T09:33:24.889Z">
+<meta property="article:modified_time" content="2021-06-21T11:34:17.989Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">157</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">158</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -226,7 +226,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-18 17:33:24" itemprop="dateModified" datetime="2021-06-18T17:33:24+08:00">2021-06-18</time>
+                <time title="Modified: 2021-06-21 19:34:17" itemprop="dateModified" datetime="2021-06-21T19:34:17+08:00">2021-06-21</time>
               </span>
 
           
@@ -242,14 +242,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>8.4k</span>
+              <span>9.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>8 mins.</span>
+              <span>9 mins.</span>
             </span>
 
         </div>
@@ -293,11 +293,34 @@
 <p>Here is a sample run of the script −</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.&#x2F;test.sh</span><br><span class="line">What is your name?</span><br><span class="line">Zara Ali</span><br><span class="line">Hello, Zara Ali</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
 
-<br>
-
+<h2 id="The-execution-sequence-of-commands"><a href="#The-execution-sequence-of-commands" class="headerlink" title="The execution sequence of commands"></a>The execution sequence of commands</h2><ul>
+<li><p><code>;</code></p>
+<p>The commands can be combined in a line by using the <code>;</code> to sperate them.</p>
+<p>*<em>It is noticeable that the commands will be executed from left to right and the fail of the previous commands don’t prevent the later ones. *</em></p>
+</li>
+<li><p><code>&amp;&amp;</code></p>
+<p>This operator just like the previous one but <strong>the obvious difference is that if the previous commands don’t be executed successfully, the later commands won’t be executed.</strong> </p>
+</li>
+<li><p><code>||</code></p>
+<p>*<em>ONLY the fail of the previous command can the later ones be executed. *</em></p>
+</li>
+</ul>
 <h1 id="Shell-Variables"><a href="#Shell-Variables" class="headerlink" title="Shell Variables"></a>Shell Variables</h1><p>Variable is nothing more than a pointer to the actual value. </p>
-<h2 id="Defining-Variables"><a href="#Defining-Variables" class="headerlink" title="Defining Variables"></a>Defining Variables</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">variable_name=variable_value</span><br></pre></td></tr></table></figure>
+<h2 id="Defining-Variables"><a href="#Defining-Variables" class="headerlink" title="Defining Variables"></a>Defining Variables</h2><p><font color="red">Remember that there are not spaces between the ‘=’. <font></font></font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">variable_name=variable_value</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">erro:</span><br><span class="line">name = ferry</span><br><span class="line">name= ferry chan</span><br><span class="line">correct:</span><br><span class="line">name=ferry</span><br><span class="line">name="ferry chan"</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>The default type of variable is string type. If you want to perform arithmetic operations, you should declare the type of variables using the <code>declare</code> command.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">declare [-aAfFgilnrtux] [-p] [name[=value] ...]</span><br><span class="line"></span><br><span class="line">Options which set attributes:</span><br><span class="line">    -a	to make NAMEs indexed arrays (if supported)</span><br><span class="line">    -i	to make NAMEs have the `integer' attribute</span><br><span class="line">    -x	to make NAMEs export</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><figcaption><span>example</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sum=10+10</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$sum</span></span></span><br><span class="line">10+10</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> sum=$((10+10))</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$sum</span></span></span><br><span class="line">20</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">declare</span> -i sum=10+10</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> sum</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
 <h2 id="Accessing-Values"><a href="#Accessing-Values" class="headerlink" title="Accessing Values"></a>Accessing Values</h2><p>To access the value stored in a variable, prefix its name with the dollar sign (<strong>$</strong>) </p>
 <h2 id="Unsetting-Variables"><a href="#Unsetting-Variables" class="headerlink" title="Unsetting Variables"></a>Unsetting Variables</h2><p>Following is the syntax to unset a defined variable using the <strong>unset</strong> command −</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unset variable_name</span><br></pre></td></tr></table></figure>
@@ -350,6 +373,7 @@
 
 <h1 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h1><ul>
 <li><p><code>$((expression))</code></p>
+<p>We usually use it to calculate and return the result. </p>
 <figure class="highlight shell"><figcaption><span>factorial</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">read -p "Enter the value of n, I will calculate the factorial of n:" n</span><br><span class="line">s=$n</span><br><span class="line">while [ $n -gt 1 ]</span><br><span class="line">do</span><br><span class="line">	n=$((n-1))</span><br><span class="line">	s=$(($s*$n))</span><br><span class="line">done</span><br><span class="line">echo -e "The factorial is $s"</span><br></pre></td></tr></table></figure>
 
 
@@ -357,12 +381,12 @@
 </li>
 </ul>
 <ul>
-<li><code>expr</code> or <code>awk</code></li>
-</ul>
+<li><p><code>expr</code> or <code>awk</code></p>
 <p>Bourne shell didn’t originally have any mechanism to perform simple arithmetic operations but it uses external programs, either <strong>awk</strong> or <strong>expr</strong>.</p>
 <p>The following example shows how to add two numbers −</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">val=`expr 2 + 2`</span><br><span class="line">echo "Total value : $val"</span><br></pre></td></tr></table></figure>
 
+<p><font color="red">It is noticeable that the <code>$()</code> and two ` can output the information of the executed command. <font>  </font></font></p>
 <p>The above script will generate the following result −</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Total value : 4</span><br></pre></td></tr></table></figure>
 
@@ -371,7 +395,9 @@
 <li>There must be spaces between operators and expressions. For example, 2+2 is not correct; it should be written as 2 + 2.</li>
 <li>The complete expression should be enclosed between <strong>``</strong>, called the backtick.</li>
 </ul>
-<h1 id="Quoting"><a href="#Quoting" class="headerlink" title="Quoting"></a>Quoting</h1><ol>
+</li>
+</ul>
+<h2 id="Quoting"><a href="#Quoting" class="headerlink" title="Quoting"></a>Quoting</h2><ol>
 <li><p>double quoting</p>
 <p>The double quote ( “quote” ) protects everything enclosed between two double quote marks except $, ‘, “ and .</p>
 <p>(Use the double quotes when you want only <strong>variables and command substitution</strong>.)</p>
@@ -429,7 +455,8 @@
 <td align="center">[ $a != $b ] would return true.</td>
 </tr>
 </tbody></table>
-<h2 id="Relational-Operators"><a href="#Relational-Operators" class="headerlink" title="Relational Operators"></a>Relational Operators</h2><table>
+<h2 id="Relational-Operators"><a href="#Relational-Operators" class="headerlink" title="Relational Operators"></a>Relational Operators</h2><p>Assume variable <strong>a</strong> holds 10 and variable <strong>b</strong> holds 20 then −</p>
+<table>
 <thead>
 <tr>
 <th align="center">Operator</th>
@@ -468,6 +495,7 @@
 <td align="center">[ $a -le $b ] is true.</td>
 </tr>
 </tbody></table>
+<p>It is very important to understand that <strong>all the conditional expressions should be placed inside square braces with spaces around them.</strong> For example, <strong>[ $a -le $b ]</strong> is correct whereas, <strong>[$a -le $b]</strong> is incorrect.</p>
 <h1 id="Conditional-Statements"><a href="#Conditional-Statements" class="headerlink" title="Conditional Statements"></a>Conditional Statements</h1><p>Unix Shell supports conditional statements which are used to perform different actions based on different conditions.</p>
 <h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if [ expression 1 ]</span><br><span class="line">then</span><br><span class="line">   Statement(s) to be executed if expression 1 is true</span><br><span class="line">elif [ expression 2 ]</span><br><span class="line">then</span><br><span class="line">   Statement(s) to be executed if expression 2 is true</span><br><span class="line">elif [ expression 3 ]</span><br><span class="line">then</span><br><span class="line">   Statement(s) to be executed if expression 3 is true</span><br><span class="line">else</span><br><span class="line">   Statement(s) to be executed if no expression is true</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
 
@@ -477,19 +505,27 @@
 
 
 
-<h1 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h1><h2 id="Syntax-1"><a href="#Syntax-1" class="headerlink" title="Syntax"></a>Syntax</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">while command1 ; # this is loop1, the outer loop</span><br><span class="line">do</span><br><span class="line">   Statement(s) to be executed if command1 is true</span><br><span class="line"></span><br><span class="line">   while command2 ; # this is loop2, the inner loop</span><br><span class="line">   do</span><br><span class="line">      Statement(s) to be executed if command2 is true</span><br><span class="line">   done</span><br><span class="line"></span><br><span class="line">   Statement(s) to be executed if command1 is true</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h1 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h1><h2 id="Syntax-1"><a href="#Syntax-1" class="headerlink" title="Syntax"></a>Syntax</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">while [ condition ]</span><br><span class="line">do</span><br><span class="line">   command1</span><br><span class="line">   command2</span><br><span class="line">   command3</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for (( EXP1; EXP2; EXP3 ))</span><br><span class="line">do</span><br><span class="line">	command1</span><br><span class="line">	command2</span><br><span class="line">	command3</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for VARIABLE in 1 2 3 4 5 .. N</span><br><span class="line">do</span><br><span class="line">	command1</span><br><span class="line">	command2</span><br><span class="line">	commandN</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 
 
 
 <h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">a=0</span><br><span class="line">while [ "$a" -lt 10 ]    # this is loop1</span><br><span class="line">do</span><br><span class="line">   b="$a"</span><br><span class="line">   while [ "$b" -ge 0 ]  # this is loop2</span><br><span class="line">   do</span><br><span class="line">      echo -n "$b "</span><br><span class="line">      b=`expr $b - 1`</span><br><span class="line">   done</span><br><span class="line">   echo</span><br><span class="line">   a=`expr $a + 1`</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1 0</span><br><span class="line">2 1 0</span><br><span class="line">3 2 1 0</span><br><span class="line">4 3 2 1 0</span><br><span class="line">5 4 3 2 1 0</span><br><span class="line">6 5 4 3 2 1 0</span><br><span class="line">7 6 5 4 3 2 1 0</span><br><span class="line">8 7 6 5 4 3 2 1 0</span><br><span class="line">9 8 7 6 5 4 3 2 1 0</span><br></pre></td></tr></table></figure>
 
 
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">a=1</span><br><span class="line">b=1</span><br><span class="line">while [ "$a" -le 9 ]</span><br><span class="line">do</span><br><span class="line">        b=1</span><br><span class="line">        while [ "$b" -le "$a" ]</span><br><span class="line">        do</span><br><span class="line">                c=`expr $a \* $b`</span><br><span class="line">                echo -n "$b*$a=$c "</span><br><span class="line"></span><br><span class="line">                b=`expr $b + 1`</span><br><span class="line">        done</span><br><span class="line">        echo -e "\n"</span><br><span class="line">        a=`expr $a + 1`</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">for ((i=1;i&lt;=3;i++))</span><br><span class="line">do</span><br><span class="line">	echo -n "$i "</span><br><span class="line">done</span><br><span class="line">echo</span><br></pre></td></tr></table></figure>
+
+
 
 <p><strong>NOTE</strong></p>
 <ol>
@@ -630,7 +666,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell-Scripts"><span class="nav-number">2.</span> <span class="nav-text">Shell Scripts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell-Variables"><span class="nav-number">3.</span> <span class="nav-text">Shell Variables</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Defining-Variables"><span class="nav-number">3.1.</span> <span class="nav-text">Defining Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Accessing-Values"><span class="nav-number">3.2.</span> <span class="nav-text">Accessing Values</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsetting-Variables"><span class="nav-number">3.3.</span> <span class="nav-text">Unsetting Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Special-Variable"><span class="nav-number">3.4.</span> <span class="nav-text">Special Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exit-Status"><span class="nav-number">3.4.1.</span> <span class="nav-text">Exit Status</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Array"><span class="nav-number">4.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Operators"><span class="nav-number">5.</span> <span class="nav-text">Operators</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quoting"><span class="nav-number">6.</span> <span class="nav-text">Quoting</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Arithmetic-Operators"><span class="nav-number">6.1.</span> <span class="nav-text">Arithmetic Operators</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relational-Operators"><span class="nav-number">6.2.</span> <span class="nav-text">Relational Operators</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conditional-Statements"><span class="nav-number">7.</span> <span class="nav-text">Conditional Statements</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Syntax"><span class="nav-number">7.1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">7.2.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Loops"><span class="nav-number">8.</span> <span class="nav-text">Loops</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Syntax-1"><span class="nav-number">8.1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-1"><span class="nav-number">8.2.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Substitution"><span class="nav-number">9.</span> <span class="nav-text">Substitution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Command-Substitution"><span class="nav-number">9.1.</span> <span class="nav-text">Command Substitution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax-2"><span class="nav-number">9.1.1.</span> <span class="nav-text">Syntax</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">10.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-Parameters-to-a-Function"><span class="nav-number">10.1.</span> <span class="nav-text">Pass Parameters to a Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Returning-Values-from-Functions"><span class="nav-number">10.2.</span> <span class="nav-text">Returning Values from Functions</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell-Scripts"><span class="nav-number">2.</span> <span class="nav-text">Shell Scripts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-execution-sequence-of-commands"><span class="nav-number">2.1.</span> <span class="nav-text">The execution sequence of commands</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell-Variables"><span class="nav-number">3.</span> <span class="nav-text">Shell Variables</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Defining-Variables"><span class="nav-number">3.1.</span> <span class="nav-text">Defining Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Accessing-Values"><span class="nav-number">3.2.</span> <span class="nav-text">Accessing Values</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsetting-Variables"><span class="nav-number">3.3.</span> <span class="nav-text">Unsetting Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Special-Variable"><span class="nav-number">3.4.</span> <span class="nav-text">Special Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exit-Status"><span class="nav-number">3.4.1.</span> <span class="nav-text">Exit Status</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Array"><span class="nav-number">4.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Operators"><span class="nav-number">5.</span> <span class="nav-text">Operators</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quoting"><span class="nav-number">5.1.</span> <span class="nav-text">Quoting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arithmetic-Operators"><span class="nav-number">5.2.</span> <span class="nav-text">Arithmetic Operators</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relational-Operators"><span class="nav-number">5.3.</span> <span class="nav-text">Relational Operators</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conditional-Statements"><span class="nav-number">6.</span> <span class="nav-text">Conditional Statements</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Syntax"><span class="nav-number">6.1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">6.2.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Loops"><span class="nav-number">7.</span> <span class="nav-text">Loops</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Syntax-1"><span class="nav-number">7.1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-1"><span class="nav-number">7.2.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Substitution"><span class="nav-number">8.</span> <span class="nav-text">Substitution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Command-Substitution"><span class="nav-number">8.1.</span> <span class="nav-text">Command Substitution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax-2"><span class="nav-number">8.1.1.</span> <span class="nav-text">Syntax</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">9.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-Parameters-to-a-Function"><span class="nav-number">9.1.</span> <span class="nav-text">Pass Parameters to a Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Returning-Values-from-Functions"><span class="nav-number">9.2.</span> <span class="nav-text">Returning Values from Functions</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -678,13 +714,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">269k</span>
+    <span title="Symbols count total">273k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">4:05</span>
+    <span title="Reading time total">4:08</span>
 </div>
 
 <div id="days"></div>

@@ -1,6 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>SQL</title>
+    <url>/2021/06/22/SQL/SQL/</url>
+    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>SQL stands for Structured Query Language. </p>
+<p>SQL lets you access and manipulate database. </p>
+<h2 id="Using-SQL-in-Your-Web-Site"><a href="#Using-SQL-in-Your-Web-Site" class="headerlink" title="Using SQL in Your Web Site"></a>Using SQL in Your Web Site</h2><p>To build a web site that shows data from a database, you will need:</p>
+<ul>
+<li>An RDBMS database program (i.e. MS Access, SQL Server, MySQL)</li>
+<li>To use a server-side scripting language, like PHP or ASP</li>
+<li>To use SQL to get the data you want</li>
+<li>To use HTML / CSS to style the page</li>
+</ul>
+<h1 id="DBMS"><a href="#DBMS" class="headerlink" title="DBMS"></a>DBMS</h1><p>The data in RDBMS is stored in database objects called tables. A table is a collection of related data entries and it consists of columns and rows.</p>
+<p><strong>A filed</strong> is a column in table that is designed to maintain specific information about every record in the table.</p>
+<p><strong>A record</strong> is a row that exists in the table. </p>
+<h1 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h1><p>A database most often contain one or more tables. Tables contain records (rows) with data.</p>
+<h1 id="SQL-Statements"><a href="#SQL-Statements" class="headerlink" title="SQL Statements"></a>SQL Statements</h1><ul>
+<li><code>SELECT</code> - extracts data from a database</li>
+<li><code>UPDATE</code> - updates data in a database</li>
+<li><code>DELETE</code> - deletes data from a database</li>
+<li><code>INSERT INTO</code> - inserts new data into a database</li>
+<li><code>CREATE DATABASE</code> - creates a new database</li>
+<li><code>ALTER DATABASE</code> - modifies a database</li>
+<li><code>CREATE TABLE</code> - creates a new table</li>
+<li><code>ALTER TABLE</code> - modifies a table</li>
+<li><code>DROP TABLE</code> - deletes a table</li>
+<li><code>CREATE INDEX</code> - creates an index (search key)</li>
+<li><code>DROP INDEX</code> - deletes an index</li>
+</ul>
+<h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><p>The <code>select</code> allows you to select the filed(column) from the table. If you want to select all columns you should use <code>select * from table_name</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><code>select distinct</code> statement can satisfy you to list distinct(different) values of the columns, which means it delete the repetitive values. </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h2><p>This statement add some conditions so that can extract the specify records you want. </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Note:</strong> The <code>WHERE</code> clause is not only used in <code>SELECT</code> statements, it is also used in <code>UPDATE</code>, <code>DELETE</code>, etc.!</p>
+<h3 id="Text-Fields-vs-Numeric-Fields"><a href="#Text-Fields-vs-Numeric-Fields" class="headerlink" title="Text Fields vs. Numeric Fields"></a>Text Fields vs. Numeric Fields</h3><p>SQL requires single quotes around text values (most database systems will also allow double quotes).</p>
+<p><strong>However, numeric fields should not be enclosed in quotes:</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> Country=<span class="string">'Mexico'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> CustomerID=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Operators-in-The-WHERE-Clause"><a href="#Operators-in-The-WHERE-Clause" class="headerlink" title="Operators in The WHERE Clause"></a>Operators in The WHERE Clause</h3><ul>
+<li><p>AND, OR, NOT</p>
+<p>There can be contain more than one record by using  the <code>and</code> , <code>or</code> ,<code>not</code></p>
+<ul>
+<li><p><code>and</code></p>
+<p>If the all the conditions separated by <code>and</code> are turn, the result is true. That means the extracted records are display by <code>where</code> if they fulfill all conditions. </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">WHERE condition1 AND condition2 AND condition3 ...;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>or</code></p>
+<p>If the any of the conditions separated by <code>or</code> are turn, the result is true. That means the extracted records are display by <code>where</code> if they fulfill one of the conditions. </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">WHERE condition1 OR condition2 OR condition3 ...;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><code>not</code></p>
+<p>The <code>NOT</code> operator displays a record if the condition(s) is NOT TRUE.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">WHERE NOT condition;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>The following operators can be used in the <code>WHERE</code> clause:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Operator</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">=</td>
+<td align="left">Equal</td>
+</tr>
+<tr>
+<td align="left">&gt;</td>
+<td align="left">Greater than</td>
+</tr>
+<tr>
+<td align="left">&lt;</td>
+<td align="left">Less than</td>
+</tr>
+<tr>
+<td align="left">&gt;=</td>
+<td align="left">Greater than or equal</td>
+</tr>
+<tr>
+<td align="left">&lt;=</td>
+<td align="left">Less than or equal</td>
+</tr>
+<tr>
+<td align="left">&lt;&gt;</td>
+<td align="left">Not equal. <strong>Note:</strong> In some versions of SQL this operator may be written as !=</td>
+</tr>
+<tr>
+<td align="left">BETWEEN</td>
+<td align="left">Between a certain range</td>
+</tr>
+<tr>
+<td align="left">LIKE</td>
+<td align="left">Search for a pattern</td>
+</tr>
+<tr>
+<td align="left">IN</td>
+<td align="left">To specify multiple possible values for a column</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h3><p>The <code>IS NULL</code> operator is used to test for empty values (NULL values).</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CustomerName, ContactName, Address</span><br><span class="line"><span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> Address <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<p>The <code>IS NOT NULL</code> operator is used to test for non-empty values (NOT NULL values).</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CustomerName, ContactName, Address</span><br><span class="line"><span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> Address <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h2><p>The <code>ORDER BY</code> keyword is used to sort the result-set in <strong>ascending or descending order</strong>.</p>
+<p>The <code>ORDER BY</code> keyword sorts the records in ascending order by default. To sort the records in descending order, use the <code>DESC</code> keyword.</p>
+<p><code>ORDER BY Country DESC;</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> column1, column2, ... <span class="keyword">ASC</span>|<span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<ul>
+<li>ORDER BY Several Columns</li>
+</ul>
+<p>The following SQL statement selects all customers from the “Customers” table, sorted by the “Country” and the “CustomerName” column. This means that it orders by Country, but if some rows have the same Country, it orders them by CustomerName:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Country, CustomerName;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="INSERT-INTO"><a href="#INSERT-INTO" class="headerlink" title="INSERT INTO"></a>INSERT INTO</h2><p>There are two ways you can insert new record into a table. </p>
+<ol>
+<li><p>Specify both the column names and the values to be inserted:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name (column1, column2, column3, ...)</span><br><span class="line"><span class="keyword">VALUES</span> (value1, value2, value3, ...);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>If you add a whole record you needn’t specify the column name. </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name</span><br><span class="line"><span class="keyword">VALUES</span> (value1, value2, value3, ...);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><p>The <code>UPDATE</code> statement is used to modify the existing records in a table.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name</span><br><span class="line"><span class="keyword">SET</span> column1 = value1, column2 = value2, ...</span><br><span class="line"><span class="keyword">WHERE</span> condition;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Be careful when updating records. If you omit the <code>WHERE</code> clause, ALL records will be updated!</strong></p>
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><p>The <code>DELETE</code> statement is used to delete existing records in a table.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name <span class="keyword">WHERE</span> condition;</span><br></pre></td></tr></table></figure>
+
+<p><strong>If you omit the <code>WHERE</code> clause, all records in the table will be deleted!</strong></p>
+]]></content>
+      <tags>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vim</title>
     <url>/2021/06/21/linux/vim/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Vi is an editor, which is usually available on all the flavor of Unix/linux system. </p>
@@ -833,31 +1005,6 @@
 ]]></content>
       <tags>
         <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>database</title>
-    <url>/2021/05/31/database/database/</url>
-    <content><![CDATA[<h1 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h1><ol>
-<li><p>条件查询</p>
-<p>在关系代数中的原型为<img data-src="https://www.zhihu.com/equation?tex=%5Csigma_%7Bpred%7D%28M%29" alt="[公式]">，表示在<code>pred</code>条件下从集合M中产生一个子集。</p>
-<hr>
-<p>从集合<code>instructor</code>中取出工资<code>salary</code>大于20000的大佬，写成关系代数就是<img data-src="https://www.zhihu.com/equation?tex=%5Csigma_%7Bsalary%3E20000%7D%28instructor%29" alt="[公式]"></p>
-<p>SQL就是<code>select * from instructor where salary &gt; 2000;</code></p>
-</li>
-<li><p>选择列</p>
-<p>从集合<code>instructor</code>中取出姓名<code>name</code>和性别<code>gender</code>，写成关系代数就是<img data-src="https://www.zhihu.com/equation?tex=%5CPi_%7Bname%2C+gender%7D%28instructor%29" alt="[公式]">。</p>
-<p>SQL就是<code>select name gender from instructor;</code></p>
-</li>
-<li><p>笛卡尔乘积</p>
-<p><img data-src="https://pic3.zhimg.com/80/v2-b0a3fd59fa4be6b841c0c42577400f32_1440w.png" alt></p>
-</li>
-</ol>
-<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p><em>连接=筛选+笛卡尔乘积</em></p>
-<p>要连接两个表格，只需要筛选结果集就可以了。如有两个表，一个表示授课教师<code>instructor</code>，一个是课程信息<code>course</code>，他们分别包含<code>name</code>属性和<code>teacher</code>属性，都表示「教师姓名」。将两个表做笛卡尔乘积，结果集中保留教师姓名相同的行就是我们想要的结果。写成关系代数<img data-src="https://www.zhihu.com/equation?tex=%5Csigma_%7Binstructor.name%3Dcourse.teacher%7D%28instructor%5Ctimes+course%29" alt="[公式]">，写成SQL语句<code>select * from instructor, course where instructor.name = course.teacher;</code>。</p>
-]]></content>
-      <tags>
-        <tag>db</tag>
       </tags>
   </entry>
   <entry>

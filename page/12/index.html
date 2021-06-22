@@ -125,12 +125,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">19</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">18</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/07/c/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-%E4%BA%A4%E4%BA%92%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/28/github/git/%E5%B0%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93clone%E5%88%B0%E6%9C%AC%E5%9C%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -205,7 +205,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/07/c/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-%E4%BA%A4%E4%BA%92%E5%BC%8F/" class="post-title-link" itemprop="url">压缩文件(交互式)</a>
+            <a href="/2020/03/28/github/git/%E5%B0%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93clone%E5%88%B0%E6%9C%AC%E5%9C%B0/" class="post-title-link" itemprop="url">将远程仓库clone到本地</a>
         </h2>
 
         <div class="post-meta">
@@ -215,7 +215,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-07 21:59:55" itemprop="dateCreated datePublished" datetime="2020-04-07T21:59:55+08:00">2020-04-07</time>
+              <time title="Created: 2020-03-28 13:49:41" itemprop="dateCreated datePublished" datetime="2020-03-28T13:49:41+08:00">2020-03-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -231,7 +231,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.1k</span>
+              <span>162</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -250,13 +250,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="strncpy"><a href="#strncpy" class="headerlink" title="strncpy()"></a>strncpy()</h2><ul>
-<li>作用<br>限制最大字符复制字符串，要比strcpy()更安全</li>
-</ul>
+          <h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><p>当一起合作开发项目的时候，就可以直接通过到GitHub上面，将仓库clone到本地，不需要在本创建仓库了。<br>clone有两种传输协议。</p>
 <ol>
-<li>参数<br>(字符串指针，被复制的字符串指针，最大个数)</li>
+<li>HTTPS<br>这种协议不用SSH　KEY，方便直接。但clone起来会较慢。</li>
+<li>SSH<br>需要创建KEY，特点会更快。</li>
 </ol>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;//提供exit()原型</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;//提供strcpy(),strcat()原型</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 40</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> name[LEN];</span><br><span class="line">    <span class="keyword">char</span> file[LEN];</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">int</span> ct = <span class="number">0</span>;</span><br><span class="line">    FILE *in;</span><br><span class="line">    FILE *out;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Please enter file name:"</span>);</span><br><span class="line">    s_gets(name, LEN);<span class="comment">//会将换行符替换为'\0'</span></span><br><span class="line">    <span class="keyword">if</span>((in = fopen(name, <span class="string">"r"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open %s file"</span>, name);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">strncpy</span>(file, name, LEN);<span class="comment">//限制字符串不超过40</span></span><br><span class="line">    file[LEN - <span class="number">4</span>] = <span class="string">'\0'</span>;<span class="comment">//超过40就截断</span></span><br><span class="line">    <span class="built_in">strcat</span>(file, <span class="string">".io"</span>);</span><br><span class="line">    <span class="keyword">if</span>((out = fopen(file, <span class="string">"w"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not create output file"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>((ch = getc(in)) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        ct++;</span><br><span class="line">        <span class="keyword">if</span>(ct % <span class="number">3</span> == <span class="number">0</span>)</span><br><span class="line">            putc(ch, out);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(fclose(out) != <span class="number">0</span> || fclose(in) != <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Error in closing file"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> * <span class="built_in">find</span>;</span><br><span class="line">    <span class="keyword">char</span> * ret_val;</span><br><span class="line"></span><br><span class="line">    ret_val = fgets(st, n, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">if</span> (ret_val)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">find</span> = <span class="built_in">strchr</span>(st, <span class="string">'\n'</span>);	<span class="comment">//查找换行符</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">find</span>)</span><br><span class="line">            *<span class="built_in">find</span> = <span class="string">'\0'</span>;			<span class="comment">//替换为空字符</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;			<span class="comment">//处理多余输入</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret_val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://ferrychan666.github.io/2020/03/28/使用SSH加密传输到远程repo/">SSH KEY的创建</a></p>
+<h2 id="command"><a href="#command" class="headerlink" title="command"></a>command</h2><p><code>git clone</code></p>
+<h2 id="后续工作"><a href="#后续工作" class="headerlink" title="后续工作"></a>后续工作</h2><p>只需要将本地仓库push上去</p>
+
       
     </div>
 
@@ -275,7 +277,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/07/c/fread-%E5%92%8Cfwrite/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/28/github/git/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -289,7 +291,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/07/c/fread-%E5%92%8Cfwrite/" class="post-title-link" itemprop="url">fread()和fwrite()</a>
+            <a href="/2020/03/28/github/git/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/" class="post-title-link" itemprop="url">使用SSH加密传输到远程repo</a>
         </h2>
 
         <div class="post-meta">
@@ -299,7 +301,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-07 16:11:40" itemprop="dateCreated datePublished" datetime="2020-04-07T16:11:40+08:00">2020-04-07</time>
+              <time title="Created: 2020-03-28 13:20:06" itemprop="dateCreated datePublished" datetime="2020-03-28T13:20:06+08:00">2020-03-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -315,103 +317,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h1><p>这两个函数是以<strong>二进制形式</strong>处理数据中，不同于其他I/O函数，是以文本形式处理。</p>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="fread"><a href="#fread" class="headerlink" title="fread()"></a>fread()</h2><ul>
-<li>作用：将文件中的内容拷贝到数组中</li>
-</ul>
-<ol>
-<li><p>参数：<br>(地址，数据块，数据块个数，文件指针)</p>
-</li>
-<li><p>返回值：<br>两种情况：1.返回文件中<strong>成功读取项的数量</strong>。2.<strong>遇到文件结尾返回0</strong></p>
-</li>
-</ol>
-<h2 id="fwrite"><a href="#fwrite" class="headerlink" title="fwrite()"></a>fwrite()</h2><ul>
-<li>作用：<strong>将n个数据块拷贝到文件中</strong></li>
-</ul>
-<ol>
-<li>参数<br>(地址，数据块，数据块的个数，文件指针)</li>
-</ol>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 256</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *in, *out;</span><br><span class="line">    <span class="keyword">int</span> bytes;</span><br><span class="line">    <span class="keyword">char</span> temp[SIZE];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Usage: %s filename\n"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((in = fopen(argv[<span class="number">1</span>], <span class="string">"r"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"I couldn't open the file \"%s\"\n"</span>, argv[<span class="number">1</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((out = fopen(argv[<span class="number">2</span>], <span class="string">"w"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"I couldn't open the file \"%s\"\n"</span>, argv[<span class="number">2</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//把argv[1]文件中的256个以下的字符，copy到数组temp中，到文件结尾返回0</span></span><br><span class="line">    <span class="keyword">while</span> ((bytes = fread(temp, <span class="keyword">sizeof</span>(<span class="keyword">char</span>), <span class="number">256</span>, in)) &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;<span class="comment">//把数组中的字符copy到argv[2]文件</span></span><br><span class="line">        fwrite(temp, <span class="keyword">sizeof</span>(<span class="keyword">char</span>), bytes, out);</span><br><span class="line">    &#125;</span><br><span class="line">    fclose(in);</span><br><span class="line">    fclose(out);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><figcaption><span>将结构保存到文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXTITL 40</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXAUTL 40</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXBKS 10</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">book</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> title[MAXTITL];</span><br><span class="line">	<span class="keyword">char</span> author[MAXAUTL];</span><br><span class="line">	<span class="keyword">float</span> value;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">book</span> <span class="title">library</span>[<span class="title">MAXBKS</span>];</span></span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> index, filecount;</span><br><span class="line">	FILE * pbooks;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">size</span> = <span class="keyword">sizeof</span>(struct book);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>((pbooks = fopen(<span class="string">"book.dat"</span>, <span class="string">"a+b"</span>)) == <span class="literal">NULL</span>)<span class="comment">//在文件末尾写入，且以二进制打开</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fputs</span>(<span class="string">"Can't open book.dat file\n"</span>, <span class="built_in">stderr</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	rewind(pbooks);<span class="comment">//定位到文件开始，准备读取已有的内容</span></span><br><span class="line">	<span class="keyword">while</span> (count &lt; MAXBKS &amp;&amp; fread(&amp;library[count], <span class="built_in">size</span>, <span class="number">1</span>, pbooks) == <span class="number">1</span>)<span class="comment">//判断能否读取1项</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(count == <span class="number">0</span>)</span><br><span class="line">			<span class="built_in">puts</span>(<span class="string">"Curren contents of book.dat:"</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s by %s: $%.2f\n"</span>,  library[count].title,</span><br><span class="line">		 library[count].author, library[count].value);</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line">	filecount = count;</span><br><span class="line">	<span class="keyword">if</span> (count == MAXBKS)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">fputs</span>(<span class="string">"The book.dat file is full."</span>, <span class="built_in">stderr</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//开始从键盘上读入数据</span></span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">"Plese add new book titles."</span>);</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">"Press [enter] at the start of a line to stop."</span>);</span><br><span class="line">	<span class="keyword">while</span> (count &lt; MAXBKS &amp;&amp; s_gets(library[count].title, MAXTITL) != <span class="literal">NULL</span></span><br><span class="line">		&amp;&amp; library[count].title[<span class="number">0</span>] != <span class="string">'\0'</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">"Now enter the author."</span>);</span><br><span class="line">		s_gets(library[count].author, MAXAUTL);</span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">"Now enter the value"</span>);</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%f"</span>, &amp;library[count++].value);</span><br><span class="line">		<span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">			<span class="keyword">continue</span>;		<span class="comment">//清空输入行</span></span><br><span class="line">		<span class="keyword">if</span> (count &lt; MAXBKS)</span><br><span class="line">			<span class="built_in">puts</span>(<span class="string">"Enter the next title."</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">"Here is the list of your books:"</span>);</span><br><span class="line">		<span class="keyword">for</span>(index = <span class="number">0</span>; index &lt; count; index++)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%s by %s: %.2f\n"</span>, library[index].title, library[index].author</span><br><span class="line">			 ,library[index].value);</span><br><span class="line">		fwrite(&amp;library[filecount], <span class="built_in">size</span>, count - filecount, pbooks);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">"No books? Too bad.\n"</span>);</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">"Bye.\n"</span>);</span><br><span class="line">	fclose(pbooks);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> * ret_val;</span><br><span class="line">	<span class="keyword">char</span> * <span class="built_in">find</span>;</span><br><span class="line">	ret_val = fgets(st, n, <span class="built_in">stdin</span>);</span><br><span class="line">	<span class="keyword">if</span>(ret_val)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">find</span> = <span class="built_in">strchr</span>(st, <span class="string">'\n'</span>);</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">find</span>)</span><br><span class="line">			*<span class="built_in">find</span> = <span class="string">'\0'</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ret_val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/06/c/%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9A%84%E6%8C%87%E9%92%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/06/c/%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9A%84%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">标准文件(万物皆文件)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-06 17:41:54" itemprop="dateCreated datePublished" datetime="2020-04-06T17:41:54+08:00">2020-04-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-15 15:53:57" itemprop="dateModified" datetime="2020-09-15T15:53:57+08:00">2020-09-15</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>420</span>
+              <span>338</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -430,28 +336,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><blockquote>
-<p>stdio.h头文件把<strong>3个文件指针(stdin,stdout,stderr)</strong>，与<strong>3个标准文件</strong>相关联。C程序会自动打开这3个标准文件</p>
-</blockquote>
-<h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1><h2 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h2><p>唉？为什么跟我们平时所看到的文件（word文档，txt文件。。。）不一样？那么这些文件又是放在哪里，是在磁盘吗？</p>
-<h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><p>操作系统为了对各种硬件进行操作，简化接口。所以，把电脑的硬件设备也看成了文件。<br>如：scanf()函数的作用，就是从stdin（键盘）上面获取信息。<br>printf()函数的作用，就是从stdout（显示器）上输出信息。</p>
-<h2 id="标准输入"><a href="#标准输入" class="headerlink" title="标准输入"></a>标准输入</h2><ol>
-<li>指针：stdin</li>
-<li>设备：键盘</li>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了将本地的repo托管到GitHub上的repo，需要创建SSH　key，通过SSH协议进行传输。并且通过git添加远程repo，进而推送到GitHub</p>
+<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><h2 id="创建SSH-key"><a href="#创建SSH-key" class="headerlink" title="创建SSH key"></a>创建SSH key</h2><p>这个key和本机相联系，保存在你GitHub的账户中。<br><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></p>
+<h2 id="关联远程repo"><a href="#关联远程repo" class="headerlink" title="关联远程repo"></a>关联远程repo</h2><ol>
+<li>在GitHub上new一个repo。与想要托管的本地repo同名。</li>
+<li>cd到本地repo。</li>
+<li>在git上添加远程repo，<br><code>git remote add origin your.ssh.url</code><br>origin就是远程仓库的名字。</li>
 </ol>
-<h2 id="标准输出"><a href="#标准输出" class="headerlink" title="标准输出"></a>标准输出</h2><ol>
-<li>指针：stdout</li>
-<li>设备：显示器</li>
-</ol>
-<h2 id="标准错误"><a href="#标准错误" class="headerlink" title="标准错误"></a>标准错误</h2><ol>
-<li>指针：stderr</li>
-<li>设备：显示器</li>
-</ol>
-<p>有了这个基础，可以暂时看作<strong>万物皆文件</strong></p>
-<h1 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h1><ol>
-<li>这两行代码本质上一样<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">fprintf</span>(<span class="built_in">stdout</span>, <span class="string">"%s"</span>, <span class="built_in">string</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>, <span class="built_in">string</span>);</span><br></pre></td></tr></table></figure></li>
-<li>这行的区别也只不过是写在标准错误上<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">fprintf</span>(strerr, <span class="string">"%s"</span>, <span class="built_in">string</span>);</span><br></pre></td></tr></table></figure></li>
-</ol>
+<h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><p><code>git push -u origin master</code></p>
+<p><strong>这样就把本地的master分支关联且推送到远程的master分支</strong></p>
 
       
     </div>
@@ -471,7 +364,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/06/c/fgets-%E5%92%8Cfputs/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/27/github/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -485,7 +378,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/06/c/fgets-%E5%92%8Cfputs/" class="post-title-link" itemprop="url">面向行fgets()和fputs()</a>
+            <a href="/2020/03/27/github/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">git的提交修改操作</a>
         </h2>
 
         <div class="post-meta">
@@ -495,7 +388,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-06 17:04:33" itemprop="dateCreated datePublished" datetime="2020-04-06T17:04:33+08:00">2020-04-06</time>
+              <time title="Created: 2020-03-27 23:41:46" itemprop="dateCreated datePublished" datetime="2020-03-27T23:41:46+08:00">2020-03-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -511,119 +404,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.7k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>该函数是面向行操作。<br>不同于，getc()是处理字符</p>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="fgets"><a href="#fgets" class="headerlink" title="fgets()"></a>fgets()</h2><ul>
-<li>作用<br>把读入的内容添加到字符串中。</li>
-</ul>
-<ol>
-<li>参数<br>(字符串地址，字符个数，FILE指针)</li>
-<li>返回值<br>如果读到文件结尾（EOF），返回NULL<br>如果还没有到EOF，返回之前传给它的字符串地址</li>
-<li>范围<blockquote>
-<p>1.读取到第一个换行符后面。<br>2.读到文件结尾<br>3.读到<code>字符个数-1</code><br>4.如果读到字符上限已经读完一行，则会把结尾的’\n’放在’\0’前面</p>
-</blockquote>
-</li>
-</ol>
-<p><strong>最后，在最后一个字符后面加’\0’</strong></p>
-<p>Don’t forget ！<br>字符串的大小是：<strong>字符个数＋最后的空字符</strong></p>
-<h2 id="fputs"><a href="#fputs" class="headerlink" title="fputs()"></a>fputs()</h2><ul>
-<li>参数<br>(字符串地址，FILE指针)</li>
-</ul>
-<blockquote>
-<p>fgets()保留了换行符，fputs()不会再添加换行符<br>不同于puts()函数会在末尾添加换行符</p>
-</blockquote>
-<h2 id="strstr"><a href="#strstr" class="headerlink" title="strstr()"></a>strstr()</h2><ul>
-<li>作用</li>
-<li><em>查找字符串中要查找的字符串*</em></li>
-</ul>
-<ol>
-<li><p>参数<br>(被查找的字符串str1，需要的字符串str2)</p>
-</li>
-<li><p>返回值<br>返回str1中str2的首位置</p>
-</li>
-</ol>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><figcaption><span>显示含有某个字符的一整行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 256</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">has_ch</span><span class="params">(<span class="keyword">char</span> ch, <span class="keyword">const</span> <span class="keyword">char</span> * <span class="built_in">line</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">line</span>[SIZE];<span class="comment">//每一行的字符串</span></span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Usage: filename"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    ch = argv[<span class="number">1</span>][<span class="number">0</span>];<span class="comment">//获取第二个参数的第一个字符</span></span><br><span class="line">    <span class="keyword">if</span> ((fp = fopen(argv[<span class="number">2</span>], <span class="string">"r"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line"></span><br><span class="line"><span class="comment">//fgets()假设每一行不超过256个字符,或读到换行符，然后存储到字符串line[]中</span></span><br><span class="line">    <span class="keyword">while</span>(fgets(<span class="built_in">line</span>, SIZE, fp) != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (has_ch(ch, <span class="built_in">line</span>))</span><br><span class="line">            <span class="built_in">fputs</span>(<span class="built_in">line</span>, <span class="built_in">stdout</span>);<span class="comment">//输出本行字符串</span></span><br><span class="line">    &#125;</span><br><span class="line">    fclose(fp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">has_ch</span><span class="params">(<span class="keyword">char</span> ch, <span class="keyword">const</span> <span class="keyword">char</span> * <span class="built_in">line</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(*<span class="built_in">line</span>)<span class="comment">//读到'\0'结束</span></span><br><span class="line">        <span class="keyword">if</span>(ch == *(<span class="built_in">line</span>++))</span><br><span class="line">            <span class="keyword">return</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><figcaption><span>交换地输出两个文件的每一行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 40</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 256</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> name1[SIZE];</span><br><span class="line">    <span class="keyword">char</span> name2[SIZE];</span><br><span class="line">    FILE * f1, *f2;</span><br><span class="line">    <span class="keyword">char</span> *temp1;<span class="comment">//将被fgets()返回字符串地址，或者NULL</span></span><br><span class="line">    <span class="keyword">char</span> *temp2;</span><br><span class="line">    <span class="keyword">char</span> str[LEN];<span class="comment">//暂时存储每一行</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the first file: "</span>);</span><br><span class="line">    s_gets(name1, SIZE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the second file: "</span>);</span><br><span class="line">    s_gets(name2, SIZE);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>((f1 = fopen(name1, <span class="string">"r"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open the %s file"</span>, name1);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>((f2 = fopen(name2, <span class="string">"r"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open the %s file"</span>, name2);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    这样做，只能但输出到最少行的文件，循环就结束了（不可取）</span></span><br><span class="line"><span class="comment">    如果我们用||运算符的话，一真全真，右侧语句就短路了，就不能给temp2字符数组赋值了（也不可取）</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    while ((fgets(str1, LEN, f1) != NULL) &amp;&amp; (fgets(str2, LEN, f2) != NULL))</span></span><br><span class="line"><span class="comment">    &#123;</span></span><br><span class="line"><span class="comment">        fputs(str1, stdout);</span></span><br><span class="line"><span class="comment">        fputs(str2, stdout);</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="comment">/*但我们可以</span></span><br><span class="line"><span class="comment">    先把 fgets()函数提取出来，另外用if语句判断</span></span><br><span class="line"><span class="comment">    再用 || 运算符</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((temp1 = fgets(str, LEN, f1)) != <span class="literal">NULL</span>)<span class="comment">//如果其中一个读到文件结尾，</span></span><br><span class="line">            <span class="built_in">fputs</span>(str, <span class="built_in">stdout</span>);</span><br><span class="line">        <span class="keyword">if</span>((temp2 = fgets(str, LEN, f2)) != <span class="literal">NULL</span>)<span class="comment">//则不输出。</span></span><br><span class="line">            <span class="built_in">fputs</span>(str, <span class="built_in">stdout</span>);</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">while</span> ((temp1 != <span class="literal">NULL</span>) || (temp2 != <span class="literal">NULL</span>));<span class="comment">//要两个文件都读到文件结尾才结束</span></span><br><span class="line">    </span><br><span class="line">    fclose(f1);</span><br><span class="line">    fclose(f2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><figcaption><span>在文件中查找字符</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 256</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp;</span><br><span class="line">    <span class="keyword">char</span> str[LEN];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(argc != <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"Usage: %s filename"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>((fp = fopen(argv[<span class="number">2</span>], <span class="string">"r"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open %s file"</span>, argv[<span class="number">2</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(fgets(str, LEN, fp) != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strstr</span>(str, argv[<span class="number">1</span>]))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">fputs</span>(str, <span class="built_in">stdout</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(fclose(fp) != <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Error for closing file.\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/06/c/fprintf-%E5%92%8Cfscanf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/06/c/fprintf-%E5%92%8Cfscanf/" class="post-title-link" itemprop="url">fprintf()和fscanf()</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-06 17:00:10" itemprop="dateCreated datePublished" datetime="2020-04-06T17:00:10+08:00">2020-04-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-15 15:52:58" itemprop="dateModified" datetime="2020-09-15T15:52:58+08:00">2020-09-15</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.3k</span>
+              <span>539</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -642,244 +423,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这两个函数与printf()和scanf()函数类似。<br>scanf()printf()的返回值为<strong>成功输入的数据个数</strong><br>如<br>scanf（”%d%d%s”,&amp;a,&amp;b,s）;执行成功返回3.<br>scanf（”%d%d”,&amp;a,&amp;b）;执行成功返回2.</p>
-<p>如果在输入的过程中scanf(“%d%d”,&amp;a,&amp;b);由于某种原因只有a输入成功了则返回1，a、b都没成功则返回0</p>
-<p>如果遇到错误或遇到end of file，返回EOF（一般宏定义EOF为-1）。</p>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>加多第一个参数(FILE指针)</p>
-<h2 id="rewind"><a href="#rewind" class="headerlink" title="rewind();"></a>rewind();</h2><ol>
-<li>参数：FILE指针</li>
-<li>作用<br>回到文件开头</li>
+          <h1 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h1><p>为了能管理文件的所作出的修改。</p>
+<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><h2 id="add到stage"><a href="#add到stage" class="headerlink" title="add到stage"></a>add到stage</h2><ol>
+<li>查看stage<br><code>git status</code>查看stage的状态.</li>
+<li>添加到stage<br>版本库中有git给你创建的暂存区（stage）和分支（master）。<br><code>git add .</code>的作用就是将工作区的文件添加到stage。</li>
+<li>删除stage<br><code>git restore --staged &lt;file&gt;...&quot;</code> to unstage</li>
 </ol>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><figcaption><span>输入到文件中</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 41</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp;</span><br><span class="line">    <span class="keyword">char</span> words[MAX];<span class="comment">//临时存储每个字符串。</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ((fp = fopen(<span class="string">"wordy"</span>, <span class="string">"a+"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stdout</span>,<span class="string">"Can't open \"wordy\" file.\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Enter words to add to the file; press the #"</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"key at the beginning of a line to terminate."</span>);</span><br><span class="line">    <span class="keyword">while</span> ((<span class="built_in">fscanf</span>(<span class="built_in">stdin</span>,<span class="string">"%40s"</span>, words) == <span class="number">1</span>)  &amp;&amp; (words[<span class="number">0</span>] != <span class="string">'#'</span>))</span><br><span class="line">        <span class="built_in">fprintf</span>(fp, <span class="string">"%s\n"</span>, words);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"File contents:"</span>);</span><br><span class="line">    rewind(fp);           <span class="comment">/* go back to beginning of file */</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">fscanf</span>(fp,<span class="string">"%s"</span>,words) == <span class="number">1</span>)</span><br><span class="line">        <span class="built_in">puts</span>(words);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Done!"</span>);</span><br><span class="line">    <span class="keyword">if</span> (fclose(fp) != <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>,<span class="string">"Error closing file\n"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><h2 id="一"><a href="#一" class="headerlink" title="一"></a>一</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> ((<span class="built_in">fscanf</span>(<span class="built_in">stdin</span>,<span class="string">"%40s"</span>, words) == <span class="number">1</span>)  &amp;&amp; (words[<span class="number">0</span>] != <span class="string">'#'</span>))</span><br><span class="line">     <span class="built_in">fprintf</span>(fp, <span class="string">"%s\n"</span>, words);</span><br></pre></td></tr></table></figure>
-<ol>
-<li>fscanf()的文件指针是<code>stdin</code>是从键盘中进行标准输入，并且将输入的<strong>每个字符串</strong>用while循环存储到字符串<code>works[]</code></li>
-</ol>
-<p><strong>即等于<code>scanf(&quot;%s&quot;, words);</code></strong><br>2. fprintf()的文件指针是fp，就是将words每个字符串，一个一个地输入到文件。<br>3. <a href="https://ferrychan666.github.io/2020/03/20/c/scanf()%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/">scanf与%s</a></p>
-<h2 id="二"><a href="#二" class="headerlink" title="二"></a>二</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="built_in">fscanf</span>(fp,<span class="string">"%s"</span>,words) == <span class="number">1</span>)</span><br><span class="line">     <span class="built_in">puts</span>(words);</span><br></pre></td></tr></table></figure>
-<ol>
-<li>fscanf()的文件指针是fp，将文件中的每个字符串（到空白字符结束）逐个读入words中，并逐个puts函数输出。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/06/c/getc()%E5%92%8Cputc()/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/06/c/getc()%E5%92%8Cputc()/" class="post-title-link" itemprop="url">面向字符getc()和putc()</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-06 14:48:09" itemprop="dateCreated datePublished" datetime="2020-04-06T14:48:09+08:00">2020-04-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.7k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>面向字符操作。</p>
-<p>这两个函数类似于getchar()和puchar(‘ch’)。</p>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p><strong>在后面加多一个参数(FILE指针)</strong></p>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="fopen"><a href="#fopen" class="headerlink" title="fopen()"></a>fopen()</h2><ol>
-<li>函数声明：在stdio.h中</li>
-<li>参数<br>(文件名，读写等模式)</li>
-<li>返回：文件指针<br><code>FILE * fp;</code><blockquote>
-<p>文件指针并不指向实际的文件，它指向一个包含文件信息的数据对象，其中包含I/O函数所用的缓冲区信息。</p>
-</blockquote>
+<p><img data-src="https://i.ibb.co/LPncLLG/5c017de22bde1b62dcc538cd36510ab.jpg" alt=""></p>
+<h2 id="commit到master"><a href="#commit到master" class="headerlink" title="commit到master"></a>commit到master</h2><p>接下来就是提交。当我们做这一步之后才能被git所记录（log）<br>`git commit -m “update”<br><img data-src="https://i.ibb.co/ZHJjM02/d7cff4f51de04ce05b149e9a1d44182.jpg" alt=""></p>
+<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ol>
+<li><p>查看版本历史(master)<br><code>git log</code><br>commit 后面的字符就是版本号<br>HEAD就是指针<br><img data-src="https://i.ibb.co/g3w0zCK/81499340c53b662fca73efcb2b07871.png" alt=""></p>
+</li>
+<li><p>返回到某个版本(版本号只需写前几个字符)<br><code>git reset --hard &lt;版本号&gt;</code></p>
 </li>
 </ol>
-<h2 id="getc"><a href="#getc" class="headerlink" title="getc()"></a>getc()</h2><p><strong>类似于getchar()</strong></p>
-<ol>
-<li>参数<br>(FILE指针)</li>
-<li>返回：文件中的一个字符<blockquote>
-<p>与getchar()函数类似，getchar()是从<code>标准输入</code>中获取字符。而，getc()是从指定文件中获取字符</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="putc"><a href="#putc" class="headerlink" title="putc()"></a>putc()</h2><p><strong>类似于putchar()</strong></p>
-<ol>
-<li>参数<br>(一个字符，FILE指针)</li>
-<li>作用<br>将这个字符放入指定的文件中</li>
-</ol>
-<h2 id="exit"><a href="#exit" class="headerlink" title="exit()"></a>exit()</h2><ol>
-<li>函数声明：在stdlib.h头文件中</li>
-<li>参数<br>正常结束传递0，非正常传递非0值.</li>
-<li>作用<br>关闭所有打开文件，并结束程序<blockquote>
-<p>与return 不同的是：在main()以外的函数中调用exit()也能结束整个程序</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="fclose"><a href="#fclose" class="headerlink" title="fclose()"></a>fclose()</h2><ol>
-<li>参数<br>FILE指针</li>
-<li>作用<br>关闭指定文件</li>
-<li>返回<br>成功关闭：0<br>不成功：EOF</li>
-</ol>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><figcaption><span>将文件copy到其他文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;//提供exit()的原型</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>*argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *in;<span class="comment">//要被复制的文件指针</span></span><br><span class="line">    FILE *out;<span class="comment">//要复制到的文件指针</span></span><br><span class="line">    <span class="keyword">int</span> ch;<span class="comment">//存储每个字符</span></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;<span class="comment">//计数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">3</span>)<span class="comment">//如果参数不是3就退出</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Usage: %s filename"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((in = fopen(argv[<span class="number">1</span>], <span class="string">"r"</span>)) == <span class="literal">NULL</span>)<span class="comment">//如果argv[1]是空指针，就退出</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Can't open %s"</span>, argv[<span class="number">1</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">if</span> ((out = fopen(argv[<span class="number">2</span>], <span class="string">"w+"</span>)) == <span class="literal">NULL</span>)<span class="comment">//如果argv[2]是空指针，就退出</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Can't open %s"</span>, argv[<span class="number">2</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">while</span>((ch = getc(in)) != EOF)<span class="comment">//循环读入一个字符，直到文件结尾</span></span><br><span class="line">    &#123;</span><br><span class="line">        putc(ch, out);<span class="comment">//将这个字符放入FILE指针指定的文件中</span></span><br><span class="line">        count++;<span class="comment">//增加计数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (fclose(in) != <span class="number">0</span>);<span class="comment">//关闭文件</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Error in closing file %s\n"</span>, argv[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"File %s has %lu characters\n"</span>, argv[<span class="number">1</span>], count);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><figcaption><span>转换为大写文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 40</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE * fs;			<span class="comment">//原始文件指针</span></span><br><span class="line">    FILE * ft;			<span class="comment">//目标文件指针</span></span><br><span class="line">    <span class="keyword">char</span> name_s[SIZE];</span><br><span class="line">    <span class="keyword">char</span> <span class="keyword">name_t</span>[SIZE];</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//输入原始文件和目标文件名</span></span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stdout</span>, <span class="string">"Please enter the source file name:\n"</span>);</span><br><span class="line">    s_gets(name_s, SIZE);</span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stdout</span>, <span class="string">"Please enter the target file name:\n"</span>);</span><br><span class="line">    s_gets(<span class="keyword">name_t</span>, SIZE);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//打开原始文件和目标文件</span></span><br><span class="line">    <span class="keyword">if</span> ((fs = fopen(name_s, <span class="string">"r"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open the %s\n"</span>, name_s);</span><br><span class="line">    <span class="keyword">if</span> ((ft = fopen(<span class="keyword">name_t</span>, <span class="string">"w"</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Could not open the %s\n"</span>, <span class="keyword">name_t</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//拷贝数据</span></span><br><span class="line">    <span class="keyword">while</span> ((ch = getc(fs)) != EOF)</span><br><span class="line">        putc(<span class="built_in">toupper</span>(ch), ft);</span><br><span class="line">    </span><br><span class="line">    fclose(fs);</span><br><span class="line">    fclose(ft);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//自定义读取文件名的函数</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> * <span class="built_in">find</span>;</span><br><span class="line">    <span class="keyword">char</span> * ret_val;</span><br><span class="line"></span><br><span class="line">    ret_val = fgets(st, n, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">if</span> (ret_val)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">find</span> = <span class="built_in">strchr</span>(st, <span class="string">'\n'</span>);	<span class="comment">//查找换行符</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">find</span>)</span><br><span class="line">            *<span class="built_in">find</span> = <span class="string">'\0'</span>;			<span class="comment">//替换为空字符</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;			<span class="comment">//处理多余输入</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret_val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><figcaption><span>输出文件内容(命令行)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FILE *fp;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">if</span>(argc == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Usage: %s filename"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; argc; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((fp = fopen(argv[i], <span class="string">"r"</span>)) == <span class="literal">NULL</span>)<span class="comment">//判断文件存在，并赋值给文件指针</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"Cound not open %s file"</span>, argv[i]);</span><br><span class="line">            <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> ((ch = getc(fp)) != EOF)</span><br><span class="line">        &#123;</span><br><span class="line">            putc(ch, <span class="built_in">stdout</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/02/java/swing/%E5%B8%83%E5%B1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/02/java/swing/%E5%B8%83%E5%B1%80/" class="post-title-link" itemprop="url">Layout(布局)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-02 23:03:43" itemprop="dateCreated datePublished" datetime="2020-04-02T23:03:43+08:00">2020-04-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.3k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">container.setLayout(<span class="keyword">new</span> Layout的类())</span><br></pre></td></tr></table></figure>
-
-<h1 id="null布局"><a href="#null布局" class="headerlink" title="null布局"></a>null布局</h1><p><strong>传给Layout()null参数</strong><br><strong>再setBounds(,,,,)按钮的坐标和大小</strong><br><img data-src="https://i.ibb.co/Nj0CPR2/104730054558f32934057c39f9f5841.png" alt=""></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 绝对布局;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">extends</span> <span class="title">JFrame</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Demo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		setBounds(<span class="number">200</span>, <span class="number">200</span>, <span class="number">500</span>, <span class="number">300</span>);</span><br><span class="line">		setDefaultCloseOperation(EXIT_ON_CLOSE);</span><br><span class="line">		</span><br><span class="line">		Container c = getContentPane();</span><br><span class="line">		c.setLayout(<span class="keyword">null</span>);<span class="comment">//设置布局</span></span><br><span class="line">		JButton b1 = <span class="keyword">new</span> JButton(<span class="string">"按钮1"</span>);<span class="comment">//新建按钮对象</span></span><br><span class="line">		JButton b2 = <span class="keyword">new</span> JButton(<span class="string">"按钮2"</span>);</span><br><span class="line">		b1.setBounds(<span class="number">20</span>, <span class="number">30</span>, <span class="number">80</span>, <span class="number">30</span>);<span class="comment">//按钮坐标，大小</span></span><br><span class="line">		b2.setBounds(<span class="number">100</span>, <span class="number">40</span>, <span class="number">100</span>, <span class="number">40</span>);</span><br><span class="line">		c.add(b1);  <span class="comment">//添加到容器中</span></span><br><span class="line">		c.add(b2);</span><br><span class="line">		setVisible(<span class="keyword">true</span>);<span class="comment">//最后设置可见</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Demo();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="FlowLayout"><a href="#FlowLayout" class="headerlink" title="FlowLayout"></a>FlowLayout</h1><ol>
-<li>给<code>c.setLayout( )</code>new 一个FlowLayout类</li>
-<li>FlowLayout类的构造方法参数<br><code>FlowLayout(Flowlayout.&lt;左右对齐&gt;, 左右间隔， 上下间隔)</code></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">package</span> 流布局;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">extends</span> <span class="title">JFrame</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Demo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		setBounds(<span class="number">300</span>, <span class="number">300</span>, <span class="number">500</span>, <span class="number">500</span>);</span><br><span class="line">		setDefaultCloseOperation(EXIT_ON_CLOSE);</span><br><span class="line">		Container c = getContentPane(); <span class="comment">//创建容器</span></span><br><span class="line"></span><br><span class="line">		c.setLayout(<span class="keyword">new</span> FlowLayout(FlowLayout.LEFT,<span class="number">50</span>, <span class="number">20</span>));<span class="comment">//设置容器布局</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;<span class="comment">//添加按钮</span></span><br><span class="line">			c.add(<span class="keyword">new</span> Button(<span class="string">"按钮"</span> + i + <span class="number">1</span>));</span><br><span class="line">		&#125;</span><br><span class="line">		setVisible(<span class="keyword">true</span>);<span class="comment">//最后设置可见</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Demo();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="BorderLayout"><a href="#BorderLayout" class="headerlink" title="BorderLayout"></a>BorderLayout</h1><ol>
-<li>给setLayout()new一个BorderLayout类</li>
-<li>将按钮添加到容器中，需要指定位置<br>c.add(&lt;按钮&gt;, 位置参数)</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 边界布局;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">extends</span> <span class="title">JFrame</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Demo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		setBounds(<span class="number">300</span>, <span class="number">300</span>, <span class="number">300</span>, <span class="number">300</span>);</span><br><span class="line">		setDefaultCloseOperation(EXIT_ON_CLOSE);</span><br><span class="line">		Container c = getContentPane();</span><br><span class="line"></span><br><span class="line">		c.setLayout(<span class="keyword">new</span> BorderLayout());</span><br><span class="line">		JButton b1 = <span class="keyword">new</span> JButton(<span class="string">"东"</span>),<span class="comment">//创建按钮</span></span><br><span class="line">				b2 = <span class="keyword">new</span> JButton(<span class="string">"西"</span>),</span><br><span class="line">				b3 = <span class="keyword">new</span> JButton(<span class="string">"南"</span>),</span><br><span class="line">				b4 = <span class="keyword">new</span> JButton(<span class="string">"北"</span>),</span><br><span class="line">				b5 = <span class="keyword">new</span> JButton(<span class="string">"中"</span>);</span><br><span class="line">		<span class="comment">//添加到容器中,并将按钮指定布局位置</span></span><br><span class="line">		c.add(b1, BorderLayout.EAST);</span><br><span class="line">		c.add(b2, BorderLayout.WEST);</span><br><span class="line">		c.add(b3, BorderLayout.SOUTH);</span><br><span class="line">		c.add(b4, BorderLayout.NORTH);</span><br><span class="line">		c.add(b5, BorderLayout.CENTER);</span><br><span class="line">        <span class="comment">//再创建一个按钮，覆盖原来位置</span></span><br><span class="line">		c.add(<span class="keyword">new</span> JButton(<span class="string">"覆盖"</span>), BorderLayout.CENTER);</span><br><span class="line"></span><br><span class="line">		setVisible(<span class="keyword">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Demo();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="GridLayout-网格布局"><a href="#GridLayout-网格布局" class="headerlink" title="GridLayout(网格布局)"></a>GridLayout(网格布局)</h1><ol>
-<li>给setlayout()new一个GridLayout类。<br>参数</li>
+<p><strong>这样文件就会被改为到原来被commit的那一次</strong></p>
+<ol start="3">
+<li>要把旧版本push到GitHub<strong>要用强制命令</strong><br><code>git push -u origin master -f</code><br>版本回退之后悔</li>
 </ol>
 <hr>
-<p><img data-src="https://i.ibb.co/nDYzSzL/e92a95e4476d7bbd9e68522e3f987e2.png" alt=""></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">extends</span> <span class="title">JFrame</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Demo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		setBounds(<span class="number">200</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">300</span>);</span><br><span class="line">		setDefaultCloseOperation(EXIT_ON_CLOSE);</span><br><span class="line">		</span><br><span class="line">		Container c = getContentPane();</span><br><span class="line">		c.setLayout(<span class="keyword">new</span> GridLayout(<span class="number">4</span>, <span class="number">5</span>, <span class="number">20</span>, <span class="number">20</span>));<span class="comment">//创建网格布局，4行5列，元素间距</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">			c.add(<span class="keyword">new</span> JButton(<span class="string">"按钮"</span> + (i+<span class="number">1</span>)));</span><br><span class="line">		&#125;</span><br><span class="line">		setVisible(<span class="keyword">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Demo();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<ol>
+<li>查看所有的版本<br>因为原来的<code>git log</code>已经看不到还没有返回之前的版本号，所以我们要查看所以的版本<br><code>git reflog</code><br>这样就列出了返回之前的版本号.</li>
+<li>继续执行<br><code>git reset --hard &lt;版本号&gt;</code></li>
+</ol>
+<p><strong>这样我们的文件就会被修改到某次历史</strong></p>
 
       
     </div>
@@ -899,7 +466,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/02/java/swing/Label%E7%B1%BB/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/27/github/git/repository%E7%9A%84%E5%88%9B%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -913,7 +480,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/02/java/swing/Label%E7%B1%BB/" class="post-title-link" itemprop="url">Label类（标签）</a>
+            <a href="/2020/03/27/github/git/repository%E7%9A%84%E5%88%9B%E5%BB%BA/" class="post-title-link" itemprop="url">repository的创建</a>
         </h2>
 
         <div class="post-meta">
@@ -923,7 +490,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-02 22:11:34" itemprop="dateCreated datePublished" datetime="2020-04-02T22:11:34+08:00">2020-04-02</time>
+              <time title="Created: 2020-03-27 23:24:51" itemprop="dateCreated datePublished" datetime="2020-03-27T23:24:51+08:00">2020-03-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -939,7 +506,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.2k</span>
+              <span>394</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -958,16 +525,202 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><ul>
-<li>改变字体<br><code>setFont(，，，)</code></li>
-<li>获取url<br>URL url = Demo.class.getResource(“file.png”)</li>
-<li>获取url路径的文件<br><code>Icon icon = new ImageIcon(url)</code></li>
-<li>添加图片<br><code>setIcon()</code></li>
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>git is a distributed version control system.<br>它帮我们记录文件的修改和管理，并且帮我们push到GitHub</p>
+<h1 id="创建一个repo"><a href="#创建一个repo" class="headerlink" title="创建一个repo"></a>创建一个repo</h1><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p><a href="https://git-scm.com/downloads">git官网</a></p>
+<h2 id="创建repo（版本库）"><a href="#创建repo（版本库）" class="headerlink" title="创建repo（版本库）"></a>创建repo（版本库）</h2><ol>
+<li><p>创建文件<br><code>mkdir file</code></p>
+</li>
+<li><p>初始化<br><code>git init</code>这个时候file目录中就会存在一个.git文件。它用来跟踪版本库.</p>
+</li>
+<li><p>set the identity</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">*** Please tell me who you are.</span><br><span class="line"></span><br><span class="line">Run</span><br><span class="line"></span><br><span class="line">  git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">  git config --global user.name &quot;Your Name&quot;</span><br><span class="line"></span><br><span class="line">to set your account&#39;s default identity.</span><br><span class="line">Omit --global to set the identity only in this repository.</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/27/c/%E5%85%B3%E4%BA%8Ec%E7%9A%84%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/27/c/%E5%85%B3%E4%BA%8Ec%E7%9A%84%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">c的简单算法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-27 11:10:14" itemprop="dateCreated datePublished" datetime="2020-03-27T11:10:14+08:00">2020-03-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>634</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="判断英文字母"><a href="#判断英文字母" class="headerlink" title="判断英文字母"></a>判断英文字母</h2><ol>
+<li>当字母区分大小写时，我们只需要写<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ch &lt;= <span class="string">'z'</span> &amp;&amp; ch &gt;= <span class="string">'a'</span></span><br><span class="line">ch &lt;= <span class="string">'Z'</span> &amp;&amp; ch &gt;= <span class="string">'A'</span></span><br></pre></td></tr></table></figure></li>
+<li>当字母不区分大小写，当中就有一个问题。<h6 id="由于ASCII表中的大小字母的对应的十进制数不是连续从65-122的。"><a href="#由于ASCII表中的大小字母的对应的十进制数不是连续从65-122的。" class="headerlink" title="由于ASCII表中的大小字母的对应的十进制数不是连续从65-122的。"></a>由于ASCII表中的大小字母的对应的十进制数不是连续从65-122的。</h6>所以要将大小写分开。<br><code>(ch &lt;= &#39;z&#39; &amp;&amp; ch &gt;= &#39;a&#39;) || (ch &lt;= &#39;Z&#39; &amp;&amp; ch &gt;= &#39;A&#39;)</code></li>
+</ol>
+<h2 id="判断某数不超过几位"><a href="#判断某数不超过几位" class="headerlink" title="判断某数不超过几位"></a>判断某数不超过几位</h2><p>我们可能会用<br><code>n &lt;= 100 &amp;&amp; n &gt;= -100</code><br>更好地，我们用<br><code>n / 100 == 0</code></p>
+<h2 id="计算绝对值"><a href="#计算绝对值" class="headerlink" title="计算绝对值"></a>计算绝对值</h2><p>计算 a　+ |b|<br>可以直接使用三目运算符。<br><code>(b &gt;= 0) ? (a + b) : (a - b)</code></p>
+<h2 id="将小写变大写"><a href="#将小写变大写" class="headerlink" title="将小写变大写"></a>将小写变大写</h2><p>也可以运用三目运算符，（判断）？（是）：（否）<br><code>(a &lt; &#39;Z&#39; &amp;&amp; a &gt; &#39;A&#39;) ? (a - &#39;a&#39; + &#39;A&#39;) : a</code><br>判断是不是大写,          是就变小写,     不是就直接输出</p>
+<h2 id="输出最大值"><a href="#输出最大值" class="headerlink" title="输出最大值"></a>输出最大值</h2><p>可以通过代数的方法，从简单的代码变成复杂的代码<br><img data-src="https://i.ibb.co/QY0pf96/8eeee8f0aa4c7667a1d14fbb24dd4b0.png" alt=""></p>
+<h2 id="倒序输出"><a href="#倒序输出" class="headerlink" title="倒序输出"></a>倒序输出</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">    <span class="keyword">while</span>(x != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>, x % <span class="number">10</span>);</span><br><span class="line">        x /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/26/java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/26/java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" class="post-title-link" itemprop="url">java面向对象思想(this,return)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-26 20:10:30" itemprop="dateCreated datePublished" datetime="2020-03-26T20:10:30+08:00">2020-03-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>871</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>面向对象的思想在主方法中,主要实现:</p>
+<ol>
+<li>建对象</li>
+<li>给参数</li>
+<li>要什么方法就调用</li>
+</ol>
+<h1 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h1><ul>
+<li><p>类的成员变量：<br>定义在方法外可以被类方法访问的是成员变量。按照java的编码规范，成员变量一般被定义成private权限。</p>
+</li>
+<li><p>类的属性：<br>类的成员变量中，外界可以通过set方法和get方法对成员变量进行操作，那么这个成员变量就是类的属性。</p>
+</li>
+<li><p><code>this.</code>这个关键字主要用于引用本类中的成员变量或者方法<strong>将局部变量的值传递给成员变量</strong></p>
+</li>
+<li><p><em>给成员变量是为了给本类中的方法使用*</em><br>由于有时类中的属性名和方法中的参数名有时相同,所以目的为了区分类的属性和参数两者.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Public Class Student &#123; </span><br><span class="line"> 	String name; 	<span class="comment">//定义一个成员变量name</span></span><br><span class="line"> 	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SetName</span><span class="params">(String name)</span></span>&#123;  <span class="comment">//定义一个参数(局部变量)name</span></span><br><span class="line">  	<span class="keyword">this</span>.name = name; 	<span class="comment">//将局部变量的值传递给成员变量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<p>示例</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 标签;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.awt.Container;</span><br><span class="line"><span class="keyword">import</span> java.awt.Font;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">extends</span> <span class="title">JFrame</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Demo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		setDefaultCloseOperation(EXIT_ON_CLOSE);</span><br><span class="line">		setBounds(<span class="number">200</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">200</span>);</span><br><span class="line">		</span><br><span class="line">		Container c = getContentPane();</span><br><span class="line">		JLabel l = <span class="keyword">new</span> JLabel(<span class="string">"My name is ferry"</span>);<span class="comment">//初始内容</span></span><br><span class="line">		l.setText(<span class="string">"ferry chan"</span>);<span class="comment">//修改内容</span></span><br><span class="line">		l.setFont(<span class="keyword">new</span> Font(<span class="string">"微软雅黑"</span>, Font.BOLD, <span class="number">20</span>));<span class="comment">//字体，加粗，大小</span></span><br><span class="line">		</span><br><span class="line">		c.add(l);<span class="comment">//添加组件</span></span><br><span class="line">		setVisible(<span class="keyword">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Demo();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 展示图片;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.awt.Container;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javafx.scene.image.Image;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">extends</span> <span class="title">JFrame</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Demo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		setBounds(<span class="number">200</span>, <span class="number">100</span>, <span class="number">700</span>, <span class="number">700</span>);</span><br><span class="line">		setDefaultCloseOperation(EXIT_ON_CLOSE);</span><br><span class="line">		</span><br><span class="line">		Container c = getContentPane();</span><br><span class="line">		JLabel l = <span class="keyword">new</span> JLabel(<span class="string">"展示图片"</span>);</span><br><span class="line"><span class="comment">//		URL url = Demo.class.getResource("kali.png");//获取url</span></span><br><span class="line"><span class="comment">//		Icon icon = new ImageIcon(url);//获取路径下的图片文件</span></span><br><span class="line">		Icon icon = <span class="keyword">new</span> ImageIcon(<span class="string">"src/展示图片/kali.png"</span>);<span class="comment">//第二种方法，直接将url作为参数</span></span><br><span class="line">		l.setIcon(icon);<span class="comment">//添加图片</span></span><br><span class="line">		c.add(l);</span><br><span class="line">		setVisible(<span class="keyword">true</span>);<span class="comment">//把设置可见函数放最后</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Demo();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> 矩形面积;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Ferry</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">float</span> width;  <span class="comment">//属性（成员变量）</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">float</span> height;</span><br><span class="line">	<span class="comment">//构造函数,给参数,下定义</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Ferry</span><span class="params">(<span class="keyword">float</span> height, <span class="keyword">float</span> width)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.height = height;	<span class="comment">//将参数（局部变量）给成员变量</span></span><br><span class="line">		<span class="keyword">this</span>.width = width;	  <span class="comment">//是为了让本类中的square方法使用</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//返回结果</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">square</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> height * width;	<span class="comment">//可以直接使用属性</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//主方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;<span class="comment">//这样，即可实现，</span></span><br><span class="line">		Ferry area = <span class="keyword">new</span> Ferry(<span class="number">2.5f</span>, <span class="number">4.0f</span>);<span class="comment">//1.创建对象2.直接给长和宽</span></span><br><span class="line">		System.out.println(area.square());<span class="comment">//3.就能直接得出面积</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -986,7 +739,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/02/java/swing/JDialog%E7%AA%97%E4%BD%93/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/26/java/%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%B1%80%E9%83%A8%EF%BC%8C%E6%88%90%E5%91%98%EF%BC%8C%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -1000,7 +753,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/02/java/swing/JDialog%E7%AA%97%E4%BD%93/" class="post-title-link" itemprop="url">JDialog窗体</a>
+            <a href="/2020/03/26/java/%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%B1%80%E9%83%A8%EF%BC%8C%E6%88%90%E5%91%98%EF%BC%8C%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">局部，成员(实例)，静态变量</a>
         </h2>
 
         <div class="post-meta">
@@ -1010,7 +763,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-02 20:01:32" itemprop="dateCreated datePublished" datetime="2020-04-02T20:01:32+08:00">2020-04-02</time>
+              <time title="Created: 2020-03-26 17:21:02" itemprop="dateCreated datePublished" datetime="2020-03-26T17:21:02+08:00">2020-03-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -1026,14 +779,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.6k</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -1045,8 +798,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight java"><figcaption><span>在父窗体中调用对话框</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">extends</span> <span class="title">JDialog</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Demo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		setBounds(<span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">		Container c = getContentPane();<span class="comment">//创建容器</span></span><br><span class="line">		c.add(<span class="keyword">new</span> JLabel(<span class="string">"我是对话框"</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		JFrame jf = <span class="keyword">new</span> JFrame(<span class="string">"父窗体"</span>);<span class="comment">//创建父窗体</span></span><br><span class="line">		jf.setVisible(<span class="keyword">true</span>);<span class="comment">//可见</span></span><br><span class="line">		jf.setDefaultCloseOperation(EXIT_ON_CLOSE);</span><br><span class="line">		jf.setBounds(<span class="number">200</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">200</span>);<span class="comment">//设置坐标，大小</span></span><br><span class="line">		</span><br><span class="line">		Container c = jf.getContentPane();<span class="comment">//设置容器</span></span><br><span class="line">		c.setLayout(<span class="keyword">new</span> FlowLayout());<span class="comment">//设置布局，使用流布局</span></span><br><span class="line">		JButton btn = <span class="keyword">new</span> JButton(<span class="string">"弹出对话框"</span>);<span class="comment">//添加组件，按钮</span></span><br><span class="line">		c.add(btn);<span class="comment">//将组件添加到容器中</span></span><br><span class="line">		</span><br><span class="line">		btn.addActionListener(<span class="keyword">new</span> ActionListener() &#123;</span><br><span class="line"></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;<span class="comment">//匿名内部类</span></span><br><span class="line">				Demo d = <span class="keyword">new</span> Demo();</span><br><span class="line">				d.setVisible(<span class="keyword">true</span>);<span class="comment">//可见</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><figcaption><span>将父窗体阻塞</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyJDialog</span> <span class="keyword">extends</span> <span class="title">JDialog</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyJDialog</span><span class="params">(MyFrame frame)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(frame, <span class="string">"Hi"</span>, <span class="keyword">true</span>);<span class="comment">//初始化，进行阻塞</span></span><br><span class="line">		setBounds(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">		Container c = getContentPane();</span><br><span class="line">		c.add(<span class="keyword">new</span> JLabel(<span class="string">"我是对话框"</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFrame</span> <span class="keyword">extends</span> <span class="title">JFrame</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> MyFrame();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyFrame</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		setVisible(<span class="keyword">true</span>);</span><br><span class="line">		setBounds(<span class="number">200</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">200</span>);</span><br><span class="line">		</span><br><span class="line">		Container c = getContentPane();</span><br><span class="line">		c.setLayout(<span class="keyword">new</span> FlowLayout());<span class="comment">//设置布局，使用流布局</span></span><br><span class="line">		JButton btn = <span class="keyword">new</span> JButton(<span class="string">"弹出对话框"</span>);</span><br><span class="line">		c.add(btn);</span><br><span class="line">		</span><br><span class="line">		btn.addActionListener(<span class="keyword">new</span> ActionListener() &#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">				<span class="keyword">new</span> MyJDialog(MyFrame.<span class="keyword">this</span>).setVisible(<span class="keyword">true</span>);<span class="comment">//调用对话框，可见</span></span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h6 id="通过以下代码可以得知创建了两对象。不同对象的访问成员变量时，它们的值不会互相干预。"><a href="#通过以下代码可以得知创建了两对象。不同对象的访问成员变量时，它们的值不会互相干预。" class="headerlink" title="通过以下代码可以得知创建了两对象。不同对象的访问成员变量时，它们的值不会互相干预。"></a>通过以下代码可以得知创建了两对象。不同对象的访问成员变量时，它们的值不会互相干预。</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TransferProperty</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">47</span>; <span class="comment">// 定义成员变量</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> </span>&#123; <span class="comment">// 定义成员方法</span></span><br><span class="line">		System.out.println(<span class="string">"调用call()方法"</span>);</span><br><span class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">			System.out.print(i + <span class="string">" "</span>);</span><br><span class="line">			<span class="keyword">if</span> (i == <span class="number">2</span>) &#123;</span><br><span class="line">				System.out.println(<span class="string">"\n"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TransferProperty</span><span class="params">()</span> </span>&#123; <span class="comment">// 定义构造方法</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		TransferProperty t1 = <span class="keyword">new</span> TransferProperty(); <span class="comment">// 创建一个对象</span></span><br><span class="line">		TransferProperty t2 = <span class="keyword">new</span> TransferProperty(); <span class="comment">// 创建另一个对象</span></span><br><span class="line">		t2.i = <span class="number">60</span>; <span class="comment">// 将类成员变量赋值为60</span></span><br><span class="line">		<span class="comment">// 使用第一个对象调用类成员变量</span></span><br><span class="line">		System.out.println(<span class="string">"第一个实例对象调用变量i的结果："</span> + t1.i++);</span><br><span class="line">		t1.call(); <span class="comment">// 使用第一个对象调用类成员方法</span></span><br><span class="line">		<span class="comment">// 使用第二个对象调用类成员变量</span></span><br><span class="line">		System.out.println(<span class="string">"第二个实例对象调用变量i的结果："</span> + t2.i);</span><br><span class="line">		t2.call(); <span class="comment">// 使用第二个对象调用类成员方法</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>输出</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">第一个实例对象调用变量i的结果：47</span><br><span class="line">调用call()方法</span><br><span class="line">0 1 2</span><br><span class="line"></span><br><span class="line">第二个实例对象调用变量i的结果：60</span><br><span class="line">调用call()方法</span><br><span class="line">0 1 2</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h6 id="如果将i成员变量-上static，变成静态变量。这样i的值就会被这两个对象同时干预。"><a href="#如果将i成员变量-上static，变成静态变量。这样i的值就会被这两个对象同时干预。" class="headerlink" title="如果将i成员变量+上static，变成静态变量。这样i的值就会被这两个对象同时干预。"></a>如果将<code>i</code>成员变量+上<code>static</code>，变成静态变量。这样<code>i</code>的值就会被这两个对象同时干预。</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccessProperty</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">47</span>; <span class="comment">// 定义静态成员变量</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> </span>&#123; <span class="comment">// 定义成员方法</span></span><br><span class="line">		System.out.println(<span class="string">"调用call()方法"</span>);</span><br><span class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">			System.out.print(i + <span class="string">" "</span>);</span><br><span class="line">			<span class="keyword">if</span> (i == <span class="number">2</span>) &#123;</span><br><span class="line">				System.out.println(<span class="string">"\n"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">AccessProperty</span><span class="params">()</span> </span>&#123; <span class="comment">// 定义构造方法</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; <span class="comment">// 定义主方法</span></span><br><span class="line">		AccessProperty t1 = <span class="keyword">new</span> AccessProperty(); <span class="comment">// 创建一个对象</span></span><br><span class="line">		AccessProperty t2 = <span class="keyword">new</span> AccessProperty(); <span class="comment">// 创建另一个对象</span></span><br><span class="line">		t2.i = <span class="number">60</span>; <span class="comment">// 将类成员变量赋值为60</span></span><br><span class="line">		<span class="comment">// 使用第一个对象调用类成员变量</span></span><br><span class="line">		System.out.println(<span class="string">"第一个实例对象调用变量i的结果："</span> + t1.i++);</span><br><span class="line">		t1.call(); <span class="comment">// 使用第一个对象调用类成员方法</span></span><br><span class="line">		<span class="comment">// 使用第二个对象调用类成员变量</span></span><br><span class="line">		System.out.println(<span class="string">"第二个实例对象调用变量i的结果："</span> + t2.i);</span><br><span class="line">		t2.call(); <span class="comment">// 使用第二个对象调用类成员方法</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>输出</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">第一个实例对象调用变量i的结果：60</span><br><span class="line">调用call()方法</span><br><span class="line">0 1 2</span><br><span class="line"></span><br><span class="line">第二个实例对象调用变量i的结果：3</span><br><span class="line">调用call()方法</span><br><span class="line">0 1 2</span><br></pre></td></tr></table></figure>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="关于内存的分配"><a href="#关于内存的分配" class="headerlink" title="关于内存的分配"></a>关于内存的分配</h2><ul>
+<li>而这有什么根本原因呢?。<br><img data-src="https://i.ibb.co/JRC30SF/1462a5697bdea190b76cffd5c251955.png" alt=""><br>可以知道，<br>当对象被实例化之后，每个实例变量（成员变量）就被确定，可以又很多个副本。<br>但是，静态变量是存储在静态存储区，无论创建了多少个对象，静态变量只有一份拷贝。</li>
+</ul>
+<h2 id="区分实例变量和静态变量"><a href="#区分实例变量和静态变量" class="headerlink" title="区分实例变量和静态变量"></a>区分实例变量和静态变量</h2><p>通过<code>static</code>，因为他们都在类中，方法外。</p>
+
       
     </div>
 
@@ -1065,7 +826,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/02/java/swing/swing%E7%BB%84%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/26/java/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -1079,7 +840,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/02/java/swing/swing%E7%BB%84%E4%BB%B6/" class="post-title-link" itemprop="url">swing组件</a>
+            <a href="/2020/03/26/java/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA/" class="post-title-link" itemprop="url">对象的创建</a>
         </h2>
 
         <div class="post-meta">
@@ -1089,14 +850,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-02 17:57:07" itemprop="dateCreated datePublished" datetime="2020-04-02T17:57:07+08:00">2020-04-02</time>
+              <time title="Created: 2020-03-26 16:51:51" itemprop="dateCreated datePublished" datetime="2020-03-26T16:51:51+08:00">2020-03-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-18 20:21:48" itemprop="dateModified" datetime="2020-12-18T20:21:48+08:00">2020-12-18</time>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
               </span>
 
           <br>
@@ -1105,7 +866,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>0</span>
+              <span>353</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -1124,7 +885,197 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img data-src="https://i.ibb.co/k45KqmB/1151ba1d9ecd77a37a77beb213f4ae6.png" alt=""><br><img data-src="https://i.ibb.co/6Bsj4Cq/afb151f6363cc35d809796ae2d31cb7.png" alt=""><br><img data-src="https://i.ibb.co/fvkf7gh/04b1bc7a38f93f0cc607809b06e9049.png" alt=""></p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>java中的一起都可以看作对象，包括字符串也是一个对象。<br>一般我们用<code>new</code>操作符创建一个对象。而我们知道字符串对象有两种定义方法。</p>
+<ol>
+<li><code>String str = &quot;xxx&quot;;</code></li>
+<li><code>String str = new String(&quot;xxx&quot;);</code></li>
+</ol>
+<ul>
+<li>为什么第一种可以直接赋值呢？</li>
+<li>new新建一个对象有什么含义呢？</li>
+</ul>
+<h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><ul>
+<li>构造方法，是一个<strong>与类同名的方法</strong>，<strong>用来创建对象</strong>。（有参数，或者没参数，有则是初始化）</li>
+</ul>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="对象源于类"><a href="#对象源于类" class="headerlink" title="对象源于类"></a>对象源于类</h2><p>于下图，Test就表示一个类，类声明一个test对象。等于构造方法。<br>而也解释了字符串赋值的原因。<br><img data-src="https://i.ibb.co/VvWHLKz/8c9bcfe28c7f67fe70caaecf24f793b.jpg" alt=""></p>
+<h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">book</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>构造方法中可以为成员变量赋值，这样可以在实例化对象时，初始化成员变量。、</li>
+<li>如果没有明确构造方法，则编译器将自动创建无参数的构造方法。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/25/java/%E5%8F%8D%E8%BD%AC%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/25/java/%E5%8F%8D%E8%BD%AC%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">反转排序算法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-25 19:12:31" itemprop="dateCreated datePublished" datetime="2020-03-25T19:12:31+08:00">2020-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>387</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><p>将一个数组反向排序</p>
+<h1 id="主要思想"><a href="#主要思想" class="headerlink" title="主要思想"></a>主要思想</h1><ul>
+<li>将数组除以2，因为舍弃小数的缘故，所以适合将前面一半与后面一半调换。</li>
+</ul>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 反转排序;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 反转排序 </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> arr[] = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">		<span class="keyword">int</span> len = arr.length;</span><br><span class="line">		<span class="keyword">int</span> temp;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= len / <span class="number">2</span>; i++) &#123;<span class="comment">//只需要除2</span></span><br><span class="line">			temp = arr[i];</span><br><span class="line">			arr[i] = arr[len - i - <span class="number">1</span>];</span><br><span class="line">			arr[len - i - <span class="number">1</span>] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> a : arr)</span><br><span class="line">			System.out.print(a + <span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>数组的下标从0开始，到<code>length - 1</code>结束</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/25/algorithm/%E7%9B%B4%E6%8E%A5%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/25/algorithm/%E7%9B%B4%E6%8E%A5%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">直接选择排序算法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-25 18:13:56" itemprop="dateCreated datePublished" datetime="2020-03-25T18:13:56+08:00">2020-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="主要思想"><a href="#主要思想" class="headerlink" title="主要思想"></a>主要思想</h1><p><strong>把数往后放</strong><br>从大到小的话，就把小的放后面<br>从小到大的话，就把大的放后面</p>
+<h2 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h2><p><img data-src="https://i.ibb.co/tJfF4tC/0defcd61bcdd83f932458f67946308a.jpg" alt=""></p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;;</span><br><span class="line">	<span class="comment">//为什么从1开始？</span></span><br><span class="line">	<span class="comment">//因为我已经将 index = 0 了</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">		<span class="comment">//因为是最后一个数，要加 = 号噢</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">10</span> - i; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//找到每轮最值的索引</span></span><br><span class="line">			<span class="keyword">if</span>(arr[j] &lt; arr[index])</span><br><span class="line">				index = j;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//与最后的数交换</span></span><br><span class="line">		temp = arr[index];</span><br><span class="line">		arr[index] = arr[<span class="number">10</span> - i];</span><br><span class="line">		arr[<span class="number">10</span> - i] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"从大到小：\n"</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>, arr[i]);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 直接选择排序;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 直接选择排序 </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> arr[] = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">25</span>, <span class="number">22</span>, <span class="number">30</span>, <span class="number">04</span>, <span class="number">13</span>&#125;;</span><br><span class="line">		<span class="keyword">int</span> temp;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;<span class="comment">//表明找最大值多少次(第一个元素不用理会)</span></span><br><span class="line">			<span class="keyword">int</span> index = <span class="number">0</span>;	<span class="comment">//最大值的索引</span></span><br><span class="line">			<span class="comment">//找数组最大值索引的办法</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= arr.length - i; j++) &#123;<span class="comment">//遍历（排除已经找到最大值的）数组，找最大</span></span><br><span class="line">				<span class="keyword">if</span> (arr[j] &gt; arr[index]) &#123;<span class="comment">//查找数组中的每一个元素，是否比索引的值的大</span></span><br><span class="line">					index = j;	   <span class="comment">//大就让索引等于它的下标，</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//把最大的数放在最后面（与最后的元素交换）</span></span><br><span class="line">			temp = arr[index];</span><br><span class="line">			arr[index] = arr[arr.length - i];</span><br><span class="line">			arr[arr.length - i] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> a : arr)</span><br><span class="line">			System.out.print(a + <span class="string">" "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>一样，要想从大到小只需改变if语句的符号</li>
+</ul>
 
       
     </div>
@@ -1144,7 +1095,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1244,13 +1195,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">273k</span>
+    <span title="Symbols count total">220k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">4:08</span>
+    <span title="Reading time total">3:20</span>
 </div>
 
 <div id="days"></div>

@@ -30,7 +30,7 @@
 <meta property="og:description" content="Today, I made a serious error, which is allocating the memory of reference variable repeatedly.  However, if I did it, the complier will throw a error. Why did I create two references that have the sa">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-23T13:49:06.000Z">
-<meta property="article:modified_time" content="2020-12-24T09:00:48.509Z">
+<meta property="article:modified_time" content="2021-06-22T04:00:11.081Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="fatal">
 <meta name="twitter:card" content="summary">
@@ -130,12 +130,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">19</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">18</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -226,7 +226,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-24 17:00:48" itemprop="dateModified" datetime="2020-12-24T17:00:48+08:00">2020-12-24</time>
+                <time title="Modified: 2021-06-22 12:00:11" itemprop="dateModified" datetime="2021-06-22T12:00:11+08:00">2021-06-22</time>
               </span>
 
           
@@ -242,7 +242,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>642</span>
+              <span>639</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -263,7 +263,7 @@
       
         <p>Today, I made a serious error, which is allocating the memory of reference variable repeatedly. </p>
 <p>However, if I did it, the complier will throw a error. Why did I create two references that have the same names but the complier didn’t throw the error?</p>
-<p>The reason is that I create a reference outside the method and the other the reference that has the same name was created inside the method. This may be fatal. Because the first reference would be hided while the program was running in the block/method and created the other total different variable but they had the same name.</p>
+<p>The reason is that I create a reference outside the method and the other reference that has the same name was created inside the method. This may be fatal. Because the first reference would be hided while the program was running in the block/method and created the other total different variable but they had the same name.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Calc</span> <span class="keyword">extends</span> <span class="title">JFrame</span> <span class="keyword">implements</span> <span class="title">ActionListener</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	JTextField t1;</span><br><span class="line"></span><br><span class="line">	Calc()&#123;</span><br><span class="line">		init();</span><br><span class="line">		....</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		JTextField t1=<span class="keyword">new</span> JTextField(<span class="number">10</span>);	<span class="comment">//error</span></span><br></pre></td></tr></table></figure>
 
 
@@ -404,13 +404,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">273k</span>
+    <span title="Symbols count total">220k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">4:08</span>
+    <span title="Reading time total">3:20</span>
 </div>
 
 <div id="days"></div>

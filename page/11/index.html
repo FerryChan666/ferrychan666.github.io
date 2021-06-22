@@ -125,12 +125,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">158</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">19</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">18</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/13/c/%E5%A4%8D%E6%9D%82%E7%9A%84%E5%A3%B0%E6%98%8E/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/02/java/swing/JDialog%E7%AA%97%E4%BD%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -205,7 +205,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/13/c/%E5%A4%8D%E6%9D%82%E7%9A%84%E5%A3%B0%E6%98%8E/" class="post-title-link" itemprop="url">复杂的声明（指针）</a>
+            <a href="/2020/04/02/java/swing/JDialog%E7%AA%97%E4%BD%93/" class="post-title-link" itemprop="url">JDialog窗体</a>
         </h2>
 
         <div class="post-meta">
@@ -215,14 +215,250 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-13 20:36:47" itemprop="dateCreated datePublished" datetime="2020-04-13T20:36:47+08:00">2020-04-13</time>
+              <time title="Created: 2020-04-02 20:01:32" itemprop="dateCreated datePublished" datetime="2020-04-02T20:01:32+08:00">2020-04-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-14 21:17:57" itemprop="dateModified" datetime="2020-09-14T21:17:57+08:00">2020-09-14</time>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><figcaption><span>在父窗体中调用对话框</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">extends</span> <span class="title">JDialog</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Demo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		setBounds(<span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">		Container c = getContentPane();<span class="comment">//创建容器</span></span><br><span class="line">		c.add(<span class="keyword">new</span> JLabel(<span class="string">"我是对话框"</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		JFrame jf = <span class="keyword">new</span> JFrame(<span class="string">"父窗体"</span>);<span class="comment">//创建父窗体</span></span><br><span class="line">		jf.setVisible(<span class="keyword">true</span>);<span class="comment">//可见</span></span><br><span class="line">		jf.setDefaultCloseOperation(EXIT_ON_CLOSE);</span><br><span class="line">		jf.setBounds(<span class="number">200</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">200</span>);<span class="comment">//设置坐标，大小</span></span><br><span class="line">		</span><br><span class="line">		Container c = jf.getContentPane();<span class="comment">//设置容器</span></span><br><span class="line">		c.setLayout(<span class="keyword">new</span> FlowLayout());<span class="comment">//设置布局，使用流布局</span></span><br><span class="line">		JButton btn = <span class="keyword">new</span> JButton(<span class="string">"弹出对话框"</span>);<span class="comment">//添加组件，按钮</span></span><br><span class="line">		c.add(btn);<span class="comment">//将组件添加到容器中</span></span><br><span class="line">		</span><br><span class="line">		btn.addActionListener(<span class="keyword">new</span> ActionListener() &#123;</span><br><span class="line"></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;<span class="comment">//匿名内部类</span></span><br><span class="line">				Demo d = <span class="keyword">new</span> Demo();</span><br><span class="line">				d.setVisible(<span class="keyword">true</span>);<span class="comment">//可见</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>将父窗体阻塞</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyJDialog</span> <span class="keyword">extends</span> <span class="title">JDialog</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyJDialog</span><span class="params">(MyFrame frame)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(frame, <span class="string">"Hi"</span>, <span class="keyword">true</span>);<span class="comment">//初始化，进行阻塞</span></span><br><span class="line">		setBounds(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">		Container c = getContentPane();</span><br><span class="line">		c.add(<span class="keyword">new</span> JLabel(<span class="string">"我是对话框"</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFrame</span> <span class="keyword">extends</span> <span class="title">JFrame</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> MyFrame();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyFrame</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		setVisible(<span class="keyword">true</span>);</span><br><span class="line">		setBounds(<span class="number">200</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">200</span>);</span><br><span class="line">		</span><br><span class="line">		Container c = getContentPane();</span><br><span class="line">		c.setLayout(<span class="keyword">new</span> FlowLayout());<span class="comment">//设置布局，使用流布局</span></span><br><span class="line">		JButton btn = <span class="keyword">new</span> JButton(<span class="string">"弹出对话框"</span>);</span><br><span class="line">		c.add(btn);</span><br><span class="line">		</span><br><span class="line">		btn.addActionListener(<span class="keyword">new</span> ActionListener() &#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">				<span class="keyword">new</span> MyJDialog(MyFrame.<span class="keyword">this</span>).setVisible(<span class="keyword">true</span>);<span class="comment">//调用对话框，可见</span></span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/02/java/swing/swing%E7%BB%84%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/02/java/swing/swing%E7%BB%84%E4%BB%B6/" class="post-title-link" itemprop="url">swing组件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-02 17:57:07" itemprop="dateCreated datePublished" datetime="2020-04-02T17:57:07+08:00">2020-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-18 20:21:48" itemprop="dateModified" datetime="2020-12-18T20:21:48+08:00">2020-12-18</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img data-src="https://i.ibb.co/k45KqmB/1151ba1d9ecd77a37a77beb213f4ae6.png" alt=""><br><img data-src="https://i.ibb.co/6Bsj4Cq/afb151f6363cc35d809796ae2d31cb7.png" alt=""><br><img data-src="https://i.ibb.co/fvkf7gh/04b1bc7a38f93f0cc607809b06e9049.png" alt=""></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/02/java/swing/swing%E4%B8%AD%E7%9A%84JFrame/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/02/java/swing/swing%E4%B8%AD%E7%9A%84JFrame/" class="post-title-link" itemprop="url">JFrame窗体</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-02 16:37:05" itemprop="dateCreated datePublished" datetime="2020-04-02T16:37:05+08:00">2020-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>608</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 创建JFrame窗体;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="comment">//继承JFrame，以下方法都来源于JFrame类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example1</span> <span class="keyword">extends</span> <span class="title">JFrame</span></span>&#123;<span class="comment">//让Example1成为一个窗体</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Example1</span><span class="params">()</span> </span>&#123;<span class="comment">//构造方法，与类同名</span></span><br><span class="line">		setVisible(<span class="keyword">true</span>);<span class="comment">//让窗口可见</span></span><br><span class="line">		setTitle(<span class="string">"Hello"</span>);<span class="comment">//窗口标题</span></span><br><span class="line">		setDefaultCloseOperation(EXIT_ON_CLOSE);<span class="comment">//窗口关闭，并结束程序</span></span><br><span class="line">		setBounds(<span class="number">200</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">200</span>);<span class="comment">//窗口大小,和坐标</span></span><br><span class="line">		</span><br><span class="line">		Container c  = getContentPane();<span class="comment">//获取窗口容器</span></span><br><span class="line">		c.setBackground(Color.white);<span class="comment">//背景颜色</span></span><br><span class="line">		JLabel xxx = <span class="keyword">new</span> JLabel(<span class="string">"I'm Ferry"</span>);<span class="comment">//标签内容</span></span><br><span class="line">		c.add(xxx);<span class="comment">//添加组件,把标签添加到容器中</span></span><br><span class="line"><span class="comment">//		 c.remove(xxx);//删除组件</span></span><br><span class="line">		c.validate();<span class="comment">//刷新容器中的组件</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Example1();<span class="comment">//新建一个窗口对象</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/31/c/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E4%B8%8E%E6%8C%87%E9%92%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/31/c/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E4%B8%8E%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">动态内存与指针</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-31 20:20:21" itemprop="dateCreated datePublished" datetime="2020-03-31T20:20:21+08:00">2020-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
               </span>
 
           <br>
@@ -250,385 +486,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><code>int p; //这是一个普通的整型变量
-int *p; //首先从P 处开始,先与*结合,所以说明P 是一个指针,然后再与int 结合,说明指针所指向的内容的类型为int 型.所以P是一个返回整型数据的指针
-int p[3]; //首先从P 处开始,先与[]结合,说明P 是一个数组,然后与int 结合,说明数组里的元素是整型的,所以P 是一个由整型数据组成的数组
-int *p[3]; //首先从P 处开始,先与[]结合,因为其优先级比*高,所以P 是一个数组,然后再与*结合,说明数组里的元素是指针类型,然后再与int 结合,说明指针所指向的内容的类型是整型的,所以P 是一个由返回整型数据的指针所组成的数组
-int (*p)[3]; //首先从P 处开始,先与*结合,说明P 是一个指针然后再与[]结合(与&quot;()&quot;这步可以忽略,只是为了改变优先级),说明指针所指向的内容是一个数组,然后再与int 结合,说明数组里的元素是整型的.所以P 是一个指向由整型数据组成的数组的指针
-int **p; //首先从P 开始,先与*结合,说是P 是一个指针,然后再与*结合,说明指针所指向的元素是指针,然后再与int 结合,说明该指针所指向的元素是整型数据.由于二级指针以及更高级的指针极少用在复杂的类型中,所以后面更复杂的类型我们就不考虑多级指针了,最多只考虑一级指针.
-int p(int); //从P 处起,先与()结合,说明P 是一个函数,然后进入()里分析,说明该函数有一个整型变量的参数,然后再与外面的int 结合,说明函数的返回值是一个整型数据
-Int (*p)(int); //从P 处开始,先与指针结合,说明P 是一个指针,然后与()结合,说明指针指向的是一个函数,然后再与()里的int 结合,说明函数有一个int 型的参数,再与最外层的int 结合,说明函数的返回类型是整型,所以P 是一个指向有一个整型参数且返回类型为整型的函数的指针
-int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,先与()结合,说明P 是一个函数,然后进入()里面,与int 结合,说明函数有一个整型变量参数,然后再与外面的*结合,说明函数返回的是一个指针,,然后到最外面一层,先与[]结合,说明返回的指针指向的是一个数组,然后再与*结合,说明数组里的元素是指针,然后再与int 结合,说明指针指向的内容是整型数据.所以P 是一个参数为一个整数据且返回一个指向由整型指针变量组成的数组的指针变量的函数.</code></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/13/Q&A/%E6%8E%92%E9%94%99%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/13/Q&A/%E6%8E%92%E9%94%99%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">排错方法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-13 20:28:06" itemprop="dateCreated datePublished" datetime="2020-04-13T20:28:06+08:00">2020-04-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>19</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li>debug</li>
-<li>注释部分代码</li>
-<li>提取部分代码测试</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/13/c/strcmp-%E5%AF%BB%E6%89%BE%E7%9B%B8%E5%90%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/13/c/strcmp-%E5%AF%BB%E6%89%BE%E7%9B%B8%E5%90%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">strcmp()寻找相同的字符串</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-13 00:31:39" itemprop="dateCreated datePublished" datetime="2020-04-13T00:31:39+08:00">2020-04-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.5k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有一个字符串数组，需要用户输入的字符与字符串数组的字符串相匹配。可以使用strcmp()函数在循环中查找，如果，找到了就break;</p>
-<h1 id="strcmp"><a href="#strcmp" class="headerlink" title="strcmp()"></a>strcmp()</h1><ol>
-<li>参数<br>(str1，str2)</li>
-<li>返回值<br>返回<strong>str1 - str2的字符数值</strong>(通常用ASCII值)<br>所以，但两个字符串相同的时候就返回0</li>
-</ol>
-<ul>
-<li>判断两个字符串是否相等，<strong>直到出现不同的字符为止</strong><br><code>if(strcmp(str1, str2) == 0)</code></li>
-</ul>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MON 12</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">year</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> * m_name;</span><br><span class="line">    <span class="keyword">int</span> days;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Days</span><span class="params">(<span class="keyword">int</span>, struct year *, <span class="keyword">int</span> *sum)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">year</span> <span class="title">month</span>[<span class="title">MON</span>];</span><span class="comment">//结构数组</span></span><br><span class="line">    <span class="keyword">char</span> * name[<span class="number">12</span>] = &#123;<span class="string">"Jan"</span>, <span class="string">"Feb"</span>, <span class="string">"Mar"</span>, <span class="string">"Ari"</span>, <span class="string">"May"</span>,</span><br><span class="line">    <span class="string">"Jun"</span>, <span class="string">"Jul"</span>, <span class="string">"Aug"</span>, <span class="string">"Set"</span>, <span class="string">"Oct"</span>, <span class="string">"Nov"</span>, <span class="string">"Dem"</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> mon, sum;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">40</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; MON; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        month[i].m_name = name[i];</span><br><span class="line">        <span class="keyword">if</span>(i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">            month[i].days = <span class="number">31</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            month[i].days = <span class="number">30</span>;</span><br><span class="line">        month[i].m = i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    month[<span class="number">1</span>].days = <span class="number">28</span>;<span class="comment">//不是闰年</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the month(else to quit): "</span>);</span><br><span class="line">    <span class="keyword">while</span>(s_gets(str, <span class="number">40</span>) != <span class="literal">NULL</span> &amp;&amp; str[<span class="number">0</span>] != <span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= <span class="number">12</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">strcmp</span>(str, name[i - <span class="number">1</span>]) == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                temp = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;      </span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">if</span>(temp == <span class="number">1</span> &amp;&amp; i &lt; <span class="number">12</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            sum = <span class="number">0</span>;</span><br><span class="line">            sum = Days(i, month, &amp;sum);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Enter the month again: "</span>); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Days</span><span class="params">(<span class="keyword">int</span> mon, struct year * month, <span class="keyword">int</span> *sum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mon; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        *sum += month[i].days;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> * <span class="built_in">find</span>;</span><br><span class="line">    <span class="keyword">char</span> * ret_val;</span><br><span class="line"></span><br><span class="line">    ret_val = fgets(st, n, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">if</span> (ret_val)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">find</span> = <span class="built_in">strchr</span>(st, <span class="string">'\n'</span>);	<span class="comment">//查找换行符</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">find</span>)</span><br><span class="line">            *<span class="built_in">find</span> = <span class="string">'\0'</span>;			<span class="comment">//替换为空字符</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;			<span class="comment">//处理多余输入</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret_val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/11/c/%E5%87%BD%E6%95%B0%E5%92%8C%E6%8C%87%E9%92%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/11/c/%E5%87%BD%E6%95%B0%E5%92%8C%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">函数和指针</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-11 20:44:34" itemprop="dateCreated datePublished" datetime="2020-04-11T20:44:34+08:00">2020-04-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>首先，了解两个不同的概念。</p>
-<ol>
-<li>函数指针<br>这是个指针。它指向函数的地址。</li>
-<li>指针函数<br>这是个函数。它用来返回指针。</li>
-</ol>
-<h1 id="声明函数指针"><a href="#声明函数指针" class="headerlink" title="声明函数指针"></a>声明函数指针</h1><p>指针有它所对应的类型，比如<code>int*</code>，int类型的指针。所以函数指针也有其类型。<br>我们又知道，要将一个地址赋给一个指针，它们对应的类型要相同。</p>
-<ul>
-<li><p>首先，函数的声明有<strong>两要素。（1）函数的返回值 （2）函数接收的参数的类型</strong></p>
+          <h1 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h1><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li><p>malloc()<br>以字节为参数，<strong>以内存块的首字节地址为返回值</strong>。</p>
 </li>
-<li><p>如果有一个函数指针和一个函数，它们各自的两要素一样，这就可以让这个函数的地址赋给这个函数指针。</p>
-</li>
-<li><p>例如*<em>声明函数指针时只需把`(</em>pf)<code>这个指针和</code>ToUpper`这个函数名换掉</p>
+<li><p>free()<br>以指针为参数，<strong>它只释放指针指针向的内存块</strong><br>例如：free(p);这时，p指向的内存没有了，可是<strong>p这个指针还存在</strong></p>
 </li>
 </ul>
-<p>函数声明：<code>void ToUpper(char *);</code><br>函数指针的声明：<code>void (*pf)(char *);</code></p>
-<p>*<em>这样一来，`(</em>pf)<code>当作</code>ToUpper`</p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
-<li>这里<strong>必须要将*pf用()括起来</strong>。如果不，就成了指针函数了。</li>
-<li>在以后调用函数也要()括起来</li>
-</ol>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ul>
-<li><p>首先，我们要知道函数的地址怎么表示。数组就把数组名作为它的首元素地址。函数代码就把函数名作为函数起始处的地址。</p>
-</li>
-<li><p>赋函数地址给指针<br><code>pf = ToUpper</code></p>
-</li>
-<li><p>怎么通过函数指针调用函数<br>pf指针存有函数的地址，(*pf)()这个就是相当与ToUpper()。另外，还有pf()这种调用函数的方法也被认同。</p>
-</li>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIZE 40</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> * * <span class="title">mal_ar</span><span class="params">(<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> words, i;</span><br><span class="line">    <span class="keyword">char</span> * * st;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"How many words do you wish to enter? "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;words);</span><br><span class="line">    getchar();					<span class="comment">//滤掉回车</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter %d words now:\n"</span>, words);</span><br><span class="line">    st = mal_ar(words);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Here are your words:\n"</span>);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; words; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">puts</span>(st[i]);</span><br><span class="line">        <span class="built_in">free</span>(st[i]);	<span class="comment">//释放每个指针指向的内存</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">free</span>(st);			<span class="comment">//释放指针数组</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> * * <span class="title">mal_ar</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> * * pt;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//给n个指针分配动态内存空间，返回指针的指针</span></span><br><span class="line">    pt = (<span class="keyword">char</span> * *)<span class="built_in">malloc</span>(n * <span class="keyword">sizeof</span>(<span class="keyword">char</span> *));</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//给每个指针指向的地址分配内存空间</span></span><br><span class="line">        pt[i] = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(SIZE * <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line">        <span class="comment">//可以仅用scanf("%s", pt[i]);</span></span><br><span class="line">        <span class="keyword">while</span> (<span class="built_in">isspace</span>(ch = getchar()))		<span class="comment">//处理单词之前的空格符</span></span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        pt[i][<span class="number">0</span>] = ch;				<span class="comment">//单词首字符</span></span><br><span class="line">        j = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (!<span class="built_in">isspace</span>(pt[i][j] = getchar()))</span><br><span class="line">            j++;</span><br><span class="line">        pt[i][j] = <span class="string">'\0'</span>;			<span class="comment">//将末尾的空格替换为\0'</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> pt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ul>
+<li>当scanf()读入后，缓冲区还有<strong>回车</strong>，如果要再次scanf()应用<strong>getchar()</strong>删掉回车。</li>
 </ul>
-<h1 id="一般用法"><a href="#一般用法" class="headerlink" title="一般用法"></a>一般用法</h1><ul>
-<li>将函数指针作为函数的参数传递给函数。<br><code>void show(void (* fp)(char *), char * str);</code>//接受函数指针</li>
-</ul>
-<figure class="highlight c"><figcaption><span>俩要素要相同，char*才是返回值噢</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">char</span>* <span class="title">fun</span><span class="params">(<span class="keyword">char</span> *, <span class="keyword">char</span>)</span></span>;<span class="comment">//指针函数，返回指针</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span>* (*pp)(<span class="keyword">char</span> *, <span class="keyword">char</span>);<span class="comment">//这是一个函数指针，别忘了，char*才是返回值噢</span></span><br><span class="line">    pp = fun;<span class="comment">//它指向（指针函数)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">fun</span><span class="params">(<span class="keyword">char</span> *p, <span class="keyword">char</span> ch)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><figcaption><span>函数指针数组</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f1</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f2</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f3</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f4</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x = <span class="number">10.0</span>, y = <span class="number">2.5</span>;</span><br><span class="line">    <span class="keyword">double</span> (*pf[<span class="number">4</span>])(<span class="keyword">double</span>, <span class="keyword">double</span>) = &#123;f1, f2, f3, f4&#125;;<span class="comment">//声明一个函数指针数组</span></span><br><span class="line"></span><br><span class="line">    (*pf[<span class="number">1</span>])(x, y);/这里的*pf[<span class="number">1</span>]一定要加(),才能表示为函数/</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f1</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f2</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"ok"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f3</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f4</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/10/c/%E6%B5%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/10/c/%E6%B5%81/" class="post-title-link" itemprop="url">流</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-10 23:57:27" itemprop="dateCreated datePublished" datetime="2020-04-10T23:57:27+08:00">2020-04-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>286</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>流，就类似于流水。从一个地方到另一个地方。<br>文件流，数据流。它们是文件/数据源与内存之间的传递。</p>
-<h1 id="文件流"><a href="#文件流" class="headerlink" title="文件流"></a>文件流</h1><p>当我们打开文件时，磁盘里的文件会复制到内存中。为什么，要传递给内存呢？因为它读写数据更快。而内存中有个FILE的结构体变量，它用来保存这些信息。当我们关闭文件时，这些信息就会从这个变量中释放。</p>
-<ol>
-<li>输入流<br>文件从磁盘中复制到内存的过程</li>
-<li>输出流<br>从内存保存文件到磁盘的过程</li>
-</ol>
-<h1 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h1><p>数据源就是包括文件，网络，键盘等。</p>
-<ol>
-<li>输入流<br>数据从数据源——&gt;内存</li>
-<li>输出流<br>数据从内存——&gt;数据源</li>
-</ol>
-<h1 id="I-O"><a href="#I-O" class="headerlink" title="I/O"></a>I/O</h1><p>input output<br>程序在内存中，通过程序与外部设备(磁盘，键盘，其他计算机)进行交互的操作。</p>
 
       
     </div>
@@ -648,7 +516,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/10/c/%E6%95%B0%E7%BB%84%E4%B8%8E%E7%BB%93%E6%9E%84/">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/30/java/%E6%8E%A5%E5%8F%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hacker.webp">
@@ -662,7 +530,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/10/c/%E6%95%B0%E7%BB%84%E4%B8%8E%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">数组与结构</a>
+            <a href="/2020/03/30/java/%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">接口</a>
         </h2>
 
         <div class="post-meta">
@@ -672,179 +540,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-10 22:41:03" itemprop="dateCreated datePublished" datetime="2020-04-10T22:41:03+08:00">2020-04-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>4 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p><strong>结构与数组的初始化都要用 {}</strong><br>例如：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">name</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> first_name[LEN];</span><br><span class="line">    <span class="keyword">char</span> last_name[LEN];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span> &#123;</span><span class="comment">//结构</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">name</span> <span class="title">names</span>;</span><span class="comment">//结构</span></span><br><span class="line">    <span class="keyword">float</span> grade[NUM];<span class="comment">//数组</span></span><br><span class="line">    <span class="keyword">float</span> average;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span> <span class="title">score</span>[<span class="title">CSIZE</span>] = &#123;</span></span><br><span class="line">    &#123;&#123;<span class="string">"Zha"</span>, <span class="string">"Yujie"</span>&#125;, &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;, <span class="number">0</span>&#125;,</span><br><span class="line">    &#123;&#123;<span class="string">"Jiang"</span>, <span class="string">"Wenjie"</span>&#125;, &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;, <span class="number">0</span>&#125;,</span><br><span class="line">    &#123;&#123;<span class="string">"Liu"</span>, <span class="string">"Chengming"</span>&#125;, &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;, <span class="number">0</span>&#125;,</span><br><span class="line">    &#123;&#123;<span class="string">"Pan"</span>, <span class="string">"Xiangxiang"</span>&#125;, &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;, <span class="number">0</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="结构数组的传递"><a href="#结构数组的传递" class="headerlink" title="结构数组的传递"></a>结构数组的传递</h1><p>C能传递整个结构。<br><strong>但C不能传递整个数组</strong>，可以传递首元素地址，在函数中关联这个数组。</p>
-<ul>
-<li><strong>当遇到结构数组时，</strong><br>要在函数中用地址关联这个数组，<strong>也只能传递结构数组的首元素的地址。</strong><br>这个元素就是一个结构。</li>
-</ul>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><ol>
-<li>数组名 = 数组的首元素地址<br><code>jones = &amp;jones[0]</code></li>
-</ol>
-<figure class="highlight c"><figcaption><span>注意是array of structures</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* funds4.c -- passing an array of structures to a function */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FUNDLEN 50</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 2</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">funds</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span>   bank[FUNDLEN];</span><br><span class="line">    <span class="keyword">double</span> bankfund;</span><br><span class="line">    <span class="keyword">char</span>   save[FUNDLEN];</span><br><span class="line">    <span class="keyword">double</span> savefund;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sum</span><span class="params">(<span class="keyword">const</span> struct funds money[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">funds</span> <span class="title">jones</span>[<span class="title">N</span>] = &#123;</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"Garlic-Melon Bank"</span>,</span><br><span class="line">            <span class="number">4032.27</span>,</span><br><span class="line">            <span class="string">"Lucky's Savings and Loan"</span>,</span><br><span class="line">            <span class="number">8543.94</span></span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"Honest Jack's Bank"</span>,</span><br><span class="line">            <span class="number">3620.88</span>,</span><br><span class="line">            <span class="string">"Party Time Savings"</span>,</span><br><span class="line">            <span class="number">3802.91</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The Joneses have a total of $%.2f.\n"</span>,</span><br><span class="line">           sum(jones,N));           <span class="comment">//jones = &amp;jones[0]</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sum</span><span class="params">(<span class="keyword">const</span> struct funds money[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> total;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>, total = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        total += money[i].bankfund + money[i].savefund;<span class="comment">//money是地址</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span>(total);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MON 12</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">year</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> * m_name;</span><br><span class="line">    <span class="keyword">int</span> days;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Days</span><span class="params">(<span class="keyword">int</span>, struct year *, <span class="keyword">int</span> *sum)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">year</span> <span class="title">month</span>[<span class="title">MON</span>];</span><span class="comment">//结构数组</span></span><br><span class="line">    <span class="keyword">char</span> * name[<span class="number">12</span>] = &#123;<span class="string">"Jan"</span>, <span class="string">"Feb"</span>, <span class="string">"Mar"</span>, <span class="string">"Ari"</span>, <span class="string">"May"</span>,</span><br><span class="line">     <span class="string">"Jun"</span>, <span class="string">"Jul"</span>, <span class="string">"Aug"</span>, <span class="string">"Set"</span>, <span class="string">"Oct"</span>, <span class="string">"Nov"</span>, <span class="string">"Dem"</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> mon, sum;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; MON; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        month[i].m_name = name[i];</span><br><span class="line">        <span class="keyword">if</span>(i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">            month[i].days = <span class="number">31</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            month[i].days = <span class="number">30</span>;</span><br><span class="line">        month[i].m = i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    month[<span class="number">1</span>].days = <span class="number">28</span>;<span class="comment">//不是闰年</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter the month(else to quit): "</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;mon))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(mon &lt;= <span class="number">12</span> &amp;&amp; mon &gt;= <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            sum = <span class="number">0</span>;</span><br><span class="line">            sum = Days(mon, month, &amp;sum);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Enter the month again: "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            <span class="keyword">return</span> (<span class="number">-1</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Days</span><span class="params">(<span class="keyword">int</span> mon, struct year * month, <span class="keyword">int</span> *sum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mon; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        *sum += month[i].days;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><figcaption><span>打印班级平均分</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 40</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CSIZE 4</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">name</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> fname[LEN];</span><br><span class="line">    <span class="keyword">char</span> lname[LEN];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">name</span> <span class="title">n</span>;</span></span><br><span class="line">    <span class="keyword">double</span> grade[<span class="number">3</span>];</span><br><span class="line">    <span class="keyword">double</span> average;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_grade</span><span class="params">(struct student *, <span class="keyword">char</span> **)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_average</span><span class="params">(struct student *)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(struct student *)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">student</span> <span class="title">person</span>[<span class="title">CSIZE</span>] = </span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        [<span class="number">0</span>] = &#123;<span class="string">"ferry"</span>, <span class="string">"chan"</span>&#125;,</span><br><span class="line">        [<span class="number">1</span>] = &#123;<span class="string">"faye"</span>, <span class="string">"chan"</span>&#125;,</span><br><span class="line">        [<span class="number">2</span>] = &#123;<span class="string">"tom"</span>, <span class="string">"sion"</span>&#125;,</span><br><span class="line">        [<span class="number">3</span>] = &#123;<span class="string">"jim"</span>, <span class="string">"sion"</span>&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">char</span> *str[] = &#123;<span class="string">"ferry chan"</span>, <span class="string">"faye chan"</span>, <span class="string">"tom sion"</span>, <span class="string">"jim sion"</span>&#125;;</span><br><span class="line">    get_grade(person, str);</span><br><span class="line">    get_average(person);</span><br><span class="line">    <span class="built_in">print</span>(person);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The average of class is %lf"</span>,</span><br><span class="line">    (person[<span class="number">0</span>].average + person[<span class="number">1</span>].average + person[<span class="number">2</span>].average + person[<span class="number">3</span>].average) / <span class="number">4</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_grade</span><span class="params">(struct student *p, <span class="keyword">char</span> **str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">char</span> fullname[LEN];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; <span class="number">4</span>; n++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Enter stduent's fullname: "</span>);</span><br><span class="line">        s_gets(fullname, LEN);<span class="comment">//读入的时候要是数组类型，如果用指针，会乱指</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strcmp</span>(fullname, str[i]) == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            temp = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(temp)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"Enter your the %dth grade: "</span>, j + <span class="number">1</span>);</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, &amp;(p[i].grade[j]));</span><br><span class="line">                getchar();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(struct student *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s %s's grade is %lf %lf %lf and your average is %lf\n"</span>, </span><br><span class="line">            p[i].n.fname, p[i].n.lname, p[i].grade[<span class="number">0</span>], p[i].grade[<span class="number">1</span>], p[i].grade[<span class="number">2</span>], p[i].average);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_average</span><span class="params">(struct student * p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            sum += p[i].grade[j];</span><br><span class="line">        &#125;</span><br><span class="line">        p[i].average = sum / <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> * <span class="title">s_gets</span><span class="params">(<span class="keyword">char</span> * st, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> * <span class="built_in">find</span>;</span><br><span class="line">    <span class="keyword">char</span> * ret_val;</span><br><span class="line"></span><br><span class="line">    ret_val = fgets(st, n, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">if</span> (ret_val)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">find</span> = <span class="built_in">strchr</span>(st, <span class="string">'\n'</span>);	<span class="comment">//查找换行符</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">find</span>)</span><br><span class="line">            *<span class="built_in">find</span> = <span class="string">'\0'</span>;			<span class="comment">//替换为空字符</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">while</span> (getchar() != <span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;	<span class="comment">//处理多余输入</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret_val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/10/Q&A/%E9%94%99%E8%AF%AFcollect2-ld-returned-1-exit-status/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/10/Q&A/%E9%94%99%E8%AF%AFcollect2-ld-returned-1-exit-status/" class="post-title-link" itemprop="url">错误collect2:ld returned 1 exit status</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-10 17:16:40" itemprop="dateCreated datePublished" datetime="2020-04-10T17:16:40+08:00">2020-04-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>77</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们遇到这种错误的时候，大多是因为编译器的位数为32位，编译时使用double类型就会发生这样的错误，或者编译过慢。</p>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>更换成64位的编译器就可以了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/09/c/%E6%8C%87%E5%90%91%E7%BB%93%E6%9E%84%E7%9A%84%E6%8C%87%E9%92%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/09/c/%E6%8C%87%E5%90%91%E7%BB%93%E6%9E%84%E7%9A%84%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">指向结构的指针</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-09 18:33:23" itemprop="dateCreated datePublished" datetime="2020-04-09T18:33:23+08:00">2020-04-09</time>
+              <time title="Created: 2020-03-30 11:18:50" itemprop="dateCreated datePublished" datetime="2020-03-30T11:18:50+08:00">2020-03-30</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -879,225 +575,489 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>结构指针与结构数组，他们一起使用时会更加方便。就像指针和数组。</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们知道，java中，<br>一个类只能有一个父类。但是，如果，我们想要实现的方法在父类中没有，那怎么办呢？<br>这个时候就需要接口。<br><img data-src="https://i.ibb.co/b6t2VDy/0a0901ba569ee3955958705c8bec979.jpg" alt=""></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>可以把接口看成纯粹的抽象类，因为里面都是抽象方法。</li>
+<li>一个类可以同时实现多个接口<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Do</span> <span class="keyword">implements</span> 接口1，接口2 ...</span></span><br></pre></td></tr></table></figure>
+接口与类的区别</li>
+</ul>
+<hr>
 <ol>
-<li><p>结构指针的声明<br><code>struct guy * him</code></p>
+<li>接口不能用于实例化对象。</li>
+<li>接口没有构造方法。</li>
+<li>接口不能包含成员变量，除了 static 和 final 变量。</li>
+</ol>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">drawTest</span> </span>&#123; <span class="comment">// 定义接口</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>; <span class="comment">// 定义方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义平行四边形类，该类继承了四边形类，并实现了drawTest接口</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ParallelogramgleUseInterface</span> <span class="keyword">extends</span> <span class="title">QuadrangleUseInterface</span></span></span><br><span class="line"><span class="class">		<span class="keyword">implements</span> <span class="title">drawTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123; <span class="comment">// 由于该类实现了接口，所以需要覆盖draw()方法</span></span><br><span class="line">		System.out.println(<span class="string">"平行四边形.draw()"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">doAnyThing</span><span class="params">()</span> </span>&#123; <span class="comment">// 覆盖父类方法</span></span><br><span class="line">		<span class="comment">// SomeSentence</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SquareUseInterface</span> <span class="keyword">extends</span> <span class="title">QuadrangleUseInterface</span> <span class="keyword">implements</span></span></span><br><span class="line"><span class="class">		<span class="title">drawTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"正方形.draw()"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">doAnyThing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// SomeSentence</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AnyThingUseInterface</span> <span class="keyword">extends</span> <span class="title">QuadrangleUseInterface</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">doAnyThing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuadrangleUseInterface</span> </span>&#123; <span class="comment">// 定义四边形类</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAnyTthing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// SomeSentence</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		drawTest[] d = &#123; <span class="comment">// 接口也可以进行向上转型操作</span></span><br><span class="line">		<span class="keyword">new</span> SquareUseInterface(), <span class="keyword">new</span> ParallelogramgleUseInterface() &#125;;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; d.length; i++) &#123;</span><br><span class="line">			d[i].draw(); <span class="comment">// 调用draw()方法</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/29/java/%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%EF%BC%88super/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/java/%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%EF%BC%88super/" class="post-title-link" itemprop="url">类的继承（super)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-29 21:42:43" itemprop="dateCreated datePublished" datetime="2020-03-29T21:42:43+08:00">2020-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>493</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们知道子类能够改写父类的方法(例如叫:do)，然后覆盖.从此,用子类调用do方法只能调那个被改写的do，如果我想用子类调用那个被覆盖的do怎么办呢?<br>OK，就要用super关键字</p>
+<h1 id="super"><a href="#super" class="headerlink" title="super"></a>super</h1><p>super关键字，能在子类中调用父类的属性，方法，和构造方法</p>
+<ul>
+<li>super调用父类的构造方法</li>
+</ul>
+<figure class="highlight java"><figcaption><span>父类</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Test</span><span class="params">()</span> </span>&#123;<span class="comment">//构造方法</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>子类</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> <span class="keyword">extends</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Test2</span><span class="params">()</span> </span>&#123;<span class="comment">//构造方法</span></span><br><span class="line">		<span class="keyword">super</span>();<span class="comment">//调用父类构造方法</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>因为构造方法中没有参数,所以可以不写</strong>编译器会自动,调用父类的无参构造方法<br><strong>(如果有就要写构造方法,并在括号中加上参数)</strong></p>
+<ul>
+<li>super调用父类属性<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.name = <span class="keyword">super</span>.name;</span><br></pre></td></tr></table></figure></li>
+<li>调用父类的方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">super</span>.hello();</span><br></pre></td></tr></table></figure>
+
 </li>
-<li><p>指向 <code>him = &amp;fellow[0]</code><br>但是有一点需要注意：<strong>单纯的结构数组名没有作用</strong><br>数组的变量名是数组的首元素地址。结构数组的变量名<strong>不是结构数组的首结构地址</strong>。<br>所以但要将首结构的地址赋给指针时，要加上&amp;和[0]</p>
+</ul>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>java中<br><strong>一个类只能有一个父类</strong></p>
+<p><strong>子类不仅覆盖了父类的方法还会覆盖父类的属性</strong></p>
+<p><strong>子类能使用父类的属性和方法,还能添加属性和方法,还能重写父类的属性和方法</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/29/java/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/java/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">抽象类和方法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-29 20:09:41" itemprop="dateCreated datePublished" datetime="2020-03-29T20:09:41+08:00">2020-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;<span class="comment">//抽象类</span></span><br><span class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">testAbstract</span><span class="params">()</span></span>;<span class="comment">//抽象方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><ul>
+<li>不能用于实例化</li>
+<li>除了被继承，没有任何意义</li>
+</ul>
+<h2 id="抽象方法"><a href="#抽象方法" class="headerlink" title="抽象方法"></a>抽象方法</h2><ul>
+<li>没有方法体</li>
+<li>除了被重写，没有任何意义</li>
+</ul>
+<h2 id="抽象类和抽象方法的联系"><a href="#抽象类和抽象方法的联系" class="headerlink" title="抽象类和抽象方法的联系"></a>抽象类和抽象方法的联系</h2><ul>
+<li>有抽象类，当中不一定有抽象方法</li>
+<li>有抽象方法，那么它的类一定是抽象类</li>
+<li>抽象类中的所有抽象方法，都要被继承抽象类的子类的方法所重写。(这个子类的方法也可以是抽象)</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>　　　　　　　海鸥<br>　　　　　／<br>动物——鸟<br>　　　　　＼<br>　　　　　　　鸡</p>
+<figure class="highlight java"><figcaption><span>动物</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;	<span class="comment">//抽象类</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"创建一个动物"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;	<span class="comment">//抽象方法不需要body</span></span><br><span class="line">		</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">reproduce</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>鸟</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Bird</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;	<span class="comment">//抽象类</span></span><br><span class="line">	</span><br><span class="line">	String feather;</span><br><span class="line">    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Bird</span><span class="params">(String feather)</span> </span>&#123;<span class="comment">//构造方法，初始化。</span></span><br><span class="line">		System.out.println(<span class="string">"创建一个鸟类"</span>);</span><br><span class="line">		<span class="comment">//将局部变量给成员变量</span></span><br><span class="line">		<span class="keyword">this</span>.feather = feather;<span class="comment">//这个是初始化属性，给该类中的growFeather()方法使用。</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//注意,这个不是抽象方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">growFeather</span><span class="params">()</span> </span>&#123;				<span class="comment">//不是抽象方法</span></span><br><span class="line">		System.out.println(<span class="string">"长满"</span> + feather + <span class="string">"羽毛"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reproduce</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"下蛋"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>海鸥</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Seagull</span> <span class="keyword">extends</span> <span class="title">Bird</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Seagull</span><span class="params">(String feather)</span> </span>&#123;<span class="comment">//因为有参数，所以需要构造方法(拿来看的)</span></span><br><span class="line">		<span class="keyword">super</span>(feather);</span><br><span class="line">		System.out.println(<span class="string">"我是一只海鸥"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"fly"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"eat fish"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>鸡</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chicken</span> <span class="keyword">extends</span> <span class="title">Bird</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Chicken</span><span class="params">(String feather)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(feather);</span><br><span class="line">		System.out.println(<span class="string">"我是一只鸡"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"跑"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"吃米"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>主方法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Seagull jack = <span class="keyword">new</span> Seagull(<span class="string">"白色"</span>);</span><br><span class="line">		jack.eat();</span><br><span class="line">		jack.move();</span><br><span class="line">		jack.growFeather();</span><br><span class="line">		jack.reproduce();</span><br><span class="line">		</span><br><span class="line">		System.out.println();</span><br><span class="line">		</span><br><span class="line">		Chicken tom = <span class="keyword">new</span> Chicken(<span class="string">"黄色"</span>);</span><br><span class="line">		tom.eat();</span><br><span class="line">		tom.move();</span><br><span class="line">		tom.growFeather();</span><br><span class="line">		tom.reproduce();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>输出</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">创建一个动物</span><br><span class="line">创建一个鸟类</span><br><span class="line">我是一只海鸥</span><br><span class="line">eat fish</span><br><span class="line">fly</span><br><span class="line">长满白色羽毛</span><br><span class="line">下蛋</span><br><span class="line"></span><br><span class="line">创建一个动物</span><br><span class="line">创建一个鸟类</span><br><span class="line">我是一只鸡</span><br><span class="line">吃米</span><br><span class="line">跑</span><br><span class="line">长满黄色羽毛</span><br><span class="line">下蛋</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/29/java/%E5%A4%9A%E6%80%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/java/%E5%A4%9A%E6%80%81/" class="post-title-link" itemprop="url">多态</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-29 19:43:34" itemprop="dateCreated datePublished" datetime="2020-03-29T19:43:34+08:00">2020-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>714</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>多态就是一种事物的多种形态。</p>
+<h2 id="存在的条件"><a href="#存在的条件" class="headerlink" title="存在的条件"></a>存在的条件</h2><ul>
+<li>继承</li>
+<li>重写</li>
+<li>向上转型（父类引用指向子类对象）</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String kinds)</span> </span>&#123;<span class="comment">//构造方法</span></span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"创建一个"</span> + kinds);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;		<span class="comment">//父类的方法</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fish</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Fish</span><span class="params">(String kinds)</span> </span>&#123;<span class="comment">//子类的构造方法</span></span><br><span class="line">		<span class="keyword">super</span>(kinds);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;		<span class="comment">//改写父类的方法</span></span><br><span class="line">		System.out.println(<span class="string">"swim"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(String kinds)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(kinds);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"run"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Animal xx = <span class="keyword">new</span> Animal(<span class="string">"动物"</span>);</span><br><span class="line">		Animal jack = <span class="keyword">new</span> Fish(<span class="string">"fish"</span>);<span class="comment">//这个动物变成了鱼（多态）</span></span><br><span class="line">		jack.move();</span><br><span class="line">		jack = <span class="keyword">new</span> Dog(<span class="string">"狗"</span>);	<span class="comment">//鱼变成了狗（多态）</span></span><br><span class="line">		jack.move();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/29/java/%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/java/%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B/" class="post-title-link" itemprop="url">上下转型</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-29 18:25:58" itemprop="dateCreated datePublished" datetime="2020-03-29T18:25:58+08:00">2020-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img data-src="https://i.ibb.co/bXxpLt6/bcaec43814b2875cee430a972fc877a.jpg" alt=""></p>
+<h2 id="为什么要向上转型？"><a href="#为什么要向上转型？" class="headerlink" title="为什么要向上转型？"></a>为什么要向上转型？</h2><p>我们直接用继承父类的子类实例化子类对象不就好了吗？这不就可以既能访问子类的对象，也能访问父类对象了吗？如果我们要用被覆盖的父类的方法或者属性，那么用super调用不就好了吗？</p>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="向上转型"><a href="#向上转型" class="headerlink" title="向上转型"></a>向上转型</h2><ol>
+<li>就是将<strong>子类对象赋值给父类类型的变量</strong>。</li>
+<li>向上转型是为了用父类变量来接受不同的子类对象，调用方法的时候传参父类对象，可以调用子类里不同的重写方法，得到不同的结果。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person tom = <span class="keyword">new</span> Student();</span><br></pre></td></tr></table></figure>
+应用</li>
+</ol>
+<hr>
+<figure class="highlight java"><figcaption><span>父类</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"小动物在睡觉"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doSleep</span><span class="params">(Animal animal)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 此时的参数是父类对象，但是实际调用时传递的是子类对象，就是向上转型。</span></span><br><span class="line">        animal.sleep();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        animal.doSleep(<span class="keyword">new</span> Cat());</span><br><span class="line">        animal.doSleep(<span class="keyword">new</span> Dog());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>第一个子类</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"猫正在睡觉"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>第二个子类</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"狗正在睡觉"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>输出</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">猫正在睡觉</span><br><span class="line">狗正在睡觉</span><br></pre></td></tr></table></figure>
+<p>如果不用向上转型则必须写两个 doSleep 方法，一个传递 Cat 类对象，一个传递 Dog 类对象。这还是两个子类，如果有多个子类就要写很多相同的方法，造成重复。可以看出向上转型更好的体现了类的多态性，增强了程序的间接性以及提高了代码的可扩展性。当需要用到子类特有的方法时可以向下转型，这也就是为什么要向下转型。</p>
+<h2 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a>向下转型</h2><p><strong>必须强制转换</strong><br><strong>使用向下转型，必须先向上转型</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Person jack = <span class="keyword">new</span> Doctor();	<span class="comment">//向上转型</span></span><br><span class="line">Doctor dr = (Doctor)jack;	<span class="comment">//才能让jack向下转型当医生</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/03/28/github/git/%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/28/github/git/%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF/" class="post-title-link" itemprop="url">使用分支</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-28 19:23:07" itemprop="dateCreated datePublished" datetime="2020-03-28T19:23:07+08:00">2020-03-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-08 22:42:18" itemprop="dateModified" datetime="2020-08-08T22:42:18+08:00">2020-08-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>483</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>分支就是一条时间线，它能帮我们记录对仓库的修改操作，我们如果想要在原来分支的基础之上，创作我们的项目，就可以新建另一条分支，它与原来的master分支相同。然后，就切换到新分支进行工作，这样就对原来的分支起到保护作用，因为它不影响master分支。等我们将工作完成后，就可以合并两条分支，两条分支的记录就变成一样。最后，就可以删除用于工作的分支了。</p>
+<h2 id="Anyway"><a href="#Anyway" class="headerlink" title="Anyway"></a>Anyway</h2><p>分支就是用于记录不同的历史版本的。</p>
+<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><ol>
+<li><p>查看分支<br><code>git branch</code></p>
 </li>
-<li><p>用指针访问<br><code>him-&gt;handle.first</code>//意义：用him指针指向成员的成员<br>等价于<br><code>(*him).handle.first</code>//意义：取值为结构struct guy fellow[0]这个结构<br>这里必须要用()，因为.比*的优先级高。</p>
+<li><p>创建分支<br><code>git branch &lt;name&gt;</code></p>
+</li>
+<li><p>将HAND转移到分支<br><code>git checkout &lt;name&gt;</code><br>或者<br><code>git switch &lt;name&gt;</code></p>
+</li>
+<li><p>创建并切换到分支<br><code>git checkout -b &lt;name&gt;</code><br>或者<br><code>git switch -c &lt;name&gt;</code></p>
+</li>
+<li><p>将某分支合并到当前分支<br><code>git merge &lt;name&gt;</code></p>
+</li>
+<li><p>删除分支<br><code>git branch -d &lt;name&gt;</code></p>
 </li>
 </ol>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* friends.c -- uses pointer to a structure */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 20</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">names</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> first[LEN];</span><br><span class="line">    <span class="keyword">char</span> last[LEN];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">guy</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">names</span> <span class="title">handle</span>;</span><span class="comment">//结构嵌套</span></span><br><span class="line">    <span class="keyword">char</span> favfood[LEN];</span><br><span class="line">    <span class="keyword">char</span> job[LEN];</span><br><span class="line">    <span class="keyword">float</span> income;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">guy</span> <span class="title">fellow</span>[2] = &#123;</span><span class="comment">//结构数组</span></span><br><span class="line">        &#123;&#123; <span class="string">"Ewen"</span>, <span class="string">"Villard"</span>&#125;,</span><br><span class="line">            <span class="string">"grilled salmon"</span>,</span><br><span class="line">            <span class="string">"personality coach"</span>,</span><br><span class="line">            <span class="number">68112.00</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;&#123;<span class="string">"Rodney"</span>, <span class="string">"Swillbelly"</span>&#125;,</span><br><span class="line">            <span class="string">"tripe"</span>,</span><br><span class="line">            <span class="string">"tabloid editor"</span>,</span><br><span class="line">            <span class="number">432400.00</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">guy</span> * <span class="title">him</span>;</span>    <span class="comment">/* here is a pointer to a structure */</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"address #1: %p #2: %p\n"</span>, &amp;fellow[<span class="number">0</span>], &amp;fellow[<span class="number">1</span>]);</span><br><span class="line">    him = &amp;fellow[<span class="number">0</span>];    <span class="comment">/* tell the pointer where to point  */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"pointer #1: %p #2: %p\n"</span>, him, him + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"him-&gt;income is $%.2f: (*him).income is $%.2f\n"</span>,</span><br><span class="line">           him-&gt;income, (*him).income);</span><br><span class="line">    him++;               <span class="comment">/* point to the next structure      */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"him-&gt;favfood is %s:  him-&gt;handle.last is %s\n"</span>,</span><br><span class="line">           him-&gt;favfood, him-&gt;handle.last);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/09/c/%E7%BB%93%E6%9E%84%E4%BD%93%E5%A3%B0%E6%98%8E%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/09/c/%E7%BB%93%E6%9E%84%E4%BD%93%E5%A3%B0%E6%98%8E%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96/" class="post-title-link" itemprop="url">结构体声明和初始化</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-09 14:46:56" itemprop="dateCreated datePublished" datetime="2020-04-09T14:46:56+08:00">2020-04-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-15 17:57:54" itemprop="dateModified" datetime="2020-09-15T17:57:54+08:00">2020-09-15</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="声明结构类型"><a href="#声明结构类型" class="headerlink" title="声明结构类型"></a>声明结构类型</h2><p>声明<code>struct person{...};</code></p>
-<ul>
-<li><p><strong>这个struct person起的作用就是一般声明中的int</strong></p>
-<p>例如：定义struct person类型的变量。<code>struct person ferry, *pferry</code></p>
-</li>
-<li><p>声明过程与定义结构变量，可以组合成一个步骤。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> /*无结构标记*/</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">&#125;library;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>但如果要多次使用模板，就要加上标记。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> data;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span>* <span class="title">lchild</span>;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BTNode</span>* <span class="title">rchild</span>;</span></span><br><span class="line">&#125;BTNode;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
+<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><ul>
+<li>我们可以看到。<br><img data-src="https://i.ibb.co/187JvWb/01d8057b5d4312706738d102da46f11.png" alt=""></li>
+<li>当我们push上去<br><img data-src="https://i.ibb.co/y8hJ7TH/8317355e514cf65e4092a1e736a75a1.png" alt=""></li>
 </ul>
-<p><strong>这时编译器还没有在内存中分配空间</strong>。什么时候开始分配呢，当然是在初始化变量的时候。</p>
-<h2 id="初始化结构变量"><a href="#初始化结构变量" class="headerlink" title="初始化结构变量"></a>初始化结构变量</h2><p><code>struct person ferry;</code>这样就初始化了ferry这个变量，同时为该变量分配空间。<br>当然，我们可以用这结构类型定义多个变量。这样就可以存储不同的信息。</p>
-<h2 id="初始化成员"><a href="#初始化成员" class="headerlink" title="初始化成员"></a>初始化成员</h2><p>在刚开始声明结构中就有表明了要什么样的数据类型，再到初始化变量的时候分配空间。<br>而，这些数据类型，就是一个个成员。<br>有两种方式：</p>
-<ul>
-<li>顺序初始化</li>
-<li>指定初始化</li>
-</ul>
-<h2 id="调用成员"><a href="#调用成员" class="headerlink" title="调用成员"></a>调用成员</h2><p>在变量名的后面加　.　然后加上成员变量</p>
-<figure class="highlight c"><figcaption><span>顺序初始化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 40</span></span><br><span class="line"><span class="comment">//声明一个标记为Person的结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> title[<span class="number">40</span>];<span class="comment">//声明一个字符数组</span></span><br><span class="line">    <span class="keyword">int</span> since;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">person</span> <span class="title">ferry</span> = //声明变量</span></span><br><span class="line"><span class="class">    &#123;</span><span class="comment">//顺序初始化</span></span><br><span class="line">        <span class="string">"ferry"</span>, <span class="comment">//逗号分隔</span></span><br><span class="line">        <span class="number">2020</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, ferry.title);<span class="comment">//对结构体成员的引用</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ferry.since);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><figcaption><span>指定初始化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LEN 40</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> title[<span class="number">40</span>];/</span><br><span class="line">    <span class="keyword">int</span> since;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">person</span> <span class="title">ferry</span> =</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        .since = <span class="number">2020</span>,<span class="comment">//指定初始化</span></span><br><span class="line">        .title = <span class="string">"blog"</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, ferry.title);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ferry.since);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="取别名"><a href="#取别名" class="headerlink" title="取别名"></a>取别名</h2><p>为结构体取别名，使用<code>typedef</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">complex</span>&#123;</span></span><br><span class="line">    <span class="keyword">float</span> real;</span><br><span class="line">    <span class="keyword">float</span> imag;</span><br><span class="line">&#125;COMPLEX;</span><br></pre></td></tr></table></figure>
-
-<p>这样就给complex这个结构取个别名COMPLEX。</p>
-<p><strong>例如有这样的声明和定义</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">double</span> y;</span><br><span class="line">&#125;<span class="built_in">rect</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">rect</span> r1 = &#123; <span class="number">3.0</span>, <span class="number">6.0</span> &#125;;</span><br><span class="line"><span class="built_in">rect</span> r2;</span><br></pre></td></tr></table></figure>
-
-<p><strong>那么就等价于：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">double</span> y;</span><br><span class="line">&#125;r1 = &#123; <span class="number">3.0</span>,<span class="number">6.0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">double</span> y;</span><br><span class="line">&#125;r2;</span><br></pre></td></tr></table></figure>
-
-<p><strong>因为r1和r2是同种类型，<code>r2=r1</code>是对的</strong>。没有用typedef就不可以</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">double</span> y;</span><br><span class="line">&#125;<span class="built_in">rect</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">rect</span> r1 = &#123; <span class="number">3.0</span>,<span class="number">6.0</span> &#125;;</span><br><span class="line"><span class="built_in">rect</span> r2;</span><br><span class="line"></span><br><span class="line">r2 = r1;</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/04/08/c/%E5%86%8D%E6%8E%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E7%9A%84%E5%88%86%E9%85%8D%E7%A9%BA%E9%97%B4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/08/c/%E5%86%8D%E6%8E%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E7%9A%84%E5%88%86%E9%85%8D%E7%A9%BA%E9%97%B4/" class="post-title-link" itemprop="url">again再探字符串输入的分配空间</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-08 18:33:01" itemprop="dateCreated datePublished" datetime="2020-04-08T18:33:01+08:00">2020-04-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-14 21:21:28" itemprop="dateModified" datetime="2020-09-14T21:21:28+08:00">2020-09-14</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们平时使用<br><code>char str[] = &quot;ferry&quot;;</code>可以。<br><code>char str[10]; str = &quot;ferry&quot;;</code>不可以。<br>然鹅，还有给<strong>结构中的成员赋值的时候</strong>，可以直接用字符串初始化。这些原因都是因为开辟空间的问题。</p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p><strong>在初始化变量时，分配空间。结构也是如此。</strong></p>
-<h2 id="不能将指针赋值给常量"><a href="#不能将指针赋值给常量" class="headerlink" title="不能将指针赋值给常量"></a>不能将指针赋值给常量</h2><p><code>char str1[]</code>是array type<br><strong>str1是常量，不是指针啊~</strong><br><code>char *str2</code><br><strong>str2是个指针(是个变量)</strong></p>
-<figure class="highlight c"><figcaption><span>错误，不能给数组的地址（常量）赋值</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[<span class="number">30</span>];<span class="comment">//已经分配好空间。</span></span><br><span class="line">    <span class="keyword">char</span> * str2;</span><br><span class="line">    str2 = <span class="string">"ferry"</span>;</span><br><span class="line">    str1 = str2;<span class="comment">//错误，str1是个地址</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>如果我想要给str1数组添加字符咋办？那就用<code>strcpy()</code>复制进去</strong></p>
-<h2 id="可以将数组的地址赋给指针"><a href="#可以将数组的地址赋给指针" class="headerlink" title="可以将数组的地址赋给指针"></a>可以将数组的地址赋给指针</h2><figure class="highlight c"><figcaption><span>正确</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[<span class="number">30</span>] = <span class="string">"ferry"</span>;</span><br><span class="line">    <span class="keyword">char</span> * str2;</span><br><span class="line"></span><br><span class="line">    str2 = str1;<span class="comment">//字符数组的地址给指针</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c"</span>, *(str2 + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="结构的说明"><a href="#结构的说明" class="headerlink" title="结构的说明"></a>结构的说明</h2><p><strong>字符串在静态存储区，str[0]只不过是个地址，它指向了字符串。*str[0]只是一个字符‘o’</strong></p>
-<figure class="highlight c"><figcaption><span>只能以"<...>"这种字符串形式初始化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">names</span></span></span><br><span class="line"><span class="class">&#123;</span><span class="comment">//注意这里还没分配空间。</span></span><br><span class="line">	<span class="keyword">char</span> first[<span class="number">20</span>];</span><br><span class="line">	<span class="keyword">char</span> last[<span class="number">20</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="keyword">char</span> * str[<span class="number">2</span>] = &#123;<span class="string">"ok"</span>, <span class="string">"ko"</span>&#125;;</span><br><span class="line">    <span class="comment">//初始化，分配空间</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">names</span> <span class="title">veep</span> = &#123;</span>str[<span class="number">0</span>], str[<span class="number">1</span>]&#125;;<span class="comment">//Warning!!这里的str[0]存储的是个地址，不是字符串</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">names</span> <span class="title">treas</span> = &#123;</span><span class="string">"ok"</span>, <span class="string">"ko"</span>&#125;;<span class="comment">//正确!!这里才是真正的字符串</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">lens</span> &#123;</span><span class="comment">//typedef定义一种结构，名为LENS</span></span><br><span class="line">    <span class="keyword">float</span> foclen;</span><br><span class="line">    <span class="keyword">float</span> fstop;</span><br><span class="line">    <span class="keyword">char</span> brand[<span class="number">30</span>];<span class="comment">//预留空间，还没分配</span></span><br><span class="line">&#125;LENS;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//对每个成员单独赋值</span></span><br><span class="line">    LENS bigeyes[<span class="number">10</span>];<span class="comment">//结构数组</span></span><br><span class="line">    bigeyes[<span class="number">2</span>].foclen = <span class="number">500</span>;</span><br><span class="line">    bigeyes[<span class="number">2</span>].fstop = <span class="number">2.0</span>;</span><br><span class="line">    <span class="built_in">strcpy</span>(bigeyes[<span class="number">2</span>].brand, <span class="string">"Remarkata"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用待指定初始化器</span></span><br><span class="line">    LENS smalleyes[<span class="number">10</span>] = &#123;</span><br><span class="line">        [<span class="number">2</span>] = &#123;</span><br><span class="line">            <span class="number">500</span>,</span><br><span class="line">            <span class="number">2</span>,</span><br><span class="line">            <span class="string">"Remarkatar"</span><span class="comment">//这里是初始化，开始分配空间</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>显然，分支是已经做好准备工作了。<br>我们不需要再次<code>git add .</code>和<code>git commit -m</code>了</p>
 
       
     </div>
@@ -1117,7 +1077,7 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1217,13 +1177,13 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">273k</span>
+    <span title="Symbols count total">220k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">4:08</span>
+    <span title="Reading time total">3:20</span>
 </div>
 
 <div id="days"></div>

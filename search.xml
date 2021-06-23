@@ -1,6 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>database</title>
+    <url>/2021/06/23/SQL/database/</url>
+    <content><![CDATA[<h1 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h1><h2 id="create-database"><a href="#create-database" class="headerlink" title="create database"></a>create database</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> database_name;</span><br></pre></td></tr></table></figure>
+
+<h2 id="delete-database"><a href="#delete-database" class="headerlink" title="delete database"></a>delete database</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> database_name;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h1><h2 id="create-table"><a href="#create-table" class="headerlink" title="create table"></a>create table</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name (</span><br><span class="line">    column1 datatype,</span><br><span class="line">    column2 datatype,</span><br><span class="line">    column3 datatype,</span><br><span class="line">   ....</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>The column parameters specify the names of the columns of the table.</p>
+<p>The datatype parameter specifies the type of data the column can hold (e.g. varchar, integer, date, etc.).</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons (</span><br><span class="line">    PersonID <span class="built_in">int</span>,</span><br><span class="line">    LastName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    City <span class="built_in">varchar</span>(<span class="number">255</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">PersonID</th>
+<th align="left">LastName</th>
+<th align="left">FirstName</th>
+<th align="left">Address</th>
+<th align="left">City</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h2 id="alter-table"><a href="#alter-table" class="headerlink" title="alter table"></a>alter table</h2><p>The <code>alter table</code> statement can allows you to <code>add</code>, <code>alter column</code> and <code>drop column</code> for a table. </p>
+<ul>
+<li><p>add</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"><span class="keyword">ADD</span> column_name datatype;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>alter column</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> column_name datatype;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>drop column</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">COLUMN</span> column_name;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h1 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h1><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name (</span><br><span class="line">    column1 datatype <span class="keyword">constraint</span>,</span><br><span class="line">    column2 datatype <span class="keyword">constraint</span>,</span><br><span class="line">    column3 datatype <span class="keyword">constraint</span>,</span><br><span class="line">    ....</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>As you see, the constraints are used to specify rules for the columns. </p>
+<p>The following constraints are commonly used in SQL:</p>
+<ul>
+<li><p><code>NOT NULL</code> - Ensures that a column cannot have a NULL value</p>
+</li>
+<li><p><code>UNIQUE</code> - Ensures that all values in a column are different</p>
+</li>
+<li><p><code>PRIMARY KEY</code> - A combination of a <code>NOT NULL</code> and <code>UNIQUE</code>. Uniquely identifies each row in a table</p>
+<p><strong>(However, you can have many <code>UNIQUE</code> constraints per table, but only one <code>PRIMARY KEY</code> constraint per table.)</strong></p>
+</li>
+<li><p><code>FOREIGN KEY</code> - Prevents actions that would destroy links between tables</p>
+</li>
+<li><p><code>CHECK</code> - Ensures that the values in a column satisfies a specific condition</p>
+</li>
+<li><p><code>DEFAULT</code> - Sets a default value for a column if no value is specified</p>
+</li>
+<li><p><code>CREATE INDEX</code> - Used to create and retrieve data from the database very quickly</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SQL</title>
     <url>/2021/06/22/SQL/SQL/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>SQL stands for Structured Query Language. </p>
@@ -124,6 +200,41 @@
 </tbody></table>
 </li>
 </ul>
+<h4 id="LIKE"><a href="#LIKE" class="headerlink" title="LIKE"></a>LIKE</h4><p>The <code>LIKE</code> operator is used in a <code>WHERE</code> clause to search for a specified pattern in a column.</p>
+<p>There are two wildcards often used in conjunction with the <code>LIKE</code> operator:</p>
+<ul>
+<li>The percent sign (%) represents zero, one, or multiple characters</li>
+<li>The underscore sign (_) represents one, single character</li>
+</ul>
+<p><strong>Note:</strong> MS Access uses an asterisk (*) instead of the percent sign (%), and a question mark (?) instead of the underscore (_).</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> columnN <span class="keyword">LIKE</span> pattern;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> CustomerName <span class="keyword">LIKE</span> <span class="string">'a%'</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="NOT-LIKE"><a href="#NOT-LIKE" class="headerlink" title="NOT LIKE"></a>NOT LIKE</h4><p>The following SQL statement selects all customers with a CustomerName that does NOT start with “a”:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> CustomerName <span class="keyword">NOT</span> <span class="keyword">LIKE</span> <span class="string">'a%'</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="IN"><a href="#IN" class="headerlink" title="IN"></a>IN</h4><p>The <code>IN</code> operator is a shorthand for multiple <code>OR</code> conditions. </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_name <span class="keyword">IN</span> (value1, value2, ...);</span><br></pre></td></tr></table></figure>
+
+<h4 id="NOT-IN"><a href="#NOT-IN" class="headerlink" title="NOT IN"></a>NOT IN</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> Country <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="string">'Germany'</span>, <span class="string">'France'</span>, <span class="string">'UK'</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="BETWEEN"><a href="#BETWEEN" class="headerlink" title="BETWEEN"></a>BETWEEN</h4><p>The <code>BETWEEN</code> operator selects values within a given range. The values can be numbers, text, or dates.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_name <span class="keyword">BETWEEN</span> value1 <span class="keyword">AND</span> value2;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="NOT-BETWEEN"><a href="#NOT-BETWEEN" class="headerlink" title="NOT BETWEEN"></a>NOT BETWEEN</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> Price <span class="keyword">NOT</span> <span class="keyword">BETWEEN</span> <span class="number">10</span> <span class="keyword">AND</span> <span class="number">20</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h3 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h3><p>The <code>IS NULL</code> operator is used to test for empty values (NULL values).</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CustomerName, ContactName, Address</span><br><span class="line"><span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> Address <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
 
@@ -167,6 +278,183 @@
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name <span class="keyword">WHERE</span> condition;</span><br></pre></td></tr></table></figure>
 
 <p><strong>If you omit the <code>WHERE</code> clause, all records in the table will be deleted!</strong></p>
+<h2 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h2><p>A <code>JOIN</code> clause is used to combine rows from two or more tables, based on a related column between them.</p>
+<p><img data-src="https://i.imgur.com/iboSksO.gif" alt="inner join"></p>
+<p><img data-src="https://i.imgur.com/QCVT6Tl.gif" alt="left join"></p>
+<p><img data-src="https://i.imgur.com/aSsMfJ0.gif" alt="right join"></p>
+<p><img data-src="https://i.imgur.com/aSsMfJ0.gif" alt="full join"></p>
+<h3 id="INNER-JOIN"><a href="#INNER-JOIN" class="headerlink" title="INNER JOIN"></a>INNER JOIN</h3><p>The <code>INNER JOIN</code> keyword selects records that have matching values in both tables.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"><span class="keyword">ON</span> table1.column_name = table2.column_name;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>Let’s look at a selection from the “<strong>Orders</strong>“ table:</p>
+<table>
+<thead>
+<tr>
+<th align="left">OrderID</th>
+<th align="left">CustomerID</th>
+<th align="left">OrderDate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">10308</td>
+<td align="left">2</td>
+<td align="left">1996-09-18</td>
+</tr>
+<tr>
+<td align="left">10309</td>
+<td align="left">37</td>
+<td align="left">1996-09-19</td>
+</tr>
+<tr>
+<td align="left">10310</td>
+<td align="left">77</td>
+<td align="left">1996-09-20</td>
+</tr>
+</tbody></table>
+<p>Then, look at a selection from the “<strong>Customers</strong>“ table:</p>
+<table>
+<thead>
+<tr>
+<th align="left">CustomerID</th>
+<th align="left">CustomerName</th>
+<th align="left">ContactName</th>
+<th align="left">Country</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">Alfreds Futterkiste</td>
+<td align="left">Maria Anders</td>
+<td align="left">Germany</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Ana Trujillo Emparedados y helados</td>
+<td align="left">Ana Trujillo</td>
+<td align="left">Mexico</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">Antonio Moreno Taquería</td>
+<td align="left">Antonio Moreno</td>
+<td align="left">Mexico</td>
+</tr>
+</tbody></table>
+<p>Notice that the “CustomerID” column in the “Orders” table refers to the “CustomerID” in the “Customers” table. <strong>The relationship between the two tables above is the “CustomerID” column.</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Orders.OrderID, Customers.CustomerName, Orders.OrderDate</span><br><span class="line"><span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> Customers <span class="keyword">ON</span> Orders.CustomerID=Customers.CustomerID;</span><br></pre></td></tr></table></figure>
+
+<p>and it will produce something like this:</p>
+<table>
+<thead>
+<tr>
+<th align="left">OrderID</th>
+<th align="left">CustomerName</th>
+<th align="left">OrderDate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">10308</td>
+<td align="left">Ana Trujillo Emparedados y helados</td>
+<td align="left">9/18/1996</td>
+</tr>
+<tr>
+<td align="left">10365</td>
+<td align="left">Antonio Moreno Taquería</td>
+<td align="left">11/27/1996</td>
+</tr>
+<tr>
+<td align="left">10383</td>
+<td align="left">Around the Horn</td>
+<td align="left">12/16/1996</td>
+</tr>
+<tr>
+<td align="left">10355</td>
+<td align="left">Around the Horn</td>
+<td align="left">11/15/1996</td>
+</tr>
+<tr>
+<td align="left">10278</td>
+<td align="left">Berglunds snabbköp</td>
+<td align="left">8/12/1996</td>
+</tr>
+</tbody></table>
+<h3 id="LEFT-JOIN"><a href="#LEFT-JOIN" class="headerlink" title="LEFT JOIN"></a>LEFT JOIN</h3><p>The <code>LEFT JOIN</code> keyword returns all records from the left table (table1), and the matching records from the right table (table2).</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"><span class="keyword">ON</span> table1.column_name = table2.column_name;</span><br></pre></td></tr></table></figure>
+
+<h3 id="RIGHT-JOIN"><a href="#RIGHT-JOIN" class="headerlink" title="RIGHT JOIN"></a>RIGHT JOIN</h3><p>The <code>RIGHT JOIN</code> keyword returns all records from the right table (table2), and the matching records from the left table (table1). </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"><span class="keyword">ON</span> table1.column_name = table2.column_name;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="FULL-JOIN"><a href="#FULL-JOIN" class="headerlink" title="FULL JOIN"></a>FULL JOIN</h3><p>The <code>FULL OUTER JOIN</code> keyword returns all records when there is <strong>a match</strong> in left (table1) or right (table2) table records.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">FULL</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"><span class="keyword">ON</span> table1.column_name = table2.column_name</span><br><span class="line"><span class="keyword">WHERE</span> condition;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="SELF-JOIN"><a href="#SELF-JOIN" class="headerlink" title="SELF JOIN"></a>SELF JOIN</h3><p>A self join is a regular join, but the table is <strong>joined with itself.</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table1 T1, table1 T2</span><br><span class="line"><span class="keyword">WHERE</span> condition;</span><br><span class="line"><span class="comment">#T1 and T2 are different table aliases for the same table.</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h2><p>The <code>GROUP BY</code> statement groups rows that have the same values into summary rows, like “find the number of customers in each country”. So the <code>GROUP BY</code> statement is often used with aggregate functions (<code>COUNT()</code>, <code>MAX()</code>, <code>MIN()</code>, <code>SUM()</code>, <code>AVG()</code>) to group the result-set by one or more columns.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> column_name(s)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> column_name(s);</span><br></pre></td></tr></table></figure>
+
+<p>The following SQL statement lists the number of customers in each country:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(CustomerID), Country</span><br><span class="line"><span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Country;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><h2 id="MIN"><a href="#MIN" class="headerlink" title="MIN()"></a>MIN()</h2><p>Export the smallest value of the selected column. </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="MAX"><a href="#MAX" class="headerlink" title="MAX()"></a>MAX()</h2><p>Export the largest value of the selected column.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="COUNT"><a href="#COUNT" class="headerlink" title="COUNT()"></a>COUNT()</h2><p>The count function return the number of the rows of selected column. </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="AVG"><a href="#AVG" class="headerlink" title="AVG()"></a>AVG()</h2><p>The <code>AVG()</code> function returns the average value of a numeric column. </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="SUM"><a href="#SUM" class="headerlink" title="SUM()"></a>SUM()</h2><p>The <code>SUM()</code> function returns the total sum of a numeric column. </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Aliases"><a href="#Aliases" class="headerlink" title="Aliases"></a>Aliases</h1><p>SQL aliases are used to give a table, or a column in a table, a temporary name.</p>
+<p>An alias is created with the <code>AS</code> keyword.</p>
+<h3 id="Alias-Column-Syntax"><a href="#Alias-Column-Syntax" class="headerlink" title="Alias Column Syntax"></a>Alias Column Syntax</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *column_name* <span class="keyword">AS</span> *alias_name*</span><br><span class="line">FROM *table_name;*</span><br></pre></td></tr></table></figure>
+
+<h3 id="Alias-Table-Syntax"><a href="#Alias-Table-Syntax" class="headerlink" title="Alias Table Syntax"></a>Alias Table Syntax</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *column_name(s)*</span><br><span class="line">FROM *table_name* AS *alias_name;*</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
 ]]></content>
       <tags>
         <tag>sql</tag>

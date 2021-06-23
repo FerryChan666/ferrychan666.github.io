@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">140</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">141</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -187,6 +187,221 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2021/06/15/html/html-forms/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hacker.webp">
+      <meta itemprop="name" content="Ferry">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ferry's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/15/html/html-forms/" class="post-title-link" itemprop="url">html forms</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-06-15 15:59:14" itemprop="dateCreated datePublished" datetime="2021-06-15T15:59:14+08:00">2021-06-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-19 23:23:15" itemprop="dateModified" datetime="2021-06-19T23:23:15+08:00">2021-06-19</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Forms"><a href="#Forms" class="headerlink" title="Forms"></a>Forms</h1><p><strong>The <code>&lt;form&gt;</code> element is used to create a HTHML form for user input</strong>, which is a container for different types of input elements, such as: text fields, checkboxes, radio buttons, submit buttons, etc.</p>
+<h2 id="The-HTML-lt-form-gt-Elements"><a href="#The-HTML-lt-form-gt-Elements" class="headerlink" title="The HTML &lt;form&gt; Elements"></a>The HTML <code>&lt;form&gt;</code> Elements</h2><p>The HTML <code>&lt;form&gt;</code> element can contain one or more of the following form elements:</p>
+<ul>
+<li><code>&lt;input&gt;</code></li>
+<li><code>&lt;label&gt;</code></li>
+<li><code>&lt;select&gt;</code></li>
+<li><code>&lt;textarea&gt;</code></li>
+<li><code>&lt;button&gt;</code></li>
+<li><code>&lt;fieldset&gt;</code></li>
+<li><code>&lt;legend&gt;</code></li>
+<li><code>&lt;datalist&gt;</code></li>
+<li><code>&lt;output&gt;</code></li>
+<li><code>&lt;option&gt;</code></li>
+<li><code>&lt;optgroup&gt;</code></li>
+</ul>
+<h3 id="The-lt-input-gt-Element"><a href="#The-lt-input-gt-Element" class="headerlink" title="The &lt;input&gt; Element"></a>The <code>&lt;input&gt;</code> Element</h3><p>One of the most used form element is the <code>&lt;input&gt;</code> element.</p>
+<p>The <code>&lt;input&gt;</code> element can be displayed in several ways, depending on the <code>type</code> attribute.</p>
+<h3 id="The-lt-label-gt-Element"><a href="#The-lt-label-gt-Element" class="headerlink" title="The &lt;label&gt; Element"></a>The <code>&lt;label&gt;</code> Element</h3><p>When the user clicks the text within the <code>&lt;label&gt;</code> element, it toggles the radio button/checkbox.</p>
+<p>The <code>for</code> attribute of the <code>&lt;label&gt;</code> tag should be equal to the <code>id</code> attribute of the <code>&lt;input&gt;</code> element to bind them together.</p>
+<p><strong>Usage</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span>First Name:</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"ferry"</span> <span class="attr">name</span>=<span class="string">"fname"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"LN"</span>&gt;</span>Last Name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"LN"</span> <span class="attr">value</span>=<span class="string">"chan"</span> <span class="attr">name</span>=<span class="string">"lname"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="The-lt-select-gt-Element"><a href="#The-lt-select-gt-Element" class="headerlink" title="The &lt;select&gt; Element"></a>The <code>&lt;select&gt;</code> Element</h3><p>The <code>&lt;select&gt;</code> element defines a drop-down list:</p>
+<p>The <code>&lt;option&gt;</code> elements defines an option that can be selected.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"cars"</span> <span class="attr">name</span>=<span class="string">"cars"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"volvo"</span>&gt;</span>Volvo<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"saab"</span>&gt;</span>Saab<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"fiat"</span>&gt;</span>Fiat<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"audi"</span>&gt;</span>Audi<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><label for="cars">Choose a car:</label></p>
+<select id="cars" name="cars">
+ <option value="volvo">Volvo</option>
+ <option value="saab">Saab</option>
+ <option value="fiat">Fiat</option>
+ <option value="audi">Audi</option>
+</select>
+
+
+
+
+<h3 id="The-lt-button-gt-Element"><a href="#The-lt-button-gt-Element" class="headerlink" title="The &lt;button&gt; Element"></a>The <code>&lt;button&gt;</code> Element</h3><p>The <code>&lt;button&gt;</code> element defines a clickable button:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"alert('Hello World!')"</span>&gt;</span>Click Me!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="The-lt-fieldset-gt-and-lt-legend-gt-Elements"><a href="#The-lt-fieldset-gt-and-lt-legend-gt-Elements" class="headerlink" title="The &lt;fieldset&gt; and &lt;legend&gt; Elements"></a>The <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> Elements</h3><p>The <code>&lt;fieldset&gt;</code> element is used to group related data in a form.</p>
+<p>The <code>&lt;legend&gt;</code> element defines a caption for the <code>&lt;fieldset&gt;</code> element.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/action_page.php"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">legend</span>&gt;</span>Personalia:<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"fname"</span>&gt;</span>First name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"fname"</span> <span class="attr">name</span>=<span class="string">"fname"</span> <span class="attr">value</span>=<span class="string">"John"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"lname"</span>&gt;</span>Last name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"lname"</span> <span class="attr">name</span>=<span class="string">"lname"</span> <span class="attr">value</span>=<span class="string">"Doe"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<form action="/action_page.php">
+  <fieldset>
+    <legend>Personalia:</legend>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+
+
+<h2 id="The-Input-Type"><a href="#The-Input-Type" class="headerlink" title="The Input Type"></a>The Input Type</h2><p>Here are the different input types you can use in HTML:</p>
+<ul>
+<li><code>&lt;input type=&quot;button&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;checkbox&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;color&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;date&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;datetime-local&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;email&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;file&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;hidden&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;image&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;month&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;number&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;password&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;radio&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;range&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;reset&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;search&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;submit&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;tel&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;text&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;time&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;url&quot;&gt;</code></li>
+<li><code>&lt;input type=&quot;week&quot;&gt;</code></li>
+</ul>
+<h3 id="Radio"><a href="#Radio" class="headerlink" title="Radio"></a>Radio</h3><p>Radio is one of the values of the <code>type</code> attribute. </p>
+<p><strong>Specify the same values of name attributes of the input elements, which are grouped together as a set of radios.</strong> </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"one"</span> <span class="attr">name</span>=<span class="string">"number"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"one"</span>&gt;</span>one<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"one"</span> <span class="attr">name</span>=<span class="string">"number"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"two"</span>&gt;</span>two<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"three"</span> <span class="attr">name</span>=<span class="string">"number"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"three"</span>&gt;</span>three<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Checkbox"><a href="#Checkbox" class="headerlink" title="Checkbox"></a>Checkbox</h3><p>Checkboxes let a user select ZERO or MORE options of a limited number of choices.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"Bike"</span> <span class="attr">name</span>=<span class="string">"vehicle1"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"Bike"</span>&gt;</span>Bike<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"Car"</span> <span class="attr">name</span>=<span class="string">"vehicle2"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"Car"</span>&gt;</span>Car<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"Boat"</span> <span class="attr">name</span>=<span class="string">"vehicle3"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"Boat"</span>&gt;</span>Boat<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Submit"><a href="#Submit" class="headerlink" title="Submit"></a>Submit</h3><p>The submit also is one of the values of type attribute in input element, which submits the form data to a form-handler, a server file that is specify in the form’s action attribute. </p>
+<p>In the example below, the form data is sent to a file called “action_page.php”. This file contains a server-side script that handles the form data:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/action_page.php"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"fname"</span>&gt;</span>First name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"fname"</span> <span class="attr">name</span>=<span class="string">"fname"</span> <span class="attr">value</span>=<span class="string">"John"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"lname"</span>&gt;</span>Last name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"lname"</span> <span class="attr">name</span>=<span class="string">"lname"</span> <span class="attr">value</span>=<span class="string">"Doe"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Reset"><a href="#Reset" class="headerlink" title="Reset"></a>Reset</h3><p><code>&lt;input type=&quot;reset&quot;&gt;</code> defines a <strong>reset button</strong> that will reset all form values to their default values.</p>
+<h2 id="The-Input-Attribute"><a href="#The-Input-Attribute" class="headerlink" title="The Input Attribute"></a>The Input Attribute</h2><h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><p>This attribute specifies a default value in the input filed. </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span>First Name:</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"ferry"</span> <span class="attr">name</span>=<span class="string">"fname"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"LN"</span>&gt;</span>Last Name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"LN"</span> <span class="attr">value</span>=<span class="string">"chan"</span> <span class="attr">name</span>=<span class="string">"lname"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img data-src="https://i.imgur.com/2ZUlVGt.png" alt="e.g." style="zoom: 80%;">
+
+
+
+<h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><p>Notice that each input field must have a <code>name</code> attribute to be submitted.</p>
+<p><strong>If the <code>name</code> attribute is omitted, the value of the input field will not be sent at all.</strong></p>
+<h3 id="placeholder"><a href="#placeholder" class="headerlink" title="placeholder"></a>placeholder</h3><p>The input placeholder attribute specifies a  short hint to describes the expected value of input. </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"phone"</span>&gt;</span>Enter a phone number:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"tel"</span> <span class="attr">id</span>=<span class="string">"phone"</span> <span class="attr">name</span>=<span class="string">"phone"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">placeholder</span>=<span class="string">"123-45-678"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">pattern</span>=<span class="string">"[0-9]&#123;3&#125;-[0-9]&#123;2&#125;-[0-9]&#123;3&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<form>
+ <label for="phone">Enter a phone number:</label>
+ <input type="tel" id="phone" name="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+</form>
+
+
+
+
+<h3 id="required"><a href="#required" class="headerlink" title="required"></a>required</h3><p>The input <code>required</code> attribute specifies that an input field must be filled out before submitting the form.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"one"</span> <span class="attr">name</span>=<span class="string">"number"</span> <span class="attr">required</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>The form attribute specifies the form the input element belongs to. </p>
+<p>An input field located outside of the HTML form (but still a part of the form):</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/action_page.php"</span> <span class="attr">id</span>=<span class="string">"form1"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"fname"</span>&gt;</span>First name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"fname"</span> <span class="attr">name</span>=<span class="string">"fname"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"lname"</span>&gt;</span>Last name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"lname"</span> <span class="attr">name</span>=<span class="string">"lname"</span> <span class="attr">form</span>=<span class="string">"form1"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -1383,111 +1598,11 @@ the third line
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://ferrychan666.github.io/2020/12/20/Math/function/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/hacker.webp">
-      <meta itemprop="name" content="Ferry">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ferry's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/20/Math/function/" class="post-title-link" itemprop="url">函数（映射）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-20 12:05:39" itemprop="dateCreated datePublished" datetime="2020-12-20T12:05:39+08:00">2020-12-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-21 15:01:48" itemprop="dateModified" datetime="2020-12-21T15:01:48+08:00">2020-12-21</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>129</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="函数（映射）"><a href="#函数（映射）" class="headerlink" title="函数（映射）"></a>函数（映射）</h1><img data-src="https://i.imgur.com/rND6WTA.png" style="zoom: 67%;" />
-
-<p>满足条件：</p>
-<p><img data-src="https://i.imgur.com/9My7942.png" alt=""></p>
-<p>将集合X中的x当成枪，集合Y中的y当成靶</p>
-<ol>
-<li>x都要射，</li>
-<li>x都要射一次，靶子可以被射中多次</li>
-</ol>
-<h1 id="函数的性质"><a href="#函数的性质" class="headerlink" title="函数的性质"></a>函数的性质</h1><p>在X-&gt;Y 的情况下，</p>
-<ul>
-<li><p>单射(单调)</p>
-<p>靶只被x射了一次或0次</p>
-</li>
-<li><p>满射</p>
-<p>所有靶都有被射到（能射多几次）</p>
-</li>
-<li><p>双射</p>
-<p>既满足单射，也满足满射。即，每个靶都有射一次。</p>
-</li>
-</ul>
-<p><img data-src="https://i.imgur.com/Xw2EVGp.png" alt=""></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1587,13 +1702,13 @@ the third line
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">223k</span>
+    <span title="Symbols count total">229k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:23</span>
+    <span title="Reading time total">3:28</span>
 </div>
 
 <div id="days"></div>

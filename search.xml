@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>css</title>
+    <url>/2021/07/01/html/css/</url>
+    <content><![CDATA[<h1 id="Tables"><a href="#Tables" class="headerlink" title="Tables"></a>Tables</h1><p>To create a table, we should know some elements:</p>
+<ul>
+<li><p><code>&lt;table&gt;</code> define a table</p>
+</li>
+<li><p><code>&lt;tr&gt;</code> - table row, define a row in the table</p>
+</li>
+<li><p><code>&lt;th&gt;</code> - table header, contain some table handing</p>
+</li>
+<li><p><code>&lt;td&gt;</code> - table data, contain some data in the table</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>database</title>
     <url>/2021/06/23/SQL/database/</url>
     <content><![CDATA[<h1 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h1><h2 id="create-database"><a href="#create-database" class="headerlink" title="create database"></a>create database</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> database_name;</span><br></pre></td></tr></table></figure>
@@ -52,7 +71,7 @@
 
 
 
-<p>As you see, the constraints are used to specify rules for the columns. </p>
+<p>As you see, the constraints are used to <strong>specify rules for the columns</strong>. </p>
 <p>The following constraints are commonly used in SQL:</p>
 <ul>
 <li><p><code>NOT NULL</code> - Ensures that a column cannot have a NULL value</p>
@@ -71,13 +90,208 @@
 <li><p><code>CREATE INDEX</code> - Used to create and retrieve data from the database very quickly</p>
 </li>
 </ul>
+<h2 id="UNIQUE"><a href="#UNIQUE" class="headerlink" title="UNIQUE"></a>UNIQUE</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Persons (</span><br><span class="line">    ID int NOT NULL,</span><br><span class="line">    LastName varchar(255) NOT NULL,</span><br><span class="line">    FirstName varchar(255),</span><br><span class="line">    Age int,</span><br><span class="line">    UNIQUE (ID)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>To name a <code>UNIQUE</code> constraint, and to define a <code>UNIQUE</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Persons (</span><br><span class="line">    ID int NOT NULL,</span><br><span class="line">    LastName varchar(255) NOT NULL,</span><br><span class="line">    FirstName varchar(255),</span><br><span class="line">    Age int,</span><br><span class="line">    CONSTRAINT UC_Person UNIQUE (ID,LastName)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>If want to add a unique constraint on the table that already exists, use the following syntax:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use Teach;</span><br><span class="line">alter table t</span><br><span class="line">add unique (TNO);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>To drop a unique constraint, use the following syntax:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use Teach;</span><br><span class="line">alter table t</span><br><span class="line">drop index TNO;</span><br></pre></td></tr></table></figure>
+
+<h2 id="PRIMARY-KEY"><a href="#PRIMARY-KEY" class="headerlink" title="PRIMARY KEY"></a>PRIMARY KEY</h2><p>The PRIMARY KEY contain UNIQUE values, and also can not contain NULL value. </p>
+<p><strong>A table can have only one PRIMARY KEY, but a PRIMARY KEY can consist of multiple columns(field).</strong> </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Persons (</span><br><span class="line">    ID int NOT NULL,</span><br><span class="line">    LastName varchar(255) NOT NULL,</span><br><span class="line">    FirstName varchar(255),</span><br><span class="line">    Age int,</span><br><span class="line">    PRIMARY KEY (ID)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>To allow naming of a <code>PRIMARY KEY</code> constraint, and for defining a <code>PRIMARY KEY</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Persons (</span><br><span class="line">    ID int NOT NULL,</span><br><span class="line">    LastName varchar(255) NOT NULL,</span><br><span class="line">    FirstName varchar(255),</span><br><span class="line">    Age int,</span><br><span class="line">    CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>To create a <code>PRIMARY KEY</code> constraint on the “ID” column when the table is already created, use the following SQL:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use Teach;</span><br><span class="line">alter table s</span><br><span class="line">add primary key (SNo);</span><br></pre></td></tr></table></figure>
+
+<p>To allow naming of a <code>PRIMARY KEY</code> constraint, and for defining a <code>PRIMARY KEY</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Persons</span><br><span class="line">ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);</span><br></pre></td></tr></table></figure>
+
+<p>To drop a <code>PRIMARY KEY</code> constraint, use the following SQL:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Persons</span><br><span class="line">DROP PRIMARY KEY;</span><br></pre></td></tr></table></figure>
+
+<h2 id="FOREIGN-KEY"><a href="#FOREIGN-KEY" class="headerlink" title="FOREIGN KEY"></a>FOREIGN KEY</h2><p>The relationship between the PRIMARY KEY and FOREIGN KEY is that the FOREIGN KEY refers to the PRIMARY KEY, so that the table with foreign key is a child table, and the table with primary key is parent table. </p>
+<p>The function of the foreign key prevent invalid data from being inserted into the foreign column. </p>
+<p>Just like this:</p>
+<h3 id="Persons-Table"><a href="#Persons-Table" class="headerlink" title="Persons Table"></a>Persons Table</h3><table>
+<thead>
+<tr>
+<th align="left">PersonID</th>
+<th align="left">LastName</th>
+<th align="left">FirstName</th>
+<th align="left">Age</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">Hansen</td>
+<td align="left">Ola</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Svendson</td>
+<td align="left">Tove</td>
+<td align="left">23</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">Pettersen</td>
+<td align="left">Kari</td>
+<td align="left">20</td>
+</tr>
+</tbody></table>
+<h3 id="Orders-Table"><a href="#Orders-Table" class="headerlink" title="Orders Table"></a>Orders Table</h3><table>
+<thead>
+<tr>
+<th align="left">OrderID</th>
+<th align="left">OrderNumber</th>
+<th align="left">PersonID</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">77895</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">44678</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">22456</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">24562</td>
+<td align="left">1</td>
+</tr>
+</tbody></table>
+<p><strong>MySQL</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Orders (</span><br><span class="line">    OrderID int NOT NULL,</span><br><span class="line">    OrderNumber int NOT NULL,</span><br><span class="line">    PersonID int,</span><br><span class="line">    PRIMARY KEY (OrderID),</span><br><span class="line">    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><strong>SQL Server / Oracle / MS Access:</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Orders (</span><br><span class="line">  OrderID <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  OrderNumber <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PersonID <span class="built_in">int</span> <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> <span class="keyword">REFERENCES</span> Persons(PersonID)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>To allow naming of a <code>FOREIGN KEY</code> constraint, and for defining a <code>FOREIGN KEY</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Orders (</span><br><span class="line">  OrderID int NOT NULL,</span><br><span class="line">  OrderNumber int NOT NULL,</span><br><span class="line">  PersonID int,</span><br><span class="line">  PRIMARY KEY (OrderID),</span><br><span class="line">  CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)</span><br><span class="line">  REFERENCES Persons(PersonID)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>To create a <code>FOREIGN KEY</code> constraint on the “PersonID” column when the “Orders” table is already created, use the following SQL:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Orders</span><br><span class="line">ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>To allow naming of a <code>FOREIGN KEY</code> constraint, and for defining a <code>FOREIGN KEY</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Orders</span><br><span class="line">ADD CONSTRAINT FK_PersonOrder</span><br><span class="line">FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);</span><br></pre></td></tr></table></figure>
+
+<p>To drop a <code>FOREIGN KEY</code> constraint, use the following SQL:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Orders</span><br><span class="line">DROP FOREIGN KEY FK_PersonOrder;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Check"><a href="#Check" class="headerlink" title="Check"></a>Check</h2><p>The <code>check</code> constraint is used to limit the value range that can be placed in the column. </p>
+<p><strong>MySQL</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Persons (</span><br><span class="line">    ID int NOT NULL,</span><br><span class="line">    LastName varchar(255) NOT NULL,</span><br><span class="line">    FirstName varchar(255),</span><br><span class="line">    Age int,</span><br><span class="line">    CHECK (Age&gt;&#x3D;18)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>SQL Server / Oracle / MS Access:</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons (</span><br><span class="line">  <span class="keyword">ID</span> <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">  Age <span class="built_in">int</span> <span class="keyword">CHECK</span> (Age&gt;=<span class="number">18</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>To allow naming of a <code>CHECK</code> constraint, and for defining a <code>CHECK</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Persons (</span><br><span class="line">  ID int NOT NULL,</span><br><span class="line">  LastName varchar(255) NOT NULL,</span><br><span class="line">  FirstName varchar(255),</span><br><span class="line">  Age int,</span><br><span class="line">  City varchar(255),</span><br><span class="line">  CONSTRAINT CHK_Person CHECK (Age&gt;&#x3D;18 AND City&#x3D;&#39;Sandnes&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>To create a <code>CHECK</code> constraint on the “Age” column when the table is already created, use the following SQL:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Persons</span><br><span class="line">ADD CHECK (Age&gt;&#x3D;18);</span><br></pre></td></tr></table></figure>
+
+<p>To allow naming of a <code>CHECK</code> constraint, and for defining a <code>CHECK</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Persons</span><br><span class="line">ADD CONSTRAINT CHK_PersonAge CHECK (Age&gt;&#x3D;18 AND City&#x3D;&#39;Sandnes&#39;);</span><br></pre></td></tr></table></figure>
+
+<p>To drop a <code>CHECK</code> constraint, use the following SQL:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ALTER TABLE Persons</span><br><span class="line">DROP CHECK CHK_PersonAge;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Views"><a href="#Views" class="headerlink" title="Views"></a>Views</h1><p>A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE VIEW view_name AS</span><br><span class="line">SELECT column1, column2, ...</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE condition;</span><br></pre></td></tr></table></figure>
+
+<p>The following SQL creates a view that shows all customers from Brazil:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE VIEW [Brazil Customers] AS</span><br><span class="line">SELECT CustomerName, ContactName</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE Country &#x3D; &#39;Brazil&#39;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT * FROM [Brazil Customers];</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">CustomerName</th>
+<th align="left">ContactName</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Comércio Mineiro</td>
+<td align="left">Pedro Afonso</td>
+</tr>
+<tr>
+<td align="left">Familia Arquibaldo</td>
+<td align="left">Aria Cruz</td>
+</tr>
+<tr>
+<td align="left">Gourmet Lanchonetes</td>
+<td align="left">André Fonseca</td>
+</tr>
+<tr>
+<td align="left">Hanari Carnes</td>
+<td align="left">Mario Pontes</td>
+</tr>
+<tr>
+<td align="left">Que Delícia</td>
+<td align="left">Bernardo Batista</td>
+</tr>
+<tr>
+<td align="left">Queen Cozinha</td>
+<td align="left">Lúcia Carvalho</td>
+</tr>
+<tr>
+<td align="left">Ricardo Adocicados</td>
+<td align="left">Janete Limeira</td>
+</tr>
+<tr>
+<td align="left">Tradição Hipermercados</td>
+<td align="left">Anabela Domingues</td>
+</tr>
+<tr>
+<td align="left">Wellington Importadora</td>
+<td align="left">Paula Parente</td>
+</tr>
+</tbody></table>
 ]]></content>
       <tags>
         <tag>sql</tag>
       </tags>
   </entry>
   <entry>
-    <title>SQL</title>
+    <title>SQL Statement</title>
     <url>/2021/06/22/SQL/SQL/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>SQL stands for Structured Query Language. </p>
 <p>SQL lets you access and manipulate database. </p>
@@ -354,32 +568,7 @@
 <th align="left">OrderDate</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">10308</td>
-<td align="left">Ana Trujillo Emparedados y helados</td>
-<td align="left">9/18/1996</td>
-</tr>
-<tr>
-<td align="left">10365</td>
-<td align="left">Antonio Moreno Taquería</td>
-<td align="left">11/27/1996</td>
-</tr>
-<tr>
-<td align="left">10383</td>
-<td align="left">Around the Horn</td>
-<td align="left">12/16/1996</td>
-</tr>
-<tr>
-<td align="left">10355</td>
-<td align="left">Around the Horn</td>
-<td align="left">11/15/1996</td>
-</tr>
-<tr>
-<td align="left">10278</td>
-<td align="left">Berglunds snabbköp</td>
-<td align="left">8/12/1996</td>
-</tr>
-</tbody></table>
+</table>
 <h3 id="LEFT-JOIN"><a href="#LEFT-JOIN" class="headerlink" title="LEFT JOIN"></a>LEFT JOIN</h3><p>The <code>LEFT JOIN</code> keyword returns all records from the left table (table1), and the matching records from the right table (table2).</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"><span class="keyword">ON</span> table1.column_name = table2.column_name;</span><br></pre></td></tr></table></figure>
 
@@ -398,7 +587,7 @@
 
 <br>
 
-<h2 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h2><p>The <code>GROUP BY</code> statement groups rows that have the same values into summary rows, like “find the number of customers in each country”. So the <code>GROUP BY</code> statement is often used with aggregate functions (<code>COUNT()</code>, <code>MAX()</code>, <code>MIN()</code>, <code>SUM()</code>, <code>AVG()</code>) to group the result-set by one or more columns.</p>
+<h2 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h2><p>The <code>GROUP BY</code> statement <strong>groups rows that have the same values into summary rows</strong>, <strong>like “find the number of customers in each country” and we group by the ‘country’</strong>. So the <code>GROUP BY</code> statement is often used with aggregate functions (<code>COUNT()</code>, <code>MAX()</code>, <code>MIN()</code>, <code>SUM()</code>, <code>AVG()</code>) to group the result-set by one or more columns.</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> column_name(s)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> column_name(s);</span><br></pre></td></tr></table></figure>
 
 <p>The following SQL statement lists the number of customers in each country:</p>
@@ -406,15 +595,11 @@
 
 
 
+<h2 id="Having"><a href="#Having" class="headerlink" title="Having"></a>Having</h2><p>HAVING statement usually follows by the GROUP BY statement to show how many records in each group. </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT column_name(s)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE condition</span><br><span class="line">GROUP BY column_name(s)</span><br><span class="line">HAVING condition</span><br><span class="line">ORDER BY column_name(s);</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
+<p>The following SQL statement lists the number of customers in each country. Only include countries with more than 5 customers:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(CustomerID), Country</span><br><span class="line">FROM Customers</span><br><span class="line">GROUP BY Country</span><br><span class="line">HAVING COUNT(CustomerID) &gt; 5;</span><br></pre></td></tr></table></figure>
 
 <h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><h2 id="MIN"><a href="#MIN" class="headerlink" title="MIN()"></a>MIN()</h2><p>Export the smallest value of the selected column. </p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition;</span><br></pre></td></tr></table></figure>
@@ -458,54 +643,6 @@
 ]]></content>
       <tags>
         <tag>sql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vim</title>
-    <url>/2021/06/21/linux/vim/</url>
-    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Vi is an editor, which is usually available on all the flavor of Unix/linux system. </p>
-<p>An improved version of the vi is called vim. </p>
-<h2 id="Deleting-Characters"><a href="#Deleting-Characters" class="headerlink" title="Deleting Characters"></a>Deleting Characters</h2><p>Here is a list of important commands, which can be used to delete characters and lines in an open file −</p>
-<table>
-<thead>
-<tr>
-<th align="center">Sr.No.</th>
-<th align="center">Command &amp; Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center"><strong>x</strong>Deletes the character under the cursor location</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center"><strong>X</strong>Deletes the character before the cursor location</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center"><strong>dw</strong>Deletes from the current cursor location to the next word</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center"><strong>d^</strong>Deletes from the current cursor position to the beginning of the line</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center"><strong>d$</strong>Deletes from the current cursor position to the end of the line</td>
-</tr>
-<tr>
-<td align="center">6</td>
-<td align="center"><strong>D</strong>Deletes from the cursor position to the end of the current line</td>
-</tr>
-<tr>
-<td align="center">7</td>
-<td align="center"><strong>dd</strong>Deletes the line the cursor is on</td>
-</tr>
-</tbody></table>
-<p>As mentioned above, most commands in vi can be prefaced by the number of times you want the action to occur. For example, <strong>2x</strong> deletes two characters under the cursor location and <strong>2dd</strong> deletes two lines the cursor is on.</p>
-]]></content>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -739,7 +876,7 @@
 </ol>
 <p><strong>Example</strong></p>
 <p>The following script uses the <strong>read</strong> command which takes the input from the keyboard and assigns it as the value of the variable PERSON and finally prints it on STDOUT.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line"></span><br><span class="line"># Author : Zara Ali</span><br><span class="line"># Copyright (c) Tutorialspoint.com</span><br><span class="line"># Script follows here:</span><br><span class="line"></span><br><span class="line">echo &quot;What is your name?&quot;</span><br><span class="line">read PERSON</span><br><span class="line">echo &quot;Hello, $PERSON&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo &quot;What is your name?&quot;</span><br><span class="line">read PERSON</span><br><span class="line">echo &quot;Hello, $PERSON&quot;</span><br></pre></td></tr></table></figure>
 
 <p>Here is a sample run of the script −</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$.&#x2F;test.sh</span><br><span class="line">What is your name?</span><br><span class="line">Zara Ali</span><br><span class="line">Hello, Zara Ali</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
@@ -979,27 +1116,15 @@
 
 
 
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">a=1</span><br><span class="line">b=1</span><br><span class="line">while [ "$a" -le 9 ]</span><br><span class="line">do</span><br><span class="line">        b=1</span><br><span class="line">        while [ "$b" -le "$a" ]</span><br><span class="line">        do</span><br><span class="line">                c=`expr $a \* $b`</span><br><span class="line">                echo -n "$b*$a=$c "</span><br><span class="line"></span><br><span class="line">                b=`expr $b + 1`</span><br><span class="line">        done</span><br><span class="line">        echo -e "\n"</span><br><span class="line">        a=`expr $a + 1`</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">for ((i=1;i&lt;=3;i++))</span><br><span class="line">do</span><br><span class="line">	echo -n "$i "</span><br><span class="line">done</span><br><span class="line">echo</span><br></pre></td></tr></table></figure>
-
-
-
 <p><strong>NOTE</strong></p>
 <ol>
 <li>It is important to note how <strong>echo -n</strong> works here. Here <strong>-n</strong> option lets echo avoid printing a new line character.</li>
 <li>Among the <code>[]</code>, we use a condition statement with <strong>two spaces between it</strong>. <code>[ condition ]</code></li>
 </ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">for((i=1;i&lt;=9;i++))</span><br><span class="line">do</span><br><span class="line">	for((j=1;j&lt;=i;j++))</span><br><span class="line">	do</span><br><span class="line">		echo -n "$i*$j=$(($i*$j)) "</span><br><span class="line">	done</span><br><span class="line">	echo ""</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
 <p><strong>output</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1*1=1 </span><br><span class="line"></span><br><span class="line">1*2=2 2*2=4 </span><br><span class="line"></span><br><span class="line">1*3=3 2*3=6 3*3=9 </span><br><span class="line"></span><br><span class="line">1*4=4 2*4=8 3*4=12 4*4=16 </span><br><span class="line"></span><br><span class="line">1*5=5 2*5=10 3*5=15 4*5=20 5*5=25 </span><br><span class="line"></span><br><span class="line">1*6=6 2*6=12 3*6=18 4*6=24 5*6=30 6*6=36 </span><br><span class="line"></span><br><span class="line">1*7=7 2*7=14 3*7=21 4*7=28 5*7=35 6*7=42 7*7=49 </span><br><span class="line"></span><br><span class="line">1*8=8 2*8=16 3*8=24 4*8=32 5*8=40 6*8=48 7*8=56 8*8=64 </span><br><span class="line"></span><br><span class="line">1*9=9 2*9=18 3*9=27 4*9=36 5*9=45 6*9=54 7*9=63 8*9=72 9*9=81</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight shell"><figcaption><span>addtion</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">a=1</span><br><span class="line">b=1</span><br><span class="line">while [ $a -le 9 ]</span><br><span class="line">do</span><br><span class="line">        b=1</span><br><span class="line">        while [ $b -le $a ]</span><br><span class="line">        do</span><br><span class="line">                c=`expr $a + $b`</span><br><span class="line">                echo -n "$a+$b=$c "</span><br><span class="line">                b=`expr $b + 1`</span><br><span class="line">        done</span><br><span class="line">        a=`expr $a + 1`</span><br><span class="line">        echo -e ""</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1+1=2 </span><br><span class="line">2+1=3 2+2=4 </span><br><span class="line">3+1=4 3+2=5 3+3=6 </span><br><span class="line">4+1=5 4+2=6 4+3=7 4+4=8 </span><br><span class="line">5+1=6 5+2=7 5+3=8 5+4=9 5+5=10 </span><br><span class="line">6+1=7 6+2=8 6+3=9 6+4=10 6+5=11 6+6=12 </span><br><span class="line">7+1=8 7+2=9 7+3=10 7+4=11 7+5=12 7+6=13 7+7=14 </span><br><span class="line">8+1=9 8+2=10 8+3=11 8+4=12 8+5=13 8+6=14 8+7=15 8+8=16 </span><br><span class="line">9+1=10 9+2=11 9+3=12 9+4=13 9+5=14 9+6=15 9+7=16 9+8=17 9+9=18</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1*1=1</span><br><span class="line">2*1=2 2*2=4</span><br><span class="line">3*1=3 3*2=6 3*3=9</span><br><span class="line">4*1=4 4*2=8 4*3=12 4*4=16</span><br><span class="line">5*1=5 5*2=10 5*3=15 5*4=20 5*5=25</span><br><span class="line">6*1=6 6*2=12 6*3=18 6*4=24 6*5=30 6*6=36</span><br><span class="line">7*1=7 7*2=14 7*3=21 7*4=28 7*5=35 7*6=42 7*7=49</span><br><span class="line">8*1=8 8*2=16 8*3=24 8*4=32 8*5=40 8*6=48 8*7=56 8*8=64</span><br><span class="line">9*1=9 9*2=18 9*3=27 9*4=36 9*5=45 9*6=54 9*7=63 9*8=72 9*9=81</span><br></pre></td></tr></table></figure>
 
 
 
@@ -1488,10 +1613,6 @@
 
 <h3 id="alt"><a href="#alt" class="headerlink" title="alt"></a><code>alt</code></h3><p>The required <code>alt</code> attribute for the <code>&lt;img&gt;</code> tag specifies an alternate text for an image, if the image for some reason cannot be displayed.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"eren"</span> <span class="attr">alt</span>=<span class="string">"eren long hair"</span> <span class="attr">width</span>=<span class="string">"500"</span> <span class="attr">height</span> =<span class="string">"600"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<img data-src="eren" alt="eren long hair" width="500" height="600">
-
-
 
 <h3 id="style"><a href="#style" class="headerlink" title="style"></a><code>style</code></h3><p>The <code>style</code> attribute is used to add styles to an element, such as color, font, size, and more.</p>
 <p>Setting the style of an HTML element, can be done with the <code>style</code> attribute.</p>
@@ -5632,29 +5753,6 @@ int *(*p(int))[3]; //可以先跳过,不看这个类型,过于复杂从P 开始,
       </categories>
       <tags>
         <tag>c</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vim的命令</title>
-    <url>/2020/03/18/linux/vim%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h1><p>vim有两种模式。</p>
-<ul>
-<li>command model</li>
-<li>edit model<h1 id="运用"><a href="#运用" class="headerlink" title="运用"></a>运用</h1></li>
-<li>command –&gt; edit<br><code>i</code></li>
-<li>edit –&gt; command<br>ESC键<h3 id="在command模式下"><a href="#在command模式下" class="headerlink" title="在command模式下"></a>在command模式下</h3></li>
-<li>保存退出<br><code>:wq</code></li>
-<li>不保存退出<br><code>:q!</code></li>
-<li>代码高亮<br><code>:syntax on</code></li>
-<li>显示行数<br><code>:set number</code></li>
-<li>打开文件<br><code>vim &lt;file&gt;</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>

@@ -30,7 +30,7 @@
 <meta property="og:description" content="Databasecreate database1create database database_name;  delete database1drop database database_name;    Tablecreate table123456CREATE TABLE table_name (    column1 datatype,    column2 datatype,    co">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-06-23T07:51:31.000Z">
-<meta property="article:modified_time" content="2021-06-23T11:09:06.758Z">
+<meta property="article:modified_time" content="2021-06-25T07:03:21.791Z">
 <meta property="article:author" content="Ferry">
 <meta property="article:tag" content="sql">
 <meta name="twitter:card" content="summary">
@@ -130,12 +130,12 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">141</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">18</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">19</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -218,10 +218,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-06-23 15:51:31 / Modified: 19:09:06" itemprop="dateCreated datePublished" datetime="2021-06-23T15:51:31+08:00">2021-06-23</time>
+              <time title="Created: 2021-06-23 15:51:31" itemprop="dateCreated datePublished" datetime="2021-06-23T15:51:31+08:00">2021-06-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-06-25 15:03:21" itemprop="dateModified" datetime="2021-06-25T15:03:21+08:00">2021-06-25</time>
+              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -236,14 +242,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.5k</span>
+              <span>6.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>6 mins.</span>
             </span>
 
         </div>
@@ -304,7 +310,7 @@
 
 
 
-<p>As you see, the constraints are used to specify rules for the columns. </p>
+<p>As you see, the constraints are used to <strong>specify rules for the columns</strong>. </p>
 <p>The following constraints are commonly used in SQL:</p>
 <ul>
 <li><p><code>NOT NULL</code> - Ensures that a column cannot have a NULL value</p>
@@ -323,6 +329,201 @@
 <li><p><code>CREATE INDEX</code> - Used to create and retrieve data from the database very quickly</p>
 </li>
 </ul>
+<h2 id="UNIQUE"><a href="#UNIQUE" class="headerlink" title="UNIQUE"></a>UNIQUE</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons (</span><br><span class="line">    ID int NOT NULL,</span><br><span class="line">    LastName varchar(255) NOT NULL,</span><br><span class="line">    FirstName varchar(255),</span><br><span class="line">    Age int,</span><br><span class="line">    UNIQUE (ID)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>To name a <code>UNIQUE</code> constraint, and to define a <code>UNIQUE</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons (</span><br><span class="line">    ID int NOT NULL,</span><br><span class="line">    LastName varchar(255) NOT NULL,</span><br><span class="line">    FirstName varchar(255),</span><br><span class="line">    Age int,</span><br><span class="line">    CONSTRAINT UC_Person UNIQUE (ID,LastName)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>If want to add a unique constraint on the table that already exists, use the following syntax:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use Teach;</span><br><span class="line">alter table t</span><br><span class="line">add unique (TNO);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>To drop a unique constraint, use the following syntax:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use Teach;</span><br><span class="line">alter table t</span><br><span class="line">drop index TNO;</span><br></pre></td></tr></table></figure>
+
+<h2 id="PRIMARY-KEY"><a href="#PRIMARY-KEY" class="headerlink" title="PRIMARY KEY"></a>PRIMARY KEY</h2><p>The PRIMARY KEY contain UNIQUE values, and also can not contain NULL value. </p>
+<p><strong>A table can have only one PRIMARY KEY, but a PRIMARY KEY can consist of multiple columns(field).</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons (</span><br><span class="line">    ID int NOT NULL,</span><br><span class="line">    LastName varchar(255) NOT NULL,</span><br><span class="line">    FirstName varchar(255),</span><br><span class="line">    Age int,</span><br><span class="line">    PRIMARY KEY (ID)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>To allow naming of a <code>PRIMARY KEY</code> constraint, and for defining a <code>PRIMARY KEY</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons (</span><br><span class="line">    ID int NOT NULL,</span><br><span class="line">    LastName varchar(255) NOT NULL,</span><br><span class="line">    FirstName varchar(255),</span><br><span class="line">    Age int,</span><br><span class="line">    CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>To create a <code>PRIMARY KEY</code> constraint on the “ID” column when the table is already created, use the following SQL:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use Teach;</span><br><span class="line">alter table s</span><br><span class="line">add primary key (SNo);</span><br></pre></td></tr></table></figure>
+
+<p>To allow naming of a <code>PRIMARY KEY</code> constraint, and for defining a <code>PRIMARY KEY</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE Persons</span><br><span class="line">ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);</span><br></pre></td></tr></table></figure>
+
+<p>To drop a <code>PRIMARY KEY</code> constraint, use the following SQL:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE Persons</span><br><span class="line">DROP PRIMARY KEY;</span><br></pre></td></tr></table></figure>
+
+<h2 id="FOREIGN-KEY"><a href="#FOREIGN-KEY" class="headerlink" title="FOREIGN KEY"></a>FOREIGN KEY</h2><p>The relationship between the PRIMARY KEY and FOREIGN KEY is that the FOREIGN KEY refers to the PRIMARY KEY, so that the table with foreign key is a child table, and the table with primary key is parent table. </p>
+<p>The function of the foreign key prevent invalid data from being inserted into the foreign column. </p>
+<p>Just like this:</p>
+<h3 id="Persons-Table"><a href="#Persons-Table" class="headerlink" title="Persons Table"></a>Persons Table</h3><table>
+<thead>
+<tr>
+<th align="left">PersonID</th>
+<th align="left">LastName</th>
+<th align="left">FirstName</th>
+<th align="left">Age</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">Hansen</td>
+<td align="left">Ola</td>
+<td align="left">30</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Svendson</td>
+<td align="left">Tove</td>
+<td align="left">23</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">Pettersen</td>
+<td align="left">Kari</td>
+<td align="left">20</td>
+</tr>
+</tbody></table>
+<h3 id="Orders-Table"><a href="#Orders-Table" class="headerlink" title="Orders Table"></a>Orders Table</h3><table>
+<thead>
+<tr>
+<th align="left">OrderID</th>
+<th align="left">OrderNumber</th>
+<th align="left">PersonID</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">77895</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">44678</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">22456</td>
+<td align="left">2</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">24562</td>
+<td align="left">1</td>
+</tr>
+</tbody></table>
+<p><strong>MySQL</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Orders (</span><br><span class="line">    OrderID int NOT NULL,</span><br><span class="line">    OrderNumber int NOT NULL,</span><br><span class="line">    PersonID int,</span><br><span class="line">    PRIMARY KEY (OrderID),</span><br><span class="line">    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><strong>SQL Server / Oracle / MS Access:</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Orders (</span><br><span class="line">  OrderID <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  OrderNumber <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PersonID <span class="built_in">int</span> <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> <span class="keyword">REFERENCES</span> Persons(PersonID)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>To allow naming of a <code>FOREIGN KEY</code> constraint, and for defining a <code>FOREIGN KEY</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Orders (</span><br><span class="line">  OrderID int NOT NULL,</span><br><span class="line">  OrderNumber int NOT NULL,</span><br><span class="line">  PersonID int,</span><br><span class="line">  PRIMARY KEY (OrderID),</span><br><span class="line">  CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)</span><br><span class="line">  REFERENCES Persons(PersonID)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>To create a <code>FOREIGN KEY</code> constraint on the “PersonID” column when the “Orders” table is already created, use the following SQL:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE Orders</span><br><span class="line">ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>To allow naming of a <code>FOREIGN KEY</code> constraint, and for defining a <code>FOREIGN KEY</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE Orders</span><br><span class="line">ADD CONSTRAINT FK_PersonOrder</span><br><span class="line">FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);</span><br></pre></td></tr></table></figure>
+
+<p>To drop a <code>FOREIGN KEY</code> constraint, use the following SQL:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE Orders</span><br><span class="line">DROP FOREIGN KEY FK_PersonOrder;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Check"><a href="#Check" class="headerlink" title="Check"></a>Check</h2><p>The <code>check</code> constraint is used to limit the value range that can be placed in the column. </p>
+<p><strong>MySQL</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons (</span><br><span class="line">    ID int NOT NULL,</span><br><span class="line">    LastName varchar(255) NOT NULL,</span><br><span class="line">    FirstName varchar(255),</span><br><span class="line">    Age int,</span><br><span class="line">    CHECK (Age&gt;&#x3D;18)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>SQL Server / Oracle / MS Access:</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons (</span><br><span class="line">  <span class="keyword">ID</span> <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">  Age <span class="built_in">int</span> <span class="keyword">CHECK</span> (Age&gt;=<span class="number">18</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>To allow naming of a <code>CHECK</code> constraint, and for defining a <code>CHECK</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons (</span><br><span class="line">  ID int NOT NULL,</span><br><span class="line">  LastName varchar(255) NOT NULL,</span><br><span class="line">  FirstName varchar(255),</span><br><span class="line">  Age int,</span><br><span class="line">  City varchar(255),</span><br><span class="line">  CONSTRAINT CHK_Person CHECK (Age&gt;&#x3D;18 AND City&#x3D;&#39;Sandnes&#39;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>To create a <code>CHECK</code> constraint on the “Age” column when the table is already created, use the following SQL:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE Persons</span><br><span class="line">ADD CHECK (Age&gt;&#x3D;18);</span><br></pre></td></tr></table></figure>
+
+<p>To allow naming of a <code>CHECK</code> constraint, and for defining a <code>CHECK</code> constraint on multiple columns, use the following SQL syntax:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE Persons</span><br><span class="line">ADD CONSTRAINT CHK_PersonAge CHECK (Age&gt;&#x3D;18 AND City&#x3D;&#39;Sandnes&#39;);</span><br></pre></td></tr></table></figure>
+
+<p>To drop a <code>CHECK</code> constraint, use the following SQL:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE Persons</span><br><span class="line">DROP CHECK CHK_PersonAge;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Views"><a href="#Views" class="headerlink" title="Views"></a>Views</h1><p>A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW view_name AS</span><br><span class="line">SELECT column1, column2, ...</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE condition;</span><br></pre></td></tr></table></figure>
+
+<p>The following SQL creates a view that shows all customers from Brazil:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW [Brazil Customers] AS</span><br><span class="line">SELECT CustomerName, ContactName</span><br><span class="line">FROM Customers</span><br><span class="line">WHERE Country &#x3D; &#39;Brazil&#39;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM [Brazil Customers];</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">CustomerName</th>
+<th align="left">ContactName</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Comércio Mineiro</td>
+<td align="left">Pedro Afonso</td>
+</tr>
+<tr>
+<td align="left">Familia Arquibaldo</td>
+<td align="left">Aria Cruz</td>
+</tr>
+<tr>
+<td align="left">Gourmet Lanchonetes</td>
+<td align="left">André Fonseca</td>
+</tr>
+<tr>
+<td align="left">Hanari Carnes</td>
+<td align="left">Mario Pontes</td>
+</tr>
+<tr>
+<td align="left">Que Delícia</td>
+<td align="left">Bernardo Batista</td>
+</tr>
+<tr>
+<td align="left">Queen Cozinha</td>
+<td align="left">Lúcia Carvalho</td>
+</tr>
+<tr>
+<td align="left">Ricardo Adocicados</td>
+<td align="left">Janete Limeira</td>
+</tr>
+<tr>
+<td align="left">Tradição Hipermercados</td>
+<td align="left">Anabela Domingues</td>
+</tr>
+<tr>
+<td align="left">Wellington Importadora</td>
+<td align="left">Paula Parente</td>
+</tr>
+</tbody></table>
 
     </div>
 
@@ -341,10 +542,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/06/22/SQL/SQL/" rel="prev" title="SQL">
-      <i class="fa fa-chevron-left"></i> SQL
+    <a href="/2021/06/22/SQL/SQL/" rel="prev" title="SQL Statement">
+      <i class="fa fa-chevron-left"></i> SQL Statement
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/07/01/html/css/" rel="next" title="css">
+      css <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -405,7 +609,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Database"><span class="nav-number">1.</span> <span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#create-database"><span class="nav-number">1.1.</span> <span class="nav-text">create database</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#delete-database"><span class="nav-number">1.2.</span> <span class="nav-text">delete database</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Table"><span class="nav-number">2.</span> <span class="nav-text">Table</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#create-table"><span class="nav-number">2.1.</span> <span class="nav-text">create table</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alter-table"><span class="nav-number">2.2.</span> <span class="nav-text">alter table</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Constraints"><span class="nav-number">3.</span> <span class="nav-text">Constraints</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Database"><span class="nav-number">1.</span> <span class="nav-text">Database</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#create-database"><span class="nav-number">1.1.</span> <span class="nav-text">create database</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#delete-database"><span class="nav-number">1.2.</span> <span class="nav-text">delete database</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Table"><span class="nav-number">2.</span> <span class="nav-text">Table</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#create-table"><span class="nav-number">2.1.</span> <span class="nav-text">create table</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alter-table"><span class="nav-number">2.2.</span> <span class="nav-text">alter table</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Constraints"><span class="nav-number">3.</span> <span class="nav-text">Constraints</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UNIQUE"><span class="nav-number">3.1.</span> <span class="nav-text">UNIQUE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PRIMARY-KEY"><span class="nav-number">3.2.</span> <span class="nav-text">PRIMARY KEY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FOREIGN-KEY"><span class="nav-number">3.3.</span> <span class="nav-text">FOREIGN KEY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Persons-Table"><span class="nav-number">3.3.1.</span> <span class="nav-text">Persons Table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Orders-Table"><span class="nav-number">3.3.2.</span> <span class="nav-text">Orders Table</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Check"><span class="nav-number">3.4.</span> <span class="nav-text">Check</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Views"><span class="nav-number">4.</span> <span class="nav-text">Views</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -453,13 +657,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">229k</span>
+    <span title="Symbols count total">233k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">3:28</span>
+    <span title="Reading time total">3:32</span>
 </div>
 
 <div id="days"></div>

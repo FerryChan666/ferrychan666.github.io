@@ -5818,145 +5818,6 @@
       </tags>
   </entry>
   <entry>
-    <title>next主题美化</title>
-    <url>/2021/11/26/github/next%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/</url>
-    <content><![CDATA[<p><a href="https://www.daimajiaoliu.com/daima/6cbe8c6bf8f6c09">https://www.daimajiaoliu.com/daima/6cbe8c6bf8f6c09</a></p>
-]]></content>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在虚拟机上clone博客源码并deploy</title>
-    <url>/2020/03/13/github/%E5%9C%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8Aclone%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%B9%B6deploy/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>将博客备份到Github上后，随便上了虚拟机来验证源码能否clone下来。所以就有了一系列操作。（这台虚拟机相当于新电脑）<br>流程<br>=====</p>
-<ul>
-<li>安装 git nodejs hexo<br><a href="https://git-scm.com/">Git</a><br><a href="https://nodejs.org/en/">nodejs</a><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g --registry=https://registry.npm.taobao.org</span><br><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure></li>
-<li>clone源码</li>
-<li>hexo 服务 <code>npm install hexo --save</code></li>
-<li>验证身份<br>至此就能<code>hexo g -d</code>了</li>
-</ul>
-<hr>
-<ul>
-<li>关联远程repo </li>
-</ul>
-<ol>
-<li>初始化git.在hexo文件的目录下，<br><code>git init</code></li>
-<li>告诉Git你的远程主机名master和分支名<br><code>git remote add origin git@github.com:ferrychan666/blog.git</code> </li>
-<li>获取远端分支（这里需要SSH密钥生成)<br><code>git pull origin master</code></li>
-</ol>
-<ul>
-<li>经过一系列的验证和创建后就能备份源码了</li>
-</ul>
-<hr>
-<h1 id="SSH密钥"><a href="#SSH密钥" class="headerlink" title="SSH密钥"></a>SSH密钥</h1><p>本机生成这种密钥，来与自己的Github的账号绑定，所以一台机一个密钥才能够将源码备份到Github。（即<code>git push origin master</code>）</p>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>再次建立bolg</title>
-    <url>/2020/08/12/github/%E5%86%8D%E6%AC%A1%E5%BB%BA%E7%AB%8Bbolg/</url>
-    <content><![CDATA[<h1 id="搭建网站"><a href="#搭建网站" class="headerlink" title="搭建网站"></a>搭建网站</h1><ol>
-<li><p>下载nodejs，git</p>
-</li>
-<li><p>安装hexo</p>
-<p><code>npm install -g hexo-cli</code></p>
-<p><code>hexo init</code></p>
-<p><code>npm install --save hexo-deployer-git</code></p>
-</li>
-<li><p>修改<code>_config.yml</code>文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:FerryChan666/ferrychan666.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></li>
-<li><p><code>hexo g -d</code></p>
-</li>
-<li><p>然后，就替换掉博客主题，和source目录下的文章，就好了</p>
-</li>
-</ol>
-<p>有2个目录和1个文件需要备份到github上去，以便以后使用</p>
-<ul>
-<li>source</li>
-<li>themes</li>
-<li>_config.yml</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建博客</title>
-    <url>/2020/03/10/github/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="个人博客搭建"><a href="#个人博客搭建" class="headerlink" title="个人博客搭建"></a>个人博客搭建</h1><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p><a href="https://git-scm.com/">Git</a><br><a href="https://nodejs.org/en/">nodejs</a><br>用npm安装hexo:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<h2 id="2-初始化hexo"><a href="#2-初始化hexo" class="headerlink" title="2.初始化hexo"></a>2.初始化hexo</h2><ul>
-<li>先建立一个hexo文件目录<br><code>mkdir blog</code>(名字为blog的hexo文件)</li>
-<li>进入blog <code>cd blog</code></li>
-<li>初始化<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
-测试你的博客<br>启动服务器<br><code>hexo serve(s)</code><br>复制URL 在浏览器中打开</li>
-</ul>
-<h2 id="3-新建博客"><a href="#3-新建博客" class="headerlink" title="3.新建博客"></a>3.新建博客</h2><p><code>hexo new(n) &quot;name&quot;</code><br>编辑你的博客（blog/source 中可找到)<br>到blog中生成：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-<h2 id="4-部署到github"><a href="#4-部署到github" class="headerlink" title="4.部署到github"></a>4.部署到github</h2><p>配置个人信息</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>到GitHub中新建仓库：Repository name —&gt; (your owner name).github.io<br>安装git插件: cnpm install –save hexo-deployer-git<br>设置blog文件中的_config.yml<br>(到文件的最底部,添加)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">type</span>: git</span><br><span class="line">repo: (你的GitHub仓库地址)</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
-<p>部署<br><code>$ hexo d</code></p>
-<h2 id="5-访问"><a href="#5-访问" class="headerlink" title="5.访问"></a>5.访问</h2><pre><code>在浏览器中打开https://（your name).github.io
-</code></pre>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>将HTML添加到网页上</title>
-    <url>/2020/08/14/github/%E5%B0%86HTML%E6%B7%BB%E5%8A%A0%E5%88%B0%E7%BD%91%E9%A1%B5%E4%B8%8A/</url>
-    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>假如想把一个日历的嵌在网页上，需要在文件中（.md上都可以）加一段HTML</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;iframe src=&quot;https://calendar.google.com/calendar/embed?height=400&amp;amp;wkst=1&amp;amp;bgcolor=%23ffffff&amp;amp;ctz=Asia%2FHong_Kong&amp;amp;src=ZmVycnljaGFuNjY2QGdtYWlsLmNvbQ&amp;amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;amp;color=%23039BE5&amp;amp;color=%2333B679&amp;amp;showTitle=0&amp;amp;showNav=0&amp;amp;showPrint=0&amp;amp;showTz=0&amp;amp;showCalendars=0&amp;amp;showTabs=0&amp;amp;showDate=0&amp;amp;mode=AGENDA&quot; style=&quot;border-width:0&quot; width=&quot;500&quot; height=&quot;400&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
-
-<p>此blog就加在<br>themes\next\layout_partials\header\menu.swig</p>
-]]></content>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于SSH密钥生成</title>
-    <url>/2020/03/12/github/%E5%A4%87%E4%BB%BD%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%E5%88%B0Github/</url>
-    <content><![CDATA[<h1 id="关于SSH密钥生成"><a href="#关于SSH密钥生成" class="headerlink" title="关于SSH密钥生成"></a>关于SSH密钥生成</h1><ol>
-<li>创建用户<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config –global user.name &quot;yourname&quot;</span><br><span class="line">git config –global user.email &quot;your@email.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;your@email.com&quot;</span><br></pre></td></tr></table></figure>
-一直回车直到（中间存在passphrase，如果一直按enter，就表示无密码。）</li>
-</ol>
-<p><img src="https://i.ibb.co/d51HDkb/20170213195627978.png" alt="demo"></p>
-<ol start="2">
-<li>打开那个<code>id_rsa.pub</code>路径，复制里面内容</li>
-<li>进入<a href="https://github.com/settings/keys">Github上</a>点击New shh Key 粘贴里面的内容到Key</li>
-<li>验证：<code>ssh -T git@github.com</code> 看到<br>Hi ***! You’ve successfully authenticated, but GitHub does not provide shell access.<br>表示成功了！！</li>
-</ol>
-<p>在hexo一连贯的操作</p>
-<ul>
-<li>deploy<br><code>hexo clean &amp;&amp; hexo g -d</code></li>
-<li>push<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>APIs</title>
     <url>/2021/06/15/html/APIs/</url>
     <content><![CDATA[<h1 id="Web-Storage"><a href="#Web-Storage" class="headerlink" title="Web Storage"></a>Web Storage</h1><p>Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance.</p>
@@ -5987,28 +5848,6 @@
 ]]></content>
       <tags>
         <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo评论区的设置</title>
-    <url>/2020/03/12/github/%E8%AF%84%E8%AE%BA%E5%8C%BA%E7%9A%84%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为文章添加评论功能</p>
-<ul>
-<li>要用到的相关工具</li>
-</ul>
-<ol>
-<li><a href="https://github.com/settings/applications">gitment</a><br>创建你的gitment，点击OAuth Apps.URL填写你的博客网站</li>
-</ol>
-<ul>
-<li>在主题中的_config.yml中添加配置<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gitalk:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span> </span><br><span class="line">  githubID: ferrychan666 <span class="comment">#你的Github用户名</span></span><br><span class="line">  repo: gitment <span class="comment">#Github仓库名称</span></span><br><span class="line">  ClientID: 87e2733554ad41c9c1bd <span class="comment">#创建的Application ClientID</span></span><br><span class="line">  ClientSecret: 724f8c910e2dc7b666f3a80e623c27630167532e <span class="comment">#创建的Application ClientSecret</span></span><br><span class="line">  adminUser: ferrychan666 <span class="comment"># 评论初始化账户(GitHub ID)</span></span><br><span class="line">  distractionFreeMode: <span class="literal">true</span> <span class="comment"># 是否开启分心自由模式 也就是免打扰</span></span><br></pre></td></tr></table></figure>
-注意这里填写你的信息<br>还有仓库名称 前面不应包含你的用户名，最好再创建一个repo存放评论</li>
-</ul>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -8492,6 +8331,43 @@ $$
 ]]></content>
       <tags>
         <tag>swing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建博客</title>
+    <url>/2020/03/10/github/git/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="个人博客搭建"><a href="#个人博客搭建" class="headerlink" title="个人博客搭建"></a>个人博客搭建</h1><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p><a href="https://git-scm.com/">Git</a><br><a href="https://nodejs.org/en/">nodejs</a><br>用npm安装hexo:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="2-初始化hexo"><a href="#2-初始化hexo" class="headerlink" title="2.初始化hexo"></a>2.初始化hexo</h2><ul>
+<li>先建立一个hexo文件目录<br><code>mkdir blog</code>(名字为blog的hexo文件)</li>
+<li>进入blog <code>cd blog</code></li>
+<li>初始化<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
+测试你的博客<br>启动服务器<br><code>hexo serve(s)</code><br>复制URL 在浏览器中打开</li>
+</ul>
+<h2 id="3-新建博客"><a href="#3-新建博客" class="headerlink" title="3.新建博客"></a>3.新建博客</h2><p><code>hexo new(n) &quot;name&quot;</code><br>编辑你的博客（blog/source 中可找到)<br>到blog中生成：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<h2 id="4-部署到github"><a href="#4-部署到github" class="headerlink" title="4.部署到github"></a>4.部署到github</h2><p>配置个人信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;your@email.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>一直回车直到（中间存在passphrase，如果一直按enter，就表示无密码。）</p>
+<ol>
+<li><p>打开那个<code>id_rsa.pub</code>路径，复制里面内容</p>
+</li>
+<li><p>进入<a href="https://github.com/settings/keys">Github上</a>点击New shh Key 粘贴里面的内容到Key</p>
+</li>
+<li><p>验证：<code>ssh -T git@github.com</code> 看到<br>Hi ***! You’ve successfully authenticated, but GitHub does not provide shell access.<br>表示成功了！！</p>
+</li>
+<li><p>部署<br><code>$ hexo d</code></p>
+</li>
+</ol>
+<h2 id="5-访问"><a href="#5-访问" class="headerlink" title="5.访问"></a>5.访问</h2><pre><code>在浏览器中打开https://（your name).github.io
+</code></pre>
+]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
       </tags>
   </entry>
 </search>

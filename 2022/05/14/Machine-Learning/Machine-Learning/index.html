@@ -1,0 +1,785 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Machine Learning | Ferry's Blog</title><meta name="keywords" content="BIG DATA"><meta name="author" content="Ferry Chan"><meta name="copyright" content="Ferry Chan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ConceptionData SetIn the mind of a computer, a data set is any collection of data. It can be anything from an array to a complete database. Example of an array: 1[99,86,87,88,111,86,103,87,94,78,77,85">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning">
+<meta property="og:url" content="http://example.com/2022/05/14/Machine-Learning/Machine-Learning/index.html">
+<meta property="og:site_name" content="Ferry&#39;s Blog">
+<meta property="og:description" content="ConceptionData SetIn the mind of a computer, a data set is any collection of data. It can be anything from an array to a complete database. Example of an array: 1[99,86,87,88,111,86,103,87,94,78,77,85">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2022-05-14T02:48:42.000Z">
+<meta property="article:modified_time" content="2022-05-21T17:09:19.000Z">
+<meta property="article:author" content="Ferry Chan">
+<meta property="article:tag" content="BIG DATA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://example.com/2022/05/14/Machine-Learning/Machine-Learning/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Machine Learning',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-22 01:09:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Emily.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">163</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ferry's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Machine Learning</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-05-14T02:48:42.000Z" title="Created 2022-05-14 10:48:42">2022-05-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-21T17:09:19.000Z" title="Updated 2022-05-22 01:09:19">2022-05-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Machine Learning"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="Conception"><a href="#Conception" class="headerlink" title="Conception"></a>Conception</h1><h2 id="Data-Set"><a href="#Data-Set" class="headerlink" title="Data Set"></a>Data Set</h2><p>In the mind of a computer, a data set is any collection of data. It can be anything from an array to a complete database.</p>
+<p>Example of an array:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br></pre></td></tr></table></figure>
+
+<p>Example of a database:</p>
+<table>
+<thead>
+<tr>
+<th>Carname</th>
+<th>Color</th>
+<th>Age</th>
+<th>Speed</th>
+<th>AutoPass</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BMW</td>
+<td>red</td>
+<td>5</td>
+<td>99</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Volvo</td>
+<td>black</td>
+<td>7</td>
+<td>86</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>VW</td>
+<td>gray</td>
+<td>8</td>
+<td>87</td>
+<td>N</td>
+</tr>
+<tr>
+<td>VW</td>
+<td>white</td>
+<td>7</td>
+<td>88</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>white</td>
+<td>2</td>
+<td>111</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>VW</td>
+<td>white</td>
+<td>17</td>
+<td>86</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Tesla</td>
+<td>red</td>
+<td>2</td>
+<td>103</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>BMW</td>
+<td>black</td>
+<td>9</td>
+<td>87</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Volvo</td>
+<td>gray</td>
+<td>4</td>
+<td>94</td>
+<td>N</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>white</td>
+<td>11</td>
+<td>78</td>
+<td>N</td>
+</tr>
+<tr>
+<td>Toyota</td>
+<td>gray</td>
+<td>12</td>
+<td>77</td>
+<td>N</td>
+</tr>
+<tr>
+<td>VW</td>
+<td>white</td>
+<td>9</td>
+<td>85</td>
+<td>N</td>
+</tr>
+<tr>
+<td>Toyota</td>
+<td>blue</td>
+<td>6</td>
+<td>86</td>
+<td>Y</td>
+</tr>
+</tbody></table>
+<h2 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a>Data Types</h2><p>To analyze data, it is important to know what type of data we are dealing with.</p>
+<p>We can split the data types into three main categories:</p>
+<ul>
+<li><strong>Numerical</strong></li>
+<li><strong>Categorical</strong></li>
+<li><strong>Ordinal</strong></li>
+</ul>
+<p><strong>Numerical</strong> data are numbers, and can be split into two numerical categories:</p>
+<ul>
+<li>Discrete Data<br>- numbers that are limited to integers. Example: The number of cars passing by.</li>
+<li>Continuous Data<br>- numbers that are of infinite value. Example: The price of an item, or the size of an item</li>
+</ul>
+<p><strong>Categorical</strong> data are values that cannot be measured up against each other. Example: a color value, or any yes/no values.</p>
+<p><strong>Ordinal</strong> data are like categorical data, but can be measured up against each other. Example: school grades where A is better than B and so on.</p>
+<h1 id="Mean-Median-Mode"><a href="#Mean-Median-Mode" class="headerlink" title="Mean Median Mode"></a>Mean Median Mode</h1><p>In Machine Learning (and in mathematics) there are often three values that interests us:</p>
+<ul>
+<li><strong>Mean</strong> - The average value</li>
+<li><strong>Median</strong> - The mid point value</li>
+<li><strong>Mode</strong> - The most common value</li>
+</ul>
+<p>The Mean, Median, and Mode are techniques that are often used in Machine Learning, so it is important to understand the concept behind them.</p>
+<h2 id="1-Mean"><a href="#1-Mean" class="headerlink" title="1.Mean"></a>1.Mean</h2><p>In [3]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">x = numpy.mean(speed)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">89.76923076923077</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Median"><a href="#2-Median" class="headerlink" title="2.Median"></a>2.Median</h2><p>The median value is the value in the middle, after you have sorted all the values:</p>
+<p>In [8]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">speed = [99,86,87,88,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">x = numpy.median(speed)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">86.5</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Mode"><a href="#3-Mode" class="headerlink" title="3.Mode"></a>3.Mode</h2><p>The Mode value is the value that appears the most number of times:</p>
+<p>In [9]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">x = stats.mode(speed)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">ModeResult(mode=array([86]), count=array([3]))</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Standard-Deviation"><a href="#Standard-Deviation" class="headerlink" title="Standard Deviation"></a>Standard Deviation</h1><p>Standard deviation is a number that describes how spread out the values are.</p>
+<p>Use the NumPy std() method to find the standard deviation:</p>
+<p>In [11]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">speed = [32,111,138,28,59,77,97]</span><br><span class="line"></span><br><span class="line">x = numpy.std(speed)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">37.84501153334721</span><br></pre></td></tr></table></figure>
+
+<p>Meaning that most of the values are within the range of 37.85 from the mean value, which is 77.4.</p>
+<h1 id="Variance"><a href="#Variance" class="headerlink" title="Variance"></a>Variance</h1><p>Variance is another number that indicates how spread out the values are.</p>
+<p>In fact, if you take the square root of the variance, you get the standard deviation!</p>
+<p>Or the other way around, if you multiply the standard deviation by itself, you get the variance!</p>
+<div><br class="Apple-interchange-newline">import numpy  speed = [32,111,138,28,59,77,97]  x = numpy.var(speed)  print(x)</div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">speed = [32,111,138,28,59,77,97]</span><br><span class="line"></span><br><span class="line">x = numpy.var(speed)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">1432.2448979591834</span><br></pre></td></tr></table></figure>
+
+<p>As we have learned, the formula to find the standard deviation is the square root of the variance:</p>
+<p>√<code>1432.25 = 37.85</code></p>
+<h2 id="Symbols"><a href="#Symbols" class="headerlink" title="Symbols"></a>Symbols</h2><p>Standard Deviation is often represented by the symbol Sigma: σ</p>
+<p>Variance is often represented by the symbol Sigma Square: σ2</p>
+<h1 id="Percentiles"><a href="#Percentiles" class="headerlink" title="Percentiles"></a>Percentiles</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">ages = [5,31,43,48,50,41,7,11,15,39,80,82,32,2,8,6,25,36,27,61,31]</span><br><span class="line"></span><br><span class="line">x = numpy.percentile(ages, 75)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">43.0</span><br></pre></td></tr></table></figure>
+
+<p>What is the 75. percentile? The answer is 43, meaning that 75% of the people are 43 or younger.</p>
+<h1 id="Data-Distribution"><a href="#Data-Distribution" class="headerlink" title="Data Distribution"></a>Data Distribution</h1><p>Create an array containing 250 random floats between 0 and 5:</p>
+<p>In [17]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">x = numpy.random.uniform(0.0, 5.0, 50)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">[4.27446338 2.66176596 4.50107211 2.80700534 0.93816452 3.36951298</span><br><span class="line"> 3.22343319 3.13167799 2.69310866 3.43053403 1.13738269 0.11547475</span><br><span class="line"> 3.0252743  4.41056213 1.46055272 3.04914468 0.24761704 3.69885535</span><br><span class="line"> 2.87121381 0.21103407 4.94615044 2.31117432 4.36246387 0.01441879</span><br><span class="line"> 0.69795508 4.61490143 0.92598842 0.04641153 2.66153569 0.63786106</span><br><span class="line"> 0.2759745  4.20157762 3.10457879 3.97919161 0.92983141 3.74741385</span><br><span class="line"> 3.73498029 1.55022552 3.48477434 3.55773345 0.38010233 1.10196163</span><br><span class="line"> 1.69044362 1.13307015 4.76181604 4.13697102 2.28276629 0.72331536</span><br><span class="line"> 2.25578683 4.02949496]</span><br></pre></td></tr></table></figure>
+
+<p>To visualize the data set we can draw a histogram with the data we collected.</p>
+<p>In [18]:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">x = numpy.random.uniform(0.0, 5.0, 250)</span><br><span class="line"></span><br><span class="line">plt.hist(x, 5)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<img src="https://i.imgur.com/m2H2vmQ.png" style="zoom:67%;" />
+
+<p>We use the array from the example above to draw a histogram with 5 bars.</p>
+<p>The first bar represents how many values in the array are between 0 and 1.</p>
+<p>The second bar represents how many values are between 1 and 2.</p>
+<p>Etc.</p>
+<h1 id="Normal-Data-Distribution"><a href="#Normal-Data-Distribution" class="headerlink" title="Normal Data Distribution"></a>Normal Data Distribution</h1><p>In probability theory this kind of data distribution is known as the <em>normal data distribution</em>, or the <em>Gaussian data distribution</em>, after the mathematician Carl Friedrich Gauss who came up with the formula of this data distribution.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = numpy.random.normal(<span class="number">5.0</span>, <span class="number">1.0</span>, <span class="number">100000</span>)</span><br><span class="line"></span><br><span class="line">plt.hist(x, <span class="number">100</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<img src="https://i.imgur.com/IKYZnh6.png" style="zoom:67%;" />
+
+<p>We use the array from the <code>numpy.random.normal()</code> method, with 100000 values, to draw a histogram with 100 bars.</p>
+<p>We specify that the mean value is 5.0, and the standard deviation is 1.0.</p>
+<p>Meaning that the values should be concentrated around 5.0, and rarely further away than 1.0 from the mean.</p>
+<p>And as you can see from the histogram, most values are between 4.0 and 6.0, with a top at approximately 5.0.</p>
+<h1 id="Scatter-Plot"><a href="#Scatter-Plot" class="headerlink" title="Scatter Plot"></a>Scatter Plot</h1><p>A scatter plot is a diagram where each value in the data set is represented by a dot.</p>
+<p>The Matplotlib module has a method for drawing scatter plots, it needs two arrays of the same length, one for the values of the x-axis, and one for the values of the y-axis:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">x = [5,7,8,7,2,17,2,9,4,11,12,9,6]</span><br><span class="line">y = [99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<img src="https://i.imgur.com/q6o423z.png" style="zoom: 80%;" />
+
+<p>The x-axis represents ages, and the y-axis represents speeds.</p>
+<p>What we can read from the diagram is that the two fastest cars were both 2 years old, and the slowest car was 12 years old.</p>
+<p><strong>Note:</strong> It seems that the newer the car, the faster it drives, but that could be a coincidence, after all we only registered 13 cars.</p>
+<p>Let us create two arrays that are both filled with 1000 random numbers from a normal data distribution.</p>
+<p>The first array will have the mean set to 5.0 with a standard deviation of 1.0.</p>
+<p>The second array will have the mean set to 10.0 with a standard deviation of 2.0:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">x = numpy.random.normal(5.0, 1.0, 1000)</span><br><span class="line">y = numpy.random.normal(10.0, 2.0, 1000)</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<img src="https://i.imgur.com/4Rf6Ex2.png" style="zoom:80%;" />
+
+<p>We can see that the dots are concentrated around the value 5 on the x-axis, and 10 on the y-axis.</p>
+<p>We can also see that the spread is wider on the y-axis than on the x-axis.</p>
+<h1 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h1><p>The term regression is used when you try to find the relationship between variables.</p>
+<p>In Machine Learning, and in statistical modeling, that relationship is used to predict the outcome of future events. </p>
+<p>Linear regression uses the relationship between the data-points to draw a straight line through all them.</p>
+<p>This line can be used to predict future values. In Machine Learning, predicting the future is very important.</p>
+<p>Let us see if the data we collected could be used in a linear regression:</p>
+<p>Import <code>scipy</code> and draw the line of Linear Regression:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">x = [5,7,8,7,2,17,2,9,4,11,12,9,6]</span><br><span class="line">y = [99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">slope, intercept, r, p, std_err = stats.linregress(x, y)</span><br><span class="line"></span><br><span class="line">def myfunc(x):</span><br><span class="line"> return slope * x + intercept</span><br><span class="line"></span><br><span class="line">mymodel = list(map(myfunc, x))</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.plot(x, mymodel)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<img src="https://i.imgur.com/yZVwr7i.png" style="zoom:80%;" />
+
+<h2 id="Example-Explained"><a href="#Example-Explained" class="headerlink" title="Example Explained"></a>Example Explained</h2><p>Execute a method that returns some important key values of Linear Regression:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slope, intercept, r, p, std_err = stats.linregress(x, y)</span><br></pre></td></tr></table></figure>
+
+<p>Create a function that uses the <code>slope</code> and <code>intercept</code> values to return a new value. <strong>(Just like linear equation: y=kx+b. Slope represents the k and intercept represents the b)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def myfunc(x):</span><br><span class="line">  return slope * x + intercept</span><br></pre></td></tr></table></figure>
+
+<p>Run each value of the x array through the function. This will result in a new array with new values for the y-axis:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mymodel = list(map(myfunc, x))</span><br></pre></td></tr></table></figure>
+
+<p>Draw the line of linear regression:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x, mymodel)</span><br></pre></td></tr></table></figure>
+
+<h2 id="R-for-Relationship"><a href="#R-for-Relationship" class="headerlink" title="R for Relationship"></a>R for Relationship</h2><p>It is important to know how the relationship between the values of the x-axis and the values of the y-axis is, if there are no relationship the linear regression can not be used to predict anything.</p>
+<p>This relationship - the coefficient of correlation - is called <code>r</code>. The <code>r</code> value ranges from -1 to 1, where 0 means no relationship, and 1 (and -1) means 100% related.</p>
+<p>How well does my data fit in a linear regression?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">x = [5,7,8,7,2,17,2,9,4,11,12,9,6]</span><br><span class="line">y = [99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">slope, intercept, r, p, std_err = stats.linregress(x, y)</span><br><span class="line"></span><br><span class="line">print(r)</span><br><span class="line">-0.758591524376155</span><br></pre></td></tr></table></figure>
+
+<p>The result -0.76 shows that there is a relationship, not perfect, but it indicates that we could use linear regression in future predictions.</p>
+<h2 id="Predict-Future-Values"><a href="#Predict-Future-Values" class="headerlink" title="Predict Future Values"></a>Predict Future Values</h2><p>Now we can use the information we have gathered to predict future values.</p>
+<p>Example: Let us try to predict the speed of a 10 years old car.</p>
+<p>Predict the speed of a 10 years old car:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">x = [5,7,8,7,2,17,2,9,4,11,12,9,6]</span><br><span class="line">y = [99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">slope, intercept, r, p, std_err = stats.linregress(x, y)</span><br><span class="line"></span><br><span class="line">def myfunc(x):</span><br><span class="line"> return slope * x + intercept</span><br><span class="line"></span><br><span class="line">speed = myfunc(10)</span><br><span class="line"></span><br><span class="line">print(speed)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Polynomial-Regression"><a href="#Polynomial-Regression" class="headerlink" title="Polynomial Regression"></a>Polynomial Regression</h1><p>If your data points clearly will not fit a linear regression (a straight line through all data points), it might be ideal for polynomial regression.</p>
+<p>Polynomial regression, like linear regression, uses the relationship between the variables x and y to find the best way to draw a line through the data points.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>We have registered the car’s speed, and the time of day (hour) the passing occurred.</p>
+<p>The x-axis represents the hours of the day and the y-axis represents the speed:</p>
+<p>Import <code>numpy</code> and <code>matplotlib</code> then draw the line of Polynomial Regression:</p>
+<p>Import <code>numpy</code> and <code>matplotlib</code> then draw the line of Polynomial Regression:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">x = [1,2,3,5,6,7,8,9,10,12,13,14,15,16,18,19,21,22]</span><br><span class="line">y = [100,90,80,60,60,55,60,65,70,70,75,76,78,79,90,99,99,100]</span><br><span class="line"></span><br><span class="line">mymodel = numpy.poly1d(numpy.polyfit(x, y, 3))</span><br><span class="line"></span><br><span class="line">myline = numpy.linspace(1, 22, 100)</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.plot(myline, mymodel(myline))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Example-Explained-1"><a href="#Example-Explained-1" class="headerlink" title="Example Explained"></a>Example Explained</h2><p>NumPy has a method that lets us make a polynomial model:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mymodel = numpy.poly1d(numpy.polyfit(x, y, 3))</span><br></pre></td></tr></table></figure>
+
+<p>Then specify how the line will display, we start at position 1, and end at position 22:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myline = numpy.linspace(1, 22, 100)</span><br></pre></td></tr></table></figure>
+
+<p>Draw the line of polynomial regression:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(myline, mymodel(myline))</span><br></pre></td></tr></table></figure>
+
+<h2 id="R-Squared"><a href="#R-Squared" class="headerlink" title="R-Squared"></a>R-Squared</h2><p>It is important to know how well the relationship between the values of the x- and y-axis is, if there are no relationship the polynomial regression can not be used to predict anything.</p>
+<p>The relationship is measured with a value called the r-squared. The r-squared value ranges from 0 to 1, where 0 means no relationship, and 1 means 100% related.</p>
+<p>How well does my data fit in a polynomial regression?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line">from sklearn.metrics import r2_score</span><br><span class="line"></span><br><span class="line">x = [1,2,3,5,6,7,8,9,10,12,13,14,15,16,18,19,21,22]</span><br><span class="line">y = [100,90,80,60,60,55,60,65,70,70,75,76,78,79,90,99,99,100]</span><br><span class="line"></span><br><span class="line">mymodel = numpy.poly1d(numpy.polyfit(x, y, 3))</span><br><span class="line"></span><br><span class="line">print(r2_score(y, mymodel(x)))</span><br></pre></td></tr></table></figure>
+
+<p><strong>Note:</strong> The result 0.94 shows that there is a very good relationship, and we can use polynomial regression in future predictions.</p>
+<h2 id="Predict-Future-Values-1"><a href="#Predict-Future-Values-1" class="headerlink" title="Predict Future Values"></a>Predict Future Values</h2><p>Now we can use the information we have gathered to predict future values.</p>
+<p>Let us try to predict the speed of a car that passes the tollbooth at around 17 P.M:</p>
+<p>To do so, we need the same <code>mymodel</code> array from the example above:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line">from sklearn.metrics import r2_score</span><br><span class="line"></span><br><span class="line">x = [1,2,3,5,6,7,8,9,10,12,13,14,15,16,18,19,21,22]</span><br><span class="line">y = [100,90,80,60,60,55,60,65,70,70,75,76,78,79,90,99,99,100]</span><br><span class="line"></span><br><span class="line">mymodel = numpy.poly1d(numpy.polyfit(x, y, 3))</span><br><span class="line"></span><br><span class="line">speed = mymodel(17)</span><br><span class="line">print(speed)</span><br><span class="line">88.87331269697987</span><br></pre></td></tr></table></figure>
+
+<h1 id="Multiple-Regression"><a href="#Multiple-Regression" class="headerlink" title="Multiple Regression"></a>Multiple Regression</h1><p>Multiple regression is like linear regression, but with more than one independent value, meaning that we try to predict a value based on <strong>two or more</strong> variables.</p>
+<p>Take a look at the data set below, it contains some information about cars.</p>
+<table>
+<thead>
+<tr>
+<th>Car</th>
+<th>Model</th>
+<th>Volume</th>
+<th>Weight</th>
+<th>CO2</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Toyota</th>
+<th>Aygo</th>
+<th>1000</th>
+<th>790</th>
+<th>99</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mitsubishi</td>
+<td>Space Star</td>
+<td>1200</td>
+<td>1160</td>
+<td>95</td>
+</tr>
+<tr>
+<td>Skoda</td>
+<td>Citigo</td>
+<td>1000</td>
+<td>929</td>
+<td>95</td>
+</tr>
+<tr>
+<td>Fiat</td>
+<td>500</td>
+<td>900</td>
+<td>865</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Mini</td>
+<td>Cooper</td>
+<td>1500</td>
+<td>1140</td>
+<td>105</td>
+</tr>
+<tr>
+<td>VW</td>
+<td>Up!</td>
+<td>1000</td>
+<td>929</td>
+<td>105</td>
+</tr>
+<tr>
+<td>Skoda</td>
+<td>Fabia</td>
+<td>1400</td>
+<td>1109</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Mercedes</td>
+<td>A-Class</td>
+<td>1500</td>
+<td>1365</td>
+<td>92</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>Fiesta</td>
+<td>1500</td>
+<td>1112</td>
+<td>98</td>
+</tr>
+<tr>
+<td>Audi</td>
+<td>A1</td>
+<td>1600</td>
+<td>1150</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Hyundai</td>
+<td>I20</td>
+<td>1100</td>
+<td>980</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Suzuki</td>
+<td>Swift</td>
+<td>1300</td>
+<td>990</td>
+<td>101</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>Fiesta</td>
+<td>1000</td>
+<td>1112</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Honda</td>
+<td>Civic</td>
+<td>1600</td>
+<td>1252</td>
+<td>94</td>
+</tr>
+<tr>
+<td>Hundai</td>
+<td>I30</td>
+<td>1600</td>
+<td>1326</td>
+<td>97</td>
+</tr>
+<tr>
+<td>Opel</td>
+<td>Astra</td>
+<td>1600</td>
+<td>1330</td>
+<td>97</td>
+</tr>
+<tr>
+<td>BMW</td>
+<td>1</td>
+<td>1600</td>
+<td>1365</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Mazda</td>
+<td>3</td>
+<td>2200</td>
+<td>1280</td>
+<td>104</td>
+</tr>
+<tr>
+<td>Skoda</td>
+<td>Rapid</td>
+<td>1600</td>
+<td>1119</td>
+<td>104</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>Focus</td>
+<td>2000</td>
+<td>1328</td>
+<td>105</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>Mondeo</td>
+<td>1600</td>
+<td>1584</td>
+<td>94</td>
+</tr>
+<tr>
+<td>Opel</td>
+<td>Insignia</td>
+<td>2000</td>
+<td>1428</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Mercedes</td>
+<td>C-Class</td>
+<td>2100</td>
+<td>1365</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Skoda</td>
+<td>Octavia</td>
+<td>1600</td>
+<td>1415</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Volvo</td>
+<td>S60</td>
+<td>2000</td>
+<td>1415</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Mercedes</td>
+<td>CLA</td>
+<td>1500</td>
+<td>1465</td>
+<td>102</td>
+</tr>
+<tr>
+<td>Audi</td>
+<td>A4</td>
+<td>2000</td>
+<td>1490</td>
+<td>104</td>
+</tr>
+<tr>
+<td>Audi</td>
+<td>A6</td>
+<td>2000</td>
+<td>1725</td>
+<td>114</td>
+</tr>
+<tr>
+<td>Volvo</td>
+<td>V70</td>
+<td>1600</td>
+<td>1523</td>
+<td>109</td>
+</tr>
+<tr>
+<td>BMW</td>
+<td>5</td>
+<td>2000</td>
+<td>1705</td>
+<td>114</td>
+</tr>
+<tr>
+<td>Mercedes</td>
+<td>E-Class</td>
+<td>2100</td>
+<td>1605</td>
+<td>115</td>
+</tr>
+<tr>
+<td>Volvo</td>
+<td>XC70</td>
+<td>2000</td>
+<td>1746</td>
+<td>117</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>B-Max</td>
+<td>1600</td>
+<td>1235</td>
+<td>104</td>
+</tr>
+<tr>
+<td>BMW</td>
+<td>2</td>
+<td>1600</td>
+<td>1390</td>
+<td>108</td>
+</tr>
+<tr>
+<td>Opel</td>
+<td>Zafira</td>
+<td>1600</td>
+<td>1405</td>
+<td>109</td>
+</tr>
+<tr>
+<td>Mercedes</td>
+<td>SLK</td>
+<td>2500</td>
+<td>1395</td>
+<td>120</td>
+</tr>
+</tbody></table>
+<p>We can predict the CO2 emission of a car based on the size of the engine, but with multiple regression we can throw in more variables, like the weight of the car, to make the prediction more accurate.</p>
+<p>Then make a list of the independent values and call this variable <code>X</code>.</p>
+<p>Put the dependent values in a variable called <code>y</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X = df[[&#x27;Weight&#x27;, &#x27;Volume&#x27;]]y = df[&#x27;CO2&#x27;]</span><br></pre></td></tr></table></figure>
+
+<p>From the sklearn module we will use the <code>LinearRegression()</code> method to create a linear regression object.</p>
+<p>This object has a method called <code>fit()</code> that takes the independent and dependent values as parameters and fills the regression object with data that describes the relationship:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regr = linear_model.LinearRegression()regr.fit(X, y)</span><br></pre></td></tr></table></figure>
+
+<p>Now we have a regression object that are ready to predict CO2 values based on a car’s weight and volume:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#predict the CO2 emission of a car where the weight is 2300kg, and the volume is 1300cm3:predictedCO2 = regr.predict([[2300, 1300]])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import pandas</span><br><span class="line">from sklearn import linear_model</span><br><span class="line"></span><br><span class="line">df = pandas.read_csv(&quot;cars.csv&quot;)</span><br><span class="line"></span><br><span class="line">X = df[[&#x27;Weight&#x27;, &#x27;Volume&#x27;]]</span><br><span class="line">y = df[&#x27;CO2&#x27;]</span><br><span class="line"></span><br><span class="line">regr = linear_model.LinearRegression()</span><br><span class="line">regr.fit(X, y)</span><br><span class="line"></span><br><span class="line">#predict the CO2 emission of a car where the weight is 2300kg, and the volume is 1300cm3:</span><br><span class="line">predictedCO2 = regr.predict([[2300, 1300]])</span><br><span class="line"></span><br><span class="line">print(predictedCO2)</span><br><span class="line">[107.2087328]</span><br></pre></td></tr></table></figure>
+
+<p>We have predicted that a car with 1.3 liter engine, and a weight of 2300 kg, will release approximately 107 grams of CO2 for every kilometer it drives.</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/BIG-DATA/">BIG DATA</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/11/%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">猫眼电影</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/03/Vue-js/Vue-js/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Vue.js</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Conception"><span class="toc-number">1.</span> <span class="toc-text">Conception</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Set"><span class="toc-number">1.1.</span> <span class="toc-text">Data Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Types"><span class="toc-number">1.2.</span> <span class="toc-text">Data Types</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mean-Median-Mode"><span class="toc-number">2.</span> <span class="toc-text">Mean Median Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Mean"><span class="toc-number">2.1.</span> <span class="toc-text">1.Mean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Median"><span class="toc-number">2.2.</span> <span class="toc-text">2.Median</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Mode"><span class="toc-number">2.3.</span> <span class="toc-text">3.Mode</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Standard-Deviation"><span class="toc-number">3.</span> <span class="toc-text">Standard Deviation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Variance"><span class="toc-number">4.</span> <span class="toc-text">Variance</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Symbols"><span class="toc-number">4.1.</span> <span class="toc-text">Symbols</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Percentiles"><span class="toc-number">5.</span> <span class="toc-text">Percentiles</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Data-Distribution"><span class="toc-number">6.</span> <span class="toc-text">Data Distribution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Normal-Data-Distribution"><span class="toc-number">7.</span> <span class="toc-text">Normal Data Distribution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scatter-Plot"><span class="toc-number">8.</span> <span class="toc-text">Scatter Plot</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linear-Regression"><span class="toc-number">9.</span> <span class="toc-text">Linear Regression</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-Explained"><span class="toc-number">9.1.</span> <span class="toc-text">Example Explained</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R-for-Relationship"><span class="toc-number">9.2.</span> <span class="toc-text">R for Relationship</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Predict-Future-Values"><span class="toc-number">9.3.</span> <span class="toc-text">Predict Future Values</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Polynomial-Regression"><span class="toc-number">10.</span> <span class="toc-text">Polynomial Regression</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Example"><span class="toc-number">10.1.</span> <span class="toc-text">Example</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-Explained-1"><span class="toc-number">10.2.</span> <span class="toc-text">Example Explained</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R-Squared"><span class="toc-number">10.3.</span> <span class="toc-text">R-Squared</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Predict-Future-Values-1"><span class="toc-number">10.4.</span> <span class="toc-text">Predict Future Values</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Multiple-Regression"><span class="toc-number">11.</span> <span class="toc-text">Multiple Regression</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

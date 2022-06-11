@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>basic operations | Ferry's Blog</title><meta name="keywords" content="linux"><meta name="author" content="Ferry Chan"><meta name="copyright" content="Ferry Chan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="FileListing File ls- listing files in current directory ls -l  will help you get more information of the files To list the invisible files, specify the -a option to ls −   Copying FilesTo make a copy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="basic operations">
+<meta property="og:url" content="http://example.com/2021/06/18/linux/basic-operations/index.html">
+<meta property="og:site_name" content="Ferry&#39;s Blog">
+<meta property="og:description" content="FileListing File ls- listing files in current directory ls -l  will help you get more information of the files To list the invisible files, specify the -a option to ls −   Copying FilesTo make a copy">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-06-18T07:49:05.000Z">
+<meta property="article:modified_time" content="2022-05-21T17:09:19.000Z">
+<meta property="article:author" content="Ferry Chan">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://example.com/2021/06/18/linux/basic-operations/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'basic operations',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-22 01:09:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Emily.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">163</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ferry's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">basic operations</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-06-18T07:49:05.000Z" title="Created 2021-06-18 15:49:05">2021-06-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-21T17:09:19.000Z" title="Updated 2022-05-22 01:09:19">2022-05-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="basic operations"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="File"><a href="#File" class="headerlink" title="File"></a>File</h1><h2 id="Listing-File"><a href="#Listing-File" class="headerlink" title="Listing File"></a>Listing File</h2><ul>
+<li><p><code>ls</code>- listing files in current directory</p>
+<p><code>ls -l</code>  will help you get more information of the files</p>
+<p>To list the invisible files, specify the <strong>-a</strong> option to <strong>ls</strong> −</p>
+</li>
+</ul>
+<h2 id="Copying-Files"><a href="#Copying-Files" class="headerlink" title="Copying Files"></a>Copying Files</h2><p>To make a copy of a file use the <strong>cp</strong> command. The basic syntax of the command is −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cp source_file destination_file</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Renaming-Files"><a href="#Renaming-Files" class="headerlink" title="Renaming Files"></a>Renaming Files</h2><p>To change the name of a file, use the <strong>mv</strong> command. Following is the basic syntax −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mv old_file new_file</span></span><br></pre></td></tr></table></figure>
+
+<p>The <strong>mv</strong> command will move the existing file completely into the new file. In this case, you will find only <strong>newfile</strong> in your current directory.</p>
+<h1 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h1><p> <code>mkdir [name]</code> create a directory</p>
+<p><code>rmdir [name]</code> remove a directory, but it only to be useful with the empty directory. </p>
+<p><code>rm -rf [name]</code> can remove the files or directories permanently. </p>
+<h2 id="Changing-Directories"><a href="#Changing-Directories" class="headerlink" title="Changing Directories"></a>Changing Directories</h2><p>You can use it to change to any directory by specifying a valid absolute or relative path. The syntax is as given below −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> dirname</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="File-Permission"><a href="#File-Permission" class="headerlink" title="File Permission"></a>File Permission</h1><p>Every file in Unix has the following attributes −</p>
+<ul>
+<li><strong>Owner permissions</strong> − The owner’s permissions determine what actions the owner of the file can perform on the file.</li>
+<li><strong>Group permissions</strong> − The group’s permissions determine what actions a user, who is a member of the group that a file belongs to, can perform on the file.</li>
+<li><strong>Other (world) permissions</strong> − The permissions for others indicate what action all other users can perform on the file.</li>
+</ul>
+<p>The permissions are broken into groups of threes, and each position in the group denotes a specific permission, <strong>in this order: read (r), write (w), execute (x) −</strong></p>
+<ul>
+<li>The first three characters (2-4) represent the permissions for the file’s owner. For example, <strong>-rwxr-xr–</strong> represents that the owner has read (r), write (w) and execute (x) permission.</li>
+<li>The second group of three characters (5-7) consists of the permissions for the group to which the file belongs. For example, <strong>-rwxr-xr–</strong> represents that the group has read (r) and execute (x) permission, but no write permission.</li>
+<li>The last group of three characters (8-10) represents the permissions for everyone else. For example, <strong>-rwxr-xr–</strong> represents that there is <strong>read (r)</strong> only permission.</li>
+</ul>
+<p>When we use <code>ls -l</code> command, the permission information will be shown. </p>
+<p><img src="https://i.imgur.com/uSwxH68.png"></p>
+<p>The first character represent what type it is. </p>
+<p><code>-</code> represents a file</p>
+<p><code>d</code> represents a directory</p>
+<h2 id="Change-Permission"><a href="#Change-Permission" class="headerlink" title="Change Permission"></a>Change Permission</h2><p>We have two modes to change the permission of files. </p>
+<h3 id="Symbolic-Mode"><a href="#Symbolic-Mode" class="headerlink" title="Symbolic Mode"></a>Symbolic Mode</h3><p><code>a</code> -&gt;all（user，group，other）<br><code>u</code> -&gt;user<br><code>g</code> -&gt;group<br><code>o</code> -&gt;other</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Chmod operator &amp; Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+</td>
+<td align="center">Adds the designated permission(s) to a file or directory.</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">Removes the designated permission(s) from a file or directory.</td>
+</tr>
+<tr>
+<td align="center">=</td>
+<td align="center">Sets the designated permission(s).</td>
+</tr>
+</tbody></table>
+<p><strong>Example</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">chmod o+wx testfile</span></span><br><span class="line"><span class="meta">$</span><span class="bash">ls -l testfile</span></span><br><span class="line">-rwxrwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br><span class="line"><span class="meta">$</span><span class="bash">chmod u-x testfile</span></span><br><span class="line"><span class="meta">$</span><span class="bash">ls -l testfile</span></span><br><span class="line">-rw-rwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br><span class="line"><span class="meta">$</span><span class="bash">chmod g = rx testfile</span></span><br><span class="line"><span class="meta">$</span><span class="bash">ls -l testfile</span></span><br><span class="line">-rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Absolute-Permissions"><a href="#Absolute-Permissions" class="headerlink" title="Absolute Permissions"></a>Absolute Permissions</h3><p>The second way to modify permissions with the chmod command is to use a number to specify each set of permissions for the file.</p>
+<p>Each permission is assigned a value, as the following table shows, and the total of each set of permissions provides a number for that set.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Number</th>
+<th align="center">Octal Permission Representation</th>
+<th align="center">Ref</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>0</strong></td>
+<td align="center">No permission</td>
+<td align="center">—</td>
+</tr>
+<tr>
+<td align="center"><strong>1</strong></td>
+<td align="center">Execute permission</td>
+<td align="center">–x</td>
+</tr>
+<tr>
+<td align="center"><strong>2</strong></td>
+<td align="center">Write permission</td>
+<td align="center">-w-</td>
+</tr>
+<tr>
+<td align="center"><strong>3</strong></td>
+<td align="center">Execute and write permission: 1 (execute) + 2 (write) = 3</td>
+<td align="center">-wx</td>
+</tr>
+<tr>
+<td align="center"><strong>4</strong></td>
+<td align="center">Read permission</td>
+<td align="center">r–</td>
+</tr>
+<tr>
+<td align="center"><strong>5</strong></td>
+<td align="center">Read and execute permission: 4 (read) + 1 (execute) = 5</td>
+<td align="center">r-x</td>
+</tr>
+<tr>
+<td align="center"><strong>6</strong></td>
+<td align="center">Read and write permission: 4 (read) + 2 (write) = 6</td>
+<td align="center">rw-</td>
+</tr>
+<tr>
+<td align="center"><strong>7</strong></td>
+<td align="center">All permissions: 4 (read) + 2 (write) + 1 (execute) = 7</td>
+<td align="center">rwx</td>
+</tr>
+</tbody></table>
+<p>Here’s an example using the testfile. Running <strong>ls -1</strong> on the testfile shows that the file’s permissions are as follows −</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ls -l testfile</span><br><span class="line">-rwxrwxr--  1 amrood   users 1024  Nov 2 00:10  testfile</span><br></pre></td></tr></table></figure>
+
+<p>Then each example <strong>chmod</strong> command from the preceding table is run on the testfile, followed by <strong>ls –l</strong>, so you can see the permission changes −</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 755 testfile</span><br><span class="line">$ls -l testfile</span><br><span class="line">-rwxr-xr-x  1 amrood   users 1024  Nov 2 00:10  testfile</span><br><span class="line">$chmod 743 testfile</span><br><span class="line">$ls -l testfile</span><br><span class="line">-rwxr---wx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br><span class="line">$chmod 043 testfile</span><br><span class="line">$ls -l testfile</span><br><span class="line">----r---wx  1 amrood   users 1024  Nov 2 00:10  testfile</span><br></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/linux/">linux</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/06/19/linux/Basic-Concept/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Basic Concept</div></div></a></div><div class="next-post pull-right"><a href="/2021/06/17/linux/shell/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Shell &amp; Shell scripts</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2021/06/19/linux/Basic-Concept/" title="Basic Concept"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-19</div><div class="title">Basic Concept</div></div></a></div><div><a href="/2020/08/16/linux/linux%E4%B8%8A%E9%85%8D%E7%BD%AEv2ray/" title="linux上配置v2ray"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">linux上配置v2ray</div></div></a></div><div><a href="/2021/06/17/linux/shell/" title="Shell & Shell scripts"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-17</div><div class="title">Shell & Shell scripts</div></div></a></div><div><a href="/2020/03/18/linux/%E5%85%B3%E4%BA%8Elinux-install-tar/" title="关于linux install tar ./"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-18</div><div class="title">关于linux install tar ./</div></div></a></div><div><a href="/2020/04/19/linux/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/" title="文件权限/属性"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-19</div><div class="title">文件权限/属性</div></div></a></div><div><a href="/2020/04/23/linux/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" title="文件系统"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-23</div><div class="title">文件系统</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#File"><span class="toc-number">1.</span> <span class="toc-text">File</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Listing-File"><span class="toc-number">1.1.</span> <span class="toc-text">Listing File</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copying-Files"><span class="toc-number">1.2.</span> <span class="toc-text">Copying Files</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Renaming-Files"><span class="toc-number">1.3.</span> <span class="toc-text">Renaming Files</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Directory"><span class="toc-number">2.</span> <span class="toc-text">Directory</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Changing-Directories"><span class="toc-number">2.1.</span> <span class="toc-text">Changing Directories</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#File-Permission"><span class="toc-number">3.</span> <span class="toc-text">File Permission</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Change-Permission"><span class="toc-number">3.1.</span> <span class="toc-text">Change Permission</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Symbolic-Mode"><span class="toc-number">3.1.1.</span> <span class="toc-text">Symbolic Mode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Absolute-Permissions"><span class="toc-number">3.1.2.</span> <span class="toc-text">Absolute Permissions</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

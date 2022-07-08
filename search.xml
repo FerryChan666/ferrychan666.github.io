@@ -13,36 +13,6 @@
       </tags>
   </entry>
   <entry>
-    <title>猫眼电影</title>
-    <url>/2022/06/11/%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1/</url>
-    <content><![CDATA[<h1 id="新建vue-cli脚手架"><a href="#新建vue-cli脚手架" class="headerlink" title="新建vue-cli脚手架"></a>新建vue-cli脚手架</h1><ol>
-<li><p>安装vue-cli</p>
-</li>
-<li><p>创建项目</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vue create maoyan</span><br></pre></td></tr></table></figure></li>
-<li><p>运行本地服务器</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd maoyan</span><br><span class="line">npm run serve</span><br></pre></td></tr></table></figure>
-
-<p>得到域名<a href="http://localhost:8080/">http://localhost:8080/</a></p>
-</li>
-<li></li>
-</ol>
-<h1 id="git的配置"><a href="#git的配置" class="headerlink" title="git的配置"></a>git的配置</h1><ol>
-<li><p>在github上创建远程repo</p>
-</li>
-<li><p>本地添加远程repo</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:FerryChan666/maoyan.git</span><br></pre></td></tr></table></figure></li>
-<li><p>推送到github</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure></li>
-<li><p>创建分支</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b dev</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ADT的设计</title>
     <url>/2020/05/06/DS/ADT%E7%9A%84%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>ADT（抽象数据类型），如果我们的程序需要使用类型，C中没有与之匹配的基本类型。那我们可以自己定义抽象数据类型。如果，我们要设计一个数据类型需要：</p>
@@ -1318,7 +1288,14 @@
   <entry>
     <title>Machine Learning</title>
     <url>/2022/05/14/Machine-Learning/Machine-Learning/</url>
-    <content><![CDATA[<h1 id="Conception"><a href="#Conception" class="headerlink" title="Conception"></a>Conception</h1><h2 id="Data-Set"><a href="#Data-Set" class="headerlink" title="Data Set"></a>Data Set</h2><p>In the mind of a computer, a data set is any collection of data. It can be anything from an array to a complete database.</p>
+    <content><![CDATA[<h1 id="Conception"><a href="#Conception" class="headerlink" title="Conception"></a>Conception</h1><p>In simple words, ML is a type of artificial intelligence that extract patterns out of raw data by using an algorithm or method. The key focus of ML is to allow computer systems to learn from experience without being explicitly programmed or human intervention.</p>
+<p>ML is a field of AI consisting of learning algorithms that −</p>
+<ul>
+<li>Improve their performance (P)</li>
+<li>At executing some task (T)</li>
+<li>Over time with experience (E)</li>
+</ul>
+<h2 id="Data-Set"><a href="#Data-Set" class="headerlink" title="Data Set"></a>Data Set</h2><p>In the mind of a computer, a data set is any collection of data. It can be anything from an array to a complete database.</p>
 <p>Example of an array:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br></pre></td></tr></table></figure>
 
@@ -1439,88 +1416,117 @@
 </ul>
 <p><strong>Categorical</strong> data are values that cannot be measured up against each other. Example: a color value, or any yes/no values.</p>
 <p><strong>Ordinal</strong> data are like categorical data, but can be measured up against each other. Example: school grades where A is better than B and so on.</p>
-<h1 id="Mean-Median-Mode"><a href="#Mean-Median-Mode" class="headerlink" title="Mean Median Mode"></a>Mean Median Mode</h1><p>In Machine Learning (and in mathematics) there are often three values that interests us:</p>
-<ul>
-<li><strong>Mean</strong> - The average value</li>
-<li><strong>Median</strong> - The mid point value</li>
-<li><strong>Mode</strong> - The most common value</li>
+<h1 id="Basic-Tools"><a href="#Basic-Tools" class="headerlink" title="Basic Tools"></a>Basic Tools</h1><h2 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a>pandas</h2><p>The representation of data in pandas is done with the help of following three data structures</p>
+<p><strong>Series</strong> − It is basically a one-dimensional array with an axis label.</p>
+<p><strong>Data frame</strong> −It is basically a two-dimensional data structure which can contain heterogeneous data.</p>
+<p><strong>Panel</strong> − It is a 3-dimensional data structure containing heterogeneous data.</p>
+<h2 id="Scikit-learn"><a href="#Scikit-learn" class="headerlink" title="Scikit-learn"></a>Scikit-learn</h2><ul>
+<li>It is built on NumPy, SciPy, and Matplotlib.</li>
+<li>It is an open source and can be reused under BSD license.</li>
+<li>It is accessible to everybody and can be reused in various contexts.</li>
+<li>Wide range of machine learning algorithms covering major areas of ML like classification, clustering, regression, dimensionality reduction, model selection etc. can be implemented with the help of it.</li>
 </ul>
-<p>The Mean, Median, and Mode are techniques that are often used in Machine Learning, so it is important to understand the concept behind them.</p>
-<h2 id="1-Mean"><a href="#1-Mean" class="headerlink" title="1.Mean"></a>1.Mean</h2><p>In [3]:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">x = numpy.mean(speed)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">89.76923076923077</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from sklearn.datasets import load_breast_cancer</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-Median"><a href="#2-Median" class="headerlink" title="2.Median"></a>2.Median</h2><p>The median value is the value in the middle, after you have sorted all the values:</p>
-<p>In [8]:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">speed = [99,86,87,88,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">x = numpy.median(speed)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">86.5</span><br></pre></td></tr></table></figure>
+<h1 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h1><p>The main objective of supervised learning algorithms is to learn an association between input data samples and corresponding outputs.</p>
+<p><strong>x</strong>: Input variables and</p>
+<p><strong>Y</strong>: Output variable</p>
+<p>Y=f(x)</p>
+<p>Now, the main objective would be to approximate the mapping function so well that even when we have new input data (x), we can easily predict the output variable (Y) for that new input data.</p>
+<p>Examples of supervised machine learning algorithms includes <strong>Decision tree, Random Forest, KNN, Logistic Regression</strong> etc.</p>
+<p>Based on the ML tasks, supervised learning algorithms can be divided into following two broad classes −</p>
+<ul>
+<li>Classification</li>
+<li>Regression</li>
+</ul>
+<p><strong>Classification</strong></p>
+<p>As we know that the categorial output responses means unordered and discrete values, hence each output response will belong to a specific class or category</p>
+<p><strong>Regression</strong></p>
+<p>Basically, regression models use the input data features (independent variables) and their corresponding continuous numeric output values (dependent or outcome variables) to learn specific association between inputs and corresponding outputs.</p>
+<h1 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h1><p><strong>x: Input variables</strong>, then there would be no corresponding output variable and the algorithms need to discover the interesting pattern in data for learning.</p>
+<p>Based on the ML tasks, unsupervised learning algorithms can be divided into following broad classes −</p>
+<ul>
+<li>Clustering</li>
+<li>Association</li>
+<li>Dimensionality Reduction</li>
+</ul>
+<p><strong>Clustering</strong></p>
+<p>The real-world example of clustering is to group the customers by their purchasing behavior. </p>
+<p>These algorithms used to find similarity as well as relationship patterns among data samples and then cluster those samples into groups having similarity based on features.</p>
+<p><strong>Association</strong></p>
+<p>Association which is used to analyze large dataset to find patterns which further represents the interesting relationships between various items, which is mainly used to analyze customer shopping patterns.</p>
+<p><strong>Dimensionality Reduction</strong></p>
+<p>The reason behind is the problem of feature space complexity which arises when we start analyzing and extracting millions of features from data samples.</p>
+<p>K-nearest neighbors and discriminant analysis are some of the popular algorithms for this purpose.</p>
+<h1 id="Semi-supervised-Learning"><a href="#Semi-supervised-Learning" class="headerlink" title="Semi-supervised Learning"></a>Semi-supervised Learning</h1><p>We can follow any of the following approaches for implementing semi-supervised learning methods −</p>
+<ul>
+<li>The first and simple approach is to build the supervised model based on small amount of labeled and annotated data and then build the unsupervised model by applying the same to the large amounts of unlabeled data to get more labeled samples. Now, train the model on them and repeat the process.</li>
+<li>The second approach needs some extra efforts. In this approach, we can first use the unsupervised methods to cluster similar data samples, annotate</li>
+</ul>
+<h1 id="Tasks-Suited-for-Machine-Learning"><a href="#Tasks-Suited-for-Machine-Learning" class="headerlink" title="Tasks Suited for Machine Learning"></a>Tasks Suited for Machine Learning</h1><p>The following diagram shows what type of task is appropriate for various ML problems −</p>
+<img src="https://i.imgur.com/MJ9M8T4.png" style="zoom: 80%;" />
 
-<h2 id="3-Mode"><a href="#3-Mode" class="headerlink" title="3.Mode"></a>3.Mode</h2><p>The Mode value is the value that appears the most number of times:</p>
-<p>In [9]:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">x = stats.mode(speed)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">ModeResult(mode=array([86]), count=array([3]))</span><br></pre></td></tr></table></figure>
+<h1 id="1-Data-Loading-for-ML-Projects"><a href="#1-Data-Loading-for-ML-Projects" class="headerlink" title="1.Data Loading for ML Projects"></a>1.Data Loading for ML Projects</h1><p>The following are the two cases related to CSV file header which must be considered −</p>
+<ul>
+<li><strong>Case-I: When Data file is having a file header</strong> − It will automatically assign the names to each column of data if data file is having a file header.</li>
+<li><strong>Case-II: When Data file is not having a file header</strong> − We need to assign the names to each column of data manually if data file is not having a file header.</li>
+</ul>
+<h2 id="Load-CSV-with-built-in-CSV"><a href="#Load-CSV-with-built-in-CSV" class="headerlink" title="Load CSV with built in CSV"></a>Load CSV with built in CSV</h2><p>In this example, we are using the iris flower data set which can be downloaded into our local directory. After loading the data file, we can convert it into <strong>NumPy</strong> array and use it for ML projects.</p>
+<p>First, we need to import the csv module provided by Python standard library as follows −</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import csv</span><br></pre></td></tr></table></figure>
+
+<p>Next, we need to import Numpy module for converting the loaded data into NumPy array.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import numpy as np</span><br></pre></td></tr></table></figure>
+
+<p>Now, provide the full path of the file, stored on our local directory, having the CSV data file −</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">path = r&quot;c:\iris.csv&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Next, use the csv.reader()function to read data from CSV file −</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">with open(path,&#x27;r&#x27;) as f:</span><br><span class="line">   reader = csv.reader(f,delimiter = &#x27;,&#x27;)</span><br><span class="line">   headers = next(reader)</span><br><span class="line">   data = list(reader)</span><br><span class="line">   data = np.array(data).astype(float)</span><br></pre></td></tr></table></figure>
+
+<p>We can print the names of the headers with the following line of script −</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(headers)</span><br></pre></td></tr></table></figure>
+
+<p>Next script line will give the first three line of data file −</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(data[:3])</span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="Standard-Deviation"><a href="#Standard-Deviation" class="headerlink" title="Standard Deviation"></a>Standard Deviation</h1><p>Standard deviation is a number that describes how spread out the values are.</p>
-<p>Use the NumPy std() method to find the standard deviation:</p>
-<p>In [11]:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">speed = [32,111,138,28,59,77,97]</span><br><span class="line"></span><br><span class="line">x = numpy.std(speed)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">37.84501153334721</span><br></pre></td></tr></table></figure>
+<h1 id="2-Understanding-Data-with-Statistics"><a href="#2-Understanding-Data-with-Statistics" class="headerlink" title="2.Understanding Data with Statistics"></a>2.Understanding Data with Statistics</h1><h2 id="Statistical-Summary-of-Data"><a href="#Statistical-Summary-of-Data" class="headerlink" title="Statistical Summary of Data"></a>Statistical Summary of Data</h2><p>We have discussed Python recipe to get the shape i.e. number of rows and columns, of data but many times we need to review the summaries out of that shape of data. It can be done with the help of describe() function of Pandas DataFrame that further provide the following 8 statistical properties of each &amp; every data attribute −</p>
+<ul>
+<li>Count</li>
+<li>Mean</li>
+<li>Standard Deviation</li>
+<li>Minimum Value</li>
+<li>Maximum value</li>
+<li>25%</li>
+<li>Median i.e. 50%</li>
+<li>75%</li>
+</ul>
+<h2 id="Reviewing-Class-Distribution"><a href="#Reviewing-Class-Distribution" class="headerlink" title="Reviewing Class Distribution"></a>Reviewing Class Distribution</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">count_class = data.groupby(&#x27;class&#x27;).size()</span><br><span class="line">print(count_class)</span><br></pre></td></tr></table></figure>
 
-<p>Meaning that most of the values are within the range of 37.85 from the mean value, which is 77.4.</p>
-<h1 id="Variance"><a href="#Variance" class="headerlink" title="Variance"></a>Variance</h1><p>Variance is another number that indicates how spread out the values are.</p>
-<p>In fact, if you take the square root of the variance, you get the standard deviation!</p>
-<p>Or the other way around, if you multiply the standard deviation by itself, you get the variance!</p>
-<div><br class="Apple-interchange-newline">import numpy  speed = [32,111,138,28,59,77,97]  x = numpy.var(speed)  print(x)</div>
+<h2 id="Reviewing-Correlation-between-Attributes"><a href="#Reviewing-Correlation-between-Attributes" class="headerlink" title="Reviewing Correlation between Attributes"></a>Reviewing Correlation between Attributes</h2><p>The relationship between two variables is called correlation. In statistics, the most common method for calculating correlation is Pearson’s Correlation Coefficient. It can have three values as follows −</p>
+<ul>
+<li><strong>Coefficient value = 1</strong> − It represents full <strong>positive</strong> correlation between variables.</li>
+<li><strong>Coefficient value = -1</strong> − It represents full <strong>negative</strong> correlation between variables.</li>
+<li><strong>Coefficient value = 0</strong> − It represents <strong>no</strong> correlation at all between variables.</li>
+</ul>
+<p>In Python, we can easily calculate a correlation matrix of dataset attributes with the help of corr() function on Pandas DataFrame.</p>
+<h2 id="Reviewing-Skew-of-Attribute-Distribution"><a href="#Reviewing-Skew-of-Attribute-Distribution" class="headerlink" title="Reviewing Skew of Attribute Distribution"></a>Reviewing Skew of Attribute Distribution</h2><ul>
+<li>Presence of skewness in data requires the correction at data preparation stage so that we can get more accuracy from our model.</li>
+<li>Most of the ML algorithms assumes that data has a Gaussian distribution i.e. either normal of bell curved data.</li>
+</ul>
+<p>In Python, we can easily calculate the skew of each attribute by using skew() function on Pandas DataFrame.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(data.skew())</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">speed = [32,111,138,28,59,77,97]</span><br><span class="line"></span><br><span class="line">x = numpy.var(speed)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">1432.2448979591834</span><br></pre></td></tr></table></figure>
+<h1 id="3-Understanding-Data-with-Visualization"><a href="#3-Understanding-Data-with-Visualization" class="headerlink" title="3.Understanding Data with Visualization"></a>3.Understanding Data with Visualization</h1><h2 id="Univariate-Plots"><a href="#Univariate-Plots" class="headerlink" title="Univariate Plots"></a>Univariate Plots</h2><p>With the help of univariate visualization, we can understand each attribute of our dataset independently.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from matplotlib import pyplot</span><br><span class="line"></span><br><span class="line">data.hist()</span><br><span class="line">pyplot.show()</span><br></pre></td></tr></table></figure>
 
-<p>As we have learned, the formula to find the standard deviation is the square root of the variance:</p>
-<p>√<code>1432.25 = 37.85</code></p>
-<h2 id="Symbols"><a href="#Symbols" class="headerlink" title="Symbols"></a>Symbols</h2><p>Standard Deviation is often represented by the symbol Sigma: σ</p>
-<p>Variance is often represented by the symbol Sigma Square: σ2</p>
-<h1 id="Percentiles"><a href="#Percentiles" class="headerlink" title="Percentiles"></a>Percentiles</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">ages = [5,31,43,48,50,41,7,11,15,39,80,82,32,2,8,6,25,36,27,61,31]</span><br><span class="line"></span><br><span class="line">x = numpy.percentile(ages, 75)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">43.0</span><br></pre></td></tr></table></figure>
+<h2 id="Density-Plots"><a href="#Density-Plots" class="headerlink" title="Density Plots"></a>Density Plots</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data.plot(kind=&#x27;density&#x27;, subplots=True, layout=(3,3), sharex=False)</span><br><span class="line">pyplot.show()</span><br></pre></td></tr></table></figure>
 
-<p>What is the 75. percentile? The answer is 43, meaning that 75% of the people are 43 or younger.</p>
-<h1 id="Data-Distribution"><a href="#Data-Distribution" class="headerlink" title="Data Distribution"></a>Data Distribution</h1><p>Create an array containing 250 random floats between 0 and 5:</p>
-<p>In [17]:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import numpy</span><br><span class="line"></span><br><span class="line">x = numpy.random.uniform(0.0, 5.0, 50)</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line">[4.27446338 2.66176596 4.50107211 2.80700534 0.93816452 3.36951298</span><br><span class="line"> 3.22343319 3.13167799 2.69310866 3.43053403 1.13738269 0.11547475</span><br><span class="line"> 3.0252743  4.41056213 1.46055272 3.04914468 0.24761704 3.69885535</span><br><span class="line"> 2.87121381 0.21103407 4.94615044 2.31117432 4.36246387 0.01441879</span><br><span class="line"> 0.69795508 4.61490143 0.92598842 0.04641153 2.66153569 0.63786106</span><br><span class="line"> 0.2759745  4.20157762 3.10457879 3.97919161 0.92983141 3.74741385</span><br><span class="line"> 3.73498029 1.55022552 3.48477434 3.55773345 0.38010233 1.10196163</span><br><span class="line"> 1.69044362 1.13307015 4.76181604 4.13697102 2.28276629 0.72331536</span><br><span class="line"> 2.25578683 4.02949496]</span><br></pre></td></tr></table></figure>
-
-<p>To visualize the data set we can draw a histogram with the data we collected.</p>
-<p>In [18]:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import numpy</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">x = numpy.random.uniform(0.0, 5.0, 250)</span><br><span class="line"></span><br><span class="line">plt.hist(x, 5)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="https://i.imgur.com/m2H2vmQ.png" style="zoom:67%;" />
-
-<p>We use the array from the example above to draw a histogram with 5 bars.</p>
-<p>The first bar represents how many values in the array are between 0 and 1.</p>
-<p>The second bar represents how many values are between 1 and 2.</p>
-<p>Etc.</p>
-<h1 id="Normal-Data-Distribution"><a href="#Normal-Data-Distribution" class="headerlink" title="Normal Data Distribution"></a>Normal Data Distribution</h1><p>In probability theory this kind of data distribution is known as the <em>normal data distribution</em>, or the <em>Gaussian data distribution</em>, after the mathematician Carl Friedrich Gauss who came up with the formula of this data distribution.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = numpy.random.normal(<span class="number">5.0</span>, <span class="number">1.0</span>, <span class="number">100000</span>)</span><br><span class="line"></span><br><span class="line">plt.hist(x, <span class="number">100</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="https://i.imgur.com/IKYZnh6.png" style="zoom:67%;" />
-
-<p>We use the array from the <code>numpy.random.normal()</code> method, with 100000 values, to draw a histogram with 100 bars.</p>
-<p>We specify that the mean value is 5.0, and the standard deviation is 1.0.</p>
-<p>Meaning that the values should be concentrated around 5.0, and rarely further away than 1.0 from the mean.</p>
-<p>And as you can see from the histogram, most values are between 4.0 and 6.0, with a top at approximately 5.0.</p>
-<h1 id="Scatter-Plot"><a href="#Scatter-Plot" class="headerlink" title="Scatter Plot"></a>Scatter Plot</h1><p>A scatter plot is a diagram where each value in the data set is represented by a dot.</p>
-<p>The Matplotlib module has a method for drawing scatter plots, it needs two arrays of the same length, one for the values of the x-axis, and one for the values of the y-axis:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">x = [5,7,8,7,2,17,2,9,4,11,12,9,6]</span><br><span class="line">y = [99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="https://i.imgur.com/q6o423z.png" style="zoom: 80%;" />
-
-<p>The x-axis represents ages, and the y-axis represents speeds.</p>
-<p>What we can read from the diagram is that the two fastest cars were both 2 years old, and the slowest car was 12 years old.</p>
-<p><strong>Note:</strong> It seems that the newer the car, the faster it drives, but that could be a coincidence, after all we only registered 13 cars.</p>
-<p>Let us create two arrays that are both filled with 1000 random numbers from a normal data distribution.</p>
-<p>The first array will have the mean set to 5.0 with a standard deviation of 1.0.</p>
-<p>The second array will have the mean set to 10.0 with a standard deviation of 2.0:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import numpy</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">x = numpy.random.normal(5.0, 1.0, 1000)</span><br><span class="line">y = numpy.random.normal(10.0, 2.0, 1000)</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="https://i.imgur.com/4Rf6Ex2.png" style="zoom:80%;" />
-
-<p>We can see that the dots are concentrated around the value 5 on the x-axis, and 10 on the y-axis.</p>
-<p>We can also see that the spread is wider on the y-axis than on the x-axis.</p>
-<h1 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h1><p>The term regression is used when you try to find the relationship between variables.</p>
+<h1 id="4-Preparing-Data"><a href="#4-Preparing-Data" class="headerlink" title="4.Preparing Data"></a>4.Preparing Data</h1><p>We always need to preprocess our data so that it can be as per the expectation of machine learning algorithm.</p>
+<h2 id="Scaling"><a href="#Scaling" class="headerlink" title="Scaling"></a>Scaling</h2><p>We can rescale the data with the help of MinMaxScaler class of scikit-learn Python library.</p>
+<h2 id="Normalization"><a href="#Normalization" class="headerlink" title="Normalization"></a>Normalization</h2><h2 id="Binarization"><a href="#Binarization" class="headerlink" title="Binarization"></a>Binarization</h2><h2 id="Standardization"><a href="#Standardization" class="headerlink" title="Standardization"></a>Standardization</h2><h1 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h1><p>The term regression is used when you try to find the relationship between variables.</p>
 <p>In Machine Learning, and in statistical modeling, that relationship is used to predict the outcome of future events. </p>
 <p>Linear regression uses the relationship between the data-points to draw a straight line through all them.</p>
 <p>This line can be used to predict future values. In Machine Learning, predicting the future is very important.</p>
@@ -1874,9 +1880,10 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas</span><br><span class="line">from sklearn import linear_model</span><br><span class="line"></span><br><span class="line">df = pandas.read_csv(&quot;cars.csv&quot;)</span><br><span class="line"></span><br><span class="line">X = df[[&#x27;Weight&#x27;, &#x27;Volume&#x27;]]</span><br><span class="line">y = df[&#x27;CO2&#x27;]</span><br><span class="line"></span><br><span class="line">regr = linear_model.LinearRegression()</span><br><span class="line">regr.fit(X, y)</span><br><span class="line"></span><br><span class="line">#predict the CO2 emission of a car where the weight is 2300kg, and the volume is 1300cm3:</span><br><span class="line">predictedCO2 = regr.predict([[2300, 1300]])</span><br><span class="line"></span><br><span class="line">print(predictedCO2)</span><br><span class="line">[107.2087328]</span><br></pre></td></tr></table></figure>
 
 <p>We have predicted that a car with 1.3 liter engine, and a weight of 2300 kg, will release approximately 107 grams of CO2 for every kilometer it drives.</p>
+<h1 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h1><p>Logistic regression aims to solve classification problems. It does this by predicting categorical outcomes, unlike linear regression that predicts a continuous outcome.</p>
 ]]></content>
       <tags>
-        <tag>BIG DATA</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -2272,78 +2279,13 @@
   <entry>
     <title>Spider</title>
     <url>/2021/11/02/Python/Spider/</url>
-    <content><![CDATA[<h1 id="编写爬虫整体逻辑"><a href="#编写爬虫整体逻辑" class="headerlink" title="编写爬虫整体逻辑"></a>编写爬虫整体逻辑</h1><ol>
-<li>确定URL</li>
-<li>获取页面</li>
-<li>解析页面</li>
+    <content><![CDATA[<ol>
+<li>发送请求</li>
+<li>获取源码（re正则表达式，css（parsel），XPath）</li>
+<li>提取数据</li>
 <li>保存数据</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 程序结构</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">xxxSpider</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># 定义常用变量,比如url或计数变量等</span></span><br><span class="line">       </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_html</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># 获取响应内容函数,使用随机User-Agent</span></span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_html</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># 使用正则表达式来解析页面，提取数据</span></span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">write_html</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># 将提取的数据按要求保存，csv、MySQL数据库等</span></span><br><span class="line">       </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># 主函数，用来控制整体逻辑</span></span><br><span class="line">       </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 程序开始运行时间</span></span><br><span class="line">    spider = xxxSpider()</span><br><span class="line">    spider.run()</span><br></pre></td></tr></table></figure>
-
-<h1 id="模拟网络请求"><a href="#模拟网络请求" class="headerlink" title="模拟网络请求"></a>模拟网络请求</h1><p>库：urllib, requests</p>
-<p>purllib是Python 内置的HTTP 请求库，包含四部分</p>
-<ol>
-<li>urllib.request （打开和读取URL）</li>
-<li>urllib.error (包含 urllib.request 抛出的异常）</li>
-<li>urllib.parse （用于解析URL）</li>
-<li>urllib.robotparser （ 用于解析robots.txt 文件）</li>
-</ol>
-<h2 id="requests"><a href="#requests" class="headerlink" title="requests"></a>requests</h2><p>以下方法，发送网络请求，返回响应。响应成功，则响应码为200</p>
-<h3 id="get-url-params"><a href="#get-url-params" class="headerlink" title="get(url, params)"></a>get(url, params)</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">r=requests.get(<span class="string">&#x27;http://httpbin.org/get&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
-
-<p><strong>output</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;args&quot;: &#123;&#125;, </span><br><span class="line">  &quot;headers&quot;: &#123;</span><br><span class="line">    &quot;Accept&quot;: &quot;*/*&quot;, </span><br><span class="line">    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, </span><br><span class="line">    &quot;Host&quot;: &quot;httpbin.org&quot;, </span><br><span class="line">    &quot;User-Agent&quot;: &quot;python-requests/2.26.0&quot;, </span><br><span class="line">    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-619fa02c-5611dcc354847d6e0abba347&quot;</span><br><span class="line">  &#125;, </span><br><span class="line">  &quot;origin&quot;: &quot;59.39.228.232&quot;, </span><br><span class="line">  &quot;url&quot;: &quot;http://httpbin.org/get&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>通过字典方式，传递params参数</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">data=&#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;germey&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span>:<span class="number">25</span></span><br><span class="line">&#125;</span><br><span class="line">r=requests.get(<span class="string">&#x27;http://httpbin.org/get&#x27;</span>, data)</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
-
-<p>那么原来的发送的url为<code>http://httpbin.org/get?name=germey&amp;age=25</code></p>
-<p><strong>output</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;args&quot;: &#123;</span><br><span class="line">    &quot;age&quot;: &quot;25&quot;, </span><br><span class="line">    &quot;name&quot;: &quot;germey&quot;</span><br><span class="line">  &#125;, </span><br><span class="line">  &quot;headers&quot;: &#123;</span><br><span class="line">    &quot;Accept&quot;: &quot;*/*&quot;, </span><br><span class="line">    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, </span><br><span class="line">    &quot;Host&quot;: &quot;httpbin.org&quot;, </span><br><span class="line">    &quot;User-Agent&quot;: &quot;python-requests/2.26.0&quot;, </span><br><span class="line">    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-619fa110-07c3b9232ef51b1c1782663f&quot;</span><br><span class="line">  &#125;, </span><br><span class="line">  &quot;origin&quot;: &quot;59.39.228.232&quot;, </span><br><span class="line">  &quot;url&quot;: &quot;http://httpbin.org/get?name=germey&amp;age=25&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>返回<code>Json</code>格式的数据</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(r.json())</span><br></pre></td></tr></table></figure>
-
-<p><strong>output</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;&#x27;args&#x27;: &#123;&#x27;age&#x27;: &#x27;25&#x27;, &#x27;name&#x27;: &#x27;germey&#x27;&#125;, &#x27;headers&#x27;: &#123;&#x27;Accept&#x27;: &#x27;*/*&#x27;, &#x27;Accept-Encoding&#x27;: &#x27;gzip, deflate&#x27;, &#x27;Host&#x27;: &#x27;httpbin.org&#x27;, &#x27;User-Agent&#x27;: &#x27;python-requests/2.26.0&#x27;, &#x27;X-Amzn-Trace-Id&#x27;: &#x27;Root=1-619fa1ff-4775d334008f40312a4e26b3&#x27;&#125;, &#x27;origin&#x27;: &#x27;59.39.228.232&#x27;, &#x27;url&#x27;: &#x27;http://httpbin.org/get?name=germey&amp;age=25&#x27;&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="post-url"><a href="#post-url" class="headerlink" title="post(url)"></a>post(url)</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">r2=requests.post(<span class="string">&quot;http://httpbin.org/post&quot;</span>,data=data)</span><br><span class="line"><span class="built_in">print</span>(r2.text)</span><br></pre></td></tr></table></figure>
-
-<p><strong>output</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;args&quot;: &#123;&#125;, </span><br><span class="line">  &quot;data&quot;: &quot;&quot;, </span><br><span class="line">  &quot;files&quot;: &#123;&#125;, </span><br><span class="line">  &quot;form&quot;: &#123;</span><br><span class="line">    &quot;age&quot;: &quot;25&quot;, </span><br><span class="line">    &quot;name&quot;: &quot;germey&quot;</span><br><span class="line">  &#125;, </span><br><span class="line">  &quot;headers&quot;: &#123;</span><br><span class="line">    &quot;Accept&quot;: &quot;*/*&quot;, </span><br><span class="line">    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, </span><br><span class="line">    &quot;Content-Length&quot;: &quot;18&quot;, </span><br><span class="line">    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, </span><br><span class="line">    &quot;Host&quot;: &quot;httpbin.org&quot;, </span><br><span class="line">    &quot;User-Agent&quot;: &quot;python-requests/2.26.0&quot;, </span><br><span class="line">    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-619fa3ef-3b42f02c107059ed6c67f54e&quot;</span><br><span class="line">  &#125;, </span><br><span class="line">  &quot;json&quot;: null, </span><br><span class="line">  &quot;origin&quot;: &quot;59.39.228.232&quot;, </span><br><span class="line">  &quot;url&quot;: &quot;http://httpbin.org/post&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="异步爬虫"><a href="#异步爬虫" class="headerlink" title="异步爬虫"></a>异步爬虫</h1><h2 id="动态网页"><a href="#动态网页" class="headerlink" title="动态网页"></a>动态网页</h2><p>对于动态网页，从我们加载网页到整个页面呈现出来之后，不只是经过了一次请求，有的还通过了JavaScript的渲染，增加，修改基本的html信息。那么我们使用requests请求网页，只是返回了基本的response，里面包含的只是基本的html数据，网页中通过Ajax请求（异步加载），通过requests返回的response并没有包含通过JS渲染过后的html数据。</p>
-<p>为爬取这种动态的网页，我们虽然可以找到Ajax请求的url，但由于有的网页的审查过与严格，通常会无法访问。所以，我们可以使用</p>
-<ul>
-<li><p>selenium</p>
-<p>模拟浏览器，来实现自动化操作，达到爬取网站的目的</p>
-</li>
-</ul>
-<h2 id="selenium"><a href="#selenium" class="headerlink" title="selenium"></a>selenium</h2><p>依赖</p>
-<ul>
-<li>chromdrive</li>
-</ul>
-<ol>
-<li><p>模拟浏览器</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver = webdriver.Firefox()</span><br></pre></td></tr></table></figure></li>
-</ol>
-<ol start="2">
-<li><p>Link to the url</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">driver.get(<span class="string">&quot;http://www.google.com&quot;</span>)</span><br></pre></td></tr></table></figure></li>
-<li><p>Get the element on Web</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">element = driver.find_element_by_id(<span class="string">&quot;passwd-id&quot;</span>)</span><br><span class="line">element = driver.find_element_by_name(<span class="string">&quot;passwd&quot;</span>)</span><br><span class="line">element = driver.find_element_by_xpath(<span class="string">&quot;//input[@id=&#x27;passwd-id&#x27;]&quot;</span>)</span><br><span class="line">element = driver.find_element_by_css_selector(<span class="string">&quot;input#passwd-id&quot;</span>)</span><br></pre></td></tr></table></figure></li>
-<li><p>Show the contend of the text</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">element.text</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rank=[]</span><br><span class="line">name=[]</span><br><span class="line">go_abroad=[]</span><br><span class="line"></span><br><span class="line">options=webdriver.ChromeOptions()</span><br><span class="line">options.add_argument(<span class="string">&#x27;--headless&#x27;</span>)</span><br><span class="line">browser = webdriver.Chrome(options=options)</span><br><span class="line">browser.get(<span class="string">&#x27;https://www.shanghairanking.cn/rankings/bcur/2021&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>):</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    element=browser.find_element(By.XPATH,<span class="string">&#x27;//*[@id=&quot;content-box&quot;]/div[2]/table/tbody/tr[&#x27;</span>+<span class="built_in">str</span>(i+<span class="number">1</span>)+<span class="string">&#x27;]/td[2]/div/div[2]/div[1]/div/div/a&#x27;</span>)</span><br><span class="line">    element.click()</span><br><span class="line">    time.sleep(<span class="number">1.5</span>)</span><br><span class="line">    element1=browser.find_element(By.XPATH,<span class="string">&#x27;//*[@id=&quot;bcur_latest&quot;]/div[1]/div/div[1]/span&#x27;</span>)</span><br><span class="line">    rank.append(element1.text)</span><br><span class="line">    element2=browser.find_element(By.XPATH,<span class="string">&#x27;//*[@id=&quot;univ_name&quot;]/span[1]&#x27;</span>)</span><br><span class="line">    name.append(element2.text)</span><br><span class="line">    element3=browser.find_element(By.XPATH,<span class="string">&#x27;//*[@id=&quot;graduates&quot;]/div[2]/div/div[2]/span[2]&#x27;</span>)</span><br><span class="line">    go_abroad.append(element3.text)</span><br><span class="line">    browser.back()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(rank)</span><br><span class="line"><span class="built_in">print</span>(name)</span><br><span class="line"><span class="built_in">print</span>(go_abroad)</span><br></pre></td></tr></table></figure>
-
-
-
-
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">import parsel</span><br><span class="line">import csv</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">def spider():</span><br><span class="line"></span><br><span class="line">    headers=&#123;</span><br><span class="line">        &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36&#x27;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    i=0</span><br><span class="line">    num=0</span><br><span class="line">    while True:</span><br><span class="line">        time.sleep(1)</span><br><span class="line">        url=f&#x27;https://sz.lianjia.com/ershoufang/pg&#123;i+1&#125;/&#x27;</span><br><span class="line"></span><br><span class="line">        # 发送请求</span><br><span class="line">        response = requests.get(url=url,headers=headers)</span><br><span class="line">        # 获取源码</span><br><span class="line">        # 提取数据</span><br><span class="line"></span><br><span class="line">        selector=parsel.Selector(response.text)</span><br><span class="line">        href=selector.css(&#x27;div.leftContent  li  div.info.clear  div.title  a::attr(href)&#x27;).getall()</span><br><span class="line">        for link in href:</span><br><span class="line">            num = num + 1</span><br><span class="line">            html_data=requests.get(url=link,headers=headers).text</span><br><span class="line">            selector1 = parsel.Selector(html_data)</span><br><span class="line">            try:</span><br><span class="line">                title=selector1.css(&#x27;.title h1::text&#x27;).get()</span><br><span class="line">                price=selector1.css(&#x27;span.total::text&#x27;).get()</span><br><span class="line">                price_per_meter = selector1.css(&#x27;.unitPrice span::text&#x27;).get()</span><br><span class="line">                Type = selector1.css(&#x27;.room div.mainInfo::text&#x27;).get()</span><br><span class="line">                area = selector1.css(&#x27;.base &gt; div.content &gt; ul &gt; li:nth-child(3)::text&#x27;).get()</span><br><span class="line">                direction = selector1.css(&#x27;.base &gt; div.content &gt; ul &gt; li:nth-child(7)::text&#x27;).get()</span><br><span class="line">                furnished=selector1.css(&#x27;.base &gt; div.content &gt; ul &gt; li:nth-child(9) &gt; span::text&#x27;).get()</span><br><span class="line">                lift=selector1.css(&#x27;.base &gt; div.content &gt; ul &gt; li:nth-child(12) &gt; span::text&#x27;).get()</span><br><span class="line">                floors=selector1.css(&#x27;.base &gt; div.content &gt; ul &gt; li:nth-child(2)::text&#x27;).get()</span><br><span class="line">                year=selector1.css(&#x27;.subInfo.noHidden::text&#x27;).get()</span><br><span class="line">                data=[title, price, price_per_meter, Type, area, direction, furnished, lift, floors,year]</span><br><span class="line">                print(title, price, price_per_meter, Type, area, direction, furnished, lift, floors,year,sep=&#x27;|&#x27;)</span><br><span class="line">                write_csv(data)</span><br><span class="line">            except:</span><br><span class="line">                pass</span><br><span class="line"></span><br><span class="line">def write_csv(data_row):</span><br><span class="line">    path  = &quot;house1.csv&quot;</span><br><span class="line">    with open(path,&#x27;a&#x27;,newline=&#x27;&#x27;) as f:</span><br><span class="line">        csv_write = csv.writer(f)</span><br><span class="line">        csv_write.writerow(data_row)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    name = (&quot;title&quot;, &quot;price&quot;, &quot;price_per_meter&quot;, &quot;Type&quot;, &quot;area&quot;, &quot;direction&quot;, &quot;furnished&quot;, &quot;lift&quot;, &quot;floors&quot;, &quot;year&quot;)</span><br><span class="line">    path = &quot;house1.csv&quot;</span><br><span class="line">    with open(path,&#x27;a&#x27;,newline=&#x27;&#x27;) as f:</span><br><span class="line">        csv_write = csv.writer(f)</span><br><span class="line">        csv_write.writerow(name)</span><br><span class="line">    spider()</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <tags>
@@ -4063,71 +4005,6 @@
 ]]></content>
       <tags>
         <tag>Q&amp;A</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue.js</title>
-    <url>/2022/03/03/Vue-js/Vue-js/</url>
-    <content><![CDATA[<h1 id="What-is-Vue-js"><a href="#What-is-Vue-js" class="headerlink" title="What is Vue.js?"></a>What is Vue.js?</h1><p>Vue.js lets you <strong>extend</strong> HTML with HTML attributes called <strong>directives</strong></p>
-<p>Vue.js uses double braces <code>&#123;&#123; &#125;&#125;</code> as place-holders for data.</p>
-<p>Vue.js directives are HTML attributes with the prefix <code>v-</code></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&#x27;utf-8&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Page Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&#x27;./js/vue.js&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">        &#123;&#123;msg&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,<span class="comment">//选择器</span></span></span><br><span class="line"><span class="javascript">            <span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="javascript">                <span class="attr">msg</span>:<span class="string">&#x27;Hello World&#x27;</span></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;);</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Vue-js-Binding"><a href="#Vue-js-Binding" class="headerlink" title="Vue.js Binding"></a>Vue.js Binding</h2><p>When a Vue object is bound to an HTML element, the HTML element will change when the Vue object changes:</p>
-]]></content>
-      <tags>
-        <tag>Vue.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>XML</title>
-    <url>/2021/12/23/XML/XML/</url>
-    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>XML stands for eXtensible Markup Language much like HTML.</p>
-<p>XML is a software- and hardware-independent tool for storing and transporting data.</p>
-<p>XML is just information wrapped in tags.</p>
-<h2 id="XML-Does-Not-Use-Predefined-Tags"><a href="#XML-Does-Not-Use-Predefined-Tags" class="headerlink" title="XML Does Not Use Predefined Tags"></a>XML Does Not Use Predefined Tags</h2><p>The XML language has no predefined tags.</p>
-<p>The tags in the example above (like <code>&lt;to&gt;</code> and <code>&lt;from&gt;</code>) are not defined in any XML standard. These tags are “invented” by the author of the XML document.</p>
-<p>HTML works with predefined tags like <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;table&gt;</code>, etc.</p>
-<p>With XML, the author must define both the tags and the document structure.</p>
-<h2 id="XML-is-Extensible"><a href="#XML-is-Extensible" class="headerlink" title="XML is Extensible"></a>XML is Extensible</h2><p>Most XML applications will work as expected even if new data is added (or removed).</p>
-]]></content>
-      <tags>
-        <tag>xml</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>XPath</title>
-    <url>/2021/12/07/XML/XPath/</url>
-    <content><![CDATA[<h1 id="What-is-Xpath"><a href="#What-is-Xpath" class="headerlink" title="What is Xpath?"></a>What is Xpath?</h1><p>XPath is a major element in the XSLT standard.</p>
-<p>XPath can be used to navigate through elements and attributes in an XML document.</p>
-<h1 id="Nodes"><a href="#Nodes" class="headerlink" title="Nodes"></a>Nodes</h1><p>In XPath, there are seven kinds of nodes: element, attribute, text, namespace, processing-instruction, comment, and document nodes.</p>
-<p>XML documents are treated as trees of nodes. The topmost element of the tree is called the root element.</p>
-<h2 id="Relationship-of-Nodes"><a href="#Relationship-of-Nodes" class="headerlink" title="Relationship of Nodes"></a>Relationship of Nodes</h2><h3 id="Parent"><a href="#Parent" class="headerlink" title="Parent"></a>Parent</h3><p>Each element and attribute has one parent.</p>
-<p>In the following example; the book element is the parent of the title, author, year, and price:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">title</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Children"><a href="#Children" class="headerlink" title="Children"></a>Children</h3><p>Element nodes may have zero, one or more children.</p>
-<p>In the following example; the title, author, year, and price elements are all children of the book element:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">title</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Siblings"><a href="#Siblings" class="headerlink" title="Siblings"></a>Siblings</h3><p>Nodes that have the same parent.</p>
-<p>In the following example; the title, author, year, and price elements are all siblings:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">title</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Ancestors"><a href="#Ancestors" class="headerlink" title="Ancestors"></a>Ancestors</h3><p>A node’s parent, parent’s parent, etc.</p>
-<p>In the following example; the ancestors of the title element are the book element and the bookstore element:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">title</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Descendants"><a href="#Descendants" class="headerlink" title="Descendants"></a>Descendants</h3><p>A node’s children, children’s children, etc.</p>
-<p>In the following example; descendants of the bookstore element are the book, title, author, year, and price elements:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">title</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="XPath-Syntax"><a href="#XPath-Syntax" class="headerlink" title="XPath Syntax"></a>XPath Syntax</h1><p>XPath uses <strong>path expressions</strong> to select nodes or node-sets in an XML document. The node is selected by following a path or steps.</p>
-]]></content>
-      <tags>
-        <tag>xml</tag>
       </tags>
   </entry>
   <entry>
@@ -8098,133 +7975,6 @@ $$
       </tags>
   </entry>
   <entry>
-    <title>使用分支</title>
-    <url>/2020/03/28/github/git/%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>分支就是一条时间线，它能帮我们记录对仓库的修改操作，我们如果想要在原来分支的基础之上，创作我们的项目，就可以新建另一条分支，它与原来的master分支相同。然后，就切换到新分支进行工作，这样就对原来的分支起到保护作用，因为它不影响master分支。等我们将工作完成后，就可以合并两条分支，两条分支的记录就变成一样。最后，就可以删除用于工作的分支了。</p>
-<h2 id="Anyway"><a href="#Anyway" class="headerlink" title="Anyway"></a>Anyway</h2><p>分支就是用于记录不同的历史版本的。</p>
-<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><ol>
-<li><p>查看分支<br><code>git branch</code></p>
-</li>
-<li><p>创建分支<br><code>git branch &lt;name&gt;</code></p>
-</li>
-<li><p>将HAND转移到分支<br><code>git checkout &lt;name&gt;</code><br>或者<br><code>git switch &lt;name&gt;</code></p>
-</li>
-<li><p>创建并切换到分支<br><code>git checkout -b &lt;name&gt;</code><br>或者<br><code>git switch -c &lt;name&gt;</code></p>
-</li>
-<li><p>将某分支合并到当前分支<br><code>git merge &lt;name&gt;</code></p>
-</li>
-<li><p>删除分支<br><code>git branch -d &lt;name&gt;</code></p>
-</li>
-</ol>
-<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><ul>
-<li>我们可以看到。<br><img src="https://i.ibb.co/187JvWb/01d8057b5d4312706738d102da46f11.png"></li>
-<li>当我们push上去<br><img src="https://i.ibb.co/y8hJ7TH/8317355e514cf65e4092a1e736a75a1.png"></li>
-</ul>
-<p>显然，分支是已经做好准备工作了。<br>我们不需要再次<code>git add .</code>和<code>git commit -m </code>了</p>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git的提交修改操作</title>
-    <url>/2020/03/27/github/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h1 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h1><p>为了能管理文件的所作出的修改。</p>
-<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><h2 id="add到stage"><a href="#add到stage" class="headerlink" title="add到stage"></a>add到stage</h2><ol>
-<li>查看stage<br><code>git status</code>查看stage的状态.</li>
-<li>添加到stage<br>版本库中有git给你创建的暂存区（stage）和分支（master）。<br><code>git add .</code>的作用就是将工作区的文件添加到stage。</li>
-<li>删除stage<br><code>git restore --staged &lt;file&gt;...&quot;</code> to unstage</li>
-</ol>
-<p><img src="https://i.ibb.co/LPncLLG/5c017de22bde1b62dcc538cd36510ab.jpg"></p>
-<h2 id="commit到master"><a href="#commit到master" class="headerlink" title="commit到master"></a>commit到master</h2><p>接下来就是提交。当我们做这一步之后才能被git所记录（log）<br>`git commit -m “update”<br><img src="https://i.ibb.co/ZHJjM02/d7cff4f51de04ce05b149e9a1d44182.jpg"></p>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ol>
-<li><p>查看版本历史(master)<br><code>git log</code><br>commit 后面的字符就是版本号<br>HEAD就是指针<br><img src="https://i.ibb.co/g3w0zCK/81499340c53b662fca73efcb2b07871.png"></p>
-</li>
-<li><p>返回到某个版本(版本号只需写前几个字符)<br><code>git reset --hard &lt;版本号&gt;</code></p>
-</li>
-</ol>
-<p><strong>这样文件就会被改为到原来被commit的那一次</strong></p>
-<ol start="3">
-<li>要把旧版本push到GitHub<strong>要用强制命令</strong><br><code>git push -u origin master -f</code><br>版本回退之后悔</li>
-</ol>
-<hr>
-<ol>
-<li>查看所有的版本<br>因为原来的<code>git log</code>已经看不到还没有返回之前的版本号，所以我们要查看所以的版本<br><code>git reflog</code><br>这样就列出了返回之前的版本号.</li>
-<li>继续执行<br><code>git reset --hard &lt;版本号&gt;</code></li>
-</ol>
-<p><strong>这样我们的文件就会被修改到某次历史</strong></p>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用SSH加密传输到远程repo</title>
-    <url>/2020/03/28/github/git/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了将本地的repo托管到GitHub上的repo，需要创建SSH　key，通过SSH协议进行传输。并且通过git添加远程repo，进而推送到GitHub</p>
-<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><h2 id="创建SSH-key"><a href="#创建SSH-key" class="headerlink" title="创建SSH key"></a>创建SSH key</h2><p>这个key和本机相联系，保存在你GitHub的账户中。<br><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></p>
-<h2 id="关联远程repo"><a href="#关联远程repo" class="headerlink" title="关联远程repo"></a>关联远程repo</h2><ol>
-<li>在GitHub上new一个repo。与想要托管的本地repo同名。</li>
-<li>cd到本地repo。</li>
-<li>在git上添加远程repo，<br><code>git remote add origin your.ssh.url</code><br>origin就是远程仓库的名字。</li>
-</ol>
-<h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><p><code>git push -u origin master</code></p>
-<p><strong>这样就把本地的master分支关联且推送到远程的master分支</strong></p>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>repository的创建</title>
-    <url>/2020/03/27/github/git/repository%E7%9A%84%E5%88%9B%E5%BB%BA/</url>
-    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>git is a distributed version control system.<br>它帮我们记录文件的修改和管理，并且帮我们push到GitHub</p>
-<h1 id="创建一个repo"><a href="#创建一个repo" class="headerlink" title="创建一个repo"></a>创建一个repo</h1><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p><a href="https://git-scm.com/downloads">git官网</a></p>
-<h2 id="创建repo（版本库）"><a href="#创建repo（版本库）" class="headerlink" title="创建repo（版本库）"></a>创建repo（版本库）</h2><ol>
-<li><p>创建文件<br><code>mkdir file</code></p>
-</li>
-<li><p>初始化<br><code>git init</code>这个时候file目录中就会存在一个.git文件。它用来跟踪版本库.</p>
-</li>
-<li><p>set the identity</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">*** Please tell me who you are.</span><br><span class="line"></span><br><span class="line">Run</span><br><span class="line"></span><br><span class="line">  git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">  git config --global user.name &quot;Your Name&quot;</span><br><span class="line"></span><br><span class="line">to set your account&#x27;s default identity.</span><br><span class="line">Omit --global to set the identity only in this repository.</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>将远程仓库clone到本地</title>
-    <url>/2020/03/28/github/git/%E5%B0%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93clone%E5%88%B0%E6%9C%AC%E5%9C%B0/</url>
-    <content><![CDATA[<h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><p>当一起合作开发项目的时候，就可以直接通过到GitHub上面，将仓库clone到本地，不需要在本创建仓库了。<br>clone有两种传输协议。</p>
-<ol>
-<li>HTTPS<br>这种协议不用SSH　KEY，方便直接。但clone起来会较慢。</li>
-<li>SSH<br>需要创建KEY，特点会更快。</li>
-</ol>
-<p><a href="https://ferrychan666.github.io/2020/03/28/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/">SSH KEY的创建</a></p>
-<h2 id="command"><a href="#command" class="headerlink" title="command"></a>command</h2><p><code>git clone </code></p>
-<h2 id="后续工作"><a href="#后续工作" class="headerlink" title="后续工作"></a>后续工作</h2><p>只需要将本地仓库push上去</p>
-]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Calculator</title>
     <url>/2020/12/18/java/swing/Calculator/</url>
     <content><![CDATA[<p><img src="https://i.imgur.com/yROQFPR.png"></p>
@@ -8334,9 +8084,158 @@ $$
       </tags>
   </entry>
   <entry>
+    <title>git的提交修改操作</title>
+    <url>/2020/03/27/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h1><p>为了能管理文件的所作出的修改。</p>
+<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><h2 id="add到stage"><a href="#add到stage" class="headerlink" title="add到stage"></a>add到stage</h2><ol>
+<li>查看stage<br><code>git status</code>查看stage的状态.</li>
+<li>添加到stage<br>版本库中有git给你创建的暂存区（stage）和分支（master）。<br><code>git add .</code>的作用就是将工作区的文件添加到stage。</li>
+<li>删除stage<br><code>git restore --staged &lt;file&gt;...&quot;</code> to unstage</li>
+</ol>
+<p><img src="https://i.ibb.co/LPncLLG/5c017de22bde1b62dcc538cd36510ab.jpg"></p>
+<h2 id="commit到master"><a href="#commit到master" class="headerlink" title="commit到master"></a>commit到master</h2><p>接下来就是提交。当我们做这一步之后才能被git所记录（log）<br>`git commit -m “update”<br><img src="https://i.ibb.co/ZHJjM02/d7cff4f51de04ce05b149e9a1d44182.jpg"></p>
+<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ol>
+<li><p>查看版本历史(master)<br><code>git log</code><br>commit 后面的字符就是版本号<br>HEAD就是指针<br><img src="https://i.ibb.co/g3w0zCK/81499340c53b662fca73efcb2b07871.png"></p>
+</li>
+<li><p>返回到某个版本(版本号只需写前几个字符)<br><code>git reset --hard &lt;版本号&gt;</code></p>
+</li>
+</ol>
+<p><strong>这样文件就会被改为到原来被commit的那一次</strong></p>
+<ol start="3">
+<li>要把旧版本push到GitHub<strong>要用强制命令</strong><br><code>git push -u origin master -f</code><br>版本回退之后悔</li>
+</ol>
+<hr>
+<ol>
+<li>查看所有的版本<br>因为原来的<code>git log</code>已经看不到还没有返回之前的版本号，所以我们要查看所以的版本<br><code>git reflog</code><br>这样就列出了返回之前的版本号.</li>
+<li>继续执行<br><code>git reset --hard &lt;版本号&gt;</code></li>
+</ol>
+<p><strong>这样我们的文件就会被修改到某次历史</strong></p>
+]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>repository的创建</title>
+    <url>/2020/03/27/git/repository%E7%9A%84%E5%88%9B%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>git is a distributed version control system.<br>它帮我们记录文件的修改和管理，并且帮我们push到GitHub</p>
+<h1 id="创建一个repo"><a href="#创建一个repo" class="headerlink" title="创建一个repo"></a>创建一个repo</h1><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p><a href="https://git-scm.com/downloads">git官网</a></p>
+<h2 id="创建repo（版本库）"><a href="#创建repo（版本库）" class="headerlink" title="创建repo（版本库）"></a>创建repo（版本库）</h2><ol>
+<li><p>创建文件<br><code>mkdir file</code></p>
+</li>
+<li><p>初始化<br><code>git init</code>这个时候file目录中就会存在一个.git文件。它用来跟踪版本库.</p>
+</li>
+<li><p>set the identity</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">*** Please tell me who you are.</span><br><span class="line"></span><br><span class="line">Run</span><br><span class="line"></span><br><span class="line">  git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">  git config --global user.name &quot;Your Name&quot;</span><br><span class="line"></span><br><span class="line">to set your account&#x27;s default identity.</span><br><span class="line">Omit --global to set the identity only in this repository.</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用SSH加密传输到远程repo</title>
+    <url>/2020/03/28/git/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了将本地的repo托管到GitHub上的repo，需要创建SSH　key，通过SSH协议进行传输。并且通过git添加远程repo，进而推送到GitHub</p>
+<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><h2 id="创建SSH-key"><a href="#创建SSH-key" class="headerlink" title="创建SSH key"></a>创建SSH key</h2><p>这个key和本机相联系，保存在你GitHub的账户中。<br><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></p>
+<h2 id="关联远程repo"><a href="#关联远程repo" class="headerlink" title="关联远程repo"></a>关联远程repo</h2><ol>
+<li>在GitHub上new一个repo。与想要托管的本地repo同名。</li>
+<li>cd到本地repo。</li>
+<li>在git上添加远程repo，<br><code>git remote add origin your.ssh.url</code><br>origin就是远程仓库的名字。</li>
+</ol>
+<h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><p><code>git push -u origin master</code></p>
+<p><strong>这样就把本地的master分支关联且推送到远程的master分支</strong></p>
+]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用分支</title>
+    <url>/2020/03/28/git/%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>分支就是一条时间线，它能帮我们记录对仓库的修改操作，我们如果想要在原来分支的基础之上，创作我们的项目，就可以新建另一条分支，它与原来的master分支相同。然后，就切换到新分支进行工作，这样就对原来的分支起到保护作用，因为它不影响master分支。等我们将工作完成后，就可以合并两条分支，两条分支的记录就变成一样。最后，就可以删除用于工作的分支了。</p>
+<h2 id="Anyway"><a href="#Anyway" class="headerlink" title="Anyway"></a>Anyway</h2><p>分支就是用于记录不同的历史版本的。</p>
+<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><ol>
+<li><p>查看分支<br><code>git branch</code></p>
+</li>
+<li><p>创建分支<br><code>git branch &lt;name&gt;</code></p>
+</li>
+<li><p>将HAND转移到分支<br><code>git checkout &lt;name&gt;</code><br>或者<br><code>git switch &lt;name&gt;</code></p>
+</li>
+<li><p>创建并切换到分支<br><code>git checkout -b &lt;name&gt;</code><br>或者<br><code>git switch -c &lt;name&gt;</code></p>
+</li>
+<li><p>将某分支合并到当前分支<br><code>git merge &lt;name&gt;</code></p>
+</li>
+<li><p>删除分支<br><code>git branch -d &lt;name&gt;</code></p>
+</li>
+</ol>
+<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><ul>
+<li>我们可以看到。<br><img src="https://i.ibb.co/187JvWb/01d8057b5d4312706738d102da46f11.png"></li>
+<li>当我们push上去<br><img src="https://i.ibb.co/y8hJ7TH/8317355e514cf65e4092a1e736a75a1.png"></li>
+</ul>
+<p>显然，分支是已经做好准备工作了。<br>我们不需要再次<code>git add .</code>和<code>git commit -m </code>了</p>
+]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在git上开发项目</title>
+    <url>/2022/06/11/git/%E5%9C%A8git%E4%B8%8A%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<h1 id="git的配置"><a href="#git的配置" class="headerlink" title="git的配置"></a>git的配置</h1><ol>
+<li><p>在github上创建远程repo</p>
+</li>
+<li><p>本地添加远程repo</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:FerryChan666/maoyan.git</span><br></pre></td></tr></table></figure></li>
+<li><p>推送到github</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure></li>
+<li><p>创建分支</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b dev</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>将远程仓库clone到本地</title>
+    <url>/2020/03/28/git/%E5%B0%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93clone%E5%88%B0%E6%9C%AC%E5%9C%B0/</url>
+    <content><![CDATA[<h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><p>当一起合作开发项目的时候，就可以直接通过到GitHub上面，将仓库clone到本地，不需要在本创建仓库了。<br>clone有两种传输协议。</p>
+<ol>
+<li>HTTPS<br>这种协议不用SSH　KEY，方便直接。但clone起来会较慢。</li>
+<li>SSH<br>需要创建KEY，特点会更快。</li>
+</ol>
+<p><a href="https://ferrychan666.github.io/2020/03/28/%E4%BD%BF%E7%94%A8SSH%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E5%88%B0%E8%BF%9C%E7%A8%8Brepo/">SSH KEY的创建</a></p>
+<h2 id="command"><a href="#command" class="headerlink" title="command"></a>command</h2><p><code>git clone </code></p>
+<h2 id="后续工作"><a href="#后续工作" class="headerlink" title="后续工作"></a>后续工作</h2><p>只需要将本地仓库push上去</p>
+]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>搭建博客</title>
-    <url>/2020/03/10/github/git/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="个人博客搭建"><a href="#个人博客搭建" class="headerlink" title="个人博客搭建"></a>个人博客搭建</h1><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p><a href="https://git-scm.com/">Git</a><br><a href="https://nodejs.org/en/">nodejs</a><br>用npm安装hexo:</p>
+    <url>/2020/03/10/git/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="个人博客搭建"><a href="#个人博客搭建" class="headerlink" title="个人博客搭建"></a>个人博客搭建</h1><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><ol>
+<li><a href="https://git-scm.com/">Git</a></li>
+<li><a href="https://nodejs.org/en/">nodejs</a></li>
+<li>用npm安装hexo:</li>
+</ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <h2 id="2-初始化hexo"><a href="#2-初始化hexo" class="headerlink" title="2.初始化hexo"></a>2.初始化hexo</h2><ul>
 <li>先建立一个hexo文件目录<br><code>mkdir blog</code>(名字为blog的hexo文件)</li>

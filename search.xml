@@ -1881,6 +1881,9 @@
 
 <p>We have predicted that a car with 1.3 liter engine, and a weight of 2300 kg, will release approximately 107 grams of CO2 for every kilometer it drives.</p>
 <h1 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h1><p>Logistic regression aims to solve classification problems. It does this by predicting categorical outcomes, unlike linear regression that predicts a continuous outcome.</p>
+<h1 id="Decision-Tree"><a href="#Decision-Tree" class="headerlink" title="Decision Tree"></a>Decision Tree</h1><p>To make a decision tree, all data has to be numerical.</p>
+<p>Pandas has a <code>map()</code> method that takes a dictionary with information on how to convert the values.</p>
+<p>Then we have to separate the <em>feature</em> columns from the <em>target</em> column. The feature columns are the columns that we try to predict <em>from</em>, and the target column is the column with the values we try to predict.</p>
 ]]></content>
       <tags>
         <tag>AI</tag>
@@ -1890,29 +1893,66 @@
     <title>JavaScript</title>
     <url>/2021/05/03/JavaScript/JavaScript/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>JavaScript can change HTML content. </p>
-<p><strong>Example</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span>JavaScript can change HTML content.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&#x27;document.getElementById(&quot;demo&quot;).innerHTML = &quot;Hello JavaScript!&quot;&#x27;</span>&gt;</span>Click Me!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Firstly, we have to get the element, one of many JavaScript HTML method is <code>getElementById()</code></p>
+<p>The  example below get the element id=”demo”, and changes the element content to “Hello JavaScript!”</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span>JavaScript can change HTML content.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&#x27;document.getElementById(&quot;demo&quot;).innerHTML = &quot;Hello JavaScript!&quot;&#x27;</span>&gt;</span>Click Me!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-
-
-<h1 id="lt-Script-gt"><a href="#lt-Script-gt" class="headerlink" title="&lt;Script&gt;"></a><code>&lt;Script&gt;</code></h1><p>In HTML, JavaScript code is inserted between <code>&lt;script&gt;</code> and <code>&lt;/script&gt;</code> tags.</p>
+<p>JavaScript also can change HTML Attribute Values, HTML Styles (CSS)…</p>
+<h2 id="JavaScript-Keywords"><a href="#JavaScript-Keywords" class="headerlink" title="JavaScript Keywords"></a>JavaScript Keywords</h2><table>
+<thead>
+<tr>
+<th align="left">Keyword</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">var</td>
+<td align="left">Declares a variable</td>
+</tr>
+<tr>
+<td align="left">let</td>
+<td align="left">Declares a block variable</td>
+</tr>
+<tr>
+<td align="left">const</td>
+<td align="left">Declares a block constant</td>
+</tr>
+<tr>
+<td align="left">if</td>
+<td align="left">Marks a block of statements to be executed on a condition</td>
+</tr>
+<tr>
+<td align="left">switch</td>
+<td align="left">Marks a block of statements to be executed in different cases</td>
+</tr>
+<tr>
+<td align="left">for</td>
+<td align="left">Marks a block of statements to be executed in a loop</td>
+</tr>
+<tr>
+<td align="left">function</td>
+<td align="left">Declares a function</td>
+</tr>
+<tr>
+<td align="left">return</td>
+<td align="left">Exits a function</td>
+</tr>
+<tr>
+<td align="left">try</td>
+<td align="left">Implements error handling to a block of statements</td>
+</tr>
+</tbody></table>
+<h1 id="JavaScript-Where-To"><a href="#JavaScript-Where-To" class="headerlink" title="JavaScript Where To"></a>JavaScript Where To</h1><p>In HTML, JavaScript code is inserted between <code>&lt;script&gt;</code> and <code>&lt;/script&gt;</code> tags.</p>
+<p>JavaScript function can be called when an <strong>event</strong> occurs, like when the user clicks a button.</p>
 <p><strong>Scripts can be placed in the <code>&lt;body&gt;</code>, or in the <code>&lt;head&gt;</code> section of an HTML page, or in both.</strong></p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>js<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			<span class="built_in">document</span>.getElementById(<span class="string">&quot;demo&quot;</span>).innerHTML=<span class="string">&quot;Paragraph changed&quot;</span>;</span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>JavaScript in Head<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span>A paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunction()&quot;</span>&gt;</span>Try it!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>JavaScript in Head<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span>A paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunction()&quot;</span>&gt;</span>Try it!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">	<span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">document</span>.getElementById(<span class="string">&quot;demo&quot;</span>).innerHTML=<span class="string">&quot;Paragraph changed&quot;</span>;</span></span><br><span class="line"><span class="javascript">	&#125;</span></span><br><span class="line"><span class="javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="External-JavaScript"><a href="#External-JavaScript" class="headerlink" title="External JavaScript"></a>External JavaScript</h1><p>JavaScript files have the  files extension <code>.js</code></p>
+<h2 id="JavaScript-file"><a href="#JavaScript-file" class="headerlink" title="JavaScript file"></a>JavaScript file</h2><p>Scripts can also be placed in external files:</p>
+<p>JavaScript files have the  files extension <code>.js</code></p>
 <p><strong>To use the external JS file, we should put the JS file name in the <code>scr</code> attribute of  the <code>&lt;script&gt;</code> tag</strong></p>
+<p>The script will behave as if it was located exactly where the <code>&lt;script&gt;</code> tag is located.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;myScript.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><p><strong>html file</strong></p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><strong>html file</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>JavaScript in Head<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span>A paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunction()&quot;</span>&gt;</span>Try it!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;myJs.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
 
 <p><strong>JS file</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">document</span>.getElementById(<span class="string">&quot;demo&quot;</span>).innerHTML=<span class="string">&quot;Paragraph changed&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1941,13 +1981,105 @@
 
 
 
+<h1 id="JavaScript-Data-Types"><a href="#JavaScript-Data-Types" class="headerlink" title="JavaScript Data Types"></a>JavaScript Data Types</h1><p>JavaScript has 8 Datatypes</p>
+<p>\1. String<br>\2. Number<br>\3. Bigint<br>\4. Boolean<br>\5. Undefined<br>\6. Null<br>\7. Symbol<br>\8. Object</p>
+<p>The Object Datatype</p>
+<p>The object data type can contain:</p>
+<p>\1. An object    (JavaScript objects are written with curly braces <code>&#123;&#125;</code>.)</p>
+<p><code>const person = &#123;firstName:&quot;John&quot;, lastName:&quot;Doe&quot;, age:50, eyeColor:&quot;blue&quot;&#125;;</code></p>
+<p>\2. An array    (JavaScript arrays are written with square brackets.)</p>
+<p><code>const cars = [&quot;Saab&quot;, &quot;Volvo&quot;, &quot;BMW&quot;];</code></p>
+<p>\3. A date</p>
+<p>JavaScript has dynamic types. This means that the same variable can be used to hold different data types:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Numbers:</span></span><br><span class="line"><span class="keyword">let</span> length = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">let</span> weight = <span class="number">7.5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Strings:</span></span><br><span class="line"><span class="keyword">let</span> color = <span class="string">&quot;Yellow&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> lastName = <span class="string">&quot;Johnson&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Booleans</span></span><br><span class="line"><span class="keyword">let</span> x = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">let</span> y = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Object:</span></span><br><span class="line"><span class="keyword">const</span> person = &#123;<span class="attr">firstName</span>:<span class="string">&quot;John&quot;</span>, <span class="attr">lastName</span>:<span class="string">&quot;Doe&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Array object:</span></span><br><span class="line"><span class="keyword">const</span> cars = [<span class="string">&quot;Saab&quot;</span>, <span class="string">&quot;Volvo&quot;</span>, <span class="string">&quot;BMW&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Date object:</span></span><br><span class="line"><span class="keyword">const</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;2022-03-25&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
 <h1 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h1><p>A JS function is a block of code designed to perform a particular task, which is executed when something invokes it. </p>
 <p><strong>JavaScript function can be invoked on anywhere or be invoked when a event occur.</strong> </p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;test()&quot;</span>&gt;</span>click me to invoketest()<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			alert(<span class="string">&quot;test() was invoked&quot;</span>);</span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">			alert(<span class="string">&quot;Hello&quot;</span>);</span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript">		f();</span></span><br><span class="line"><span class="javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="DOM-Document-Object-Model"><a href="#DOM-Document-Object-Model" class="headerlink" title="DOM(Document Object Model)"></a>DOM(Document Object Model)</h1><p>The document object represent a page. </p>
+<h1 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h1><p><strong>Objects are variables too. But objects can contain many values.</strong></p>
+<p>In real life, a car is an <strong>object</strong>.</p>
+<p>A car has <strong>properties</strong> like weight and color, and <strong>methods</strong> like start and stop</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> car = <span class="string">&quot;Fiat&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> car = &#123;<span class="attr">type</span>:<span class="string">&quot;Fiat&quot;</span>, <span class="attr">model</span>:<span class="string">&quot;500&quot;</span>, <span class="attr">color</span>:<span class="string">&quot;white&quot;</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-Properties"><a href="#Object-Properties" class="headerlink" title="Object Properties"></a>Object Properties</h2><p>The <strong>name:values</strong> pairs in JavaScript objects are called <strong>properties</strong>:</p>
+<p>You can access object properties in two ways:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">objectName.propertyName</span><br><span class="line">objectName[<span class="string">&quot;propertyName&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-Methods"><a href="#Object-Methods" class="headerlink" title="Object Methods"></a>Object Methods</h2><p>Methods are stored in properties as <strong>function definitions</strong>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Property Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">firstName</td>
+<td align="left">John</td>
+</tr>
+<tr>
+<td align="left">lastName</td>
+<td align="left">Doe</td>
+</tr>
+<tr>
+<td align="left">age</td>
+<td align="left">50</td>
+</tr>
+<tr>
+<td align="left">eyeColor</td>
+<td align="left">blue</td>
+</tr>
+<tr>
+<td align="left">fullName</td>
+<td align="left">function() {return this.firstName + “ “ + this.lastName;}</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">firstName</span>: <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  <span class="attr">lastName</span> : <span class="string">&quot;Doe&quot;</span>,</span><br><span class="line">  <span class="attr">id</span>       : <span class="number">5566</span>,</span><br><span class="line">  <span class="attr">fullName</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.firstName + <span class="string">&quot; &quot;</span> + <span class="built_in">this</span>.lastName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="JS-Events"><a href="#JS-Events" class="headerlink" title="JS Events"></a>JS Events</h1><p>An HTML event can be something the browser does, or something a user does.</p>
+<p>Here are some examples of HTML events:</p>
+<ul>
+<li>An HTML web page has finished loading</li>
+<li>An HTML input field was changed</li>
+<li>An HTML button was clicked</li>
+</ul>
+<h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><p>JSON is a format for storing and transporting data.</p>
+<p>JSON is often used when data is sent from a server to a web page.</p>
+<h2 id="What-is-JSON"><a href="#What-is-JSON" class="headerlink" title="What is JSON?"></a>What is JSON?</h2><ul>
+<li>JSON stands for <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation</li>
+<li>JSON is a lightweight data interchange format</li>
+<li>JSON is language <strong>independent</strong></li>
+<li>JSON is “self-describing” and easy to understand</li>
+</ul>
+<p>* The JSON syntax is derived from JavaScript object notation syntax, but the JSON format is text only. <strong>Code for reading and generating JSON data can be written in any programming language.</strong></p>
+<h2 id="JSON-Syntax-Rules"><a href="#JSON-Syntax-Rules" class="headerlink" title="JSON Syntax Rules"></a>JSON Syntax Rules</h2><ul>
+<li>Data is in name/value pairs</li>
+<li>Data is separated by commas</li>
+<li>Curly braces hold objects</li>
+<li>Square brackets hold arrays</li>
+</ul>
+<h2 id="JSON-Example"><a href="#JSON-Example" class="headerlink" title="JSON Example"></a>JSON Example</h2><p>This JSON syntax defines an employees object: an array of 3 employee records (objects):</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;employees&quot;</span>:[</span><br><span class="line"> &#123;<span class="attr">&quot;firstName&quot;</span>:<span class="string">&quot;John&quot;</span>, <span class="attr">&quot;lastName&quot;</span>:<span class="string">&quot;Doe&quot;</span>&#125;,</span><br><span class="line"> &#123;<span class="attr">&quot;firstName&quot;</span>:<span class="string">&quot;Anna&quot;</span>, <span class="attr">&quot;lastName&quot;</span>:<span class="string">&quot;Smith&quot;</span>&#125;,</span><br><span class="line"> &#123;<span class="attr">&quot;firstName&quot;</span>:<span class="string">&quot;Peter&quot;</span>, <span class="attr">&quot;lastName&quot;</span>:<span class="string">&quot;Jones&quot;</span>&#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>In the example above, the object “employees” is an array. It contains three objects.</p>
+<p>Each object is a record of a person (with a first name and a last name).</p>
+<h1 id="JavaScript-Debugging"><a href="#JavaScript-Debugging" class="headerlink" title="JavaScript Debugging"></a>JavaScript Debugging</h1><p>Normally, you activate debugging in your browser with the F12 key, and select “Console” in the debugger menu.</p>
+<p>If your browser supports debugging, you can use <code>console.log()</code> to display JavaScript values in the debugger window:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">a = <span class="number">5</span>;</span><br><span class="line">b = <span class="number">6</span>;</span><br><span class="line">c = a + b;</span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="DOM-Document-Object-Model"><a href="#DOM-Document-Object-Model" class="headerlink" title="DOM(Document Object Model)"></a>DOM(Document Object Model)</h1><p>When a web page is loaded, the browser creates a <strong>D</strong>ocument <strong>O</strong>bject <strong>M</strong>odel of the page.</p>
+<p>The document object represent a page. </p>
 <p>With the object model, JavaScript gets all the power it needs to create dynamic HTML. </p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">&quot;demo&quot;</span>).innerHTML = <span class="string">&quot;Hello World!&quot;</span>;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -2030,63 +2162,6 @@
 <td align="left">Write into the HTML output stream</td>
 </tr>
 </tbody></table>
-]]></content>
-      <tags>
-        <tag>JS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>json</title>
-    <url>/2021/12/23/JavaScript/json/</url>
-    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>JSON stands for <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation</p>
-<p>JSON is a <strong>text format</strong> for storing and transporting data</p>
-<ul>
-<li>Data is in <code>name/value pairs</code></li>
-<li>Data is separated by <code>commas</code></li>
-<li><code>Curly braces</code> hold objects</li>
-<li><code>Square brackets</code> hold arrays</li>
-</ul>
-<h1 id="Data-Type"><a href="#Data-Type" class="headerlink" title="Data Type"></a>Data Type</h1><p>In JSON, values must be one of the following data types:</p>
-<ul>
-<li>a string</li>
-<li>a number</li>
-<li>an object (JSON object)</li>
-<li>an array</li>
-<li>a boolean</li>
-<li><em>null</em></li>
-</ul>
-<p>JSON values <strong>cannot</strong> be one of the following data types:</p>
-<ul>
-<li>a function</li>
-<li>a date</li>
-<li><em>undefined</em></li>
-</ul>
-<h2 id="JSON-Strings"><a href="#JSON-Strings" class="headerlink" title="JSON Strings"></a>JSON Strings</h2><p>Strings in JSON must be written in double quotes.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;<span class="attr">&quot;name&quot;</span>:<span class="string">&quot;John&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="JSON-Numbers"><a href="#JSON-Numbers" class="headerlink" title="JSON Numbers"></a>JSON Numbers</h2><p>Numbers in JSON must be an integer or a floating point.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;<span class="attr">&quot;age&quot;</span>:<span class="number">30</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="JSON-Objects"><a href="#JSON-Objects" class="headerlink" title="JSON Objects"></a>JSON Objects</h2><p>Values in JSON can be objects.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;employee&quot;</span>:&#123;<span class="attr">&quot;name&quot;</span>:<span class="string">&quot;John&quot;</span>, <span class="attr">&quot;age&quot;</span>:<span class="number">30</span>, <span class="attr">&quot;city&quot;</span>:<span class="string">&quot;New York&quot;</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Objects as values in JSON must follow the JSON syntax.</strong></p>
-<hr>
-<h2 id="JSON-Arrays"><a href="#JSON-Arrays" class="headerlink" title="JSON Arrays"></a>JSON Arrays</h2><p>Values in JSON can be arrays.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;employees&quot;</span>:[<span class="string">&quot;John&quot;</span>, <span class="string">&quot;Anna&quot;</span>, <span class="string">&quot;Peter&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="JSON-Booleans"><a href="#JSON-Booleans" class="headerlink" title="JSON Booleans"></a>JSON Booleans</h2><p>Values in JSON can be true/false.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;<span class="attr">&quot;sale&quot;</span>:<span class="literal">true</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="JSON-null"><a href="#JSON-null" class="headerlink" title="JSON null"></a>JSON null</h2><p>Values in JSON can be null.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;<span class="attr">&quot;middlename&quot;</span>:<span class="literal">null</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="JSON-Example"><a href="#JSON-Example" class="headerlink" title="JSON Example"></a>JSON Example</h1><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;<span class="attr">&quot;employees&quot;</span>:[</span><br><span class="line"> &#123; <span class="attr">&quot;firstName&quot;</span>:<span class="string">&quot;John&quot;</span>, <span class="attr">&quot;lastName&quot;</span>:<span class="string">&quot;Doe&quot;</span> &#125;,</span><br><span class="line"> &#123; <span class="attr">&quot;firstName&quot;</span>:<span class="string">&quot;Anna&quot;</span>, <span class="attr">&quot;lastName&quot;</span>:<span class="string">&quot;Smith&quot;</span> &#125;,</span><br><span class="line"> &#123; <span class="attr">&quot;firstName&quot;</span>:<span class="string">&quot;Peter&quot;</span>, <span class="attr">&quot;lastName&quot;</span>:<span class="string">&quot;Jones&quot;</span> &#125;</span><br><span class="line">]&#125;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <tags>
         <tag>JS</tag>
@@ -8267,6 +8342,171 @@ $$
       </categories>
       <tags>
         <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ajax</title>
+    <url>/2023/02/10/JavaScript/Ajax/</url>
+    <content><![CDATA[<h1 id="AJAX-Introduction"><a href="#AJAX-Introduction" class="headerlink" title="AJAX Introduction"></a>AJAX Introduction</h1><p>AJAX is a developer’s dream, because you can:</p>
+<ul>
+<li>Read data from a web server - after the page has loaded</li>
+<li>Update a web page without reloading the page</li>
+<li>Send data to a web server - in the background</li>
+</ul>
+<p>AJAX = <strong>A</strong>synchronous <strong>J</strong>avaScript <strong>A</strong>nd <strong>X</strong>ML.</p>
+<p>AJAX is not a programming language.</p>
+<p>AJAX just uses a combination of:</p>
+<ul>
+<li>A browser built-in <code>XMLHttpRequest</code> object (to request data from a web server)</li>
+<li>JavaScript and HTML DOM (to display or use the data)</li>
+</ul>
+<p>AJAX applications might use XML to transport data, but it is equally common to transport data as plain text or JSON text.</p>
+<p>AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.</p>
+<h1 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Create an XMLHttpRequest object</span></span><br><span class="line"><span class="keyword">const</span> xhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Define a callback function</span></span><br><span class="line">xhttp.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Here you can use the Data</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Send a request</span></span><br><span class="line">xhttp.open(<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;ajax_info.txt&quot;</span>);</span><br><span class="line">xhttp.send();</span><br></pre></td></tr></table></figure>
+
+<h2 id="Send-a-Request-To-a-Server"><a href="#Send-a-Request-To-a-Server" class="headerlink" title="Send a Request To a Server"></a>Send a Request To a Server</h2><p>To send a request to a server, we use the open() and send() methods of the <code>XMLHttpRequest</code> object:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">xhttp.open(<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;ajax_info.txt&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">xhttp.send();</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">open(<em>method, url, async</em>)</td>
+<td align="left">Specifies the type of request  <em>method</em>: the type of request: GET or POST <em>url</em>: the server (file) location <em>async</em>: true (asynchronous) or false (synchronous)</td>
+</tr>
+<tr>
+<td align="left">send()</td>
+<td align="left">Sends the request to the server (used for GET)</td>
+</tr>
+<tr>
+<td align="left">send(<em>string</em>)</td>
+<td align="left">Sends the request to the server (used for POST)</td>
+</tr>
+</tbody></table>
+<h2 id="The-url-A-File-On-a-Server"><a href="#The-url-A-File-On-a-Server" class="headerlink" title="The url - A File On a Server"></a>The url - A File On a Server</h2><p>The url parameter of the <code>open()</code> method, is an address to a file on a server:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">xhttp.open(<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;ajax_test.asp&quot;</span>, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Server-Response"><a href="#Server-Response" class="headerlink" title="Server Response"></a>Server Response</h1><h2 id="Server-Response-Properties"><a href="#Server-Response-Properties" class="headerlink" title="Server Response Properties"></a>Server Response Properties</h2><table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">responseText</td>
+<td align="left">get the response data as a string</td>
+</tr>
+<tr>
+<td align="left">responseXML</td>
+<td align="left">get the response data as XML data</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;demo&quot;</span>).innerHTML = xhttp.responseText;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jQuery</title>
+    <url>/2023/02/10/JavaScript/jQuery/</url>
+    <content><![CDATA[<h1 id="jQuery-Introduction"><a href="#jQuery-Introduction" class="headerlink" title="jQuery Introduction"></a>jQuery Introduction</h1><p>jQuery is a JavaScript Library.</p>
+<p>jQuery greatly simplifies JavaScript programming.</p>
+<p>jQuery also simplifies a lot of the complicated things from JavaScript, like AJAX calls and DOM manipulation.</p>
+<p>The jQuery library contains the following features:</p>
+<ul>
+<li>HTML/DOM manipulation</li>
+<li>CSS manipulation</li>
+<li>HTML event methods</li>
+<li>Effects and animations</li>
+<li>AJAX</li>
+<li>Utilities</li>
+</ul>
+<p><strong>Tip:</strong> In addition, jQuery has plugins for almost any task out there.</p>
+<h1 id="jQuery-Syntax"><a href="#jQuery-Syntax" class="headerlink" title="jQuery Syntax"></a>jQuery Syntax</h1><p>The jQuery syntax is tailor-made for <strong>selecting</strong> HTML elements and performing some <strong>action</strong> on the element(s).</p>
+<p>Basic syntax is: <strong>$(*selector*).*action*()</strong></p>
+<ul>
+<li>A $ sign to define/access jQuery</li>
+<li>A (<em>selector</em>) to “query (or find)” HTML elements</li>
+<li>A jQuery <em>action</em>() to be performed on the element(s)</li>
+</ul>
+<h2 id="The-Document-Ready-Event"><a href="#The-Document-Ready-Event" class="headerlink" title="The Document Ready Event"></a>The Document Ready Event</h2><p>You might have noticed that all jQuery methods in our examples, are inside a document ready event:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"> *<span class="comment">// jQuery methods go here...*</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>This is to prevent any jQuery code from running before the document is finished loading (is ready).</p>
+<p><strong>Tip:</strong> The jQuery team has also created an even shorter method for the document ready event:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"> *<span class="comment">// jQuery methods go here...*</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Use the syntax you prefer. We think that the document ready event is easier to understand when reading the code.</p>
+<h1 id="jQuery-Selectors"><a href="#jQuery-Selectors" class="headerlink" title="jQuery Selectors"></a>jQuery Selectors</h1><p>All selectors in jQuery start with the dollar sign and parentheses: $().</p>
+<h2 id="The-element-Selector"><a href="#The-element-Selector" class="headerlink" title="The element Selector"></a>The element Selector</h2><p>You can select all <code>&lt;p&gt;</code> elements on a page like this:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">&quot;p&quot;</span>).hide();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="The-id-Selector"><a href="#The-id-Selector" class="headerlink" title="The #id Selector"></a>The #id Selector</h2><p>To find an element with a specific id, write a hash character, followed by the id of the HTML element:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#test&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">&quot;#test&quot;</span>).hide();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="The-class-Selector"><a href="#The-class-Selector" class="headerlink" title="The .class Selector"></a>The .class Selector</h2><p>To find elements with a specific class, write a period character, followed by the name of the class:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;.test&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $(<span class="string">&quot;button&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">&quot;.test&quot;</span>).hide();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Functions-In-a-Separate-File"><a href="#Functions-In-a-Separate-File" class="headerlink" title="Functions In a Separate File"></a>Functions In a Separate File</h2><p>If your website contains a lot of pages, and you want your jQuery functions to be easy to maintain, you can put your jQuery functions in a separate .js file.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;my_jquery_functions.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="jQuery-Event-Methods"><a href="#jQuery-Event-Methods" class="headerlink" title="jQuery Event Methods"></a>jQuery Event Methods</h1><p>The next step is to define what should happen when the event fires. You must pass a function to the event:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// action goes here!!</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="jQuery-HTML"><a href="#jQuery-HTML" class="headerlink" title="jQuery HTML"></a>jQuery HTML</h1><p>Three simple, but useful, jQuery methods for DOM manipulation are:</p>
+<ul>
+<li><code>text()</code> - Sets or returns the text content of selected elements</li>
+<li><code>html()</code> - Sets or returns the content of selected elements (including HTML markup)</li>
+<li><code>val()</code> - Sets or returns the value of form fields</li>
+</ul>
+<h1 id="jQuery-AJAX"><a href="#jQuery-AJAX" class="headerlink" title="jQuery - AJAX"></a>jQuery - AJAX</h1><p>In short; AJAX is about loading data in the background and display it on the webpage, without reloading the whole page.</p>
+<h2 id="jQuery-load-Method"><a href="#jQuery-load-Method" class="headerlink" title="jQuery load() Method"></a>jQuery load() Method</h2><p>The <code>load()</code> method loads data from a server and puts the returned data into the selected element.</p>
+<p><strong>Syntax:</strong></p>
+<p><code>$(selector).load(URL,data,callback);</code></p>
+<p>The required URL parameter specifies the URL you wish to load.</p>
+<p>The optional data parameter specifies a set of querystring key/value pairs to send along with the request.</p>
+<p>The optional callback parameter is the name of a function to be executed after the <code>load()</code> method is completed.</p>
+<p>The following example loads the content of the file “demo_test.txt” into a specific <code>&lt;div&gt;</code> element:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#div1&quot;</span>).load(<span class="string">&quot;demo_test.txt&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>It is also possible to add a jQuery selector to the URL parameter.</p>
+<p>The following example loads the content of the element with id=”p1”, inside the file “demo_test.txt”, into a specific <code>&lt;div&gt;</code> element:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;#div1&quot;</span>).load(<span class="string">&quot;demo_test.txt #p1&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>JS</tag>
       </tags>
   </entry>
 </search>

@@ -8159,36 +8159,145 @@ $$
       </tags>
   </entry>
   <entry>
-    <title>git的提交修改操作</title>
+    <title>git</title>
     <url>/2020/03/27/git/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%90%E4%BA%A4%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h1 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h1><p>为了能管理文件的所作出的修改。</p>
-<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1><h2 id="add到stage"><a href="#add到stage" class="headerlink" title="add到stage"></a>add到stage</h2><ol>
-<li>查看stage<br><code>git status</code>查看stage的状态.</li>
-<li>添加到stage<br>版本库中有git给你创建的暂存区（stage）和分支（master）。<br><code>git add .</code>的作用就是将工作区的文件添加到stage。</li>
-<li>删除stage<br><code>git restore --staged &lt;file&gt;...&quot;</code> to unstage</li>
-</ol>
-<p><img src="https://i.ibb.co/LPncLLG/5c017de22bde1b62dcc538cd36510ab.jpg"></p>
-<h2 id="commit到master"><a href="#commit到master" class="headerlink" title="commit到master"></a>commit到master</h2><p>接下来就是提交。当我们做这一步之后才能被git所记录（log）<br>`git commit -m “update”<br><img src="https://i.ibb.co/ZHJjM02/d7cff4f51de04ce05b149e9a1d44182.jpg"></p>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ol>
-<li><p>查看版本历史(master)<br><code>git log</code><br>commit 后面的字符就是版本号<br>HEAD就是指针<br><img src="https://i.ibb.co/g3w0zCK/81499340c53b662fca73efcb2b07871.png"></p>
-</li>
-<li><p>返回到某个版本(版本号只需写前几个字符)<br><code>git reset --hard &lt;版本号&gt;</code></p>
-</li>
-</ol>
-<p><strong>这样文件就会被改为到原来被commit的那一次</strong></p>
-<ol start="3">
-<li>要把旧版本push到GitHub<strong>要用强制命令</strong><br><code>git push -u origin master -f</code><br>版本回退之后悔</li>
-</ol>
-<hr>
-<ol>
-<li>查看所有的版本<br>因为原来的<code>git log</code>已经看不到还没有返回之前的版本号，所以我们要查看所以的版本<br><code>git reflog</code><br>这样就列出了返回之前的版本号.</li>
-<li>继续执行<br><code>git reset --hard &lt;版本号&gt;</code></li>
-</ol>
-<p><strong>这样我们的文件就会被修改到某次历史</strong></p>
+    <content><![CDATA[<h1 id="What-is-Git"><a href="#What-is-Git" class="headerlink" title="What is Git?"></a>What is Git?</h1><p>Git is a popular version control system.</p>
+<p>It is used for:</p>
+<ul>
+<li>Tracking code changes</li>
+<li>Tracking who made changes</li>
+<li>Coding collaboration</li>
+</ul>
+<h1 id="Git-Getting-Started"><a href="#Git-Getting-Started" class="headerlink" title="Git Getting Started"></a>Git Getting Started</h1><h2 id="Git-Install"><a href="#Git-Install" class="headerlink" title="Git Install"></a>Git Install</h2><p>You can download Git for free from the following website: <a href="https://git-scm.com/">https://www.git-scm.com/</a></p>
+<h2 id="Configure-Git"><a href="#Configure-Git" class="headerlink" title="Configure Git"></a>Configure Git</h2><p>Now let Git know who you are. This is important for version control systems, as each Git commit uses this information:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;&quot;</span><br><span class="line">git config --global user.email &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Initialize-Git"><a href="#Initialize-Git" class="headerlink" title="Initialize Git"></a>Initialize Git</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir myproject</span><br><span class="line">cd myproject</span><br><span class="line">git init </span><br></pre></td></tr></table></figure>
+
+<p>Now create a file, index.html, and add it in this folder.</p>
+<p>Then we check the Git <code>status</code> and see if it is a part of our repo:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use &quot;git add ...&quot; to include in what will be committed)</span><br><span class="line">    index.html</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span><br></pre></td></tr></table></figure>
+
+<p>Now Git is <strong>aware</strong> of the file, but has not <strong>added</strong> it to our repository!</p>
+<p>Files in your Git repository folder can be in one of 2 states:</p>
+<ul>
+<li>Tracked - files that Git knows about and are added to the repository</li>
+<li>Untracked - files that are in your working directory, but not added to the repository</li>
+</ul>
+<h1 id="Git-Staging-Environment"><a href="#Git-Staging-Environment" class="headerlink" title="Git Staging Environment"></a>Git Staging Environment</h1><p>As you are working, you may be adding, editing and removing files. But whenever you hit a milestone or <strong>finish a part of the work</strong>, you should add the files to a Staging Environment.</p>
+<p>For now, we are done working with <code>index.html</code>. So we can add it to the Staging Environment:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add index.html</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git rm --cached ...&quot; to unstage)</span><br><span class="line">    new file: index.html</span><br></pre></td></tr></table></figure>
+
+<p>Now the file has been added to the Staging Environment. </p>
+<p>Using <code>--all</code> instead of individual filenames will <code>stage</code> all changes (new, modified, and deleted) files.</p>
+<p>The shorthand command for <code>git add --all</code> is <code>git add -A</code></p>
+<h1 id="Git-Commit"><a href="#Git-Commit" class="headerlink" title="Git Commit"></a>Git Commit</h1><p>Adding commits keep track of our progress and changes as we work. Git considers each <code>commit</code> change point or “save point”. It is a point in the project you can go back to if you find a bug, or want to make a change.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;First release of Hello World!&quot;</span><br><span class="line">[master (root-commit) 221ec6e] First release of Hello World!</span><br><span class="line"> 3 files changed, 26 insertions(+)</span><br><span class="line"> create mode 100644 README.md</span><br><span class="line"> create mode 100644 bluestyle.css</span><br><span class="line"> create mode 100644 index.html</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Git-Commit-without-Stage"><a href="#Git-Commit-without-Stage" class="headerlink" title="Git Commit without Stage"></a>Git Commit without Stage</h2><p>Sometimes, when you make small changes, using the staging environment seems like a waste of time. It is possible to commit changes directly, skipping the staging environment. The <code>-a</code> option will automatically stage every changed, already tracked file.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit -a -m &quot;Updated index.html with a new line&quot;</span><br><span class="line">[master 09f4acd] Updated index.html with a new line</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git-Commit-Log"><a href="#Git-Commit-Log" class="headerlink" title="Git Commit Log"></a>Git Commit Log</h2><p>To view the history of commits for a repository, you can use the <code>log</code> command:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log</span><br><span class="line">commit 09f4acd3f8836b7f6fc44ad9e012f82faf861803 (HEAD -&gt; master)</span><br><span class="line">Author: w3schools-test </span><br><span class="line">Date:   Fri Mar 26 09:35:54 2021 +0100</span><br><span class="line"></span><br><span class="line">    Updated index.html with a new line</span><br><span class="line"></span><br><span class="line">commit 221ec6e10aeedbfd02b85264087cd9adc18e4b26</span><br><span class="line">Author: w3schools-test </span><br><span class="line">Date:   Fri Mar 26 09:13:07 2021 +0100</span><br><span class="line"></span><br><span class="line">    First release of Hello World!</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Git-Branch"><a href="#Git-Branch" class="headerlink" title="Git Branch"></a>Git Branch</h1><p>In Git, a <code>branch</code> is a new/separate version of the main repository.</p>
+<p><strong>Branches allow you to work on different parts of a project without impacting the main branch.</strong></p>
+<p>When the work is complete, a branch can be merged with the main project.</p>
+<h2 id="New-Git-Branch"><a href="#New-Git-Branch" class="headerlink" title="New Git Branch"></a>New Git Branch</h2><p>We are working in our local repository, and we do not want to disturb or possibly wreck the main project.</p>
+<p>So we create a new <code>branch</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch hello-world-images</span><br></pre></td></tr></table></figure>
+
+<p>Now we created a new <code>branch</code> called “<code>hello-world-images</code>“</p>
+<p>Let’s confirm that we have created a new <code>branch</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch</span><br><span class="line">  hello-world-images</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+<p><code>checkout</code> is the command used to check out a <code>branch</code>. Moving us <strong>from</strong> the current <code>branch</code>, <strong>to</strong> the one specified at the end of the command:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout hello-world-images</span><br><span class="line">Switched to branch &#x27;hello-world-images&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>We are currently on the branch <code>hello-world-images</code>. We added an image to this branch, so let’s list the files in the current directory:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls</span><br><span class="line">README.md  bluestyle.css  img_hello_world.jpg  index.html</span><br></pre></td></tr></table></figure>
+
+<p>Now, let’s see what happens when we change branch to <code>master</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">Switched to branch &#x27;master&#x27;</span><br><span class="line">ls</span><br><span class="line">README.md  bluestyle.css  index.html</span><br></pre></td></tr></table></figure>
+
+<p>The new image is not a part of this branch. </p>
+<h2 id="Emergency-Branch"><a href="#Emergency-Branch" class="headerlink" title="Emergency Branch"></a>Emergency Branch</h2><p>Now imagine that we are not yet done with hello-world-images, but we need to fix an error on master.</p>
+<p>I don’t want to mess with master directly, and I do not want to mess with hello-world-images, since it is not done yet. So we create a new branch to deal with the emergency:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b emergency-fix</span><br><span class="line">Switched to a new branch &#x27;emergency-fix&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>Now we have created a new branch from master, and changed to it. We can safely fix the error without disturbing the other branches.</p>
+<p>We have made changes in this file, and we need to get those changes to the master branch.</p>
+<p>stage the file, and commit:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add index.html</span><br><span class="line">git commit -m &quot;updated index.html with emergency fix&quot;</span><br><span class="line">[emergency-fix dfa79db] updated index.html with emergency fix</span><br><span class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Git-Branch-Merge"><a href="#Git-Branch-Merge" class="headerlink" title="Git Branch Merge"></a>Git Branch Merge</h1><p>We have the emergency fix ready, and so let’s merge the master and emergency-fix branches.</p>
+<p>First, we need to change to the master branch. Now we merge the current branch (master) with emergency-fix:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">Switched to branch &#x27;master&#x27;</span><br><span class="line">git merge emergency-fix</span><br><span class="line">Updating 09f4acd..dfa79db</span><br><span class="line">Fast-forward</span><br><span class="line"> index.html | 2 +-</span><br><span class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</span><br></pre></td></tr></table></figure>
+
+<p>As master and emergency-fix are essentially the same now, we can delete emergency-fix, as it is no longer needed:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -d emergency-fix</span><br><span class="line">Deleted branch emergency-fix (was dfa79db).</span><br></pre></td></tr></table></figure>
+
+<h2 id="Merge-Conflict"><a href="#Merge-Conflict" class="headerlink" title="Merge Conflict"></a>Merge Conflict</h2><p>Now we can move over to hello-world-images and keep working. Add another image file (img_hello_git.jpg) and change index.html.</p>
+<p>Now, we are done with our work here and can stage and commit for this branch:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add --all</span><br><span class="line">git commit -m &quot;added new image&quot;</span><br><span class="line">[hello-world-images 1f1584e] added new image</span><br><span class="line"> 2 files changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 img_hello_git.jpg</span><br></pre></td></tr></table></figure>
+
+<p>We see that index.html has been changed in both branches. Now we are ready to merge hello-world-images into master. But what will happen to the changes we recently made in master?</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge hello-world-images</span><br><span class="line">Auto-merging index.html</span><br><span class="line">CONFLICT (content): Merge conflict in index.html</span><br><span class="line">Automatic merge failed; fix conflicts and then commit the result.</span><br></pre></td></tr></table></figure>
+
+<p>The merge failed, as there is conflict between the versions for index.html. Let us check the status:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line">You have unmerged paths.</span><br><span class="line">  (fix conflicts and run &quot;git commit&quot;)</span><br><span class="line">  (use &quot;git merge --abort&quot; to abort the merge)</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">        new file:   img_hello_git.jpg</span><br><span class="line">        new file:   img_hello_world.jpg</span><br><span class="line"></span><br><span class="line">Unmerged paths:</span><br><span class="line">  (use &quot;git add ...&quot; to mark resolution)</span><br><span class="line">        both modified:   index.html</span><br></pre></td></tr></table></figure>
+
+<p><strong>This confirms there is a conflict in index.html, but the image files are ready and staged to be committed.</strong></p>
+<p>So we need to fix that conflict.</p>
+<p>The conflict has been fixed, and we can use commit to conclude the merge:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;merged with hello-world-images after fixing conflicts&quot;</span><br><span class="line">[master e0b6038] merged with hello-world-images after fixing conflicts</span><br></pre></td></tr></table></figure>
+
+<p>And delete the hello-world-images branch:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -d hello-world-images</span><br><span class="line">Deleted branch hello-world-images (was 1f1584e).</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Git-Reset"><a href="#Git-Reset" class="headerlink" title="Git Reset"></a>Git Reset</h1><p><code>reset</code> is the command we use when we want to move the repository back to a previous <code>commit</code>, discarding any changes made after that <code>commit</code>.</p>
+<p>First thing, we need to find the point we want to return to. To do that, we need to go through the <code>log</code>.</p>
+<p>To avoid the very long <code>log</code> list, we are going to use the <code>--oneline</code> option, which gives just one line per <code>commit</code> showing:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline</span><br><span class="line">e56ba1f (HEAD -&gt; master) Revert &quot;Just a regular update, definitely no accidents here...&quot;</span><br><span class="line">52418f7 Just a regular update, definitely no accidents here...</span><br><span class="line">9a9add8 (origin/master) Added .gitignore</span><br><span class="line">81912ba Corrected spelling error</span><br><span class="line">3fdaa5b Merge pull request #1 from w3schools-test/update-readme</span><br></pre></td></tr></table></figure>
+
+<p>We want to return to the <code>commit</code>: <code>9a9add8 (origin/master) Added .gitignore</code>, the last one before we started to mess with things.</p>
+<p>We <code>reset</code> our repository back to the specific commit using <code>git reset *commithash*</code> (<code>*commithash*</code> being the first 7 characters of the commit hash we found in the <code>log</code>):</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset 9a9add8</span><br></pre></td></tr></table></figure>
+
+<p>Now let’s check the <code>log</code> again:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git log --oneline</span><br><span class="line">9a9add8 (HEAD -&gt; master, origin/master) Added .gitignore</span><br><span class="line">81912ba Corrected spelling error</span><br><span class="line">3fdaa5b Merge pull request #1 from w3schools-test/update-readme</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git-Undo-Reset"><a href="#Git-Undo-Reset" class="headerlink" title="Git Undo Reset"></a>Git Undo Reset</h2><p>Even though the commits are no longer showing up in the <code>log</code>, it is not removed from Git.</p>
+<p>If you know the commit hash you can <code>reset</code> to it:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset e56ba1f</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><h2 id="Git-push-into-GitHub"><a href="#Git-push-into-GitHub" class="headerlink" title="Git push into GitHub"></a>Git push into GitHub</h2><p>First, we create a remote repo in Github. Now we are going to <code>push</code> our local repo to Github. </p>
+<p><code>git remote add origin *URL*</code> specifies that you are adding a remote repository, with the specified <code>URL</code>, as an <code>origin</code> to your local Git repo.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/FerryChan666/Project.git</span><br></pre></td></tr></table></figure>
+
+<p>Now we are going to push our master branch to the origin url, and set it as the default remote branch:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push --set-upstream origin master</span><br></pre></td></tr></table></figure>
+
+<p>Now, go back into GitHub and see that the repository has been updated.</p>
+<h2 id="Git-Pull-from-GitHub"><a href="#Git-Pull-from-GitHub" class="headerlink" title="Git Pull from GitHub"></a>Git Pull from GitHub</h2><p>Any time you start working on a project, you should get the most recent changes to your local copy.</p>
+<p>With Git, you can do that with <code>pull</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull origin</span><br></pre></td></tr></table></figure>
+
+<h2 id="GitHub-Branch"><a href="#GitHub-Branch" class="headerlink" title="GitHub Branch"></a>GitHub Branch</h2><h3 id="Create-a-New-Branch-on-GitHub"><a href="#Create-a-New-Branch-on-GitHub" class="headerlink" title="Create a New Branch on GitHub"></a>Create a New Branch on GitHub</h3><p>On GitHub, access your repository and click the “master” branch button.</p>
+<p>There you can create a new Branch. Type in a descriptive name, and click Create branch:</p>
 ]]></content>
-      <categories>
-        <category>github</category>
-      </categories>
       <tags>
         <tag>git</tag>
       </tags>
@@ -8507,6 +8616,77 @@ $$
 ]]></content>
       <tags>
         <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unlocking the Insights of Application Data: An Analysis of Big Data Trends and Techniques</title>
+    <url>/2023/02/13/project/Unlocking-the-Insights-of-Application-Data-An-Analysis-of-Big-Data-Trends-and-Techniques/</url>
+    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p>Briefly introduce the topic and the purpose of your article.</p>
+</blockquote>
+<p>The propose of this analysis is to help students who are facing a critical issue - getting a job to discern the employment trend currently so that they can make the right choice in time.</p>
+<blockquote>
+<p>Explain what you want to achieve through the analysis of big data about applications.</p>
+</blockquote>
+<p>Firstly, I research the proportion of all education qualifications in the social employment demand, which we can realize which degrees are the options to gain the offer easily. Besides, the average salary level by academic qualification is required to know. In addition, we need to know the number of jobs by location in our country, so we can arrive some locations with more requirement to find a job. Last but not least, the regression analysis between the job experience and salary will be display. </p>
+<blockquote>
+<p>Highlight the significance of big data in today’s world and why it’s relevant to your topic.</p>
+</blockquote>
+<p>Big data has become increasingly significant in today’s world due to its ability to provide insights and solutions to a wide range of problems and challenges across different industries. The significance of big data lies in its potential to improve decision making, increase efficiency, and drive innovation. </p>
+<p>Overall, my goal of this article is using the big data to lead jobhunter making better decisions. </p>
+<h1 id="Data-Collection"><a href="#Data-Collection" class="headerlink" title="Data Collection"></a>Data Collection</h1><blockquote>
+<p>Explain how you collected the data for the analysis.</p>
+</blockquote>
+<p>I use Selenium, an open-source software suite of browser automation tools, to collect the data from employment website: <a href="https://www.zhipin.com/">https://www.zhipin.com</a>. Selenium has lots of function for controlling web browsers so that it make extracting data from a web page easily. </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_web_driver</span>(<span class="params">url</span>):</span></span><br><span class="line">    option = webdriver.ChromeOptions()</span><br><span class="line">    <span class="comment">#option.add_argument(&#x27;--headless&#x27;)</span></span><br><span class="line"></span><br><span class="line">    browser = webdriver.Chrome(options=option)</span><br><span class="line">    browser.get(url)</span><br><span class="line">    browser.maximize_window()</span><br><span class="line">    <span class="keyword">return</span> browser</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search_job</span>(<span class="params">browser,search_content</span>):</span></span><br><span class="line">    browser.find_element(By.CLASS_NAME, <span class="string">&quot;ipt-search&quot;</span>).send_keys(search_content)</span><br><span class="line">    browser.find_element(By.CSS_SELECTOR, <span class="string">&#x27;div.column-search-panel.search-panel-new &gt; div &gt; div.search-box &gt; div.search-form &gt; form &gt; button&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">extract_text</span>(<span class="params">browser</span>):</span></span><br><span class="line">    time.sleep(<span class="number">30</span>)</span><br><span class="line">    ul=browser.find_elements(By.CSS_SELECTOR,<span class="string">&quot;.job-card-wrapper&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> li <span class="keyword">in</span> ul:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            job_name=li.find_element(By.CSS_SELECTOR,<span class="string">&quot;.job-name&quot;</span>).text</span><br><span class="line">            job_area = li.find_element(By.CSS_SELECTOR, <span class="string">&quot;.job-area&quot;</span>).text</span><br><span class="line">            salary = li.find_element(By.CSS_SELECTOR, <span class="string">&quot;.salary&quot;</span>).text</span><br><span class="line">            com_name = li.find_element(By.CSS_SELECTOR, <span class="string">&quot;.company-name&quot;</span>).text</span><br><span class="line">            com_type = li.find_element(By.CSS_SELECTOR, <span class="string">&quot;.company-tag-list li:nth-child(1)&quot;</span>).text</span><br><span class="line">            finance_stage=li.find_element(By.CSS_SELECTOR, <span class="string">&quot;.company-tag-list li:nth-child(2)&quot;</span>).text</span><br><span class="line">            com_size = li.find_element(By.CSS_SELECTOR, <span class="string">&quot;.company-tag-list li:nth-child(3)&quot;</span>).text</span><br><span class="line">            work_year = li.find_element(By.CSS_SELECTOR, <span class="string">&quot;.tag-list  li:nth-child(1)&quot;</span>).text</span><br><span class="line">            education = li.find_element(By.CSS_SELECTOR, <span class="string">&quot;.tag-list  li:nth-child(2)&quot;</span>).text</span><br><span class="line">            welfare = li.find_element(By.CSS_SELECTOR, <span class="string">&quot;.info-desc&quot;</span>).text</span><br><span class="line">            <span class="built_in">print</span>(job_name, job_area, salary, com_name, com_type,finance_stage, com_size, work_year, education, welfare)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;boss.csv&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>, mode=<span class="string">&#x27;a&#x27;</span>, newline=<span class="string">&#x27;&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                writer = csv.writer(f)</span><br><span class="line">                writer.writerow([job_name, job_area, salary, com_name, com_type,finance_stage, com_size, work_year, education, welfare])</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    browser=create_web_driver(<span class="string">&quot;https://www.zhipin.com/&quot;</span>)</span><br><span class="line">    search_job(browser,<span class="string">&#x27;技术支持&#x27;</span>)  <span class="comment"># 要搜索的职位</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>): <span class="comment">#从第1页到第10页</span></span><br><span class="line">        extract_text(browser)</span><br><span class="line">        browser.find_element(By.CSS_SELECTOR,<span class="string">&#x27;.ui-icon-arrow-right&#x27;</span>).click()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;i&#125;</span>page&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Mention the source of the data and the methods used to collect it.</p>
+</blockquote>
+<ol>
+<li><p>A web drive was created for us to manipulate the browser.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_web_driver</span>(<span class="params">url</span>):</span></span><br><span class="line">    option = webdriver.ChromeOptions()</span><br><span class="line">    <span class="comment">#option.add_argument(&#x27;--headless&#x27;)</span></span><br><span class="line"></span><br><span class="line">    browser = webdriver.Chrome(options=option)</span><br><span class="line">    browser.get(url)</span><br><span class="line">    browser.maximize_window()</span><br><span class="line">    <span class="keyword">return</span> browser</span><br></pre></td></tr></table></figure></li>
+<li><p>We can then search a job and extract all job item the website responses. After that, we use <code>find_element</code> method the Selenium provides to obtain the data such as <code>job_name,job_area,salary,com_name,com_type,finance_stage,com_size,work_year,education,welfare</code></p>
+</li>
+<li><p>After that, we can save the data in a file by importing <code>csv</code> package. </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;boss.csv&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>, mode=<span class="string">&#x27;a&#x27;</span>, newline=<span class="string">&#x27;&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    writer = csv.writer(f)</span><br><span class="line">    writer.writerow([job_name, job_area, salary, com_name, com_type,finance_stage, com_size, work_year, education, welfare])</span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<p>Provide an overview of the size, quality, and relevance of the data.</p>
+</blockquote>
+<p>There are 1448 records in the file. </p>
+<p><img src="https://i.imgur.com/TIJPg6n.png"></p>
+<h1 id="Data-Cleaning-and-Preprocessing"><a href="#Data-Cleaning-and-Preprocessing" class="headerlink" title="Data Cleaning and Preprocessing"></a>Data Cleaning and Preprocessing</h1><blockquote>
+<p>Data Cleaning and Preprocessing</p>
+</blockquote>
+<ol>
+<li><p>Read the csv file</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">all_city_zp_df = pd.read_csv(<span class="string">&#x27;../crawler/boss.csv&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>Repeat rows are cleaned</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">all_city_zp_df.drop_duplicates(inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>Split the <code>job_area</code> field into three part.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 北京·海淀区·西北旺 --&gt; 北京，海淀区，西北旺。</span></span><br><span class="line">all_city_zp_area_df = all_city_zp_df[<span class="string">&#x27;job_area&#x27;</span>].<span class="built_in">str</span>.split(<span class="string">&#x27;·&#x27;</span>, expand=<span class="literal">True</span>)</span><br><span class="line">all_city_zp_area_df.drop(all_city_zp_area_df.columns[<span class="number">3</span>], axis=<span class="number">1</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">all_city_zp_area_df = all_city_zp_area_df.rename(columns=&#123;<span class="number">0</span>: <span class="string">&quot;city&quot;</span>, <span class="number">1</span>: <span class="string">&quot;district&quot;</span>, <span class="number">2</span>: <span class="string">&quot;street&quot;</span>&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>Using regular expression to preprocess the <code>salary</code> field</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">all_city_zp_salary_df = all_city_zp_df[<span class="string">&#x27;salary&#x27;</span>].<span class="built_in">str</span>.extract(<span class="string">r&#x27;(\d+)-(\d+).*&#x27;</span>)\</span><br><span class="line">                                                 .applymap(<span class="keyword">lambda</span> x:<span class="built_in">int</span>(x))</span><br><span class="line">all_city_zp_salary_df = all_city_zp_salary_df.rename(columns=&#123;<span class="number">0</span>: <span class="string">&#x27;salary_lower&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;salary_high&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line">all_city_zp_salary_df[<span class="string">&#x27;salary&#x27;</span>]=(all_city_zp_salary_df[<span class="string">&#x27;salary_lower&#x27;</span>]+all_city_zp_salary_df[<span class="string">&#x27;salary_high&#x27;</span>])/<span class="number">2</span></span><br><span class="line"></span><br><span class="line">all_city_zp_df.drop(<span class="string">&#x27;salary&#x27;</span>, axis=<span class="number">1</span>, inplace=<span class="literal">True</span>)  <span class="comment"># 删除原薪资</span></span><br></pre></td></tr></table></figure></li>
+<li><p>Replace the string format into numberical</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun_work_year</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> x <span class="keyword">in</span> <span class="string">&quot;1-3年&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> x <span class="keyword">in</span> <span class="string">&quot;3-5年&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    <span class="keyword">elif</span> x <span class="keyword">in</span> <span class="string">&quot;5-10年&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line">    <span class="keyword">elif</span> x <span class="keyword">in</span> <span class="string">&quot;10年以上&quot;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">4</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">all_city_zp_df[<span class="string">&#x27;work_year&#x27;</span>] = all_city_zp_df[<span class="string">&#x27;work_year&#x27;</span>].apply(<span class="keyword">lambda</span> x: fun_work_year(x))</span><br></pre></td></tr></table></figure></li>
+<li><p>Merge these fields</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">clean_all_city_zp_df = pd.concat([all_city_zp_df, all_city_zp_salary_df, all_city_zp_area_df], axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>Drop the row with NaN</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">clean_all_city_zp_df.dropna(axis=<span class="number">0</span>, how=<span class="string">&#x27;any&#x27;</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">clean_all_city_zp_df.drop(axis=<span class="number">0</span>,</span><br><span class="line">                          index=(clean_all_city_zp_df.loc[(clean_all_city_zp_df[<span class="string">&#x27;welfare&#x27;</span>] == <span class="string">&#x27;None&#x27;</span>)].index),</span><br><span class="line">                          inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>Save the data in MySQL database</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将处理后的数据保存到 MySQL 数据库</span></span><br><span class="line">engine = create_engine(<span class="string">&#x27;mysql+pymysql://root:123456@localhost:3306/boss_db?charset=utf8&#x27;</span>)</span><br><span class="line">clean_all_city_zp_df.to_sql(<span class="string">&#x27;boss_info&#x27;</span>, con=engine, if_exists=<span class="string">&#x27;replace&#x27;</span>)</span><br><span class="line">logging.info(<span class="string">&quot;Write to MySQL Successfully!&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<p>Explain why data cleaning and preprocessing are important for big data analysis.</p>
+</blockquote>
+<p>Data cleaning and preprocessing are crucial steps in the big data analysis process because they ensure the quality and reliability of the data being analyzed. Without these steps, the results of the analysis may be incorrect or misleading, which can have serious consequences in a variety of applications.</p>
+<h1 id="Data-Exploration-and-Visualization"><a href="#Data-Exploration-and-Visualization" class="headerlink" title="Data Exploration and Visualization"></a>Data Exploration and Visualization</h1><blockquote>
+<p>Analyze the data to gain insights and uncover patterns.</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>project</tag>
       </tags>
   </entry>
 </search>

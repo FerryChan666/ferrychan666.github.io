@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Basic syntax</title>
+      <link href="/2023/02/16/cpp/cpp/"/>
+      <url>/2023/02/16/cpp/cpp/</url>
+      
+        <content type="html"><![CDATA[<h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1><p>对于C风格的字符串，我们只用它进行输入，输出</p><p>下面的C++风格的字符串：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br></pre></td></tr></table></figure><p>把字符串从c风格转换成c++风格：string str1=str;</p><p>把字符串从c++风格转换成c风格：str1.c_str()</p><p>连接：str1+”wrold”</p><p>字符：str1[0]</p><p>长度：str1.length()</p><p>判断相等：str1==”hello”</p><p>比较字典序：str1&gt;”abandon”</p><h1 id="map-映射"><a href="#map-映射" class="headerlink" title="map(映射)"></a>map(映射)</h1><p>key——&gt;value</p><p>map&lt;key的类型，value的类型&gt;</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//键 key--&gt; 值 value</span></span><br><span class="line">        <span class="comment">//&lt;键的类型,值的类型&gt;</span></span><br><span class="line">        map&lt;string,string&gt; myMap =&#123;</span><br><span class="line">        &#123;<span class="string">&quot;Caixukun&quot;</span>,<span class="string">&quot;ikun&quot;</span>&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;Wuyifan&quot;</span>,<span class="string">&quot;meigeni&quot;</span>&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">char</span> str[<span class="number">100</span>];</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,str);</span><br><span class="line">        string name = str;</span><br><span class="line">        <span class="comment">//myMap[key]根据key映射到对应的值(C++风格的字符串)</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%s的粉丝被称为%s\n&quot;</span>,name.<span class="built_in">c_str</span>(),myMap[name].<span class="built_in">c_str</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> cpp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Unlocking the Insights of Application Data: An Analysis of Big Data Trends and Techniques</title>
       <link href="/2023/02/13/project/Unlocking-the-Insights-of-Application-Data-An-Analysis-of-Big-Data-Trends-and-Techniques/"/>
       <url>/2023/02/13/project/Unlocking-the-Insights-of-Application-Data-An-Analysis-of-Big-Data-Trends-and-Techniques/</url>

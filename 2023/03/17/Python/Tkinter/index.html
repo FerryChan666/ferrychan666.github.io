@@ -1,0 +1,322 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tkinter | Ferry's Blog</title><meta name="keywords" content="python"><meta name="author" content="Ferry Chan"><meta name="copyright" content="Ferry Chan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="IntroductionThe foundational element of a Tkinter GUI is the window. Windows are the containers in which all other GUI elements live. These other GUI elements, such as text boxes, labels, and buttons,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tkinter">
+<meta property="og:url" content="http://example.com/2023/03/17/Python/Tkinter/index.html">
+<meta property="og:site_name" content="Ferry&#39;s Blog">
+<meta property="og:description" content="IntroductionThe foundational element of a Tkinter GUI is the window. Windows are the containers in which all other GUI elements live. These other GUI elements, such as text boxes, labels, and buttons,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2023-03-17T01:46:53.000Z">
+<meta property="article:modified_time" content="2023-03-17T05:06:44.373Z">
+<meta property="article:author" content="Ferry Chan">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://example.com/2023/03/17/Python/Tkinter/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Tkinter',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-17 13:06:44'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Emily.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">153</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">21</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ferry's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Tkinter</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-17T01:46:53.000Z" title="Created 2023-03-17 09:46:53">2023-03-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-17T05:06:44.373Z" title="Updated 2023-03-17 13:06:44">2023-03-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Tkinter"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>The foundational element of a Tkinter GUI is the <strong>window</strong>. Windows are the containers in which all other GUI elements live. These other GUI elements, such as text boxes, labels, and buttons, are known as <strong>widgets</strong>.</p>
+<h2 id="window"><a href="#window" class="headerlink" title="window"></a>window</h2><p>The first thing you need to do is import the Python GUI Tkinter module:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br></pre></td></tr></table></figure>
+
+<p>A <strong>window</strong> is an instance of Tkinter’s <code>Tk</code> class. Go ahead and create a new window and assign it to the variable <code>window</code>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window = tk.Tk()</span><br></pre></td></tr></table></figure>
+
+<h2 id="widgets"><a href="#widgets" class="headerlink" title="widgets"></a>widgets</h2><p>Use the <code>tk.Label</code> class to add some text to a window. Create a <code>Label</code> widget with the text <code>&quot;Hello, Tkinter&quot;</code> and assign it to a variable called <code>greeting</code>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">greeting = tk.Label(text=<span class="string">&quot;Hello, Tkinter&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>The window you created earlier doesn’t change. You just created a <code>Label</code> widget, but you haven’t added it to the window yet. There are several ways to add widgets to a window. Right now, you can use the <code>Label</code> widget’s <code>.pack()</code> method:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">greeting.pack()</span><br></pre></td></tr></table></figure>
+
+<p><code>window.mainloop()</code> tells Python to run the Tkinter <strong>event loop</strong>. This method listens for events, such as button clicks or keypresses, and blocks any code that comes after it from running until you close the window where you called the method. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
+
+<h1 id="Working-With-Widgets"><a href="#Working-With-Widgets" class="headerlink" title="Working With Widgets"></a>Working With Widgets</h1><p>Each <strong>widget</strong> in Tkinter is defined by a class. </p>
+<table>
+<thead>
+<tr>
+<th>Widget Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Label</code></td>
+<td>A widget used to <strong>display text</strong> on the screen</td>
+</tr>
+<tr>
+<td><code>Button</code></td>
+<td>A button that can contain text and can perform an action when clicked</td>
+</tr>
+<tr>
+<td><code>Entry</code></td>
+<td>A text entry widget that allows only a single line of text</td>
+</tr>
+<tr>
+<td><code>Text</code></td>
+<td>A text entry widget that allows multiline text entry</td>
+</tr>
+<tr>
+<td><code>Frame</code></td>
+<td>A rectangular region used to group related widgets or provide padding between widgets</td>
+</tr>
+</tbody></table>
+<h2 id="Label-Widgets"><a href="#Label-Widgets" class="headerlink" title="Label Widgets"></a><code>Label</code> Widgets</h2><p><strong><code>Label</code></strong> widgets are used to display <strong>text</strong> or <strong>images</strong>. The text displayed by a <code>Label</code> widget can’t be edited by the user.</p>
+<h2 id="Button-Widgets"><a href="#Button-Widgets" class="headerlink" title="Button Widgets"></a><code>Button</code> Widgets</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">button = tk.Button(</span><br><span class="line">    text=<span class="string">&quot;Click me!&quot;</span>,</span><br><span class="line">    width=<span class="number">25</span>,</span><br><span class="line">    height=<span class="number">5</span>,</span><br><span class="line">    bg=<span class="string">&quot;blue&quot;</span>,</span><br><span class="line">    fg=<span class="string">&quot;yellow&quot;</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Entry-Widgets"><a href="#Entry-Widgets" class="headerlink" title="Entry Widgets"></a><code>Entry</code> Widgets</h2><p> It’ll display a <strong>small text box</strong> that the user can type some text into.</p>
+<p>There are three main operations that you can perform with <code>Entry</code> widgets:</p>
+<ol>
+<li><strong>Retrieving text</strong> with <code>.get()</code></li>
+<li><strong>Deleting text</strong> with <code>.delete()</code></li>
+<li><strong>Inserting text</strong> with <code>.insert()</code></li>
+</ol>
+<h1 id="Making-Your-Applications-Interactive"><a href="#Making-Your-Applications-Interactive" class="headerlink" title="Making Your Applications Interactive"></a>Making Your Applications Interactive</h1><p>In this section, you’ll learn how to bring your applications to life by performing actions whenever certain <strong>events</strong> occur.</p>
+<h2 id="Using-Events-and-Event-Handlers"><a href="#Using-Events-and-Event-Handlers" class="headerlink" title="Using Events and Event Handlers"></a>Using Events and Event Handlers</h2><p>When you create a Tkinter application, you must call <code>window.mainloop()</code> to start the <strong>event loop</strong>. During the event loop, your application checks if an event has occurred. If so, then it’ll execute some code in response.</p>
+<h2 id="Using-bind"><a href="#Using-bind" class="headerlink" title="Using .bind()"></a>Using <code>.bind()</code></h2><p>To call an event handler whenever an event occurs on a widget, use <code>.bind()</code>. The event handler is said to be <strong>bound</strong> to the event because it’s called every time the event occurs.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle_keypress</span>(<span class="params">event</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Print the character associated to the key pressed&quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(event.char)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Bind keypress event to handle_keypress()</span></span><br><span class="line">window.bind(<span class="string">&quot;&lt;Key&gt;&quot;</span>, handle_keypress)</span><br><span class="line"></span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
+
+<p>Here, the <code>handle_keypress()</code> event handler is bound to a <code>&quot;&lt;Key&gt;&quot;</code> event using <code>window.bind()</code>. Whenever a key is pressed while the application is running, your program will print the character of the key pressed.</p>
+<p><code>.bind()</code> always takes at least two arguments:</p>
+<ol>
+<li>An <strong>event</strong> that’s represented by a string of the form <code>&quot;&lt;event_name&gt;&quot;</code>, where <code>event_name</code> can be any of Tkinter’s events</li>
+<li>An <strong>event handler</strong> that’s the name of the function to be called whenever the event occurs</li>
+</ol>
+<h2 id="Using-command"><a href="#Using-command" class="headerlink" title="Using command"></a>Using <code>command</code></h2><p>Every <code>Button</code> widget has a <code>command</code> attribute that you can assign to a function. Whenever the button is pressed, the function is executed.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"></span><br><span class="line">window=tk.Tk()</span><br><span class="line"></span><br><span class="line">window.rowconfigure(<span class="number">0</span>, minsize=<span class="number">50</span>, weight=<span class="number">1</span>)</span><br><span class="line">window.columnconfigure([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], minsize=<span class="number">50</span>, weight=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">btn_decrease = tk.Button(master=window, text=<span class="string">&quot;-&quot;</span>)</span><br><span class="line">btn_decrease.grid(row=<span class="number">0</span>, column=<span class="number">0</span>, sticky=<span class="string">&quot;nsew&quot;</span>)</span><br><span class="line"></span><br><span class="line">lbl_value = tk.Label(master=window, text=<span class="string">&quot;0&quot;</span>)</span><br><span class="line">lbl_value.grid(row=<span class="number">0</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">btn_increase = tk.Button(master=window, text=<span class="string">&quot;+&quot;</span>)</span><br><span class="line">btn_increase.grid(row=<span class="number">0</span>, column=<span class="number">2</span>, sticky=<span class="string">&quot;nsew&quot;</span>)</span><br><span class="line"></span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
+
+<p><code>Label</code> widgets don’t have <code>.get()</code> like <code>Entry</code> and <code>Text</code> widgets do. However, you can retrieve the text from the label by accessing the <code>text</code> attribute with a dictionary-style subscript notation:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">increase</span>():</span></span><br><span class="line">    value=<span class="built_in">int</span>(lbl_value[<span class="string">&quot;text&quot;</span>])</span><br><span class="line">    lbl_value[<span class="string">&quot;text&quot;</span>]=<span class="string">f&quot;<span class="subst">&#123;value+<span class="number">1</span>&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrease</span>():</span></span><br><span class="line">    value=<span class="built_in">int</span>(lbl_value[<span class="string">&quot;text&quot;</span>])</span><br><span class="line">    lbl_value[<span class="string">&quot;text&quot;</span>]=<span class="string">f&quot;<span class="subst">&#123;value-<span class="number">1</span>&#125;</span>&quot;</span></span><br><span class="line">    </span><br><span class="line">btn_decrease = tk.Button(master=window, text=<span class="string">&quot;-&quot;</span>, command=decrease)</span><br><span class="line">btn_increase = tk.Button(master=window, text=<span class="string">&quot;+&quot;</span>, command=increase)</span><br></pre></td></tr></table></figure>
+
+<p>So we create two functions to increase or decrease the number when the “-“ button or “+” button is clicked. </p>
+<h1 id="Controlling-Layout-With-Geometry-Managers"><a href="#Controlling-Layout-With-Geometry-Managers" class="headerlink" title="Controlling Layout With Geometry Managers"></a>Controlling Layout With Geometry Managers</h1><p>Application layout in Tkinter is controlled with <strong>geometry managers</strong>. While <code>.pack()</code> is an example of a geometry manager, it isn’t the only one. Tkinter has two others:</p>
+<ul>
+<li><code>.place()</code></li>
+<li><code>.grid()</code></li>
+</ul>
+<h2 id="The-pack-Geometry-Manager"><a href="#The-pack-Geometry-Manager" class="headerlink" title="The .pack() Geometry Manager"></a>The <code>.pack()</code> Geometry Manager</h2><p> For a given widget, the packing algorithm has two primary steps:</p>
+<ol>
+<li>Compute a rectangular area called a <strong>parcel</strong> that’s just tall (or wide) enough to hold the widget and fills the remaining width (or height) in the window with blank space.</li>
+<li>Center the widget in the parcel unless a different location is specified.</li>
+</ol>
+<p><code>.pack()</code> is powerful, but it can be difficult to visualize. The best way to get a feel for <code>.pack()</code> is to look at some examples. See what happens when you <code>.pack()</code> three <code>Label</code> widgets into a <code>Frame</code>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line"></span><br><span class="line">frame1 = tk.Frame(master=window, width=<span class="number">100</span>, height=<span class="number">100</span>, bg=<span class="string">&quot;red&quot;</span>)</span><br><span class="line">frame1.pack()</span><br><span class="line"></span><br><span class="line">frame2 = tk.Frame(master=window, width=<span class="number">50</span>, height=<span class="number">50</span>, bg=<span class="string">&quot;yellow&quot;</span>)</span><br><span class="line">frame2.pack()</span><br><span class="line"></span><br><span class="line">frame3 = tk.Frame(master=window, width=<span class="number">25</span>, height=<span class="number">25</span>, bg=<span class="string">&quot;blue&quot;</span>)</span><br><span class="line">frame3.pack()</span><br><span class="line"></span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
+
+<p><code>.pack()</code> places each <code>Frame</code> below the previous one by default, in the order that they’re assigned to the window:</p>
+<p><img src="https://i.imgur.com/bWYFeGT.png"></p>
+<p>There are three invisible parcels, each containing one of the three <code>Frame</code> widgets. Each parcel is as wide as the window and as tall as the <code>Frame</code> that it contains.</p>
+<h3 id="The-place-Geometry-Manager"><a href="#The-place-Geometry-Manager" class="headerlink" title="The .place() Geometry Manager"></a>The <code>.place()</code> Geometry Manager</h3><p>You can use <code>.place()</code> to control the <strong>precise location</strong> that a widget should occupy in a window or <code>Frame</code>. You must provide two keyword arguments, <code>x</code> and <code>y</code>, which specify the x- and y-coordinates for the top-left corner of the widget.</p>
+<p>Both <code>x</code> and <code>y</code> are measured in pixels, not text units.</p>
+<p>Keep in mind that the <strong>origin</strong>, where <code>x</code> and <code>y</code> are both <code>0</code>, is the top-left corner of the <code>Frame</code> or window. So, you can think of the <code>y</code> argument of <code>.place()</code> as the number of pixels from the top of the window, and the <code>x</code> argument as the number of pixels from the left edge of the window.</p>
+<p>Here’s an example of how the <code>.place()</code> geometry manager works:</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/20/git/Failed-to-connect-to-github-com-port-443-after-21193-ms-Timed-out/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Failed to connect to github.com port 443 after 21193 ms: Timed out</div></div></a></div><div class="next-post pull-right"><a href="/2023/02/16/cpp/Basic%20syntax/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Basic syntax</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2021/11/18/Python/Matplotlib/" title="Matplotlib"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-18</div><div class="title">Matplotlib</div></div></a></div><div><a href="/2021/12/23/Python/BeautifulSoup/" title="BeautifulSoup"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-23</div><div class="title">BeautifulSoup</div></div></a></div><div><a href="/2021/11/02/Python/Spider/" title="Spider"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-02</div><div class="title">Spider</div></div></a></div><div><a href="/2021/11/30/Python/Python-MySQL/" title="Python MySQL"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-30</div><div class="title">Python MySQL</div></div></a></div><div><a href="/2021/12/21/Python/file-handling/" title="file handling"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-21</div><div class="title">file handling</div></div></a></div><div><a href="/2021/11/23/Python/pandas/" title="pandas"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-23</div><div class="title">pandas</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#window"><span class="toc-number">1.1.</span> <span class="toc-text">window</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#widgets"><span class="toc-number">1.2.</span> <span class="toc-text">widgets</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Working-With-Widgets"><span class="toc-number">2.</span> <span class="toc-text">Working With Widgets</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Label-Widgets"><span class="toc-number">2.1.</span> <span class="toc-text">Label Widgets</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Button-Widgets"><span class="toc-number">2.2.</span> <span class="toc-text">Button Widgets</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Entry-Widgets"><span class="toc-number">2.3.</span> <span class="toc-text">Entry Widgets</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Making-Your-Applications-Interactive"><span class="toc-number">3.</span> <span class="toc-text">Making Your Applications Interactive</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-Events-and-Event-Handlers"><span class="toc-number">3.1.</span> <span class="toc-text">Using Events and Event Handlers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-bind"><span class="toc-number">3.2.</span> <span class="toc-text">Using .bind()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-command"><span class="toc-number">3.3.</span> <span class="toc-text">Using command</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Controlling-Layout-With-Geometry-Managers"><span class="toc-number">4.</span> <span class="toc-text">Controlling Layout With Geometry Managers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-pack-Geometry-Manager"><span class="toc-number">4.1.</span> <span class="toc-text">The .pack() Geometry Manager</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-place-Geometry-Manager"><span class="toc-number">4.1.1.</span> <span class="toc-text">The .place() Geometry Manager</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

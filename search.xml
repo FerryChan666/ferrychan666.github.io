@@ -9475,11 +9475,9 @@ $$
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2023/03/28/Python/python%20comprehensions/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: python comprehensions</span><br><span class="line">date: 2023-3-27 22:51:10</span><br><span class="line">tags: python</span><br></pre></td></tr></table></figure>
-
-<h1 id="List-Comprehension"><a href="#List-Comprehension" class="headerlink" title="List Comprehension"></a>List Comprehension</h1><p>List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list.</p>
+    <title>python comprehensions</title>
+    <url>/2023/03/27/Python/python%20comprehensions/</url>
+    <content><![CDATA[<h1 id="List-Comprehension"><a href="#List-Comprehension" class="headerlink" title="List Comprehension"></a>List Comprehension</h1><p>List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list.</p>
 <h2 id="The-Syntax"><a href="#The-Syntax" class="headerlink" title="The Syntax"></a>The Syntax</h2><p>newlist = [<em>expression</em> for <em>item</em> in <em>iterable</em> if <em>condition</em> == True]</p>
 <p>The return value is a new list, leaving the old list unchanged.</p>
 <h3 id="Condition"><a href="#Condition" class="headerlink" title="Condition"></a>Condition</h3><p>The <em>condition</em> is like a filter that only accepts the items that valuate to <code>True</code>.</p>
@@ -9516,6 +9514,9 @@ $$
 
 
 ]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
   </entry>
   <entry>
     <title>git ugage</title>

@@ -9420,6 +9420,18 @@ $$
 <li><strong>Deleting text</strong> with <code>.delete()</code></li>
 <li><strong>Inserting text</strong> with <code>.insert()</code></li>
 </ol>
+<h2 id="Getting-Multiline-User-Input-With-Text-Widgets"><a href="#Getting-Multiline-User-Input-With-Text-Widgets" class="headerlink" title="Getting Multiline User Input With Text Widgets"></a>Getting Multiline User Input With <code>Text</code> Widgets</h2><h2 id="Assigning-Widgets-to-Frames-With-Frame-Widgets"><a href="#Assigning-Widgets-to-Frames-With-Frame-Widgets" class="headerlink" title="Assigning Widgets to Frames With Frame Widgets"></a>Assigning Widgets to Frames With <code>Frame</code> Widgets</h2><p>The following script creates a blank <code>Frame</code> widget and assigns it to the main application window:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line">frame = tk.Frame()</span><br><span class="line">frame.pack()</span><br><span class="line"></span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
+
+<p>An empty <code>Frame</code> widget is practically invisible. Frames are best thought of as <strong>containers</strong> for other widgets. You can assign a widget to a frame by setting the widget’s <code>master</code> attribute:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line">frame_a = tk.Frame()</span><br><span class="line">label_a=tk.Label(master=frame_a,text=<span class="string">&quot;I&#x27;m in Frame A&quot;</span>)</span><br><span class="line">label_a.pack()</span><br><span class="line"></span><br><span class="line">frame_b=tk.Frame()</span><br><span class="line">label_b=tk.Label(master=frame_b,text=<span class="string">&quot;I&#x27;m in Frame B&quot;</span>)</span><br><span class="line">label_b.pack()</span><br><span class="line"></span><br><span class="line">frame_a.pack()</span><br><span class="line">frame_b.pack()</span><br><span class="line"></span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.realpython.com/media/17_5_tk_two_frames_win10.457151c8c834.jpg"></p>
+<p>Now see what happens when you swap the order of <code>frame_a.pack()</code> and <code>frame_b.pack()</code>:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Swap the order of `frame_a` and `frame_b`</span></span><br><span class="line">frame_b.pack()</span><br><span class="line">frame_a.pack()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.realpython.com/media/17_5_tk_two_frames_swapped_win10.d9fb1d7ddc83.jpg"></p>
+<p>Now <code>label_b</code> is on top. Since <code>label_b</code> is assigned to <code>frame_b</code>, it moves to wherever <code>frame_b</code> is positioned.</p>
 <h1 id="Making-Your-Applications-Interactive"><a href="#Making-Your-Applications-Interactive" class="headerlink" title="Making Your Applications Interactive"></a>Making Your Applications Interactive</h1><p>In this section, you’ll learn how to bring your applications to life by performing actions whenever certain <strong>events</strong> occur.</p>
 <h2 id="Using-Events-and-Event-Handlers"><a href="#Using-Events-and-Event-Handlers" class="headerlink" title="Using Events and Event Handlers"></a>Using Events and Event Handlers</h2><p>When you create a Tkinter application, you must call <code>window.mainloop()</code> to start the <strong>event loop</strong>. During the event loop, your application checks if an event has occurred. If so, then it’ll execute some code in response.</p>
 <h2 id="Using-bind"><a href="#Using-bind" class="headerlink" title="Using .bind()"></a>Using <code>.bind()</code></h2><p>To call an event handler whenever an event occurs on a widget, use <code>.bind()</code>. The event handler is said to be <strong>bound</strong> to the event because it’s called every time the event occurs.</p>
@@ -9454,10 +9466,20 @@ $$
 <p><code>.pack()</code> places each <code>Frame</code> below the previous one by default, in the order that they’re assigned to the window:</p>
 <p><img src="https://i.imgur.com/bWYFeGT.png"></p>
 <p>There are three invisible parcels, each containing one of the three <code>Frame</code> widgets. Each parcel is as wide as the window and as tall as the <code>Frame</code> that it contains.</p>
-<h3 id="The-place-Geometry-Manager"><a href="#The-place-Geometry-Manager" class="headerlink" title="The .place() Geometry Manager"></a>The <code>.place()</code> Geometry Manager</h3><p>You can use <code>.place()</code> to control the <strong>precise location</strong> that a widget should occupy in a window or <code>Frame</code>. You must provide two keyword arguments, <code>x</code> and <code>y</code>, which specify the x- and y-coordinates for the top-left corner of the widget.</p>
+<h2 id="The-place-Geometry-Manager"><a href="#The-place-Geometry-Manager" class="headerlink" title="The .place() Geometry Manager"></a>The <code>.place()</code> Geometry Manager</h2><p>You can use <code>.place()</code> to control the <strong>precise location</strong> that a widget should occupy in a window or <code>Frame</code>. You must provide two keyword arguments, <code>x</code> and <code>y</code>, which specify the x- and y-coordinates for the top-left corner of the widget.</p>
 <p>Both <code>x</code> and <code>y</code> are measured in pixels, not text units.</p>
 <p>Keep in mind that the <strong>origin</strong>, where <code>x</code> and <code>y</code> are both <code>0</code>, is the top-left corner of the <code>Frame</code> or window. So, you can think of the <code>y</code> argument of <code>.place()</code> as the number of pixels from the top of the window, and the <code>x</code> argument as the number of pixels from the left edge of the window.</p>
 <p>Here’s an example of how the <code>.place()</code> geometry manager works:</p>
+<h2 id="The-grid-Geometry-Manager"><a href="#The-grid-Geometry-Manager" class="headerlink" title="The .grid() Geometry Manager"></a>The <code>.grid()</code> Geometry Manager</h2><p><code>.grid()</code> works by splitting a window or <code>Frame</code> into rows and columns. You specify the location of a widget by calling <code>.grid()</code> and passing the row and column indices to the <code>row</code> and <code>column</code> keyword arguments, respectively.</p>
+<p>Both row and column indices start at <code>0</code>, so a row index of <code>1</code> and a column index of <code>2</code> tells <code>.grid()</code> to place a widget in the third column of the second row.</p>
+<h1 id="Loading-Images-in-Tkinter-using-PIL"><a href="#Loading-Images-in-Tkinter-using-PIL" class="headerlink" title="Loading Images in Tkinter using PIL"></a>Loading Images in Tkinter using PIL</h1><p><strong>Use this command to install PIL :</strong> </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install pillow</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># loading Python Imaging Library</span></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> ImageTk, Image</span><br></pre></td></tr></table></figure>
+
+<p>The ImageTk module contains support to create and modify Tkinter BitmapImage and PhotoImage objects from PIL images</p>
 ]]></content>
       <tags>
         <tag>python</tag>

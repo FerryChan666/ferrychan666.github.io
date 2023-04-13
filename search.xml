@@ -9490,7 +9490,7 @@ $$
     <url>/2023/03/20/git/Failed-to-connect-to-github-com-port-443-after-21193-ms-Timed-out/</url>
     <content><![CDATA[<p>这种连接不上github的问题也不是第一次见了，一直被这种问题困扰。</p>
 <p>解决方法：</p>
-<p>修改DNS: <code>114.114.114.114</code></p>
+<p>修改DNS: <code>114.114.114.114</code> or 其他</p>
 ]]></content>
       <tags>
         <tag>git</tag>

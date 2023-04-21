@@ -9684,4 +9684,22 @@ $$
         <tag>git</tag>
       </tags>
   </entry>
+  <entry>
+    <title>pip install 挂代理</title>
+    <url>/2023/04/19/Q&amp;A/pip-install-%E6%8C%82%E4%BB%A3%E7%90%86/</url>
+    <content><![CDATA[<p>由于pip install不能自己走代理，所以我们需要手动让pip走代理。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt --proxy=&quot;http://127.0.0.1:10809&quot;</span><br></pre></td></tr></table></figure>
+
+<p>其中，代理的端口号可以在设置中找到。</p>
+<p>但会出现这些情况，</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ValueError: check_hostname requires server_hostname</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">requests.exceptions.SSLError: HTTPSConnectionPool(host=&#x27;openaipublic.blob.core.windows.net&#x27;, port=443): Max retries exceeded with url: /encodings/cl100k_base.tiktoken (Caused by SSLError(SSLEOFError(8, &#x27;EOF occurred in violation of protocol (_ssl.c:1129)&#x27;)))</span><br></pre></td></tr></table></figure>
+
+<p>所以，我们还要在设置中关闭代理。</p>
+]]></content>
+      <tags>
+        <tag>Q&amp;A</tag>
+      </tags>
+  </entry>
 </search>

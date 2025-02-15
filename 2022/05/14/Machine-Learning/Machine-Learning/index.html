@@ -1,0 +1,758 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Machine Learning | Ferry's blog</title><meta name="author" content="FerryChan"><meta name="copyright" content="FerryChan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ConceptionIn simple words, ML is a type of artificial intelligence that extract patterns out of raw data by using an algorithm or method. The key focus of ML is to allow computer systems to learn from">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning">
+<meta property="og:url" content="http://ferrychan666.github.io/2022/05/14/Machine-Learning/Machine-Learning/index.html">
+<meta property="og:site_name" content="Ferry&#39;s blog">
+<meta property="og:description" content="ConceptionIn simple words, ML is a type of artificial intelligence that extract patterns out of raw data by using an algorithm or method. The key focus of ML is to allow computer systems to learn from">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ferrychan666.github.io/img/Tom.jpg">
+<meta property="article:published_time" content="2022-05-14T02:48:42.000Z">
+<meta property="article:modified_time" content="2022-12-01T02:34:17.928Z">
+<meta property="article:author" content="FerryChan">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ferrychan666.github.io/img/Tom.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Machine Learning",
+  "url": "http://ferrychan666.github.io/2022/05/14/Machine-Learning/Machine-Learning/",
+  "image": "http://ferrychan666.github.io/img/Tom.jpg",
+  "datePublished": "2022-05-14T02:48:42.000Z",
+  "dateModified": "2022-12-01T02:34:17.928Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "FerryChan",
+      "url": "http://ferrychan666.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://ferrychan666.github.io/2022/05/14/Machine-Learning/Machine-Learning/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":false,"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Machine Learning',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">154</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a><a class="nav-page-title" href="/"><span class="site-name">Machine Learning</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Machine Learning</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-05-14T02:48:42.000Z" title="Created 2022-05-14 10:48:42">2022-05-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-12-01T02:34:17.928Z" title="Updated 2022-12-01 10:34:17">2022-12-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="Conception"><a href="#Conception" class="headerlink" title="Conception"></a>Conception</h1><p>In simple words, ML is a type of artificial intelligence that extract patterns out of raw data by using an algorithm or method. The key focus of ML is to allow computer systems to learn from experience without being explicitly programmed or human intervention.</p>
+<p>ML is a field of AI consisting of learning algorithms that −</p>
+<ul>
+<li>Improve their performance (P)</li>
+<li>At executing some task (T)</li>
+<li>Over time with experience (E)</li>
+</ul>
+<h2 id="Data-Set"><a href="#Data-Set" class="headerlink" title="Data Set"></a>Data Set</h2><p>In the mind of a computer, a data set is any collection of data. It can be anything from an array to a complete database.</p>
+<p>Example of an array:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br></pre></td></tr></table></figure>
+
+<p>Example of a database:</p>
+<table>
+<thead>
+<tr>
+<th>Carname</th>
+<th>Color</th>
+<th>Age</th>
+<th>Speed</th>
+<th>AutoPass</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BMW</td>
+<td>red</td>
+<td>5</td>
+<td>99</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Volvo</td>
+<td>black</td>
+<td>7</td>
+<td>86</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>VW</td>
+<td>gray</td>
+<td>8</td>
+<td>87</td>
+<td>N</td>
+</tr>
+<tr>
+<td>VW</td>
+<td>white</td>
+<td>7</td>
+<td>88</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>white</td>
+<td>2</td>
+<td>111</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>VW</td>
+<td>white</td>
+<td>17</td>
+<td>86</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Tesla</td>
+<td>red</td>
+<td>2</td>
+<td>103</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>BMW</td>
+<td>black</td>
+<td>9</td>
+<td>87</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>Volvo</td>
+<td>gray</td>
+<td>4</td>
+<td>94</td>
+<td>N</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>white</td>
+<td>11</td>
+<td>78</td>
+<td>N</td>
+</tr>
+<tr>
+<td>Toyota</td>
+<td>gray</td>
+<td>12</td>
+<td>77</td>
+<td>N</td>
+</tr>
+<tr>
+<td>VW</td>
+<td>white</td>
+<td>9</td>
+<td>85</td>
+<td>N</td>
+</tr>
+<tr>
+<td>Toyota</td>
+<td>blue</td>
+<td>6</td>
+<td>86</td>
+<td>Y</td>
+</tr>
+</tbody></table>
+<h2 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a>Data Types</h2><p>To analyze data, it is important to know what type of data we are dealing with.</p>
+<p>We can split the data types into three main categories:</p>
+<ul>
+<li><strong>Numerical</strong></li>
+<li><strong>Categorical</strong></li>
+<li><strong>Ordinal</strong></li>
+</ul>
+<p><strong>Numerical</strong> data are numbers, and can be split into two numerical categories:</p>
+<ul>
+<li>Discrete Data<br>- numbers that are limited to integers. Example: The number of cars passing by.</li>
+<li>Continuous Data<br>- numbers that are of infinite value. Example: The price of an item, or the size of an item</li>
+</ul>
+<p><strong>Categorical</strong> data are values that cannot be measured up against each other. Example: a color value, or any yes&#x2F;no values.</p>
+<p><strong>Ordinal</strong> data are like categorical data, but can be measured up against each other. Example: school grades where A is better than B and so on.</p>
+<h1 id="Basic-Tools"><a href="#Basic-Tools" class="headerlink" title="Basic Tools"></a>Basic Tools</h1><h2 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a>pandas</h2><p>The representation of data in pandas is done with the help of following three data structures</p>
+<p><strong>Series</strong> − It is basically a one-dimensional array with an axis label.</p>
+<p><strong>Data frame</strong> −It is basically a two-dimensional data structure which can contain heterogeneous data.</p>
+<p><strong>Panel</strong> − It is a 3-dimensional data structure containing heterogeneous data.</p>
+<h2 id="Scikit-learn"><a href="#Scikit-learn" class="headerlink" title="Scikit-learn"></a>Scikit-learn</h2><ul>
+<li>It is built on NumPy, SciPy, and Matplotlib.</li>
+<li>It is an open source and can be reused under BSD license.</li>
+<li>It is accessible to everybody and can be reused in various contexts.</li>
+<li>Wide range of machine learning algorithms covering major areas of ML like classification, clustering, regression, dimensionality reduction, model selection etc. can be implemented with the help of it.</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.datasets import load_breast_cancer</span><br></pre></td></tr></table></figure>
+
+<h1 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h1><p>The main objective of supervised learning algorithms is to learn an association between input data samples and corresponding outputs.</p>
+<p><strong>x</strong>: Input variables and</p>
+<p><strong>Y</strong>: Output variable</p>
+<p>Y&#x3D;f(x)</p>
+<p>Now, the main objective would be to approximate the mapping function so well that even when we have new input data (x), we can easily predict the output variable (Y) for that new input data.</p>
+<p>Examples of supervised machine learning algorithms includes <strong>Decision tree, Random Forest, KNN, Logistic Regression</strong> etc.</p>
+<p>Based on the ML tasks, supervised learning algorithms can be divided into following two broad classes −</p>
+<ul>
+<li>Classification</li>
+<li>Regression</li>
+</ul>
+<p><strong>Classification</strong></p>
+<p>As we know that the categorial output responses means unordered and discrete values, hence each output response will belong to a specific class or category</p>
+<p><strong>Regression</strong></p>
+<p>Basically, regression models use the input data features (independent variables) and their corresponding continuous numeric output values (dependent or outcome variables) to learn specific association between inputs and corresponding outputs.</p>
+<h1 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h1><p><strong>x: Input variables</strong>, then there would be no corresponding output variable and the algorithms need to discover the interesting pattern in data for learning.</p>
+<p>Based on the ML tasks, unsupervised learning algorithms can be divided into following broad classes −</p>
+<ul>
+<li>Clustering</li>
+<li>Association</li>
+<li>Dimensionality Reduction</li>
+</ul>
+<p><strong>Clustering</strong></p>
+<p>The real-world example of clustering is to group the customers by their purchasing behavior. </p>
+<p>These algorithms used to find similarity as well as relationship patterns among data samples and then cluster those samples into groups having similarity based on features.</p>
+<p><strong>Association</strong></p>
+<p>Association which is used to analyze large dataset to find patterns which further represents the interesting relationships between various items, which is mainly used to analyze customer shopping patterns.</p>
+<p><strong>Dimensionality Reduction</strong></p>
+<p>The reason behind is the problem of feature space complexity which arises when we start analyzing and extracting millions of features from data samples.</p>
+<p>K-nearest neighbors and discriminant analysis are some of the popular algorithms for this purpose.</p>
+<h1 id="Semi-supervised-Learning"><a href="#Semi-supervised-Learning" class="headerlink" title="Semi-supervised Learning"></a>Semi-supervised Learning</h1><p>We can follow any of the following approaches for implementing semi-supervised learning methods −</p>
+<ul>
+<li>The first and simple approach is to build the supervised model based on small amount of labeled and annotated data and then build the unsupervised model by applying the same to the large amounts of unlabeled data to get more labeled samples. Now, train the model on them and repeat the process.</li>
+<li>The second approach needs some extra efforts. In this approach, we can first use the unsupervised methods to cluster similar data samples, annotate</li>
+</ul>
+<h1 id="Tasks-Suited-for-Machine-Learning"><a href="#Tasks-Suited-for-Machine-Learning" class="headerlink" title="Tasks Suited for Machine Learning"></a>Tasks Suited for Machine Learning</h1><p>The following diagram shows what type of task is appropriate for various ML problems −</p>
+<img src="https://i.imgur.com/MJ9M8T4.png" style="zoom: 80%;">
+
+<h1 id="1-Data-Loading-for-ML-Projects"><a href="#1-Data-Loading-for-ML-Projects" class="headerlink" title="1.Data Loading for ML Projects"></a>1.Data Loading for ML Projects</h1><p>The following are the two cases related to CSV file header which must be considered −</p>
+<ul>
+<li><strong>Case-I: When Data file is having a file header</strong> − It will automatically assign the names to each column of data if data file is having a file header.</li>
+<li><strong>Case-II: When Data file is not having a file header</strong> − We need to assign the names to each column of data manually if data file is not having a file header.</li>
+</ul>
+<h2 id="Load-CSV-with-built-in-CSV"><a href="#Load-CSV-with-built-in-CSV" class="headerlink" title="Load CSV with built in CSV"></a>Load CSV with built in CSV</h2><p>In this example, we are using the iris flower data set which can be downloaded into our local directory. After loading the data file, we can convert it into <strong>NumPy</strong> array and use it for ML projects.</p>
+<p>First, we need to import the csv module provided by Python standard library as follows −</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import csv</span><br></pre></td></tr></table></figure>
+
+<p>Next, we need to import Numpy module for converting the loaded data into NumPy array.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br></pre></td></tr></table></figure>
+
+<p>Now, provide the full path of the file, stored on our local directory, having the CSV data file −</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path = r&quot;c:\iris.csv&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Next, use the csv.reader()function to read data from CSV file −</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">with open(path,&#x27;r&#x27;) as f:</span><br><span class="line">   reader = csv.reader(f,delimiter = &#x27;,&#x27;)</span><br><span class="line">   headers = next(reader)</span><br><span class="line">   data = list(reader)</span><br><span class="line">   data = np.array(data).astype(float)</span><br></pre></td></tr></table></figure>
+
+<p>We can print the names of the headers with the following line of script −</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(headers)</span><br></pre></td></tr></table></figure>
+
+<p>Next script line will give the first three line of data file −</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(data[:3])</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="2-Understanding-Data-with-Statistics"><a href="#2-Understanding-Data-with-Statistics" class="headerlink" title="2.Understanding Data with Statistics"></a>2.Understanding Data with Statistics</h1><h2 id="Statistical-Summary-of-Data"><a href="#Statistical-Summary-of-Data" class="headerlink" title="Statistical Summary of Data"></a>Statistical Summary of Data</h2><p>We have discussed Python recipe to get the shape i.e. number of rows and columns, of data but many times we need to review the summaries out of that shape of data. It can be done with the help of describe() function of Pandas DataFrame that further provide the following 8 statistical properties of each &amp; every data attribute −</p>
+<ul>
+<li>Count</li>
+<li>Mean</li>
+<li>Standard Deviation</li>
+<li>Minimum Value</li>
+<li>Maximum value</li>
+<li>25%</li>
+<li>Median i.e. 50%</li>
+<li>75%</li>
+</ul>
+<h2 id="Reviewing-Class-Distribution"><a href="#Reviewing-Class-Distribution" class="headerlink" title="Reviewing Class Distribution"></a>Reviewing Class Distribution</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">count_class = data.groupby(&#x27;class&#x27;).size()</span><br><span class="line">print(count_class)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Reviewing-Correlation-between-Attributes"><a href="#Reviewing-Correlation-between-Attributes" class="headerlink" title="Reviewing Correlation between Attributes"></a>Reviewing Correlation between Attributes</h2><p>The relationship between two variables is called correlation. In statistics, the most common method for calculating correlation is Pearson’s Correlation Coefficient. It can have three values as follows −</p>
+<ul>
+<li><strong>Coefficient value &#x3D; 1</strong> − It represents full <strong>positive</strong> correlation between variables.</li>
+<li><strong>Coefficient value &#x3D; -1</strong> − It represents full <strong>negative</strong> correlation between variables.</li>
+<li><strong>Coefficient value &#x3D; 0</strong> − It represents <strong>no</strong> correlation at all between variables.</li>
+</ul>
+<p>In Python, we can easily calculate a correlation matrix of dataset attributes with the help of corr() function on Pandas DataFrame.</p>
+<h2 id="Reviewing-Skew-of-Attribute-Distribution"><a href="#Reviewing-Skew-of-Attribute-Distribution" class="headerlink" title="Reviewing Skew of Attribute Distribution"></a>Reviewing Skew of Attribute Distribution</h2><ul>
+<li>Presence of skewness in data requires the correction at data preparation stage so that we can get more accuracy from our model.</li>
+<li>Most of the ML algorithms assumes that data has a Gaussian distribution i.e. either normal of bell curved data.</li>
+</ul>
+<p>In Python, we can easily calculate the skew of each attribute by using skew() function on Pandas DataFrame.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(data.skew())</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-Understanding-Data-with-Visualization"><a href="#3-Understanding-Data-with-Visualization" class="headerlink" title="3.Understanding Data with Visualization"></a>3.Understanding Data with Visualization</h1><h2 id="Univariate-Plots"><a href="#Univariate-Plots" class="headerlink" title="Univariate Plots"></a>Univariate Plots</h2><p>With the help of univariate visualization, we can understand each attribute of our dataset independently.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from matplotlib import pyplot</span><br><span class="line"></span><br><span class="line">data.hist()</span><br><span class="line">pyplot.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Density-Plots"><a href="#Density-Plots" class="headerlink" title="Density Plots"></a>Density Plots</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data.plot(kind=&#x27;density&#x27;, subplots=True, layout=(3,3), sharex=False)</span><br><span class="line">pyplot.show()</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-Preparing-Data"><a href="#4-Preparing-Data" class="headerlink" title="4.Preparing Data"></a>4.Preparing Data</h1><p>We always need to preprocess our data so that it can be as per the expectation of machine learning algorithm.</p>
+<h2 id="Scaling"><a href="#Scaling" class="headerlink" title="Scaling"></a>Scaling</h2><p>We can rescale the data with the help of MinMaxScaler class of scikit-learn Python library.</p>
+<h2 id="Normalization"><a href="#Normalization" class="headerlink" title="Normalization"></a>Normalization</h2><h2 id="Binarization"><a href="#Binarization" class="headerlink" title="Binarization"></a>Binarization</h2><h2 id="Standardization"><a href="#Standardization" class="headerlink" title="Standardization"></a>Standardization</h2><h1 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h1><p>The term regression is used when you try to find the relationship between variables.</p>
+<p>In Machine Learning, and in statistical modeling, that relationship is used to predict the outcome of future events. </p>
+<p>Linear regression uses the relationship between the data-points to draw a straight line through all them.</p>
+<p>This line can be used to predict future values. In Machine Learning, predicting the future is very important.</p>
+<p>Let us see if the data we collected could be used in a linear regression:</p>
+<p>Import <code>scipy</code> and draw the line of Linear Regression:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">x = [5,7,8,7,2,17,2,9,4,11,12,9,6]</span><br><span class="line">y = [99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">slope, intercept, r, p, std_err = stats.linregress(x, y)</span><br><span class="line"></span><br><span class="line">def myfunc(x):</span><br><span class="line"> return slope * x + intercept</span><br><span class="line"></span><br><span class="line">mymodel = list(map(myfunc, x))</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.plot(x, mymodel)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<img src="https://i.imgur.com/yZVwr7i.png" style="zoom:80%;">
+
+<h2 id="Example-Explained"><a href="#Example-Explained" class="headerlink" title="Example Explained"></a>Example Explained</h2><p>Execute a method that returns some important key values of Linear Regression:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slope, intercept, r, p, std_err = stats.linregress(x, y)</span><br></pre></td></tr></table></figure>
+
+<p>Create a function that uses the <code>slope</code> and <code>intercept</code> values to return a new value. <strong>(Just like linear equation: y&#x3D;kx+b. Slope represents the k and intercept represents the b)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def myfunc(x):</span><br><span class="line">  return slope * x + intercept</span><br></pre></td></tr></table></figure>
+
+<p>Run each value of the x array through the function. This will result in a new array with new values for the y-axis:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mymodel = list(map(myfunc, x))</span><br></pre></td></tr></table></figure>
+
+<p>Draw the line of linear regression:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x, mymodel)</span><br></pre></td></tr></table></figure>
+
+<h2 id="R-for-Relationship"><a href="#R-for-Relationship" class="headerlink" title="R for Relationship"></a>R for Relationship</h2><p>It is important to know how the relationship between the values of the x-axis and the values of the y-axis is, if there are no relationship the linear regression can not be used to predict anything.</p>
+<p>This relationship - the coefficient of correlation - is called <code>r</code>. The <code>r</code> value ranges from -1 to 1, where 0 means no relationship, and 1 (and -1) means 100% related.</p>
+<p>How well does my data fit in a linear regression?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">x = [5,7,8,7,2,17,2,9,4,11,12,9,6]</span><br><span class="line">y = [99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">slope, intercept, r, p, std_err = stats.linregress(x, y)</span><br><span class="line"></span><br><span class="line">print(r)</span><br><span class="line">-0.758591524376155</span><br></pre></td></tr></table></figure>
+
+<p>The result -0.76 shows that there is a relationship, not perfect, but it indicates that we could use linear regression in future predictions.</p>
+<h2 id="Predict-Future-Values"><a href="#Predict-Future-Values" class="headerlink" title="Predict Future Values"></a>Predict Future Values</h2><p>Now we can use the information we have gathered to predict future values.</p>
+<p>Example: Let us try to predict the speed of a 10 years old car.</p>
+<p>Predict the speed of a 10 years old car:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">x = [5,7,8,7,2,17,2,9,4,11,12,9,6]</span><br><span class="line">y = [99,86,87,88,111,86,103,87,94,78,77,85,86]</span><br><span class="line"></span><br><span class="line">slope, intercept, r, p, std_err = stats.linregress(x, y)</span><br><span class="line"></span><br><span class="line">def myfunc(x):</span><br><span class="line"> return slope * x + intercept</span><br><span class="line"></span><br><span class="line">speed = myfunc(10)</span><br><span class="line"></span><br><span class="line">print(speed)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Polynomial-Regression"><a href="#Polynomial-Regression" class="headerlink" title="Polynomial Regression"></a>Polynomial Regression</h1><p>If your data points clearly will not fit a linear regression (a straight line through all data points), it might be ideal for polynomial regression.</p>
+<p>Polynomial regression, like linear regression, uses the relationship between the variables x and y to find the best way to draw a line through the data points.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>We have registered the car’s speed, and the time of day (hour) the passing occurred.</p>
+<p>The x-axis represents the hours of the day and the y-axis represents the speed:</p>
+<p>Import <code>numpy</code> and <code>matplotlib</code> then draw the line of Polynomial Regression:</p>
+<p>Import <code>numpy</code> and <code>matplotlib</code> then draw the line of Polynomial Regression:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">x = [1,2,3,5,6,7,8,9,10,12,13,14,15,16,18,19,21,22]</span><br><span class="line">y = [100,90,80,60,60,55,60,65,70,70,75,76,78,79,90,99,99,100]</span><br><span class="line"></span><br><span class="line">mymodel = numpy.poly1d(numpy.polyfit(x, y, 3))</span><br><span class="line"></span><br><span class="line">myline = numpy.linspace(1, 22, 100)</span><br><span class="line"></span><br><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.plot(myline, mymodel(myline))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Example-Explained-1"><a href="#Example-Explained-1" class="headerlink" title="Example Explained"></a>Example Explained</h2><p>NumPy has a method that lets us make a polynomial model:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mymodel = numpy.poly1d(numpy.polyfit(x, y, 3))</span><br></pre></td></tr></table></figure>
+
+<p>Then specify how the line will display, we start at position 1, and end at position 22:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myline = numpy.linspace(1, 22, 100)</span><br></pre></td></tr></table></figure>
+
+<p>Draw the line of polynomial regression:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(myline, mymodel(myline))</span><br></pre></td></tr></table></figure>
+
+<h2 id="R-Squared"><a href="#R-Squared" class="headerlink" title="R-Squared"></a>R-Squared</h2><p>It is important to know how well the relationship between the values of the x- and y-axis is, if there are no relationship the polynomial regression can not be used to predict anything.</p>
+<p>The relationship is measured with a value called the r-squared. The r-squared value ranges from 0 to 1, where 0 means no relationship, and 1 means 100% related.</p>
+<p>How well does my data fit in a polynomial regression?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line">from sklearn.metrics import r2_score</span><br><span class="line"></span><br><span class="line">x = [1,2,3,5,6,7,8,9,10,12,13,14,15,16,18,19,21,22]</span><br><span class="line">y = [100,90,80,60,60,55,60,65,70,70,75,76,78,79,90,99,99,100]</span><br><span class="line"></span><br><span class="line">mymodel = numpy.poly1d(numpy.polyfit(x, y, 3))</span><br><span class="line"></span><br><span class="line">print(r2_score(y, mymodel(x)))</span><br></pre></td></tr></table></figure>
+
+<p><strong>Note:</strong> The result 0.94 shows that there is a very good relationship, and we can use polynomial regression in future predictions.</p>
+<h2 id="Predict-Future-Values-1"><a href="#Predict-Future-Values-1" class="headerlink" title="Predict Future Values"></a>Predict Future Values</h2><p>Now we can use the information we have gathered to predict future values.</p>
+<p>Let us try to predict the speed of a car that passes the tollbooth at around 17 P.M:</p>
+<p>To do so, we need the same <code>mymodel</code> array from the example above:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line">from sklearn.metrics import r2_score</span><br><span class="line"></span><br><span class="line">x = [1,2,3,5,6,7,8,9,10,12,13,14,15,16,18,19,21,22]</span><br><span class="line">y = [100,90,80,60,60,55,60,65,70,70,75,76,78,79,90,99,99,100]</span><br><span class="line"></span><br><span class="line">mymodel = numpy.poly1d(numpy.polyfit(x, y, 3))</span><br><span class="line"></span><br><span class="line">speed = mymodel(17)</span><br><span class="line">print(speed)</span><br><span class="line">88.87331269697987</span><br></pre></td></tr></table></figure>
+
+<h1 id="Multiple-Regression"><a href="#Multiple-Regression" class="headerlink" title="Multiple Regression"></a>Multiple Regression</h1><p>Multiple regression is like linear regression, but with more than one independent value, meaning that we try to predict a value based on <strong>two or more</strong> variables.</p>
+<p>Take a look at the data set below, it contains some information about cars.</p>
+<table>
+<thead>
+<tr>
+<th>Car</th>
+<th>Model</th>
+<th>Volume</th>
+<th>Weight</th>
+<th>CO2</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Toyota</th>
+<th>Aygo</th>
+<th>1000</th>
+<th>790</th>
+<th>99</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mitsubishi</td>
+<td>Space Star</td>
+<td>1200</td>
+<td>1160</td>
+<td>95</td>
+</tr>
+<tr>
+<td>Skoda</td>
+<td>Citigo</td>
+<td>1000</td>
+<td>929</td>
+<td>95</td>
+</tr>
+<tr>
+<td>Fiat</td>
+<td>500</td>
+<td>900</td>
+<td>865</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Mini</td>
+<td>Cooper</td>
+<td>1500</td>
+<td>1140</td>
+<td>105</td>
+</tr>
+<tr>
+<td>VW</td>
+<td>Up!</td>
+<td>1000</td>
+<td>929</td>
+<td>105</td>
+</tr>
+<tr>
+<td>Skoda</td>
+<td>Fabia</td>
+<td>1400</td>
+<td>1109</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Mercedes</td>
+<td>A-Class</td>
+<td>1500</td>
+<td>1365</td>
+<td>92</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>Fiesta</td>
+<td>1500</td>
+<td>1112</td>
+<td>98</td>
+</tr>
+<tr>
+<td>Audi</td>
+<td>A1</td>
+<td>1600</td>
+<td>1150</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Hyundai</td>
+<td>I20</td>
+<td>1100</td>
+<td>980</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Suzuki</td>
+<td>Swift</td>
+<td>1300</td>
+<td>990</td>
+<td>101</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>Fiesta</td>
+<td>1000</td>
+<td>1112</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Honda</td>
+<td>Civic</td>
+<td>1600</td>
+<td>1252</td>
+<td>94</td>
+</tr>
+<tr>
+<td>Hundai</td>
+<td>I30</td>
+<td>1600</td>
+<td>1326</td>
+<td>97</td>
+</tr>
+<tr>
+<td>Opel</td>
+<td>Astra</td>
+<td>1600</td>
+<td>1330</td>
+<td>97</td>
+</tr>
+<tr>
+<td>BMW</td>
+<td>1</td>
+<td>1600</td>
+<td>1365</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Mazda</td>
+<td>3</td>
+<td>2200</td>
+<td>1280</td>
+<td>104</td>
+</tr>
+<tr>
+<td>Skoda</td>
+<td>Rapid</td>
+<td>1600</td>
+<td>1119</td>
+<td>104</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>Focus</td>
+<td>2000</td>
+<td>1328</td>
+<td>105</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>Mondeo</td>
+<td>1600</td>
+<td>1584</td>
+<td>94</td>
+</tr>
+<tr>
+<td>Opel</td>
+<td>Insignia</td>
+<td>2000</td>
+<td>1428</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Mercedes</td>
+<td>C-Class</td>
+<td>2100</td>
+<td>1365</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Skoda</td>
+<td>Octavia</td>
+<td>1600</td>
+<td>1415</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Volvo</td>
+<td>S60</td>
+<td>2000</td>
+<td>1415</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Mercedes</td>
+<td>CLA</td>
+<td>1500</td>
+<td>1465</td>
+<td>102</td>
+</tr>
+<tr>
+<td>Audi</td>
+<td>A4</td>
+<td>2000</td>
+<td>1490</td>
+<td>104</td>
+</tr>
+<tr>
+<td>Audi</td>
+<td>A6</td>
+<td>2000</td>
+<td>1725</td>
+<td>114</td>
+</tr>
+<tr>
+<td>Volvo</td>
+<td>V70</td>
+<td>1600</td>
+<td>1523</td>
+<td>109</td>
+</tr>
+<tr>
+<td>BMW</td>
+<td>5</td>
+<td>2000</td>
+<td>1705</td>
+<td>114</td>
+</tr>
+<tr>
+<td>Mercedes</td>
+<td>E-Class</td>
+<td>2100</td>
+<td>1605</td>
+<td>115</td>
+</tr>
+<tr>
+<td>Volvo</td>
+<td>XC70</td>
+<td>2000</td>
+<td>1746</td>
+<td>117</td>
+</tr>
+<tr>
+<td>Ford</td>
+<td>B-Max</td>
+<td>1600</td>
+<td>1235</td>
+<td>104</td>
+</tr>
+<tr>
+<td>BMW</td>
+<td>2</td>
+<td>1600</td>
+<td>1390</td>
+<td>108</td>
+</tr>
+<tr>
+<td>Opel</td>
+<td>Zafira</td>
+<td>1600</td>
+<td>1405</td>
+<td>109</td>
+</tr>
+<tr>
+<td>Mercedes</td>
+<td>SLK</td>
+<td>2500</td>
+<td>1395</td>
+<td>120</td>
+</tr>
+</tbody></table>
+<p>We can predict the CO2 emission of a car based on the size of the engine, but with multiple regression we can throw in more variables, like the weight of the car, to make the prediction more accurate.</p>
+<p>Then make a list of the independent values and call this variable <code>X</code>.</p>
+<p>Put the dependent values in a variable called <code>y</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X = df[[&#x27;Weight&#x27;, &#x27;Volume&#x27;]]y = df[&#x27;CO2&#x27;]</span><br></pre></td></tr></table></figure>
+
+<p>From the sklearn module we will use the <code>LinearRegression()</code> method to create a linear regression object.</p>
+<p>This object has a method called <code>fit()</code> that takes the independent and dependent values as parameters and fills the regression object with data that describes the relationship:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regr = linear_model.LinearRegression()regr.fit(X, y)</span><br></pre></td></tr></table></figure>
+
+<p>Now we have a regression object that are ready to predict CO2 values based on a car’s weight and volume:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#predict the CO2 emission of a car where the weight is 2300kg, and the volume is 1300cm3:predictedCO2 = regr.predict([[2300, 1300]])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import pandas</span><br><span class="line">from sklearn import linear_model</span><br><span class="line"></span><br><span class="line">df = pandas.read_csv(&quot;cars.csv&quot;)</span><br><span class="line"></span><br><span class="line">X = df[[&#x27;Weight&#x27;, &#x27;Volume&#x27;]]</span><br><span class="line">y = df[&#x27;CO2&#x27;]</span><br><span class="line"></span><br><span class="line">regr = linear_model.LinearRegression()</span><br><span class="line">regr.fit(X, y)</span><br><span class="line"></span><br><span class="line">#predict the CO2 emission of a car where the weight is 2300kg, and the volume is 1300cm3:</span><br><span class="line">predictedCO2 = regr.predict([[2300, 1300]])</span><br><span class="line"></span><br><span class="line">print(predictedCO2)</span><br><span class="line">[107.2087328]</span><br></pre></td></tr></table></figure>
+
+<p>We have predicted that a car with 1.3 liter engine, and a weight of 2300 kg, will release approximately 107 grams of CO2 for every kilometer it drives.</p>
+<h1 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h1><p>Logistic regression aims to solve classification problems. It does this by predicting categorical outcomes, unlike linear regression that predicts a continuous outcome.</p>
+<h1 id="Decision-Tree"><a href="#Decision-Tree" class="headerlink" title="Decision Tree"></a>Decision Tree</h1><p>To make a decision tree, all data has to be numerical.</p>
+<p>Pandas has a <code>map()</code> method that takes a dictionary with information on how to convert the values.</p>
+<p>Then we have to separate the <em>feature</em> columns from the <em>target</em> column. The feature columns are the columns that we try to predict <em>from</em>, and the target column is the column with the values we try to predict.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io">FerryChan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io/2022/05/14/Machine-Learning/Machine-Learning/">http://ferrychan666.github.io/2022/05/14/Machine-Learning/Machine-Learning/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AI/">AI</a></div><div class="post-share"><div class="social-share" data-image="/img/Tom.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2022/02/28/DS/Graph/" title="Graph"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">Graph</div></div><div class="info-2"><div class="info-item-1">图的存储邻接矩阵我们使用邻接矩阵来表示图的边。  邻接表法这里的表是指链表。 表面一个顶点所邻接的边。 </div></div></div></a><a class="pagination-related" href="/2023/02/10/JavaScript/Ajax/" title="Ajax"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">Ajax</div></div><div class="info-2"><div class="info-item-1">AJAX IntroductionAJAX is a developer’s dream, because you can:  Read data from a web server - after the page has loaded Update a web page without reloading the page Send data to a web server - in the background  AJAX &#x3D; Asynchronous JavaScript And XML. AJAX is not a programming language. AJAX just uses a combination of:  A browser built-in XMLHttpRequest object (to request data from a web server) JavaScript and HTML DOM (to display or use the data)  AJAX applications might use XML to...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FerryChan</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">154</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/FerryChan666" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Conception"><span class="toc-number">1.</span> <span class="toc-text">Conception</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Set"><span class="toc-number">1.1.</span> <span class="toc-text">Data Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Types"><span class="toc-number">1.2.</span> <span class="toc-text">Data Types</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Basic-Tools"><span class="toc-number">2.</span> <span class="toc-text">Basic Tools</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pandas"><span class="toc-number">2.1.</span> <span class="toc-text">pandas</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scikit-learn"><span class="toc-number">2.2.</span> <span class="toc-text">Scikit-learn</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Supervised-Learning"><span class="toc-number">3.</span> <span class="toc-text">Supervised Learning</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unsupervised-Learning"><span class="toc-number">4.</span> <span class="toc-text">Unsupervised Learning</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Semi-supervised-Learning"><span class="toc-number">5.</span> <span class="toc-text">Semi-supervised Learning</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tasks-Suited-for-Machine-Learning"><span class="toc-number">6.</span> <span class="toc-text">Tasks Suited for Machine Learning</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Data-Loading-for-ML-Projects"><span class="toc-number">7.</span> <span class="toc-text">1.Data Loading for ML Projects</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Load-CSV-with-built-in-CSV"><span class="toc-number">7.1.</span> <span class="toc-text">Load CSV with built in CSV</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Understanding-Data-with-Statistics"><span class="toc-number">8.</span> <span class="toc-text">2.Understanding Data with Statistics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Statistical-Summary-of-Data"><span class="toc-number">8.1.</span> <span class="toc-text">Statistical Summary of Data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reviewing-Class-Distribution"><span class="toc-number">8.2.</span> <span class="toc-text">Reviewing Class Distribution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reviewing-Correlation-between-Attributes"><span class="toc-number">8.3.</span> <span class="toc-text">Reviewing Correlation between Attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reviewing-Skew-of-Attribute-Distribution"><span class="toc-number">8.4.</span> <span class="toc-text">Reviewing Skew of Attribute Distribution</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Understanding-Data-with-Visualization"><span class="toc-number">9.</span> <span class="toc-text">3.Understanding Data with Visualization</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Univariate-Plots"><span class="toc-number">9.1.</span> <span class="toc-text">Univariate Plots</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Density-Plots"><span class="toc-number">9.2.</span> <span class="toc-text">Density Plots</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Preparing-Data"><span class="toc-number">10.</span> <span class="toc-text">4.Preparing Data</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scaling"><span class="toc-number">10.1.</span> <span class="toc-text">Scaling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Normalization"><span class="toc-number">10.2.</span> <span class="toc-text">Normalization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Binarization"><span class="toc-number">10.3.</span> <span class="toc-text">Binarization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Standardization"><span class="toc-number">10.4.</span> <span class="toc-text">Standardization</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linear-Regression"><span class="toc-number">11.</span> <span class="toc-text">Linear Regression</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-Explained"><span class="toc-number">11.1.</span> <span class="toc-text">Example Explained</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R-for-Relationship"><span class="toc-number">11.2.</span> <span class="toc-text">R for Relationship</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Predict-Future-Values"><span class="toc-number">11.3.</span> <span class="toc-text">Predict Future Values</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Polynomial-Regression"><span class="toc-number">12.</span> <span class="toc-text">Polynomial Regression</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Example"><span class="toc-number">12.1.</span> <span class="toc-text">Example</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-Explained-1"><span class="toc-number">12.2.</span> <span class="toc-text">Example Explained</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R-Squared"><span class="toc-number">12.3.</span> <span class="toc-text">R-Squared</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Predict-Future-Values-1"><span class="toc-number">12.4.</span> <span class="toc-text">Predict Future Values</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Multiple-Regression"><span class="toc-number">13.</span> <span class="toc-text">Multiple Regression</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Logistic-Regression"><span class="toc-number">14.</span> <span class="toc-text">Logistic Regression</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Decision-Tree"><span class="toc-number">15.</span> <span class="toc-text">Decision Tree</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/15/scrape/JavaScript%E5%8F%8D%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/" title="JavaScript反爬虫原理">JavaScript反爬虫原理</a><time datetime="2025-02-15T07:16:34.000Z" title="Created 2025-02-15 15:16:34">2025-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/19/Q&amp;A/pip-install-%E6%8C%82%E4%BB%A3%E7%90%86/" title="pip install 挂代理">pip install 挂代理</a><time datetime="2023-04-19T14:54:54.000Z" title="Created 2023-04-19 22:54:54">2023-04-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/27/Python/python%20comprehensions/" title="python comprehensions">python comprehensions</a><time datetime="2023-03-27T14:51:10.000Z" title="Created 2023-03-27 22:51:10">2023-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/20/git/Failed-to-connect-to-github-com-port-443-after-21193-ms-Timed-out/" title="Failed to connect to github.com port 443 after 21193 ms: Timed out">Failed to connect to github.com port 443 after 21193 ms: Timed out</a><time datetime="2023-03-20T05:23:22.000Z" title="Created 2023-03-20 13:23:22">2023-03-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/17/Python/Tkinter/" title="Tkinter">Tkinter</a><time datetime="2023-03-17T01:46:53.000Z" title="Created 2023-03-17 09:46:53">2023-03-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By FerryChan</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SQL Statement | Ferry's blog</title><meta name="author" content="FerryChan"><meta name="copyright" content="FerryChan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="IntroductionSQL stands for Structured Query Language.  SQL lets you access and manipulate database.  Using SQL in Your Web SiteTo build a web site that shows data from a database, you will need:  An R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL Statement">
+<meta property="og:url" content="http://ferrychan666.github.io/2021/06/22/SQL/SQL/index.html">
+<meta property="og:site_name" content="Ferry&#39;s blog">
+<meta property="og:description" content="IntroductionSQL stands for Structured Query Language.  SQL lets you access and manipulate database.  Using SQL in Your Web SiteTo build a web site that shows data from a database, you will need:  An R">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ferrychan666.github.io/img/Tom.jpg">
+<meta property="article:published_time" content="2021-06-22T11:34:14.000Z">
+<meta property="article:modified_time" content="2022-05-21T17:09:19.000Z">
+<meta property="article:author" content="FerryChan">
+<meta property="article:tag" content="sql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ferrychan666.github.io/img/Tom.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SQL Statement",
+  "url": "http://ferrychan666.github.io/2021/06/22/SQL/SQL/",
+  "image": "http://ferrychan666.github.io/img/Tom.jpg",
+  "datePublished": "2021-06-22T11:34:14.000Z",
+  "dateModified": "2022-05-21T17:09:19.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "FerryChan",
+      "url": "http://ferrychan666.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://ferrychan666.github.io/2021/06/22/SQL/SQL/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":false,"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SQL Statement',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">154</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a><a class="nav-page-title" href="/"><span class="site-name">SQL Statement</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">SQL Statement</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-06-22T11:34:14.000Z" title="Created 2021-06-22 19:34:14">2021-06-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-21T17:09:19.000Z" title="Updated 2022-05-22 01:09:19">2022-05-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>SQL stands for Structured Query Language. </p>
+<p>SQL lets you access and manipulate database. </p>
+<h2 id="Using-SQL-in-Your-Web-Site"><a href="#Using-SQL-in-Your-Web-Site" class="headerlink" title="Using SQL in Your Web Site"></a>Using SQL in Your Web Site</h2><p>To build a web site that shows data from a database, you will need:</p>
+<ul>
+<li>An RDBMS database program (i.e. MS Access, SQL Server, MySQL)</li>
+<li>To use a server-side scripting language, like PHP or ASP</li>
+<li>To use SQL to get the data you want</li>
+<li>To use HTML &#x2F; CSS to style the page</li>
+</ul>
+<h1 id="DBMS"><a href="#DBMS" class="headerlink" title="DBMS"></a>DBMS</h1><p>The data in RDBMS is stored in database objects called tables. A table is a collection of related data entries and it consists of columns and rows.</p>
+<p><strong>A filed</strong> is a column in table that is designed to maintain specific information about every record in the table.</p>
+<p><strong>A record</strong> is a row that exists in the table. </p>
+<h1 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h1><p>A database most often contain one or more tables. Tables contain records (rows) with data.</p>
+<h1 id="SQL-Statements"><a href="#SQL-Statements" class="headerlink" title="SQL Statements"></a>SQL Statements</h1><ul>
+<li><code>SELECT</code> - extracts data from a database</li>
+<li><code>UPDATE</code> - updates data in a database</li>
+<li><code>DELETE</code> - deletes data from a database</li>
+<li><code>INSERT INTO</code> - inserts new data into a database</li>
+<li><code>CREATE DATABASE</code> - creates a new database</li>
+<li><code>ALTER DATABASE</code> - modifies a database</li>
+<li><code>CREATE TABLE</code> - creates a new table</li>
+<li><code>ALTER TABLE</code> - modifies a table</li>
+<li><code>DROP TABLE</code> - deletes a table</li>
+<li><code>CREATE INDEX</code> - creates an index (search key)</li>
+<li><code>DROP INDEX</code> - deletes an index</li>
+</ul>
+<h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><p>The <code>select</code> allows you to select the filed(column) from the table. If you want to select all columns you should use <code>select * from table_name</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><code>select distinct</code> statement can satisfy you to list distinct(different) values of the columns, which means it delete the repetitive values. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h2><p>This statement add some conditions so that can extract the specify records you want. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Note:</strong> The <code>WHERE</code> clause is not only used in <code>SELECT</code> statements, it is also used in <code>UPDATE</code>, <code>DELETE</code>, etc.!</p>
+<h3 id="Text-Fields-vs-Numeric-Fields"><a href="#Text-Fields-vs-Numeric-Fields" class="headerlink" title="Text Fields vs. Numeric Fields"></a>Text Fields vs. Numeric Fields</h3><p>SQL requires single quotes around text values (most database systems will also allow double quotes).</p>
+<p><strong>However, numeric fields should not be enclosed in quotes:</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> Country<span class="operator">=</span><span class="string">&#x27;Mexico&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> CustomerID<span class="operator">=</span><span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Operators-in-The-WHERE-Clause"><a href="#Operators-in-The-WHERE-Clause" class="headerlink" title="Operators in The WHERE Clause"></a>Operators in The WHERE Clause</h3><ul>
+<li><p>AND, OR, NOT</p>
+<p>There can be contain more than one record by using  the <code>and</code> , <code>or</code> ,<code>not</code></p>
+<ul>
+<li><p><code>and</code></p>
+<p>If the all the conditions separated by <code>and</code> are turn, the result is true. That means the extracted records are display by <code>where</code> if they fulfill all conditions. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> condition1 <span class="keyword">AND</span> condition2 <span class="keyword">AND</span> condition3 ...;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>or</code></p>
+<p>If the any of the conditions separated by <code>or</code> are turn, the result is true. That means the extracted records are display by <code>where</code> if they fulfill one of the conditions. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> condition1 <span class="keyword">OR</span> condition2 <span class="keyword">OR</span> condition3 ...;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><code>not</code></p>
+<p>The <code>NOT</code> operator displays a record if the condition(s) is NOT TRUE.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>The following operators can be used in the <code>WHERE</code> clause:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Operator</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">&#x3D;</td>
+<td align="left">Equal</td>
+</tr>
+<tr>
+<td align="left">&gt;</td>
+<td align="left">Greater than</td>
+</tr>
+<tr>
+<td align="left">&lt;</td>
+<td align="left">Less than</td>
+</tr>
+<tr>
+<td align="left">&gt;&#x3D;</td>
+<td align="left">Greater than or equal</td>
+</tr>
+<tr>
+<td align="left">&lt;&#x3D;</td>
+<td align="left">Less than or equal</td>
+</tr>
+<tr>
+<td align="left">&lt;&gt;</td>
+<td align="left">Not equal. <strong>Note:</strong> In some versions of SQL this operator may be written as !&#x3D;</td>
+</tr>
+<tr>
+<td align="left">BETWEEN</td>
+<td align="left">Between a certain range</td>
+</tr>
+<tr>
+<td align="left">LIKE</td>
+<td align="left">Search for a pattern</td>
+</tr>
+<tr>
+<td align="left">IN</td>
+<td align="left">To specify multiple possible values for a column</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="LIKE"><a href="#LIKE" class="headerlink" title="LIKE"></a>LIKE</h4><p>The <code>LIKE</code> operator is used in a <code>WHERE</code> clause to search for a specified pattern in a column.</p>
+<p>There are two wildcards often used in conjunction with the <code>LIKE</code> operator:</p>
+<ul>
+<li>The percent sign (%) represents zero, one, or multiple characters</li>
+<li>The underscore sign (_) represents one, single character</li>
+</ul>
+<p><strong>Note:</strong> MS Access uses an asterisk (*) instead of the percent sign (%), and a question mark (?) instead of the underscore (_).</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> columnN <span class="keyword">LIKE</span> <span class="keyword">pattern</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> CustomerName <span class="keyword">LIKE</span> <span class="string">&#x27;a%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="NOT-LIKE"><a href="#NOT-LIKE" class="headerlink" title="NOT LIKE"></a>NOT LIKE</h4><p>The following SQL statement selects all customers with a CustomerName that does NOT start with “a”:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> CustomerName <span class="keyword">NOT</span> <span class="keyword">LIKE</span> <span class="string">&#x27;a%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="IN"><a href="#IN" class="headerlink" title="IN"></a>IN</h4><p>The <code>IN</code> operator is a shorthand for multiple <code>OR</code> conditions. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_name <span class="keyword">IN</span> (value1, value2, ...);</span><br></pre></td></tr></table></figure>
+
+<h4 id="NOT-IN"><a href="#NOT-IN" class="headerlink" title="NOT IN"></a>NOT IN</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> Country <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="string">&#x27;Germany&#x27;</span>, <span class="string">&#x27;France&#x27;</span>, <span class="string">&#x27;UK&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="BETWEEN"><a href="#BETWEEN" class="headerlink" title="BETWEEN"></a>BETWEEN</h4><p>The <code>BETWEEN</code> operator selects values within a given range. The values can be numbers, text, or dates.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> column_name <span class="keyword">BETWEEN</span> value1 <span class="keyword">AND</span> value2;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="NOT-BETWEEN"><a href="#NOT-BETWEEN" class="headerlink" title="NOT BETWEEN"></a>NOT BETWEEN</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> Price <span class="keyword">NOT</span> <span class="keyword">BETWEEN</span> <span class="number">10</span> <span class="keyword">AND</span> <span class="number">20</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h3><p>The <code>IS NULL</code> operator is used to test for empty values (NULL values).</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CustomerName, ContactName, Address</span><br><span class="line"><span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> Address <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<p>The <code>IS NOT NULL</code> operator is used to test for non-empty values (NOT NULL values).</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CustomerName, ContactName, Address</span><br><span class="line"><span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> Address <span class="keyword">IS</span> <span class="keyword">NOT NULL</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h2><p>The <code>ORDER BY</code> keyword is used to sort the result-set in <strong>ascending or descending order</strong>.</p>
+<p>The <code>ORDER BY</code> keyword sorts the records in ascending order by default. To sort the records in descending order, use the <code>DESC</code> keyword.</p>
+<p><code>ORDER BY Country DESC;</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> column1, column2, ... <span class="keyword">ASC</span><span class="operator">|</span><span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<ul>
+<li>ORDER BY Several Columns</li>
+</ul>
+<p>The following SQL statement selects all customers from the “Customers” table, sorted by the “Country” and the “CustomerName” column. This means that it orders by Country, but if some rows have the same Country, it orders them by CustomerName:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Country, CustomerName;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="INSERT-INTO"><a href="#INSERT-INTO" class="headerlink" title="INSERT INTO"></a>INSERT INTO</h2><p>There are two ways you can insert new record into a table. </p>
+<ol>
+<li><p>Specify both the column names and the values to be inserted:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> table_name (column1, column2, column3, ...)</span><br><span class="line"><span class="keyword">VALUES</span> (value1, value2, value3, ...);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>If you add a whole record you needn’t specify the column name. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT INTO</span> table_name</span><br><span class="line"><span class="keyword">VALUES</span> (value1, value2, value3, ...);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><p>The <code>UPDATE</code> statement is used to modify the existing records in a table.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name</span><br><span class="line"><span class="keyword">SET</span> column1 <span class="operator">=</span> value1, column2 <span class="operator">=</span> value2, ...</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Be careful when updating records. If you omit the <code>WHERE</code> clause, ALL records will be updated!</strong></p>
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><p>The <code>DELETE</code> statement is used to delete existing records in a table.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name <span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>If you omit the <code>WHERE</code> clause, all records in the table will be deleted!</strong></p>
+<h2 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h2><p>A <code>JOIN</code> clause is used to combine rows from two or more tables, based on a related column between them.</p>
+<p><img src="https://i.imgur.com/iboSksO.gif" alt="inner join"></p>
+<p><img src="https://i.imgur.com/QCVT6Tl.gif" alt="left join"></p>
+<p><img src="https://i.imgur.com/aSsMfJ0.gif" alt="right join"></p>
+<p><img src="https://i.imgur.com/aSsMfJ0.gif" alt="full join"></p>
+<h3 id="INNER-JOIN"><a href="#INNER-JOIN" class="headerlink" title="INNER JOIN"></a>INNER JOIN</h3><p>The <code>INNER JOIN</code> keyword selects records that have matching values in both tables.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"><span class="keyword">ON</span> table1.column_name <span class="operator">=</span> table2.column_name;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>Let’s look at a selection from the “<strong>Orders</strong>“ table:</p>
+<table>
+<thead>
+<tr>
+<th align="left">OrderID</th>
+<th align="left">CustomerID</th>
+<th align="left">OrderDate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">10308</td>
+<td align="left">2</td>
+<td align="left">1996-09-18</td>
+</tr>
+<tr>
+<td align="left">10309</td>
+<td align="left">37</td>
+<td align="left">1996-09-19</td>
+</tr>
+<tr>
+<td align="left">10310</td>
+<td align="left">77</td>
+<td align="left">1996-09-20</td>
+</tr>
+</tbody></table>
+<p>Then, look at a selection from the “<strong>Customers</strong>“ table:</p>
+<table>
+<thead>
+<tr>
+<th align="left">CustomerID</th>
+<th align="left">CustomerName</th>
+<th align="left">ContactName</th>
+<th align="left">Country</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">Alfreds Futterkiste</td>
+<td align="left">Maria Anders</td>
+<td align="left">Germany</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Ana Trujillo Emparedados y helados</td>
+<td align="left">Ana Trujillo</td>
+<td align="left">Mexico</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">Antonio Moreno Taquería</td>
+<td align="left">Antonio Moreno</td>
+<td align="left">Mexico</td>
+</tr>
+</tbody></table>
+<p>Notice that the “CustomerID” column in the “Orders” table refers to the “CustomerID” in the “Customers” table. <strong>The relationship between the two tables above is the “CustomerID” column.</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Orders.OrderID, Customers.CustomerName, Orders.OrderDate</span><br><span class="line"><span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> Customers <span class="keyword">ON</span> Orders.CustomerID<span class="operator">=</span>Customers.CustomerID;</span><br></pre></td></tr></table></figure>
+
+<p>and it will produce something like this:</p>
+<table>
+<thead>
+<tr>
+<th align="left">OrderID</th>
+<th align="left">CustomerName</th>
+<th align="left">OrderDate</th>
+</tr>
+</thead>
+</table>
+<h3 id="LEFT-JOIN"><a href="#LEFT-JOIN" class="headerlink" title="LEFT JOIN"></a>LEFT JOIN</h3><p>The <code>LEFT JOIN</code> keyword returns all records from the left table (table1), and the matching records from the right table (table2).</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"><span class="keyword">ON</span> table1.column_name <span class="operator">=</span> table2.column_name;</span><br></pre></td></tr></table></figure>
+
+<h3 id="RIGHT-JOIN"><a href="#RIGHT-JOIN" class="headerlink" title="RIGHT JOIN"></a>RIGHT JOIN</h3><p>The <code>RIGHT JOIN</code> keyword returns all records from the right table (table2), and the matching records from the left table (table1). </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"><span class="keyword">ON</span> table1.column_name <span class="operator">=</span> table2.column_name;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="FULL-JOIN"><a href="#FULL-JOIN" class="headerlink" title="FULL JOIN"></a>FULL JOIN</h3><p>The <code>FULL OUTER JOIN</code> keyword returns all records when there is <strong>a match</strong> in left (table1) or right (table2) table records.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">FULL</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"><span class="keyword">ON</span> table1.column_name <span class="operator">=</span> table2.column_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="SELF-JOIN"><a href="#SELF-JOIN" class="headerlink" title="SELF JOIN"></a>SELF JOIN</h3><p>A self join is a regular join, but the table is <strong>joined with itself.</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table1 T1, table1 T2</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br><span class="line">#T1 <span class="keyword">and</span> T2 <span class="keyword">are</span> different <span class="keyword">table</span> aliases <span class="keyword">for</span> the same table.</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h2><p>The <code>GROUP BY</code> statement <strong>groups rows that have the same values into summary rows</strong>, <strong>like “find the number of customers in each country” and we group by the ‘country’</strong>. So the <code>GROUP BY</code> statement is often used with aggregate functions (<code>COUNT()</code>, <code>MAX()</code>, <code>MIN()</code>, <code>SUM()</code>, <code>AVG()</code>) to group the result-set by one or more columns.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> column_name(s)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> column_name(s);</span><br></pre></td></tr></table></figure>
+
+<p>The following SQL statement lists the number of customers in each country:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(CustomerID), Country</span><br><span class="line"><span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Country;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Having"><a href="#Having" class="headerlink" title="Having"></a>Having</h2><p>HAVING statement usually follows by the GROUP BY statement to show how many records in each group. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT column_name(s)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE condition</span><br><span class="line">GROUP BY column_name(s)</span><br><span class="line">HAVING condition</span><br><span class="line">ORDER BY column_name(s);</span><br></pre></td></tr></table></figure>
+
+<p>The following SQL statement lists the number of customers in each country. Only include countries with more than 5 customers:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(CustomerID), Country</span><br><span class="line">FROM Customers</span><br><span class="line">GROUP BY Country</span><br><span class="line">HAVING COUNT(CustomerID) &gt; 5;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><h2 id="MIN"><a href="#MIN" class="headerlink" title="MIN()"></a>MIN()</h2><p>Export the smallest value of the selected column. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MIN</span>(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="MAX"><a href="#MAX" class="headerlink" title="MAX()"></a>MAX()</h2><p>Export the largest value of the selected column.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="COUNT"><a href="#COUNT" class="headerlink" title="COUNT()"></a>COUNT()</h2><p>The count function return the number of the rows of selected column. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="AVG"><a href="#AVG" class="headerlink" title="AVG()"></a>AVG()</h2><p>The <code>AVG()</code> function returns the average value of a numeric column. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="SUM"><a href="#SUM" class="headerlink" title="SUM()"></a>SUM()</h2><p>The <code>SUM()</code> function returns the total sum of a numeric column. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">SUM</span>(column_name)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Aliases"><a href="#Aliases" class="headerlink" title="Aliases"></a>Aliases</h1><p>SQL aliases are used to give a table, or a column in a table, a temporary name.</p>
+<p>An alias is created with the <code>AS</code> keyword.</p>
+<h3 id="Alias-Column-Syntax"><a href="#Alias-Column-Syntax" class="headerlink" title="Alias Column Syntax"></a>Alias Column Syntax</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span>column_name<span class="operator">*</span> <span class="keyword">AS</span> <span class="operator">*</span>alias_name<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> <span class="operator">*</span>table_name;<span class="operator">*</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Alias-Table-Syntax"><a href="#Alias-Table-Syntax" class="headerlink" title="Alias Table Syntax"></a>Alias Table Syntax</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span>column_name(s)<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> <span class="operator">*</span>table_name<span class="operator">*</span> <span class="keyword">AS</span> <span class="operator">*</span>alias_name;<span class="operator">*</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io">FerryChan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io/2021/06/22/SQL/SQL/">http://ferrychan666.github.io/2021/06/22/SQL/SQL/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/sql/">sql</a></div><div class="post-share"><div class="social-share" data-image="/img/Tom.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2021/06/19/linux/Basic-Concept/" title="Basic Concept"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">Basic Concept</div></div><div class="info-2"><div class="info-item-1">Processes ManagementA process, in simple terms, is an instance of running program.  Whenever you issue a command in Linux, it creates or start a process.  Processes TypesWhen you issue a command (a process), there are two ways you can run it.   Foreground Process  Background Process The simplest way to start a background process is to add an ampersand (&amp;) at the end of the command.   Checking Running ProcessesIt is easy to see your own processes by using the ps command.  In addition, you...</div></div></div></a><a class="pagination-related" href="/2021/06/23/SQL/database/" title="database"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">database</div></div><div class="info-2"><div class="info-item-1">Databasecreate database1create database database_name;  delete database1drop database database_name;  Tablecreate table123456CREATE TABLE table_name (    column1 datatype,    column2 datatype,    column3 datatype,   ....);  The column parameters specify the names of the columns of the table. The datatype parameter specifies the type of data the column can hold (e.g. varchar, integer, date, etc.). 1234567CREATE TABLE Persons (    PersonID int,    LastName varchar(255),    FirstName...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2021/12/20/SQL/mysql-commands/" title="mysql commands"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-20</div><div class="info-item-2">mysql commands</div></div><div class="info-2"><div class="info-item-1">Start 运行mysql程序 启动mysql8.0版本1net start mysql80  进入命令行模式 1mysql -u root -p  接下来就可以用命令操作数据库 12345678910//查看所有的数据库show databases;//改变默认数据库use database_name;//查看默认数据库中所有的表show tables;//查看某个表的结构describe table_name;//查看表中的记录select * from table_name;  </div></div></div></a><a class="pagination-related" href="/2021/06/23/SQL/database/" title="database"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-23</div><div class="info-item-2">database</div></div><div class="info-2"><div class="info-item-1">Databasecreate database1create database database_name;  delete database1drop database database_name;  Tablecreate table123456CREATE TABLE table_name (    column1 datatype,    column2 datatype,    column3 datatype,   ....);  The column parameters specify the names of the columns of the table. The datatype parameter specifies the type of data the column can hold (e.g. varchar, integer, date, etc.). 1234567CREATE TABLE Persons (    PersonID int,    LastName varchar(255),    FirstName...</div></div></div></a><a class="pagination-related" href="/2021/12/03/SQL/mysql-dataType/" title="mysql dataType"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-03</div><div class="info-item-2">mysql dataType</div></div><div class="info-2"><div class="info-item-1">String Data Types   Data type Description    CHAR(size) A FIXED length string (can contain letters, numbers, and special characters). The size parameter specifies the column length in characters - can be from 0 to 255. Default is 1   VARCHAR(size) A VARIABLE length string (can contain letters, numbers, and special characters). The size parameter specifies the maximum column length in characters - can be from 0 to 65535   BINARY(size) Equal to CHAR(), but stores binary byte strings. The size...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FerryChan</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">154</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/FerryChan666" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-SQL-in-Your-Web-Site"><span class="toc-number">1.1.</span> <span class="toc-text">Using SQL in Your Web Site</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DBMS"><span class="toc-number">2.</span> <span class="toc-text">DBMS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Table"><span class="toc-number">3.</span> <span class="toc-text">Table</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL-Statements"><span class="toc-number">4.</span> <span class="toc-text">SQL Statements</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SELECT"><span class="toc-number">4.1.</span> <span class="toc-text">SELECT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WHERE"><span class="toc-number">4.2.</span> <span class="toc-text">WHERE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Text-Fields-vs-Numeric-Fields"><span class="toc-number">4.2.1.</span> <span class="toc-text">Text Fields vs. Numeric Fields</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Operators-in-The-WHERE-Clause"><span class="toc-number">4.2.2.</span> <span class="toc-text">Operators in The WHERE Clause</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LIKE"><span class="toc-number">4.2.2.1.</span> <span class="toc-text">LIKE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NOT-LIKE"><span class="toc-number">4.2.2.2.</span> <span class="toc-text">NOT LIKE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IN"><span class="toc-number">4.2.2.3.</span> <span class="toc-text">IN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NOT-IN"><span class="toc-number">4.2.2.4.</span> <span class="toc-text">NOT IN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BETWEEN"><span class="toc-number">4.2.2.5.</span> <span class="toc-text">BETWEEN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NOT-BETWEEN"><span class="toc-number">4.2.2.6.</span> <span class="toc-text">NOT BETWEEN</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NULL"><span class="toc-number">4.2.3.</span> <span class="toc-text">NULL</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ORDER-BY"><span class="toc-number">4.3.</span> <span class="toc-text">ORDER BY</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#INSERT-INTO"><span class="toc-number">4.4.</span> <span class="toc-text">INSERT INTO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UPDATE"><span class="toc-number">4.5.</span> <span class="toc-text">UPDATE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DELETE"><span class="toc-number">4.6.</span> <span class="toc-text">DELETE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JOIN"><span class="toc-number">4.7.</span> <span class="toc-text">JOIN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#INNER-JOIN"><span class="toc-number">4.7.1.</span> <span class="toc-text">INNER JOIN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LEFT-JOIN"><span class="toc-number">4.7.2.</span> <span class="toc-text">LEFT JOIN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RIGHT-JOIN"><span class="toc-number">4.7.3.</span> <span class="toc-text">RIGHT JOIN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FULL-JOIN"><span class="toc-number">4.7.4.</span> <span class="toc-text">FULL JOIN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SELF-JOIN"><span class="toc-number">4.7.5.</span> <span class="toc-text">SELF JOIN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GROUP-BY"><span class="toc-number">4.8.</span> <span class="toc-text">GROUP BY</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Having"><span class="toc-number">4.9.</span> <span class="toc-text">Having</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Function"><span class="toc-number">5.</span> <span class="toc-text">Function</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MIN"><span class="toc-number">5.1.</span> <span class="toc-text">MIN()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MAX"><span class="toc-number">5.2.</span> <span class="toc-text">MAX()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#COUNT"><span class="toc-number">5.3.</span> <span class="toc-text">COUNT()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AVG"><span class="toc-number">5.4.</span> <span class="toc-text">AVG()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SUM"><span class="toc-number">5.5.</span> <span class="toc-text">SUM()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Aliases"><span class="toc-number">6.</span> <span class="toc-text">Aliases</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Alias-Column-Syntax"><span class="toc-number">6.0.1.</span> <span class="toc-text">Alias Column Syntax</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alias-Table-Syntax"><span class="toc-number">6.0.2.</span> <span class="toc-text">Alias Table Syntax</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/15/scrape/JavaScript%E5%8F%8D%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/" title="JavaScript反爬虫原理">JavaScript反爬虫原理</a><time datetime="2025-02-15T07:16:34.000Z" title="Created 2025-02-15 15:16:34">2025-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/19/Q&amp;A/pip-install-%E6%8C%82%E4%BB%A3%E7%90%86/" title="pip install 挂代理">pip install 挂代理</a><time datetime="2023-04-19T14:54:54.000Z" title="Created 2023-04-19 22:54:54">2023-04-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/27/Python/python%20comprehensions/" title="python comprehensions">python comprehensions</a><time datetime="2023-03-27T14:51:10.000Z" title="Created 2023-03-27 22:51:10">2023-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/20/git/Failed-to-connect-to-github-com-port-443-after-21193-ms-Timed-out/" title="Failed to connect to github.com port 443 after 21193 ms: Timed out">Failed to connect to github.com port 443 after 21193 ms: Timed out</a><time datetime="2023-03-20T05:23:22.000Z" title="Created 2023-03-20 13:23:22">2023-03-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/17/Python/Tkinter/" title="Tkinter">Tkinter</a><time datetime="2023-03-17T01:46:53.000Z" title="Created 2023-03-17 09:46:53">2023-03-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By FerryChan</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

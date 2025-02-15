@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>pandas | Ferry's blog</title><meta name="author" content="FerryChan"><meta name="copyright" content="FerryChan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="What is pandas?Pandas is a Python library used for working with data sets. It has functions for analyzing, cleaning, exploring, and manipulating data. SeriesCreating a SeriesYou can create a Series by">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pandas">
+<meta property="og:url" content="http://ferrychan666.github.io/2021/11/23/Python/pandas/index.html">
+<meta property="og:site_name" content="Ferry&#39;s blog">
+<meta property="og:description" content="What is pandas?Pandas is a Python library used for working with data sets. It has functions for analyzing, cleaning, exploring, and manipulating data. SeriesCreating a SeriesYou can create a Series by">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ferrychan666.github.io/img/Tom.jpg">
+<meta property="article:published_time" content="2021-11-23T00:27:58.000Z">
+<meta property="article:modified_time" content="2022-05-21T17:09:19.000Z">
+<meta property="article:author" content="FerryChan">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ferrychan666.github.io/img/Tom.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "pandas",
+  "url": "http://ferrychan666.github.io/2021/11/23/Python/pandas/",
+  "image": "http://ferrychan666.github.io/img/Tom.jpg",
+  "datePublished": "2021-11-23T00:27:58.000Z",
+  "dateModified": "2022-05-21T17:09:19.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "FerryChan",
+      "url": "http://ferrychan666.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://ferrychan666.github.io/2021/11/23/Python/pandas/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":false,"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'pandas',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">154</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a><a class="nav-page-title" href="/"><span class="site-name">pandas</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">pandas</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-11-23T00:27:58.000Z" title="Created 2021-11-23 08:27:58">2021-11-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-21T17:09:19.000Z" title="Updated 2022-05-22 01:09:19">2022-05-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="What-is-pandas"><a href="#What-is-pandas" class="headerlink" title="What is pandas?"></a>What is pandas?</h1><p>Pandas is a Python library used for working with data sets. It has functions for analyzing, cleaning, exploring, and manipulating data.</p>
+<h1 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h1><h2 id="Creating-a-Series"><a href="#Creating-a-Series" class="headerlink" title="Creating a Series"></a>Creating a Series</h2><p>You can create a Series by putting a <code>list</code> or <code>dictionary</code> as the parameter to the method <code>pd.Series()</code> .</p>
+<p>The Series is a <strong>one-dimensional array</strong> holding data of any type.</p>
+<h3 id="label"><a href="#label" class="headerlink" title="label"></a>label</h3><p>The label is the index of the element in the Series. </p>
+<h3 id="using-list"><a href="#using-list" class="headerlink" title="using list"></a>using list</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">7</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">myvar = pd.Series(a)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(myvar)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0    1</span><br><span class="line">1    7</span><br><span class="line">2    2</span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
+
+<p>This label can be used to access a specified value.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(myvar[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+<p>With the <code>index</code> argument, you can name your own labels.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myvar=pd.Series(a, index=[<span class="string">&quot;x&quot;</span>,<span class="string">&quot;y&quot;</span>,<span class="string">&quot;z&quot;</span>])</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x    1</span><br><span class="line">y    7</span><br><span class="line">z    2</span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
+
+<h3 id="using-dictionary"><a href="#using-dictionary" class="headerlink" title="using dictionary"></a>using dictionary</h3><p>Dictionary is a storage to store <code>key/value</code> pairs. </p>
+<p>So when you make dictionary as the parameter, the <code>key</code> will become the <code>label</code> of the Series. </p>
+<h1 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h1><p><code>DataFrame</code> is a 2 dimensional data structure, like a 2 dimensional array, or a table with rows and columns.</p>
+<p>As an example:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data=&#123;</span><br><span class="line">    <span class="string">&quot;calories&quot;</span>:[<span class="number">420</span>, <span class="number">380</span>, <span class="number">390</span>],</span><br><span class="line">    <span class="string">&quot;duration&quot;</span>:[<span class="number">50</span>,<span class="number">40</span>,<span class="number">45</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># one dimension array</span></span><br><span class="line">myvar=pd.Series(data)</span><br><span class="line"><span class="comment"># two dimension array</span></span><br><span class="line">myvar2=pd.DataFrame(data)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(myvar)</span><br><span class="line"><span class="built_in">print</span>(myvar2)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">calories    [420, 380, 390]</span><br><span class="line">duration       [50, 40, 45]</span><br><span class="line">dtype: object</span><br><span class="line">   calories  duration</span><br><span class="line">0       420        50</span><br><span class="line">1       380        40</span><br><span class="line">2       390        45</span><br></pre></td></tr></table></figure>
+
+<h2 id="local-a-row"><a href="#local-a-row" class="headerlink" title="local a row"></a>local a row</h2><p>Pandas use the <code>loc</code> attribute to return one or more specified row(s)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(myvar2.loc[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">calories    420</span><br><span class="line">duration     50</span><br></pre></td></tr></table></figure>
+
+<p>This example returns a Pandas <strong>Series</strong>.</p>
+<h2 id="local-multiple-row"><a href="#local-multiple-row" class="headerlink" title="local multiple row"></a>local multiple row</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.loc[[<span class="number">0</span>, <span class="number">1</span>]])</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   calories  duration</span><br><span class="line">0       420        50</span><br><span class="line">1       380        40</span><br></pre></td></tr></table></figure>
+
+<h1 id="Read-CSV"><a href="#Read-CSV" class="headerlink" title="Read CSV"></a>Read CSV</h1><p>Load the CSV into a DataFrame:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;data.csv&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df.to_string()) </span><br></pre></td></tr></table></figure>
+
+<h1 id="Data-Cleaning"><a href="#Data-Cleaning" class="headerlink" title="Data Cleaning"></a>Data Cleaning</h1><p>Data cleaning means fixing bad data in your data set.</p>
+<p>Bad data could be:</p>
+<ul>
+<li>Empty cells</li>
+<li>Data in wrong format</li>
+<li>Wrong data</li>
+<li>Duplicates</li>
+</ul>
+<h2 id="Empty-Cells"><a href="#Empty-Cells" class="headerlink" title="Empty Cells"></a>Empty Cells</h2><ol>
+<li><p>One way to deal with empty cells is to <strong>remove rows that contain empty cells</strong>. </p>
+<p>This is usually OK, since data sets can be very big, and removing a few rows will not have a big impact on the result.</p>
+<p><strong>Example</strong></p>
+<p>Return a new Data Frame with no empty cells:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;data.csv&#x27;</span>)</span><br><span class="line"></span><br><span class="line">new_df = df.dropna()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(new_df.to_string())</span><br></pre></td></tr></table></figure>
+
+
+
+<p>By default, the <code>dropna()</code> method returns a <em>new</em> DataFrame, and will not change the original.</p>
+<p>If you want to change the original DataFrame, use the <code>inplace = True</code> argument:</p>
+<p>Now, the <code>dropna(inplace = True)</code> will NOT return a new DataFrame, but it will remove all rows containg NULL values from the original DataFrame.</p>
+<p><strong>Example</strong></p>
+<p>Remove all rows with NULL values:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;data.csv&#x27;</span>)</span><br><span class="line"></span><br><span class="line">df.dropna(inplace = <span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(df.to_string())</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>Another way of dealing with empty cells is to insert a <em>new</em> value instead.</p>
+<p>The <code>fillna()</code> method allows us to replace empty cells with a value:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.fillna(<span class="number">130</span>, inplace = <span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>To only replace empty values for one column, specify the <em>column name</em> for the DataFrame:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&quot;Calories&quot;</span>].fillna(<span class="number">130</span>, inplace = <span class="literal">True</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Data-of-Wrong-Format"><a href="#Data-of-Wrong-Format" class="headerlink" title="Data of Wrong Format"></a>Data of Wrong Format</h2><p>Pandas has a <code>to_datetime()</code> method for this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;Date&#x27;</span>]=pd.to_datetime(df[<span class="string">&#x27;Date&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Wrong-Data"><a href="#Wrong-Data" class="headerlink" title="Wrong Data"></a>Wrong Data</h2><ol>
+<li><p>Replace Value</p>
+<p>Set “Duration” &#x3D; 45 in row 7:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.loc[<span class="number">7</span>, <span class="string">&#x27;Duration&#x27;</span>] = <span class="number">45</span></span><br></pre></td></tr></table></figure>
+
+<p>To replace wrong data for larger data sets you can create some rules, e.g. set some boundaries for legal values, and replace any values that are outside of the boundaries.</p>
+<p>Loop through all values in the “Duration” column.</p>
+<p>If the value is higher than 120, set it to 120:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> df.index:</span><br><span class="line"> <span class="keyword">if</span> df.loc[x, <span class="string">&quot;Duration&quot;</span>] &gt; <span class="number">120</span>:</span><br><span class="line">  df.loc[x, <span class="string">&quot;Duration&quot;</span>] = <span class="number">120</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Remove Row</p>
+<p>Delete rows where “Duration” is higher than 120:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> df.index:</span><br><span class="line"> <span class="keyword">if</span> df.loc[x, <span class="string">&quot;Duration&quot;</span>] &gt; <span class="number">120</span>:</span><br><span class="line">  df.drop(x, inplace = <span class="literal">True</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Duplicates"><a href="#Duplicates" class="headerlink" title="Duplicates"></a>Duplicates</h2><p>To discover duplicates, we can use the <code>duplicated()</code> method.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.drop_duplicates(inplace = <span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Plotting"><a href="#Plotting" class="headerlink" title="Plotting"></a>Plotting</h2><p>Pandas uses the <code>plot()</code> method to create diagrams.</p>
+<p><code>df.plot(kind = &#39;scatter&#39;, x = &#39;Duration&#39;, y = &#39;Maxpulse&#39;)</code></p>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">df=pd.read_csv(<span class="string">&#x27;Amazon.csv&#x27;</span>)</span><br><span class="line"><span class="comment"># original DataFram</span></span><br><span class="line"><span class="built_in">print</span>(df.to_string())</span><br><span class="line"></span><br><span class="line"><span class="comment"># filling the NaN row</span></span><br><span class="line">df.fillna(<span class="number">4.0</span>, inplace = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Formating the Date</span></span><br><span class="line">df[<span class="string">&#x27;评论日期&#x27;</span>]=pd.to_datetime(df[<span class="string">&#x27;评论日期&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Removing Dupulicates</span></span><br><span class="line">df.drop_duplicates(inplace = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show the cLeaned DataFram</span></span><br><span class="line"><span class="built_in">print</span>(df.to_string())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show the Diagram</span></span><br><span class="line">df.plot(kind = <span class="string">&#x27;scatter&#x27;</span>,x = <span class="string">&#x27;评论日期&#x27;</span>, y = <span class="string">&#x27;评分&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h1 id="Read-JSON"><a href="#Read-JSON" class="headerlink" title="Read JSON"></a>Read JSON</h1><p><strong>JSON &#x3D; Python Dictionary</strong></p>
+<p>JSON objects have the same format as Python dictionaries.</p>
+<p>JSON is plain text, but has the format of an object, and is well known in the world of programming, including Pandas.</p>
+<p>Load the JSON file into a DataFrame:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">&#x27;data.js&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df.to_string())</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">  <span class="string">&quot;Duration&quot;</span>:&#123;</span><br><span class="line">    <span class="string">&quot;0&quot;</span>:<span class="number">60</span>,</span><br><span class="line">    <span class="string">&quot;1&quot;</span>:<span class="number">60</span>,</span><br><span class="line">    <span class="string">&quot;2&quot;</span>:<span class="number">60</span>,</span><br><span class="line">    <span class="string">&quot;3&quot;</span>:<span class="number">45</span>,</span><br><span class="line">    <span class="string">&quot;4&quot;</span>:<span class="number">45</span>,</span><br><span class="line">    <span class="string">&quot;5&quot;</span>:<span class="number">60</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;Pulse&quot;</span>:&#123;</span><br><span class="line">    <span class="string">&quot;0&quot;</span>:<span class="number">110</span>,</span><br><span class="line">    <span class="string">&quot;1&quot;</span>:<span class="number">117</span>,</span><br><span class="line">    <span class="string">&quot;2&quot;</span>:<span class="number">103</span>,</span><br><span class="line">    <span class="string">&quot;3&quot;</span>:<span class="number">109</span>,</span><br><span class="line">    <span class="string">&quot;4&quot;</span>:<span class="number">117</span>,</span><br><span class="line">    <span class="string">&quot;5&quot;</span>:<span class="number">102</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;Maxpulse&quot;</span>:&#123;</span><br><span class="line">    <span class="string">&quot;0&quot;</span>:<span class="number">130</span>,</span><br><span class="line">    <span class="string">&quot;1&quot;</span>:<span class="number">145</span>,</span><br><span class="line">    <span class="string">&quot;2&quot;</span>:<span class="number">135</span>,</span><br><span class="line">    <span class="string">&quot;3&quot;</span>:<span class="number">175</span>,</span><br><span class="line">    <span class="string">&quot;4&quot;</span>:<span class="number">148</span>,</span><br><span class="line">    <span class="string">&quot;5&quot;</span>:<span class="number">127</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;Calories&quot;</span>:&#123;</span><br><span class="line">    <span class="string">&quot;0&quot;</span>:<span class="number">409</span>,</span><br><span class="line">    <span class="string">&quot;1&quot;</span>:<span class="number">479</span>,</span><br><span class="line">    <span class="string">&quot;2&quot;</span>:<span class="number">340</span>,</span><br><span class="line">    <span class="string">&quot;3&quot;</span>:<span class="number">282</span>,</span><br><span class="line">    <span class="string">&quot;4&quot;</span>:<span class="number">406</span>,</span><br><span class="line">    <span class="string">&quot;5&quot;</span>:<span class="number">300</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">df=pd.DataFrame(data)</span><br><span class="line"><span class="built_in">print</span>(df.to_string())</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io">FerryChan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io/2021/11/23/Python/pandas/">http://ferrychan666.github.io/2021/11/23/Python/pandas/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a></div><div class="post-share"><div class="social-share" data-image="/img/Tom.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2021/11/18/Python/Matplotlib/" title="Matplotlib"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">Matplotlib</div></div><div class="info-2"><div class="info-item-1">pyplotMost of the Matplotlib utilities lies under the pyplot submodule, and are usually imported under the plt alias: 1import matplotlib.pyplot as plt    Functionplot()The plot() function is used to draw points in a diagram. This function takes two parameters for specifying points in the diagram.  Parameter1 is a array that define the range on x-axis.  Paramete21 is a array that define the range on y-axis.  By default, the plot() function draws a line from point to point. point to...</div></div></div></a><a class="pagination-related" href="/2021/11/30/Python/Python-MySQL/" title="Python MySQL"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">Python MySQL</div></div><div class="info-2"><div class="info-item-1">Creating Connection1234567import pymysqlmydb = pymysql.connect(  host=&quot;localhost&quot;,  user=&quot;root&quot;,  password=&quot;123456&quot;)  Creating a DatabaseWe created a database named “mydatabase” 123mycursor = mydb.cursor()mycursor.execute(&quot;CREATE DATABASE mydatabase&quot;)    Check if Database Exists12345mycursor = mydb.cursor()mycursor.execute(&quot;SHOW DATABASES&quot;)for x in mycursor:  print(x)    access the database when making the connection123456mydb =...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2021/12/23/Python/BeautifulSoup/" title="BeautifulSoup"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-23</div><div class="info-item-2">BeautifulSoup</div></div><div class="info-2"><div class="info-item-1">IntroductionBeautiful Soup is a Python library for pulling data out of HTML and XML files. It works with your favorite parser to provide idiomatic ways of navigating. I’ll be using as an example throughout this document. 123456789101112html_doc = &quot;&quot;&quot;&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&#x27;s story&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse&#x27;s story&lt;/b&gt;&lt;/p&gt;&lt;p class=&quot;story&quot;&gt;Once upon...</div></div></div></a><a class="pagination-related" href="/2021/11/18/Python/Matplotlib/" title="Matplotlib"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-18</div><div class="info-item-2">Matplotlib</div></div><div class="info-2"><div class="info-item-1">pyplotMost of the Matplotlib utilities lies under the pyplot submodule, and are usually imported under the plt alias: 1import matplotlib.pyplot as plt    Functionplot()The plot() function is used to draw points in a diagram. This function takes two parameters for specifying points in the diagram.  Parameter1 is a array that define the range on x-axis.  Paramete21 is a array that define the range on y-axis.  By default, the plot() function draws a line from point to point. point to...</div></div></div></a><a class="pagination-related" href="/2021/11/30/Python/Python-MySQL/" title="Python MySQL"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-30</div><div class="info-item-2">Python MySQL</div></div><div class="info-2"><div class="info-item-1">Creating Connection1234567import pymysqlmydb = pymysql.connect(  host=&quot;localhost&quot;,  user=&quot;root&quot;,  password=&quot;123456&quot;)  Creating a DatabaseWe created a database named “mydatabase” 123mycursor = mydb.cursor()mycursor.execute(&quot;CREATE DATABASE mydatabase&quot;)    Check if Database Exists12345mycursor = mydb.cursor()mycursor.execute(&quot;SHOW DATABASES&quot;)for x in mycursor:  print(x)    access the database when making the connection123456mydb =...</div></div></div></a><a class="pagination-related" href="/2021/11/02/Python/Spider/" title="Spider"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-02</div><div class="info-item-2">Spider</div></div><div class="info-2"><div class="info-item-1"> 发送请求 获取源码（re正则表达式，css（parsel），XPath） 提取数据 保存数据  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859import requestsimport parselimport csvimport timedef spider():    headers=&#123;        &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36&#x27;    &#125;    i=0    num=0    while True:        time.sleep(1)       ...</div></div></div></a><a class="pagination-related" href="/2023/03/17/Python/Tkinter/" title="Tkinter"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-17</div><div class="info-item-2">Tkinter</div></div><div class="info-2"><div class="info-item-1">IntroductionThe foundational element of a Tkinter GUI is the window. Windows are the containers in which all other GUI elements live. These other GUI elements, such as text boxes, labels, and buttons, are known as widgets. windowThe first thing you need to do is import the Python GUI Tkinter module: 1import tkinter as tk  A window is an instance of Tkinter’s Tk class. Go ahead and create a new window and assign it to the variable window: 1window = tk.Tk()  widgetsUse the tk.Label class to...</div></div></div></a><a class="pagination-related" href="/2023/03/27/Python/python%20comprehensions/" title="python comprehensions"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-27</div><div class="info-item-2">python comprehensions</div></div><div class="info-2"><div class="info-item-1">List ComprehensionList comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list. The Syntaxnewlist &#x3D; [expression for item in iterable if condition &#x3D;&#x3D; True] The return value is a new list, leaving the old list unchanged. ConditionThe condition is like a filter that only accepts the items that valuate to True. IterableThe iterable can be any iterable object, like a list, tuple, set etc. ExpressionThe expression is the...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FerryChan</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">154</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/FerryChan666" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-pandas"><span class="toc-number">1.</span> <span class="toc-text">What is pandas?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Series"><span class="toc-number">2.</span> <span class="toc-text">Series</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-a-Series"><span class="toc-number">2.1.</span> <span class="toc-text">Creating a Series</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#label"><span class="toc-number">2.1.1.</span> <span class="toc-text">label</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#using-list"><span class="toc-number">2.1.2.</span> <span class="toc-text">using list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#using-dictionary"><span class="toc-number">2.1.3.</span> <span class="toc-text">using dictionary</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DataFrame"><span class="toc-number">3.</span> <span class="toc-text">DataFrame</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#local-a-row"><span class="toc-number">3.1.</span> <span class="toc-text">local a row</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#local-multiple-row"><span class="toc-number">3.2.</span> <span class="toc-text">local multiple row</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Read-CSV"><span class="toc-number">4.</span> <span class="toc-text">Read CSV</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Data-Cleaning"><span class="toc-number">5.</span> <span class="toc-text">Data Cleaning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Empty-Cells"><span class="toc-number">5.1.</span> <span class="toc-text">Empty Cells</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-of-Wrong-Format"><span class="toc-number">5.2.</span> <span class="toc-text">Data of Wrong Format</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wrong-Data"><span class="toc-number">5.3.</span> <span class="toc-text">Wrong Data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Duplicates"><span class="toc-number">5.4.</span> <span class="toc-text">Duplicates</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Plotting"><span class="toc-number">5.5.</span> <span class="toc-text">Plotting</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Example"><span class="toc-number">6.</span> <span class="toc-text">Example</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Read-JSON"><span class="toc-number">7.</span> <span class="toc-text">Read JSON</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/15/scrape/JavaScript%E5%8F%8D%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/" title="JavaScript反爬虫原理">JavaScript反爬虫原理</a><time datetime="2025-02-15T07:16:34.000Z" title="Created 2025-02-15 15:16:34">2025-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/19/Q&amp;A/pip-install-%E6%8C%82%E4%BB%A3%E7%90%86/" title="pip install 挂代理">pip install 挂代理</a><time datetime="2023-04-19T14:54:54.000Z" title="Created 2023-04-19 22:54:54">2023-04-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/27/Python/python%20comprehensions/" title="python comprehensions">python comprehensions</a><time datetime="2023-03-27T14:51:10.000Z" title="Created 2023-03-27 22:51:10">2023-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/20/git/Failed-to-connect-to-github-com-port-443-after-21193-ms-Timed-out/" title="Failed to connect to github.com port 443 after 21193 ms: Timed out">Failed to connect to github.com port 443 after 21193 ms: Timed out</a><time datetime="2023-03-20T05:23:22.000Z" title="Created 2023-03-20 13:23:22">2023-03-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/17/Python/Tkinter/" title="Tkinter">Tkinter</a><time datetime="2023-03-17T01:46:53.000Z" title="Created 2023-03-17 09:46:53">2023-03-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By FerryChan</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

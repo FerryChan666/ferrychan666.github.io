@@ -1,0 +1,298 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>git ugage | Ferry's blog</title><meta name="author" content="FerryChan"><meta name="copyright" content="FerryChan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="What is Git?Git is a popular version control system. It is used for:  Tracking code changes Tracking who made changes Coding collaboration  Git Getting StartedGit InstallYou can download Git for free">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git ugage">
+<meta property="og:url" content="http://ferrychan666.github.io/2020/03/27/git/git%20usage/index.html">
+<meta property="og:site_name" content="Ferry&#39;s blog">
+<meta property="og:description" content="What is Git?Git is a popular version control system. It is used for:  Tracking code changes Tracking who made changes Coding collaboration  Git Getting StartedGit InstallYou can download Git for free">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ferrychan666.github.io/img/Tom.jpg">
+<meta property="article:published_time" content="2020-03-27T15:41:46.000Z">
+<meta property="article:modified_time" content="2023-03-28T12:41:16.344Z">
+<meta property="article:author" content="FerryChan">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ferrychan666.github.io/img/Tom.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "git ugage",
+  "url": "http://ferrychan666.github.io/2020/03/27/git/git%20usage/",
+  "image": "http://ferrychan666.github.io/img/Tom.jpg",
+  "datePublished": "2020-03-27T15:41:46.000Z",
+  "dateModified": "2023-03-28T12:41:16.344Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "FerryChan",
+      "url": "http://ferrychan666.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://ferrychan666.github.io/2020/03/27/git/git%20usage/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":false,"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'git ugage',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">154</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a><a class="nav-page-title" href="/"><span class="site-name">git ugage</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">git ugage</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-03-27T15:41:46.000Z" title="Created 2020-03-27 23:41:46">2020-03-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-28T12:41:16.344Z" title="Updated 2023-03-28 20:41:16">2023-03-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="What-is-Git"><a href="#What-is-Git" class="headerlink" title="What is Git?"></a>What is Git?</h1><p>Git is a popular version control system.</p>
+<p>It is used for:</p>
+<ul>
+<li>Tracking code changes</li>
+<li>Tracking who made changes</li>
+<li>Coding collaboration</li>
+</ul>
+<h1 id="Git-Getting-Started"><a href="#Git-Getting-Started" class="headerlink" title="Git Getting Started"></a>Git Getting Started</h1><h2 id="Git-Install"><a href="#Git-Install" class="headerlink" title="Git Install"></a>Git Install</h2><p>You can download Git for free from the following website: <a target="_blank" rel="noopener" href="https://git-scm.com/">https://www.git-scm.com/</a></p>
+<h2 id="Configure-Git"><a href="#Configure-Git" class="headerlink" title="Configure Git"></a>Configure Git</h2><p>Now let Git know who you are. This is important for version control systems, as each Git commit uses this information:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;&quot;</span><br><span class="line">git config --global user.email &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Initialize-Git"><a href="#Initialize-Git" class="headerlink" title="Initialize Git"></a>Initialize Git</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir myproject</span><br><span class="line">cd myproject</span><br><span class="line">git init </span><br></pre></td></tr></table></figure>
+
+<p>Now create a file, index.html, and add it in this folder.</p>
+<p>Then we check the Git <code>status</code> and see if it is a part of our repo:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use &quot;git add ...&quot; to include in what will be committed)</span><br><span class="line">    index.html</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span><br></pre></td></tr></table></figure>
+
+<p>Now Git is <strong>aware</strong> of the file, but has not <strong>added</strong> it to our repository!</p>
+<p>Files in your Git repository folder can be in one of 2 states:</p>
+<ul>
+<li>Tracked - files that Git knows about and are added to the repository</li>
+<li>Untracked - files that are in your working directory, but not added to the repository</li>
+</ul>
+<h1 id="Git-Staging-Environment"><a href="#Git-Staging-Environment" class="headerlink" title="Git Staging Environment"></a>Git Staging Environment</h1><p>As you are working, you may be adding, editing and removing files. But whenever you hit a milestone or <strong>finish a part of the work</strong>, you should add the files to a Staging Environment.</p>
+<p>For now, we are done working with <code>index.html</code>. So we can add it to the Staging Environment:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add index.html</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git rm --cached ...&quot; to unstage)</span><br><span class="line">    new file: index.html</span><br></pre></td></tr></table></figure>
+
+<p>Now the file has been added to the Staging Environment. </p>
+<p>Using <code>--all</code> instead of individual filenames will <code>stage</code> all changes (new, modified, and deleted) files.</p>
+<p>The shorthand command for <code>git add --all</code> is <code>git add -A</code></p>
+<h1 id="Git-Commit"><a href="#Git-Commit" class="headerlink" title="Git Commit"></a>Git Commit</h1><p>Adding commits keep track of our progress and changes as we work. Git considers each <code>commit</code> change point or “save point”. It is a point in the project you can go back to if you find a bug, or want to make a change.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;First release of Hello World!&quot;</span><br><span class="line">[master (root-commit) 221ec6e] First release of Hello World!</span><br><span class="line"> 3 files changed, 26 insertions(+)</span><br><span class="line"> create mode 100644 README.md</span><br><span class="line"> create mode 100644 bluestyle.css</span><br><span class="line"> create mode 100644 index.html</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Git-Commit-without-Stage"><a href="#Git-Commit-without-Stage" class="headerlink" title="Git Commit without Stage"></a>Git Commit without Stage</h2><p>Sometimes, when you make small changes, using the staging environment seems like a waste of time. It is possible to commit changes directly, skipping the staging environment. The <code>-a</code> option will automatically stage every changed, already tracked file.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git commit -a -m &quot;Updated index.html with a new line&quot;</span><br><span class="line">[master 09f4acd] Updated index.html with a new line</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git-Commit-Log"><a href="#Git-Commit-Log" class="headerlink" title="Git Commit Log"></a>Git Commit Log</h2><p>To view the history of commits for a repository, you can use the <code>log</code> command:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br><span class="line">commit 09f4acd3f8836b7f6fc44ad9e012f82faf861803 (HEAD -&gt; master)</span><br><span class="line">Author: w3schools-test </span><br><span class="line">Date:   Fri Mar 26 09:35:54 2021 +0100</span><br><span class="line"></span><br><span class="line">    Updated index.html with a new line</span><br><span class="line"></span><br><span class="line">commit 221ec6e10aeedbfd02b85264087cd9adc18e4b26</span><br><span class="line">Author: w3schools-test </span><br><span class="line">Date:   Fri Mar 26 09:13:07 2021 +0100</span><br><span class="line"></span><br><span class="line">    First release of Hello World!</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Git-Branch"><a href="#Git-Branch" class="headerlink" title="Git Branch"></a>Git Branch</h1><p>In Git, a <code>branch</code> is a new&#x2F;separate version of the main repository.</p>
+<p><strong>Branches allow you to work on different parts of a project without impacting the main branch.</strong></p>
+<p>When the work is complete, a branch can be merged with the main project.</p>
+<h2 id="New-Git-Branch"><a href="#New-Git-Branch" class="headerlink" title="New Git Branch"></a>New Git Branch</h2><p>We are working in our local repository, and we do not want to disturb or possibly wreck the main project.</p>
+<p>So we create a new <code>branch</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch hello-world-images</span><br></pre></td></tr></table></figure>
+
+<p>Now we created a new <code>branch</code> called “<code>hello-world-images</code>“</p>
+<p>Let’s confirm that we have created a new <code>branch</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line">  hello-world-images</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+<p><code>checkout</code> is the command used to check out a <code>branch</code>. Moving us <strong>from</strong> the current <code>branch</code>, <strong>to</strong> the one specified at the end of the command:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout hello-world-images</span><br><span class="line">Switched to branch &#x27;hello-world-images&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>We are currently on the branch <code>hello-world-images</code>. We added an image to this branch, so let’s list the files in the current directory:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br><span class="line">README.md  bluestyle.css  img_hello_world.jpg  index.html</span><br></pre></td></tr></table></figure>
+
+<p>Now, let’s see what happens when we change branch to <code>master</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">Switched to branch &#x27;master&#x27;</span><br><span class="line">ls</span><br><span class="line">README.md  bluestyle.css  index.html</span><br></pre></td></tr></table></figure>
+
+<p>The new image is not a part of this branch. </p>
+<h2 id="Emergency-Branch"><a href="#Emergency-Branch" class="headerlink" title="Emergency Branch"></a>Emergency Branch</h2><p>Now imagine that we are not yet done with hello-world-images, but we need to fix an error on master.</p>
+<p>I don’t want to mess with master directly, and I do not want to mess with hello-world-images, since it is not done yet. So we create a new branch to deal with the emergency:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b emergency-fix</span><br><span class="line">Switched to a new branch &#x27;emergency-fix&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>Now we have created a new branch from master, and changed to it. We can safely fix the error without disturbing the other branches.</p>
+<p>We have made changes in this file, and we need to get those changes to the master branch.</p>
+<p>stage the file, and commit:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add index.html</span><br><span class="line">git commit -m &quot;updated index.html with emergency fix&quot;</span><br><span class="line">[emergency-fix dfa79db] updated index.html with emergency fix</span><br><span class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Git-Branch-Merge"><a href="#Git-Branch-Merge" class="headerlink" title="Git Branch Merge"></a>Git Branch Merge</h1><p>We have the emergency fix ready, and so let’s merge the master and emergency-fix branches.</p>
+<p>First, we need to change to the master branch. Now we merge the current branch (master) with emergency-fix:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">Switched to branch &#x27;master&#x27;</span><br><span class="line">git merge emergency-fix</span><br><span class="line">Updating 09f4acd..dfa79db</span><br><span class="line">Fast-forward</span><br><span class="line"> index.html | 2 +-</span><br><span class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</span><br></pre></td></tr></table></figure>
+
+<p>As master and emergency-fix are essentially the same now, we can delete emergency-fix, as it is no longer needed:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d emergency-fix</span><br><span class="line">Deleted branch emergency-fix (was dfa79db).</span><br></pre></td></tr></table></figure>
+
+<h2 id="Merge-Conflict"><a href="#Merge-Conflict" class="headerlink" title="Merge Conflict"></a>Merge Conflict</h2><p>Now we can move over to hello-world-images and keep working. Add another image file (img_hello_git.jpg) and change index.html.</p>
+<p>Now, we are done with our work here and can stage and commit for this branch:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add --all</span><br><span class="line">git commit -m &quot;added new image&quot;</span><br><span class="line">[hello-world-images 1f1584e] added new image</span><br><span class="line"> 2 files changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 img_hello_git.jpg</span><br></pre></td></tr></table></figure>
+
+<p>We see that index.html has been changed in both branches. Now we are ready to merge hello-world-images into master. But what will happen to the changes we recently made in master?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge hello-world-images</span><br><span class="line">Auto-merging index.html</span><br><span class="line">CONFLICT (content): Merge conflict in index.html</span><br><span class="line">Automatic merge failed; fix conflicts and then commit the result.</span><br></pre></td></tr></table></figure>
+
+<p>The merge failed, as there is conflict between the versions for index.html. Let us check the status:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line">You have unmerged paths.</span><br><span class="line">  (fix conflicts and run &quot;git commit&quot;)</span><br><span class="line">  (use &quot;git merge --abort&quot; to abort the merge)</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">        new file:   img_hello_git.jpg</span><br><span class="line">        new file:   img_hello_world.jpg</span><br><span class="line"></span><br><span class="line">Unmerged paths:</span><br><span class="line">  (use &quot;git add ...&quot; to mark resolution)</span><br><span class="line">        both modified:   index.html</span><br></pre></td></tr></table></figure>
+
+<p><strong>This confirms there is a conflict in index.html, but the image files are ready and staged to be committed.</strong></p>
+<p>So we need to fix that conflict.</p>
+<p>The conflict has been fixed, and we can use commit to conclude the merge:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;merged with hello-world-images after fixing conflicts&quot;</span><br><span class="line">[master e0b6038] merged with hello-world-images after fixing conflicts</span><br></pre></td></tr></table></figure>
+
+<p>And delete the hello-world-images branch:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d hello-world-images</span><br><span class="line">Deleted branch hello-world-images (was 1f1584e).</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Git-Reset"><a href="#Git-Reset" class="headerlink" title="Git Reset"></a>Git Reset</h1><p><code>reset</code> is the command we use when we want to move the repository back to a previous <code>commit</code>, discarding any changes made after that <code>commit</code>.</p>
+<p>First thing, we need to find the point we want to return to. To do that, we need to go through the <code>log</code>.</p>
+<p>To avoid the very long <code>log</code> list, we are going to use the <code>--oneline</code> option, which gives just one line per <code>commit</code> showing:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline</span><br><span class="line">e56ba1f (HEAD -&gt; master) Revert &quot;Just a regular update, definitely no accidents here...&quot;</span><br><span class="line">52418f7 Just a regular update, definitely no accidents here...</span><br><span class="line">9a9add8 (origin/master) Added .gitignore</span><br><span class="line">81912ba Corrected spelling error</span><br><span class="line">3fdaa5b Merge pull request #1 from w3schools-test/update-readme</span><br></pre></td></tr></table></figure>
+
+<p>We want to return to the <code>commit</code>: <code>9a9add8 (origin/master) Added .gitignore</code>, the last one before we started to mess with things.</p>
+<p>We <code>reset</code> our repository back to the specific commit using <code>git reset *commithash*</code> (<code>*commithash*</code> being the first 7 characters of the commit hash we found in the <code>log</code>):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset 9a9add8</span><br></pre></td></tr></table></figure>
+
+<p>Now let’s check the <code>log</code> again:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline</span><br><span class="line">9a9add8 (HEAD -&gt; master, origin/master) Added .gitignore</span><br><span class="line">81912ba Corrected spelling error</span><br><span class="line">3fdaa5b Merge pull request #1 from w3schools-test/update-readme</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git-Undo-Reset"><a href="#Git-Undo-Reset" class="headerlink" title="Git Undo Reset"></a>Git Undo Reset</h2><p>Even though the commits are no longer showing up in the <code>log</code>, it is not removed from Git.</p>
+<p>If you know the commit hash you can <code>reset</code> to it:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset e56ba1f</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><h2 id="Git-push-into-GitHub"><a href="#Git-push-into-GitHub" class="headerlink" title="Git push into GitHub"></a>Git push into GitHub</h2><p>First, we create a remote repo in Github. Now we are going to <code>push</code> our local repo to Github. </p>
+<p><code>git remote add origin *URL*</code> specifies that you are adding a remote repository, with the specified <code>URL</code>, as an <code>origin</code> to your local Git repo.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/FerryChan666/Project.git</span><br></pre></td></tr></table></figure>
+
+<p>Now we are going to push our master branch to the origin url, and set it as the default remote branch:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --set-upstream origin master</span><br></pre></td></tr></table></figure>
+
+<p>Now, go back into GitHub and see that the repository has been updated.</p>
+<h2 id="Git-Pull-from-GitHub"><a href="#Git-Pull-from-GitHub" class="headerlink" title="Git Pull from GitHub"></a>Git Pull from GitHub</h2><p>Any time you start working on a project, you should get the most recent changes to your local copy.</p>
+<p>With Git, you can do that with <code>pull</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin</span><br></pre></td></tr></table></figure>
+
+<h2 id="GitHub-Branch"><a href="#GitHub-Branch" class="headerlink" title="GitHub Branch"></a>GitHub Branch</h2><h3 id="Create-a-New-Branch-on-GitHub"><a href="#Create-a-New-Branch-on-GitHub" class="headerlink" title="Create a New Branch on GitHub"></a>Create a New Branch on GitHub</h3><p>On GitHub, access your repository and click the “master” branch button.</p>
+<p>There you can create a new Branch. Type in a descriptive name, and click Create branch:</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io">FerryChan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io/2020/03/27/git/git%20usage/">http://ferrychan666.github.io/2020/03/27/git/git%20usage/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/git/">git</a></div><div class="post-share"><div class="social-share" data-image="/img/Tom.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2020/03/26/java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" title="java面向对象思想(this,return)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">java面向对象思想(this,return)</div></div><div class="info-2"><div class="info-item-1">前言面向对象的思想在主方法中,主要实现:  建对象 给参数 要什么方法就调用  了解 类的成员变量：定义在方法外可以被类方法访问的是成员变量。按照java的编码规范，成员变量一般被定义成private权限。  类的属性：类的成员变量中，外界可以通过set方法和get方法对成员变量进行操作，那么这个成员变量就是类的属性。  this.这个关键字主要用于引用本类中的成员变量或者方法将局部变量的值传递给成员变量给成员变量是为了给本类中的方法使用由于有时类中的属性名和方法中的参数名有时相同,所以目的为了区分类的属性和参数两者.   12345Public Class Student &#123;  	String name; 	//定义一个成员变量name 	private void SetName(String name)&#123;  //定义一个参数(局部变量)name  	this.name = name; 	//将局部变量的值传递给成员变量&#125;  实例123456789101112131415161718192021package 矩形面积;public class...</div></div></div></a><a class="pagination-related" href="/2020/03/29/java/%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B/" title="上下转型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">上下转型</div></div><div class="info-2"><div class="info-item-1">前言 为什么要向上转型？我们直接用继承父类的子类实例化子类对象不就好了吗？这不就可以既能访问子类的对象，也能访问父类对象了吗？如果我们要用被覆盖的父类的方法或者属性，那么用super调用不就好了吗？ 介绍向上转型 就是将子类对象赋值给父类类型的变量。 向上转型是为了用父类变量来接受不同的子类对象，调用方法的时候传参父类对象，可以调用子类里不同的重写方法，得到不同的结果。  1Person tom = new Student(); 应用父类12345678910111213public class Animal &#123;    public void sleep() &#123;        System.out.println(&quot;小动物在睡觉&quot;);    &#125;    public static void doSleep(Animal animal) &#123;        // 此时的参数是父类对象，但是实际调用时传递的是子类对象，就是向上转型。        animal.sleep();    &#125;    public...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2023/03/20/git/Failed-to-connect-to-github-com-port-443-after-21193-ms-Timed-out/" title="Failed to connect to github.com port 443 after 21193 ms: Timed out"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-20</div><div class="info-item-2">Failed to connect to github.com port 443 after 21193 ms: Timed out</div></div><div class="info-2"><div class="info-item-1">这种连接不上github的问题也不是第一次见了，一直被这种问题困扰。 解决方法： 修改DNS: 114.114.114.114 or 其他 </div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FerryChan</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">154</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/FerryChan666" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#What-is-Git"><span class="toc-number">1.</span> <span class="toc-text">What is Git?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-Getting-Started"><span class="toc-number">2.</span> <span class="toc-text">Git Getting Started</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-Install"><span class="toc-number">2.1.</span> <span class="toc-text">Git Install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configure-Git"><span class="toc-number">2.2.</span> <span class="toc-text">Configure Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initialize-Git"><span class="toc-number">2.3.</span> <span class="toc-text">Initialize Git</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-Staging-Environment"><span class="toc-number">3.</span> <span class="toc-text">Git Staging Environment</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-Commit"><span class="toc-number">4.</span> <span class="toc-text">Git Commit</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-Commit-without-Stage"><span class="toc-number">4.1.</span> <span class="toc-text">Git Commit without Stage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-Commit-Log"><span class="toc-number">4.2.</span> <span class="toc-text">Git Commit Log</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-Branch"><span class="toc-number">5.</span> <span class="toc-text">Git Branch</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#New-Git-Branch"><span class="toc-number">5.1.</span> <span class="toc-text">New Git Branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emergency-Branch"><span class="toc-number">5.2.</span> <span class="toc-text">Emergency Branch</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-Branch-Merge"><span class="toc-number">6.</span> <span class="toc-text">Git Branch Merge</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Merge-Conflict"><span class="toc-number">6.1.</span> <span class="toc-text">Merge Conflict</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-Reset"><span class="toc-number">7.</span> <span class="toc-text">Git Reset</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-Undo-Reset"><span class="toc-number">7.1.</span> <span class="toc-text">Git Undo Reset</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Github"><span class="toc-number">8.</span> <span class="toc-text">Github</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-push-into-GitHub"><span class="toc-number">8.1.</span> <span class="toc-text">Git push into GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-Pull-from-GitHub"><span class="toc-number">8.2.</span> <span class="toc-text">Git Pull from GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GitHub-Branch"><span class="toc-number">8.3.</span> <span class="toc-text">GitHub Branch</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-New-Branch-on-GitHub"><span class="toc-number">8.3.1.</span> <span class="toc-text">Create a New Branch on GitHub</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/15/scrape/JavaScript%E5%8F%8D%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/" title="JavaScript反爬虫原理">JavaScript反爬虫原理</a><time datetime="2025-02-15T07:16:34.000Z" title="Created 2025-02-15 15:16:34">2025-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/19/Q&amp;A/pip-install-%E6%8C%82%E4%BB%A3%E7%90%86/" title="pip install 挂代理">pip install 挂代理</a><time datetime="2023-04-19T14:54:54.000Z" title="Created 2023-04-19 22:54:54">2023-04-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/27/Python/python%20comprehensions/" title="python comprehensions">python comprehensions</a><time datetime="2023-03-27T14:51:10.000Z" title="Created 2023-03-27 22:51:10">2023-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/20/git/Failed-to-connect-to-github-com-port-443-after-21193-ms-Timed-out/" title="Failed to connect to github.com port 443 after 21193 ms: Timed out">Failed to connect to github.com port 443 after 21193 ms: Timed out</a><time datetime="2023-03-20T05:23:22.000Z" title="Created 2023-03-20 13:23:22">2023-03-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/17/Python/Tkinter/" title="Tkinter">Tkinter</a><time datetime="2023-03-17T01:46:53.000Z" title="Created 2023-03-17 09:46:53">2023-03-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By FerryChan</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

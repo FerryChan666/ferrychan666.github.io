@@ -1,0 +1,969 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Base_syntax | Ferry's blog</title><meta name="author" content="FerryChan"><meta name="copyright" content="FerryChan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Python is an interpreted programming language, this means that as a developer you write Python (.py) files in a text editor and then put those files into the python interpreter to be executed.  The wa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Base_syntax">
+<meta property="og:url" content="http://ferrychan666.github.io/2021/10/15/Python/python/index.html">
+<meta property="og:site_name" content="Ferry&#39;s blog">
+<meta property="og:description" content="Python is an interpreted programming language, this means that as a developer you write Python (.py) files in a text editor and then put those files into the python interpreter to be executed.  The wa">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ferrychan666.github.io/img/Tom.jpg">
+<meta property="article:published_time" content="2021-10-15T14:51:10.000Z">
+<meta property="article:modified_time" content="2023-03-04T16:00:41.840Z">
+<meta property="article:author" content="FerryChan">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ferrychan666.github.io/img/Tom.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Base_syntax",
+  "url": "http://ferrychan666.github.io/2021/10/15/Python/python/",
+  "image": "http://ferrychan666.github.io/img/Tom.jpg",
+  "datePublished": "2021-10-15T14:51:10.000Z",
+  "dateModified": "2023-03-04T16:00:41.840Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "FerryChan",
+      "url": "http://ferrychan666.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://ferrychan666.github.io/2021/10/15/Python/python/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":false,"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Base_syntax',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">154</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a><a class="nav-page-title" href="/"><span class="site-name">Base_syntax</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Base_syntax</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-15T14:51:10.000Z" title="Created 2021-10-15 22:51:10">2021-10-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-04T16:00:41.840Z" title="Updated 2023-03-05 00:00:41">2023-03-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><p>Python is an interpreted programming language, this means that as a developer you write Python (.py) files in a text editor and then put those files into the python interpreter to be executed.</p>
+<ol>
+<li><p>The way to run a python file is like this on the command line:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\*Your Name*&gt;python helloworld.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Python can be run as a command line itself.</p>
+<p>Type the following on the Windows, Mac or Linux command line:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Your Name&gt;python</span><br></pre></td></tr></table></figure>
+
+<p>Or, if the “python” command did not work, you can try “py”:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Your Name&gt;py</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Indentation"><a href="#Indentation" class="headerlink" title="Indentation"></a>Indentation</h1><p>Where in other programming languages the indentation in code is for readability only, the indentation in Python is very important.</p>
+<p><strong>Python uses indentation to indicate a block of code.</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="number">5</span> &gt; <span class="number">2</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Five is greater than two!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>The number of spaces is up to you as a programmer, but it has to be at least one.</strong></p>
+<p><strong>You have to use the same number of spaces in the same block of code, otherwise Python will give you an error:</strong></p>
+<p>Syntax Error:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="number">5</span> &gt; <span class="number">2</span>:</span><br><span class="line"> <span class="built_in">print</span>(<span class="string">&quot;Five is greater than two!&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Five is greater than two!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h1><ul>
+<li><p>In Python, variables are created when you assign a value to it:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">5</span></span><br><span class="line">y=<span class="string">&quot;Hello&quot;</span></span><br><span class="line"><span class="built_in">print</span>(x)</span><br><span class="line"><span class="built_in">print</span>(y)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">Hello</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>Variables do not need to be declared with any particular <em>type</em>, and can even change type after they have been set.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">5</span></span><br><span class="line">x=<span class="string">&quot;Hello&quot;</span></span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>String variables can be declared either by using single or double quotes:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">&quot;John&quot;</span></span><br><span class="line"><span class="comment"># is the same as</span></span><br><span class="line">x = <span class="string">&#x27;John&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Casting</p>
+<p>If you want to specify the data type of a variable, this can be done with casting.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="built_in">str</span>(<span class="number">3</span>)    <span class="comment"># x will be &#x27;3&#x27;</span></span><br><span class="line">y = <span class="built_in">int</span>(<span class="number">3</span>)    <span class="comment"># y will be 3</span></span><br><span class="line">z = <span class="built_in">float</span>(<span class="number">3</span>)  <span class="comment"># z will be 3.0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Get the Type</p>
+<p>You can get the data type of a variable with the <code>type()</code> function.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">5</span></span><br><span class="line">y = <span class="string">&quot;John&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(x))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(y))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Variable name</p>
+<ul>
+<li>A variable name must start with a letter or the underscore character</li>
+<li>A variable name cannot start with a number</li>
+<li>A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )</li>
+<li>Variable names are case-sensitive (age, Age and AGE are three different variables)</li>
+<li>A variable name cannot be any of the Python keywords.</li>
+</ul>
+</li>
+<li><p>Output Variable</p>
+<p>In the <code>print()</code> function, you output multiple variables, separated by a comma:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="string">&quot;Python&quot;</span></span><br><span class="line">y=<span class="string">&quot;is&quot;</span></span><br><span class="line">z=<span class="string">&quot;awesome&quot;</span></span><br><span class="line"><span class="built_in">print</span>(x,y,z)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python is awesome</span></span><br></pre></td></tr></table></figure>
+
+<p>You can also use the <code>+</code> operator to output multiple variables:</p>
+<p>(But <code>+</code> will not separate the word by space. In the string , the function of <code>+</code> is concatenating the strings)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">&quot;Python&quot;</span></span><br><span class="line">y = <span class="string">&quot;is&quot;</span></span><br><span class="line">z = <span class="string">&quot;awesome&quot;</span></span><br><span class="line"><span class="built_in">print</span>(x + <span class="string">&#x27; &#x27;</span> + y + <span class="string">&#x27; &#x27;</span> + z)</span><br></pre></td></tr></table></figure>
+
+<p>For numbers, the <code>+</code> character works as a mathematical operator:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">5</span></span><br><span class="line">y = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(x + y)</span><br></pre></td></tr></table></figure>
+
+<p>In the <code>print()</code> function, when you try to combine a string and a number with the <code>+</code> operator, Python will give you an error:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">5</span></span><br><span class="line">y = <span class="string">&quot;John&quot;</span></span><br><span class="line"><span class="built_in">print</span>(x + y)</span><br></pre></td></tr></table></figure>
+
+<p>The best way to output multiple variables in the <code>print()</code> function is to separate them with commas, which even support different data types:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">5</span></span><br><span class="line">y = <span class="string">&quot;John&quot;</span></span><br><span class="line"><span class="built_in">print</span>(x, y)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Global Variables</p>
+<p>Variables that are created outside of a function (as in all of the examples above) are known as global variables. Global variables can be used by everyone, both inside of functions and outside.</p>
+<p>If you create a variable with the same name inside a function, this variable will be local, and can only be used inside the function. The global variable with the same name will remain as it was, global and with the original value.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">&quot;awesome&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">myfunc</span>():</span><br><span class="line">  x = <span class="string">&quot;fantastic&quot;</span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;Python is &quot;</span> + x)</span><br><span class="line"></span><br><span class="line">myfunc()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Python is &quot;</span> + x)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Global Keyword</p>
+<p>To create a global variable inside a function, you can use the <code>global</code> keyword.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">myfunc</span>():</span><br><span class="line">  <span class="keyword">global</span> x</span><br><span class="line">  x = <span class="string">&quot;fantastic&quot;</span></span><br><span class="line"></span><br><span class="line">myfunc()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Python is &quot;</span> + x)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a>Data Types</h1><p>Python has the following data types built-in by default, in these categories:</p>
+<table>
+<thead>
+<tr>
+<th>Text Type:</th>
+<th><code>str</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Numeric Types:</td>
+<td><code>int</code>, <code>float</code>, <code>complex</code></td>
+</tr>
+<tr>
+<td>Sequence Types:</td>
+<td><code>list</code>, <code>tuple</code>, <code>range</code></td>
+</tr>
+<tr>
+<td>Mapping Type:</td>
+<td><code>dict</code></td>
+</tr>
+<tr>
+<td>Set Types:</td>
+<td><code>set</code>, <code>frozenset</code></td>
+</tr>
+<tr>
+<td>Boolean Type:</td>
+<td><code>bool</code></td>
+</tr>
+<tr>
+<td>Binary Types:</td>
+<td><code>bytes</code>, <code>bytearray</code>, <code>memoryview</code></td>
+</tr>
+<tr>
+<td>None Type:</td>
+<td><code>NoneType</code></td>
+</tr>
+</tbody></table>
+<h2 id="Setting-the-data-type"><a href="#Setting-the-data-type" class="headerlink" title="Setting the data type"></a>Setting the data type</h2><table>
+<thead>
+<tr>
+<th align="left">Example</th>
+<th align="left">Data Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">x &#x3D; “Hello World”</td>
+<td align="left">str</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; 20</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; 20.5</td>
+<td align="left">float</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; 1j</td>
+<td align="left">complex</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; [“apple”, “banana”, “cherry”]</td>
+<td align="left">list</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; (“apple”, “banana”, “cherry”)</td>
+<td align="left">tuple</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; range(6)</td>
+<td align="left">range</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; {“name” : “John”, “age” : 36}</td>
+<td align="left">dict</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; {“apple”, “banana”, “cherry”}</td>
+<td align="left">set</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; frozenset({“apple”, “banana”, “cherry”})</td>
+<td align="left">frozenset</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; True</td>
+<td align="left">bool</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; b”Hello”</td>
+<td align="left">bytes</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; bytearray(5)</td>
+<td align="left">bytearray</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; memoryview(bytes(5))</td>
+<td align="left">memoryview</td>
+</tr>
+<tr>
+<td align="left">x &#x3D; None</td>
+<td align="left">NoneType</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>Get the data types</p>
+<p>You can get the data type of any object by using the <code>type()</code> function:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">5</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(x))</span><br><span class="line"><span class="comment"># &lt;class &#x27;int&#x27;&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h1><p>Strings in python are surrounded by either single quotation marks, or double quotation marks.</p>
+<p>‘hello’ is the same as “hello”.</p>
+<h2 id="Multiline-Strings"><a href="#Multiline-Strings" class="headerlink" title="Multiline Strings"></a>Multiline Strings</h2><p>You can assign a multiline string to a variable by using three quotes, Or three single quotes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span></span><br><span class="line"><span class="string">consectetur adipiscing elit,</span></span><br><span class="line"><span class="string">sed do eiusmod tempor incididunt</span></span><br><span class="line"><span class="string">ut labore et dolore magna aliqua.&quot;&quot;&quot;</span></span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line">a = <span class="string">&#x27;&#x27;&#x27;Lorem ipsum dolor sit amet,</span></span><br><span class="line"><span class="string">consectetur adipiscing elit,</span></span><br><span class="line"><span class="string">sed do eiusmod tempor incididunt</span></span><br><span class="line"><span class="string">ut labore et dolore magna aliqua.&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Strings-are-Arrays"><a href="#Strings-are-Arrays" class="headerlink" title="Strings are Arrays"></a>Strings are Arrays</h2><p>Like many other popular programming languages, strings in Python are arrays of bytes representing unicode characters.</p>
+<h2 id="Looping-Through-a-String"><a href="#Looping-Through-a-String" class="headerlink" title="Looping Through a String"></a>Looping Through a String</h2><p>Since strings are arrays, we can loop through the characters in a string, with a <code>for</code> loop.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+<h2 id="String-Length"><a href="#String-Length" class="headerlink" title="String Length"></a>String Length</h2><p>To get the length of a string, use the <code>len()</code> function.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(a))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Check-String"><a href="#Check-String" class="headerlink" title="Check String"></a>Check String</h2><p>To check if a certain phrase or character is present in a string, we can use the keyword <code>in</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">txt = <span class="string">&quot;The best things in life are free!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;free&quot;</span> <span class="keyword">in</span> txt)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Slicing"><a href="#Slicing" class="headerlink" title="Slicing"></a>Slicing</h2><p>You can return a range of characters by using the slice syntax.</p>
+<p>Specify the start index and the end index, separated by a colon, to return a part of the string.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(b[<span class="number">2</span>:<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+
+<p>By leaving out the start index, the range will start at the first character:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(b[:<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+
+<p>By leaving out the <em>end</em> index, the range will go to the end:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(b[<span class="number">2</span>:])</span><br></pre></td></tr></table></figure>
+
+<h2 id="Modify-Strings"><a href="#Modify-Strings" class="headerlink" title="Modify Strings"></a>Modify Strings</h2><p>Python has a set of built-in methods that you can use on strings.</p>
+<p>The <code>upper()</code> method returns the string in upper case:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(a.upper())</span><br></pre></td></tr></table></figure>
+
+<p>The <code>lower()</code> method returns the string in lower case:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(a.lower())</span><br></pre></td></tr></table></figure>
+
+<p>The <code>strip()</code> method removes any whitespace from the beginning or the end:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot; Hello, World! &quot;</span></span><br><span class="line"><span class="built_in">print</span>(a.strip())</span><br><span class="line"><span class="comment"># returns &quot;Hello, World!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>The <code>replace()</code> method replaces a string with another string:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(a.replace(<span class="string">&quot;H&quot;</span>, <span class="string">&quot;J&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>The <code>split()</code> method returns a list where the text between the specified separator becomes the list items.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(a.split(<span class="string">&quot;,&quot;</span>))</span><br><span class="line"><span class="comment"># returns [&#x27;Hello&#x27;, &#x27; World!&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="Python-Collections"><a href="#Python-Collections" class="headerlink" title="Python Collections"></a>Python Collections</h1><p>There are four collection data types in the Python programming language:</p>
+<ul>
+<li><code>List</code>is a collection which is ordered and changeable. Allows duplicate members.</li>
+<li><code>Tuple</code> is a collection which is ordered and <strong>unchangeable.</strong> Allows duplicate members.</li>
+<li><code>Set</code> is a collection which is <strong>unordered, unchangeable, and unindexed. No duplicate members</strong>.</li>
+<li><code>Dictionary</code> is a collection which is ordered and changeable. <strong>No duplicate members.</strong></li>
+</ul>
+<p>When choosing a collection type, it is useful to understand the properties of that type. Choosing the right type for a particular data set could mean retention of meaning, and, it could mean an increase in efficiency or security.</p>
+<p><code>Unordered</code> means that the items in a set do not have a defined order. Set items can appear in a different order every time you use them, and cannot be referred to by index or key.</p>
+<p><code>Unchangeable</code> means that we cannot change the items after the set has been created.</p>
+<p><code>Duplicates Not Allowed</code> Sets cannot have two items with the same value.</p>
+<h1 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h1><p>Lists are used to store multiple items in <strong>a single variable</strong>.</p>
+<p><code>Lists</code> are one of 4 built-in data types in Python used to store collections of data, the other 3 are <code>Tuple</code>, <code>Set</code>, and <code>Dictionary</code>, all with different qualities and usage.</p>
+<p>List items are ordered, changeable, and allow duplicate values.</p>
+<ul>
+<li><p><code>Lists</code> are created using <code>square brackets</code>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>A list can contain different data types:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="string">&quot;abc&quot;</span>, <span class="number">34</span>, <span class="literal">True</span>, <span class="number">40</span>, <span class="string">&quot;male&quot;</span>]</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="The-list-Constructor"><a href="#The-list-Constructor" class="headerlink" title="The list() Constructor"></a>The list() Constructor</h2><p>It is also possible to use the list() constructor when creating a new list.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thislist = <span class="built_in">list</span>((<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)) <span class="comment"># note the double round-brackets</span></span><br><span class="line"><span class="built_in">print</span>(thislist)</span><br><span class="line"><span class="comment"># [&#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;cherry&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="List-Length"><a href="#List-Length" class="headerlink" title="List Length"></a>List Length</h2><p>To determine how many items a list has, use the <code>len()</code> function:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(thislist))</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<h2 id="Data-Types-1"><a href="#Data-Types-1" class="headerlink" title="Data Types"></a>Data Types</h2><p>List items can be of any data type. A list can contain different data types:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="string">&quot;abc&quot;</span>, <span class="number">34</span>, <span class="literal">True</span>, <span class="number">40</span>, <span class="string">&quot;male&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Access-List-Items"><a href="#Access-List-Items" class="headerlink" title="Access List Items"></a>Access List Items</h2><p>List items are indexed and you can access them by referring to the index number:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(thislist[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(thislist[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apple</span><br><span class="line">cherry</span><br></pre></td></tr></table></figure>
+
+<h2 id="Range-of-Indexes"><a href="#Range-of-Indexes" class="headerlink" title="Range of Indexes"></a>Range of Indexes</h2><p>You can specify a range of indexes by specifying where to start and where to end the range.</p>
+<p>When specifying a range, the return value will be a new list with the specified items.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>, <span class="string">&quot;orange&quot;</span>, <span class="string">&quot;kiwi&quot;</span>, <span class="string">&quot;melon&quot;</span>, <span class="string">&quot;mango&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(thislist[<span class="number">2</span>:<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;cherry&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;kiwi&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Note:</strong> The search will start at index 2 (included) and end at index 5 (<strong>not included</strong>). Remember that the first item has index 0.</p>
+<p>By leaving out the start value, the range will start at the first item:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>, <span class="string">&quot;orange&quot;</span>, <span class="string">&quot;kiwi&quot;</span>, <span class="string">&quot;melon&quot;</span>, <span class="string">&quot;mango&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(thislist[:<span class="number">4</span>])</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;cherry&#x27;, &#x27;orange&#x27;]</span><br></pre></td></tr></table></figure>
+
+<p>By leaving out the end value, the range will go on to the end of the list:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>, <span class="string">&quot;orange&quot;</span>, <span class="string">&quot;kiwi&quot;</span>, <span class="string">&quot;melon&quot;</span>, <span class="string">&quot;mango&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(thislist[<span class="number">2</span>:])</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;cherry&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;kiwi&#x27;</span>, <span class="string">&#x27;melon&#x27;</span>, <span class="string">&#x27;mango&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Insert-items"><a href="#Insert-items" class="headerlink" title="Insert items"></a>Insert items</h2><p>To insert a new list item, without replacing any of the existing values, we can use the <code>insert()</code> method.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line">thislist.insert(<span class="number">2</span>,<span class="string">&quot;hello&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thislist)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;hello&#x27;, &#x27;cherry&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Append-Items"><a href="#Append-Items" class="headerlink" title="Append Items"></a>Append Items</h2><p>To add an item to the end of the list, use the append() method:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line">thislist.append(<span class="string">&quot;orange&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thislist)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;banana&#x27;</span>, <span class="string">&#x27;cherry&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Extend-List"><a href="#Extend-List" class="headerlink" title="Extend List"></a>Extend List</h2><p>To append elements from <em>another list</em> to the current list, use the <code>extend()</code> method.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line">tropical = [<span class="string">&quot;mango&quot;</span>, <span class="string">&quot;pineapple&quot;</span>, <span class="string">&quot;papaya&quot;</span>]</span><br><span class="line">thislist.extend(tropical)</span><br><span class="line"><span class="built_in">print</span>(thislist)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;cherry&#x27;, &#x27;mango&#x27;, &#x27;pineapple&#x27;, &#x27;papaya&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Remove"><a href="#Remove" class="headerlink" title="Remove"></a>Remove</h2><p>The <code>remove()</code> method removes the specified item.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line">thislist.remove(<span class="string">&quot;banana&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thislist)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;apple&#x27;, &#x27;cherry&#x27;]</span><br></pre></td></tr></table></figure>
+
+<p>The <code>pop()</code> method removes the specified index.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line">thislist.pop(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(thislist)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;apple&#x27;, &#x27;cherry&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Clear-the-List"><a href="#Clear-the-List" class="headerlink" title="Clear the List"></a>Clear the List</h2><p>The <code>clear()</code> method empties the list.</p>
+<p>The list still remains, but it has no content.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line">thislist.clear()</span><br><span class="line"><span class="built_in">print</span>(thislist)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Loop-Through-a-List"><a href="#Loop-Through-a-List" class="headerlink" title="Loop Through a List"></a>Loop Through a List</h2><p>You can loop through the list items by using a <code>for</code> loop:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> thislist:</span><br><span class="line">  <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Loop-Through-the-Index-Numbers"><a href="#Loop-Through-the-Index-Numbers" class="headerlink" title="Loop Through the Index Numbers"></a>Loop Through the Index Numbers</h2><p>You can also loop through the list items by referring to their index number.</p>
+<p>Use the <code>range()</code> and <code>len()</code> functions to create a suitable iterable.</p>
+<p><code>range(5)</code> function: Create a sequence of numbers from 0 to 4</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(thislist)):</span><br><span class="line">  <span class="built_in">print</span>(thislist[i])</span><br></pre></td></tr></table></figure>
+
+<h2 id="Using-a-While-Loop"><a href="#Using-a-While-Loop" class="headerlink" title="Using a While Loop"></a>Using a While Loop</h2><p>You can loop through the list items by using a <code>while</code> loop.</p>
+<p>Use the <code>len()</code> function to determine the length of the list, then start at 0 and loop your way through the list items by referring to their indexes.</p>
+<p>Remember to increase the index by 1 after each iteration.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="built_in">len</span>(thislist):</span><br><span class="line">  <span class="built_in">print</span>(thislist[i])</span><br><span class="line">  i = i + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Looping-Using-List-Comprehension"><a href="#Looping-Using-List-Comprehension" class="headerlink" title="Looping Using List Comprehension"></a>Looping Using List Comprehension</h2><p>List Comprehension offers the shortest syntax for looping through lists:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">thislist = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line">[<span class="built_in">print</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> thislist]</span><br></pre></td></tr></table></figure>
+
+<h2 id="List-Methods"><a href="#List-Methods" class="headerlink" title="List Methods"></a>List Methods</h2><p>Python has a set of built-in methods that you can use on lists.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_list_append.asp">append()</a></td>
+<td align="left">Adds an element at the end of the list</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_list_clear.asp">clear()</a></td>
+<td align="left">Removes all the elements from the list</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_list_copy.asp">copy()</a></td>
+<td align="left">Returns a copy of the list</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_list_count.asp">count()</a></td>
+<td align="left">Returns the number of elements with the specified value</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_list_extend.asp">extend()</a></td>
+<td align="left">Add the elements of a list (or any iterable), to the end of the current list</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_list_index.asp">index()</a></td>
+<td align="left">Returns the index of the first element with the specified value</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_list_insert.asp">insert()</a></td>
+<td align="left">Adds an element at the specified position</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_list_pop.asp">pop()</a></td>
+<td align="left">Removes the element at the specified position</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_list_remove.asp">remove()</a></td>
+<td align="left">Removes the item with the specified value</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_list_reverse.asp">reverse()</a></td>
+<td align="left">Reverses the order of the list</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/ref_list_sort.asp">sort()</a></td>
+<td align="left">Sorts the list</td>
+</tr>
+</tbody></table>
+<h1 id="Tuples"><a href="#Tuples" class="headerlink" title="Tuples"></a>Tuples</h1><p>Tuples are used to store multiple items in a single variable.</p>
+<p>A tuple is a collection which is ordered and <strong>unchangeable</strong>.</p>
+<p>Tuples are written with <strong>round brackets</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thistuple)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Create-Tuple-With-One-Item"><a href="#Create-Tuple-With-One-Item" class="headerlink" title="Create Tuple With One Item"></a>Create Tuple With One Item</h2><p>To create a tuple with only one item, you have to add a comma after the item, otherwise Python will not recognize it as a tuple.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>,)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(thistuple))</span><br><span class="line"></span><br><span class="line"><span class="comment">#NOT a tuple</span></span><br><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(thistuple))</span><br><span class="line"></span><br><span class="line"><span class="comment">#&lt;class &#x27;tuple&#x27;&gt;</span></span><br><span class="line"><span class="comment">#&lt;class &#x27;str&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="The-tuple-Constructor"><a href="#The-tuple-Constructor" class="headerlink" title="The tuple() Constructor"></a>The tuple() Constructor</h2><p>It is also possible to use the tuple() constructor to make a tuple.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">thistuple = <span class="built_in">tuple</span>((<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)) <span class="comment"># note the double round-brackets</span></span><br><span class="line"><span class="built_in">print</span>(thistuple)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Access-Tuple-Items"><a href="#Access-Tuple-Items" class="headerlink" title="Access Tuple Items"></a>Access Tuple Items</h2><p>You can access tuple items by referring to the index number, inside square brackets:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thistuple[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<p>You can specify a range of indexes by specifying where to start and where to end the range.</p>
+<p>When specifying a range, the return value will be a new tuple with the specified items.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>, <span class="string">&quot;orange&quot;</span>, <span class="string">&quot;kiwi&quot;</span>, <span class="string">&quot;melon&quot;</span>, <span class="string">&quot;mango&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thistuple[<span class="number">2</span>:<span class="number">5</span>])</span><br><span class="line"><span class="comment">#(&#x27;cherry&#x27;, &#x27;orange&#x27;, &#x27;kiwi&#x27;)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Add-Items"><a href="#Add-Items" class="headerlink" title="Add Items"></a>Add Items</h2><p>Since tuples are immutable, they do not have a build-in <code>append()</code> method, but there are other ways to add items to a tuple.</p>
+<ol>
+<li><p><strong>Convert into a list</strong>: Just like the workaround for <em>changing</em> a tuple, you can convert it into a list, add your item(s), and convert it back into a tuple.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">y = <span class="built_in">list</span>(thistuple)</span><br><span class="line">y.append(<span class="string">&quot;orange&quot;</span>)</span><br><span class="line">thistuple = <span class="built_in">tuple</span>(y)</span><br><span class="line"><span class="built_in">print</span>(thistuple)</span><br><span class="line"><span class="comment">#(&#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;cherry&#x27;, &#x27;orange&#x27;)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Add tuple to a tuple</strong>. You are allowed to add tuples to tuples, so if you want to add one item, (or many), create a new tuple with the item(s), and add it to the existing tuple:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">y = (<span class="string">&quot;orange&quot;</span>,)</span><br><span class="line">thistuple += y</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(thistuple)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Remove-Items"><a href="#Remove-Items" class="headerlink" title="Remove Items"></a>Remove Items</h2><p>Tuples are <strong>unchangeable</strong>, so you cannot remove items from it, but you can use the same workaround as we used for changing and adding tuple items:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Convert the <span class="built_in">tuple</span> into a <span class="built_in">list</span>, remove <span class="string">&quot;apple&quot;</span>, <span class="keyword">and</span> convert it back into a <span class="built_in">tuple</span>:</span><br><span class="line"></span><br><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">y = <span class="built_in">list</span>(thistuple)</span><br><span class="line">y.remove(<span class="string">&quot;apple&quot;</span>)</span><br><span class="line">thistuple = <span class="built_in">tuple</span>(y)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Loop-Through-a-Tuple"><a href="#Loop-Through-a-Tuple" class="headerlink" title="Loop Through a Tuple"></a>Loop Through a Tuple</h2><p>Iterate through the items and print the values:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> thistuple:</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<p>You can also loop through the tuple items by referring to their index number.</p>
+<p>Use the <code>range()</code> and <code>len()</code> functions to create a suitable iterable.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(thistuple)):</span><br><span class="line">    <span class="built_in">print</span>(thistuple[i])</span><br></pre></td></tr></table></figure>
+
+<h2 id="Using-a-While-Loop-1"><a href="#Using-a-While-Loop-1" class="headerlink" title="Using a While Loop"></a>Using a While Loop</h2><p>You can loop through the tuple items by using a <code>while</code> loop. </p>
+<p>Use the <code>len()</code> function to determine the length of the tuple, then start at 0 and loop your way through the tuple items by referring to their indexes.</p>
+<p>Remember to increase the index by 1 after each iteration.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">thistuple = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">i = <span class="number">0</span>   <span class="comment">#define a variable i stared at 0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="built_in">len</span>(thistuple):</span><br><span class="line">    <span class="built_in">print</span>(thistuple[i])</span><br><span class="line">    i = i + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h1><p>Sets are written with curly brackets.</p>
+<p>A set is a collection which is <strong>unordered</strong>, unchangeable, <em>unindexed</em>, and Duplicates Not Allowed. <strong>So you cannot be sure in which order the items will appear.</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thisset = &#123;<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(thisset)</span><br><span class="line"><span class="comment"># &#123;&#x27;banana&#x27;, &#x27;apple&#x27;, &#x27;cherry&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Access-Items"><a href="#Access-Items" class="headerlink" title="Access Items"></a>Access Items</h2><p>You cannot access items in a set by referring to an index or a key.</p>
+<p>But you can loop through the set items using a <code>for</code> loop, or ask if a specified value is present in a set, by using the <code>in</code> keyword.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thisset = &#123;<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>&#125;</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> thisset:</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<p>Check if “banana” is present in the set:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thisset = &#123;<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;banana&quot;</span> <span class="keyword">in</span> thisset)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Add-Items-1"><a href="#Add-Items-1" class="headerlink" title="Add Items"></a>Add Items</h2><p>Add an item to a set, using the <code>add()</code> method:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">thisset = &#123;<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">thisset.add(<span class="string">&quot;orange&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(thisset)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Add-Sets"><a href="#Add-Sets" class="headerlink" title="Add Sets"></a>Add Sets</h2><p>To add items from another set into the current set, use the <code>update()</code> method.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">thisset = &#123;<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>&#125;</span><br><span class="line">tropical = &#123;<span class="string">&quot;pineapple&quot;</span>, <span class="string">&quot;mango&quot;</span>, <span class="string">&quot;papaya&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">thisset.update(tropical)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(thisset)</span><br></pre></td></tr></table></figure>
+
+<p>The object in the <code>update()</code> method does not have to be a set, it can be any iterable object (tuples, lists, dictionaries etc.).</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">thisset = &#123;<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>&#125;</span><br><span class="line">mylist = [<span class="string">&quot;kiwi&quot;</span>, <span class="string">&quot;orange&quot;</span>]</span><br><span class="line"></span><br><span class="line">thisset.update(mylist)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(thisset)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Remove-Item"><a href="#Remove-Item" class="headerlink" title="Remove Item"></a>Remove Item</h2><p>To remove an item in a set, use the <code>remove()</code>, or the <code>discard()</code> method.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">thisset = &#123;<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">thisset.remove(<span class="string">&quot;banana&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(thisset)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Dictionaries"><a href="#Dictionaries" class="headerlink" title="Dictionaries"></a>Dictionaries</h1><p><strong>Dictionaries are used to store data values in key:value pairs.</strong></p>
+<p>A dictionary is a collection which is ordered, changeable and <strong>do not allow duplicates</strong>.</p>
+<p>Dictionary items are presented in key:value pairs, and can be referred to by using the key name.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">thisdict=&#123;</span><br><span class="line">    <span class="string">&quot;brand&quot;</span>:<span class="string">&quot;Ford&quot;</span>,</span><br><span class="line">    <span class="string">&quot;model&quot;</span>:<span class="string">&quot;Mustang&quot;</span>,</span><br><span class="line">    <span class="string">&quot;year&quot;</span>:<span class="number">1964</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(thisdict[<span class="string">&quot;brand&quot;</span>])</span><br><span class="line"><span class="comment"># Ford</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="The-dict-Constructor"><a href="#The-dict-Constructor" class="headerlink" title="The dict() Constructor"></a>The dict() Constructor</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">thisdict = <span class="built_in">dict</span>(name = <span class="string">&quot;John&quot;</span>, age = <span class="number">36</span>, country = <span class="string">&quot;Norway&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thisdict)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Accessing-Items"><a href="#Accessing-Items" class="headerlink" title="Accessing Items"></a>Accessing Items</h2><p>You can access the items of a dictionary by referring to its key name, inside square brackets:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">thisdict = <span class="built_in">dict</span>(name = <span class="string">&quot;John&quot;</span>, age = <span class="number">36</span>, country = <span class="string">&quot;Norway&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thisdict[<span class="string">&quot;name&quot;</span>])</span><br></pre></td></tr></table></figure>
+
+<h2 id="Get-Keys"><a href="#Get-Keys" class="headerlink" title="Get Keys"></a>Get Keys</h2><p>The <code>keys()</code> method will return <strong>a list</strong> of all the keys in the dictionary.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thisdict = <span class="built_in">dict</span>(name = <span class="string">&quot;John&quot;</span>, age = <span class="number">36</span>, country = <span class="string">&quot;Norway&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thisdict.keys())</span><br><span class="line"><span class="comment"># dict_keys([&#x27;name&#x27;, &#x27;age&#x27;, &#x27;country&#x27;])</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Get-Values"><a href="#Get-Values" class="headerlink" title="Get Values"></a>Get Values</h2><p>The <code>values()</code> method will return a list of all the values in the dictionary.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thisdict = <span class="built_in">dict</span>(name = <span class="string">&quot;John&quot;</span>, age = <span class="number">36</span>, country = <span class="string">&quot;Norway&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thisdict.values())</span><br><span class="line"><span class="comment"># dict_values([&#x27;John&#x27;, 36, &#x27;Norway&#x27;])</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Get-Items"><a href="#Get-Items" class="headerlink" title="Get Items"></a>Get Items</h2><p>The <code>items()</code> method will return each item in a dictionary, as tuples in a list.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">thisdict = <span class="built_in">dict</span>(name = <span class="string">&quot;John&quot;</span>, age = <span class="number">36</span>, country = <span class="string">&quot;Norway&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thisdict.items())</span><br><span class="line"><span class="comment"># dict_items([(&#x27;name&#x27;, &#x27;John&#x27;), (&#x27;age&#x27;, 36), (&#x27;country&#x27;, &#x27;Norway&#x27;)])</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Change-Values"><a href="#Change-Values" class="headerlink" title="Change Values"></a>Change Values</h2><p>You can change the value of a specific item by referring to its key name:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">thisdict = &#123;</span><br><span class="line">  <span class="string">&quot;brand&quot;</span>: <span class="string">&quot;Ford&quot;</span>,</span><br><span class="line">  <span class="string">&quot;model&quot;</span>: <span class="string">&quot;Mustang&quot;</span>,</span><br><span class="line">  <span class="string">&quot;year&quot;</span>: <span class="number">1964</span></span><br><span class="line">&#125;</span><br><span class="line">thisdict[<span class="string">&quot;year&quot;</span>] = <span class="number">2018</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Update-Dictionary"><a href="#Update-Dictionary" class="headerlink" title="Update Dictionary"></a>Update Dictionary</h2><p>The <code>update()</code> method will update the dictionary with the items from the given argument.</p>
+<p>The argument must be a dictionary, or an iterable object with key:value pairs.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">thisdict = &#123;</span><br><span class="line">  <span class="string">&quot;brand&quot;</span>: <span class="string">&quot;Ford&quot;</span>,</span><br><span class="line">  <span class="string">&quot;model&quot;</span>: <span class="string">&quot;Mustang&quot;</span>,</span><br><span class="line">  <span class="string">&quot;year&quot;</span>: <span class="number">1964</span></span><br><span class="line">&#125;</span><br><span class="line">thisdict.update(&#123;<span class="string">&quot;year&quot;</span>: <span class="number">2020</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Adding-Items"><a href="#Adding-Items" class="headerlink" title="Adding Items"></a>Adding Items</h2><p>Adding an item to the dictionary is done by using a new index key and assigning a value to it:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">thisdict = &#123;</span><br><span class="line">  <span class="string">&quot;brand&quot;</span>: <span class="string">&quot;Ford&quot;</span>,</span><br><span class="line">  <span class="string">&quot;model&quot;</span>: <span class="string">&quot;Mustang&quot;</span>,</span><br><span class="line">  <span class="string">&quot;year&quot;</span>: <span class="number">1964</span></span><br><span class="line">&#125;</span><br><span class="line">thisdict[<span class="string">&quot;color&quot;</span>] = <span class="string">&quot;red&quot;</span></span><br><span class="line"><span class="built_in">print</span>(thisdict)</span><br></pre></td></tr></table></figure>
+
+<p>The <code>update()</code> method will update the dictionary with the items from a given argument. If the item does not exist, the item will be added.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">thisdict = &#123;</span><br><span class="line">  <span class="string">&quot;brand&quot;</span>: <span class="string">&quot;Ford&quot;</span>,</span><br><span class="line">  <span class="string">&quot;model&quot;</span>: <span class="string">&quot;Mustang&quot;</span>,</span><br><span class="line">  <span class="string">&quot;year&quot;</span>: <span class="number">1964</span></span><br><span class="line">&#125;</span><br><span class="line">thisdict.update(&#123;<span class="string">&quot;color&quot;</span>: <span class="string">&quot;red&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>The <code>update()</code> method will update the dictionary with the items from a given argument. If the item does not exist, the item will be added.</p>
+<h2 id="Removing-Items"><a href="#Removing-Items" class="headerlink" title="Removing Items"></a>Removing Items</h2><p>There are several methods to remove items from a dictionary:</p>
+<p>The <code>pop()</code> method removes the item with the specified key name:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">thisdict = &#123;</span><br><span class="line">  <span class="string">&quot;brand&quot;</span>: <span class="string">&quot;Ford&quot;</span>,</span><br><span class="line">  <span class="string">&quot;model&quot;</span>: <span class="string">&quot;Mustang&quot;</span>,</span><br><span class="line">  <span class="string">&quot;year&quot;</span>: <span class="number">1964</span></span><br><span class="line">&#125;</span><br><span class="line">thisdict.pop(<span class="string">&quot;model&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(thisdict)</span><br></pre></td></tr></table></figure>
+
+<p>The <code>clear()</code> method empties the dictionary:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">thisdict = &#123;</span><br><span class="line">  <span class="string">&quot;brand&quot;</span>: <span class="string">&quot;Ford&quot;</span>,</span><br><span class="line">  <span class="string">&quot;model&quot;</span>: <span class="string">&quot;Mustang&quot;</span>,</span><br><span class="line">  <span class="string">&quot;year&quot;</span>: <span class="number">1964</span></span><br><span class="line">&#125;</span><br><span class="line">thisdict.clear()</span><br><span class="line"><span class="built_in">print</span>(thisdict)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Loop-Through-a-Dictionary"><a href="#Loop-Through-a-Dictionary" class="headerlink" title="Loop Through a Dictionary"></a>Loop Through a Dictionary</h2><p>When looping through a dictionary, the return value are the <em><strong>keys</strong></em> of the dictionary, but there are methods to return the <em>values</em> as well.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">thisdict = <span class="built_in">dict</span>(name = <span class="string">&quot;John&quot;</span>, age = <span class="number">36</span>, country = <span class="string">&quot;Norway&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> thisdict:</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"><span class="comment"># name</span></span><br><span class="line"><span class="comment"># age</span></span><br><span class="line"><span class="comment"># country</span></span><br></pre></td></tr></table></figure>
+
+<p>You can use the <code>keys()</code> method to return the keys of a dictionary:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> thisdict.keys():</span><br><span class="line"> <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<p>Return the values</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">thisdict = <span class="built_in">dict</span>(name = <span class="string">&quot;John&quot;</span>, age = <span class="number">36</span>, country = <span class="string">&quot;Norway&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> thisdict:</span><br><span class="line">    <span class="built_in">print</span>(thisdict[x])</span><br><span class="line">    </span><br><span class="line"><span class="comment"># John</span></span><br><span class="line"><span class="comment"># 36</span></span><br><span class="line"><span class="comment"># Norway</span></span><br></pre></td></tr></table></figure>
+
+<p>You can also use the <code>values()</code> method to return values of a dictionary:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> thisdict.values():</span><br><span class="line">     <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<p>Loop through both <em>keys</em> and <em>values</em>, by using the <code>items()</code> method:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">thisdict = <span class="built_in">dict</span>(name = <span class="string">&quot;John&quot;</span>, age = <span class="number">36</span>, country = <span class="string">&quot;Norway&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> x,y <span class="keyword">in</span> thisdict.items():</span><br><span class="line">    <span class="built_in">print</span>(x,y)</span><br><span class="line">    </span><br><span class="line">name John</span><br><span class="line">age <span class="number">36</span></span><br><span class="line">country Norway</span><br></pre></td></tr></table></figure>
+
+<h2 id="Copy-a-Dictionary"><a href="#Copy-a-Dictionary" class="headerlink" title="Copy a Dictionary"></a>Copy a Dictionary</h2><p>You cannot copy a dictionary simply by typing <code>dict2 = dict1</code>, because: <code>dict2</code> will only be a <em>reference</em> to <code>dict1</code>, and changes made in <code>dict1</code> will automatically also be made in <code>dict2</code>.</p>
+<p>There are ways to make a copy, one way is to use the built-in Dictionary method <code>copy()</code>.</p>
+<h1 id="If-…-Else"><a href="#If-…-Else" class="headerlink" title="If … Else"></a>If … Else</h1><h2 id="Conditions-and-If-statements"><a href="#Conditions-and-If-statements" class="headerlink" title="Conditions and If statements"></a>Conditions and If statements</h2><p>Python supports the usual logical conditions from mathematics:</p>
+<ul>
+<li>Equals: a &#x3D;&#x3D; b</li>
+<li>Not Equals: a !&#x3D; b</li>
+<li>Less than: a &lt; b</li>
+<li>Less than or equal to: a &lt;&#x3D; b</li>
+<li>Greater than: a &gt; b</li>
+<li>Greater than or equal to: a &gt;&#x3D; b</li>
+</ul>
+<p>These conditions can be used in several ways, most commonly in “if statements” and loops.</p>
+<h2 id="If-statements"><a href="#If-statements" class="headerlink" title="If statements"></a>If statements</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">33</span></span><br><span class="line">b = <span class="number">200</span></span><br><span class="line"><span class="keyword">if</span> b &gt; a:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;b is greater than a&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Elif"><a href="#Elif" class="headerlink" title="Elif"></a>Elif</h2><p>The elif keyword is Python’s way of saying “if the previous conditions were not true, then try this condition”.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">33</span></span><br><span class="line">b = <span class="number">33</span></span><br><span class="line"><span class="keyword">if</span> b &gt; a:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;b is greater than a&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> a == b:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;a and b are equal&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Else"><a href="#Else" class="headerlink" title="Else"></a>Else</h2><p>The else keyword catches anything which isn’t caught by the preceding conditions.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">200</span></span><br><span class="line">b = <span class="number">33</span></span><br><span class="line"><span class="keyword">if</span> b &gt; a:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;b is greater than a&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> a == b:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;a and b are equal&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;a is greater than b&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="And"><a href="#And" class="headerlink" title="And"></a>And</h2><p>The and keyword is a logical operator, and is used to combine conditional statements:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">200</span></span><br><span class="line">b = <span class="number">33</span></span><br><span class="line">c = <span class="number">500</span></span><br><span class="line"><span class="keyword">if</span> a &gt; b <span class="keyword">and</span> c &gt; a:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Both conditions are True&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Or"><a href="#Or" class="headerlink" title="Or"></a>Or</h2><p>The <code>or</code> keyword is a logical operator, and is used to combine conditional statements:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">200</span></span><br><span class="line">b = <span class="number">33</span></span><br><span class="line">c = <span class="number">500</span></span><br><span class="line"><span class="keyword">if</span> a &gt; b <span class="keyword">or</span> a &gt; c:</span><br><span class="line">	<span class="built_in">print</span>(<span class="string">&quot;At least one of the conditions is True&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Not"><a href="#Not" class="headerlink" title="Not"></a>Not</h2><p>The <code>not</code> keyword is a logical operator, and is used to reverse the result of the conditional statement:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">33</span></span><br><span class="line">b = <span class="number">200</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> a &gt; b:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;a is NOT greater than b&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="The-pass-Statement"><a href="#The-pass-Statement" class="headerlink" title="The pass Statement"></a>The pass Statement</h2><p><code>if</code> statements cannot be empty, but if you for some reason have an <code>if</code> statement with no content, put in the <code>pass</code> statement to avoid getting an error.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">33</span></span><br><span class="line">b = <span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> b &gt; a:</span><br><span class="line">  <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h1><p>Python has two primitive loop commands:</p>
+<ul>
+<li>while loops</li>
+<li>for loops</li>
+</ul>
+<h2 id="The-while-Loop"><a href="#The-while-Loop" class="headerlink" title="The while Loop"></a>The while Loop</h2><p>With the <code>while</code> loop we can execute a set of statements as long as <strong>a condition is true.</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i&lt;<span class="number">6</span>:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    i+=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Note:</strong> remember to increment i, or else the loop will continue forever.</p>
+<p>With the <code>break</code> statement we can stop the loop even if the while condition is true:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">6</span>:</span><br><span class="line">  <span class="built_in">print</span>(i)</span><br><span class="line">  <span class="keyword">if</span> i == <span class="number">3</span>:</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>With the <code>continue</code> statement we can stop the current iteration, and continue with the next:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">6</span>:</span><br><span class="line">  i += <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> i == <span class="number">3</span>:</span><br><span class="line">    <span class="keyword">continue</span></span><br><span class="line">  <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+<h2 id="The-For-Loops"><a href="#The-For-Loops" class="headerlink" title="The For Loops"></a>The For Loops</h2><p>A <code>for</code> loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).</p>
+<p>This is less like the <code>for</code> keyword in other programming languages, and works more like <strong>an iterator method</strong> as found in other object-orientated programming languages.</p>
+<p>With the for loop we can execute a set of statements, once for each item in a list, tuple, set etc.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> fruits:</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">&quot;banana&quot;</span>:</span><br><span class="line">  <span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<h2 id="The-range-Function"><a href="#The-range-Function" class="headerlink" title="The range() Function"></a>The range() Function</h2><p>To loop through a set of code a specified number of times, we can use the range() function,</p>
+<p>The range() function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and ends at a specified number.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">6</span>):</span><br><span class="line">  <span class="built_in">print</span>(x)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>Note that range(6) is not the values of 0 to 6, but the values 0 to 5.</strong></p>
+<p>The range() function defaults to 0 as a starting value, however it is possible to specify the starting value by adding a parameter: range(2, 6), which means values from 2 to 6 (but not including 6):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">6</span>):</span><br><span class="line">  <span class="built_in">print</span>(x)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p>The range() function defaults to increment the sequence by 1, however it is possible to specify the increment value by adding a third parameter: range(2, 30, <strong>3</strong>):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">6</span>,<span class="number">2</span>):</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line">    </span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h1><p>A function is a block of code which only runs when it is called.</p>
+<p>You can pass data, known as parameters, into a function.</p>
+<p>A function can return data as a result.</p>
+<h2 id="Creating-a-Function"><a href="#Creating-a-Function" class="headerlink" title="Creating a Function"></a>Creating a Function</h2><p>In Python a function is defined using the <code>def</code> keyword:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_function</span>():</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;Hello from a function&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Parameters-or-Arguments"><a href="#Parameters-or-Arguments" class="headerlink" title="Parameters or Arguments?"></a>Parameters or Arguments?</h2><p>The terms <em>parameter</em> and <em>argument</em> can be used for the same thing: information that are passed into a function.</p>
+<p>From a function’s perspective:</p>
+<p>A parameter is the variable listed inside the parentheses in the function definition.</p>
+<p>An argument is the value that is sent to the function when it is called.</p>
+<br>
+
+<p>Arguments are specified after the function name, inside the parentheses. You can add as many arguments as you want, just separate them with a comma.</p>
+<p>The following example has a function with one argument (fname). When the function is called, we pass along a first name, which is used inside the function to print the full name:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_function</span>(<span class="params">fname</span>):</span><br><span class="line">  <span class="built_in">print</span>(fname + <span class="string">&quot; Refsnes&quot;</span>)</span><br><span class="line"></span><br><span class="line">my_function(<span class="string">&quot;Emil&quot;</span>)</span><br><span class="line">my_function(<span class="string">&quot;Tobias&quot;</span>)</span><br><span class="line">my_function(<span class="string">&quot;Linus&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Arbitrary-Arguments-args"><a href="#Arbitrary-Arguments-args" class="headerlink" title="Arbitrary Arguments, *args"></a>Arbitrary Arguments, *args</h2><p>If you do not know how many arguments that will be passed into your function, add a <code>*</code> before the parameter name in the function definition.</p>
+<p>This way the function will receive a <em>tuple</em> of arguments, and can access the items accordingly:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_function</span>(<span class="params">*kids</span>):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;The youngest child is &quot;</span> + kids[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">my_function(<span class="string">&quot;Emil&quot;</span>, <span class="string">&quot;Tobias&quot;</span>, <span class="string">&quot;Linus&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Keyword-Arguments"><a href="#Keyword-Arguments" class="headerlink" title="Keyword Arguments"></a>Keyword Arguments</h2><p>You can also send arguments with the <em>key</em> &#x3D; <em>value</em> syntax.</p>
+<p>This way the order of the arguments does not matter.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_function</span>(<span class="params">child3, child2, child1</span>):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;The youngest child is &quot;</span> + child3)</span><br><span class="line"></span><br><span class="line">my_function(child1 = <span class="string">&quot;Emil&quot;</span>, child2 = <span class="string">&quot;Tobias&quot;</span>, child3 = <span class="string">&quot;Linus&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>You can send any data types of argument to a function (string, number, list, dictionary etc.), and it will be treated as the same data type inside the function.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_function</span>(<span class="params">food</span>):</span><br><span class="line">  <span class="keyword">for</span> x <span class="keyword">in</span> food:</span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line">fruits = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>]</span><br><span class="line"></span><br><span class="line">my_function(fruits)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Return-Values"><a href="#Return-Values" class="headerlink" title="Return Values"></a>Return Values</h2><p>To let a function return a value, use the <code>return</code> statement:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_function</span>(<span class="params">x</span>):</span><br><span class="line">  <span class="keyword">return</span> <span class="number">5</span> * x</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(my_function(<span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(my_function(<span class="number">5</span>))</span><br><span class="line"><span class="built_in">print</span>(my_function(<span class="number">9</span>))</span><br></pre></td></tr></table></figure>
+
+<h2 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h2><p><strong>The process of repeating a function, each time applying it to the result of the previous stage.</strong></p>
+<p>Python also accepts function recursion, which means a defined function can call itself.</p>
+<p>The developer should be very careful with recursion as it can be quite easy to slip into writing a function which never terminates, or one that uses excess amounts of memory or processor power. However, when written correctly recursion can be a very efficient and mathematically-elegant approach to programming.</p>
+<p>As a example which is a function that counts the factorial:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">tri_recursion</span>(<span class="params">k</span>):</span><br><span class="line">  <span class="keyword">if</span>(k &gt; <span class="number">0</span>):</span><br><span class="line">    result = k + tri_recursion(k - <span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(result)</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    result = <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\n\nRecursion Example Results&quot;</span>)</span><br><span class="line">tri_recursion(<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Recursion Example Results</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">6</span><br><span class="line">10</span><br><span class="line">15</span><br><span class="line">21</span><br></pre></td></tr></table></figure>
+
+<p><strong>As you can see, every time the statement <code>result = k + tri_recursion(k - 1)</code> is based on the previous  result.</strong></p>
+<h1 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h1><p>A lambda function is a small anonymous function.</p>
+<p>A lambda function can take <strong>any number of arguments</strong>, but can only have <strong>one expression</strong>.</p>
+<p><code>lambda *arguments* : *expression*</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="keyword">lambda</span> a : a + <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(x(<span class="number">5</span>))     </span><br><span class="line"><span class="comment"># We pass the value 5 to a lambda function, which then executes the expression 5+10.</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="keyword">lambda</span> a,b :a*b </span><br><span class="line"><span class="built_in">print</span>(x(<span class="number">4</span>,<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h1><p><strong>Note:</strong> Python does not have built-in support for Arrays, but Python Lists can be used instead.</p>
+<h1 id="Classes-Objects"><a href="#Classes-Objects" class="headerlink" title="Classes&#x2F;Objects"></a>Classes&#x2F;Objects</h1><p>Python is an object oriented programming language.</p>
+<p><strong>Almost everything in Python is an object, with its <code>properties</code> and <code>methods</code>.</strong></p>
+<p>A Class is like an object constructor, or a “blueprint” for creating objects.</p>
+<h2 id="Create-a-class"><a href="#Create-a-class" class="headerlink" title="Create a class"></a>Create a class</h2><p>Create a class named MyClass, with a property named x:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>:</span><br><span class="line">	x = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Create-an-Object"><a href="#Create-an-Object" class="headerlink" title="Create an Object"></a>Create an Object</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p1=MyClass()</span><br><span class="line"><span class="built_in">print</span>(p1.x)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="The-init-function"><a href="#The-init-function" class="headerlink" title="The __init__() function"></a>The <code>__init__()</code> function</h2><p>The examples above are classes and objects in their simplest form, and are not really useful in real life applications.</p>
+<p>To understand the meaning of classes we have to understand the built-in <strong>init</strong>() function.</p>
+<p>All classes have a function called <code>__init__()</code>, <strong>which is always executed when the class is being initiated. Note: The <code>__init__()</code> function is called automatically every time the class is being used to create a new object.</strong> </p>
+<p>Use the <code>__init__()</code> function to assign values to object properties, or other operations that are necessary to do when the object is being created:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, age</span>):</span><br><span class="line">        <span class="variable language_">self</span>.name=name</span><br><span class="line">        <span class="variable language_">self</span>.age=age</span><br><span class="line"></span><br><span class="line">p1=Person(<span class="string">&quot;ferry&quot;</span>, <span class="number">20</span>)</span><br><span class="line"><span class="built_in">print</span>(p1.name)</span><br><span class="line"><span class="built_in">print</span>(p1.age)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ferry</span><br><span class="line">20</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Object-Methods"><a href="#Object-Methods" class="headerlink" title="Object Methods"></a>Object Methods</h1><p>Objects can also contain methods. Methods in objects are functions that belong to the object.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, age</span>):</span><br><span class="line">        <span class="variable language_">self</span>.name=name</span><br><span class="line">        <span class="variable language_">self</span>.age=age</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">greeting</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Hello, my name is &quot;</span>+ <span class="variable language_">self</span>.name)</span><br><span class="line">        </span><br><span class="line">p1=Person(<span class="string">&quot;ferry&quot;</span>, <span class="number">20</span>)</span><br><span class="line">p1.greeting()</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello, my name is ferry</span><br></pre></td></tr></table></figure>
+
+<h2 id="The-self-Parameter"><a href="#The-self-Parameter" class="headerlink" title="The self Parameter"></a>The self Parameter</h2><p>The <code>self</code> parameter is a reference to the current instance of the class, <strong>and is used to access variables that belongs to the class.</strong></p>
+<p>It does not have to be named <code>self</code> , you can call it whatever you like, but it has to be the first parameter of any function in the class:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Use the words *mysillyobject* <span class="keyword">and</span> *abc* instead of *<span class="variable language_">self</span>*:</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>:</span><br><span class="line"> <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">mysillyobject, name, age</span>):</span><br><span class="line">  mysillyobject.name = name</span><br><span class="line">  mysillyobject.age = age</span><br><span class="line"></span><br><span class="line"> <span class="keyword">def</span> <span class="title function_">myfunc</span>(<span class="params">abc</span>):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;Hello my name is &quot;</span> + abc.name)</span><br><span class="line"></span><br><span class="line">p1 = Person(<span class="string">&quot;John&quot;</span>, <span class="number">36</span>)</span><br><span class="line">p1.myfunc()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h2><p>Inheritance allows us to define a class that inherits all the methods and properties from another class.</p>
+<p><strong>Parent class</strong> is the class being inherited from, also called base class.</p>
+<p><strong>Child class</strong> is the class that inherits from another class, also called derived class.</p>
+<h3 id="Create-a-Child-Class"><a href="#Create-a-Child-Class" class="headerlink" title="Create a Child Class"></a>Create a Child Class</h3><p>To create a class that inherits the functionality from another class, send the parent class as a parameter when creating the child class:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, fname, lname</span>):</span><br><span class="line">    <span class="variable language_">self</span>.firstname = fname</span><br><span class="line">    <span class="variable language_">self</span>.lastname = lname</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>(<span class="title class_ inherited__">Person</span>):</span><br><span class="line">  <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Note:</strong> Use the <code>pass</code> keyword when you do not want to add any other properties or methods to the class.</p>
+<h3 id="super-Function"><a href="#super-Function" class="headerlink" title="super() Function"></a>super() Function</h3><p><code>super()</code> function that will make the child class inherit all the methods and properties from its parent:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>(<span class="title class_ inherited__">Person</span>):</span><br><span class="line"> <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, fname, lname</span>):</span><br><span class="line">  <span class="built_in">super</span>().__init__(fname, lname)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Iterator-vs-Iterable"><a href="#Iterator-vs-Iterable" class="headerlink" title="Iterator vs Iterable"></a>Iterator vs Iterable</h2><p>An iterator is an object that can be iterated upon, meaning that you can traverse through all the values.</p>
+<p><strong>If you have learned C language, you can take an iterator in Python as an point in C</strong></p>
+<p>Lists, tuples, dictionaries, and sets are all iterable objects. They are iterable <em>containers</em> which you can get an iterator from. All these objects have a <code>iter()</code> method which is used to get an iterator:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mytuple = (<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;cherry&quot;</span>)</span><br><span class="line">myit = <span class="built_in">iter</span>(mytuple)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">next</span>(myit))</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apple</span><br><span class="line">banana</span><br><span class="line">cherry</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Try-Except"><a href="#Try-Except" class="headerlink" title="Try &amp; Except"></a>Try &amp; Except</h1><ul>
+<li><p>The <code>try</code> block lets you test a block of code for errors.</p>
+</li>
+<li><p>The <code>except</code> block lets you handle the error.</p>
+</li>
+<li><p>The <code>finally</code> block lets you execute code, regardless of the result of the try- and except blocks.</p>
+</li>
+</ul>
+<p>As an example, </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  <span class="built_in">print</span>(x)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;An exception occurred&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>The try block generate the except, because the x variable is not defined. </p>
+<p>Since the <code>try</code> block raises an error, the <code>except</code> block will be executed.</p>
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">An exception occurred</span><br></pre></td></tr></table></figure>
+
+<p>If there have not a try block, the program will crash and raise a error.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;try_except.py&quot;, line 1, in &lt;module&gt;</span><br><span class="line">    print(x)</span><br><span class="line">NameError: name &#x27;x&#x27; is not defined</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Many-Exceptions"><a href="#Many-Exceptions" class="headerlink" title="Many Exceptions"></a>Many Exceptions</h2><p>You can define as many exceptions as you want. </p>
+<p>And also you can execute a special except block for a special kind of error.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">  <span class="built_in">print</span>(x)</span><br><span class="line"><span class="keyword">except</span> NameError:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;Variable x is not defined&quot;</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;Something else went wrong&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Variable x is not defined</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h1><p>A variable is only available from inside the region it is created. This is called <strong>scope</strong>.</p>
+<h1 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h1><p>Consider a module to be the same as a code library.</p>
+<p>A file containing a set of functions you want to include in your application.</p>
+<p>The module can contain functions, but also variables of all types (arrays, dictionaries, objects etc)</p>
+<h2 id="Create-a-Module"><a href="#Create-a-Module" class="headerlink" title="Create a Module"></a>Create a Module</h2><p>To create a module just save the code you want in a file with the file extension <code>.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">person1 = &#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  <span class="string">&quot;age&quot;</span>: <span class="number">36</span>,</span><br><span class="line">  <span class="string">&quot;country&quot;</span>: <span class="string">&quot;Norway&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">greeting</span>(<span class="params">name</span>):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;Hello, &quot;</span> + name)</span><br></pre></td></tr></table></figure>
+
+<p>Save this code in a file named <code>mymodule.py</code></p>
+<h2 id="Use-a-Module"><a href="#Use-a-Module" class="headerlink" title="Use a Module"></a>Use a Module</h2><p>Now we can use the module we just created, by using the <code>import</code> statement:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mymodule</span><br><span class="line"></span><br><span class="line">mymodule.greeting(<span class="string">&quot;Jonathan&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(myModule.person1)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Note:</strong> When using a function from a module, use the syntax: <code>module_name.variable_name</code>.</p>
+<h2 id="Re-naming-a-Module"><a href="#Re-naming-a-Module" class="headerlink" title="Re-naming a Module"></a>Re-naming a Module</h2><p>You can create an alias when you import a module, by using the <code>as</code> keyword:</p>
+<p>Create an alias for mymodule called mx:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mymodule <span class="keyword">as</span> mx</span><br><span class="line"></span><br><span class="line">a = mx.person1[<span class="string">&quot;age&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+
+<h2 id="dir-Function"><a href="#dir-Function" class="headerlink" title="dir() Function"></a><code>dir()</code> Function</h2><p>There is a built-in function to list all the function names (or variable names) in a module. The <code>dir()</code> function:</p>
+<p>List all the defined names belonging to the platform module:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> platform</span><br><span class="line"></span><br><span class="line">x = <span class="built_in">dir</span>(platform)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Import-From-Module"><a href="#Import-From-Module" class="headerlink" title="Import From Module"></a>Import From Module</h2><p>You can choose to <strong>import only parts from a module</strong>, by using the <code>from</code> keyword.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mymodule <span class="keyword">import</span> person1</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (person1[<span class="string">&quot;age&quot;</span>])</span><br></pre></td></tr></table></figure>
+
+<h1 id="File-Handling"><a href="#File-Handling" class="headerlink" title="File Handling"></a>File Handling</h1><p>Python has several functions for creating, reading, updating, and deleting files.</p>
+<h2 id="open"><a href="#open" class="headerlink" title="open()"></a>open()</h2><p>The key function for working with files in Python is the <code>open()</code> function.</p>
+<p>The <code>open()</code> function takes two parameters; <em>filename</em>, and <em>mode</em>.</p>
+<p>There are four different methods (modes) for opening a file:</p>
+<p><code>&quot;r&quot;</code> - Read - Default value. Opens a file for reading, error if the file does not exist</p>
+<p><code>&quot;a&quot;</code> - Append - Opens a file for appending, creates the file if it does not exist</p>
+<p><code>&quot;w&quot;</code> - Write - Opens a file for writing, creates the file if it does not exist</p>
+<p>​			Using <code>&quot;w&quot;</code> you won’t be able to read the file. </p>
+<p><code>&quot;x&quot;</code> - Create - Creates the specified file, returns an error if the file exists</p>
+<h2 id="read"><a href="#read" class="headerlink" title="read()"></a>read()</h2><p>The <code>open()</code> function returns a file object, which has a <code>read()</code> method for reading the content of the file:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;demofile.txt&quot;</span>, <span class="string">&quot;r&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(f.read())</span><br></pre></td></tr></table></figure>
+
+<h2 id="write"><a href="#write" class="headerlink" title="write()"></a>write()</h2><p>To write to an existing file, you must add a parameter to the <code>open()</code> function:</p>
+<p><code>&quot;a&quot;</code> - Append - will append to the end of the file</p>
+<p><code>&quot;w&quot;</code> - Write - will overwrite any existing content</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;demofile2.txt&quot;</span>, <span class="string">&quot;a&quot;</span>)</span><br><span class="line">f.write(<span class="string">&quot;Now the file has more content!&quot;</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<p><strong>Note:</strong> the “w” method will overwrite the entire file.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;demofile3.txt&quot;</span>, <span class="string">&quot;w&quot;</span>)</span><br><span class="line">f.write(<span class="string">&quot;Woops! I have deleted the content!&quot;</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<h2 id="close"><a href="#close" class="headerlink" title="close()"></a>close()</h2><p>It is a good practice to always close the file when you are done with it.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;demofile.txt&quot;</span>, <span class="string">&quot;r&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(f.readline())</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Delete-a-File"><a href="#Delete-a-File" class="headerlink" title="Delete a File"></a>Delete a File</h2><p>To delete a file, you must import the OS module, and run its <code>os.remove()</code> function:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.remove(<span class="string">&quot;demofile.txt&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="with-open"><a href="#with-open" class="headerlink" title="with open"></a>with open</h1><p>When you use <code>with</code> statement with <code>open</code> function, you do not need to close the file at the end, because <code>with</code> would automatically close it for you.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;text.txt&quot;</span>, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">&quot;welcome&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;text.txt&quot;</span>,<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data=f.read()</span><br><span class="line"><span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="JSON-in-Python"><a href="#JSON-in-Python" class="headerlink" title="JSON in Python"></a>JSON in Python</h1><p>Python has a built-in package called <code>json</code>, which can be used to work with JSON data.</p>
+<p>If you have a JSON string, you can parse it by using the <code>json.loads()</code> method.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># some JSON:</span></span><br><span class="line">x =  <span class="string">&#x27;&#123; &quot;name&quot;:&quot;John&quot;, &quot;age&quot;:30, &quot;city&quot;:&quot;New York&quot;&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># parse x:</span></span><br><span class="line">y = json.loads(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># the result is a Python dictionary:</span></span><br><span class="line"><span class="built_in">print</span>(y[<span class="string">&quot;age&quot;</span>])</span><br></pre></td></tr></table></figure>
+
+<p>If you have a Python object, you can convert it into a JSON string by using the <code>json.dumps()</code> method.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># a Python object (dict):</span></span><br><span class="line">x = &#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  <span class="string">&quot;age&quot;</span>: <span class="number">30</span>,</span><br><span class="line">  <span class="string">&quot;city&quot;</span>: <span class="string">&quot;New York&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># convert into JSON:</span></span><br><span class="line">y = json.dumps(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># the result is a JSON string:</span></span><br><span class="line"><span class="built_in">print</span>(y)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="if-name-main"><a href="#if-name-main" class="headerlink" title="if __name__ == &quot;__main__&quot;"></a><code>if __name__ == &quot;__main__&quot;</code></h1><p>Python files are called modules and they are identified by the <code>.py</code> file extension. A module can define functions, classes, and variables.</p>
+<p><code>__name__</code> is a model name. When a model is executed, <code>__name__</code> equal to <code>__main__</code>. When a model is not executed, <code>__name__</code> equal to its file name. </p>
+<p>It’s boilerplate code that protects users from accidentally invoking the script when they didn’t intend to.</p>
+<p>It allows the code in the module to be importable by other modules, without executing the code block beneath on import.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io">FerryChan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io/2021/10/15/Python/python/">http://ferrychan666.github.io/2021/10/15/Python/python/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a></div><div class="post-share"><div class="social-share" data-image="/img/Tom.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2021/07/01/html/css/" title="css"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">css</div></div><div class="info-2"><div class="info-item-1">TablesTo create a table, we should know some elements:  &lt;table&gt; define a table  &lt;tr&gt; - table row, define a row in the table  &lt;th&gt; - table header, contain some table handing  &lt;td&gt; - table data, contain some data in the table   </div></div></div></a><a class="pagination-related" href="/2021/11/02/Python/Spider/" title="Spider"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">Spider</div></div><div class="info-2"><div class="info-item-1"> 发送请求 获取源码（re正则表达式，css（parsel），XPath） 提取数据 保存数据  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859import requestsimport parselimport csvimport timedef spider():    headers=&#123;        &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36&#x27;    &#125;    i=0    num=0    while True:        time.sleep(1)       ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2021/12/23/Python/BeautifulSoup/" title="BeautifulSoup"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-23</div><div class="info-item-2">BeautifulSoup</div></div><div class="info-2"><div class="info-item-1">IntroductionBeautiful Soup is a Python library for pulling data out of HTML and XML files. It works with your favorite parser to provide idiomatic ways of navigating. I’ll be using as an example throughout this document. 123456789101112html_doc = &quot;&quot;&quot;&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&#x27;s story&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse&#x27;s story&lt;/b&gt;&lt;/p&gt;&lt;p class=&quot;story&quot;&gt;Once upon...</div></div></div></a><a class="pagination-related" href="/2021/11/18/Python/Matplotlib/" title="Matplotlib"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-18</div><div class="info-item-2">Matplotlib</div></div><div class="info-2"><div class="info-item-1">pyplotMost of the Matplotlib utilities lies under the pyplot submodule, and are usually imported under the plt alias: 1import matplotlib.pyplot as plt    Functionplot()The plot() function is used to draw points in a diagram. This function takes two parameters for specifying points in the diagram.  Parameter1 is a array that define the range on x-axis.  Paramete21 is a array that define the range on y-axis.  By default, the plot() function draws a line from point to point. point to...</div></div></div></a><a class="pagination-related" href="/2021/11/30/Python/Python-MySQL/" title="Python MySQL"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-30</div><div class="info-item-2">Python MySQL</div></div><div class="info-2"><div class="info-item-1">Creating Connection1234567import pymysqlmydb = pymysql.connect(  host=&quot;localhost&quot;,  user=&quot;root&quot;,  password=&quot;123456&quot;)  Creating a DatabaseWe created a database named “mydatabase” 123mycursor = mydb.cursor()mycursor.execute(&quot;CREATE DATABASE mydatabase&quot;)    Check if Database Exists12345mycursor = mydb.cursor()mycursor.execute(&quot;SHOW DATABASES&quot;)for x in mycursor:  print(x)    access the database when making the connection123456mydb =...</div></div></div></a><a class="pagination-related" href="/2021/11/02/Python/Spider/" title="Spider"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-02</div><div class="info-item-2">Spider</div></div><div class="info-2"><div class="info-item-1"> 发送请求 获取源码（re正则表达式，css（parsel），XPath） 提取数据 保存数据  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859import requestsimport parselimport csvimport timedef spider():    headers=&#123;        &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36&#x27;    &#125;    i=0    num=0    while True:        time.sleep(1)       ...</div></div></div></a><a class="pagination-related" href="/2023/03/17/Python/Tkinter/" title="Tkinter"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-17</div><div class="info-item-2">Tkinter</div></div><div class="info-2"><div class="info-item-1">IntroductionThe foundational element of a Tkinter GUI is the window. Windows are the containers in which all other GUI elements live. These other GUI elements, such as text boxes, labels, and buttons, are known as widgets. windowThe first thing you need to do is import the Python GUI Tkinter module: 1import tkinter as tk  A window is an instance of Tkinter’s Tk class. Go ahead and create a new window and assign it to the variable window: 1window = tk.Tk()  widgetsUse the tk.Label class to...</div></div></div></a><a class="pagination-related" href="/2021/11/23/Python/pandas/" title="pandas"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-23</div><div class="info-item-2">pandas</div></div><div class="info-2"><div class="info-item-1">What is pandas?Pandas is a Python library used for working with data sets. It has functions for analyzing, cleaning, exploring, and manipulating data. SeriesCreating a SeriesYou can create a Series by putting a list or dictionary as the parameter to the method pd.Series() . The Series is a one-dimensional array holding data of any type. labelThe label is the index of the element in the Series.  using list1234567import pandas as pda = [1, 7, 2]myvar = pd.Series(a)print(myvar)  output 12340   ...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FerryChan</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">154</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/FerryChan666" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Indentation"><span class="toc-number">1.</span> <span class="toc-text">Indentation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Variables"><span class="toc-number">2.</span> <span class="toc-text">Variables</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Data-Types"><span class="toc-number">3.</span> <span class="toc-text">Data Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Setting-the-data-type"><span class="toc-number">3.1.</span> <span class="toc-text">Setting the data type</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Strings"><span class="toc-number">4.</span> <span class="toc-text">Strings</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiline-Strings"><span class="toc-number">4.1.</span> <span class="toc-text">Multiline Strings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Strings-are-Arrays"><span class="toc-number">4.2.</span> <span class="toc-text">Strings are Arrays</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Looping-Through-a-String"><span class="toc-number">4.3.</span> <span class="toc-text">Looping Through a String</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-Length"><span class="toc-number">4.4.</span> <span class="toc-text">String Length</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-String"><span class="toc-number">4.5.</span> <span class="toc-text">Check String</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Slicing"><span class="toc-number">4.6.</span> <span class="toc-text">Slicing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Modify-Strings"><span class="toc-number">4.7.</span> <span class="toc-text">Modify Strings</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-Collections"><span class="toc-number">5.</span> <span class="toc-text">Python Collections</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lists"><span class="toc-number">6.</span> <span class="toc-text">Lists</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-list-Constructor"><span class="toc-number">6.1.</span> <span class="toc-text">The list() Constructor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List-Length"><span class="toc-number">6.2.</span> <span class="toc-text">List Length</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Types-1"><span class="toc-number">6.3.</span> <span class="toc-text">Data Types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Access-List-Items"><span class="toc-number">6.4.</span> <span class="toc-text">Access List Items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Range-of-Indexes"><span class="toc-number">6.5.</span> <span class="toc-text">Range of Indexes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Insert-items"><span class="toc-number">6.6.</span> <span class="toc-text">Insert items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Append-Items"><span class="toc-number">6.7.</span> <span class="toc-text">Append Items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extend-List"><span class="toc-number">6.8.</span> <span class="toc-text">Extend List</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remove"><span class="toc-number">6.9.</span> <span class="toc-text">Remove</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clear-the-List"><span class="toc-number">6.10.</span> <span class="toc-text">Clear the List</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Loop-Through-a-List"><span class="toc-number">6.11.</span> <span class="toc-text">Loop Through a List</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Loop-Through-the-Index-Numbers"><span class="toc-number">6.12.</span> <span class="toc-text">Loop Through the Index Numbers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-a-While-Loop"><span class="toc-number">6.13.</span> <span class="toc-text">Using a While Loop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Looping-Using-List-Comprehension"><span class="toc-number">6.14.</span> <span class="toc-text">Looping Using List Comprehension</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List-Methods"><span class="toc-number">6.15.</span> <span class="toc-text">List Methods</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tuples"><span class="toc-number">7.</span> <span class="toc-text">Tuples</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-Tuple-With-One-Item"><span class="toc-number">7.1.</span> <span class="toc-text">Create Tuple With One Item</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-tuple-Constructor"><span class="toc-number">7.2.</span> <span class="toc-text">The tuple() Constructor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Access-Tuple-Items"><span class="toc-number">7.3.</span> <span class="toc-text">Access Tuple Items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Items"><span class="toc-number">7.4.</span> <span class="toc-text">Add Items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remove-Items"><span class="toc-number">7.5.</span> <span class="toc-text">Remove Items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Loop-Through-a-Tuple"><span class="toc-number">7.6.</span> <span class="toc-text">Loop Through a Tuple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-a-While-Loop-1"><span class="toc-number">7.7.</span> <span class="toc-text">Using a While Loop</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Set"><span class="toc-number">8.</span> <span class="toc-text">Set</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Access-Items"><span class="toc-number">8.1.</span> <span class="toc-text">Access Items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Items-1"><span class="toc-number">8.2.</span> <span class="toc-text">Add Items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Sets"><span class="toc-number">8.3.</span> <span class="toc-text">Add Sets</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Remove-Item"><span class="toc-number">8.4.</span> <span class="toc-text">Remove Item</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dictionaries"><span class="toc-number">9.</span> <span class="toc-text">Dictionaries</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-dict-Constructor"><span class="toc-number">9.1.</span> <span class="toc-text">The dict() Constructor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Accessing-Items"><span class="toc-number">9.2.</span> <span class="toc-text">Accessing Items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get-Keys"><span class="toc-number">9.3.</span> <span class="toc-text">Get Keys</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get-Values"><span class="toc-number">9.4.</span> <span class="toc-text">Get Values</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get-Items"><span class="toc-number">9.5.</span> <span class="toc-text">Get Items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Change-Values"><span class="toc-number">9.6.</span> <span class="toc-text">Change Values</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Update-Dictionary"><span class="toc-number">9.7.</span> <span class="toc-text">Update Dictionary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adding-Items"><span class="toc-number">9.8.</span> <span class="toc-text">Adding Items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Removing-Items"><span class="toc-number">9.9.</span> <span class="toc-text">Removing Items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Loop-Through-a-Dictionary"><span class="toc-number">9.10.</span> <span class="toc-text">Loop Through a Dictionary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copy-a-Dictionary"><span class="toc-number">9.11.</span> <span class="toc-text">Copy a Dictionary</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#If-%E2%80%A6-Else"><span class="toc-number">10.</span> <span class="toc-text">If … Else</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Conditions-and-If-statements"><span class="toc-number">10.1.</span> <span class="toc-text">Conditions and If statements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#If-statements"><span class="toc-number">10.2.</span> <span class="toc-text">If statements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Elif"><span class="toc-number">10.3.</span> <span class="toc-text">Elif</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Else"><span class="toc-number">10.4.</span> <span class="toc-text">Else</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#And"><span class="toc-number">10.5.</span> <span class="toc-text">And</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Or"><span class="toc-number">10.6.</span> <span class="toc-text">Or</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Not"><span class="toc-number">10.7.</span> <span class="toc-text">Not</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-pass-Statement"><span class="toc-number">10.8.</span> <span class="toc-text">The pass Statement</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Loops"><span class="toc-number">11.</span> <span class="toc-text">Loops</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-while-Loop"><span class="toc-number">11.1.</span> <span class="toc-text">The while Loop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-For-Loops"><span class="toc-number">11.2.</span> <span class="toc-text">The For Loops</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-range-Function"><span class="toc-number">11.3.</span> <span class="toc-text">The range() Function</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Functions"><span class="toc-number">12.</span> <span class="toc-text">Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Creating-a-Function"><span class="toc-number">12.1.</span> <span class="toc-text">Creating a Function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Parameters-or-Arguments"><span class="toc-number">12.2.</span> <span class="toc-text">Parameters or Arguments?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Arbitrary-Arguments-args"><span class="toc-number">12.3.</span> <span class="toc-text">Arbitrary Arguments, *args</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Keyword-Arguments"><span class="toc-number">12.4.</span> <span class="toc-text">Keyword Arguments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Return-Values"><span class="toc-number">12.5.</span> <span class="toc-text">Return Values</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Recursion"><span class="toc-number">12.6.</span> <span class="toc-text">Recursion</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda"><span class="toc-number">13.</span> <span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Arrays"><span class="toc-number">14.</span> <span class="toc-text">Arrays</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Classes-Objects"><span class="toc-number">15.</span> <span class="toc-text">Classes&#x2F;Objects</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-a-class"><span class="toc-number">15.1.</span> <span class="toc-text">Create a class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-an-Object"><span class="toc-number">15.2.</span> <span class="toc-text">Create an Object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-init-function"><span class="toc-number">15.3.</span> <span class="toc-text">The __init__() function</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Object-Methods"><span class="toc-number">16.</span> <span class="toc-text">Object Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-self-Parameter"><span class="toc-number">16.1.</span> <span class="toc-text">The self Parameter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Inheritance"><span class="toc-number">16.2.</span> <span class="toc-text">Inheritance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-Child-Class"><span class="toc-number">16.2.1.</span> <span class="toc-text">Create a Child Class</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#super-Function"><span class="toc-number">16.2.2.</span> <span class="toc-text">super() Function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Iterator-vs-Iterable"><span class="toc-number">16.3.</span> <span class="toc-text">Iterator vs Iterable</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Try-Except"><span class="toc-number">17.</span> <span class="toc-text">Try &amp; Except</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Many-Exceptions"><span class="toc-number">17.1.</span> <span class="toc-text">Many Exceptions</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scope"><span class="toc-number">18.</span> <span class="toc-text">Scope</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Modules"><span class="toc-number">19.</span> <span class="toc-text">Modules</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-a-Module"><span class="toc-number">19.1.</span> <span class="toc-text">Create a Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-a-Module"><span class="toc-number">19.2.</span> <span class="toc-text">Use a Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Re-naming-a-Module"><span class="toc-number">19.3.</span> <span class="toc-text">Re-naming a Module</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dir-Function"><span class="toc-number">19.4.</span> <span class="toc-text">dir() Function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Import-From-Module"><span class="toc-number">19.5.</span> <span class="toc-text">Import From Module</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#File-Handling"><span class="toc-number">20.</span> <span class="toc-text">File Handling</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#open"><span class="toc-number">20.1.</span> <span class="toc-text">open()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#read"><span class="toc-number">20.2.</span> <span class="toc-text">read()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#write"><span class="toc-number">20.3.</span> <span class="toc-text">write()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#close"><span class="toc-number">20.4.</span> <span class="toc-text">close()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delete-a-File"><span class="toc-number">20.5.</span> <span class="toc-text">Delete a File</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#with-open"><span class="toc-number">21.</span> <span class="toc-text">with open</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON-in-Python"><span class="toc-number">22.</span> <span class="toc-text">JSON in Python</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#if-name-main"><span class="toc-number">23.</span> <span class="toc-text">if __name__ &#x3D;&#x3D; &quot;__main__&quot;</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/15/scrape/JavaScript%E5%8F%8D%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/" title="JavaScript反爬虫原理">JavaScript反爬虫原理</a><time datetime="2025-02-15T07:16:34.000Z" title="Created 2025-02-15 15:16:34">2025-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/19/Q&amp;A/pip-install-%E6%8C%82%E4%BB%A3%E7%90%86/" title="pip install 挂代理">pip install 挂代理</a><time datetime="2023-04-19T14:54:54.000Z" title="Created 2023-04-19 22:54:54">2023-04-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/27/Python/python%20comprehensions/" title="python comprehensions">python comprehensions</a><time datetime="2023-03-27T14:51:10.000Z" title="Created 2023-03-27 22:51:10">2023-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/20/git/Failed-to-connect-to-github-com-port-443-after-21193-ms-Timed-out/" title="Failed to connect to github.com port 443 after 21193 ms: Timed out">Failed to connect to github.com port 443 after 21193 ms: Timed out</a><time datetime="2023-03-20T05:23:22.000Z" title="Created 2023-03-20 13:23:22">2023-03-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/17/Python/Tkinter/" title="Tkinter">Tkinter</a><time datetime="2023-03-17T01:46:53.000Z" title="Created 2023-03-17 09:46:53">2023-03-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By FerryChan</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

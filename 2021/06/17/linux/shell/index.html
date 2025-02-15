@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Shell &amp; Shell scripts | Ferry's blog</title><meta name="author" content="FerryChan"><meta name="copyright" content="FerryChan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="IntroductionUsers communicate with the kernel through a program known as the shell.  The shell is a command line interpreter; it translates commands entered by the user and converts them into a langua">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shell &amp; Shell scripts">
+<meta property="og:url" content="http://ferrychan666.github.io/2021/06/17/linux/shell/index.html">
+<meta property="og:site_name" content="Ferry&#39;s blog">
+<meta property="og:description" content="IntroductionUsers communicate with the kernel through a program known as the shell.  The shell is a command line interpreter; it translates commands entered by the user and converts them into a langua">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ferrychan666.github.io/img/Tom.jpg">
+<meta property="article:published_time" content="2021-06-17T08:17:49.000Z">
+<meta property="article:modified_time" content="2022-05-21T17:09:19.000Z">
+<meta property="article:author" content="FerryChan">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ferrychan666.github.io/img/Tom.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Shell & Shell scripts",
+  "url": "http://ferrychan666.github.io/2021/06/17/linux/shell/",
+  "image": "http://ferrychan666.github.io/img/Tom.jpg",
+  "datePublished": "2021-06-17T08:17:49.000Z",
+  "dateModified": "2022-05-21T17:09:19.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "FerryChan",
+      "url": "http://ferrychan666.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://ferrychan666.github.io/2021/06/17/linux/shell/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":false,"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Shell & Shell scripts',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">154</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a><a class="nav-page-title" href="/"><span class="site-name">Shell &amp; Shell scripts</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Shell &amp; Shell scripts</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-06-17T08:17:49.000Z" title="Created 2021-06-17 16:17:49">2021-06-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-21T17:09:19.000Z" title="Updated 2022-05-22 01:09:19">2022-05-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Users communicate with the kernel through a program known as the <strong>shell</strong>. </p>
+<p>The shell is a command line interpreter; it translates commands entered by the user and converts them into a language that is understood by the kernel.</p>
+<p><strong>Shell</strong> is an environment in which we can run our commands, programs, and shell scripts. A shell provides an interface to your Linux System. It gathers your inputs and executes programs based on that input. </p>
+<p>The shell is, after all, a real programming language, complete with variables, control structures, and so forth.</p>
+<h1 id="Shell-Scripts"><a href="#Shell-Scripts" class="headerlink" title="Shell Scripts"></a>Shell Scripts</h1><p>The basic concept of a shell script is a list of commands, which are listed in the order of execution. A good shell script will have comments, preceded by # sign, describing the steps.</p>
+<ol>
+<li><p>Create</p>
+<p>The <code>.sh</code> file is start by using <code>#! /bin/sh</code> , which alert the system that shell scripts are as follows.</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">echo -e &quot;Hello World! \a \n&quot;</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>Comments</li>
+</ol>
+<p>We can add some comments by using <code>#</code> in the begin of a line.</p>
+<ol start="3">
+<li><p>Execute</p>
+<p>Make the script executable and execute it. </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x test.sh ;./test.sh</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>Example</strong></p>
+<p>The following script uses the <strong>read</strong> command which takes the input from the keyboard and assigns it as the value of the variable PERSON and finally prints it on STDOUT.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">echo &quot;What is your name?&quot;</span><br><span class="line">read PERSON</span><br><span class="line">echo &quot;Hello, $PERSON&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Here is a sample run of the script −</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$./test.sh</span><br><span class="line">What is your name?</span><br><span class="line">Zara Ali</span><br><span class="line">Hello, Zara Ali</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+
+<h2 id="The-execution-sequence-of-commands"><a href="#The-execution-sequence-of-commands" class="headerlink" title="The execution sequence of commands"></a>The execution sequence of commands</h2><ul>
+<li><p><code>;</code></p>
+<p>The commands can be combined in a line by using the <code>;</code> to sperate them.</p>
+<p>**It is noticeable that the commands will be executed from left to right and the fail of the previous commands don’t prevent the later ones. **</p>
+</li>
+<li><p><code>&amp;&amp;</code></p>
+<p>This operator just like the previous one but <strong>the obvious difference is that if the previous commands don’t be executed successfully, the later commands won’t be executed.</strong> </p>
+</li>
+<li><p><code>||</code></p>
+<p>**ONLY the fail of the previous command can the later ones be executed. **</p>
+</li>
+</ul>
+<h1 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h1><p>Variable is nothing more than a pointer to the actual value. </p>
+<h2 id="Defining-Variables"><a href="#Defining-Variables" class="headerlink" title="Defining Variables"></a>Defining Variables</h2><p><font color="red">Remember that there are not spaces between the ‘&#x3D;’. <font></font></font></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">variable_name=variable_value</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">erro:</span><br><span class="line">name = ferry</span><br><span class="line">name= ferry chan</span><br><span class="line">correct:</span><br><span class="line">name=ferry</span><br><span class="line">name=&quot;ferry chan&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>The default type of variable is string type. If you want to perform arithmetic operations, you should declare the type of variables using the <code>declare</code> command.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">declare [-aAfFgilnrtux] [-p] [name[=value] ...]</span><br><span class="line"></span><br><span class="line">Options which set attributes:</span><br><span class="line">    -a	to make NAMEs indexed arrays (if supported)</span><br><span class="line">    -i	to make NAMEs have the `integer&#x27; attribute</span><br><span class="line">    -x	to make NAMEs export</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><figcaption><span>example</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sum</span>=10+10</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="variable">$sum</span></span></span><br><span class="line">10+10</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">sum</span>=$((<span class="number">10</span>+<span class="number">10</span>))</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="variable">$sum</span></span></span><br><span class="line">20</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">declare</span> -i <span class="built_in">sum</span>=10+10</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="built_in">sum</span></span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Accessing-Values"><a href="#Accessing-Values" class="headerlink" title="Accessing Values"></a>Accessing Values</h2><p>To access the value stored in a variable, prefix its name with the dollar sign (<strong>$</strong>) </p>
+<h2 id="Unsetting-Variables"><a href="#Unsetting-Variables" class="headerlink" title="Unsetting Variables"></a>Unsetting Variables</h2><p>Following is the syntax to unset a defined variable using the <strong>unset</strong> command −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unset variable_name</span><br></pre></td></tr></table></figure>
+
+<h2 id="Special-Variable"><a href="#Special-Variable" class="headerlink" title="Special Variable"></a>Special Variable</h2><table>
+<thead>
+<tr>
+<th align="center">Sr.No.</th>
+<th align="center">Variable &amp; Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><strong>$0</strong>The filename of the current script.</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><strong>$n</strong>These variables correspond to the arguments with which a script was invoked. Here <strong>n</strong> is a positive decimal number corresponding to the position of an argument (the first argument is $1, the second argument is $2, and so on).</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">**$#**The number of arguments supplied to a script.</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">**$**<em>All the arguments are double quoted. If a script receives two arguments, $</em> is equivalent to $1 $2.</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">**$@**All the arguments are individually double quoted. If a script receives two arguments, $@ is equivalent to $1 $2.</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">**$?**The exit status of the last command executed.</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">**$$**The process number of the current shell. For shell scripts, this is the process ID under which they are executing.</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">**$!**The process number of the last background command.</td>
+</tr>
+</tbody></table>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo &quot;The script name is        ==&gt; $&#123;0&#125;&quot;</span><br><span class="line">echo &quot;Total parameter number is         ==&gt;$#&quot;</span><br><span class="line">echo &quot;Your whole parameter is           ==&gt;&#x27;$@&#x27;&quot;</span><br><span class="line">echo &quot;The 1st parameter         ==&gt;$&#123;1&#125;&quot;</span><br><span class="line">echo &quot;The second parameter      ==&gt;$&#123;2&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">The script name is	==&gt; ./how_paras.sh</span><br><span class="line">Total parameter number is		==&gt;3</span><br><span class="line">Your whole parameter is 		==&gt;&#x27;a b c&#x27;</span><br><span class="line">The 1st parameter		==&gt;a</span><br><span class="line">The second parameter 	==&gt;b</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Exit-Status"><a href="#Exit-Status" class="headerlink" title="Exit Status"></a>Exit Status</h3><p>The <strong>$?</strong> variable represents the exit status of the previous command.</p>
+<p>Exit status is a numerical value returned by every command upon its completion. As a rule, most commands return an exit status of 0 if they were successful, and 1 if they were unsuccessful.</p>
+<h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">NAME[0]=&quot;Zara&quot;</span><br><span class="line">NAME[1]=&quot;Qadir&quot;</span><br><span class="line">NAME[2]=&quot;Mahnaz&quot;</span><br><span class="line">NAME[3]=&quot;Ayan&quot;</span><br><span class="line">NAME[4]=&quot;Daisy&quot;</span><br><span class="line">echo &quot;First Method: $&#123;NAME[*]&#125;&quot;</span><br><span class="line">echo &quot;Second Method: $&#123;NAME[@]&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h1><ul>
+<li><p><code>$((expression))</code></p>
+<p>We usually use it to calculate and return the result. </p>
+<figure class="highlight shell"><figcaption><span>factorial</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">read -p &quot;Enter the value of n, I will calculate the factorial of n:&quot; n</span><br><span class="line">s=$n</span><br><span class="line">while [ $n -gt 1 ]</span><br><span class="line">do</span><br><span class="line">	n=$((n-1))</span><br><span class="line">	s=$(($s*$n))</span><br><span class="line">done</span><br><span class="line">echo -e &quot;The factorial is $s&quot;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><code>expr</code> or <code>awk</code></p>
+<p>Bourne shell didn’t originally have any mechanism to perform simple arithmetic operations but it uses external programs, either <strong>awk</strong> or <strong>expr</strong>.</p>
+<p>The following example shows how to add two numbers −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">val=`expr 2 + 2`</span><br><span class="line">echo &quot;Total value : $val&quot;</span><br></pre></td></tr></table></figure>
+
+<p><font color="red">It is noticeable that the <code>$()</code> and two &#96; can output the information of the executed command. <font>  </font></font></p>
+<p>The above script will generate the following result −</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Total value : 4</span><br></pre></td></tr></table></figure>
+
+<p>The following points need to be considered while adding −</p>
+<ul>
+<li>There must be spaces between operators and expressions. For example, 2+2 is not correct; it should be written as 2 + 2.</li>
+<li>The complete expression should be enclosed between <strong>&#96;&#96;</strong>, called the backtick.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Quoting"><a href="#Quoting" class="headerlink" title="Quoting"></a>Quoting</h2><ol>
+<li><p>double quoting</p>
+<p>The double quote ( “quote” ) protects everything enclosed between two double quote marks except $, ‘, “ and .</p>
+<p>(Use the double quotes when you want only <strong>variables and command substitution</strong>.)</p>
+</li>
+<li><p>The single quote</p>
+<p>The single quote ( ‘quote’ ) protects everything enclosed between two single quote marks. It is used to <strong>turn off the special meaning</strong> of all characters.</p>
+</li>
+</ol>
+<h1 id><a href="#" class="headerlink" title="[]"></a>[]</h1><p>It is very important to understand that <strong>all the conditional expressions should be placed inside square braces with spaces around them.</strong> For example, <strong>[ $a -le $b ]</strong> is correct whereas, <strong>[$a -le $b]</strong> is incorrect.</p>
+<p>In addition, there are two spaces around the operator. </p>
+<h2 id="Arithmetic-Operators"><a href="#Arithmetic-Operators" class="headerlink" title="Arithmetic Operators"></a>Arithmetic Operators</h2><table>
+<thead>
+<tr>
+<th align="center">Operator</th>
+<th align="center">Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+ (Addition)</td>
+<td align="center">Adds values on either side of the operator</td>
+<td align="center"><code>expr $a + $b</code> will give 30</td>
+</tr>
+<tr>
+<td align="center">- (Subtraction)</td>
+<td align="center">Subtracts right hand operand from left hand operand</td>
+<td align="center"><code>expr $a - $b</code> will give -10</td>
+</tr>
+<tr>
+<td align="center">* (Multiplication)</td>
+<td align="center">Multiplies values on either side of the operator</td>
+<td align="center"><code>expr $a \* $b</code> will give 200</td>
+</tr>
+<tr>
+<td align="center">&#x2F; (Division)</td>
+<td align="center">Divides left hand operand by right hand operand</td>
+<td align="center"><code>expr $b / $a</code> will give 2</td>
+</tr>
+<tr>
+<td align="center">% (Modulus)</td>
+<td align="center">Divides left hand operand by right hand operand and returns remainder</td>
+<td align="center"><code>expr $b % $a</code> will give 0</td>
+</tr>
+<tr>
+<td align="center">&#x3D; (Assignment)</td>
+<td align="center">Assigns right operand in left operand</td>
+<td align="center">a &#x3D; $b would assign value of b into a</td>
+</tr>
+<tr>
+<td align="center">&#x3D;&#x3D; (Equality)</td>
+<td align="center">Compares two numbers, if both are same then returns true.</td>
+<td align="center">[ $a &#x3D;&#x3D; $b ] would return false.</td>
+</tr>
+<tr>
+<td align="center">!&#x3D; (Not Equality)</td>
+<td align="center">Compares two numbers, if both are different then returns true.</td>
+<td align="center">[ $a !&#x3D; $b ] would return true.</td>
+</tr>
+</tbody></table>
+<h2 id="Relational-Operators"><a href="#Relational-Operators" class="headerlink" title="Relational Operators"></a>Relational Operators</h2><p>Assume variable <strong>a</strong> holds 10 and variable <strong>b</strong> holds 20 then −</p>
+<table>
+<thead>
+<tr>
+<th align="center">Operator</th>
+<th align="center">Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>-eq</strong>(equal)</td>
+<td align="center">Checks if the value of two operands are equal or not; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -eq $b ] is not true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-ne</strong>(not equal)</td>
+<td align="center">Checks if the value of two operands are equal or not; if values are not equal, then the condition becomes true.</td>
+<td align="center">[ $a -ne $b ] is true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-gt</strong>(greater than)</td>
+<td align="center">Checks if the value of left operand is greater than the value of right operand; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -gt $b ] is not true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-lt</strong>(less than)</td>
+<td align="center">Checks if the value of left operand is less than the value of right operand; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -lt $b ] is true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-ge</strong>(greater or equal)</td>
+<td align="center">Checks if the value of left operand is greater than or equal to the value of right operand; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -ge $b ] is not true.</td>
+</tr>
+<tr>
+<td align="center"><strong>-le</strong>(less or equal)</td>
+<td align="center">Checks if the value of left operand is less than or equal to the value of right operand; if yes, then the condition becomes true.</td>
+<td align="center">[ $a -le $b ] is true.</td>
+</tr>
+</tbody></table>
+<h1 id="Conditional-Statements"><a href="#Conditional-Statements" class="headerlink" title="Conditional Statements"></a>Conditional Statements</h1><p>Unix Shell supports conditional statements which are used to perform different actions based on different conditions.</p>
+<h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if [ expression 1 ]</span><br><span class="line">then</span><br><span class="line">   Statement(s) to be executed if expression 1 is true</span><br><span class="line">elif [ expression 2 ]</span><br><span class="line">then</span><br><span class="line">   Statement(s) to be executed if expression 2 is true</span><br><span class="line">elif [ expression 3 ]</span><br><span class="line">then</span><br><span class="line">   Statement(s) to be executed if expression 3 is true</span><br><span class="line">else</span><br><span class="line">   Statement(s) to be executed if no expression is true</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">a=10</span><br><span class="line">b=20</span><br><span class="line"></span><br><span class="line">if [ $a == $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;a is equal to b&quot;</span><br><span class="line">elif [ $a -gt $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;a is greater than b&quot;</span><br><span class="line">elif [ $a -lt $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;a is less than b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;None of the condition met&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h1><h2 id="Syntax-1"><a href="#Syntax-1" class="headerlink" title="Syntax"></a>Syntax</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">while [ condition ]</span><br><span class="line">do</span><br><span class="line">   command1</span><br><span class="line">   command2</span><br><span class="line">   command3</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for (( EXP1; EXP2; EXP3 ))</span><br><span class="line">do</span><br><span class="line">	command1</span><br><span class="line">	command2</span><br><span class="line">	command3</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for VARIABLE in 1 2 3 4 5 .. N</span><br><span class="line">do</span><br><span class="line">	command1</span><br><span class="line">	command2</span><br><span class="line">	commandN</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">a=0</span><br><span class="line">while [ &quot;$a&quot; -lt 10 ]    # this is loop1</span><br><span class="line">do</span><br><span class="line">   b=&quot;$a&quot;</span><br><span class="line">   while [ &quot;$b&quot; -ge 0 ]  # this is loop2</span><br><span class="line">   do</span><br><span class="line">      echo -n &quot;$b &quot;</span><br><span class="line">      b=`expr $b - 1`</span><br><span class="line">   done</span><br><span class="line">   echo</span><br><span class="line">   a=`expr $a + 1`</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1 0</span><br><span class="line">2 1 0</span><br><span class="line">3 2 1 0</span><br><span class="line">4 3 2 1 0</span><br><span class="line">5 4 3 2 1 0</span><br><span class="line">6 5 4 3 2 1 0</span><br><span class="line">7 6 5 4 3 2 1 0</span><br><span class="line">8 7 6 5 4 3 2 1 0</span><br><span class="line">9 8 7 6 5 4 3 2 1 0</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>NOTE</strong></p>
+<ol>
+<li>It is important to note how <strong>echo -n</strong> works here. Here <strong>-n</strong> option lets echo avoid printing a new line character.</li>
+<li>Among the <code>[]</code>, we use a condition statement with <strong>two spaces between it</strong>. <code>[ condition ]</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">for((i=1;i&lt;=9;i++))</span><br><span class="line">do</span><br><span class="line">	for((j=1;j&lt;=i;j++))</span><br><span class="line">	do</span><br><span class="line">		echo -n &quot;$i*$j=$(($i*$j)) &quot;</span><br><span class="line">	done</span><br><span class="line">	echo &quot;&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1*1=1</span><br><span class="line">2*1=2 2*2=4</span><br><span class="line">3*1=3 3*2=6 3*3=9</span><br><span class="line">4*1=4 4*2=8 4*3=12 4*4=16</span><br><span class="line">5*1=5 5*2=10 5*3=15 5*4=20 5*5=25</span><br><span class="line">6*1=6 6*2=12 6*3=18 6*4=24 6*5=30 6*6=36</span><br><span class="line">7*1=7 7*2=14 7*3=21 7*4=28 7*5=35 7*6=42 7*7=49</span><br><span class="line">8*1=8 8*2=16 8*3=24 8*4=32 8*5=40 8*6=48 8*7=56 8*8=64</span><br><span class="line">9*1=9 9*2=18 9*3=27 9*4=36 9*5=45 9*6=54 9*7=63 9*8=72 9*9=81</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Substitution"><a href="#Substitution" class="headerlink" title="Substitution"></a>Substitution</h1><p>The <strong>-e</strong> option enables the interpretation of backslash escapes. </p>
+<p>The printing value of the variable is substituted by its value. </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">a=10</span><br><span class="line">echo -e &quot;Value of a is $a \n&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Command-Substitution"><a href="#Command-Substitution" class="headerlink" title="Command Substitution"></a>Command Substitution</h2><p>Command substitution is the mechanism by which the shell performs a given set of commands and then substitutes their output in the place of the commands.</p>
+<h3 id="Syntax-2"><a href="#Syntax-2" class="headerlink" title="Syntax"></a>Syntax</h3><p>The command substitution is performed when a command is given as −</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`command`</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">DATE=`date`</span><br><span class="line">echo &quot;Date is $DATE&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Upon execution, you will receive the following result −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date is Thu Jul  2 03:59:57 MST 2009</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Define your <span class="keyword">function</span> here</span></span><br><span class="line">Hello () &#123;</span><br><span class="line">   echo &quot;Hello World&quot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Invoke your <span class="keyword">function</span></span></span><br><span class="line">Hello</span><br></pre></td></tr></table></figure>
+
+<p>Upon execution, you will receive the following output −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World</span><br></pre></td></tr></table></figure>
+
+<h2 id="Pass-Parameters-to-a-Function"><a href="#Pass-Parameters-to-a-Function" class="headerlink" title="Pass Parameters to a Function"></a>Pass Parameters to a Function</h2><p>You can define a function that will accept parameters while calling the function. These parameters would be represented by <strong>$1</strong>, <strong>$2</strong> and so on.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Define your <span class="keyword">function</span> here</span></span><br><span class="line">Hello () &#123;</span><br><span class="line">   echo &quot;Hello World $1 $2&quot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Invoke your <span class="keyword">function</span></span></span><br><span class="line">Hello Zara Ali</span><br></pre></td></tr></table></figure>
+
+<p>Upon execution, you will receive the following result −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World Zara Ali</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Returning-Values-from-Functions"><a href="#Returning-Values-from-Functions" class="headerlink" title="Returning Values from Functions"></a>Returning Values from Functions</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Define your <span class="keyword">function</span> here</span></span><br><span class="line">Hello () &#123;</span><br><span class="line">   echo &quot;Hello World $1 $2&quot;</span><br><span class="line">   return 10</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Invoke your <span class="keyword">function</span></span></span><br><span class="line">Hello Zara Ali</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Capture value returnd by last <span class="built_in">command</span></span></span><br><span class="line">ret=$?</span><br><span class="line"></span><br><span class="line">echo &quot;Return value is $ret&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Upon execution, you will receive the following result −</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hello World Zara Ali</span><br><span class="line">Return value is 10</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io">FerryChan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io/2021/06/17/linux/shell/">http://ferrychan666.github.io/2021/06/17/linux/shell/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/linux/">linux</a></div><div class="post-share"><div class="social-share" data-image="/img/Tom.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2021/06/15/html/APIs/" title="APIs"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">APIs</div></div><div class="info-2"><div class="info-item-1">Web StorageWeb storage is more secure, and large amounts of data can be stored locally, without affecting website performance. Unlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server. Two Storage ObjectsHTML web storage provides two objects for storing data on the client:  window.localStorage - stores data with no expiration date window.sessionStorage - stores data for one session (data is lost when the browser tab is...</div></div></div></a><a class="pagination-related" href="/2021/06/18/linux/basic-operations/" title="basic operations"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">basic operations</div></div><div class="info-2"><div class="info-item-1">FileListing File ls- listing files in current directory ls -l  will help you get more information of the files To list the invisible files, specify the -a option to ls −   Copying FilesTo make a copy of a file use the cp command. The basic syntax of the command is − 1$ cp source_file destination_file  Renaming FilesTo change the name of a file, use the mv command. Following is the basic syntax − 1$ mv old_file new_file  The mv command will move the existing file completely into the new file....</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2021/06/19/linux/Basic-Concept/" title="Basic Concept"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-19</div><div class="info-item-2">Basic Concept</div></div><div class="info-2"><div class="info-item-1">Processes ManagementA process, in simple terms, is an instance of running program.  Whenever you issue a command in Linux, it creates or start a process.  Processes TypesWhen you issue a command (a process), there are two ways you can run it.   Foreground Process  Background Process The simplest way to start a background process is to add an ampersand (&amp;) at the end of the command.   Checking Running ProcessesIt is easy to see your own processes by using the ps command.  In addition, you...</div></div></div></a><a class="pagination-related" href="/2021/06/18/linux/basic-operations/" title="basic operations"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-18</div><div class="info-item-2">basic operations</div></div><div class="info-2"><div class="info-item-1">FileListing File ls- listing files in current directory ls -l  will help you get more information of the files To list the invisible files, specify the -a option to ls −   Copying FilesTo make a copy of a file use the cp command. The basic syntax of the command is − 1$ cp source_file destination_file  Renaming FilesTo change the name of a file, use the mv command. Following is the basic syntax − 1$ mv old_file new_file  The mv command will move the existing file completely into the new file....</div></div></div></a><a class="pagination-related" href="/2020/08/16/linux/linux%E4%B8%8A%E9%85%8D%E7%BD%AEv2ray/" title="linux上配置v2ray"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="info-item-2">linux上配置v2ray</div></div><div class="info-2"><div class="info-item-1">预备工作 客户端：Qv2ray-refs.tags.v1.99.6-linux.AppImage  v2ray核心文件：v2ray-linux-64   开始 将v2ray的zip文件unzip解压。  运行客户端sudo chmod +x ./Qv2ray-refs.tags.v1.99.6-linux.AppImage + ./Qv2ray-refs.tags.v1.99.6-linux.AppImage  在preferences中配置v2ray的core executable path(可执行文件）和v2ray assets directory（解压出来的目录）  set system proxy  设置subscriptions  Connect and enjoy!   </div></div></div></a><a class="pagination-related" href="/2020/03/18/linux/%E5%85%B3%E4%BA%8Elinux-install-tar/" title="关于linux install tar .&#x2F;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-18</div><div class="info-item-2">关于linux install tar .&#x2F;</div></div><div class="info-2"><div class="info-item-1">前言在Linux的使用中，难免会使用下载，解压和安装。但它不会像windows系统那么直接了当。所以，需要用到一些命令。 了解 wget URL   //下载 tar -zxvf &lt;file.tar.gz&gt;   //解压 ./&lt;file.pl&gt;      //执行  说明当我们在tar时，遇到Not enought space to extract，我们可以将tar.gz（要解压的文件）复制到另外一个地方。再进行操作。 </div></div></div></a><a class="pagination-related" href="/2020/04/19/linux/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/" title="文件权限&#x2F;属性"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-19</div><div class="info-item-2">文件权限&#x2F;属性</div></div><div class="info-2"><div class="info-item-1">前言linux上一个文件添加许多的属性，例如用户组的概念。当我们ls -al的时候，会看到（文件拥有者，用户组，其他人）的读，写，执行权限。  代表意义[权限][链接][拥有者名][用户组名][文件容量][修改日期][文件名]  拥有者，用户组对应相关权限 如果你不是拥有者，用户组，root，那么你就是others  简介 第一个字符是表面这个是文件，目录，链接文件还是设备d-&gt;directory(目录)--&gt;文件l-&gt;链接文件（类似于windows的快捷方式）b-&gt;区块设备文件c-&gt;字符设备文件  剩下的字符以三个为一组它们有各自的身份。（文件拥有者，用户组，其他人）  rwx这三个字符分别代表read,write,execute的权限  另外还有一个root身份，可以不受系统权限所限制。   修改属性和权限 -R如果要修改目录中的子目录和文件，只要在选项中加上-R  chgrp-&gt; change group，修改文件所属的用户组。(chgrp  )users是用户组名，只有当此用户组名，列入...</div></div></div></a><a class="pagination-related" href="/2020/04/23/linux/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" title="文件系统"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-23</div><div class="info-item-2">文件系统</div></div><div class="info-2"><div class="info-item-1">前言文件系统，就是用来管理和存储文件的权限，属性，内容等文件信息的系统。因操作系统的不同，文件系统也并不相同。Linux的正统文件系统为ext2。U盘使用的文件系统是FAT格式。 ext2（索引式文件系统）包括 inode一个文件占用一个inode，主要是存储文件的权限和属性，还记录文件所存储所在的数据区块的号码。  数据区块存储文件的内容，当文件太大时，就会占用多个区块  超级区块记录整个文件系统的信息，比如使用了多少个inode，数据区块的使用量   读取 inode指向文件因为，每个inode都对应这个文件的数据块。所以，当我们要读取文件时，就可以通过inode作为索引，找到该文件的数据区块。  inode指向目录数据区块中仅存放文件名    FAT这种格式的文件系统没有inode的存在，就没有索引了。所以，它的读取数据区块速度较慢。 碎片整理当我们要读取一个文件时，磁头会在磁盘上转动，如果保存文件的各个数据区块分散严重的话，磁头就会在磁盘中要多转几圈才能读取数据。碎片整理，就是要把这些数据区块整理到一起，这样读取文件的速度就会更快。 </div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FerryChan</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">154</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/FerryChan666" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Shell-Scripts"><span class="toc-number">2.</span> <span class="toc-text">Shell Scripts</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-execution-sequence-of-commands"><span class="toc-number">2.1.</span> <span class="toc-text">The execution sequence of commands</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Variables"><span class="toc-number">3.</span> <span class="toc-text">Variables</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Defining-Variables"><span class="toc-number">3.1.</span> <span class="toc-text">Defining Variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Accessing-Values"><span class="toc-number">3.2.</span> <span class="toc-text">Accessing Values</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unsetting-Variables"><span class="toc-number">3.3.</span> <span class="toc-text">Unsetting Variables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Special-Variable"><span class="toc-number">3.4.</span> <span class="toc-text">Special Variable</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-number">3.4.1.</span> <span class="toc-text">Example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exit-Status"><span class="toc-number">3.4.2.</span> <span class="toc-text">Exit Status</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Array"><span class="toc-number">4.</span> <span class="toc-text">Array</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Operators"><span class="toc-number">5.</span> <span class="toc-text">Operators</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quoting"><span class="toc-number">5.1.</span> <span class="toc-text">Quoting</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">[]</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Arithmetic-Operators"><span class="toc-number">6.1.</span> <span class="toc-text">Arithmetic Operators</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relational-Operators"><span class="toc-number">6.2.</span> <span class="toc-text">Relational Operators</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Conditional-Statements"><span class="toc-number">7.</span> <span class="toc-text">Conditional Statements</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Syntax"><span class="toc-number">7.1.</span> <span class="toc-text">Syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-1"><span class="toc-number">7.2.</span> <span class="toc-text">Example</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Loops"><span class="toc-number">8.</span> <span class="toc-text">Loops</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Syntax-1"><span class="toc-number">8.1.</span> <span class="toc-text">Syntax</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-2"><span class="toc-number">8.2.</span> <span class="toc-text">Example</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Substitution"><span class="toc-number">9.</span> <span class="toc-text">Substitution</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Command-Substitution"><span class="toc-number">9.1.</span> <span class="toc-text">Command Substitution</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Syntax-2"><span class="toc-number">9.1.1.</span> <span class="toc-text">Syntax</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Function"><span class="toc-number">10.</span> <span class="toc-text">Function</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Pass-Parameters-to-a-Function"><span class="toc-number">10.1.</span> <span class="toc-text">Pass Parameters to a Function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Returning-Values-from-Functions"><span class="toc-number">10.2.</span> <span class="toc-text">Returning Values from Functions</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/15/scrape/JavaScript%E5%8F%8D%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/" title="JavaScript反爬虫原理">JavaScript反爬虫原理</a><time datetime="2025-02-15T07:16:34.000Z" title="Created 2025-02-15 15:16:34">2025-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/19/Q&amp;A/pip-install-%E6%8C%82%E4%BB%A3%E7%90%86/" title="pip install 挂代理">pip install 挂代理</a><time datetime="2023-04-19T14:54:54.000Z" title="Created 2023-04-19 22:54:54">2023-04-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/27/Python/python%20comprehensions/" title="python comprehensions">python comprehensions</a><time datetime="2023-03-27T14:51:10.000Z" title="Created 2023-03-27 22:51:10">2023-03-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/20/git/Failed-to-connect-to-github-com-port-443-after-21193-ms-Timed-out/" title="Failed to connect to github.com port 443 after 21193 ms: Timed out">Failed to connect to github.com port 443 after 21193 ms: Timed out</a><time datetime="2023-03-20T05:23:22.000Z" title="Created 2023-03-20 13:23:22">2023-03-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/17/Python/Tkinter/" title="Tkinter">Tkinter</a><time datetime="2023-03-17T01:46:53.000Z" title="Created 2023-03-17 09:46:53">2023-03-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By FerryChan</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

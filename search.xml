@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>在终端中配置代理</title>
+      <link href="/2025/02/15/%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/"/>
+      <url>/2025/02/15/%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="使用什么端口号？"><a href="#使用什么端口号？" class="headerlink" title="使用什么端口号？"></a>使用什么端口号？</h1><p>当我们用代理软件之后，傻傻搞不清楚什么时候要用那个端口号，我们先说结论：</p><ul><li><p><strong>如果是在浏览器、终端、Python 代码</strong> → <strong>用本地 <code>127.0.0.1:7890</code>（Mixed Port）</strong></p></li><li><p><strong>如果是在 Clash&#x2F;V2Ray 里配置远程代理</strong> → <strong>用远程 <code>123.45.67.89:443</code>（代理服务器端口）</strong></p></li></ul><h1 id="为什么会这样呢？"><a href="#为什么会这样呢？" class="headerlink" title="为什么会这样呢？"></a>为什么会这样呢？</h1><p><strong>本地软件（浏览器、终端、Python 代码等）</strong> 只需要和 <strong>本地代理（Clash&#x2F;V2Ray）</strong> 通信，而不需要直接访问远程代理服务器。</p><p>Clash&#x2F;V2Ray 会在本地开启一个 <strong>Mixed Port</strong>（如 <code>127.0.0.1:7890</code>），这个端口会：<br>✅ <strong>接收 HTTP&#x2F;SOCKS5 代理请求</strong>（浏览器、Python 代码等）<br>✅ <strong>自动选择最佳的远程代理服务器</strong><br>✅ <strong>处理数据加密、分流等复杂逻辑</strong></p><h1 id="终端配置代理方法"><a href="#终端配置代理方法" class="headerlink" title="终端配置代理方法"></a>终端配置代理方法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=http://127.0.0.1:10808(v2ray提供给本地的mixed port)</span><br><span class="line">set https_proxy=http://127.0.0.1:10808</span><br></pre></td></tr></table></figure><p>检查是否成功(用curl不用ping的原因的ping不走http协议)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://google.com</span><br></pre></td></tr></table></figure><p>删除恢复</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=</span><br><span class="line">set https_proxy=</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Q&amp;A </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JavaScript反爬虫原理</title>
       <link href="/2025/02/15/scrape/JavaScript%E5%8F%8D%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/"/>
       <url>/2025/02/15/scrape/JavaScript%E5%8F%8D%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/</url>

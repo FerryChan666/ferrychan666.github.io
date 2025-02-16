@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>scrapy | Ferry's blog</title><meta name="author" content="FerryChan"><meta name="copyright" content="FerryChan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="概况 准备工作确保scrapy项目要在根目录上运行，原因是： Scrapy 项目通常是一个 Python 包，当你在 Scrapy 项目的根目录之外运行代码时，Python 可能无法正确找到 scrapytutorial 这个包，导致 无法解析 scrapytutorial.items。这是因为 Python 的 模块搜索路径 (sys.path) 不包含 Scrapy 项目的根目录。  创建sc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scrapy">
+<meta property="og:url" content="http://ferrychan666.github.io/2025/02/16/scrapy/scrapy/index.html">
+<meta property="og:site_name" content="Ferry&#39;s blog">
+<meta property="og:description" content="概况 准备工作确保scrapy项目要在根目录上运行，原因是： Scrapy 项目通常是一个 Python 包，当你在 Scrapy 项目的根目录之外运行代码时，Python 可能无法正确找到 scrapytutorial 这个包，导致 无法解析 scrapytutorial.items。这是因为 Python 的 模块搜索路径 (sys.path) 不包含 Scrapy 项目的根目录。  创建sc">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ferrychan666.github.io/img/Tom.jpg">
+<meta property="article:published_time" content="2025-02-16T08:49:35.000Z">
+<meta property="article:modified_time" content="2025-02-16T14:26:26.032Z">
+<meta property="article:author" content="FerryChan">
+<meta property="article:tag" content="scrape">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ferrychan666.github.io/img/Tom.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "scrapy",
+  "url": "http://ferrychan666.github.io/2025/02/16/scrapy/scrapy/",
+  "image": "http://ferrychan666.github.io/img/Tom.jpg",
+  "datePublished": "2025-02-16T08:49:35.000Z",
+  "dateModified": "2025-02-16T14:26:26.032Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "FerryChan",
+      "url": "http://ferrychan666.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://ferrychan666.github.io/2025/02/16/scrapy/scrapy/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":false,"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'scrapy',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">156</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a><a class="nav-page-title" href="/"><span class="site-name">scrapy</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">scrapy</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-02-16T08:49:35.000Z" title="Created 2025-02-16 16:49:35">2025-02-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-02-16T14:26:26.032Z" title="Updated 2025-02-16 22:26:26">2025-02-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h1><p><img src="/2025/02/16/scrapy/scrapy/.%5Cimages%5Cscrapy.png" alt="scrapy"></p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>确保scrapy项目要在根目录上运行，原因是：</p>
+<p>Scrapy 项目通常是一个 <strong>Python 包</strong>，当你在 Scrapy 项目的根目录之外运行代码时，Python 可能无法正确找到 <code>scrapytutorial</code> 这个包，导致 <strong>无法解析 <code>scrapytutorial.items</code></strong>。这是因为 Python 的 <strong>模块搜索路径 (<code>sys.path</code>)</strong> 不包含 Scrapy 项目的根目录。</p>
+<ol>
+<li><p>创建scrapy项目</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject scrapytutorial</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/02/16/scrapy/scrapy/.%5Cimages%5Cimage-20250216165325480.png"></p>
+</li>
+<li><p>创建spider</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd scrapytutorial</span><br><span class="line">scrapy genspider quotes quotes.toscrapy.com</span><br></pre></td></tr></table></figure>
+
+<p>第一个参数<code>quotes</code>是spider的名称，在spider文件夹中多了一个<code>quotes.py</code></p>
+<p>第二个参数<code>quotes.toscrapy.com</code>是网站的域名</p>
+<figure class="highlight python"><figcaption><span>quotes.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">QuotesSpider</span>(scrapy.Spider):</span><br><span class="line">    name = <span class="string">&quot;quotes&quot;</span></span><br><span class="line">    allowed_domains = [<span class="string">&quot;quotes.toscrapy.com&quot;</span>]</span><br><span class="line">    start_urls = [<span class="string">&quot;https://quotes.toscrapy.com&quot;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">parse</span>(<span class="params">self, response</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="爬取步骤"><a href="#爬取步骤" class="headerlink" title="爬取步骤"></a>爬取步骤</h1><ol>
+<li><p>定义字段内容</p>
+<p>Item是保存爬取数据的容器，我们可以把我们想要爬取的字段定义在item.py中，比如我们要定义text, author, tags字段</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">QuotesItem</span>(scrapy.Item):</span><br><span class="line">    <span class="comment"># define the fields for your item here like:</span></span><br><span class="line">    <span class="comment"># name = scrapy.Field()</span></span><br><span class="line">    text = scrapy.Field()</span><br><span class="line">    author = scrapy.Field()</span><br><span class="line">    tags = scrapy.Field()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解析response</p>
+<p>在parse方法中，response作为参数，我们可以把返回的response的内容进行解析。并把结果保存在实例化的QuotesItem对象中</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> scrapytutorial.items <span class="keyword">import</span> QuoteItem</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">QuotesSpider</span>(scrapy.Spider):</span><br><span class="line">    name = <span class="string">&quot;quotes&quot;</span></span><br><span class="line">    allowed_domains = [<span class="string">&quot;quotes.toscrapy.com&quot;</span>]</span><br><span class="line">    start_urls = [<span class="string">&quot;https://quotes.toscrapy.com&quot;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">parse</span>(<span class="params">self, response</span>):</span><br><span class="line">        <span class="comment"># select all quoters</span></span><br><span class="line">        quotes = response.css(<span class="string">&#x27;.quote&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> quote <span class="keyword">in</span> quotes:</span><br><span class="line">            item = QuoteItem()</span><br><span class="line">            <span class="comment"># acquire the content of the text class</span></span><br><span class="line">            item[<span class="string">&#x27;text&#x27;</span>]=quote.css(<span class="string">&#x27;.text::text&#x27;</span>).extract_first()</span><br><span class="line">            item[<span class="string">&#x27;author&#x27;</span>]=quote.css(<span class="string">&#x27;.author::text&#x27;</span>).extract_first()</span><br><span class="line">            item[<span class="string">&#x27;tags&#x27;</span>]=quote.css(<span class="string">&#x27;.tags .tag::text&#x27;</span>).extract()</span><br><span class="line">            <span class="keyword">yield</span> item</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>抓取下一页</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># next page</span></span><br><span class="line"><span class="built_in">next</span>=quote.css(<span class="string">&#x27;.pager .next a::attr(href)&#x27;</span>).extract_first()</span><br><span class="line">url=response.urljoin(<span class="built_in">next</span>)</span><br><span class="line"><span class="keyword">yield</span> scrapy.Request(url=url,callback=<span class="variable language_">self</span>.parse)</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>self.parse</code> 是 Scrapy 处理响应的默认回调函数</strong>，它会在 Scrapy 访问 <code>start_urls</code> 里的网址并获取响应后自动执行。</p>
+<p> <strong>使用 <code>yield scrapy.Request(url, callback=self.parse)</code> 可以递归爬取多个页面</strong>，例如翻页爬取数据。</p>
+</li>
+</ol>
+<h1 id="执行程序"><a href="#执行程序" class="headerlink" title="执行程序"></a>执行程序</h1><p>在命令行的项目根目录下运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl quotes</span><br></pre></td></tr></table></figure>
+
+<p>爬取数据并保存</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl quotes -o quotes.json</span><br><span class="line">scrapy crawl quotes -o quotes.csv</span><br><span class="line">scrapy crawl quotes -o quotes.xml</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Item-pipeline-py"><a href="#Item-pipeline-py" class="headerlink" title="Item pipeline.py"></a>Item pipeline.py</h1><p>当Item生成后，他会自动被送到 Item pipeline 处理，功能有：</p>
+<ol>
+<li>清洗html数据</li>
+<li>验证爬取数据，检查爬取字段</li>
+<li>查重并丢弃重复内容</li>
+<li>将爬取结果存储到数据库</li>
+</ol>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.exceptions <span class="keyword">import</span> DropItem</span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TextPipeline</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># limit length : 50</span></span><br><span class="line">        <span class="variable language_">self</span>.limit=<span class="number">50</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># strip the long text and drop the NULL item</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">process_item</span>(<span class="params">self, item, spider</span>):</span><br><span class="line">        <span class="keyword">if</span> item[<span class="string">&#x27;text&#x27;</span>]:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(item[<span class="string">&#x27;text&#x27;</span>]) &gt; <span class="variable language_">self</span>.limit:</span><br><span class="line">                item[<span class="string">&#x27;text&#x27;</span>] = item[<span class="string">&#x27;text&#x27;</span>][<span class="number">0</span>:<span class="variable language_">self</span>.limit].rstrip()+<span class="string">&quot;...&quot;</span></span><br><span class="line">            <span class="keyword">return</span> item</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> DropItem(<span class="string">&quot;Missing text&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MongoDBPipeline</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, connection_string, database</span>):</span><br><span class="line">        <span class="variable language_">self</span>.connection_string = connection_string</span><br><span class="line">        <span class="variable language_">self</span>.database = database</span><br><span class="line"></span><br><span class="line">    <span class="comment"># we can get info from setting.py by variable crawler</span></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">from_crawler</span>(<span class="params">cls, crawler</span>):</span><br><span class="line">        <span class="keyword">return</span> cls(</span><br><span class="line">            connection_string=crawler.settings.get(<span class="string">&#x27;MongoDB_CONNECTION_STRING&#x27;</span>),</span><br><span class="line">            database=crawler.settings.get(<span class="string">&#x27;MONGODB_DATABASE&#x27;</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">open_spider</span>(<span class="params">self, spider</span>):	</span><br><span class="line">        <span class="variable language_">self</span>.client = pymongo.MongoClient(<span class="variable language_">self</span>.connection_string)</span><br><span class="line">        <span class="variable language_">self</span>.db = <span class="variable language_">self</span>.client[<span class="variable language_">self</span>.database]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">process_item</span>(<span class="params">self, item, spider</span>):</span><br><span class="line">        name=item.__class__.__name__</span><br><span class="line">        <span class="variable language_">self</span>.db[name].insert_one(<span class="built_in">dict</span>(item))</span><br><span class="line">        <span class="keyword">return</span> item</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">close_spider</span>(<span class="params">self, spider</span>):</span><br><span class="line">        <span class="variable language_">self</span>.client.close()</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="setting-py"><a href="#setting-py" class="headerlink" title="setting.py"></a>setting.py</h1><p>定义ITEM_PIPELINES字典，和Mongo database的内容</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">    <span class="string">&#x27;scrapytutorial.pipelines.TestPipeline&#x27;</span>: <span class="number">300</span>,</span><br><span class="line">    <span class="string">&#x27;scrapytutorial.pipelines.MongoPipeline&#x27;</span>: <span class="number">400</span></span><br><span class="line">&#125;</span><br><span class="line">MONGODB_CONNECTION_STRING = <span class="string">&quot;localhost:&quot;</span></span><br><span class="line">MONGODB_DATABASE = <span class="string">&quot;scrapytutorial&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="Selector"><a href="#Selector" class="headerlink" title="Selector"></a>Selector</h1><h2 id="CSS-Selector"><a href="#CSS-Selector" class="headerlink" title="CSS Selector"></a>CSS Selector</h2><ol>
+<li><p>选择所有标签为a的元素</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.css(<span class="string">&#x27;a&#x27;</span>).extract()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>属性选择</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.css(<span class="string">&#x27;a[href=&quot;image1.html&quot;]&#x27;</span>).extract()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>嵌套选择</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.css(<span class="string">&#x27;a[href=&quot;image1.html&quot;] img&#x27;</span>).extract()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文本获取</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.css(<span class="string">&#x27;a[href=&quot;image1.html&quot;]::text&#x27;</span>).extract()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>属性获取</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.css(<span class="string">&#x27;a[href=&quot;image1.html&quot;] img::attr(src)&#x27;</span>).extract()</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>我们可以用css，xpath，和正则表达式一起使用，对html进行提取，但response对象不能直接使用re方法</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.xpath(<span class="string">&#x27;.&#x27;</span>).re(<span class="string">&#x27;(.*)&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Spider类"><a href="#Spider类" class="headerlink" title="Spider类"></a>Spider类</h1><h2 id="基础属性"><a href="#基础属性" class="headerlink" title="基础属性"></a>基础属性</h2><ul>
+<li><p>name(必须，唯一)</p>
+<p>爬虫的名字</p>
+</li>
+<li><p>allowed_domain(可选)</p>
+<p>爬虫域名，不在范围的不会爬取</p>
+</li>
+<li><p>start_urls</p>
+<p>起始url列表，但没有start_requests方法时，默认从这个列表开始爬取</p>
+</li>
+<li><p>crawler</p>
+<p>此属性是由from_crawler方法设置的，代表的是本Spider类对应的Crawler对象， Crawler对象中包含了很多项目组件，利用它我们可以获取项目的一些配置信息，常见的就是获取项目的设置信息，即Settings。</p>
+</li>
+<li><p>settings</p>
+<p>一个Settings对象，利用它我们可以直接获取项目的全局设置变量。</p>
+</li>
+</ul>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>当我们设置<code>start_urls</code>的时候，Spider就会默认实习一个<code>start_requests()</code>方法</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">start_requests</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> <span class="variable language_">self</span>.start_urls:</span><br><span class="line">        <span class="keyword">yield</span> Request(url, dont_filter=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>读取start_urls并生成Request()。这里并没有为Request指定callback**（callback就是收到response后要传到哪个方法）**，默认就是parse方法。它是一个生成器，返回的所有Request都会作为初始Request加人调度队列。</p>
+<p>因此，如果我们想要自定义初始请求，就可以在Spider中重写start_requests方法，比如我们想自定义请求页面链接和回调方法，可以把start_requests方法修改为下面这样：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Request</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HttpbinSpider</span>(scrapy.Spider):</span><br><span class="line">    name = <span class="string">&#x27;httpbin&#x27;</span></span><br><span class="line">    allowed domains = [<span class="string">&#x27;www.httpbin.org&#x27;</span>]</span><br><span class="line">    start_url = https://www.httpbin.org/get</span><br><span class="line">    headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko)</span></span><br><span class="line"><span class="string">    Chrome/83.0.4103.116 Safari/537.36</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    cookies = &#123;&#x27;</span>name<span class="string">&#x27;: &#x27;</span>germey<span class="string">&#x27;, &#x27;</span>age<span class="string">&#x27;: &#x27;</span><span class="number">26</span><span class="string">&#x27;&#125;</span></span><br><span class="line"><span class="string">    def start requests(self):</span></span><br><span class="line"><span class="string">        for offset in range(5)</span></span><br><span class="line"><span class="string">        url = self.start url + f&#x27;</span>?offset=&#123;offset&#125;</span><br><span class="line">        <span class="keyword">yield</span> Request(url, headers=<span class="variable language_">self</span>.headers</span><br><span class="line">        cookies=<span class="variable language_">self</span>.cookies,</span><br><span class="line">        callback=<span class="variable language_">self</span>.parse response,</span><br><span class="line">        meta=&#123;<span class="string">&#x27;offset&#x27;</span>: offset&#125;</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">parse_response</span>(<span class="params">self, response</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;url&#x27;</span>, response.url)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;request&#x27;</span>, response.request)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;status&#x27;</span>, response.status)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;headers&#x27;</span>, response.headers)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;text&#x27;</span>, response.text)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;meta&#x27;</span>, response.meta)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>url：我们不再依赖starturls生成url，而是声明了一个starturl，然后利用循环给URL加<br>上了Query参数，如offset&#x3D;0，拼接到<a target="_blank" rel="noopener" href="https://www.httpbin.org/get%E5%90%8E%E9%9D%A2%EF%BC%8C%E8%BF%99%E6%A0%B7%E8%AF%B7%E6%B1%82%E7%9A%84%E9%93%BE%E6%8E%A5%E5%B0%B1%E5%8F%98">https://www.httpbin.org/get后面，这样请求的链接就变</a><br>成了<a target="_blank" rel="noopener" href="https://www.httpbin.org/get?offset=0%E3%80%82">https://www.httpbin.org/get?offset=0。</a></li>
+<li>headers：这里我们还声明了headers变量，为它添加了User-Agent属性并将其传递给Request<br>的headers参数进行赋值</li>
+<li>cookies：另外我们还声明了Cookie，以一个字典的形式声明，然后传给Request的cookies参数</li>
+<li>callback：在HttpbinSpider中，我们声明了一个parse_response方法，同时我们也将Request的<br>callback参数设置为parse_response，这样当该Request请求成功时就会回调parseresponse方<br>法进行处理</li>
+<li>meta：meta可以用来传递额外参数，这里我们将offset的值也赋值给Request，通过response.meta<br>就能获取这个内容了，这样就实现了Request到Response的额外信息传递</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io">FerryChan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io/2025/02/16/scrapy/scrapy/">http://ferrychan666.github.io/2025/02/16/scrapy/scrapy/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/scrape/">scrape</a></div><div class="post-share"><div class="social-share" data-image="/img/Tom.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/02/15/%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/" title="在终端中配置代理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">在终端中配置代理</div></div><div class="info-2"><div class="info-item-1">使用什么端口号？当我们用代理软件之后，傻傻搞不清楚什么时候要用那个端口号，我们先说结论：  如果是在浏览器、终端、Python 代码 → 用本地 127.0.0.1:7890（Mixed Port）  如果是在 Clash&#x2F;V2Ray 里配置远程代理 → 用远程 123.45.67.89:443（代理服务器端口）   为什么会这样呢？本地软件（浏览器、终端、Python 代码等） 只需要和 本地代理（Clash&#x2F;V2Ray） 通信，而不需要直接访问远程代理服务器。 Clash&#x2F;V2Ray 会在本地开启一个 Mixed Port（如 127.0.0.1:7890），这个端口会：✅ 接收 HTTP&#x2F;SOCKS5 代理请求（浏览器、Python 代码等）✅ 自动选择最佳的远程代理服务器✅ 处理数据加密、分流等复杂逻辑 终端配置代理方法12set http_proxy=http://127.0.0.1:10808(v2ray提供给本地的mixed port)set...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/02/15/scrape/JavaScript%E5%8F%8D%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/" title="JavaScript反爬虫原理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-15</div><div class="info-item-2">JavaScript反爬虫原理</div></div><div class="info-2"><div class="info-item-1">css和JS修改浏览器的DOM在我们可以浏览到的网页中，他们设置的反爬虫机制就是通过css和js修改原本html文件中的标签内容（把数据内容放到js中），使得我们无法直接从html文件中获得我们想要的数据。也就是利用了我们平常的爬虫工具中没有js解释器和css解释器这一个弊端达到了反爬的效果  而这个dom就是经浏览器渲染之后的标签。虽然css和js是不能修改html文件中的标签，但能修改dom。  </div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FerryChan</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">156</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/FerryChan666" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E5%86%B5"><span class="toc-number">1.</span> <span class="toc-text">概况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%88%AC%E5%8F%96%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.</span> <span class="toc-text">爬取步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F"><span class="toc-number">4.</span> <span class="toc-text">执行程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Item-pipeline-py"><span class="toc-number">5.</span> <span class="toc-text">Item pipeline.py</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#setting-py"><span class="toc-number">6.</span> <span class="toc-text">setting.py</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Selector"><span class="toc-number">7.</span> <span class="toc-text">Selector</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-Selector"><span class="toc-number">7.1.</span> <span class="toc-text">CSS Selector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">7.2.</span> <span class="toc-text">正则表达式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spider%E7%B1%BB"><span class="toc-number">8.</span> <span class="toc-text">Spider类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E5%B1%9E%E6%80%A7"><span class="toc-number">8.1.</span> <span class="toc-text">基础属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">8.2.</span> <span class="toc-text">方法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/16/scrapy/scrapy/" title="scrapy">scrapy</a><time datetime="2025-02-16T08:49:35.000Z" title="Created 2025-02-16 16:49:35">2025-02-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/15/%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/" title="在终端中配置代理">在终端中配置代理</a><time datetime="2025-02-15T13:50:58.000Z" title="Created 2025-02-15 21:50:58">2025-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/15/scrape/JavaScript%E5%8F%8D%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/" title="JavaScript反爬虫原理">JavaScript反爬虫原理</a><time datetime="2025-02-15T07:16:34.000Z" title="Created 2025-02-15 15:16:34">2025-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/19/Q&amp;A/pip-install-%E6%8C%82%E4%BB%A3%E7%90%86/" title="pip install 挂代理">pip install 挂代理</a><time datetime="2023-04-19T14:54:54.000Z" title="Created 2023-04-19 22:54:54">2023-04-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/27/Python/python%20comprehensions/" title="python comprehensions">python comprehensions</a><time datetime="2023-03-27T14:51:10.000Z" title="Created 2023-03-27 22:51:10">2023-03-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By FerryChan</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

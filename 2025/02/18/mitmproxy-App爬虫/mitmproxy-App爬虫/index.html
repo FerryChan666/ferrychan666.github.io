@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>mitmproxy App爬虫 | Ferry's blog</title><meta name="author" content="FerryChan"><meta name="copyright" content="FerryChan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="安装什么内容？首先让pc和手机连接同一个局域网，在pc上安装好mitmproxy并安装好证书后，还要在安卓手机的设置中心也安装好证书，并设置代理(通过ipconfig命令查看主机的ip地址，) 这样我们就可以在使用mitmproxy这个代理了。 开始工作在terminal开启代理，指定为8888端口 1mitmproxy -p 8888  或者我们可以用mitmdump可以对接python脚本 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mitmproxy App爬虫">
+<meta property="og:url" content="http://ferrychan666.github.io/2025/02/18/mitmproxy-App%E7%88%AC%E8%99%AB/mitmproxy-App%E7%88%AC%E8%99%AB/index.html">
+<meta property="og:site_name" content="Ferry&#39;s blog">
+<meta property="og:description" content="安装什么内容？首先让pc和手机连接同一个局域网，在pc上安装好mitmproxy并安装好证书后，还要在安卓手机的设置中心也安装好证书，并设置代理(通过ipconfig命令查看主机的ip地址，) 这样我们就可以在使用mitmproxy这个代理了。 开始工作在terminal开启代理，指定为8888端口 1mitmproxy -p 8888  或者我们可以用mitmdump可以对接python脚本 1">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ferrychan666.github.io/img/Tom.jpg">
+<meta property="article:published_time" content="2025-02-18T13:28:51.000Z">
+<meta property="article:modified_time" content="2025-02-18T15:34:18.136Z">
+<meta property="article:author" content="FerryChan">
+<meta property="article:tag" content="scrapy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ferrychan666.github.io/img/Tom.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "mitmproxy App爬虫",
+  "url": "http://ferrychan666.github.io/2025/02/18/mitmproxy-App%E7%88%AC%E8%99%AB/mitmproxy-App%E7%88%AC%E8%99%AB/",
+  "image": "http://ferrychan666.github.io/img/Tom.jpg",
+  "datePublished": "2025-02-18T13:28:51.000Z",
+  "dateModified": "2025-02-18T15:34:18.136Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "FerryChan",
+      "url": "http://ferrychan666.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://ferrychan666.github.io/2025/02/18/mitmproxy-App%E7%88%AC%E8%99%AB/mitmproxy-App%E7%88%AC%E8%99%AB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":false,"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'mitmproxy App爬虫',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">159</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a><a class="nav-page-title" href="/"><span class="site-name">mitmproxy App爬虫</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">mitmproxy App爬虫</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-02-18T13:28:51.000Z" title="Created 2025-02-18 21:28:51">2025-02-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-02-18T15:34:18.136Z" title="Updated 2025-02-18 23:34:18">2025-02-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="安装什么内容？"><a href="#安装什么内容？" class="headerlink" title="安装什么内容？"></a>安装什么内容？</h1><p>首先让pc和手机连接同一个局域网，在pc上安装好mitmproxy并安装好证书后，还要在安卓手机的设置中心也安装好证书，并设置代理(通过ipconfig命令查看主机的ip地址，)</p>
+<p>这样我们就可以在使用mitmproxy这个代理了。</p>
+<h1 id="开始工作"><a href="#开始工作" class="headerlink" title="开始工作"></a>开始工作</h1><p>在terminal开启代理，指定为8888端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mitmproxy -p 8888</span><br></pre></td></tr></table></figure>
+
+<p>或者我们可以用mitmdump可以对接python脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mitmdump -s script.py -p 8888</span><br></pre></td></tr></table></figure>
+
+<p>当手机连上代理后，</p>
+<p>此时，手机上的request和response都被代理抓取了下来，</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io">FerryChan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://ferrychan666.github.io/2025/02/18/mitmproxy-App%E7%88%AC%E8%99%AB/mitmproxy-App%E7%88%AC%E8%99%AB/">http://ferrychan666.github.io/2025/02/18/mitmproxy-App%E7%88%AC%E8%99%AB/mitmproxy-App%E7%88%AC%E8%99%AB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/scrapy/">scrapy</a></div><div class="post-share"><div class="social-share" data-image="/img/Tom.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/02/18/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1cookies%E5%85%8D%E7%99%BB%E5%BD%95/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1cookies%E5%85%8D%E7%99%BB%E5%BD%95/" title="记录一次cookies免登录"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">记录一次cookies免登录</div></div><div class="info-2"><div class="info-item-1">cookies的作用cookies在我们浏览器的客户端，通过cookies我们可以把我们的个人标识信息传送到服务器端，而在服务器端正好有与我们cookies相对应的session包含个人信息（登录信息，偏好信息，等等）。当我们访问服务器时（每一个requests都带有cookies），服务器会response我们的个人信息。这样我们每一次访问同一个域名网站就不用一直填写登录信息了。 爬虫中cookies的应用在爬虫中，我们每发送一次request都要把cookies带上（之前就是忽略了某些request的cookies导致找了很久都不知道哪里错） 在浏览器的开发者选项中，我们都能找到我们的cookies，我们只需要复制他们，并改写成字典形式，便可以传递到request中。 原始cookies 1wordpress_test_cookie=WP%20Cookie%20check;...</div></div></div></a><a class="pagination-related" href="/2025/02/22/djangotutorial/djangotutorial/" title="Django Tutorial"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">Django Tutorial</div></div><div class="info-2"><div class="info-item-1">Get started 安装django 1python -m pip install Django  创建项目 12mikdir diangotutorialdjango-admin startproject mysite djangotutorial    manage.py: A command-line utility that lets you interact with this Django project in various ways. mysite/__init__.py: An empty file that tells Python that this directory should be considered a Python package. mysite/settings.py: Settings&#x2F;configuration for this Django project. mysite/urls.py: The URL declarations for this Django project; a “table of...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FerryChan</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">159</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/FerryChan666" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BB%80%E4%B9%88%E5%86%85%E5%AE%B9%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">安装什么内容？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">开始工作</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/22/djangotutorial/djangotutorial/" title="Django Tutorial">Django Tutorial</a><time datetime="2025-02-22T07:28:10.000Z" title="Created 2025-02-22 15:28:10">2025-02-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/18/mitmproxy-App%E7%88%AC%E8%99%AB/mitmproxy-App%E7%88%AC%E8%99%AB/" title="mitmproxy App爬虫">mitmproxy App爬虫</a><time datetime="2025-02-18T13:28:51.000Z" title="Created 2025-02-18 21:28:51">2025-02-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/18/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1cookies%E5%85%8D%E7%99%BB%E5%BD%95/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1cookies%E5%85%8D%E7%99%BB%E5%BD%95/" title="记录一次cookies免登录">记录一次cookies免登录</a><time datetime="2025-02-17T18:04:11.000Z" title="Created 2025-02-18 02:04:11">2025-02-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/16/scrapy/scrapy/" title="scrapy">scrapy</a><time datetime="2025-02-16T08:49:35.000Z" title="Created 2025-02-16 16:49:35">2025-02-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/15/%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/" title="在终端中配置代理">在终端中配置代理</a><time datetime="2025-02-15T13:50:58.000Z" title="Created 2025-02-15 21:50:58">2025-02-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By FerryChan</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

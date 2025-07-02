@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JS逆向实战 | Ferry's blog</title><meta name="author" content="FerryChan"><meta name="copyright" content="FerryChan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Introduction经过大众好评的书籍的阅读，还有chatgpt的帮助，我成功完成了第一次js的逆向。 总的来说，js逆向的来源就是： 由最原始的request URL直接暴露在源代码中，为了防止爬虫轻易地实现自动化自动抓取数据，从而把请求隐藏在JavaScript中（这种请求也叫Ajax请求），Ajax请求可以干很多东西，可能是直接response内容，也有可能是改变用户的状态，等等。从而避">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS逆向实战">
+<meta property="og:url" content="http://ferrychan666.github.io/2025/07/02/JS%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/JS%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="Ferry&#39;s blog">
+<meta property="og:description" content="Introduction经过大众好评的书籍的阅读，还有chatgpt的帮助，我成功完成了第一次js的逆向。 总的来说，js逆向的来源就是： 由最原始的request URL直接暴露在源代码中，为了防止爬虫轻易地实现自动化自动抓取数据，从而把请求隐藏在JavaScript中（这种请求也叫Ajax请求），Ajax请求可以干很多东西，可能是直接response内容，也有可能是改变用户的状态，等等。从而避">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ferrychan666.github.io/img/Tom.jpg">
+<meta property="article:published_time" content="2025-07-01T23:00:42.000Z">
+<meta property="article:modified_time" content="2025-07-02T00:02:08.500Z">
+<meta property="article:author" content="FerryChan">
+<meta property="article:tag" content="scrape">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ferrychan666.github.io/img/Tom.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "JS逆向实战",
+  "url": "http://ferrychan666.github.io/2025/07/02/JS%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/JS%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/",
+  "image": "http://ferrychan666.github.io/img/Tom.jpg",
+  "datePublished": "2025-07-01T23:00:42.000Z",
+  "dateModified": "2025-07-02T00:02:08.500Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "FerryChan",
+      "url": "http://ferrychan666.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://ferrychan666.github.io/2025/07/02/JS%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/JS%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":false,"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":false,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JS逆向实战',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">157</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Ferry's blog</span></a><a class="nav-page-title" href="/"><span class="site-name">JS逆向实战</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">JS逆向实战</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-07-01T23:00:42.000Z" title="Created 2025-07-02 07:00:42">2025-07-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-07-02T00:02:08.500Z" title="Updated 2025-07-02 08:02:08">2025-07-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>经过大众好评的书籍的阅读，还有chatgpt的帮助，我成功完成了第一次js的逆向。</p>
+<p>总的来说，js逆向的来源就是：</p>
+<p>由最原始的request URL直接暴露在源代码中，为了防止爬虫轻易地实现自动化自动抓取数据，从而把请求隐藏在JavaScript中（这种请求也叫Ajax请求），Ajax请求可以干很多东西，可能是直接response内容，也有可能是改变用户的状态，等等。从而避免了直接的URL获取。</p>
+<p>而JS逆向，就是：</p>
+<ol>
+<li><p>查看JavaScript源代码，看看他在背后做了什么（发送ajax请求？获取源代码中的隐藏变量？改变用户状态？）</p>
+</li>
+<li><p>通过request模拟ajax请求，</p>
+<p>通过触发事件，在浏览器开发者工具中，找到这个Ajax请求（通常是post，需要传递相关参数才能传递），并发送</p>
+<p>（总之，就是通过python干JavaScript干的事情）</p>
+</li>
+</ol>
+<p>最终，我得到了想要的数据</p>
+<h1 id="JS分析"><a href="#JS分析" class="headerlink" title="JS分析"></a>JS分析</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;erphpdown-content-vip erphpdown-content-vip-see&quot;</span>&gt;</span>您可免费查看此隐藏内容！<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;erphpdown-see-btn&quot;</span> <span class="attr">data-post</span>=<span class="string">&quot;57056&quot;</span> <span class="attr">data-vip</span>=<span class="string">&quot;8&quot;</span> <span class="attr">data-token</span>=<span class="string">&quot;45a35f86e226f5cff94625cf73d228b7&quot;</span> <span class="attr">data-wpel-link</span>=<span class="string">&quot;internal&quot;</span>&gt;</span>立即查看<span class="tag">&lt;/<span class="name">a</span>&gt;</span>（今日已查看81个，还可查看119个）<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看到，前端这个a标签是一个点击事件，点击之后，让Javascript处理</p>
+<p>在JavaScript源码中，通过搜索<code>erphpdown-see-btn</code>，我们找到了如下函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;body&quot;</span>).<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>, <span class="string">&quot;.erphpdown-see-btn&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="keyword">var</span> post_id = $(<span class="variable language_">this</span>).<span class="title function_">data</span>(<span class="string">&quot;post&quot;</span>),</span><br><span class="line">		token = $(<span class="variable language_">this</span>).<span class="title function_">data</span>(<span class="string">&quot;token&quot;</span>),</span><br><span class="line">		vip = $(<span class="variable language_">this</span>).<span class="title function_">data</span>(<span class="string">&quot;vip&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span>(post_id)&#123;</span><br><span class="line">        layer.<span class="title function_">msg</span>(_ERPHP_LANG.<span class="property">doing</span>,&#123;<span class="attr">time</span>: -<span class="number">1</span>&#125;);</span><br><span class="line">        $.<span class="title function_">post</span>(_ERPHP.<span class="property">ajaxurl</span>, &#123;</span><br><span class="line">            <span class="string">&quot;action&quot;</span>: <span class="string">&quot;epd_see&quot;</span>,</span><br><span class="line">            <span class="string">&quot;post_id&quot;</span>: post_id,</span><br><span class="line">            <span class="string">&quot;vip&quot;</span>: vip,</span><br><span class="line">            <span class="string">&quot;token&quot;</span>: token</span><br><span class="line">        &#125;, <span class="keyword">function</span>(<span class="params">result</span>) &#123;</span><br><span class="line">            layer.<span class="title function_">closeAll</span>();</span><br><span class="line">            <span class="keyword">if</span>( result.<span class="property">status</span> == <span class="number">200</span> )&#123;</span><br><span class="line">                layer.<span class="title function_">msg</span>(_ERPHP_LANG.<span class="property">doSuccess</span>, &#123;</span><br><span class="line">                    <span class="attr">time</span>:<span class="number">2000</span></span><br><span class="line">                &#125;, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">                    location.<span class="title function_">reload</span>(<span class="literal">true</span>);</span><br><span class="line">                &#125;); </span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>( result.<span class="property">status</span> == <span class="number">202</span> )&#123;</span><br><span class="line">                layer.<span class="title function_">msg</span>(_ERPHP_LANG.<span class="property">canError</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                layer.<span class="title function_">msg</span>(_ERPHP_LANG.<span class="property">getTimesError</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="string">&#x27;json&#x27;</span>); </span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        layer.<span class="title function_">msg</span>(_ERPHP_LANG.<span class="property">seeError</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>当click事件发生后，获取<code>post_id</code>, <code>token</code>, <code>vip</code> , <code>action</code>这4个变量，并带他们发送ajax请求，这个ajax不返回数据，而是返回状态，如果状态是200，那么会在服务器端更改用户的某种状态，在reload刷新页面，然后我们就能看到隐藏的数据。</p>
+<h1 id="JS模拟"><a href="#JS模拟" class="headerlink" title="JS模拟"></a>JS模拟</h1><p>我们通过浏览器开发者工具，手动点击触发事件后，我们可以看到在Network的Fetch&#x2F;XHR中，抓取到一个Ajax请求</p>
+<p><img src="/./images/image-20250702075216413.png" alt="image-20250702075216413"></p>
+<p>可以在payload中看到，就是我们刚刚在JS中分析中看到的变量。这些就是post携带的数据。</p>
+<p><img src="/./images/image-20250702075655348.png" alt="image-20250702075655348"></p>
+<p>最终，我们用python实现JS的分析中的过程，传递post请求，重新刷新页面。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://www.smwl2025.com/wp-admin/admin-ajax.php&quot;</span></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36&quot;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;Cookie&quot;</span>: <span class="string">&quot;wordpress_sec_5dcca14fc868574120efefa0a7768b8e=ferrychan666%7C1752355770%7CvSsE71zRGt4HVlIZl9pITcbHIbPhQBSezHWNLDr1qrD%7C6f63c1de111f3fca0add6e9c4179c557680ef9540e55b397860abcd49fcec2f4; wordpress_test_cookie=WP%20Cookie%20check; wp_lang=zh_CN; PHPSESSID=vl1hfplmbja9i68rhbadbpkh72; esc_search_captcha=1; result=45; wp-settings-4597=mfold%3Df; wp-settings-time-4597=1750893624; _clck=1vnj8zm%7C2%7Cfx5%7C0%7C1998; wordpress_logged_in_5dcca14fc868574120efefa0a7768b8e=ferrychan666%7C1752355770%7CvSsE71zRGt4HVlIZl9pITcbHIbPhQBSezHWNLDr1qrD%7Cba171b80213b41a92456c4f11765fb9cd5dd20364e428cd79431bbfcfb670d3f; wfwaf-authcookie-15880f8c0eb4eca1b1e18263c4a62f58=4597%7Csubscriber%7Cread%7C91f1b1f5e98bfb730a62d78071e74bc35fbf2d3656080f37444ac33125f4db3c&quot;</span>  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&quot;action&quot;</span>: <span class="string">&quot;epd_see&quot;</span>,         </span><br><span class="line">    <span class="string">&quot;post_id&quot;</span>: <span class="string">&quot;57103&quot;</span>,</span><br><span class="line">    <span class="string">&quot;vip&quot;</span>: <span class="string">&quot;8&quot;</span>,</span><br><span class="line">    <span class="string">&quot;token&quot;</span>: <span class="string">&quot;fa83f596d91bd7beaa106662fa33dd97&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 发送post请求</span></span><br><span class="line">resp = requests.post(url, headers=headers, data=data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新页面</span></span><br><span class="line">result = requests.get(<span class="string">&quot;https://www.smwl2025.com/57103.html&quot;</span>, headers=headers, data=data)</span><br><span class="line"><span class="built_in">print</span>(result.text)</span><br></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/scrape/">scrape</a></div><div class="post-share"><div class="social-share" data-image="/img/Tom.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/06/16/Django-Project/Django-Project/" title="A Django Project"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">A Django Project</div></div><div class="info-2"><div class="info-item-1">How to begin a project?We learned Django basic usage before. The most important thing is how to begin a Django project based on the knowledge we just learned? The answer is that we need a godfather. The godfather helps us build a Django project from the begin to the end.  Frontend with BootstrapAfter we start a Django project, we start an app blog in the project.  To begin with, what we have to create is a surface, the frontend.  blog&#x2F;urls.py 1234567from django.urls import pathfrom ....</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/02/18/mitmproxy-App%E7%88%AC%E8%99%AB/mitmproxy-App%E7%88%AC%E8%99%AB/" title="mitmproxy App爬虫"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-18</div><div class="info-item-2">mitmproxy App爬虫</div></div><div class="info-2"><div class="info-item-1">安装什么内容？首先让pc和手机连接同一个局域网，在pc上安装好mitmproxy并安装好证书后，还要在安卓手机的设置中心也安装好证书，并设置代理(通过ipconfig命令查看主机的ip地址，) 这样我们就可以在使用mitmproxy这个代理了。 开始工作在terminal开启代理，指定为8888端口 1mitmproxy -p 8888  或者我们可以用mitmdump可以对接python脚本 1mitmdump -s script.py -p 8888  当手机连上代理后， 此时，手机上的request和response都被代理抓取了下来， </div></div></div></a><a class="pagination-related" href="/2025/02/15/scrape/JavaScript%E5%8F%8D%E7%88%AC%E8%99%AB%E5%8E%9F%E7%90%86/" title="JavaScript反爬虫原理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-15</div><div class="info-item-2">JavaScript反爬虫原理</div></div><div class="info-2"><div class="info-item-1">css和JS修改浏览器的DOM在我们可以浏览到的网页中，他们设置的反爬虫机制就是通过css和js修改原本html文件中的标签内容（把数据内容放到js中），使得我们无法直接从html文件中获得我们想要的数据。也就是利用了我们平常的爬虫工具中没有js解释器和css解释器这一个弊端达到了反爬的效果  而这个dom就是经浏览器渲染之后的标签。虽然css和js是不能修改html文件中的标签，但能修改dom。  </div></div></div></a><a class="pagination-related" href="/2025/02/16/scrapy/scrapy/" title="scrapy"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-16</div><div class="info-item-2">scrapy</div></div><div class="info-2"><div class="info-item-1">概况下面就是scrapy的大致框架图，我们先做一个案例再慢慢介绍  准备工作确保scrapy项目要在根目录上运行，原因是： Scrapy 项目通常是一个 Python 包，当你在 Scrapy 项目的根目录之外运行代码时，Python 可能无法正确找到 scrapytutorial 这个包，导致 无法解析 scrapytutorial.items。这是因为 Python 的 模块搜索路径 (sys.path) 不包含 Scrapy 项目的根目录。  创建scrapy项目 12scrapy startproject &lt;project_name&gt;scrapy startproject scrapytutorial    创建spider 12345cd &lt;project_name&gt;scrapy genspider &lt;spider_name&gt; &lt;domain&gt;cd scrapytutorialscrapy genspider quotes...</div></div></div></a><a class="pagination-related" href="/2025/02/18/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1cookies%E5%85%8D%E7%99%BB%E5%BD%95/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1cookies%E5%85%8D%E7%99%BB%E5%BD%95/" title="记录一次cookies免登录"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-18</div><div class="info-item-2">记录一次cookies免登录</div></div><div class="info-2"><div class="info-item-1">cookies的作用cookies在我们浏览器的客户端，通过cookies我们可以把我们的个人标识信息传送到服务器端，而在服务器端正好有与我们cookies相对应的session包含个人信息（登录信息，偏好信息，等等）。当我们访问服务器时（每一个requests都带有cookies），服务器会response我们的个人信息。这样我们每一次访问同一个域名网站就不用一直填写登录信息了。 爬虫中cookies的应用在爬虫中，我们每发送一次request都要把cookies带上（之前就是忽略了某些request的cookies导致找了很久都不知道哪里错） 在浏览器的开发者选项中，我们都能找到我们的cookies，我们只需要复制他们，并改写成字典形式，便可以传递到request中。 原始cookies 1wordpress_test_cookie=WP%20Cookie%20check;...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FerryChan</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">157</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/FerryChan666"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JS%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">JS分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JS%E6%A8%A1%E6%8B%9F"><span class="toc-number">3.</span> <span class="toc-text">JS模拟</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/02/JS%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/JS%E9%80%86%E5%90%91%E5%AE%9E%E6%88%98/" title="JS逆向实战">JS逆向实战</a><time datetime="2025-07-01T23:00:42.000Z" title="Created 2025-07-02 07:00:42">2025-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/16/Django-Project/Django-Project/" title="A Django Project">A Django Project</a><time datetime="2025-06-15T20:35:21.000Z" title="Created 2025-06-16 04:35:21">2025-06-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/26/vue/vue/" title="vue3 tutorial">vue3 tutorial</a><time datetime="2025-02-26T13:07:23.000Z" title="Created 2025-02-26 21:07:23">2025-02-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/26/JavaScript/js%20tutorial/" title="js tutorial">js tutorial</a><time datetime="2025-02-26T11:28:20.000Z" title="Created 2025-02-26 19:28:20">2025-02-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/26/css/css/" title="css tutorial">css tutorial</a><time datetime="2025-02-26T10:08:37.000Z" title="Created 2025-02-26 18:08:37">2025-02-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

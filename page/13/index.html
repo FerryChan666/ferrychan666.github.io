@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Ferry's blog</title><meta name="author" content="FerryChan"><meta name="copyright" content="FerryChan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Ferry&#39;s blog">
+<meta property="og:url" content="http://ferrychan666.github.io/page/13/index.html">
+<meta property="og:site_name" content="Ferry&#39;s blog">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ferrychan666.github.io/img/Tom.jpg">
+<meta property="article:author" content="FerryChan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ferrychan666.github.io/img/Tom.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://ferrychan666.github.io/page/13/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        const data = { value }
+
+        if (ttl != null) {
+          data.expiry = Date.now() + ttl * 86400000
+        }
+
+        localStorage.setItem(key, JSON.stringify(data))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":false,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Ferry\'s blog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 8.1.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">159</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Ferry's blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">Ferry's blog</h1></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/04/09/c/%E6%8C%87%E5%90%91%E7%BB%93%E6%9E%84%E7%9A%84%E6%8C%87%E9%92%88/" title="指向结构的指针">指向结构的指针</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time datetime="2026-08-10T15:27:37.011Z" title="Updated 2026-08-10 23:27:37">2026-08-10</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/c/">c</a></span></div><div class="content">前言结构指针与结构数组，他们一起使用时会更加方便。就像指针和数组。  结构指针的声明struct guy * him  指向 him = &amp;fellow[0]但是有一点需要注意：单纯的结构数组名没有作用数组的变量名是数组的首元素地址。结构数组的变量名不是结构数组的首结构地址。所以但要将首结构的地址赋给指针时，要加上&amp;和[0]  用指针访问him-&gt;handle.first&#x2F;&#x2F;意义：用him指针指向成员的成员等价于(*him).handle.first&#x2F;&#x2F;意义：取值为结构struct guy fellow[0]这个结构这里必须要用()，因为.比*的优先级高。   示例12345678910111213141516171819202122232425262728293031323334353637383940414243/* friends.c -- uses pointer to a structure */#include &lt;stdio.h&gt;#define LEN 20struct names &#123;...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/04/09/c/%E7%BB%93%E6%9E%84%E4%BD%93%E5%A3%B0%E6%98%8E%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96/" title="结构体声明和初始化">结构体声明和初始化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time datetime="2026-08-10T15:27:37.013Z" title="Updated 2026-08-10 23:27:37">2026-08-10</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/c/">c</a></span></div><div class="content">Introduction声明结构类型声明struct person{...};  这个struct person起的作用就是一般声明中的int 例如：定义struct person类型的变量。struct person ferry, *pferry  声明过程与定义结构变量，可以组合成一个步骤。     12345struct /*无结构标记*/&#123;	int a;	int b;&#125;library;   但如果要多次使用模板，就要加上标记。 1234567typedef struct BTNode&#123;	char data;	struct BTNode* lchild;	struct BTNode* rchild;&#125;BTNode;  这时编译器还没有在内存中分配空间。什么时候开始分配呢，当然是在初始化变量的时候。 初始化结构变量struct person ferry;这样就初始化了ferry这个变量，同时为该变量分配空间。当然，我们可以用这结构类型定义多个变量。这样就可以存储不同的信息。 初始化成员在刚开始声明结构中就有表明了要什么样的数据类型，再到...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/04/08/c/%E5%86%8D%E6%8E%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E7%9A%84%E5%88%86%E9%85%8D%E7%A9%BA%E9%97%B4/" title="again再探字符串输入的分配空间">again再探字符串输入的分配空间</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time datetime="2026-08-10T15:27:37.010Z" title="Updated 2026-08-10 23:27:37">2026-08-10</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/c/">c</a></span></div><div class="content">前言我们平时使用char str[] = &quot;ferry&quot;;可以。char str[10]; str = &quot;ferry&quot;;不可以。然鹅，还有给结构中的成员赋值的时候，可以直接用字符串初始化。这些原因都是因为开辟空间的问题。 说明在初始化变量时，分配空间。结构也是如此。 不能将指针赋值给常量char str1[]是array typestr1是常量，不是指针啊~char *str2str2是个指针(是个变量) 错误，不能给数组的地址（常量）赋值12345678910#include&lt;stdio.h&gt;int main(int argc, char *argv[])&#123;    char str1[30];//已经分配好空间。    char * str2;    str2 = &quot;ferry&quot;;    str1 = str2;//错误，str1是个地址    return 0;&#125; 如果我想要给str1数组添加字符咋办？那就用strcpy()复制进去 可以将数组的地址赋给指针正确123456789101...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/04/07/c/%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6-%E4%BA%A4%E4%BA%92%E5%BC%8F/" title="压缩文件(交互式)">压缩文件(交互式)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time datetime="2026-08-10T15:27:37.010Z" title="Updated 2026-08-10 23:27:37">2026-08-10</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/c/">c</a></span></div><div class="content">函数strncpy() 作用限制最大字符复制字符串，要比strcpy()更安全   参数(字符串指针，被复制的字符串指针，最大个数)  示例12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;//提供exit()原型#include&lt;string.h&gt;//提供strcpy(),strcat()原型#define LEN 40char * s_gets(char * st, int n);int main(int argc, char *argv[])&#123;    char name[LEN];    char file[LEN];    char ch;    int ct = 0;    FILE *in;    FILE *out;    printf(&quot;Please enter file nam...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/04/07/c/fread-%E5%92%8Cfwrite/" title="fread()和fwrite()">fread()和fwrite()</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time datetime="2026-08-10T15:27:37.008Z" title="Updated 2026-08-10 23:27:37">2026-08-10</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/c/">c</a></span></div><div class="content">了解这两个函数是以二进制形式处理数据中，不同于其他I&#x2F;O函数，是以文本形式处理。 函数fread() 作用：将文件中的内容拷贝到数组中   参数：(地址，数据块，数据块个数，文件指针)  返回值：两种情况：1.返回文件中成功读取项的数量。2.遇到文件结尾返回0   fwrite() 作用：将n个数据块拷贝到文件中   参数(地址，数据块，数据块的个数，文件指针)  示例123456789101112131415161718192021222324252627282930313233#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#define SIZE 256int main(int argc, char *argv[])&#123;    FILE *in, *out;    int bytes;    char temp[SIZE];    if (argc != 3)    &#123;        fprintf(stderr, &quot;Usage: %s filename\n&quot;, argv[0]);...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/04/06/c/%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9A%84%E6%8C%87%E9%92%88/" title="标准文件(万物皆文件)">标准文件(万物皆文件)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time datetime="2026-08-10T15:27:37.012Z" title="Updated 2026-08-10 23:27:37">2026-08-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/programming-languages/">programming languages</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/c/">c</a></span></div><div class="content">说明 stdio.h头文件把3个文件指针(stdin,stdout,stderr)，与3个标准文件相关联。C程序会自动打开这3个标准文件  Q&amp;AQ唉？为什么跟我们平时所看到的文件（word文档，txt文件。。。）不一样？那么这些文件又是放在哪里，是在磁盘吗？ A操作系统为了对各种硬件进行操作，简化接口。所以，把电脑的硬件设备也看成了文件。如：scanf()函数的作用，就是从stdin（键盘）上面获取信息。printf()函数的作用，就是从stdout（显示器）上输出信息。 标准输入 指针：stdin 设备：键盘  标准输出 指针：stdout 设备：显示器  标准错误 指针：stderr 设备：显示器  有了这个基础，可以暂时看作万物皆文件 例如 这两行代码本质上一样  123fprintf(stdout, &quot;%s&quot;, string);printf(&quot;%s&quot;, string);  这行的区别也只不过是写在标准错误上  1fprintf(strerr, &quot;%s&quot;, string);</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/04/06/c/fgets-%E5%92%8Cfputs/" title="面向行fgets()和fputs()">面向行fgets()和fputs()</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time datetime="2026-08-10T15:27:37.008Z" title="Updated 2026-08-10 23:27:37">2026-08-10</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/c/">c</a></span></div><div class="content">前言该函数是面向行操作。不同于，getc()是处理字符 函数fgets() 作用把读入的内容添加到字符串中。   参数(字符串地址，字符个数，FILE指针) 返回值如果读到文件结尾（EOF），返回NULL如果还没有到EOF，返回之前传给它的字符串地址 范围 1.读取到第一个换行符后面。2.读到文件结尾3.读到字符个数-14.如果读到字符上限已经读完一行，则会把结尾的’\n’放在’\0’前面最后，在最后一个字符后面加’\0’    Don’t forget ！字符串的大小是：字符个数＋最后的空字符 fputs() 参数(字符串地址，FILE指针)   fgets()保留了换行符，fputs()不会再添加换行符不同于puts()函数会在末尾添加换行符  strstr() 作用查找字符串中要查找的字符串   参数(被查找的字符串str1，需要的字符串str2)  返回值返回str1中str2的首位置   示例显示含有某个字符的一整行12345678910111213141516171819202122232425262728293031323334#include&lt;stdio.h...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/04/06/c/fprintf-%E5%92%8Cfscanf/" title="fprintf()和fscanf()">fprintf()和fscanf()</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time datetime="2026-08-10T15:27:37.008Z" title="Updated 2026-08-10 23:27:37">2026-08-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/programming-languages/">programming languages</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/c/">c</a></span></div><div class="content">前言这两个函数与printf()和scanf()函数类似。scanf()printf()的返回值为成功输入的数据个数如scanf（”%d%d%s”,&amp;a,&amp;b,s）;执行成功返回3.scanf（”%d%d”,&amp;a,&amp;b）;执行成功返回2. 如果在输入的过程中scanf(“%d%d”,&amp;a,&amp;b);由于某种原因只有a输入成功了则返回1，a、b都没成功则返回0 如果遇到错误或遇到end of file，返回EOF（一般宏定义EOF为-1）。 区别加多第一个参数(FILE指针) rewind(); 参数：FILE指针 作用回到文件开头  示例输入到文件中12345678910111213141516171819202122232425262728293031#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include &lt;string.h&gt;#define MAX 41int main(void)&#123;    FILE *fp;    char words[MAX];//...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/04/06/c/getc()%E5%92%8Cputc()/" title="面向字符getc()和putc()">面向字符getc()和putc()</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time datetime="2026-08-10T15:27:37.008Z" title="Updated 2026-08-10 23:27:37">2026-08-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/programming-languages/">programming languages</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/c/">c</a></span></div><div class="content">前言面向字符操作。 这两个函数类似于getchar()和puchar(‘ch’)。 区别在后面加多一个参数(FILE指针) 函数fopen() 函数声明：在stdio.h中 参数(文件名，读写等模式) 返回：文件指针FILE * fp; 文件指针并不指向实际的文件，它指向一个包含文件信息的数据对象，其中包含I&#x2F;O函数所用的缓冲区信息。    getc()类似于getchar()  参数(FILE指针) 返回：文件中的一个字符 与getchar()函数类似，getchar()是从标准输入中获取字符。而，getc()是从指定文件中获取字符    putc()类似于putchar()  参数(一个字符，FILE指针) 作用将这个字符放入指定的文件中  exit() 函数声明：在stdlib.h头文件中 参数正常结束传递0，非正常传递非0值. 作用关闭所有打开文件，并结束程序 与return 不同的是：在main()以外的函数中调用exit()也能结束整个程序    fclose() 参数FILE指针 作用关闭指定文件 返回成功关闭：0不成功：EOF  示例将文件copy到其他...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/04/02/java/swing/%E5%B8%83%E5%B1%80/" title="Layout(布局)">Layout(布局)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="fas fa-history"></i><span class="article-meta-label">Updated</span><time datetime="2026-08-10T15:27:37.025Z" title="Updated 2026-08-10 23:27:37">2026-08-10</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/swing/">swing</a></span></div><div class="content">1container.setLayout(new Layout的类())  null布局传给Layout()null参数再setBounds(,,,,)按钮的坐标和大小 123456789101112131415161718192021222324package 绝对布局;import java.awt.*;import javax.swing.*;public class Demo extends JFrame&#123;	public Demo() &#123;		setBounds(200, 200, 500, 300);		setDefaultCloseOperation(EXIT_ON_CLOSE);				Container c = getContentPane();		c.setLayout(null);//设置布局		JButton b1 = new JButton(&quot;按钮1&quot;);//新建按钮对象		JButton b2 = new JButton(&quot;按钮2&quot;);		b1.setBounds(20, 30, 80, 30);...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/12/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/#content-inner">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/#content-inner">16</a><a class="extend next" rel="next" href="/page/14/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FerryChan</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">159</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/FerryChan666"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/18/JavaScript/js%20tutorial/" title="js tutorial">js tutorial</a><time datetime="2025-07-18T11:28:20.000Z" title="Created 2025-07-18 19:28:20">2025-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/08/JS%E9%80%86%E5%90%91/JS%E9%80%86%E5%90%91/" title="JS逆向">JS逆向</a><time datetime="2025-07-08T13:54:42.000Z" title="Created 2025-07-08 21:54:42">2025-07-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a><time datetime="2025-07-07T23:14:25.000Z" title="Created 2025-07-08 07:14:25">2025-07-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/02/python%E6%A8%A1%E6%8B%9Fajax%E8%AF%B7%E6%B1%82/python%E6%A8%A1%E6%8B%9Fajax%E8%AF%B7%E6%B1%82/" title="python模拟ajax请求">python模拟ajax请求</a><time datetime="2025-07-01T23:00:42.000Z" title="Created 2025-07-02 07:00:42">2025-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/16/Django-Project/Django-Project/" title="A Django Project">A Django Project</a><time datetime="2025-06-15T20:35:21.000Z" title="Created 2025-06-16 04:35:21">2025-06-16</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/css/" style="font-size: 1.1em; color: #999">css</a> <a href="/tags/python/" style="font-size: 1.35em; color: #99a3b1">python</a> <a href="/tags/git/" style="font-size: 1.14em; color: #999a9c">git</a> <a href="/tags/java/" style="font-size: 1.39em; color: #99a5b5">java</a> <a href="/tags/cpp/" style="font-size: 1.14em; color: #999a9c">cpp</a> <a href="/tags/django/" style="font-size: 1.17em; color: #999ca0">django</a> <a href="/tags/sql/" style="font-size: 1.21em; color: #999da3">sql</a> <a href="/tags/vue/" style="font-size: 1.1em; color: #999">vue</a> <a href="/tags/DS/" style="font-size: 1.46em; color: #99a8bc">DS</a> <a href="/tags/csapp/" style="font-size: 1.17em; color: #999ca0">csapp</a> <a href="/tags/Q-A/" style="font-size: 1.32em; color: #99a2ae">Q&A</a> <a href="/tags/scrape/" style="font-size: 1.25em; color: #999fa7">scrape</a> <a href="/tags/swing/" style="font-size: 1.28em; color: #99a0aa">swing</a> <a href="/tags/linux/" style="font-size: 1.43em; color: #99a6b8">linux</a> <a href="/tags/scrapy/" style="font-size: 1.1em; color: #999">scrapy</a> <a href="/tags/JavaScript/" style="font-size: 1.21em; color: #999da3">JavaScript</a> <a href="/tags/project/" style="font-size: 1.28em; color: #99a0aa">project</a> <a href="/tags/AI/" style="font-size: 1.1em; color: #999">AI</a> <a href="/tags/blog/" style="font-size: 1.1em; color: #999">blog</a> <a href="/tags/algorithm/" style="font-size: 1.39em; color: #99a5b5">algorithm</a> <a href="/tags/fatal/" style="font-size: 1.25em; color: #999fa7">fatal</a> <a href="/tags/English/" style="font-size: 1.21em; color: #999da3">English</a> <a href="/tags/c/" style="font-size: 1.5em; color: #99a9bf">c</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/"
+            title="View More">
+            <i class="fas fa-angle-right"></i>
+          </a></div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              July 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              June 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              February 2025
+            </span>
+            <span class="card-archive-list-count">9</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/03/">
+            <span class="card-archive-list-date">
+              March 2023
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/02/">
+            <span class="card-archive-list-date">
+              February 2023
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2022/05/">
+            <span class="card-archive-list-date">
+              May 2022
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2022/02/">
+            <span class="card-archive-list-date">
+              February 2022
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2022/01/">
+            <span class="card-archive-list-date">
+              January 2022
+            </span>
+            <span class="card-archive-list-count">10</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">159</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-08-10T16:17:34.583Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="local-search-input"><input placeholder="Search for Posts" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

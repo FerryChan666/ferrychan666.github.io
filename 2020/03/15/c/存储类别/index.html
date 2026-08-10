@@ -1,0 +1,343 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>存储类别 | Ferry's blog</title><meta name="author" content="FerryChan"><meta name="copyright" content="FerryChan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言5种存储类别 存储类别说明符 auto extern static register内容    作用域 链接 存储期  存储类别可以是变量，还可以是函数 说明作用域（变量的使用范围） 程序中可访问标识符的区域   块作用域{}内的  123&#123;    int x;&#125; 没有{}的块for while if  文件作用域声明在块以外的区域  1234(static)int x;&amp;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="存储类别">
+<meta property="og:url" content="http://ferrychan666.github.io/2020/03/15/c/%E5%AD%98%E5%82%A8%E7%B1%BB%E5%88%AB/index.html">
+<meta property="og:site_name" content="Ferry&#39;s blog">
+<meta property="og:description" content="前言5种存储类别 存储类别说明符 auto extern static register内容    作用域 链接 存储期  存储类别可以是变量，还可以是函数 说明作用域（变量的使用范围） 程序中可访问标识符的区域   块作用域{}内的  123&#123;    int x;&#125; 没有{}的块for while if  文件作用域声明在块以外的区域  1234(static)int x;&amp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ferrychan666.github.io/img/Tom.jpg">
+<meta property="article:published_time" content="2020-03-15T10:17:32.000Z">
+<meta property="article:modified_time" content="2026-08-10T15:27:37.011Z">
+<meta property="article:author" content="FerryChan">
+<meta property="article:tag" content="c">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ferrychan666.github.io/img/Tom.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://ferrychan666.github.io/2020/03/15/c/%E5%AD%98%E5%82%A8%E7%B1%BB%E5%88%AB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        const data = { value }
+
+        if (ttl != null) {
+          data.expiry = Date.now() + ttl * 86400000
+        }
+
+        localStorage.setItem(key, JSON.stringify(data))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"No results found for: ${query}","hits_stats":"${hits} articles found"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":false,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '存储类别',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: '_posts'
+}</script><meta name="generator" content="Hexo 8.1.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">159</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Ferry's blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">存储类别</h1></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">存储类别</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-03-15T10:17:32.000Z" title="Created 2020-03-15 18:17:32">2020-03-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-08-10T15:27:37.011Z" title="Updated 2026-08-10 23:27:37">2026-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/programming-languages/">programming languages</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="5种存储类别"><a href="#5种存储类别" class="headerlink" title="5种存储类别"></a>5种存储类别</h2><p><img src="https://easycaptures.com/fs/uploaded/1300/7957902175.png"></p>
+<h2 id="存储类别说明符"><a href="#存储类别说明符" class="headerlink" title="存储类别说明符"></a>存储类别说明符</h2><ul>
+<li>auto extern static register<br>内容</li>
+</ul>
+<hr>
+<ul>
+<li>作用域</li>
+<li>链接</li>
+<li>存储期</li>
+</ul>
+<p><strong>存储类别可以是变量，还可以是函数</strong></p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><h2 id="作用域（变量的使用范围）"><a href="#作用域（变量的使用范围）" class="headerlink" title="作用域（变量的使用范围）"></a>作用域（变量的使用范围）</h2><blockquote>
+<p>程序中可访问标识符的区域</p>
+</blockquote>
+<ul>
+<li>块作用域<br>{}内的</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    int x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>没有{}的块<br>for while if</p>
+<ul>
+<li>文件作用域<br>声明在块以外的区域</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(static)int x;</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（又分为外部链接，和内部链接。区分它们看有没有static）</p>
+<ul>
+<li>函数作用域</li>
+<li>函数原型作用域<br>int function(int x, int y);仅在此时有用</li>
+</ul>
+<h2 id="链接-访问范围"><a href="#链接-访问范围" class="headerlink" title="链接(访问范围)"></a>链接(访问范围)</h2><ul>
+<li>外部链接<br>可以在不同文件中访问他（但访问时要加上extern)</li>
+<li>内部链接<br>可以在一个翻译单元内访问<blockquote>
+<p>编译器源代码文件和所有的头文件都看成一个包含信息的单独文件，而这个文件就是翻译单元。<br>每个翻译单元均对应一个源代码文件和它所包含的文件。</p>
+</blockquote>
+</li>
+<li>无链接<br>具有块作用域，函数作用域，函数原型作用域的变量都是无链接变量</li>
+</ul>
+<h2 id="存储期-使用时间"><a href="#存储期-使用时间" class="headerlink" title="存储期(使用时间)"></a>存储期(使用时间)</h2><ul>
+<li>静态存储期<br>在程序执行期间一直存在</li>
+<li>动态存储期<br>可以主动控制</li>
+<li>自动存储期（局部变量）<br>在块中，从进入块而产生，从退出块而结束</li>
+</ul>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><ul>
+<li>文件作用域，外部链接，静态存储期<br>file_1.c</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">1</span>; <span class="comment">//声明定义</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>file_2.c<br><code>extern int x; //引用定义</code></p>
+<ul>
+<li>文件作用域，内部链接，静态存储期</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">int</span> x;</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>块作用域，无链接，静态存储期</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>块作用域，无链接，自由存储期</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>寄存器变量（与字典变量属性相同）<br>{<br>  register int x; &#x2F;&#x2F;特点快速<br>}</li>
+</ul>
+<ol>
+<li>函数的存储类别也和变量类似<br>int function(int);     &#x2F;&#x2F;默认声明为外部函数<br>extern int function(int); &#x2F;&#x2F;引用声明使用外部函数<br>static int function(int); &#x2F;&#x2F;声明为内部函数</li>
+</ol>
+<hr>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ul>
+<li><p>自动存储期的变量<br>在进入块中分配内存，<br>如果不初始化，则是垃圾值</p>
+</li>
+<li><p>静态存储期的变量<br>在开始程序时分配内存，到程序结束，<br>如果不初始化，则为0</p>
+</li>
+<li><p>静态存储期变量<strong>只能被常量赋值</strong></p>
+</li>
+</ul>
+<figure class="highlight c"><figcaption><span>error: initializer element is not constant</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> b = a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/c/">c</a></div><div class="post-share"><div class="social-share" data-image="/img/Tom.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav id="pagination"><div class="pagination"></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2020/03/20/c/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5/" title="字符串输入&#39;char*和char[]&#39;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-20</div><div class="info-item-2">字符串输入&#39;char*和char[]&#39;</div></div><div class="info-2"><div class="info-item-1">不同点 定义char* a这个a是变量, 可以修改char b[]这个b是常量， 不能改变  内存空间 一个指针，一个数组  没有开辟空间123char* str;      //没有开辟空间scanf(&quot;%s&quot;, str);//虽然可以读入，但指针是乱指的，可能会擦拭本来的程序导致崩溃printf(&quot;%s&quot;, str);  这里在C primer plus上看到，这里的参数是个未初始化的指针，str会指向任何地方。所以，有可能会scanf改写某个地址上的值，从而擦掉程序中的代码。导致程序异常结束。  开辟空间123char* st;st = &quot;hello&quot;;        //开辟空间printf(&quot;%s&quot;, st);  字符串的几种输入 当以数据形式赋值时这种形式可以  1char str[10] = &quot;ferry&quot;; 这种形式不行（关键理解，数组的形式中str是常量）123char str[10];str = &quot;ferry&quot;;  // str被看作(数组的...</div></div></div></a><a class="pagination-related" href="/2020/04/08/c/%E5%86%8D%E6%8E%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5%E7%9A%84%E5%88%86%E9%85%8D%E7%A9%BA%E9%97%B4/" title="again再探字符串输入的分配空间"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-08</div><div class="info-item-2">again再探字符串输入的分配空间</div></div><div class="info-2"><div class="info-item-1">前言我们平时使用char str[] = &quot;ferry&quot;;可以。char str[10]; str = &quot;ferry&quot;;不可以。然鹅，还有给结构中的成员赋值的时候，可以直接用字符串初始化。这些原因都是因为开辟空间的问题。 说明在初始化变量时，分配空间。结构也是如此。 不能将指针赋值给常量char str1[]是array typestr1是常量，不是指针啊~char *str2str2是个指针(是个变量) 错误，不能给数组的地址（常量）赋值12345678910#include&lt;stdio.h&gt;int main(int argc, char *argv[])&#123;    char str1[30];//已经分配好空间。    char * str2;    str2 = &quot;ferry&quot;;    str1 = str2;//错误，str1是个地址    return 0;&#125; 如果我想要给str1数组添加字符咋办？那就用strcpy()复制进去 可以将数组的地址赋给指针正确123456789101...</div></div></div></a><a class="pagination-related" href="/2020/04/06/c/%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E7%9A%84%E6%8C%87%E9%92%88/" title="标准文件(万物皆文件)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-06</div><div class="info-item-2">标准文件(万物皆文件)</div></div><div class="info-2"><div class="info-item-1">说明 stdio.h头文件把3个文件指针(stdin,stdout,stderr)，与3个标准文件相关联。C程序会自动打开这3个标准文件  Q&amp;AQ唉？为什么跟我们平时所看到的文件（word文档，txt文件。。。）不一样？那么这些文件又是放在哪里，是在磁盘吗？ A操作系统为了对各种硬件进行操作，简化接口。所以，把电脑的硬件设备也看成了文件。如：scanf()函数的作用，就是从stdin（键盘）上面获取信息。printf()函数的作用，就是从stdout（显示器）上输出信息。 标准输入 指针：stdin 设备：键盘  标准输出 指针：stdout 设备：显示器  标准错误 指针：stderr 设备：显示器  有了这个基础，可以暂时看作万物皆文件 例如 这两行代码本质上一样  123fprintf(stdout, &quot;%s&quot;, string);printf(&quot;%s&quot;, string);  这行的区别也只不过是写在标准错误上  1fprintf(strerr, &quot;%s&quot;, string);</div></div></div></a><a class="pagination-related" href="/2020/04/06/c/fgets-%E5%92%8Cfputs/" title="面向行fgets()和fputs()"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-06</div><div class="info-item-2">面向行fgets()和fputs()</div></div><div class="info-2"><div class="info-item-1">前言该函数是面向行操作。不同于，getc()是处理字符 函数fgets() 作用把读入的内容添加到字符串中。   参数(字符串地址，字符个数，FILE指针) 返回值如果读到文件结尾（EOF），返回NULL如果还没有到EOF，返回之前传给它的字符串地址 范围 1.读取到第一个换行符后面。2.读到文件结尾3.读到字符个数-14.如果读到字符上限已经读完一行，则会把结尾的’\n’放在’\0’前面最后，在最后一个字符后面加’\0’    Don’t forget ！字符串的大小是：字符个数＋最后的空字符 fputs() 参数(字符串地址，FILE指针)   fgets()保留了换行符，fputs()不会再添加换行符不同于puts()函数会在末尾添加换行符  strstr() 作用查找字符串中要查找的字符串   参数(被查找的字符串str1，需要的字符串str2)  返回值返回str1中str2的首位置   示例显示含有某个字符的一整行12345678910111213141516171819202122232425262728293031323334#include&lt;stdio.h...</div></div></div></a><a class="pagination-related" href="/2020/03/17/c/%E5%85%B3%E4%BA%8Emakefile%E7%9A%84%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/" title="关于makefile脚本的多文件编译"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-17</div><div class="info-item-2">关于makefile脚本的多文件编译</div></div><div class="info-2"><div class="info-item-1">当我们想要编译执行多个文件的时候，我们会由于gcc a.c b.c c.c的命令太长而厌烦，而makefile脚本就解决这些问题。（用IDE不需要理会一些这些内容，只需要按下小三角就可以了） 写法makefile是由于这条gcc命令，而实现的。  我们有ａ．ｃ　　ｂ．ｃ　　ｄ．ｃ　（还有一些头文件。文件会有预处理指令#include &quot;e.h&quot;）  12345678main: a.c b.o d.o　　　　　　　　　　　　　//main(exe)的生成需要依赖：a.c b.o d.o    gcc a.c b.o d.o -o main 　　　　//（加Tab）做生成main的操作 b.o: b.c         　　　　　//b.o的生成需要b.c    gcc -c b.c    　　　　// -c 是要生成 .o文件d.o: d.c    gcc -c d.cclean:    rm *.o main　　　　　　//最后删除所有的.o文件，exe文件   操作 写makefile 在终端中，make就可以了生成c的可执行文件了 ./main执行文件 m...</div></div></div></a><a class="pagination-related" href="/2020/04/09/c/%E6%8C%87%E5%90%91%E7%BB%93%E6%9E%84%E7%9A%84%E6%8C%87%E9%92%88/" title="指向结构的指针"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-09</div><div class="info-item-2">指向结构的指针</div></div><div class="info-2"><div class="info-item-1">前言结构指针与结构数组，他们一起使用时会更加方便。就像指针和数组。  结构指针的声明struct guy * him  指向 him = &amp;fellow[0]但是有一点需要注意：单纯的结构数组名没有作用数组的变量名是数组的首元素地址。结构数组的变量名不是结构数组的首结构地址。所以但要将首结构的地址赋给指针时，要加上&amp;和[0]  用指针访问him-&gt;handle.first&#x2F;&#x2F;意义：用him指针指向成员的成员等价于(*him).handle.first&#x2F;&#x2F;意义：取值为结构struct guy fellow[0]这个结构这里必须要用()，因为.比*的优先级高。   示例12345678910111213141516171819202122232425262728293031323334353637383940414243/* friends.c -- uses pointer to a structure */#include &lt;stdio.h&gt;#define LEN 20struct names &#123;...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Tom.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FerryChan</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">159</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/FerryChan666"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/18/JavaScript/js%20tutorial/" title="js tutorial">js tutorial</a><time datetime="2025-07-18T11:28:20.000Z" title="Created 2025-07-18 19:28:20">2025-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/08/JS%E9%80%86%E5%90%91/JS%E9%80%86%E5%90%91/" title="JS逆向">JS逆向</a><time datetime="2025-07-08T13:54:42.000Z" title="Created 2025-07-08 21:54:42">2025-07-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a><time datetime="2025-07-07T23:14:25.000Z" title="Created 2025-07-08 07:14:25">2025-07-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/02/python%E6%A8%A1%E6%8B%9Fajax%E8%AF%B7%E6%B1%82/python%E6%A8%A1%E6%8B%9Fajax%E8%AF%B7%E6%B1%82/" title="python模拟ajax请求">python模拟ajax请求</a><time datetime="2025-07-01T23:00:42.000Z" title="Created 2025-07-02 07:00:42">2025-07-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/16/Django-Project/Django-Project/" title="A Django Project">A Django Project</a><time datetime="2025-06-15T20:35:21.000Z" title="Created 2025-06-16 04:35:21">2025-06-16</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/css/" style="font-size: 1.1em; color: #999">css</a> <a href="/tags/python/" style="font-size: 1.35em; color: #99a3b1">python</a> <a href="/tags/git/" style="font-size: 1.14em; color: #999a9c">git</a> <a href="/tags/java/" style="font-size: 1.39em; color: #99a5b5">java</a> <a href="/tags/cpp/" style="font-size: 1.14em; color: #999a9c">cpp</a> <a href="/tags/django/" style="font-size: 1.17em; color: #999ca0">django</a> <a href="/tags/sql/" style="font-size: 1.21em; color: #999da3">sql</a> <a href="/tags/vue/" style="font-size: 1.1em; color: #999">vue</a> <a href="/tags/DS/" style="font-size: 1.46em; color: #99a8bc">DS</a> <a href="/tags/csapp/" style="font-size: 1.17em; color: #999ca0">csapp</a> <a href="/tags/Q-A/" style="font-size: 1.32em; color: #99a2ae">Q&A</a> <a href="/tags/scrape/" style="font-size: 1.25em; color: #999fa7">scrape</a> <a href="/tags/swing/" style="font-size: 1.28em; color: #99a0aa">swing</a> <a href="/tags/linux/" style="font-size: 1.43em; color: #99a6b8">linux</a> <a href="/tags/scrapy/" style="font-size: 1.1em; color: #999">scrapy</a> <a href="/tags/JavaScript/" style="font-size: 1.21em; color: #999da3">JavaScript</a> <a href="/tags/project/" style="font-size: 1.28em; color: #99a0aa">project</a> <a href="/tags/AI/" style="font-size: 1.1em; color: #999">AI</a> <a href="/tags/blog/" style="font-size: 1.1em; color: #999">blog</a> <a href="/tags/algorithm/" style="font-size: 1.39em; color: #99a5b5">algorithm</a> <a href="/tags/fatal/" style="font-size: 1.25em; color: #999fa7">fatal</a> <a href="/tags/English/" style="font-size: 1.21em; color: #999da3">English</a> <a href="/tags/c/" style="font-size: 1.5em; color: #99a9bf">c</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/"
+            title="View More">
+            <i class="fas fa-angle-right"></i>
+          </a></div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              July 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              June 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              February 2025
+            </span>
+            <span class="card-archive-list-count">9</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/03/">
+            <span class="card-archive-list-date">
+              March 2023
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/02/">
+            <span class="card-archive-list-date">
+              February 2023
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2022/05/">
+            <span class="card-archive-list-date">
+              May 2022
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2022/02/">
+            <span class="card-archive-list-date">
+              February 2022
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2022/01/">
+            <span class="card-archive-list-date">
+              January 2022
+            </span>
+            <span class="card-archive-list-count">10</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">159</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-08-10T16:17:34.583Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading Database</span></div><div class="local-search-input"><input placeholder="Search for Posts" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
